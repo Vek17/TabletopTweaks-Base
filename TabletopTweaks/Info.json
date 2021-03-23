@@ -1,0 +1,11 @@
+﻿{
+  "Id": "TabletopTweaks",
+  "DisplayName": "TabletopTweaks",
+  "Author": "Sean Petrie",
+  "Version": "0.0.1",
+  "ManagerVersion": "0.23.0.0",
+  "GameVersion": "0.5.2i",
+  "Requirements": [],
+  "AssemblyName": "TabletopTweaks.dll",
+  "EntryMethod": "TabletopTweaks.Main.Load"
+}
