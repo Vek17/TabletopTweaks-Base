@@ -5,23 +5,22 @@ using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.Enums;
-using Kingmaker.UnitLogic;
 using Kingmaker.Blueprints.Facts;
 
 namespace TabletopTweaks {
     static class Main {
 
         public static bool Enabled;
-        public static ModEntry Mod;
 
         [System.Diagnostics.Conditional("DEBUG")]
         public static void Log(string msg) {
-            Mod.Logger.Log(msg);
+            Resources.Mod.Logger.Log(msg);
         }
 
         static bool Load(UnityModManager.ModEntry modEntry) {
             var harmony = new Harmony(modEntry.Info.Id);
-            Mod = modEntry;
+            Resources.Mod = modEntry;
+            Resources.LoadSettings();
             harmony.PatchAll();
             return true;
         }
@@ -51,13 +50,13 @@ namespace TabletopTweaks {
                 if (Initialized) return;
                 Initialized = true;
                 UnitAdjustments.patchDemonSubtypes();
+                BalanceAdjustments.patchNaturalArmorEffects();
                 //Do Stuff
             }
         }
 
         [HarmonyPatch(typeof(ACBonusAgainstFactOwnerMultiple), "OnEventAboutToTrigger", new[] { typeof(RuleAttackRoll) })]
         static class ACBonusAgainstFactOwnerMultiple_OnEventAboutToTrigger_Patch {
-            //private static HashSet<RuleDealDamage> m_GeneratedRules = new HashSet<RuleDealDamage>();
 
             static void Postfix(ACBonusAgainstFactOwnerMultiple __instance, ref RuleAttackRoll evt) {
                 Main.Log("ACBonusAgainstFactOwnerMultiple");
@@ -68,6 +67,18 @@ namespace TabletopTweaks {
                     Main.Log($"Taret: {fact.Name}");
                 }
 
+            }
+        }
+
+        [HarmonyPatch(typeof(ModifierDescriptorHelper), "IsStackable", new[] { typeof(ModifierDescriptor) })]
+        static class ModifierDescriptorHelper_IsStackable_Patch {
+
+            static void Postfix(ref bool __result, ref ModifierDescriptor descriptor) {
+                if (!Resources.Settings.DisableNaturalArmorStacking) { return; }
+                if (descriptor == ModifierDescriptor.NaturalArmor) {
+                    Main.Log($"{descriptor} - { (descriptor == ModifierDescriptor.NaturalArmor ? false : __result)}");
+                    __result = descriptor == ModifierDescriptor.NaturalArmor ? false : __result;
+                }
             }
         }
     }

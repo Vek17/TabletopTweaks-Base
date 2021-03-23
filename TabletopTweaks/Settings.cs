@@ -1,9 +1,9 @@
 ﻿using UnityModManagerNet;
 using Kingmaker.EntitySystem.Stats;
 
-namespace WitchTweaks {
+namespace TabletopTweaks {
     public class Settings : UnityModManager.ModSettings {
-        public StatType Stat = StatType.Intelligence;
+        public bool DisableNaturalArmorStacking = true;
 
         public override void Save(UnityModManager.ModEntry modEntry) {
             Save(this, modEntry);
