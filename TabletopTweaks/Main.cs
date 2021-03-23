@@ -55,21 +55,6 @@ namespace TabletopTweaks {
             }
         }
 
-        [HarmonyPatch(typeof(ACBonusAgainstFactOwnerMultiple), "OnEventAboutToTrigger", new[] { typeof(RuleAttackRoll) })]
-        static class ACBonusAgainstFactOwnerMultiple_OnEventAboutToTrigger_Patch {
-
-            static void Postfix(ACBonusAgainstFactOwnerMultiple __instance, ref RuleAttackRoll evt) {
-                Main.Log("ACBonusAgainstFactOwnerMultiple");
-                foreach (BlueprintUnitFact blueprintUnitFact in __instance.Facts) {
-                    Main.Log($"{blueprintUnitFact.name}");
-                }
-                foreach (var fact in evt.Initiator.Facts.m_Facts) {
-                    Main.Log($"Taret: {fact.Name}");
-                }
-
-            }
-        }
-
         [HarmonyPatch(typeof(ModifierDescriptorHelper), "IsStackable", new[] { typeof(ModifierDescriptor) })]
         static class ModifierDescriptorHelper_IsStackable_Patch {
 
