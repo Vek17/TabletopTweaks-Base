@@ -1,3 +1,4 @@
 {
-  "DisableNaturalArmorStacking": true
+  "DisableNaturalArmorStacking": true,
+  "DisablePolymorphStacking":  true
 }

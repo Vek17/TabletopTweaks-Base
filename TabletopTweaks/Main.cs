@@ -1,11 +1,7 @@
-﻿using static UnityModManagerNet.UnityModManager;
-using UnityModManagerNet;
+﻿using UnityModManagerNet;
 using HarmonyLib;
 using Kingmaker.Blueprints;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.RuleSystem.Rules;
 using Kingmaker.Enums;
-using Kingmaker.Blueprints.Facts;
 
 namespace TabletopTweaks {
     static class Main {
@@ -52,18 +48,6 @@ namespace TabletopTweaks {
                 UnitAdjustments.patchDemonSubtypes();
                 BalanceAdjustments.patchNaturalArmorEffects();
                 //Do Stuff
-            }
-        }
-
-        [HarmonyPatch(typeof(ModifierDescriptorHelper), "IsStackable", new[] { typeof(ModifierDescriptor) })]
-        static class ModifierDescriptorHelper_IsStackable_Patch {
-
-            static void Postfix(ref bool __result, ref ModifierDescriptor descriptor) {
-                if (!Resources.Settings.DisableNaturalArmorStacking) { return; }
-                if (descriptor == ModifierDescriptor.NaturalArmor) {
-                    Main.Log($"{descriptor} - { (descriptor == ModifierDescriptor.NaturalArmor ? false : __result)}");
-                    __result = descriptor == ModifierDescriptor.NaturalArmor ? false : __result;
-                }
             }
         }
     }

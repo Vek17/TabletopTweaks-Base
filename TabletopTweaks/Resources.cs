@@ -38,6 +38,7 @@ namespace TabletopTweaks {
             using (StreamReader streamReader = File.OpenText(UnityModManager.modsPath + "/TabletopTweaks/settings.json")) {
                 JObject groups = JObject.Parse(streamReader.ReadToEnd());
                 Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
+                Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
             }
         }
     }
