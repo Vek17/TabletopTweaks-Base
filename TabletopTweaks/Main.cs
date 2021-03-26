@@ -47,6 +47,7 @@ namespace TabletopTweaks {
                 Initialized = true;
                 UnitAdjustments.patchDemonSubtypes();
                 BalanceAdjustments.patchNaturalArmorEffects();
+                BalanceAdjustments.patchPolymorphEffects();
                 //Do Stuff
             }
         }
