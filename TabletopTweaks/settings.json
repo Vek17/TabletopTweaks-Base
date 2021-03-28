@@ -1,4 +1,6 @@
 {
   "DisableNaturalArmorStacking": true,
-  "DisablePolymorphStacking":  true
+  "DisablePolymorphStacking": true,
+  "FixSlayerStudiedTarget": true,
+  "FixBloodlines": true
 }

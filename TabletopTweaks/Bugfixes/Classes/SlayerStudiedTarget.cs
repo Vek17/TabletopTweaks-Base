@@ -1,29 +1,10 @@
-﻿using UnityModManagerNet;
-using HarmonyLib;
+﻿using HarmonyLib;
+using Kingmaker.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics.Components;
 
-namespace TabletopTweaks {
-    static class Main {
-
-        public static bool Enabled;
-
-        [System.Diagnostics.Conditional("DEBUG")]
-        public static void Log(string msg) {
-            Resources.Mod.Logger.Log(msg);
-        }
-
-        static bool Load(UnityModManager.ModEntry modEntry) {
-            var harmony = new Harmony(modEntry.Info.Id);
-            Resources.Mod = modEntry;
-            Resources.LoadSettings();
-            harmony.PatchAll();
-            return true;
-        }
-
-        static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) {
-            Enabled = value;
-            return true;
-        }
-        /*
+namespace TabletopTweaks.Bugfixes.Classes {
+    class SlayerStudiedTarget {
         [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
@@ -43,9 +24,15 @@ namespace TabletopTweaks {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
+                patchSlayerStudiedTarget();
                 //Do Stuff
             }
         }
-        */
+
+        public static void patchSlayerStudiedTarget() {
+            if (!Resources.Settings.FixSlayerStudiedTarget) { return; }
+            BlueprintBuff slayerStudiedTargetBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
+            slayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
+        }
     }
 }

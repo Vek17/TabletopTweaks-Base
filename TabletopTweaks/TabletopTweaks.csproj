@@ -91,12 +91,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BalanceAdjustments.cs" />
+    <Compile Include="Bugfixes\Classes\SlayerStudiedTarget.cs" />
+    <Compile Include="MechanicsChanges\NaturalArmorStacking.cs" />
+    <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
+    <Compile Include="Bugfixes\Classes\Bloodlines.cs" />
+    <Compile Include="Extensions\PrerequisiteNoFeaturesFromList.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="UnitAdjustments.cs" />
+    <Compile Include="Bugfixes\Units\DemonSubtypes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.json">

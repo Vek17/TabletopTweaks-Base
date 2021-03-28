@@ -1,8 +1,7 @@
-﻿using HarmonyLib;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Newtonsoft.Json.Linq;
 using System.IO;
-using UnityEngine;
+using System.Linq;
 using UnityModManagerNet;
 using static UnityModManagerNet.UnityModManager;
 
@@ -18,20 +17,14 @@ namespace TabletopTweaks {
                 return settings;
             }
         }
-        private static BlueprintScriptableObject[] blueprints = null;
-        public static BlueprintScriptableObject[] Blueprints {
-            get {
-                if (blueprints == null) {
-                    blueprints = GetBlueprints();
-                }
-                return blueprints;
-            }
-        }
+        private static BlueprintScriptableObject[] blueprints;
 
-        private static BlueprintScriptableObject[] GetBlueprints() {
-            var bundle = (AssetBundle)AccessTools.Field(typeof(ResourcesLibrary), "s_BlueprintsBundle")
-                .GetValue(null);
-            return bundle.LoadAllAssets<BlueprintScriptableObject>();
+        public static T[] GetBlueprints<T>() where T : BlueprintScriptableObject {
+            if (blueprints == null) {
+                var bundle = ResourcesLibrary.s_BlueprintsBundle;
+                blueprints = bundle.LoadAllAssets<BlueprintScriptableObject>();
+            }
+            return blueprints.OfType<T>().ToArray();
         }
 
         public static void LoadSettings() {
@@ -39,6 +32,8 @@ namespace TabletopTweaks {
                 JObject groups = JObject.Parse(streamReader.ReadToEnd());
                 Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
                 Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
+                Settings.FixSlayerStudiedTarget = groups["FixSlayerStudiedTarget"].Value<bool>();
+                Settings.FixBloodlines = groups["FixBloodlines"].Value<bool>();
             }
         }
     }
