@@ -32,6 +32,7 @@ namespace TabletopTweaks.Bugfixes.Units {
         }
 
         public static void patchDemonSubtypes() {
+            if (!Resources.Settings.FixDemonSubtypes) { return; }
             BlueprintFeature subtypeDemon = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("dc960a234d365cb4f905bdc5937e623a");
             BlueprintFeature subtypeEvil = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("5279fc8380dd9ba419b4471018ffadd1");
             BlueprintFeature subtypeChaotic = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1dd712e7f147ab84bad6ffccd21a878d");

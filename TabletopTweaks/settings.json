@@ -2,5 +2,6 @@
   "DisableNaturalArmorStacking": true,
   "DisablePolymorphStacking": true,
   "FixSlayerStudiedTarget": true,
+  "FixDemonSubtypes":  true,
   "FixBloodlines": true
 }

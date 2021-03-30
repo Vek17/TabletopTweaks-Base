@@ -33,6 +33,7 @@ namespace TabletopTweaks {
                 Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
                 Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
                 Settings.FixSlayerStudiedTarget = groups["FixSlayerStudiedTarget"].Value<bool>();
+                Settings.FixDemonSubtypes = groups["FixDemonSubtypes"].Value<bool>();
                 Settings.FixBloodlines = groups["FixBloodlines"].Value<bool>();
             }
         }
