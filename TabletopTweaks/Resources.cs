@@ -2,7 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Linq;
-using UnityModManagerNet;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks {
@@ -28,7 +27,7 @@ namespace TabletopTweaks {
         }
 
         public static void LoadSettings() {
-            using (StreamReader streamReader = File.OpenText(UnityModManager.modsPath + "/TabletopTweaks/settings.json")) {
+            using (StreamReader streamReader = File.OpenText(Mod.Path + "settings.json")) {
                 JObject groups = JObject.Parse(streamReader.ReadToEnd());
                 Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
                 Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();

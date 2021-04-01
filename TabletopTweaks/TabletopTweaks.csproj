@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bugfixes\Classes\SlayerStudiedTarget.cs" />
+    <Compile Include="Extensions\ExtentionMethods.cs" />
     <Compile Include="MechanicsChanges\NaturalArmorStacking.cs" />
     <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
     <Compile Include="Bugfixes\Classes\Bloodlines.cs" />

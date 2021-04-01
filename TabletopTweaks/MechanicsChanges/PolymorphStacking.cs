@@ -10,6 +10,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
+using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.BalanceAdjustments {
     class PolymorphStacking {
@@ -28,27 +29,30 @@ namespace TabletopTweaks.BalanceAdjustments {
                             .Where(bp =>
                                 (bp.GetComponents<SpellDescriptorComponent>()
                                     .Where(c => c != null)
-                                    .Where(d => (d.Descriptor.Value & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0)
+                                    .Where(d => d.Descriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0)
                                 || (bp.GetComponents<AbilityExecuteActionOnCast>()
                                     .SelectMany(c => c.Actions.Actions.OfType<ContextActionRemoveBuffsByDescriptor>())
-                                    .Where(c => (c.SpellDescriptor.Value & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0)
+                                    .Where(c => c.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0)
                                 || (bp.GetComponents<AbilityEffectRunAction>()
                                     .SelectMany(c => c.Actions.Actions.OfType<ContextActionRemoveBuffsByDescriptor>()
                                         .Concat(c.Actions.Actions.OfType<ContextActionConditionalSaved>()
                                             .SelectMany(a => a.Failed.Actions
                                             .OfType<ContextActionRemoveBuffsByDescriptor>())))
-                                    .Where(c => (c.SpellDescriptor.Value & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0))
-                            .SelectMany(bp => bp.GetComponents<AbilityEffectRunAction>())
-                            .SelectMany(c => c.Actions.Actions.OfType<ContextActionApplyBuff>()
-                                .Concat(c.Actions.Actions.OfType<ContextActionConditionalSaved>()
-                                    .SelectMany(a => a.Failed.Actions.OfType<ContextActionApplyBuff>())))
+                                    .Where(c => c.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0))
+                            .SelectMany(a => a.FlattenAllActions())
+                            .OfType<ContextActionApplyBuff>()
                             .Where(c => c.Buff != null)
                             .Select(c => c.Buff)
                             .Concat(taggedPolyBuffs)
                             .Where(bp => bp.AssetGuid != "e6f2fc5d73d88064583cb828801212f4") // Fatigued
                             .Distinct()
                             .ToArray();
+
                         polymorphBuffs.ForEach(c => Main.Log($"PolymorphBuff - Grabbed ID: {c.AssetGuid} - Grabbed Name: {c.name} "));
+                        Main.Log($"PolymorphBuffs:{polymorphBuffs.Count()}");
+
+                        BlueprintAbility EnlargePersonMass = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("66dc49bf154863148bd217287079245e");
+                        Main.Log($"EnlargePersonMass:{EnlargePersonMass.FlattenAllActions().OfType<ContextActionApplyBuff>().Count()}");
                     }
                     return polymorphBuffs;
                 }

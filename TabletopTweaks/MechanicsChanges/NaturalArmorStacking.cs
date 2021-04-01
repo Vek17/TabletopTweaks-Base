@@ -52,6 +52,7 @@ namespace TabletopTweaks.MechanicsChanges {
             if (!Resources.Settings.DisableNaturalArmorStacking) { return; }
             patchAnimalCompanionFeatures();
             patchItemBuffs();
+            patchSpellBuffs();
             patchClassFeatures();
             patchFeats();
 
@@ -84,6 +85,12 @@ namespace TabletopTweaks.MechanicsChanges {
                 //Icy Protector
                 BlueprintBuff protectionOfColdBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
                 protectionOfColdBuff.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+            }
+            void patchSpellBuffs() {
+                BlueprintBuff LegendaryProportions = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
+                LegendaryProportions.GetComponents<AddContextStatBonus>()
+                    .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorEnhancement)
+                    .ForEach(c => c.Descriptor = ModifierDescriptor.NaturalArmor);
             }
         }
     }
