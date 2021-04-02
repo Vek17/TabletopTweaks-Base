@@ -27,9 +27,9 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                Main.Log("Patching Spell Resources");
+                Main.LogHeader("Patching Spell Resources");
                 patchWitchSpells();
-                Main.Log("Patching Spells Complete");
+                Main.LogHeader("Patching Spells Complete");
             }
 
             static void patchWitchSpells() {
@@ -43,7 +43,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                             action.Value.DiceType = Kingmaker.RuleSystem.DiceType.D4;
                         }
                     }
-                    Main.Log("WrackingRay Patched");
+                    Main.LogPatch("Patched", WrackingRay);
                 }
                 void patchGreaterBestowCurse() {
                     var BestowCurseGreaterDeterioration = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
@@ -64,34 +64,41 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     // Update the on cast trigger
                     BestowCurseGreaterDeteriorationCast
                         .GetComponent<AbilityEffectStickyTouch>().m_TouchDeliveryAbility = BestowCurseGreaterDeterioration.ToReference<BlueprintAbilityReference>();
+                    Main.LogPatch("Patched", BestowCurseGreaterDeteriorationCast);
                     BestowCurseGreaterFeebleBodyCast
                         .GetComponent<AbilityEffectStickyTouch>().m_TouchDeliveryAbility = BestowCurseGreaterFeebleBody.ToReference<BlueprintAbilityReference>();
+                    Main.LogPatch("Patched", BestowCurseGreaterFeebleBodyCast);
                     BestowCurseGreaterIdiocyCast
                         .GetComponent<AbilityEffectStickyTouch>().m_TouchDeliveryAbility = BestowCurseGreaterIdiocy.ToReference<BlueprintAbilityReference>();
+                    Main.LogPatch("Patched", BestowCurseGreaterIdiocyCast);
                     BestowCurseGreaterWeaknessCast
                         .GetComponent<AbilityEffectStickyTouch>().m_TouchDeliveryAbility = BestowCurseGreaterWeakness.ToReference<BlueprintAbilityReference>();
+                    Main.LogPatch("Patched", BestowCurseGreaterWeaknessCast);
 
                     // Update the applied buff
                     BestowCurseGreaterDeterioration.GetComponent<AbilityEffectRunAction>()
                         .Actions.Actions.OfType<ContextActionConditionalSaved>().First()
                         .Failed.Actions.OfType<ContextActionApplyBuff>().First()
                         .m_Buff = BestowCurseGreaterDeteriorationBuff.ToReference<BlueprintBuffReference>();
+                    Main.LogPatch("Patched", BestowCurseGreaterDeterioration);
 
                     BestowCurseGreaterFeebleBody.GetComponent<AbilityEffectRunAction>()
                         .Actions.Actions.OfType<ContextActionConditionalSaved>().First()
                         .Failed.Actions.OfType<ContextActionApplyBuff>().First()
                         .m_Buff = BestowCurseGreaterFeebleBodyBuff.ToReference<BlueprintBuffReference>();
+                    Main.LogPatch("Patched", BestowCurseGreaterFeebleBody);
 
                     BestowCurseGreaterIdiocy.GetComponent<AbilityEffectRunAction>()
                         .Actions.Actions.OfType<ContextActionConditionalSaved>().First()
                         .Failed.Actions.OfType<ContextActionApplyBuff>().First()
                         .m_Buff = BestowCurseGreaterIdiocyBuff.ToReference<BlueprintBuffReference>();
+                    Main.LogPatch("Patched", BestowCurseGreaterIdiocy);
 
                     BestowCurseGreaterWeakness.GetComponent<AbilityEffectRunAction>()
                         .Actions.Actions.OfType<ContextActionConditionalSaved>().First()
                         .Failed.Actions.OfType<ContextActionApplyBuff>().First()
                         .m_Buff = BestowCurseGreaterWeaknessBuff.ToReference<BlueprintBuffReference>();
-                    Main.Log("BestowCurseGreater Patched");
+                    Main.LogPatch("Patched", BestowCurseGreaterWeakness);
                 }
             }
         }

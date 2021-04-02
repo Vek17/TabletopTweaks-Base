@@ -29,9 +29,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (!Resources.Settings.FixAeon) { return; }
                 if (Initialized) return;
                 Initialized = true;
-                Main.Log("Patching Aeon Resources");
+                Main.LogHeader("Patching Aeon Resources");
                 PatchAeonBaneUses();
-                Main.Log("Aeon Resource Patch Complete");
+                Main.LogHeader("Aeon Resource Patch Complete");
             }
             static void PatchAeonBaneUses() {
                 var AeonClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("15a85e67b7d69554cab9ed5830d0268e");
@@ -50,10 +50,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 AeonRankContext.m_StepLevel = 1;
                 AeonRankContext.m_Progression = ContextRankProgression.AsIs;
                 AeonRankContext.m_ExceptClasses = true;
-                Main.Log("AeonBaneFeature Patched");
+                Main.LogPatch("Patched", AeonBaneFeature);
                 InquisitorBaneResource.m_MaxAmount.m_Class = InquisitorBaneResource.m_MaxAmount.m_Class.AddItem(ResourcesLibrary.GetRoot().Progression.m_MythicStartingClass).ToArray();
                 InquisitorBaneResource.m_MaxAmount.m_Class = InquisitorBaneResource.m_MaxAmount.m_Class.AddItem(AeonClass.ToReference<BlueprintCharacterClassReference>()).ToArray();
-                Main.Log("InquisitorBaneResource Patched");
+                Main.LogPatch("Patched", InquisitorBaneResource);
             }
         }
     }

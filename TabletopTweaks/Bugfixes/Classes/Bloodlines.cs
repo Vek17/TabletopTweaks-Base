@@ -30,14 +30,17 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void Postfix() {
+                if (!Resources.Settings.FixBloodlines) { return; }
                 if (Initialized) return;
                 Initialized = true;
+                Main.LogHeader("Patching Bloodline Resources");
                 patchBloodlines();
+                Main.LogHeader("Patching Bloodline Complete");
                 //Do Stuff
             }
         }
         public static void patchBloodlines() {
-            if (!Resources.Settings.FixBloodlines) { return; }
+            
             patchBloodlineAscendance();
             patchSecondBloodline();
             patchBloodlineRestrictions();
@@ -45,7 +48,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             //patchSorcererArchetypes();
 
             void patchBloodlineAscendance() {
-                BlueprintFeatureSelection bloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
+                BlueprintFeatureSelection BloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 PrerequisiteFeaturesFromList newPrerequisites = ScriptableObject.CreateInstance<PrerequisiteFeaturesFromList>();
 
                 newPrerequisites.m_Features = new BlueprintFeatureReference[] {
@@ -57,28 +60,30 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988").ToReference<BlueprintFeatureReference>()     // BloodOfDragonsSelection - Dragon Disciple
                 };
                 newPrerequisites.Amount = 1;
-                bloodlineAscendance.ComponentsArray = bloodlineAscendance.ComponentsArray
+                BloodlineAscendance.ComponentsArray = BloodlineAscendance.ComponentsArray
                     .Where(c => c.GetType() != typeof(PrerequisiteFeature))
                     .Append(newPrerequisites)
                     .ToArray();
+                Main.LogPatch("Patched", BloodlineAscendance);
             }
             void patchSecondBloodline() {
-                BlueprintFeatureSelection secondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
-                PrerequisiteFeaturesFromList newPrerequisites = ScriptableObject.CreateInstance<PrerequisiteFeaturesFromList>();
+                BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
+                PrerequisiteFeaturesFromList NewPrerequisites = ScriptableObject.CreateInstance<PrerequisiteFeaturesFromList>();
 
-                newPrerequisites.m_Features = new BlueprintFeatureReference[] {
+                NewPrerequisites.m_Features = new BlueprintFeatureReference[] {
                     ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
                     ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
                     ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
                     ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
                     ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>()     // EmpyrealBloodlineProgression
                 };
-                newPrerequisites.Amount = 1;
-                secondBloodline.ComponentsArray = secondBloodline.ComponentsArray
+                NewPrerequisites.Amount = 1;
+                SecondBloodline.ComponentsArray = SecondBloodline.ComponentsArray
                     .Where(c => c.GetType() != typeof(PrerequisiteFeature))
-                    .Append(newPrerequisites)
+                    .Append(NewPrerequisites)
                     .ToArray();
-                secondBloodline.IgnorePrerequisites = false;
+                SecondBloodline.IgnorePrerequisites = false;
+                Main.LogPatch("Patched", SecondBloodline);
             }
 
             void patchBloodlineRestrictions() {
@@ -198,15 +203,16 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         SeekerBloodlineUndead.ToReference<BlueprintFeatureReference>()
                     }},
                 };
-                foreach (BlueprintFeature bloodline in BloodlinesBlockedCombinations.Keys) {
-                    PrerequisiteNoFeature[] newPrerequisites = BloodlinesBlockedCombinations[bloodline].Select(b => {
+                foreach (BlueprintFeature Bloodline in BloodlinesBlockedCombinations.Keys) {
+                    PrerequisiteNoFeature[] newPrerequisites = BloodlinesBlockedCombinations[Bloodline].Select(b => {
                         var blockFeature = ScriptableObject.CreateInstance<PrerequisiteNoFeature>();
                         blockFeature.m_Feature = b;
                         blockFeature.Group = Prerequisite.GroupType.All;
                         return blockFeature;
                     }).ToArray();
-                    bloodline.ComponentsArray = bloodline.ComponentsArray.Concat(newPrerequisites)
+                    Bloodline.ComponentsArray = Bloodline.ComponentsArray.Concat(newPrerequisites)
                     .ToArray();
+                    Main.LogPatch("Patched", Bloodline);
                 }
             }
         }
@@ -221,8 +227,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
             BlueprintCharacterClass DragonDiscipleClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("72051275b1dbb2d42ba9118237794f7c");
             // Patch Bloodline Selection
             BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = BloodragerBloodlineSelection.m_AllFeatures;
-            PrerequisiteNoFeaturesFromList excludeBloodlines = ScriptableObject.CreateInstance<PrerequisiteNoFeaturesFromList>();
-            excludeBloodlines.Features = new BlueprintFeatureReference[] {
+            PrerequisiteNoFeaturesFromList ExcludeBloodlines = ScriptableObject.CreateInstance<PrerequisiteNoFeaturesFromList>();
+            ExcludeBloodlines.Features = new BlueprintFeatureReference[] {
                 BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
                 SorcererBloodlineSelection.ToReference<BlueprintFeatureReference>(),
                 SeekerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
@@ -230,13 +236,14 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 SageBloodlineProgression.ToReference<BlueprintFeatureReference>(),
                 EmpyrealBloodlineProgression.ToReference<BlueprintFeatureReference>(),
             };
-            excludeBloodlines.Group = Prerequisite.GroupType.Any;
+            ExcludeBloodlines.Group = Prerequisite.GroupType.Any;
 
             DragonDiscipleClass.ComponentsArray = DragonDiscipleClass.ComponentsArray
                 .Where(c => !(c is PrerequisiteNoFeature)) // Remove old Bloodline Feature
                 .Where(c => !(c is PrerequisiteNoArchetype)) // Remove Sorcerer Archetype Restrictions
-                .Append(excludeBloodlines)
+                .Append(ExcludeBloodlines)
                 .ToArray();
+            Main.LogPatch("Patched", DragonDiscipleClass);
         }
         public static void patchSorcererArchetypes() {
             BlueprintArchetype EmpyrealSorcererArchetype    = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("aa00d945f7cf6c34c909a29a25f2df38");

@@ -39,10 +39,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (!Resources.Settings.FixAzata) { return; }
                 if (Initialized) return;
                 Initialized = true;
-                Main.Log("Patching Azata Resources");
+                Main.LogHeader("Patching Azata Resources");
                 PatchAzataSpells();
                 PatchAzataPerformanceResource();
-                Main.Log("Azata Resource Patch Complete");
+                Main.LogHeader("Azata Resource Patch Complete");
             }
             static void PatchAzataSpells() {
                 var OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
@@ -52,7 +52,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 newFact.Type = SavingThrowType.Will;
                 newFact.BonusDC = 2;
                 OdeToMiraculousMagicBuff.ComponentsArray = OdeToMiraculousMagicBuff.ComponentsArray.AddItem(newFact).ToArray();
-                Main.Log("OdeToMiraculousMagicBuff Patched");
+                Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
             }
             static void PatchAzataPerformanceResource() {
                 var AzataPerformanceResource = ResourcesLibrary.TryGetBlueprint<BlueprintAbilityResource>("83f8a1c45ed205a4a989b7826f5c0687");
@@ -65,7 +65,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     .Select(c => c.ToReference<BlueprintCharacterClassReference>())
                     .ToArray();
                 AzataPerformanceResource.m_MaxAmount.m_Class = characterClasses;
-                Main.Log("AzataPerformanceResource Patched");
+                Main.LogPatch("Patched", AzataPerformanceResource);
             }
         }
         // Patch for Favorable Magic

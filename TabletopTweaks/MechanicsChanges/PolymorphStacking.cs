@@ -21,6 +21,7 @@ namespace TabletopTweaks.BalanceAdjustments {
             static private BlueprintBuff[] PolymorphBuffs {
                 get {
                     if (polymorphBuffs == null) {
+                        Main.LogHeader($"Identifying Polymorph Buffs");
                         BlueprintBuff[] taggedPolyBuffs = Resources.GetBlueprints<BlueprintBuff>()
                             .Where(bp => bp.GetComponents<SpellDescriptorComponent>()
                                 .Where(c => (c.Descriptor & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0)
@@ -48,8 +49,10 @@ namespace TabletopTweaks.BalanceAdjustments {
                             .Distinct()
                             .ToArray();
 
-                        polymorphBuffs.ForEach(c => Main.Log($"PolymorphBuff - Grabbed ID: {c.AssetGuid} - Grabbed Name: {c.name} "));
-                        Main.Log($"PolymorphBuffs:{polymorphBuffs.Count()}");
+                        polymorphBuffs
+                            .OrderBy(c => c.name)
+                            .ForEach(c => Main.LogPatch("PolymorphBuff Found", c));
+                        Main.LogHeader($"Identified: {polymorphBuffs.Count()} Polymorph Buffs");
                     }
                     return polymorphBuffs;
                 }

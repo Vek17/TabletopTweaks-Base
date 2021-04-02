@@ -28,9 +28,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                Main.Log("Patching Witch Resources");
+                Main.LogHeader("Patching Witch Resources");
                 patchWitchHexes();
-                Main.Log("Witch Resource Patch Complete");
+                Main.LogHeader("Witch Resource Patch Complete");
             }
             static void patchWitchHexes() {
                 // Death Curse is not technically typed as death or curse RAW but changing it anyway because seriously
@@ -45,31 +45,31 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     BlueprintAbility WitchHexDeathCurseAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d560ab2a1b0613649833a0d92d6cfc6b");
                     WitchHexDeathCurseAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | Death | Curse;
-                    Main.Log($"{WitchHexDeathCurseAbility.name} Patched");
+                    Main.LogPatch("Patched", WitchHexDeathCurseAbility);
                 }
                 void PatchDeliciousFright() {
                     BlueprintAbility WitchHexDeliciousFrightAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e7489733ac7ccca40917d9364b406adb");
                     WitchHexDeliciousFrightAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | MindAffecting | Fear;
-                    Main.Log($"{WitchHexDeliciousFrightAbility.name} Patched");
+                    Main.LogPatch("Patched", WitchHexDeliciousFrightAbility);
                 }
                 void PatchHoarfrost() {
                     BlueprintAbility WitchHexHoarfrostAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("7244a24f0c186ce4b8a89fd26feded50");
                     WitchHexHoarfrostAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | Cold;
-                    Main.Log($"{WitchHexHoarfrostAbility.name} Patched");
+                    Main.LogPatch("Patched", WitchHexHoarfrostAbility);
                 }
                 void PatchSlumber() {
                     BlueprintAbility WitchHexSlumberAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("630ea63a63457ff4f9de059c578c930a");
                     WitchHexSlumberAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | MindAffecting | Compulsion | Sleep;
-                    Main.Log($"{WitchHexSlumberAbility.name} Patched");
+                    Main.LogPatch("Patched", WitchHexSlumberAbility);
                 }
                 void PatchRestlessSlumber() {
                     BlueprintAbility WitchHexRestlessSlumberAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("a69fb167bb41c6f45a19c81ed4e3c0d9");
                     WitchHexRestlessSlumberAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | MindAffecting | Compulsion | Sleep;
-                    Main.Log($"{WitchHexRestlessSlumberAbility.name} Patched");
+                    Main.LogPatch("Patched", WitchHexRestlessSlumberAbility);
                 }
                 void PatchEvilEye() {
                     BlueprintAbility WitchHexEvilEyeAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d25c72a92dd8d38449a6a371ef36413e");
@@ -84,7 +84,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             .Concat(WitchHexSlumberAbility.GetComponents<ContextCalculateAbilityParams>())
                             .ToArray();
                         Variant.GetComponent<SpellDescriptorComponent>().Descriptor = Hex | MindAffecting;
-                        Main.Log($"{Variant.name} Patched");
+                        Main.LogPatch("Patched", Variant);
                     }
                 }
             }

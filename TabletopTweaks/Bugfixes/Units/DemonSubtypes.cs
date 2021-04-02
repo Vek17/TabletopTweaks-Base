@@ -27,7 +27,9 @@ namespace TabletopTweaks.Bugfixes.Units {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
+                Main.LogHeader("Patching Demon Subtypes");
                 patchDemonSubtypes();
+                Main.LogHeader("Demon Subtype Patch Complete");
             }
         }
 
@@ -39,16 +41,18 @@ namespace TabletopTweaks.Bugfixes.Units {
             Resources.GetBlueprints<BlueprintUnit>()
                 .Where(bp => Array.Exists(bp.m_AddFacts, e => e.GetBlueprint() == subtypeDemon)
                          && !Array.Exists(bp.m_AddFacts, e => e.GetBlueprint() == subtypeEvil))
+                .OrderBy(bp => bp.name)
                 .ForEach(bp => {
                     bp.m_AddFacts = bp.m_AddFacts.AddItem(subtypeEvil.ToReference<BlueprintUnitFactReference>()).ToArray();
-                    Main.Log($"Added SubtypeEvil: {bp.LocalizedName.name}");
+                    Main.LogPatch("Added SubtypeEvil", bp);
                 });
             Resources.GetBlueprints<BlueprintUnit>()
                 .Where(bp => Array.Exists(bp.m_AddFacts, e => e.GetBlueprint() == subtypeDemon)
                          && !Array.Exists(bp.m_AddFacts, e => e.GetBlueprint() == subtypeChaotic))
+                .OrderBy(bp => bp.name)
                 .ForEach(bp => {
                     bp.m_AddFacts = bp.m_AddFacts.AddItem(subtypeChaotic.ToReference<BlueprintUnitFactReference>()).ToArray();
-                    Main.Log($"Added SubtypeChaotic: {bp.LocalizedName.name}");
+                    Main.LogPatch("Added SubtypeChaotic", bp);
                 });
         }
     }
