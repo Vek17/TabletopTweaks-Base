@@ -91,7 +91,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bugfixes\Classes\SlayerStudiedTarget.cs" />
+    <Compile Include="Bugfixes\Abilities\Spells.cs" />
+    <Compile Include="Bugfixes\Classes\Aeon.cs" />
+    <Compile Include="Bugfixes\Classes\Azata.cs" />
+    <Compile Include="Bugfixes\Classes\Slayer.cs" />
+    <Compile Include="Bugfixes\Classes\Witch.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
     <Compile Include="MechanicsChanges\NaturalArmorStacking.cs" />
     <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
@@ -112,6 +116,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

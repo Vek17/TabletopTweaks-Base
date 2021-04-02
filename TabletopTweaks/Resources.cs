@@ -31,9 +31,13 @@ namespace TabletopTweaks {
                 JObject groups = JObject.Parse(streamReader.ReadToEnd());
                 Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
                 Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
-                Settings.FixSlayerStudiedTarget = groups["FixSlayerStudiedTarget"].Value<bool>();
                 Settings.FixDemonSubtypes = groups["FixDemonSubtypes"].Value<bool>();
                 Settings.FixBloodlines = groups["FixBloodlines"].Value<bool>();
+                Settings.FixSpells = groups["FixSpells"].Value<bool>();
+                Settings.FixAeon = groups["FixAeon"].Value<bool>();
+                Settings.FixAzata = groups["FixAzata"].Value<bool>();
+                Settings.FixSlayer = groups["FixSlayer"].Value<bool>();
+                Settings.FixAzata = groups["FixWitch"].Value<bool>();
             }
         }
     }

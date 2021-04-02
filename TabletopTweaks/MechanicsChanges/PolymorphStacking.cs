@@ -50,9 +50,6 @@ namespace TabletopTweaks.BalanceAdjustments {
 
                         polymorphBuffs.ForEach(c => Main.Log($"PolymorphBuff - Grabbed ID: {c.AssetGuid} - Grabbed Name: {c.name} "));
                         Main.Log($"PolymorphBuffs:{polymorphBuffs.Count()}");
-
-                        BlueprintAbility EnlargePersonMass = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("66dc49bf154863148bd217287079245e");
-                        Main.Log($"EnlargePersonMass:{EnlargePersonMass.FlattenAllActions().OfType<ContextActionApplyBuff>().Count()}");
                     }
                     return polymorphBuffs;
                 }

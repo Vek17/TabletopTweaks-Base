@@ -1,7 +1,11 @@
 {
   "DisableNaturalArmorStacking": true,
   "DisablePolymorphStacking": true,
-  "FixSlayerStudiedTarget": true,
-  "FixDemonSubtypes":  true,
-  "FixBloodlines": true
+  "FixDemonSubtypes": true,
+  "FixBloodlines": true,
+  "FixSpells": true,
+  "FixAeon": true,
+  "FixAzata": true,
+  "FixSlayer": true,
+  "FixWitch": true
 }

@@ -45,11 +45,13 @@ namespace TabletopTweaks.MechanicsChanges {
         static void Postfix() {
             if (Initialized) return;
             Initialized = true;
+            if (!Resources.Settings.DisableNaturalArmorStacking) { return; }
+            Main.Log("Patching NaturalArmor Resources");
             patchNaturalArmorEffects();
-            //Do Stuff
+            Main.Log("NaturalArmor Resource Patch Complete");
+            
         }
         static void patchNaturalArmorEffects() {
-            if (!Resources.Settings.DisableNaturalArmorStacking) { return; }
             patchAnimalCompanionFeatures();
             patchItemBuffs();
             patchSpellBuffs();
@@ -57,40 +59,47 @@ namespace TabletopTweaks.MechanicsChanges {
             patchFeats();
 
             void patchAnimalCompanionFeatures() {
-                BlueprintFeature animalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
-                BlueprintFeature animalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
-                BlueprintFeature[] animalCompanionUpgrades = Resources.GetBlueprints<BlueprintFeature>()
+                BlueprintFeature AnimalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
+                BlueprintFeature AnimalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
+                BlueprintFeature[] AnimalCompanionUpgrades = Resources.GetBlueprints<BlueprintFeature>()
+                    .Where(bp => !string.IsNullOrEmpty(bp.name))
                     .Where(bp => bp.name.Contains("AnimalCompanionUpgrade"))
                     .ToArray();
-
-                animalCompanionNaturalArmor.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
-                animalCompanionStatFeature.GetComponents<AddContextStatBonus>()
+                AnimalCompanionNaturalArmor.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+                Main.Log($"{AnimalCompanionNaturalArmor.name} Patched");
+                AnimalCompanionStatFeature.GetComponents<AddContextStatBonus>()
                     .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
                     .ForEach(c => c.Descriptor = ModifierDescriptor.ArmorFocus);
-                animalCompanionUpgrades.ForEach(bp => {
+                Main.Log($"{AnimalCompanionStatFeature.name} Patched");
+                AnimalCompanionUpgrades.ForEach(bp => {
                     bp.GetComponents<AddStatBonus>()
-                    .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
-                    .ForEach(c => c.Descriptor = ModifierDescriptor.ArmorFocus);
+                        .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
+                        .ForEach(c => c.Descriptor = ModifierDescriptor.ArmorFocus);
+                    Main.Log($"{bp.name} Patched");
                 });
             }
             void patchClassFeatures() {
-                BlueprintFeature dragonDiscipleNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("aa4f9fd22a07ddb49982500deaed88f9");
-                dragonDiscipleNaturalArmor.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+                BlueprintFeature DragonDiscipleNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("aa4f9fd22a07ddb49982500deaed88f9");
+                DragonDiscipleNaturalArmor.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+                Main.Log($"{DragonDiscipleNaturalArmor.name} Patched");
             }
             void patchFeats() {
-                BlueprintFeature improvedNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("fe9482aad88e5a54682d47d1df910ce8");
-                improvedNaturalArmor.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+                BlueprintFeature ImprovedNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("fe9482aad88e5a54682d47d1df910ce8");
+                ImprovedNaturalArmor.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+                Main.Log($"{ImprovedNaturalArmor.name} Patched");
             }
             void patchItemBuffs() {
                 //Icy Protector
-                BlueprintBuff protectionOfColdBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
-                protectionOfColdBuff.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+                BlueprintBuff ProtectionOfColdBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
+                ProtectionOfColdBuff.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
+                Main.Log($"{ProtectionOfColdBuff.name} Patched");
             }
             void patchSpellBuffs() {
                 BlueprintBuff LegendaryProportions = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
                 LegendaryProportions.GetComponents<AddContextStatBonus>()
                     .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorEnhancement)
                     .ForEach(c => c.Descriptor = ModifierDescriptor.NaturalArmor);
+                Main.Log($"{LegendaryProportions.name} Patched");
             }
         }
     }

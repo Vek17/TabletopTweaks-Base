@@ -18,16 +18,13 @@ namespace TabletopTweaks.Extensions {
                     .SelectMany(a => a.FlattenAllActions()))
                 .ToArray();
         }
-
         public static GameAction[] FlattenAllActions(this AbilityExecuteActionOnCast Action) {
             return FlattenAllActions(Action.Actions.Actions);
         }
-
         public static GameAction[] FlattenAllActions(this AbilityEffectRunAction Action) {
             return FlattenAllActions(Action.Actions.Actions);
         }
-
-        public static GameAction[] FlattenAllActions(GameAction[] Actions) {
+        public static GameAction[] FlattenAllActions(this GameAction[] Actions) {
             List<GameAction> NewActions = new List<GameAction>();
             NewActions.AddRange(Actions.OfType<ContextActionConditionalSaved>().SelectMany(a => a.Failed.Actions));
             NewActions.AddRange(Actions.OfType<ContextActionConditionalSaved>().SelectMany(a => a.Succeed.Actions));
