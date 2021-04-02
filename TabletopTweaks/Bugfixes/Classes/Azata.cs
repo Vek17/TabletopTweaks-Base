@@ -8,12 +8,17 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
+using TabletopTweaks.Extensions;
 using UnityEngine;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -45,14 +50,31 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogHeader("Azata Resource Patch Complete");
             }
             static void PatchAzataSpells() {
-                var OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
-                //ToDo: BluePrint loading properly
-                var newFact = ScriptableObject.CreateInstance<IncreaseCastersSavingThrowTypeDC>();
-                //var newFact = new IncreaseCastersSavingThrowTypeDC();
-                newFact.Type = SavingThrowType.Will;
-                newFact.BonusDC = 2;
-                OdeToMiraculousMagicBuff.ComponentsArray = OdeToMiraculousMagicBuff.ComponentsArray.AddItem(newFact).ToArray();
-                Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
+                PatchOdeToMiraculousMagicBuff();
+                PatchBelieveInYourself();
+
+                void PatchOdeToMiraculousMagicBuff() {
+                    BlueprintBuff OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
+                    IncreaseCastersSavingThrowTypeDC newFact = ScriptableObject.CreateInstance<IncreaseCastersSavingThrowTypeDC>();
+                    newFact.Type = SavingThrowType.Will;
+                    newFact.BonusDC = 2;
+                    OdeToMiraculousMagicBuff.ComponentsArray = OdeToMiraculousMagicBuff.ComponentsArray.AddItem(newFact).ToArray();
+                    Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
+                }
+                void PatchBelieveInYourself() {
+                    BlueprintAbility BelieveInYourself = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
+                    BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
+                        .GetComponent<AbilityVariants>()
+                        .Variants;
+                    foreach (BlueprintAbility Variant in BelieveInYourselfVariants) {
+                        Variant.FlattenAllActions()
+                            .OfType<ContextActionApplyBuff>()
+                            .ForEach(b => {
+                                b.Buff.GetComponent<ContextRankConfig>().m_StepLevel = 2;
+                                Main.LogPatch("Patched", b.Buff);
+                            });
+                    }
+                }
             }
             static void PatchAzataPerformanceResource() {
                 var AzataPerformanceResource = ResourcesLibrary.TryGetBlueprint<BlueprintAbilityResource>("83f8a1c45ed205a4a989b7826f5c0687");
