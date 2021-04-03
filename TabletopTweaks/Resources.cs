@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using static UnityModManagerNet.UnityModManager;
@@ -16,14 +17,14 @@ namespace TabletopTweaks {
                 return settings;
             }
         }
-        private static BlueprintScriptableObject[] blueprints;
+        private static IEnumerable<BlueprintScriptableObject> blueprints;
 
-        public static T[] GetBlueprints<T>() where T : BlueprintScriptableObject {
+        public static IEnumerable<T> GetBlueprints<T>() where T : BlueprintScriptableObject {
             if (blueprints == null) {
                 var bundle = ResourcesLibrary.s_BlueprintsBundle;
                 blueprints = bundle.LoadAllAssets<BlueprintScriptableObject>();
             }
-            return blueprints.OfType<T>().ToArray();
+            return blueprints.OfType<T>();
         }
 
         public static void LoadSettings() {

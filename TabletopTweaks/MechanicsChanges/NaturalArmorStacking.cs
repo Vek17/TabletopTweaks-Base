@@ -6,6 +6,7 @@ using Kingmaker.Enums;
 using Kingmaker.Utility;
 using System.Linq;
 using HarmonyLib;
+using System.Collections.Generic;
 
 namespace TabletopTweaks.MechanicsChanges {
     static class NaturalArmorStacking {
@@ -61,11 +62,10 @@ namespace TabletopTweaks.MechanicsChanges {
             void patchAnimalCompanionFeatures() {
                 BlueprintFeature AnimalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
                 BlueprintFeature AnimalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
-                BlueprintFeature[] AnimalCompanionUpgrades = Resources.GetBlueprints<BlueprintFeature>()
+                IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = Resources.GetBlueprints<BlueprintFeature>()
                     .Where(bp => !string.IsNullOrEmpty(bp.name))
                     .Where(bp => bp.name.Contains("AnimalCompanionUpgrade"))
-                    .OrderBy(bp => bp.name)
-                    .ToArray();
+                    .OrderBy(bp => bp.name);
                 AnimalCompanionNaturalArmor.GetComponent<AddStatBonus>().Descriptor = ModifierDescriptor.ArmorFocus;
                 Main.LogPatch("Patched", AnimalCompanionNaturalArmor);
                 AnimalCompanionStatFeature.GetComponents<AddContextStatBonus>()

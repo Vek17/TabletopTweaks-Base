@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
 
@@ -17,15 +18,14 @@ namespace TabletopTweaks.BalanceAdjustments {
 
         [HarmonyPatch(typeof(RuleCanApplyBuff), "OnTrigger", new[] { typeof(RulebookEventContext) })]
         static class RuleCanApplyBuff_OnTrigger_Patch {
-            static private BlueprintBuff[] polymorphBuffs;
-            static private BlueprintBuff[] PolymorphBuffs {
+            static private IEnumerable<BlueprintBuff> polymorphBuffs;
+            static private IEnumerable<BlueprintBuff> PolymorphBuffs {
                 get {
                     if (polymorphBuffs == null) {
                         Main.LogHeader($"Identifying Polymorph Buffs");
-                        BlueprintBuff[] taggedPolyBuffs = Resources.GetBlueprints<BlueprintBuff>()
+                        IEnumerable <BlueprintBuff> taggedPolyBuffs = Resources.GetBlueprints<BlueprintBuff>()
                             .Where(bp => bp.GetComponents<SpellDescriptorComponent>()
-                                .Where(c => (c.Descriptor & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0)
-                            .ToArray();
+                                .Where(c => (c.Descriptor & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0);
                         polymorphBuffs = Resources.GetBlueprints<BlueprintAbility>()
                             .Where(bp =>
                                 (bp.GetComponents<SpellDescriptorComponent>()
@@ -46,8 +46,7 @@ namespace TabletopTweaks.BalanceAdjustments {
                             .Select(c => c.Buff)
                             .Concat(taggedPolyBuffs)
                             .Where(bp => bp.AssetGuid != "e6f2fc5d73d88064583cb828801212f4") // Fatigued
-                            .Distinct()
-                            .ToArray();
+                            .Distinct();
 
                         polymorphBuffs
                             .OrderBy(c => c.name)
@@ -60,14 +59,13 @@ namespace TabletopTweaks.BalanceAdjustments {
 
             static void Postfix(RuleCanApplyBuff __instance) {
                 if (!Resources.Settings.DisablePolymorphStacking) { return; }
-                if (!Array.Exists(PolymorphBuffs, bp => bp.Equals(__instance.Blueprint))) { return; }
+                if (!PolymorphBuffs.Contains(__instance.Blueprint)) { return; }
                 if (__instance.CanApply && (__instance.Context.MaybeCaster.Faction == __instance.Initiator.Faction)) {
-                    BlueprintBuff[] intesection = __instance.Initiator
+                    IEnumerable<BlueprintBuff> intesection = __instance.Initiator
                         .Buffs
                         .Enumerable
                         .Select(b => b.Blueprint)
-                        .Intersect(PolymorphBuffs)
-                        .ToArray();
+                        .Intersect(PolymorphBuffs);
                     if (intesection.Any()) {
                         foreach (BlueprintBuff buffToRemove in intesection) {
                             __instance.Initiator

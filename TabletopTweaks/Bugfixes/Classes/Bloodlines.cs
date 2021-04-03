@@ -204,12 +204,12 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     }},
                 };
                 foreach (BlueprintFeature Bloodline in BloodlinesBlockedCombinations.Keys) {
-                    PrerequisiteNoFeature[] newPrerequisites = BloodlinesBlockedCombinations[Bloodline].Select(b => {
+                    IEnumerable<PrerequisiteNoFeature> newPrerequisites = BloodlinesBlockedCombinations[Bloodline].Select(b => {
                         var blockFeature = ScriptableObject.CreateInstance<PrerequisiteNoFeature>();
                         blockFeature.m_Feature = b;
                         blockFeature.Group = Prerequisite.GroupType.All;
                         return blockFeature;
-                    }).ToArray();
+                    });
                     Bloodline.ComponentsArray = Bloodline.ComponentsArray.Concat(newPrerequisites)
                     .ToArray();
                     Main.LogPatch("Patched", Bloodline);
