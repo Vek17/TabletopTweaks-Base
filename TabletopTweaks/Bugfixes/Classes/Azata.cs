@@ -58,6 +58,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     IncreaseCastersSavingThrowTypeDC newFact = ScriptableObject.CreateInstance<IncreaseCastersSavingThrowTypeDC>();
                     newFact.Type = SavingThrowType.Will;
                     newFact.BonusDC = 2;
+                    newFact.name = $"{newFact.GetType().Name}";
                     OdeToMiraculousMagicBuff.ComponentsArray = OdeToMiraculousMagicBuff.ComponentsArray.AddItem(newFact).ToArray();
                     Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
                 }
@@ -126,7 +127,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
         // Patch for Zippy Magic
         [HarmonyPatch(typeof(DublicateSpellComponent), "Kingmaker.PubSubSystem.IRulebookHandler<Kingmaker.RuleSystem.Rules.Abilities.RuleCastSpell>.OnEventDidTrigger", new[] { typeof(RuleCastSpell) })]
         static class DublicateSpellComponent_OnEventDidTrigger_Patch {
-            //private static HashSet<RuleDealDamage> m_GeneratedRules = new HashSet<RuleDealDamage>();
 
             static void Postfix(DublicateSpellComponent __instance, ref RuleCastSpell evt) {
                 if (!Resources.Settings.FixAzata) { return; }
@@ -143,10 +143,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 DiceFormula dice = new DiceFormula(2, DiceType.D6);
                 int mythicLevel = evt.Spell.Caster.Unit.Progression.MythicExperience;
                 RuleDealDamage ruleDealDamage = new RuleDealDamage(evt.Spell.Caster, evt.SpellTarget.Unit, new EnergyDamage(dice, mythicLevel, DamageEnergyType.Divine));
-                //m_GeneratedRules.Add(ruleDealDamage);
-                //Main.modLogger.Log($"{evt.Spell.Name} : Zippy Trigger Damage Trigger");
                 Rulebook.Trigger<RuleDealDamage>(ruleDealDamage);
-                //m_GeneratedRules.Remove(ruleDealDamage);
             }
         }
     }
