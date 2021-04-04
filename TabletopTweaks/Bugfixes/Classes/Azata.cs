@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.Utilities;
 using UnityEngine;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -55,11 +56,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                 void PatchOdeToMiraculousMagicBuff() {
                     BlueprintBuff OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
-                    IncreaseCastersSavingThrowTypeDC newFact = ScriptableObject.CreateInstance<IncreaseCastersSavingThrowTypeDC>();
-                    newFact.Type = SavingThrowType.Will;
-                    newFact.BonusDC = 2;
-                    newFact.name = $"{newFact.GetType().Name}";
-                    OdeToMiraculousMagicBuff.ComponentsArray = OdeToMiraculousMagicBuff.ComponentsArray.AddItem(newFact).ToArray();
+                    IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
+                        c.Type = SavingThrowType.Will;
+                        c.BonusDC = 2;
+                    });
+                    OdeToMiraculousMagicBuff.AddComponent(bonusSaveDC);
                     Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
                 }
                 void PatchBelieveInYourself() {

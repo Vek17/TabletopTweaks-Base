@@ -94,7 +94,7 @@ namespace TabletopTweaks.NewComponents {
 		// Token: 0x04005B50 RID: 23376
 		[SerializeField]
 		[FormerlySerializedAs("IgnoreFeature")]
-		private BlueprintUnitFactReference m_IgnoreFeature;
+		private BlueprintUnitFactReference m_IgnoreFeature = null;
 
 		// Token: 0x04005B51 RID: 23377
 		public bool CheckFact;
@@ -103,7 +103,7 @@ namespace TabletopTweaks.NewComponents {
 		[ShowIf("CheckFact")]
 		[SerializeField]
 		[FormerlySerializedAs("FactToCheck")]
-		private BlueprintUnitFactReference m_FactToCheck;
+		private BlueprintUnitFactReference m_FactToCheck = null;
 #pragma warning restore IDE0044 // Add readonly modifier
 	}
 }

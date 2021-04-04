@@ -8,6 +8,7 @@ using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using UnityEngine;
 
 namespace TabletopTweaks.Bugfixes.Classes {

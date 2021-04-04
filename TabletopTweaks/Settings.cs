@@ -7,6 +7,7 @@ namespace TabletopTweaks {
         public bool FixDemonSubtypes = true;
         public bool FixBloodlines = true;
         public bool FixSpells = true;
+        public bool FixBuffs = true;
         public bool FixAeon = true;
         public bool FixAzata = true;
         public bool FixSlayer = true;

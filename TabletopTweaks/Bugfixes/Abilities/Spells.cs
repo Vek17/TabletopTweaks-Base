@@ -7,10 +7,11 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
-using UnityEngine;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Abilities {
     class Spells {
@@ -105,22 +106,39 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void patchProtectionFromAlignment() {
                 BlueprintAbility ProtectionFromAlignment = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
+                BlueprintAbility ProtectionFromAlignmentCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2cadf6c6350e4684baa109d067277a45");
                 BlueprintAbilityReference[] ProtectionFromAlignmentVariants = ProtectionFromAlignment
                         .GetComponent<AbilityVariants>()
                         .Variants;
-                foreach (BlueprintAbility Variant in ProtectionFromAlignmentVariants) {
-                    Variant.FlattenAllActions()
-                        .OfType<ContextActionApplyBuff>()
-                        .ForEach(a => {
-                            var newFact = ScriptableObject.CreateInstance<SpellImmunityToSpellDescriptorAgainstAlignment>();
-                            newFact.Alignment = a.Buff.GetComponent<SavingThrowBonusAgainstAlignment>().Alignment;
-                            newFact.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
-                            newFact.name = $"{newFact.GetType().Name}";
+                BlueprintAbilityReference[] ProtectionFromAlignmentCommunalVariants = ProtectionFromAlignmentCommunal
+                        .GetComponent<AbilityVariants>()
+                        .Variants;
+                HashSet<BlueprintBuff> completedBuffs = new HashSet<BlueprintBuff>();
+                foreach (BlueprintAbility Variant in ProtectionFromAlignmentVariants.Concat(ProtectionFromAlignmentCommunalVariants)) {
+                    var buff = Variant.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
+                    var alignment = buff.GetComponent<SavingThrowBonusAgainstAlignment>().Alignment;
 
-                            a.Buff.ComponentsArray = a.Buff.ComponentsArray.Append(newFact).ToArray();
-                            Main.LogPatch("Patched", a.Buff);
+                    string variantDescription = "The subject gains a +2 deflection bonus to AC and a +2 resistance bonus on saves. "
+                        + "Both these bonuses apply against attacks made or effects created by good creatures.\n"
+                        + "While under the effects of this spell, the target is immune to any new charm or compulsion effects from "
+                        + $"{alignment.ToString().ToLower()} spells or spells cast by {alignment.ToString().ToLower()} creatrues.";
+                    if (completedBuffs.Add(buff)) { 
+                        var SpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
+                            c.Alignment = alignment;
+                            c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
                         });
+                        buff.AddComponent(SpellImmunity);
+                        buff.SetDescription(variantDescription);
+                        Main.LogPatch("Patched", buff);
+                    }
+                    Variant.SetDescription(variantDescription);
                 }
+                string baseDescription = "The subject gains a +2 deflection bonus to AC and a +2 resistance bonus on saves. "
+                        + "Both these bonuses apply against attacks made or effects created by good creatures.\n"
+                        + "While under the effects of this spell, the target is immune to any new charm or compulsion effects from "
+                        + $"spells of the corresponding alignment or spells cast by creatrues of the corresponding alignment.";
+                ProtectionFromAlignment.SetDescription(baseDescription);
+                ProtectionFromAlignmentCommunal.SetDescription(baseDescription);
             }
         }
     }

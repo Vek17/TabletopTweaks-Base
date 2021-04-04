@@ -4,6 +4,7 @@
   "FixDemonSubtypes": true,
   "FixBloodlines": true,
   "FixSpells": true,
+  "FixBuffs":  true,
   "FixAeon": true,
   "FixAzata": true,
   "FixSlayer": true,

@@ -7,12 +7,12 @@ using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks {
     static class Resources {
-        public static ModEntry Mod;
+        public static ModEntry ModEntry;
         private static Settings settings;
         public static Settings Settings {
             get {
                 if (settings == null) {
-                    settings = ModSettings.Load<Settings>(Mod);
+                    settings = ModSettings.Load<Settings>(ModEntry);
                 }
                 return settings;
             }
@@ -28,13 +28,14 @@ namespace TabletopTweaks {
         }
 
         public static void LoadSettings() {
-            using (StreamReader streamReader = File.OpenText(Mod.Path + "settings.json")) {
+            using (StreamReader streamReader = File.OpenText(ModEntry.Path + "settings.json")) {
                 JObject groups = JObject.Parse(streamReader.ReadToEnd());
                 Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
                 Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
                 Settings.FixDemonSubtypes = groups["FixDemonSubtypes"].Value<bool>();
                 Settings.FixBloodlines = groups["FixBloodlines"].Value<bool>();
                 Settings.FixSpells = groups["FixSpells"].Value<bool>();
+                Settings.FixBuffs = groups["FixBuffs"].Value<bool>();
                 Settings.FixAeon = groups["FixAeon"].Value<bool>();
                 Settings.FixAzata = groups["FixAzata"].Value<bool>();
                 Settings.FixSlayer = groups["FixSlayer"].Value<bool>();
