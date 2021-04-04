@@ -8,7 +8,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace TabletopTweaks.Extensions {
+namespace TabletopTweaks.NewComponents {
     class PrerequisiteNoFeaturesFromList : Prerequisite {
         public ReferenceArrayProxy<BlueprintFeature, BlueprintFeatureReference> Features {
             get {
