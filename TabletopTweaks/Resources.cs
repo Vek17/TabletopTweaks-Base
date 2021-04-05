@@ -30,16 +30,16 @@ namespace TabletopTweaks {
         public static void LoadSettings() {
             using (StreamReader streamReader = File.OpenText(ModEntry.Path + "settings.json")) {
                 JObject groups = JObject.Parse(streamReader.ReadToEnd());
-                Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
-                Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
-                Settings.FixDemonSubtypes = groups["FixDemonSubtypes"].Value<bool>();
-                Settings.FixBloodlines = groups["FixBloodlines"].Value<bool>();
-                Settings.FixSpells = groups["FixSpells"].Value<bool>();
-                Settings.FixBuffs = groups["FixBuffs"].Value<bool>();
-                Settings.FixAeon = groups["FixAeon"].Value<bool>();
-                Settings.FixAzata = groups["FixAzata"].Value<bool>();
-                Settings.FixSlayer = groups["FixSlayer"].Value<bool>();
-                Settings.FixAzata = groups["FixWitch"].Value<bool>();
+                Settings.DisableNaturalArmorStacking = groups["disableNaturalArmorStacking"].Value<bool>();
+                Settings.DisablePolymorphStacking = groups["disablePolymorphStacking"].Value<bool>();
+                Settings.FixDemonSubtypes = groups["fixDemonSubtypes"].Value<bool>();
+                Settings.FixBloodlines = groups["fixBloodlines"].Value<bool>();
+                Settings.FixSpells = groups["fixSpells"].Value<bool>();
+                Settings.FixBuffs = groups["fixBuffs"].Value<bool>();
+                Settings.FixAeon = groups["fixAeon"].Value<bool>();
+                Settings.FixAzata = groups["fixAzata"].Value<bool>();
+                Settings.FixSlayer = groups["fixSlayer"].Value<bool>();
+                Settings.FixWitch = groups["fixWitch"].Value<bool>();
             }
         }
     }

@@ -55,7 +55,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     +"This abjuration has four effects.\nFirst, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves."
                     +"[LONGSTART] Unlike the effect of protection from good, this benefit applies against all attacks, not just against attacks by good creatures."
                     +"[LONGEND]\nSecond, warded creatures gain spell resistance 25 against good spells and spells cast by good creatures.\n"
-                    + "Third, the abjuration protects from all charm or compulsion good spells and spells cast by good creatures.\n"
+                    + "Third, the abjuration protects from all charm or compulsion effects from good spells or spells cast by good creatures.\n"
                     + "Finally, if a good creature succeeds on a melee attack against a warded creature, "
                     +"the offending attacker takes 1d6 points of Strength damage (Fortitude negates).");
 
