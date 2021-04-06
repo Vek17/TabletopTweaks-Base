@@ -4,7 +4,6 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.UnitLogic.Alignments;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
@@ -211,8 +210,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         blockFeature.Group = Prerequisite.GroupType.All;
                         return blockFeature;
                     });
-                    Bloodline.ComponentsArray = Bloodline.ComponentsArray.Concat(newPrerequisites)
-                    .ToArray();
+                    Bloodline.AddComponents(newPrerequisites);
                     Main.LogPatch("Patched", Bloodline);
                 }
             }
@@ -238,12 +236,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 EmpyrealBloodlineProgression.ToReference<BlueprintFeatureReference>(),
             };
             ExcludeBloodlines.Group = Prerequisite.GroupType.Any;
-
-            DragonDiscipleClass.ComponentsArray = DragonDiscipleClass.ComponentsArray
+            DragonDiscipleClass.SetComponents(DragonDiscipleClass.ComponentsArray
                 .Where(c => !(c is PrerequisiteNoFeature)) // Remove old Bloodline Feature
                 .Where(c => !(c is PrerequisiteNoArchetype)) // Remove Sorcerer Archetype Restrictions
-                .Append(ExcludeBloodlines)
-                .ToArray();
+                .Append(ExcludeBloodlines));
             Main.LogPatch("Patched", DragonDiscipleClass);
         }
         public static void patchSorcererArchetypes() {

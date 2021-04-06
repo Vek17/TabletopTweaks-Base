@@ -3,15 +3,26 @@
   "DisablePolymorphStacking": true,
   "FixDemonSubtypes": true,
   "FixBloodlines": true,
-  "DisableAllSpellFixes": false,
-  "SpellFixes": {
-    "WrackingRay": true,
-    "GreaterBestowCurse": true,
-    "ProtectionFromAlignment": true,
-    "GreaterProtectionFromAlignment": true
+  "Spells": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "WrackingRay": true,
+      "GreaterBestowCurse": true,
+      "ProtectionFromAlignment": true,
+      "ProtectionFromAlignmentGreater": true,
+      "BelieveInYourself": true,
+      "OdeToMiraculousMagic": true
+    }
+  },
+  "Azata": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "AzataPerformanceResource": true,
+      "FavorableMagic": true,
+      "ZippyMagic": true
+    }
   },
   "FixAeon": true,
-  "FixAzata": true,
   "FixSlayer": true,
   "FixWitch": true
 }

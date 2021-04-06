@@ -42,43 +42,16 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void Postfix() {
-                if (!Resources.Settings.FixAzata) { return; }
                 if (Initialized) return;
                 Initialized = true;
+                if (!Resources.Settings.DisableAllAzataFixes) { return; }
                 Main.LogHeader("Patching Azata Resources");
-                PatchAzataSpells();
                 PatchAzataPerformanceResource();
                 Main.LogHeader("Azata Resource Patch Complete");
             }
-            static void PatchAzataSpells() {
-                PatchOdeToMiraculousMagicBuff();
-                PatchBelieveInYourself();
-
-                void PatchOdeToMiraculousMagicBuff() {
-                    BlueprintBuff OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
-                    IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
-                        c.Type = SavingThrowType.Will;
-                        c.BonusDC = 2;
-                    });
-                    OdeToMiraculousMagicBuff.AddComponent(bonusSaveDC);
-                    Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
-                }
-                void PatchBelieveInYourself() {
-                    BlueprintAbility BelieveInYourself = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
-                    BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
-                        .GetComponent<AbilityVariants>()
-                        .Variants;
-                    foreach (BlueprintAbility Variant in BelieveInYourselfVariants) {
-                        Variant.FlattenAllActions()
-                            .OfType<ContextActionApplyBuff>()
-                            .ForEach(b => {
-                                b.Buff.GetComponent<ContextRankConfig>().m_StepLevel = 2;
-                                Main.LogPatch("Patched", b.Buff);
-                            });
-                    }
-                }
-            }
+            
             static void PatchAzataPerformanceResource() {
+                if (!Resources.Settings.Azata.Fixes["AzataPerformanceResource"]) { return; }
                 var AzataPerformanceResource = ResourcesLibrary.TryGetBlueprint<BlueprintAbilityResource>("83f8a1c45ed205a4a989b7826f5c0687");
 
                 BlueprintCharacterClassReference[] characterClasses = ResourcesLibrary
@@ -95,8 +68,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
         // Patch for Favorable Magic
         [HarmonyPatch(typeof(AzataFavorableMagic), "CheckReroll", new[] { typeof(RuleSavingThrow), typeof(RuleRollD20) })]
         static class AzataFavorableMagic_CheckReroll_Patch {
+            static bool disabled = Resources.Settings.Azata.DisableAllFixes || !Resources.Settings.Azata.Fixes["FavorableMagic"];
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if (!Resources.Settings.FixAzata) { return instructions; }
+                if (disabled) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 var startIndex = -1;
                 var stopIndex = -1;
@@ -128,9 +102,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
         // Patch for Zippy Magic
         [HarmonyPatch(typeof(DublicateSpellComponent), "Kingmaker.PubSubSystem.IRulebookHandler<Kingmaker.RuleSystem.Rules.Abilities.RuleCastSpell>.OnEventDidTrigger", new[] { typeof(RuleCastSpell) })]
         static class DublicateSpellComponent_OnEventDidTrigger_Patch {
+            static bool disabled = Resources.Settings.Azata.DisableAllFixes || !Resources.Settings.Azata.Fixes["ZippyMagic"];
 
             static void Postfix(DublicateSpellComponent __instance, ref RuleCastSpell evt) {
-                if (!Resources.Settings.FixAzata) { return; }
+                if (disabled) { return; }
                 Main.Log("Zippy Trigger");
                 if (evt.IsSpellFailed ||
                     evt.Spell.IsAOE ||

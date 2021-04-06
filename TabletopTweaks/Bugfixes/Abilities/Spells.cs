@@ -2,12 +2,14 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,40 +38,47 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.DisableAllSpellFixes) { return; }
+                if (Resources.Settings.Spells.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Spell Resources");
-                patchWrachingRay();
-                patchGreaterBestowCurse();
-                patchProtectionFromAlignment();
-                patchGreaterProtectionFromAlignment();
+                PatchBelieveInYourself();
+                PatchGreaterBestowCurse();
+                PatchOdeToMiraculousMagicBuff();
+                PatchProtectionFromAlignment();
+                PatchProtectionFromAlignmentGreater();
+                PatchWrachingRay();
                 Main.LogHeader("Patching Spells Complete");
             }
-            static void patchWrachingRay() {
-                if (!Resources.Settings.SpellFixes["WrackingRay"]) { return;  }
-                var WrackingRay = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
-                foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
-                    foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {
-                        action.Value.DiceType = Kingmaker.RuleSystem.DiceType.D4;
-                    }
+            static void PatchBelieveInYourself() {
+                if (!Resources.Settings.Spells.Fixes["BelieveInYourself"]) { return; }
+                BlueprintAbility BelieveInYourself = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
+                BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
+                    .GetComponent<AbilityVariants>()
+                    .Variants;
+                foreach (BlueprintAbility Variant in BelieveInYourselfVariants) {
+                    Variant.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .ForEach(b => {
+                            b.Buff.GetComponent<ContextRankConfig>().m_StepLevel = 2;
+                            Main.LogPatch("Patched", b.Buff);
+                        });
                 }
-                Main.LogPatch("Patched", WrackingRay);
             }
-            static void patchGreaterBestowCurse() {
-                if (!Resources.Settings.SpellFixes["GreaterBestowCurse"]) { return; }
+            static void PatchGreaterBestowCurse() {
+                if (!Resources.Settings.Spells.Fixes["GreaterBestowCurse"]) { return; }
                 var BestowCurseGreaterDeterioration = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
-                var BestowCurseGreaterFeebleBody    = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
-                var BestowCurseGreaterIdiocy        = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
-                var BestowCurseGreaterWeakness      = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("abb2d42dd9219eb41848ec56a8726d58");
+                var BestowCurseGreaterFeebleBody = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
+                var BestowCurseGreaterIdiocy = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
+                var BestowCurseGreaterWeakness = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("abb2d42dd9219eb41848ec56a8726d58");
 
                 var BestowCurseGreaterDeteriorationCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("54606d540f5d3684d9f7d6e2e2be9b63");
-                var BestowCurseGreaterFeebleBodyCast    = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("292d630a5abae64499bb18057aaa24b4");
-                var BestowCurseGreaterIdiocyCast        = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e0212142d2a426f43926edd4202996bb");
-                var BestowCurseGreaterWeaknessCast      = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1168f36fac0bad64f965928206df7b86");
+                var BestowCurseGreaterFeebleBodyCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("292d630a5abae64499bb18057aaa24b4");
+                var BestowCurseGreaterIdiocyCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e0212142d2a426f43926edd4202996bb");
+                var BestowCurseGreaterWeaknessCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1168f36fac0bad64f965928206df7b86");
 
                 var BestowCurseGreaterDeteriorationBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("8f8835d083f31c547a39ebc26ae42159");
-                var BestowCurseGreaterFeebleBodyBuff    = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("28c9db77dfb1aa54a94e8a7413b1840a");
-                var BestowCurseGreaterIdiocyBuff        = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("493dcc29a21abd94d9adb579e1f40318");
-                var BestowCurseGreaterWeaknessBuff      = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("0493a9d25687d7e4682e250ae3ccb187");
+                var BestowCurseGreaterFeebleBodyBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("28c9db77dfb1aa54a94e8a7413b1840a");
+                var BestowCurseGreaterIdiocyBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("493dcc29a21abd94d9adb579e1f40318");
+                var BestowCurseGreaterWeaknessBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("0493a9d25687d7e4682e250ae3ccb187");
 
                 // Update the on cast trigger
                 BestowCurseGreaterDeteriorationCast
@@ -110,8 +119,18 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     .m_Buff = BestowCurseGreaterWeaknessBuff.ToReference<BlueprintBuffReference>();
                 Main.LogPatch("Patched", BestowCurseGreaterWeakness);
             }
-            static void patchProtectionFromAlignment() {
-                if (!Resources.Settings.SpellFixes["ProtectionFromAlignment"]) { return; }
+            static void PatchOdeToMiraculousMagicBuff() {
+                if (!Resources.Settings.Spells.Fixes["OdeToMiraculousMagic"]) { return; }
+                BlueprintBuff OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
+                IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
+                    c.Type = SavingThrowType.Will;
+                    c.BonusDC = 2;
+                });
+                OdeToMiraculousMagicBuff.AddComponent(bonusSaveDC);
+                Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
+            }
+            static void PatchProtectionFromAlignment() {
+                if (!Resources.Settings.Spells.Fixes["ProtectionFromAlignment"]) { return; }
                 BlueprintAbility ProtectionFromAlignment = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
                 BlueprintAbility ProtectionFromAlignmentCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2cadf6c6350e4684baa109d067277a45");
                 BlueprintAbilityReference[] ProtectionFromAlignmentVariants = ProtectionFromAlignment
@@ -129,7 +148,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         + "Both these bonuses apply against attacks made or effects created by good creatures.\n"
                         + "While under the effects of this spell, the target is immune to any new charm or compulsion effects from "
                         + $"{alignment.ToString().ToLower()} spells or spells cast by {alignment.ToString().ToLower()} creatrues.";
-                    if (completedBuffs.Add(buff)) { 
+                    if (completedBuffs.Add(buff)) {
                         var SpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
                             c.Alignment = alignment;
                             c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
@@ -150,8 +169,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", ProtectionFromAlignment);
                 Main.LogPatch("Patched", ProtectionFromAlignmentCommunal);
             }
-            static void patchGreaterProtectionFromAlignment() {
-                if (!Resources.Settings.SpellFixes["GreaterProtectionFromAlignment"]) { return; }
+            static void PatchProtectionFromAlignmentGreater() {
+                if (!Resources.Settings.Spells.Fixes["ProtectionFromAlignmentGreater"]) { return; }
                 patchUnholyAura();
                 patchHolyAura();
                 patchShieldOfLaw();
@@ -174,41 +193,41 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     BlueprintAbility UnholyAura = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("808ab74c12df8784ab4eeaf6a107dbea");
                     BlueprintBuff UnholyAuraBuff = UnholyAura.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     string description = "A brilliant divine radiance surrounds the subjects, protecting them from attacks, "
-                        +"granting them resistance to spells cast by evil creatures, and causing evil creatures to become "
-                        +"blinded when they strike the subjects. This abjuration has four effects.\nFirst, each warded creature "
-                        +"gains a +4 deflection bonus to AC and a +4 resistance bonus on saves.[LONGSTART] Unlike protection from evil, "
-                        +"this benefit applies against all attacks, not just against attacks by evil creatures.[LONGEND]\nSecond, each "
-                        +"warded creature gains spell resistance 25 against evil spells and spells cast by evil creatures.\n"
-                        +"Third, the abjuration protects from all charm or compulsion effects from evil spells or spells cast by evil creatures."
-                        +"\nFinally, if an evil creature succeeds on a melee attack against a creature warded by a "
-                        +"holy aura, the offending attacker is blinded (Fortitude save negates, "
-                        +"as blindness, but against holy aura's save DC).";
+                        + "granting them resistance to spells cast by evil creatures, and causing evil creatures to become "
+                        + "blinded when they strike the subjects. This abjuration has four effects.\nFirst, each warded creature "
+                        + "gains a +4 deflection bonus to AC and a +4 resistance bonus on saves.[LONGSTART] Unlike protection from evil, "
+                        + "this benefit applies against all attacks, not just against attacks by evil creatures.[LONGEND]\nSecond, each "
+                        + "warded creature gains spell resistance 25 against evil spells and spells cast by evil creatures.\n"
+                        + "Third, the abjuration protects from all charm or compulsion effects from evil spells or spells cast by evil creatures."
+                        + "\nFinally, if an evil creature succeeds on a melee attack against a creature warded by a "
+                        + "holy aura, the offending attacker is blinded (Fortitude save negates, "
+                        + "as blindness, but against holy aura's save DC).";
                     patchAbility(UnholyAura, AlignmentComponent.Evil, description);
                 }
                 void patchShieldOfLaw() {
                     BlueprintAbility ShieldOfLaw = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("73e7728808865094b8892613ddfaf7f5");
                     BlueprintBuff ShieldOfLawBuff = ShieldOfLaw.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     string description = "A dim blue glow surrounds the subjects, protecting them from attacks, granting them resistance to spells "
-                        +"cast by chaotic creatures, and slowing chaotic creatures when they strike the subjects. This abjuration has four effects."
-                        +"\nFirst, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves.[LONGSTART] Unlike protection from chaos, "
-                        +"this benefit applies against all attacks, not just against attacks by chaotic creatures.[LONGEND]\n"
-                        +"Second, a warded creature gains spell resistance 25 against chaotic spells and spells cast by chaotic creatures.\n"
+                        + "cast by chaotic creatures, and slowing chaotic creatures when they strike the subjects. This abjuration has four effects."
+                        + "\nFirst, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves.[LONGSTART] Unlike protection from chaos, "
+                        + "this benefit applies against all attacks, not just against attacks by chaotic creatures.[LONGEND]\n"
+                        + "Second, a warded creature gains spell resistance 25 against chaotic spells and spells cast by chaotic creatures.\n"
                         + "Third, the abjuration protects from all charm or compulsion effects from chaotic spells or spells cast by chaotic creatures."
                         + "\nFinally, if a chaotic creature succeeds on a melee attack against a warded creature, the attacker is slowed "
-                        +"(Will save negates, as the slow spell, but against shield of law's save DC).";
+                        + "(Will save negates, as the slow spell, but against shield of law's save DC).";
                     patchAbility(ShieldOfLaw, AlignmentComponent.Chaotic, description);
                 }
                 void patchCloakOfChoas() {
                     BlueprintAbility CloakOfChoas = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9155dbc8268da1c49a7fc4834fa1a4b1");
                     BlueprintBuff CloakOfChoasBuff = CloakOfChoas.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     string description = "A random pattern of color surrounds the subjects, protecting them from attacks, granting them resistance to spells"
-                        +"cast by lawful creatures, and causing lawful creatures that strike the subjects to become confused. This abjuration has four effects."
-                        +"\nFirst, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves.[LONGSTART] Unlike protection from law, "
+                        + "cast by lawful creatures, and causing lawful creatures that strike the subjects to become confused. This abjuration has four effects."
+                        + "\nFirst, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves.[LONGSTART] Unlike protection from law, "
                         + "this benefit applies against all attacks, not just against attacks by lawful creatures.[LONGEND]\n"
-                        +"Second, each warded creature gains spell resistance 25 against lawful spells and spells cast by lawful creatures.\n"
+                        + "Second, each warded creature gains spell resistance 25 against lawful spells and spells cast by lawful creatures.\n"
                         + "Third, the abjuration protects from all charm or compulsion effects from lawful spells or spells cast by lawful creatures."
                         + "\nFinally, if a lawful creature succeeds on a melee attack against a warded creature, the offending attacker is confused "
-                        +"for 1 round (Will save negates, as with the confusion spell, but against the save DC of cloak of chaos).";
+                        + "for 1 round (Will save negates, as with the confusion spell, but against the save DC of cloak of chaos).";
                     patchAbility(CloakOfChoas, AlignmentComponent.Lawful, description);
                 }
 
@@ -231,6 +250,17 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     Main.LogPatch("Patched", buff);
                 }
             }
+            static void PatchWrachingRay() {
+                if (!Resources.Settings.Spells.Fixes["WrackingRay"]) { return; }
+                var WrackingRay = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
+                foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
+                    foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {
+                        action.Value.DiceType = Kingmaker.RuleSystem.DiceType.D4;
+                    }
+                }
+                Main.LogPatch("Patched", WrackingRay);
+            }
+
         }
     }
 }

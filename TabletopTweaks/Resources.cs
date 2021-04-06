@@ -1,9 +1,9 @@
 ﻿using Kingmaker.Blueprints;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using static TabletopTweaks.Settings;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks {
@@ -13,7 +13,7 @@ namespace TabletopTweaks {
         public static Settings Settings {
             get {
                 if (settings == null) {
-                    settings = ModSettings.Load<Settings>(ModEntry);
+                    settings = new Settings();
                 }
                 return settings;
             }
@@ -33,6 +33,7 @@ namespace TabletopTweaks {
                 JObject groups = JObject.Parse(streamReader.ReadToEnd());
                 Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
                 Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
+                /*
                 Settings.DisableAllSpellFixes = groups["DisableAllSpellFixes"].Value<bool>();
                 Settings.SpellFixes = groups["SpellFixes"].Value<JObject>()
                     .Properties()
@@ -40,17 +41,25 @@ namespace TabletopTweaks {
                         k => k.Name,
                         v => v.Value.Value<bool>()
                 );
+                */
+                Settings.Azata = new SettingsGroup(groups["Azata"]);
+                Settings.Spells = new SettingsGroup(groups["Spells"]);
+
                 Settings.FixDemonSubtypes = groups["FixDemonSubtypes"].Value<bool>();
                 Settings.FixBloodlines = groups["FixBloodlines"].Value<bool>();
                 Settings.FixAeon = groups["FixAeon"].Value<bool>();
-                Settings.FixAzata = groups["FixAzata"].Value<bool>();
+                /*
+                Settings.DisableAllAzataFixes = groups["DisableAllAzataFixes"].Value<bool>();
+                Settings.AzataFixes = groups["AzataFixes"].Value<JObject>()
+                    .Properties()
+                    .ToDictionary(
+                        k => k.Name,
+                        v => v.Value.Value<bool>()
+                );
+                */
                 Settings.FixSlayer = groups["FixSlayer"].Value<bool>();
                 Settings.FixWitch = groups["FixWitch"].Value<bool>();
             }
-        }
-
-        private static int Dictionary<T1, T2>() {
-            throw new NotImplementedException();
         }
     }
 }
