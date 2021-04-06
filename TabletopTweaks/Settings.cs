@@ -6,23 +6,21 @@ namespace TabletopTweaks {
     public class Settings {
         public bool DisableNaturalArmorStacking = true;
         public bool DisablePolymorphStacking = true;
-        public SettingsGroup Azata;
-        public SettingsGroup Spells;
-        public bool DisableAllSpellFixes = true;
-        public Dictionary<string, bool> SpellFixes = new Dictionary<string, bool>();
-        public bool DisableAllAzataFixes = true;
-        public Dictionary<string, bool> AzataFixes = new Dictionary<string, bool>();
         public bool FixDemonSubtypes = true;
-        public bool FixBloodlines = true;
-        public bool FixAeon = true;
-        public bool FixSlayer = true;
-        public bool FixWitch = true;
+        public FixGroup Aeon;
+        public FixGroup Azata;
+        public FixGroup DragonDisciple;
+        public FixGroup Slayer;
+        public FixGroup Witch;
+        public FixGroup Spells;
+        public FixGroup Bloodlines;
+        public FixGroup MythicAbilities;
 
-        public class SettingsGroup {
+        public class FixGroup {
             public bool DisableAllFixes = false;
             public Dictionary<string, bool> Fixes = new Dictionary<string, bool>();
 
-            public SettingsGroup (JToken json) {
+            public FixGroup(JToken json) {
                 if(json == null) {
                     return;
                 }

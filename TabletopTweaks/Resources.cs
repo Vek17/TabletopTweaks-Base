@@ -42,12 +42,15 @@ namespace TabletopTweaks {
                         v => v.Value.Value<bool>()
                 );
                 */
-                Settings.Azata = new SettingsGroup(groups["Azata"]);
-                Settings.Spells = new SettingsGroup(groups["Spells"]);
-
+                Settings.Azata = new FixGroup(groups["Azata"]);
+                Settings.Aeon = new FixGroup(groups["Aeon"]);
+                Settings.Witch = new FixGroup(groups["Witch"]);
+                Settings.Slayer = new FixGroup(groups["Slayer"]);
+                Settings.Bloodlines = new FixGroup(groups["Bloodlines"]);
+                Settings.MythicAbilities = new FixGroup(groups["MythicAbilities"]);
+                Settings.Spells = new FixGroup(groups["Spells"]);
+                Settings.DragonDisciple = new FixGroup(groups["DragonDisciple"]);
                 Settings.FixDemonSubtypes = groups["FixDemonSubtypes"].Value<bool>();
-                Settings.FixBloodlines = groups["FixBloodlines"].Value<bool>();
-                Settings.FixAeon = groups["FixAeon"].Value<bool>();
                 /*
                 Settings.DisableAllAzataFixes = groups["DisableAllAzataFixes"].Value<bool>();
                 Settings.AzataFixes = groups["AzataFixes"].Value<JObject>()
@@ -57,8 +60,6 @@ namespace TabletopTweaks {
                         v => v.Value.Value<bool>()
                 );
                 */
-                Settings.FixSlayer = groups["FixSlayer"].Value<bool>();
-                Settings.FixWitch = groups["FixWitch"].Value<bool>();
             }
         }
     }

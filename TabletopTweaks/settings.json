@@ -2,7 +2,43 @@
   "DisableNaturalArmorStacking": true,
   "DisablePolymorphStacking": true,
   "FixDemonSubtypes": true,
-  "FixBloodlines": true,
+  "Aeon": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "AeonBaneUses": true
+    }
+  },
+  "Azata": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "AzataPerformanceResource": true,
+      "FavorableMagic": true,
+      "ZippyMagic": true
+    }
+  },
+  "DragonDisciple": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "Prerequisites": true
+    }
+  },
+  "Slayer": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "StudiedTarget": true
+    }
+  },
+  "Witch": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "DeathCurse": true,
+      "DeliciousFright": true,
+      "EvilEye": true,
+      "Hoarfrost": true,
+      "RestlessSlumber": true,
+      "Slumber": true
+    }
+  },
   "Spells": {
     "DisableAllFixes": false,
     "Fixes": {
@@ -14,15 +50,17 @@
       "OdeToMiraculousMagic": true
     }
   },
-  "Azata": {
+  "Bloodlines": {
     "DisableAllFixes": false,
     "Fixes": {
-      "AzataPerformanceResource": true,
-      "FavorableMagic": true,
-      "ZippyMagic": true
+      "BloodlineRestrictions": true
     }
   },
-  "FixAeon": true,
-  "FixSlayer": true,
-  "FixWitch": true
+  "MythicAbilities": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "BloodlineAscendance": true,
+      "SecondBloodline": true
+    }
+  }
 }
