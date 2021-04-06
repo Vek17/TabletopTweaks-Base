@@ -126,7 +126,7 @@
     <None Include="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <EmbeddedResource Include="Fixes.json" />
+    <EmbeddedResource Include="Config\Fixes.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

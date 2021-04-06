@@ -32,7 +32,7 @@ namespace TabletopTweaks {
         
         public static void LoadSettings() {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "TabletopTweaks.Fixes.json";
+            var resourceName = "TabletopTweaks.Config.Fixes.json";
             string userConfigFolder = ModEntry.Path + "UserSettings";
             string userConfigPath = userConfigFolder + "\\Fixes.json";
             JsonSerializer serializer = new JsonSerializer();

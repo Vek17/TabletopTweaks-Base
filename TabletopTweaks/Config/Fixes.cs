@@ -17,8 +17,8 @@ namespace TabletopTweaks.Config {
 
         public void OverrideFixes(Fixes newFixes) {
             DisableNaturalArmorStacking = newFixes.DisableNaturalArmorStacking;
-            DisablePolymorphStacking    = newFixes.DisablePolymorphStacking;
-            FixDemonSubtypes            = newFixes.FixDemonSubtypes;
+            DisablePolymorphStacking = newFixes.DisablePolymorphStacking;
+            FixDemonSubtypes = newFixes.FixDemonSubtypes;
             Aeon.LoadFixgroup(newFixes.Aeon);
             Azata.LoadFixgroup(newFixes.Azata);
             DragonDisciple.LoadFixgroup(newFixes.DragonDisciple);
@@ -31,7 +31,7 @@ namespace TabletopTweaks.Config {
 
         public class FixGroup {
             public bool DisableAllFixes = false;
-            public Dictionary<string, bool> Fixes = new Dictionary<string, bool>();
+            public SortedDictionary<string, bool> Fixes = new SortedDictionary<string, bool>();
             public void LoadFixgroup(FixGroup group) {
                 DisableAllFixes = group.DisableAllFixes;
                 group.Fixes.ForEach(entry => Fixes[entry.Key] = entry.Value);
