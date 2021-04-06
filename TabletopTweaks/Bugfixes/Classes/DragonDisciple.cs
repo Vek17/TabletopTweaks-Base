@@ -30,14 +30,14 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.DragonDisciple.DisableAllFixes) { return; }
+                if (Resources.Fixes.DragonDisciple.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Dragon Disciple Resources");
                 patchPrerequisites();
                 Main.LogHeader("Patching Dragon Disciple Resources Complete");
                 //Do Stuff
             }
             static void patchPrerequisites() {
-                if (!Resources.Settings.DragonDisciple.Fixes["Prerequisites"]) { return; }
+                if (!Resources.Fixes.DragonDisciple.Fixes["Prerequisites"]) { return; }
                 BlueprintFeatureSelection BloodOfDragonsSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("da48f9d7f697ae44ca891bfc50727988");
                 BlueprintFeatureSelection BloodragerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 BlueprintFeatureSelection SorcererBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("24bef8d1bee12274686f6da6ccbc8914");
@@ -49,20 +49,26 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 // Patch Bloodline Selection
                 BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = BloodragerBloodlineSelection.m_AllFeatures;
                 PrerequisiteNoFeaturesFromList ExcludeBloodlines = ScriptableObject.CreateInstance<PrerequisiteNoFeaturesFromList>();
-                ExcludeBloodlines.Features = new BlueprintFeatureReference[] {
-                BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                SorcererBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                SeekerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                SylvanBloodlineProgression.ToReference<BlueprintFeatureReference>(),
-                SageBloodlineProgression.ToReference<BlueprintFeatureReference>(),
-                EmpyrealBloodlineProgression.ToReference<BlueprintFeatureReference>(),
-            };
+                    ExcludeBloodlines.Features = new BlueprintFeatureReference[] {
+                    BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                    SorcererBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                    SeekerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                    SylvanBloodlineProgression.ToReference<BlueprintFeatureReference>(),
+                    SageBloodlineProgression.ToReference<BlueprintFeatureReference>(),
+                    EmpyrealBloodlineProgression.ToReference<BlueprintFeatureReference>(),
+                };
                 ExcludeBloodlines.Group = Prerequisite.GroupType.Any;
                 DragonDiscipleClass.SetComponents(DragonDiscipleClass.ComponentsArray
                     .Where(c => !(c is PrerequisiteNoFeature)) // Remove old Bloodline Feature
                     .Where(c => !(c is PrerequisiteNoArchetype)) // Remove Sorcerer Archetype Restrictions
                     .Append(ExcludeBloodlines));
                 Main.LogPatch("Patched", DragonDiscipleClass);
+            }
+            static void PatchBloodlineSelection() {
+                if (!Resources.Fixes.DragonDisciple.Fixes["BloodlineSelection"]) { return; }
+                BlueprintFeatureSelection BloodOfDragonsSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("da48f9d7f697ae44ca891bfc50727988");
+                BlueprintFeatureSelection BloodragerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
+                BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = BloodragerBloodlineSelection.m_AllFeatures;
             }
         }
     }

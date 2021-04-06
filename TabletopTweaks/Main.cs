@@ -10,7 +10,7 @@ namespace TabletopTweaks {
             var harmony = new Harmony(modEntry.Info.Id);
             Resources.ModEntry = modEntry;
             //Resources.Initalize();
-            Resources.LoadSettings();
+            //Resources.LoadSettings();
             harmony.PatchAll();
             return true;
         }

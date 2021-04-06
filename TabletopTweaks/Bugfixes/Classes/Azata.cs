@@ -35,14 +35,14 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.Azata.DisableAllFixes) { return; }
+                if (Resources.Fixes.Azata.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Azata Resources");
                 PatchAzataPerformanceResource();
                 Main.LogHeader("Azata Resource Patch Complete");
             }
             
             static void PatchAzataPerformanceResource() {
-                if (!Resources.Settings.Azata.Fixes["AzataPerformanceResource"]) { return; }
+                if (!Resources.Fixes.Azata.Fixes["AzataPerformanceResource"]) { return; }
                 var AzataPerformanceResource = ResourcesLibrary.TryGetBlueprint<BlueprintAbilityResource>("83f8a1c45ed205a4a989b7826f5c0687");
 
                 BlueprintCharacterClassReference[] characterClasses = ResourcesLibrary
@@ -59,7 +59,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
         // Patch for Favorable Magic
         [HarmonyPatch(typeof(AzataFavorableMagic), "CheckReroll", new[] { typeof(RuleSavingThrow), typeof(RuleRollD20) })]
         static class AzataFavorableMagic_CheckReroll_Patch {
-            static bool disabled = Resources.Settings.Azata.DisableAllFixes || !Resources.Settings.Azata.Fixes["FavorableMagic"];
+            static bool disabled = Resources.Fixes.Azata.DisableAllFixes || !Resources.Fixes.Azata.Fixes["FavorableMagic"];
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
                 if (disabled) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
@@ -93,7 +93,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
         // Patch for Zippy Magic
         [HarmonyPatch(typeof(DublicateSpellComponent), "Kingmaker.PubSubSystem.IRulebookHandler<Kingmaker.RuleSystem.Rules.Abilities.RuleCastSpell>.OnEventDidTrigger", new[] { typeof(RuleCastSpell) })]
         static class DublicateSpellComponent_OnEventDidTrigger_Patch {
-            static bool disabled = Resources.Settings.Azata.DisableAllFixes || !Resources.Settings.Azata.Fixes["ZippyMagic"];
+            static bool disabled = Resources.Fixes.Azata.DisableAllFixes || !Resources.Fixes.Azata.Fixes["ZippyMagic"];
 
             static void Postfix(DublicateSpellComponent __instance, ref RuleCastSpell evt) {
                 if (disabled) { return; }

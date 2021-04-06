@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace TabletopTweaks.MechanicsChanges {
     static class NaturalArmorStacking {
         public static void patchPolymorphEffects() {
-            if (!Resources.Settings.DisablePolymorphStacking) { return; }
+            if (!Resources.Fixes.DisablePolymorphStacking) { return; }
         }
     }
 
@@ -20,7 +20,7 @@ namespace TabletopTweaks.MechanicsChanges {
     static class ModifierDescriptorHelper_IsStackable_Patch {
 
         static void Postfix(ref bool __result, ModifierDescriptor descriptor) {
-            if (!Resources.Settings.DisableNaturalArmorStacking) { return; }
+            if (!Resources.Fixes.DisableNaturalArmorStacking) { return; }
             if (descriptor == ModifierDescriptor.NaturalArmor) {
                 __result = false;
             }
@@ -46,7 +46,7 @@ namespace TabletopTweaks.MechanicsChanges {
         static void Postfix() {
             if (Initialized) return;
             Initialized = true;
-            if (!Resources.Settings.DisableNaturalArmorStacking) { return; }
+            if (!Resources.Fixes.DisableNaturalArmorStacking) { return; }
             Main.LogHeader("Patching NaturalArmor Resources");
             patchNaturalArmorEffects();
             Main.LogHeader("NaturalArmor Resource Patch Complete");

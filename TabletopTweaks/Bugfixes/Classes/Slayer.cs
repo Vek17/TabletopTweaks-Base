@@ -24,7 +24,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.Slayer.DisableAllFixes) { return; }
+                if (Resources.Fixes.Slayer.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Slayer Resources");
                 patchSlayerStudiedTarget();
                 Main.LogHeader("Slayer Resource Patch Complete");
@@ -34,7 +34,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
         }
 
         public static void patchSlayerStudiedTarget() {
-            if (!Resources.Settings.Slayer.Fixes["StudiedTarget"]) { return; }
+            if (!Resources.Fixes.Slayer.Fixes["StudiedTarget"]) { return; }
             BlueprintBuff SlayerStudiedTargetBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
             SlayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
             Main.LogPatch("Patched", SlayerStudiedTargetBuff);

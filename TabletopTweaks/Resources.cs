@@ -1,21 +1,23 @@
 ﻿using Kingmaker.Blueprints;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using static TabletopTweaks.Settings;
+using System.Reflection;
+using TabletopTweaks.Config;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks {
     static class Resources {
         public static ModEntry ModEntry;
-        private static Settings settings;
-        public static Settings Settings {
+        private static Fixes fixes;
+        public static Fixes Fixes {
             get {
-                if (settings == null) {
-                    settings = new Settings();
+                if (fixes == null) {
+                    LoadSettings();
                 }
-                return settings;
+                return fixes;
             }
         }
         private static IEnumerable<BlueprintScriptableObject> blueprints;
@@ -27,40 +29,25 @@ namespace TabletopTweaks {
             }
             return blueprints.OfType<T>();
         }
-
+        
         public static void LoadSettings() {
-            using (StreamReader streamReader = File.OpenText(ModEntry.Path + "settings.json")) {
-                JObject groups = JObject.Parse(streamReader.ReadToEnd());
-                Settings.DisableNaturalArmorStacking = groups["DisableNaturalArmorStacking"].Value<bool>();
-                Settings.DisablePolymorphStacking = groups["DisablePolymorphStacking"].Value<bool>();
-                /*
-                Settings.DisableAllSpellFixes = groups["DisableAllSpellFixes"].Value<bool>();
-                Settings.SpellFixes = groups["SpellFixes"].Value<JObject>()
-                    .Properties()
-                    .ToDictionary(
-                        k => k.Name,
-                        v => v.Value.Value<bool>()
-                );
-                */
-                Settings.Azata = new FixGroup(groups["Azata"]);
-                Settings.Aeon = new FixGroup(groups["Aeon"]);
-                Settings.Witch = new FixGroup(groups["Witch"]);
-                Settings.Slayer = new FixGroup(groups["Slayer"]);
-                Settings.Bloodlines = new FixGroup(groups["Bloodlines"]);
-                Settings.MythicAbilities = new FixGroup(groups["MythicAbilities"]);
-                Settings.Spells = new FixGroup(groups["Spells"]);
-                Settings.DragonDisciple = new FixGroup(groups["DragonDisciple"]);
-                Settings.FixDemonSubtypes = groups["FixDemonSubtypes"].Value<bool>();
-                /*
-                Settings.DisableAllAzataFixes = groups["DisableAllAzataFixes"].Value<bool>();
-                Settings.AzataFixes = groups["AzataFixes"].Value<JObject>()
-                    .Properties()
-                    .ToDictionary(
-                        k => k.Name,
-                        v => v.Value.Value<bool>()
-                );
-                */
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "TabletopTweaks.Fixes.json";
+            string userConfigFolder = ModEntry.Path + "UserSettings";
+            string userConfigPath = userConfigFolder + "\\Fixes.json";
+            JsonSerializer serializer = new JsonSerializer();
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream)) {
+                fixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
             }
+            Directory.CreateDirectory(userConfigFolder);
+            if (File.Exists(userConfigPath)) {
+                using (StreamReader reader = File.OpenText(userConfigPath)) {
+                    Fixes userFixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
+                    fixes.OverrideFixes(userFixes);
+                }
+            }
+            File.WriteAllText(userConfigPath, JsonConvert.SerializeObject(fixes, Formatting.Indented));
         }
     }
 }

@@ -27,7 +27,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.MythicAbilities.DisableAllFixes) { return; }
+                if (Resources.Fixes.MythicAbilities.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Mythic Ability Resources");
                 patchBloodlineAscendance();
                 patchSecondBloodline();
@@ -35,7 +35,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 //Do Stuff
             }
             static void patchBloodlineAscendance() {
-                if (!Resources.Settings.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
+                if (!Resources.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
                 BlueprintFeatureSelection BloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 PrerequisiteFeaturesFromList newPrerequisites = ScriptableObject.CreateInstance<PrerequisiteFeaturesFromList>();
 
@@ -55,7 +55,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
             static void patchSecondBloodline() {
-                if (!Resources.Settings.MythicAbilities.Fixes["SecondBloodline"]) { return; }
+                if (!Resources.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
                 PrerequisiteFeaturesFromList NewPrerequisites = ScriptableObject.CreateInstance<PrerequisiteFeaturesFromList>();
 

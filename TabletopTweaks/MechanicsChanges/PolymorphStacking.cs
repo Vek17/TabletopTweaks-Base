@@ -58,7 +58,7 @@ namespace TabletopTweaks.BalanceAdjustments {
             }
 
             static void Postfix(RuleCanApplyBuff __instance) {
-                if (!Resources.Settings.DisablePolymorphStacking) { return; }
+                if (!Resources.Fixes.DisablePolymorphStacking) { return; }
                 if (!PolymorphBuffs.Contains(__instance.Blueprint)) { return; }
                 if (__instance.CanApply && (__instance.Context.MaybeCaster.Faction == __instance.Initiator.Faction)) {
                     IEnumerable<BlueprintBuff> intesection = __instance.Initiator

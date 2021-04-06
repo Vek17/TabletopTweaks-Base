@@ -29,7 +29,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.Bloodlines.DisableAllFixes) { return; }
+                if (Resources.Fixes.Bloodlines.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Bloodline Resources");
                 patchBloodlineRestrictions();
                 Main.LogHeader("Patching Bloodline Complete");
@@ -37,7 +37,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
         }
         static void patchBloodlineRestrictions() {
-            if (!Resources.Settings.Bloodlines.Fixes["BloodlineRestrictions"]) { return; }
+            if (!Resources.Fixes.Bloodlines.Fixes["BloodlineRestrictions"]) { return; }
             // Sorceror Bloodlines
             BlueprintFeature BloodlineAbyssal = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("d3a4cb7be97a6694290f0dcfbd147113");
             BlueprintFeature BloodlineArcane = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("4d491cf9631f7e9429444f4aed629791");

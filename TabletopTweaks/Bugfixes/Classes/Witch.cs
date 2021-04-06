@@ -28,7 +28,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.Witch.DisableAllFixes) { return; }
+                if (Resources.Fixes.Witch.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Witch Resources");
                 patchWitchHexes();
                 Main.LogHeader("Witch Resource Patch Complete");
@@ -43,21 +43,21 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchRestlessSlumber();
 
                 void PatchDeathCurse() {
-                    if (!Resources.Settings.Witch.Fixes["DeathCurse"]) { return; }
+                    if (!Resources.Fixes.Witch.Fixes["DeathCurse"]) { return; }
                     BlueprintAbility WitchHexDeathCurseAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d560ab2a1b0613649833a0d92d6cfc6b");
                     WitchHexDeathCurseAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | Death | Curse;
                     Main.LogPatch("Patched", WitchHexDeathCurseAbility);
                 }
                 void PatchDeliciousFright() {
-                    if (!Resources.Settings.Witch.Fixes["DeliciousFright"]) { return; }
+                    if (!Resources.Fixes.Witch.Fixes["DeliciousFright"]) { return; }
                     BlueprintAbility WitchHexDeliciousFrightAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e7489733ac7ccca40917d9364b406adb");
                     WitchHexDeliciousFrightAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | MindAffecting | Fear;
                     Main.LogPatch("Patched", WitchHexDeliciousFrightAbility);
                 }
                 void PatchEvilEye() {
-                    if (!Resources.Settings.Witch.Fixes["EvilEye"]) { return; }
+                    if (!Resources.Fixes.Witch.Fixes["EvilEye"]) { return; }
                     BlueprintAbility WitchHexEvilEyeAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d25c72a92dd8d38449a6a371ef36413e");
                     BlueprintAbility WitchHexSlumberAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("630ea63a63457ff4f9de059c578c930a");
                     // EvilEye additionally needs to have its casting attribute corrected to use the spellbook attribute
@@ -74,21 +74,21 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     }
                 }
                 void PatchHoarfrost() {
-                    if (!Resources.Settings.Witch.Fixes["Hoarfrost"]) { return; }
+                    if (!Resources.Fixes.Witch.Fixes["Hoarfrost"]) { return; }
                     BlueprintAbility WitchHexHoarfrostAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("7244a24f0c186ce4b8a89fd26feded50");
                     WitchHexHoarfrostAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | Cold;
                     Main.LogPatch("Patched", WitchHexHoarfrostAbility);
                 }
                 void PatchRestlessSlumber() {
-                    if (!Resources.Settings.Witch.Fixes["RestlessSlumber"]) { return; }
+                    if (!Resources.Fixes.Witch.Fixes["RestlessSlumber"]) { return; }
                     BlueprintAbility WitchHexRestlessSlumberAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("a69fb167bb41c6f45a19c81ed4e3c0d9");
                     WitchHexRestlessSlumberAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | MindAffecting | Compulsion | Sleep;
                     Main.LogPatch("Patched", WitchHexRestlessSlumberAbility);
                 }
                 void PatchSlumber() {
-                    if (!Resources.Settings.Witch.Fixes["Slumber"]) { return; }
+                    if (!Resources.Fixes.Witch.Fixes["Slumber"]) { return; }
                     BlueprintAbility WitchHexSlumberAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("630ea63a63457ff4f9de059c578c930a");
                     WitchHexSlumberAbility
                         .GetComponent<SpellDescriptorComponent>().Descriptor = Hex | MindAffecting | Compulsion | Sleep;

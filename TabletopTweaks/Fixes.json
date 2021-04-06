@@ -19,7 +19,8 @@
   "DragonDisciple": {
     "DisableAllFixes": false,
     "Fixes": {
-      "Prerequisites": true
+      "Prerequisites": true,
+      "BloodlineSelection": true
     }
   },
   "Slayer": {

@@ -38,7 +38,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Settings.Spells.DisableAllFixes) { return; }
+                if (Resources.Fixes.Spells.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Spell Resources");
                 PatchBelieveInYourself();
                 PatchGreaterBestowCurse();
@@ -49,7 +49,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogHeader("Patching Spells Complete");
             }
             static void PatchBelieveInYourself() {
-                if (!Resources.Settings.Spells.Fixes["BelieveInYourself"]) { return; }
+                if (!Resources.Fixes.Spells.Fixes["BelieveInYourself"]) { return; }
                 BlueprintAbility BelieveInYourself = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
                 BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
                     .GetComponent<AbilityVariants>()
@@ -64,7 +64,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
             }
             static void PatchGreaterBestowCurse() {
-                if (!Resources.Settings.Spells.Fixes["GreaterBestowCurse"]) { return; }
+                if (!Resources.Fixes.Spells.Fixes["GreaterBestowCurse"]) { return; }
                 var BestowCurseGreaterDeterioration = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
                 var BestowCurseGreaterFeebleBody = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
                 var BestowCurseGreaterIdiocy = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
@@ -120,7 +120,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", BestowCurseGreaterWeakness);
             }
             static void PatchOdeToMiraculousMagicBuff() {
-                if (!Resources.Settings.Spells.Fixes["OdeToMiraculousMagic"]) { return; }
+                if (!Resources.Fixes.Spells.Fixes["OdeToMiraculousMagic"]) { return; }
                 BlueprintBuff OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
                 IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
                     c.Type = SavingThrowType.Will;
@@ -130,7 +130,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
             }
             static void PatchProtectionFromAlignment() {
-                if (!Resources.Settings.Spells.Fixes["ProtectionFromAlignment"]) { return; }
+                if (!Resources.Fixes.Spells.Fixes["ProtectionFromAlignment"]) { return; }
                 BlueprintAbility ProtectionFromAlignment = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
                 BlueprintAbility ProtectionFromAlignmentCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2cadf6c6350e4684baa109d067277a45");
                 BlueprintAbilityReference[] ProtectionFromAlignmentVariants = ProtectionFromAlignment
@@ -170,7 +170,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", ProtectionFromAlignmentCommunal);
             }
             static void PatchProtectionFromAlignmentGreater() {
-                if (!Resources.Settings.Spells.Fixes["ProtectionFromAlignmentGreater"]) { return; }
+                if (!Resources.Fixes.Spells.Fixes["ProtectionFromAlignmentGreater"]) { return; }
                 patchUnholyAura();
                 patchHolyAura();
                 patchShieldOfLaw();
@@ -251,7 +251,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
             }
             static void PatchWrachingRay() {
-                if (!Resources.Settings.Spells.Fixes["WrackingRay"]) { return; }
+                if (!Resources.Fixes.Spells.Fixes["WrackingRay"]) { return; }
                 var WrackingRay = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
                 foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
                     foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {
