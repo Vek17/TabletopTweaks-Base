@@ -5,17 +5,16 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-//using System.Reflection;
 using TabletopTweaks.Utilities;
 using UnityEngine;
 
@@ -72,7 +71,6 @@ namespace TabletopTweaks.Extensions {
             return result;
         }
 
-
         public static T[] RemoveFromArrayByType<T, V>(this T[] array) {
             List<T> list = new List<T>();
 
@@ -85,7 +83,6 @@ namespace TabletopTweaks.Extensions {
             return list.ToArray();
         }
 
-
         public static T[] AddToArray<T>(this T[] array, params T[] values) {
             var len = array.Length;
             var valueLen = values.Length;
@@ -94,7 +91,6 @@ namespace TabletopTweaks.Extensions {
             Array.Copy(values, 0, result, len, valueLen);
             return result;
         }
-
 
         public static T[] AddToArray<T>(this T[] array, IEnumerable<T> values) => AddToArray(array, values.ToArray());
 
@@ -172,14 +168,12 @@ namespace TabletopTweaks.Extensions {
             obj.SetComponents(obj.ComponentsArray.RemoveFromArray(component));
         }
 
-
         public static void RemoveComponents<T>(this BlueprintScriptableObject obj) where T : BlueprintComponent {
             var compnents_to_remove = obj.GetComponents<T>().ToArray();
             foreach (var c in compnents_to_remove) {
                 obj.SetComponents(obj.ComponentsArray.RemoveFromArray(c));
             }
         }
-
 
         public static void RemoveComponents<T>(this BlueprintScriptableObject obj, Predicate<T> predicate) where T : BlueprintComponent {
             var compnents_to_remove = obj.GetComponents<T>().ToArray();
@@ -380,6 +374,35 @@ namespace TabletopTweaks.Extensions {
             }
             else {
                 action.Actions = Helpers.CreateActionList(game_action);
+            }
+        }
+        
+        public static void ReplaceComponent(this BlueprintScriptableObject blueprint, BlueprintComponent oldComponent, BlueprintComponent newComponent) {
+            BlueprintComponent[] compnents_to_remove = blueprint.ComponentsArray;
+            bool found = false;
+            for(int i = 0; i < compnents_to_remove.Length; i++) {
+                if (compnents_to_remove[i] == oldComponent) {
+                    blueprint.RemoveComponent(oldComponent);
+                }
+            }
+            if (found) {
+                blueprint.AddComponent(newComponent);
+            }
+        }
+        public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, BlueprintComponent newComponent) where T : BlueprintComponent {
+            blueprint.ReplaceComponents<T>(c => true, newComponent);
+        }
+        public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, Predicate<T> predicate, BlueprintComponent newComponent) where T : BlueprintComponent {
+            var compnents_to_remove = blueprint.GetComponents<T>().ToArray();
+            bool found = false;
+            foreach(var c in compnents_to_remove) {
+                if (predicate(c)) {
+                    blueprint.SetComponents(blueprint.ComponentsArray.RemoveFromArray(c));
+                    found = true;
+                }
+            }
+            if (found) {
+                blueprint.AddComponent(newComponent);
             }
         }
     }

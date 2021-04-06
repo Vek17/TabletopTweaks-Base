@@ -92,7 +92,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bugfixes\Abilities\Buffs.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
     <Compile Include="Bugfixes\Classes\Aeon.cs" />
     <Compile Include="Bugfixes\Classes\Azata.cs" />

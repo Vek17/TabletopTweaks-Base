@@ -5,7 +5,7 @@
   "EntryMethod": "TabletopTweaks.Main.Load",
   "GameVersion": "0.5.2i",
   "Id": "TabletopTweaks",
-  "ManagerVersion": "0.23.0.0",
+  "ManagerVersion": "0.23.0",
   "Requirements": [],
   "Version": "0.0.1"
 }
