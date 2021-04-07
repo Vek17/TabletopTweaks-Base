@@ -30,11 +30,11 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Initialized = true;
                 if (Resources.Fixes.Feats.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Feat Resources");
-                patchCraneWing();
+                PatchCraneWing();
                 Main.LogHeader("Patching Feat Resources Complete");
-                //Do Stuff
             }
-            static void patchCraneWing() {
+
+            static void PatchCraneWing() {
                 if (!Resources.Fixes.Feats.Fixes["CraneWing"]) { return; }
                 BlueprintBuff CraneStyleBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("e8ea7bd10136195478d8a5fc5a44c7da");
                 var FightingDefensivlyTrigger = CraneStyleBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
