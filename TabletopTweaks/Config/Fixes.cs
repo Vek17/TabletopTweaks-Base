@@ -13,6 +13,7 @@ namespace TabletopTweaks.Config {
         public FixGroup Witch = new FixGroup();
         public FixGroup Spells = new FixGroup();
         public FixGroup Bloodlines = new FixGroup();
+        public FixGroup Feats = new FixGroup();
         public FixGroup MythicAbilities = new FixGroup();
 
         public void OverrideFixes(Fixes newFixes) {

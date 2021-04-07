@@ -8,7 +8,6 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
@@ -46,6 +45,7 @@ namespace TabletopTweaks.BalanceAdjustments {
                             .Select(c => c.Buff)
                             .Concat(taggedPolyBuffs)
                             .Where(bp => bp.AssetGuid != "e6f2fc5d73d88064583cb828801212f4") // Fatigued
+                            .Where(bp => !bp.HasFlag(BlueprintBuff.Flags.HiddenInUi))
                             .Distinct();
 
                         polymorphBuffs
@@ -67,7 +67,7 @@ namespace TabletopTweaks.BalanceAdjustments {
                         .Select(b => b.Blueprint)
                         .Intersect(PolymorphBuffs);
                     if (intesection.Any()) {
-                        foreach (BlueprintBuff buffToRemove in intesection) {
+                        foreach (BlueprintBuff buffToRemove in intesection.ToArray()) {
                             __instance.Initiator
                                 .Buffs
                                 .GetBuff(buffToRemove)

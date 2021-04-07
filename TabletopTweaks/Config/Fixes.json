@@ -44,7 +44,7 @@
     "DisableAllFixes": false,
     "Fixes": {
       "WrackingRay": true,
-      "GreaterBestowCurse": true,
+      "BestowCurseGreater": true,
       "ProtectionFromAlignment": true,
       "ProtectionFromAlignmentGreater": true,
       "BelieveInYourself": true,
@@ -55,6 +55,12 @@
     "DisableAllFixes": false,
     "Fixes": {
       "BloodlineRestrictions": true
+    }
+  },
+  "Feats": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "CraneWing": true
     }
   },
   "MythicAbilities": {
