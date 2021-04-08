@@ -9,7 +9,6 @@ namespace TabletopTweaks {
         static bool Load(UnityModManager.ModEntry modEntry) {
             var harmony = new Harmony(modEntry.Info.Id);
             Resources.ModEntry = modEntry;
-            //Resources.Initalize();
             Resources.LoadSettings();
             harmony.PatchAll();
             return true;

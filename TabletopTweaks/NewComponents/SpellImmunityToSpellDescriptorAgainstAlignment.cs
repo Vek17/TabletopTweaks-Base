@@ -30,8 +30,6 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
-        // Token: 0x17001802 RID: 6146
-        // (get) Token: 0x060085C6 RID: 34246 RVA: 0x00213AD5 File Offset: 0x00211CD5
         public BlueprintUnitFact FactToCheck {
             get {
                 BlueprintUnitFactReference factToCheck = this.m_FactToCheck;
@@ -42,7 +40,6 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
-        // Token: 0x060085C7 RID: 34247 RVA: 0x00213AE8 File Offset: 0x00211CE8
         private bool IsImmune(MechanicsContext context) {
             UnitEntityData maybeCaster = context.MaybeCaster;
             if ((maybeCaster != null) ? maybeCaster.State.Features.MythicReduceResistances : null) {
@@ -57,18 +54,15 @@ namespace TabletopTweaks.NewComponents {
             return hasDescriptor && noImmunityBypassFeature && noImmunityFact && (casterHasAlignment || spellHasAlignment);
         }
 
-        // Token: 0x060085C8 RID: 34248 RVA: 0x00213B91 File Offset: 0x00211D91
         public void OnEventAboutToTrigger(RuleCanApplyBuff evt) {
             if (this.IsImmune(evt.Context)) {
                 evt.Immunity = true;
             }
         }
 
-        // Token: 0x060085C9 RID: 34249 RVA: 0x000036D8 File Offset: 0x000018D8
         public void OnEventDidTrigger(RuleCanApplyBuff evt) {
         }
 
-        // Token: 0x060085CA RID: 34250 RVA: 0x00213BA8 File Offset: 0x00211DA8
         public void OnEventAboutToTrigger(RuleSavingThrow evt) {
             if (evt.Buff != null) {
                 MechanicsContext context = evt.Reason.Context;

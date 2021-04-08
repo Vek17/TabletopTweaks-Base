@@ -20,7 +20,6 @@ namespace TabletopTweaks.NewComponents {
 					hasFreeHand = primaryHand.MaybeWeapon.HoldInTwoHands ? false : hasFreeHand;
 				}
 			}
-			//Main.Log($"Check Result: {hasFreeHand}");
 			return hasFreeHand;
 		}
 	}

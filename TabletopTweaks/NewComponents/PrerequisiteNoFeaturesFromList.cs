@@ -30,10 +30,6 @@ namespace TabletopTweaks.NewComponents {
 
         public override string GetUIText() {
             StringBuilder stringBuilder = new StringBuilder();
-            //stringBuilder.Append(string.Format(UIStrings.Instance.Tooltips.NoFeature));
-
-            //stringBuilder.Append(string.Format(UIStrings.Instance.CharGen.FeatureNotSelected));
-
             stringBuilder.Append("Doesn't have any of the following features");
             stringBuilder.Append(":\n");
             for (int i = 0; i < Features.Length; i++) {

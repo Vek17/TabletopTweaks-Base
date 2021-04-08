@@ -15,6 +15,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 using UnityEngine;
 
@@ -404,6 +405,9 @@ namespace TabletopTweaks.Extensions {
             if (found) {
                 blueprint.AddComponent(newComponent);
             }
+        }
+        public static void BlockSpellDuplication(this BlueprintAbility blueprint) {
+            blueprint.AddComponent(Helpers.Create<NewComponents.BlockSpellDuplicationComponent>());
         }
     }
 }

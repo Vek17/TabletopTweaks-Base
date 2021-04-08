@@ -1,21 +1,11 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Enums.Damage;
-using Kingmaker.RuleSystem;
-using Kingmaker.RuleSystem.Rules;
-using Kingmaker.RuleSystem.Rules.Abilities;
-using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Visual.Animation.Kingmaker.Actions;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -43,8 +33,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Resources.Fixes.Azata.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Azata Resources");
                 PatchAzataPerformanceResource();
-                patchFavorableMagic();
-                patchZippyMagicFeature();
+                PatchFavorableMagic();
+                PatchZippyMagicFeature();
                 Main.LogHeader("Azata Resource Patch Complete");
             }
             
@@ -63,33 +53,61 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogPatch("Patched", AzataPerformanceResource);
             }
 
-            static void patchFavorableMagic() {
+            static void PatchFavorableMagic() {
                 if (!Resources.Fixes.Azata.Fixes["FavorableMagic"]) { return;  }
                 var FavorableMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
                 var fixedComponent = Helpers.Create<NewComponents.AzataFavorableMagicComponent>();
+
                 FavorableMagicFeature.ReplaceComponents<AzataFavorableMagic>(fixedComponent);
                 Main.LogPatch("Patched", FavorableMagicFeature);
             }
 
-            static void patchZippyMagicFeature() {
+            static void PatchZippyMagicFeature() {
                 if (!Resources.Fixes.Azata.Fixes["ZippyMagic"]) { return; }
                 var ZippyMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
-                var ZippyMagicDamage = Helpers.Create<NewComponents.AzataZippyMagicDamageComponent>();
-                ZippyMagicFeature.AddComponent(ZippyMagicDamage);
-                Main.LogPatch("Patched", ZippyMagicFeature);
-            }
-        }
-        
-        // Patch for ZippyMagic
-        [HarmonyPatch(typeof(DublicateSpellComponent), "CheckAOE", new[] { typeof(AbilityData) })]
-        static class DublicateSpellComponent_CheckAOE_Patch {
-            static bool disabled = Resources.Fixes.Azata.DisableAllFixes || !Resources.Fixes.Azata.Fixes["ZippyMagic"];
+                var ZippyMagic = Helpers.Create<NewComponents.AzataZippyMagicComponent>();
 
-            static void Postfix(DublicateSpellComponent __instance, ref AbilityData spell, ref bool __result) {
-                if (disabled) { return; }
-                if (spell.Blueprint.GetComponents<AbilityEffectStickyTouch>().Any()) { __result = false; }
+                ZippyMagicFeature.ReplaceComponents<DublicateSpellComponent>(ZippyMagic);
+                Main.LogPatch("Patched", ZippyMagicFeature);
+                PatchCureWoundsDamage();
+                PatchInflictWoundsDamage();
+
+                void PatchCureWoundsDamage() {
+                    BlueprintAbility[] cureSpells = new BlueprintAbility[] {
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1edd1e201a608a24fa1de33d57502244"), // CureLightWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("148673963b23fae4f9fcdcc5d67a91cc"), // CureModerateWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("dd5d65e25a4e8b54a87d976c0a80f5b6"), // CureSeriousWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("7d626a2c5eee30b47bbf7fee36d05309"), // CureCriticalWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("fb7e5fe8b5750f9408398d9659b0f98f"), // CureLightWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("638363b5afb817d4684c021d36279904"), // CureModerateWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("21d02c685b2e64b4f852b3efcb0b5ca6"), // CureSeriousWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("0cce61a5e5108114092f9773572c78b8"), // CureCriticalWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("6ecd2657cb645274cbc167d667ac521d"), // HealDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("7df289eaaf1233248b7be754f894de2e")  // HealMassDamage
+                    };
+                    foreach (var spell in cureSpells) {
+                        spell.BlockSpellDuplication();
+                        Main.LogPatch("Blocked Duplication", spell);
+                    }
+                }
+                void PatchInflictWoundsDamage() {
+                    BlueprintAbility[] cureSpells = new BlueprintAbility[] {
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f6ff156188dc4e44c850179fb19afaf5"), // InflictLightWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e55f5a1b875a5f242be5b92cf027b69a"), // InflictModerateWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("095eaa846e2a8c343a54e927816e00af"), // InflictSeriousWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2737152467af53b4f9800e7a60644bb6"), // InflictCriticalWoundsDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("b70d903464a738148a19bed630b91f8c"), // InflictLightWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("89ddb1b4dafc5f541a3dacafbf9ea2dd"), // InflictModerateWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("aba480ce9381684408290f5434402a32"), // InflictSeriousWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e05c263048e835043bb2784601dca339"), // InflictCriticalWoundsMassDamage
+                        ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3da67f8b941308348b7101e7ef418f52")  // HarmDamage
+                    };
+                    foreach (var spell in cureSpells) {
+                        spell.BlockSpellDuplication();
+                        Main.LogPatch("Blocked Duplication", spell);
+                    }
+                }
             }
         }
-        
     }
 }
