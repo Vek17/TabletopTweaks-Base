@@ -45,7 +45,7 @@ namespace TabletopTweaks.NewComponents {
 					m_GeneratedRules.Remove(ruleCastSpell);
 				}
 			}
-			if (evt.SpellTarget.Unit.IsPlayersEnemy) {
+			if (evt.SpellTarget.Unit.Group.IsEnemy(Owner)) {
 				DiceFormula dice = new DiceFormula(2, DiceType.D6);
 				int mythicLevel = evt.Spell.Caster.Unit.Progression.MythicLevel;
 				RuleDealDamage ruleDealDamage = new RuleDealDamage(evt.Spell.Caster, evt.SpellTarget.Unit, new EnergyDamage(dice, mythicLevel, DamageEnergyType.Divine));
