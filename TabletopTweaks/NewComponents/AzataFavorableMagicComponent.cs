@@ -5,7 +5,7 @@ using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic;
 
 namespace TabletopTweaks.NewComponents {
-    class AzataFavorableMagicFixed : UnitFactComponentDelegate, IWasRoll, IGlobalSubscriber, ISubscriber {
+    class AzataFavorableMagicComponent : UnitFactComponentDelegate, IWasRoll, IGlobalSubscriber, ISubscriber {
 		public override void OnActivate() {
 			base.Owner.State.Features.AzataFavorableMagic.Retain();
 		}

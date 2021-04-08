@@ -7,6 +7,8 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System.Collections.Generic;
@@ -41,7 +43,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Resources.Fixes.Azata.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Azata Resources");
                 PatchAzataPerformanceResource();
-                patchAzataFavorableMagic();
+                patchFavorableMagic();
+                patchZippyMagicFeature();
                 Main.LogHeader("Azata Resource Patch Complete");
             }
             
@@ -60,36 +63,33 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogPatch("Patched", AzataPerformanceResource);
             }
 
-            static void patchAzataFavorableMagic() {
+            static void patchFavorableMagic() {
                 if (!Resources.Fixes.Azata.Fixes["FavorableMagic"]) { return;  }
                 var FavorableMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
-                var fixedComponent = Helpers.Create<AzataFavorableMagicFixed>();
+                var fixedComponent = Helpers.Create<NewComponents.AzataFavorableMagicComponent>();
                 FavorableMagicFeature.ReplaceComponents<AzataFavorableMagic>(fixedComponent);
                 Main.LogPatch("Patched", FavorableMagicFeature);
             }
-        }
-        // Patch for Zippy Magic
-        [HarmonyPatch(typeof(DublicateSpellComponent), "Kingmaker.PubSubSystem.IRulebookHandler<Kingmaker.RuleSystem.Rules.Abilities.RuleCastSpell>.OnEventDidTrigger", new[] { typeof(RuleCastSpell) })]
-        static class DublicateSpellComponent_OnEventDidTrigger_Patch {
-            static bool disabled = Resources.Fixes.Azata.DisableAllFixes || !Resources.Fixes.Azata.Fixes["ZippyMagic"];
 
-            static void Postfix(DublicateSpellComponent __instance, ref RuleCastSpell evt) {
-                if (disabled) { return; }
-                Main.Log("Zippy Trigger");
-                if (evt.IsSpellFailed ||
-                    evt.Spell.IsAOE ||
-                    !evt.SpellTarget.Unit.IsPlayersEnemy ||
-                    evt.Spell.Blueprint.Animation == UnitAnimationActionCastSpell.CastAnimationStyle.Self) {
-
-                    Main.Log($"{evt.Spell.Name} : Zippy Trigger Early Return");
-                    return;
-                }
-                Main.Log($"{evt.Spell.Name} : Zippy Trigger Entered Damage Trigger");
-                DiceFormula dice = new DiceFormula(2, DiceType.D6);
-                int mythicLevel = evt.Spell.Caster.Unit.Progression.MythicExperience;
-                RuleDealDamage ruleDealDamage = new RuleDealDamage(evt.Spell.Caster, evt.SpellTarget.Unit, new EnergyDamage(dice, mythicLevel, DamageEnergyType.Divine));
-                Rulebook.Trigger<RuleDealDamage>(ruleDealDamage);
+            static void patchZippyMagicFeature() {
+                if (!Resources.Fixes.Azata.Fixes["ZippyMagic"]) { return; }
+                var ZippyMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
+                var ZippyMagicDamage = Helpers.Create<NewComponents.AzataZippyMagicDamageComponent>();
+                ZippyMagicFeature.AddComponent(ZippyMagicDamage);
+                Main.LogPatch("Patched", ZippyMagicFeature);
             }
         }
+        
+        // Patch for ZippyMagic
+        [HarmonyPatch(typeof(DublicateSpellComponent), "CheckAOE", new[] { typeof(AbilityData) })]
+        static class DublicateSpellComponent_CheckAOE_Patch {
+            static bool disabled = Resources.Fixes.Azata.DisableAllFixes || !Resources.Fixes.Azata.Fixes["ZippyMagic"];
+
+            static void Postfix(DublicateSpellComponent __instance, ref AbilityData spell, ref bool __result) {
+                if (disabled) { return; }
+                if (spell.Blueprint.GetComponents<AbilityEffectStickyTouch>().Any()) { __result = false; }
+            }
+        }
+        
     }
 }

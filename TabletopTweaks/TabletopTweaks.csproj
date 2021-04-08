@@ -110,9 +110,10 @@
     <Compile Include="Bugfixes\Features\Feats.cs" />
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
-    <Compile Include="NewComponents\AzataFavorableMagicFixed.cs" />
+    <Compile Include="NewComponents\AzataFavorableMagicComponent.cs" />
     <Compile Include="NewComponents\ContextConditionHasBuffWithDescriptor.cs" />
     <Compile Include="NewComponents\ContextConditionHasFreeHand.cs" />
+    <Compile Include="NewComponents\AzataZippyMagicDamageComponent.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="NewComponents\BuffDescriptorImmunityAgainstAlignment.cs" />
     <Compile Include="NewComponents\SpellImmunityToSpellDescriptorAgainstAlignment.cs" />
