@@ -68,42 +68,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogPatch("Patched", FavorableMagicFeature);
             }
         }
-        /*
-        // Patch for Favorable Magic
-        [HarmonyPatch(typeof(AzataFavorableMagic), "CheckReroll", new[] { typeof(RuleSavingThrow), typeof(RuleRollD20) })]
-        static class AzataFavorableMagic_CheckReroll_Patch {
-            static bool disabled = Resources.Fixes.Azata.DisableAllFixes || !Resources.Fixes.Azata.Fixes["FavorableMagic"];
-            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if (disabled) { return instructions; }
-                var codes = new List<CodeInstruction>(instructions);
-                var startIndex = -1;
-                var stopIndex = -1;
-                var foundNull = false;
-
-                for (int i = 0; i < codes.Count; i++) {
-                    if (codes[i].opcode == OpCodes.Ldarg_2) {
-                        startIndex = i;
-                        foundNull = false;
-                        continue;
-                    }
-                    if (codes[i].opcode == OpCodes.Ldnull && startIndex > -1) {
-                        foundNull = true;
-                        continue;
-                    }
-                    if (codes[i].opcode == OpCodes.Brfalse_S && foundNull) {
-                        stopIndex = i;
-                        break;
-                    }
-                }
-                if (startIndex > -1 && stopIndex > -1) {
-                    for (int i = startIndex; i <= stopIndex; i++) {
-                        codes[i].opcode = OpCodes.Nop;
-                    }
-                }
-                return codes.AsEnumerable();
-            }
-        }
-        */
         // Patch for Zippy Magic
         [HarmonyPatch(typeof(DublicateSpellComponent), "Kingmaker.PubSubSystem.IRulebookHandler<Kingmaker.RuleSystem.Rules.Abilities.RuleCastSpell>.OnEventDidTrigger", new[] { typeof(RuleCastSpell) })]
         static class DublicateSpellComponent_OnEventDidTrigger_Patch {
