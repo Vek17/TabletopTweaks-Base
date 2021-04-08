@@ -143,4 +143,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>(robocopy "$(TargetDir) " "C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Mods\TabletopTweaks\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0</PostBuildEvent>
+  </PropertyGroup>
 </Project>
