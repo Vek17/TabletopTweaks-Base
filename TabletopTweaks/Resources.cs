@@ -78,7 +78,7 @@ namespace TabletopTweaks {
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = "TabletopTweaks.Config.Fixes.json";
             string userConfigFolder = ModEntry.Path + "UserSettings";
-            string userConfigPath = userConfigFolder + "\\Fixes.json";
+            string userConfigPath = userConfigFolder + $"{Path.DirectorySeparatorChar}Fixes.json";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream)) {
                 fixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
@@ -86,8 +86,14 @@ namespace TabletopTweaks {
             Directory.CreateDirectory(userConfigFolder);
             if (File.Exists(userConfigPath)) {
                 using (StreamReader reader = File.OpenText(userConfigPath)) {
-                    Fixes userFixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
-                    fixes.OverrideFixes(userFixes);
+                    try {
+                        Fixes userFixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
+                        fixes.OverrideFixes(userFixes);
+                    }
+                    catch {
+                        Main.Error("Failed to load user settings. Settings will be rebuilt.");
+                        try { File.Copy(userConfigPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_Fixes.json", true); } catch { Main.Error("Failed to archive broken settings."); }
+                    }
                 }
             }
             File.WriteAllText(userConfigPath, JsonConvert.SerializeObject(fixes, Formatting.Indented));
