@@ -110,6 +110,7 @@
     <Compile Include="Bugfixes\Features\Feats.cs" />
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
+    <Compile Include="NewComponents\AzataFavorableMagicFixed.cs" />
     <Compile Include="NewComponents\ContextConditionHasBuffWithDescriptor.cs" />
     <Compile Include="NewComponents\ContextConditionHasFreeHand.cs" />
     <Compile Include="Utilities\Helpers.cs" />

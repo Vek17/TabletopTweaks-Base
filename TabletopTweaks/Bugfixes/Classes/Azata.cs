@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -11,7 +12,9 @@ using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
-
+using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Azata {
@@ -38,6 +41,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Resources.Fixes.Azata.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Azata Resources");
                 PatchAzataPerformanceResource();
+                patchAzataFavorableMagic();
                 Main.LogHeader("Azata Resource Patch Complete");
             }
             
@@ -55,7 +59,16 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 AzataPerformanceResource.m_MaxAmount.m_Class = characterClasses;
                 Main.LogPatch("Patched", AzataPerformanceResource);
             }
+
+            static void patchAzataFavorableMagic() {
+                if (!Resources.Fixes.Azata.Fixes["FavorableMagic"]) { return;  }
+                var FavorableMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
+                var fixedComponent = Helpers.Create<AzataFavorableMagicFixed>();
+                FavorableMagicFeature.ReplaceComponents<AzataFavorableMagic>(fixedComponent);
+                Main.LogPatch("Patched", FavorableMagicFeature);
+            }
         }
+        /*
         // Patch for Favorable Magic
         [HarmonyPatch(typeof(AzataFavorableMagic), "CheckReroll", new[] { typeof(RuleSavingThrow), typeof(RuleRollD20) })]
         static class AzataFavorableMagic_CheckReroll_Patch {
@@ -90,6 +103,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 return codes.AsEnumerable();
             }
         }
+        */
         // Patch for Zippy Magic
         [HarmonyPatch(typeof(DublicateSpellComponent), "Kingmaker.PubSubSystem.IRulebookHandler<Kingmaker.RuleSystem.Rules.Abilities.RuleCastSpell>.OnEventDidTrigger", new[] { typeof(RuleCastSpell) })]
         static class DublicateSpellComponent_OnEventDidTrigger_Patch {

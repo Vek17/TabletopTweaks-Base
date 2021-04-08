@@ -19,8 +19,8 @@
   "DragonDisciple": {
     "DisableAllFixes": false,
     "Fixes": {
-      "Prerequisites": true,
-      "BloodlineSelection": true
+      "BloodlineSelection": true,
+      "Prerequisites": true
     }
   },
   "Slayer": {
@@ -43,12 +43,12 @@
   "Spells": {
     "DisableAllFixes": false,
     "Fixes": {
-      "WrackingRay": true,
-      "BestowCurseGreater": true,
+      "BelieveInYourself": true,
+      "GreaterBestowCurse": true,
+      "OdeToMiraculousMagic": true,
       "ProtectionFromAlignment": true,
       "ProtectionFromAlignmentGreater": true,
-      "BelieveInYourself": true,
-      "OdeToMiraculousMagic": true
+      "WrackingRay": true
     }
   },
   "Bloodlines": {

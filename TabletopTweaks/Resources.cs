@@ -6,7 +6,6 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -80,7 +79,6 @@ namespace TabletopTweaks {
             var resourceName = "TabletopTweaks.Config.Fixes.json";
             string userConfigFolder = ModEntry.Path + "UserSettings";
             string userConfigPath = userConfigFolder + "\\Fixes.json";
-            JsonSerializer serializer = new JsonSerializer();
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream)) {
                 fixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
