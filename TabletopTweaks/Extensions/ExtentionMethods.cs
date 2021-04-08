@@ -37,6 +37,7 @@ namespace TabletopTweaks.Extensions {
         }
         public static IEnumerable<GameAction> FlattenAllActions(this IEnumerable<GameAction> Actions) {
             List<GameAction> NewActions = new List<GameAction>();
+            NewActions.AddRange(Actions.OfType<ContextActionOnRandomTargetsAround>().SelectMany(a => a.Actions.Actions));
             NewActions.AddRange(Actions.OfType<ContextActionConditionalSaved>().SelectMany(a => a.Failed.Actions));
             NewActions.AddRange(Actions.OfType<ContextActionConditionalSaved>().SelectMany(a => a.Succeed.Actions));
             NewActions.AddRange(Actions.OfType<Conditional>().SelectMany(a => a.IfFalse.Actions));
@@ -405,9 +406,6 @@ namespace TabletopTweaks.Extensions {
             if (found) {
                 blueprint.AddComponent(newComponent);
             }
-        }
-        public static void BlockSpellDuplication(this BlueprintAbility blueprint) {
-            blueprint.AddComponent(Helpers.Create<NewComponents.BlockSpellDuplicationComponent>());
         }
     }
 }

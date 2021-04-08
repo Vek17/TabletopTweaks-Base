@@ -44,7 +44,7 @@
     "DisableAllFixes": false,
     "Fixes": {
       "BelieveInYourself": true,
-      "GreaterBestowCurse": true,
+      "BestowCurseGreater": true,
       "OdeToMiraculousMagic": true,
       "ProtectionFromAlignment": true,
       "ProtectionFromAlignmentGreater": true,

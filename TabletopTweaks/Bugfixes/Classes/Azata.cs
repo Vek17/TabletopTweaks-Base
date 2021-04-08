@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -85,13 +86,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("6ecd2657cb645274cbc167d667ac521d"), // HealDamage
                         ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("7df289eaaf1233248b7be754f894de2e")  // HealMassDamage
                     };
-                    foreach (var spell in cureSpells) {
-                        spell.BlockSpellDuplication();
-                        Main.LogPatch("Blocked Duplication", spell);
-                    }
+                    cureSpells.ForEach(spell => BlockSpellDuplication(spell));
                 }
                 void PatchInflictWoundsDamage() {
-                    BlueprintAbility[] cureSpells = new BlueprintAbility[] {
+                    BlueprintAbility[] inflictSpells = new BlueprintAbility[] {
                         ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f6ff156188dc4e44c850179fb19afaf5"), // InflictLightWoundsDamage
                         ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e55f5a1b875a5f242be5b92cf027b69a"), // InflictModerateWoundsDamage
                         ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("095eaa846e2a8c343a54e927816e00af"), // InflictSeriousWoundsDamage
@@ -102,10 +100,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e05c263048e835043bb2784601dca339"), // InflictCriticalWoundsMassDamage
                         ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3da67f8b941308348b7101e7ef418f52")  // HarmDamage
                     };
-                    foreach (var spell in cureSpells) {
-                        spell.BlockSpellDuplication();
-                        Main.LogPatch("Blocked Duplication", spell);
-                    }
+                    inflictSpells.ForEach(spell => BlockSpellDuplication(spell));
+                }
+                void BlockSpellDuplication(BlueprintAbility blueprint) {
+                    blueprint.AddComponent(Helpers.Create<NewComponents.BlockSpellDuplicationComponent>());
+                    Main.LogPatch("Blocked Duplication", blueprint);
                 }
             }
         }
