@@ -165,34 +165,5 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", Bloodline);
             }
         }
-        static void patchSorcererArchetypes() {
-            BlueprintArchetype EmpyrealSorcererArchetype    = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("aa00d945f7cf6c34c909a29a25f2df38");
-            BlueprintArchetype SageSorcererArchetype        = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("00b990c8be2117e45ae6514ee4ef561c");
-            BlueprintArchetype SylvanSorcererArchetype      = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("711d5024ecc75f346b9cda609c3a1f83");
-            BlueprintCharacterClass DragonDiscipleClass     = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("72051275b1dbb2d42ba9118237794f7c");
-            BlueprintCharacterClass SorcererClass           = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf"); 
-
-            BlueprintArchetype[] SorcererArchetypes = new BlueprintArchetype[] {
-                EmpyrealSorcererArchetype,
-                SageSorcererArchetype,
-                SylvanSorcererArchetype
-            };
-            foreach (var Archetype in SorcererArchetypes) {
-                PrerequisiteClassLevel ArchetypeLevel = ScriptableObject.CreateInstance<PrerequisiteClassLevel>();
-                ArchetypeLevel.m_CharacterClass = SorcererClass.ToReference<BlueprintCharacterClassReference>();
-                ArchetypeLevel.Level = 1;
-                ArchetypeLevel.Group = Prerequisite.GroupType.Any;
-
-                PrerequisiteNoClassLevel DragonDiscipleBlock = ScriptableObject.CreateInstance<PrerequisiteNoClassLevel>();
-                DragonDiscipleBlock.m_CharacterClass = DragonDiscipleClass.ToReference<BlueprintCharacterClassReference>();
-                DragonDiscipleBlock.Group = Prerequisite.GroupType.Any;
-
-                Archetype.ComponentsArray = Archetype.ComponentsArray
-                    .Append(DragonDiscipleBlock)
-                    .Append(ArchetypeLevel)
-                    .ToArray();
-                Main.Log($"{Archetype.Name} - Components: {Archetype.ComponentsArray.Count()}");
-            }
-        }
     }
 }

@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.Utilities;
 using UnityEngine;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -33,6 +34,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Resources.Fixes.DragonDisciple.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Dragon Disciple Resources");
                 patchPrerequisites();
+                PatchBloodlineSelection();
                 Main.LogHeader("Patching Dragon Disciple Resources Complete");
                 //Do Stuff
             }
@@ -63,12 +65,41 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     .Where(c => !(c is PrerequisiteNoArchetype)) // Remove Sorcerer Archetype Restrictions
                     .Append(ExcludeBloodlines));
                 Main.LogPatch("Patched", DragonDiscipleClass);
+                patchSorcererArchetypes();
             }
             static void PatchBloodlineSelection() {
                 if (!Resources.Fixes.DragonDisciple.Fixes["BloodlineSelection"]) { return; }
                 BlueprintFeatureSelection BloodOfDragonsSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("da48f9d7f697ae44ca891bfc50727988");
                 BlueprintFeatureSelection BloodragerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = BloodragerBloodlineSelection.m_AllFeatures;
+            }
+            static void patchSorcererArchetypes() {
+                BlueprintArchetype EmpyrealSorcererArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("aa00d945f7cf6c34c909a29a25f2df38");
+                BlueprintArchetype SageSorcererArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("00b990c8be2117e45ae6514ee4ef561c");
+                BlueprintArchetype SylvanSorcererArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("711d5024ecc75f346b9cda609c3a1f83");
+                BlueprintArchetype SeekerSorcererArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("7229db6fc0b07af4180e783eed43c4d9");
+                BlueprintCharacterClass DragonDiscipleClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("72051275b1dbb2d42ba9118237794f7c");
+                BlueprintCharacterClass SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf");
+
+                BlueprintArchetype[] SorcererArchetypes = new BlueprintArchetype[] {
+                EmpyrealSorcererArchetype,
+                SageSorcererArchetype,
+                SylvanSorcererArchetype,
+                SeekerSorcererArchetype
+            };
+                foreach (var Archetype in SorcererArchetypes) {
+                    var ArchetypeLevel = Helpers.Create<PrerequisiteArchetypeLevel>();
+                    ArchetypeLevel.m_CharacterClass = SorcererClass.ToReference<BlueprintCharacterClassReference>();
+                    ArchetypeLevel.m_Archetype = Archetype.ToReference<BlueprintArchetypeReference>();
+                    ArchetypeLevel.Level = 1;
+                    ArchetypeLevel.Group = Prerequisite.GroupType.Any;
+                    var DragonDiscipleBlock = Helpers.Create<NewComponents.PrerequisiteNoClassLevelVisible>();
+                    DragonDiscipleBlock.m_CharacterClass = DragonDiscipleClass.ToReference<BlueprintCharacterClassReference>();
+                    DragonDiscipleBlock.Group = Prerequisite.GroupType.Any;
+
+                    Archetype.AddComponents(ArchetypeLevel, DragonDiscipleBlock);
+                    Main.Log($"{Archetype.Name} - Components: {Archetype.ComponentsArray.Count()}");
+                }
             }
         }
     }
