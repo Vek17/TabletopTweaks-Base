@@ -1,6 +1,7 @@
 {
   "DisableNaturalArmorStacking": true,
   "DisablePolymorphStacking": true,
+  "EnableArchetypePrerequisites": true,
   "FixDemonSubtypes": true,
   "Aeon": {
     "DisableAllFixes": false,

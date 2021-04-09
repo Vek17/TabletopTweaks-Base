@@ -16,6 +16,7 @@ namespace TabletopTweaks.MechanicsChanges {
     [HarmonyPatch(typeof(CharGenClassSelectorItemVM), "GetArchetypesList", typeof(BlueprintCharacterClass))]
     static class CharGenClassPhaseVM_GetArchetypeList_patch {
         static void Postfix(ref List<NestedSelectionGroupEntityVM>  __result, CharGenClassSelectorItemVM __instance, BlueprintCharacterClass selectedClass) {
+            if (!Resources.Fixes.EnableArchetypePrerequisites) { return; }
             List<NestedSelectionGroupEntityVM> list = new List<NestedSelectionGroupEntityVM>();
             if (selectedClass == null) {
                 __result =  list;
@@ -67,6 +68,7 @@ namespace TabletopTweaks.MechanicsChanges {
     [HarmonyPatch(typeof(TooltipTemplateLevelUp), "AddClassPrerequisites")]
     static class CharGenClassPhaseVM_AddClassPrerequisites_patch {
         static void Postfix(TooltipTemplateLevelUp __instance, List<ITooltipBrick> bricks) {
+            if (!Resources.Fixes.EnableArchetypePrerequisites) { return; }
             if (__instance.ClassInfo.Archetype == null) { return; }
             if (__instance.ClassInfo.Class == null) {
                 return;
