@@ -45,7 +45,7 @@
     <RemoveDir Directories="$(SolutionDir)lib" />
   </Target>
   <Target Name="CreateLib" BeforeTargets="BeforeBuild" AfterTargets="RemoveLib" Condition="!Exists('$(SolutionDir)lib')">
-    <MakeDir Directories="$(SolutionDir)lib"/>
+    <MakeDir Directories="$(SolutionDir)lib" />
   </Target>
   <Target Name="Publicise" AfterTargets="CreateLib">
     <ItemGroup>
@@ -127,12 +127,14 @@
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites.cs" />
+    <Compile Include="MechanicsChanges\NewModifierDescriptors.cs" />
     <Compile Include="NewComponents\AzataFavorableMagicComponent.cs" />
     <Compile Include="NewComponents\AzataZippyMagicComponent.cs" />
     <Compile Include="NewComponents\BlockSpellDuplicationComponent.cs" />
     <Compile Include="NewComponents\ContextConditionHasBuffWithDescriptor.cs" />
     <Compile Include="NewComponents\ContextConditionHasFreeHand.cs" />
     <Compile Include="NewComponents\PrerequisiteNoClassLevelVisible.cs" />
+    <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="NewComponents\BuffDescriptorImmunityAgainstAlignment.cs" />
     <Compile Include="NewComponents\SpellImmunityToSpellDescriptorAgainstAlignment.cs" />

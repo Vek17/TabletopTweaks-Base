@@ -20,6 +20,7 @@ namespace TabletopTweaks.Config {
         public void OverrideFixes(Fixes newFixes) {
             DisableNaturalArmorStacking = newFixes.DisableNaturalArmorStacking;
             DisablePolymorphStacking = newFixes.DisablePolymorphStacking;
+            EnableArchetypePrerequisites = newFixes.EnableArchetypePrerequisites;
             FixDemonSubtypes = newFixes.FixDemonSubtypes;
             Aeon.LoadFixgroup(newFixes.Aeon);
             Azata.LoadFixgroup(newFixes.Azata);

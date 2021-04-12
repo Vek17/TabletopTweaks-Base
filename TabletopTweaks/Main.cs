@@ -2,6 +2,7 @@
 using HarmonyLib;
 using Kingmaker.Blueprints;
 using System;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks {
     static class Main {
@@ -11,6 +12,7 @@ namespace TabletopTweaks {
             Resources.ModEntry = modEntry;
             Resources.LoadSettings();
             harmony.PatchAll();
+            PostPatchInitializer.Initialize();
             return true;
         }
         static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) {
