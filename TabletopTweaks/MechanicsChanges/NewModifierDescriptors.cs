@@ -5,14 +5,14 @@ using Kingmaker.Enums;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.MechanicsChanges {
 	public enum ExtraModifierDescriptor : int {
 		NaturalArmorBonus = ModifierDescriptor.NaturalArmor,
-		NaturalArmorSize = 50,
-		NaturalArmorStackable = 51
+		NaturalArmorSize = 1717,
+		NaturalArmorStackable = 1718
 	}
 
 	public class AdditionalModifierDescriptors {
@@ -33,11 +33,25 @@ namespace TabletopTweaks.MechanicsChanges {
 			var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsArmor");
 			FilterIsArmor.SetValue(null, newFilterIsArmor);
 		}
+#if false
 		[PostPatchInitialize]
 		static void Update_ModifierDescriptorComparer_Instance() {
 			ModifierDescriptorComparer.Instance = new ModifierDescriptorComparer();
 		}
+#endif
 
+		[PostPatchInitialize]
+		static void Update_ModifierDescriptorComparer_SortedValues() {
+			ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
+				.SortedValues.InsertAfterElement(
+					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize, 
+					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus);
+			ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
+				.SortedValues.InsertBeforeElement(
+					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable, 
+					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus);
+		}
+#if false
 		[HarmonyPatch(typeof(ModifierDescriptorComparer), MethodType.Constructor)]
 		static class ModifierDescriptorComparer_Patch {
 			static void Postfix(ModifierDescriptorComparer __instance) {
@@ -104,9 +118,29 @@ namespace TabletopTweaks.MechanicsChanges {
 					}
 				}
 				ModifierDescriptorComparer.SortedValues = list.ToArray();
-				for (int i = 0; i < ModifierDescriptorComparer.SortedValues.Length; i++) {
-					Main.Log($"SortedValues - {i}:{ModifierDescriptorComparer.SortedValues[i]}");
+			}
+		}
+#endif
+		[HarmonyPatch(typeof(ModifierDescriptorComparer), "Compare", new Type[] { typeof(ModifierDescriptor), typeof(ModifierDescriptor) })]
+		static class ModifierDescriptorComparer_Compare_Patch {
+			static SortedDictionary<ModifierDescriptor, int> order;
+
+			static bool Prefix(ModifierDescriptorComparer __instance, ModifierDescriptor x, ModifierDescriptor y, ref int __result) {
+				if (order == null) {
+					order = new SortedDictionary<ModifierDescriptor, int>();
+					int i = 0;
+					Main.Log($"Sorted Count: {ModifierDescriptorComparer.SortedValues.Length}");
+					for (i = 0; i < ModifierDescriptorComparer.SortedValues.Length; i++) {
+						Main.Log($"Iteration: {i}");
+						order[ModifierDescriptorComparer.SortedValues[i]] = i;
+						Main.Log($"Order Count: {order.Count}");
+					}
 				}
+				ModifierDescriptorComparer.SortedValues.ForEach(v => Main.Log($"{(int)v}"));
+
+				__result = order.Get(x).CompareTo(order.Get(y));
+				Main.Log($"");
+				return false;
 			}
 		}
 

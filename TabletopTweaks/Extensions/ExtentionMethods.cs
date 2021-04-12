@@ -96,6 +96,40 @@ namespace TabletopTweaks.Extensions {
 
         public static T[] AddToArray<T>(this T[] array, IEnumerable<T> values) => AddToArray(array, values.ToArray());
 
+        public static T[] InsertBeforeElement<T>(this T[] array, T value, T element) {
+            var len = array.Length;
+            var result = new T[len + 1];
+            int x = 0;
+            bool added = false;
+            for (int i = 0; i < len; i++) {
+                if(array[i].Equals(element) && !added) {
+                    result[x++] = value;
+                    added = true;
+                }
+                result[x++] = array[i];
+            }
+            return result;
+        }
+
+        public static T[] InsertAfterElement<T>(this T[] array, T value, T element) {
+            var len = array.Length;
+            var result = new T[len + 1];
+            int x = 0;
+            bool added = false;
+            for (int i = 0; i < len; i++) {
+                if (array[i].Equals(element) && !added) {
+                    result[x++] = array[i];
+                    result[x++] = value;
+                    added = true;
+                }
+                else {
+                    result[x++] = array[i];
+                }
+                
+            }
+            return result;
+        }
+
         public static T[] RemoveFromArray<T>(this T[] array, T value) {
             var list = array.ToList();
             return list.Remove(value) ? list.ToArray() : array;
