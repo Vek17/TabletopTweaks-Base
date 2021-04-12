@@ -16,9 +16,8 @@ namespace TabletopTweaks.MechanicsChanges {
 	}
 
 	public class AdditionalModifierDescriptors {
-
 		[PostPatchInitialize]
-		static void Update_ModifiableValueArmorClass_FilterIsArmor(){
+		static void Update_ModifiableValueArmorClass_FilterIsArmor() {
 			Func<ModifiableValue.Modifier, bool> newFilterIsArmor = delegate (ModifiableValue.Modifier m) {
 				ModifierDescriptor modDescriptor = m.ModDescriptor;
 				return
@@ -116,6 +115,7 @@ namespace TabletopTweaks.MechanicsChanges {
 			static void Postfix(ModifierDescriptor descriptor, ref string __result) {
 				switch (descriptor) {
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus:
+						if (!Resources.Fixes.DisableNaturalArmorStacking) { break; }
 						__result = "Natrual armor bonus";
 						break;
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize:
@@ -133,6 +133,7 @@ namespace TabletopTweaks.MechanicsChanges {
 			static void Postfix(ModifierDescriptor descriptor, ref string __result) {
 				switch (descriptor) {
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus:
+						if (!Resources.Fixes.DisableNaturalArmorStacking) { break; }
 						__result = "Natrual armor bonus";
 						break;
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize:
