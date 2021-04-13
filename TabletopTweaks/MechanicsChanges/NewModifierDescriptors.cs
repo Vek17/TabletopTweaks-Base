@@ -54,11 +54,8 @@ namespace TabletopTweaks.MechanicsChanges {
 				if (order == null) {
 					order = new SortedDictionary<ModifierDescriptor, int>();
 					int i = 0;
-					Main.Log($"Sorted Count: {ModifierDescriptorComparer.SortedValues.Length}");
 					for (i = 0; i < ModifierDescriptorComparer.SortedValues.Length; i++) {
-						Main.Log($"Iteration: {i}");
 						order[ModifierDescriptorComparer.SortedValues[i]] = i;
-						Main.Log($"Order Count: {order.Count}");
 					}
 				}
 				ModifierDescriptorComparer.SortedValues.ForEach(v => Main.Log($"{(int)v}"));
