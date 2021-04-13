@@ -79,7 +79,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 foreach (var reference in DragonDiscipleClass.GetComponent<PrerequisiteFeaturesFromList>().m_Features) {
                     var feature = reference.Get();
                     string[] split = Regex.Split(feature.name, @"(?<!^)(?=[A-Z])");
-                    feature.SetName($"{split[1]} {split[0]} {split[2]}");
+                    feature.SetName($"{split[0]} {split[2]} — {split[1]}");
                     Main.LogPatch("Patched", feature);
                 }
                 PatchSorcererArchetypes();

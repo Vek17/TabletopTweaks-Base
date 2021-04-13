@@ -9,6 +9,7 @@ namespace TabletopTweaks.Config {
         public bool FixDemonSubtypes = true;
         public FixGroup Aeon = new FixGroup();
         public FixGroup Azata = new FixGroup();
+        public FixGroup Bloodrager = new FixGroup();
         public FixGroup DragonDisciple = new FixGroup();
         public FixGroup Slayer = new FixGroup();
         public FixGroup Witch = new FixGroup();
@@ -24,6 +25,7 @@ namespace TabletopTweaks.Config {
             FixDemonSubtypes = newFixes.FixDemonSubtypes;
             Aeon.LoadFixgroup(newFixes.Aeon);
             Azata.LoadFixgroup(newFixes.Azata);
+            Bloodrager.LoadFixgroup(newFixes.Bloodrager);
             DragonDisciple.LoadFixgroup(newFixes.DragonDisciple);
             Slayer.LoadFixgroup(newFixes.Slayer);
             Witch.LoadFixgroup(newFixes.Witch);

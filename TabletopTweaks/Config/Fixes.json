@@ -17,6 +17,12 @@
       "ZippyMagic": true
     }
   },
+  "Bloodrager": {
+    "DisableAllFixes": false,
+    "Fixes": {
+      "SpellsPerDay": true
+    }
+  },
   "DragonDisciple": {
     "DisableAllFixes": false,
     "Fixes": {
