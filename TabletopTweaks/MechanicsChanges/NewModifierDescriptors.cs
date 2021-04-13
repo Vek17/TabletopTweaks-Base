@@ -33,12 +33,6 @@ namespace TabletopTweaks.MechanicsChanges {
 			var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsArmor");
 			FilterIsArmor.SetValue(null, newFilterIsArmor);
 		}
-#if false
-		[PostPatchInitialize]
-		static void Update_ModifierDescriptorComparer_Instance() {
-			ModifierDescriptorComparer.Instance = new ModifierDescriptorComparer();
-		}
-#endif
 
 		[PostPatchInitialize]
 		static void Update_ModifierDescriptorComparer_SortedValues() {
@@ -51,76 +45,7 @@ namespace TabletopTweaks.MechanicsChanges {
 					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable, 
 					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus);
 		}
-#if false
-		[HarmonyPatch(typeof(ModifierDescriptorComparer), MethodType.Constructor)]
-		static class ModifierDescriptorComparer_Patch {
-			static void Postfix(ModifierDescriptorComparer __instance) {
-				Helpers.SetField(__instance, "m_Order", new int[Enum.GetNames(typeof(ModifierDescriptor)).Length + Enum.GetNames(typeof(ExtraModifierDescriptor)).Length]);
-				for (int i = 0; i < __instance.m_Order.Length; i++) {
-					__instance.m_Order[i] = -1;
-				}
-				List<ModifierDescriptor> list = new List<ModifierDescriptor>(new ModifierDescriptor[] {
-					ModifierDescriptor.None,
-					ModifierDescriptor.Racial,
-					ModifierDescriptor.Inherent,
-					ModifierDescriptor.Trait,
-					ModifierDescriptor.Size,
-					ModifierDescriptor.Insight,
-					ModifierDescriptor.Profane,
-					ModifierDescriptor.Sacred,
-					ModifierDescriptor.Luck,
-					ModifierDescriptor.Circumstance,
-					ModifierDescriptor.Enhancement,
-					ModifierDescriptor.Morale,
-					ModifierDescriptor.Competence,
-					ModifierDescriptor.Resistance,
-					ModifierDescriptor.Cooking,
-					ModifierDescriptor.Feat,
-					ModifierDescriptor.FavoredEnemy,
-					ModifierDescriptor.UntypedStackable,
-					ModifierDescriptor.ConstitutionBonus,
-					ModifierDescriptor.Difficulty,
-					ModifierDescriptor.Polymorph,
-					ModifierDescriptor.Other,
-					ModifierDescriptor.DexterityBonus,
-					ModifierDescriptor.Deflection,
-					ModifierDescriptor.Armor,
-					ModifierDescriptor.ArmorEnhancement,
-					ModifierDescriptor.ArmorFocus,
-					ModifierDescriptor.Shield,
-					ModifierDescriptor.ShieldEnhancement,
-					ModifierDescriptor.Focus,
-					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable,
-					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus,
-					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize,
-					ModifierDescriptor.NaturalArmorEnhancement,
-					ModifierDescriptor.Dodge,
-					ModifierDescriptor.Encumbrance,
-					ModifierDescriptor.Penalty,
-					ModifierDescriptor.StatDamage,
-					ModifierDescriptor.StatDrain,
-					ModifierDescriptor.Fatigued,
-					ModifierDescriptor.Crippled,
-					ModifierDescriptor.FearPenalty,
-					ModifierDescriptor.NegativeEnergyPenalty,
-					ModifierDescriptor.Helpless,
-					ModifierDescriptor.Prone
-				});
-				int j;
-				for (j = 0; j < list.Count; j++) {
-					__instance.m_Order[(int)list[j]] = j;
-				}
-				foreach (ModifierDescriptor modifierDescriptor in EnumUtils.GetValues<ModifierDescriptor>().Concat(EnumUtils.GetValues<ExtraModifierDescriptor>().Select(e => (ModifierDescriptor)e))) {
-					if (__instance.m_Order[(int)modifierDescriptor] < 0) {
-						j++;
-						__instance.m_Order[(int)modifierDescriptor] = j;
-						list.Add(modifierDescriptor);
-					}
-				}
-				ModifierDescriptorComparer.SortedValues = list.ToArray();
-			}
-		}
-#endif
+
 		[HarmonyPatch(typeof(ModifierDescriptorComparer), "Compare", new Type[] { typeof(ModifierDescriptor), typeof(ModifierDescriptor) })]
 		static class ModifierDescriptorComparer_Compare_Patch {
 			static SortedDictionary<ModifierDescriptor, int> order;

@@ -60,7 +60,7 @@ namespace TabletopTweaks.MechanicsChanges {
 
         // Force Archetypes to Display Prerequisites
         [HarmonyPatch(typeof(TooltipTemplateLevelUp), "AddClassPrerequisites")]
-        static class CharGenClassPhaseVM_AddClassPrerequisites_patch {
+        static class TooltipTemplateLevelUp_AddClassPrerequisites_patch {
             static bool Prefix(TooltipTemplateLevelUp __instance, List<ITooltipBrick> bricks) {
                 if (!Resources.Fixes.EnableArchetypePrerequisites) { return true; }
                 if (__instance.ClassInfo.Class == null) { return true; }
