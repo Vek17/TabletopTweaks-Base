@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
@@ -50,22 +51,38 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 BlueprintCharacterClass DragonDiscipleClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("72051275b1dbb2d42ba9118237794f7c");
                 // Patch Bloodline Selection
                 BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = BloodragerBloodlineSelection.m_AllFeatures;
-                PrerequisiteNoFeaturesFromList ExcludeBloodlines = ScriptableObject.CreateInstance<PrerequisiteNoFeaturesFromList>();
-                    ExcludeBloodlines.Features = new BlueprintFeatureReference[] {
-                    BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                    SorcererBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                    SeekerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                    SylvanBloodlineProgression.ToReference<BlueprintFeatureReference>(),
-                    SageBloodlineProgression.ToReference<BlueprintFeatureReference>(),
-                    EmpyrealBloodlineProgression.ToReference<BlueprintFeatureReference>(),
-                };
-                ExcludeBloodlines.Group = Prerequisite.GroupType.Any;
+                // Create New Bloodline Exclusions
+                var ExcludeBloodlines = Helpers.Create<PrerequisiteNoFeaturesFromList>(c => {
+                    c.Features = new BlueprintFeatureReference[] {
+                        SorcererBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                        BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                        SeekerBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                        SylvanBloodlineProgression.ToReference<BlueprintFeatureReference>(),
+                        SageBloodlineProgression.ToReference<BlueprintFeatureReference>(),
+                        EmpyrealBloodlineProgression.ToReference<BlueprintFeatureReference>(),
+                    };
+                    c.Group = Prerequisite.GroupType.Any;
+                });
                 DragonDiscipleClass.SetComponents(DragonDiscipleClass.ComponentsArray
                     .Where(c => !(c is PrerequisiteNoFeature)) // Remove old Bloodline Feature
                     .Where(c => !(c is PrerequisiteNoArchetype)) // Remove Sorcerer Archetype Restrictions
                     .Append(ExcludeBloodlines));
                 Main.LogPatch("Patched", DragonDiscipleClass);
-                patchSorcererArchetypes();
+                // Patch BloodlineSelection Names
+                SorcererBloodlineSelection.SetName("Sorcerer Bloodline");
+                Main.LogPatch("Patched", SorcererBloodlineSelection);
+                BloodragerBloodlineSelection.SetName("Bloodrager Bloodline");
+                Main.LogPatch("Patched", BloodragerBloodlineSelection);
+                SeekerBloodlineSelection.SetName("Seeker Bloodline");
+                Main.LogPatch("Patched", SeekerBloodlineSelection);
+                // Patch Bloodline Prerequiste Feature names
+                foreach (var reference in DragonDiscipleClass.GetComponent<PrerequisiteFeaturesFromList>().m_Features) {
+                    var feature = reference.Get();
+                    string[] split = Regex.Split(feature.name, @"(?<!^)(?=[A-Z])");
+                    feature.SetName($"{split[1]} {split[0]} {split[2]}");
+                    Main.LogPatch("Patched", feature);
+                }
+                PatchSorcererArchetypes();
             }
             static void PatchBloodlineSelection() {
                 if (!Resources.Fixes.DragonDisciple.Fixes["BloodlineSelection"]) { return; }
@@ -73,7 +90,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 BlueprintFeatureSelection BloodragerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = BloodragerBloodlineSelection.m_AllFeatures;
             }
-            static void patchSorcererArchetypes() {
+            static void PatchSorcererArchetypes() {
                 BlueprintArchetype EmpyrealSorcererArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("aa00d945f7cf6c34c909a29a25f2df38");
                 BlueprintArchetype SageSorcererArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("00b990c8be2117e45ae6514ee4ef561c");
                 BlueprintArchetype SylvanSorcererArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("711d5024ecc75f346b9cda609c3a1f83");
@@ -88,17 +105,18 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 SeekerSorcererArchetype
             };
                 foreach (var Archetype in SorcererArchetypes) {
-                    var ArchetypeLevel = Helpers.Create<PrerequisiteArchetypeLevel>();
-                    ArchetypeLevel.m_CharacterClass = SorcererClass.ToReference<BlueprintCharacterClassReference>();
-                    ArchetypeLevel.m_Archetype = Archetype.ToReference<BlueprintArchetypeReference>();
-                    ArchetypeLevel.Level = 1;
-                    ArchetypeLevel.Group = Prerequisite.GroupType.Any;
-                    var DragonDiscipleBlock = Helpers.Create<NewComponents.PrerequisiteNoClassLevelVisible>();
-                    DragonDiscipleBlock.m_CharacterClass = DragonDiscipleClass.ToReference<BlueprintCharacterClassReference>();
-                    DragonDiscipleBlock.Group = Prerequisite.GroupType.Any;
+                    var ArchetypeLevel = Helpers.Create<PrerequisiteArchetypeLevel>(c => {
+                        c.m_CharacterClass = SorcererClass.ToReference<BlueprintCharacterClassReference>();
+                        c.m_Archetype = Archetype.ToReference<BlueprintArchetypeReference>();
+                        c.Level = 1;
+                        c.Group = Prerequisite.GroupType.Any;
+                    });
+                    var DragonDiscipleBlock = Helpers.Create<NewComponents.PrerequisiteNoClassLevelVisible>(c => { 
+                        c.m_CharacterClass = DragonDiscipleClass.ToReference<BlueprintCharacterClassReference>();
+                        c.Group = Prerequisite.GroupType.Any;
+                    });
 
                     Archetype.AddComponents(ArchetypeLevel, DragonDiscipleBlock);
-                    Main.Log($"{Archetype.Name} - Components: {Archetype.ComponentsArray.Count()}");
                 }
             }
         }

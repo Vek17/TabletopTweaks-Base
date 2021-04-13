@@ -4,6 +4,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using System.Linq;
+using TabletopTweaks.Extensions;
+using TabletopTweaks.Utilities;
 using UnityEngine;
 
 namespace TabletopTweaks.Bugfixes.Features {
@@ -37,40 +39,41 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void patchBloodlineAscendance() {
                 if (!Resources.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
                 BlueprintFeatureSelection BloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
-                PrerequisiteFeaturesFromList newPrerequisites = ScriptableObject.CreateInstance<PrerequisiteFeaturesFromList>();
-
-                newPrerequisites.m_Features = new BlueprintFeatureReference[] {
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>(),    // EmpyrealBloodlineProgression
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988").ToReference<BlueprintFeatureReference>()     // BloodOfDragonsSelection - Dragon Disciple
-                };
-                newPrerequisites.Amount = 1;
-                BloodlineAscendance.ComponentsArray = BloodlineAscendance.ComponentsArray
+                var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
+                    c.m_Features = new BlueprintFeatureReference[] {
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>(),    // EmpyrealBloodlineProgression
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988").ToReference<BlueprintFeatureReference>()     // BloodOfDragonsSelection - Dragon Disciple
+                    };
+                    c.Amount = 1;
+                });
+                BloodlineAscendance.SetComponents(BloodlineAscendance.ComponentsArray
                     .Where(c => c.GetType() != typeof(PrerequisiteFeature))
                     .Append(newPrerequisites)
-                    .ToArray();
+                );
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
             static void patchSecondBloodline() {
                 if (!Resources.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
-                PrerequisiteFeaturesFromList NewPrerequisites = ScriptableObject.CreateInstance<PrerequisiteFeaturesFromList>();
 
-                NewPrerequisites.m_Features = new BlueprintFeatureReference[] {
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
-                    ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>()     // EmpyrealBloodlineProgression
-                };
-                NewPrerequisites.Amount = 1;
-                SecondBloodline.ComponentsArray = SecondBloodline.ComponentsArray
+                var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => { 
+                    c.m_Features = new BlueprintFeatureReference[] {
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
+                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>()     // EmpyrealBloodlineProgression
+                    };
+                    c.Amount = 1;
+                });
+                SecondBloodline.SetComponents(SecondBloodline.ComponentsArray
                     .Where(c => c.GetType() != typeof(PrerequisiteFeature))
-                    .Append(NewPrerequisites)
-                    .ToArray();
+                    .Append(newPrerequisites)
+                );
                 SecondBloodline.IgnorePrerequisites = false;
                 Main.LogPatch("Patched", SecondBloodline);
             }

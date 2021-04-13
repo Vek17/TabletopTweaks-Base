@@ -5,7 +5,7 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
-using UnityEngine;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class Bloodlines {
@@ -155,12 +155,12 @@ namespace TabletopTweaks.Bugfixes.Features {
                 }},
             };
             foreach (BlueprintFeature Bloodline in BloodlinesBlockedCombinations.Keys) {
-                IEnumerable<PrerequisiteNoFeature> newPrerequisites = BloodlinesBlockedCombinations[Bloodline].Select(b => {
-                    var blockFeature = ScriptableObject.CreateInstance<PrerequisiteNoFeature>();
-                    blockFeature.m_Feature = b;
-                    blockFeature.Group = Prerequisite.GroupType.All;
-                    return blockFeature;
-                });
+                IEnumerable<PrerequisiteNoFeature> newPrerequisites = BloodlinesBlockedCombinations[Bloodline].Select(blood => 
+                    Helpers.Create<PrerequisiteNoFeature>(c => {
+                        c.m_Feature = blood;
+                        c.Group = Prerequisite.GroupType.All;
+                    })
+                );
                 Bloodline.AddComponents(newPrerequisites);
                 Main.LogPatch("Patched", Bloodline);
             }

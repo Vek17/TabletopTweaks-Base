@@ -58,10 +58,7 @@ namespace TabletopTweaks.MechanicsChanges {
 						order[ModifierDescriptorComparer.SortedValues[i]] = i;
 					}
 				}
-				ModifierDescriptorComparer.SortedValues.ForEach(v => Main.Log($"{(int)v}"));
-
 				__result = order.Get(x).CompareTo(order.Get(y));
-				Main.Log($"");
 				return false;
 			}
 		}
