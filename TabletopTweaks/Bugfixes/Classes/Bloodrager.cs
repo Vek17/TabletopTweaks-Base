@@ -1,12 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Bloodrager {
@@ -58,7 +52,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     CreateSpellLevelEntry(0,4,3,3,2),
                     CreateSpellLevelEntry(0,4,4,3,2)
                 };
-                Main.LogPatch("patched", BloodragerSpellPerDayTable);
+                Main.LogPatch("Patched", BloodragerSpellPerDayTable);
                 SpellsLevelEntry CreateSpellLevelEntry(params int[] count) {
                     var entry = new SpellsLevelEntry();
                     entry.Count = count;
