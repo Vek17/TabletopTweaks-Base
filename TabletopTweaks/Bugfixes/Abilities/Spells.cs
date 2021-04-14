@@ -45,6 +45,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchOdeToMiraculousMagicBuff();
                 PatchProtectionFromAlignment();
                 PatchProtectionFromAlignmentGreater();
+                PatchRemoveFear();
                 PatchWrachingRay();
                 Main.LogHeader("Patching Spells Complete");
             }
@@ -239,6 +240,18 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     Main.LogPatch("Patched", ability);
                     Main.LogPatch("Patched", buff);
                 }
+            }
+            static void PatchRemoveFear() {
+                if (!Resources.Fixes.Spells.Fixes["RemoveFear"]) { return; }
+                var RemoveFear = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
+                var RemoveFearBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
+                var removeFearAction = Helpers.Create<ContextActionRemoveBuffsByDescriptor>(c => {
+                    c.SpellDescriptor = SpellDescriptor.Frightened | SpellDescriptor.Shaken | SpellDescriptor.Fear;
+                });
+                RemoveFear.GetComponent<AbilityEffectRunAction>().AddAction(removeFearAction);
+                Main.LogPatch("Patched", RemoveFear);
+                RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
+                Main.LogPatch("Patched", RemoveFearBuff);
             }
             static void PatchWrachingRay() {
                 if (!Resources.Fixes.Spells.Fixes["WrackingRay"]) { return; }

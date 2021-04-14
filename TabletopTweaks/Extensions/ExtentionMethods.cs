@@ -403,7 +403,7 @@ namespace TabletopTweaks.Extensions {
             return s;
         }
 
-        public static void addAction(this Kingmaker.UnitLogic.Abilities.Components.AbilityEffectRunAction action, Kingmaker.ElementsSystem.GameAction game_action) {
+        public static void AddAction(this Kingmaker.UnitLogic.Abilities.Components.AbilityEffectRunAction action, Kingmaker.ElementsSystem.GameAction game_action) {
             if (action.Actions != null) {
                 action.Actions = Helpers.CreateActionList(action.Actions.Actions);
                 action.Actions.Actions = action.Actions.Actions.AddToArray(game_action);

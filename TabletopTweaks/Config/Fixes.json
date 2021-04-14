@@ -55,6 +55,7 @@
       "OdeToMiraculousMagic": true,
       "ProtectionFromAlignment": true,
       "ProtectionFromAlignmentGreater": true,
+      "RemoveFear":  true,
       "WrackingRay": true
     }
   },
