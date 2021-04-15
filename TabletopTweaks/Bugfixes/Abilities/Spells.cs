@@ -232,9 +232,9 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         c.Alignment = alignment;
                         c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
                     });
-                    ability.ReplaceComponents<SpellImmunityToSpellDescriptor>(SpellImmunity);
-                    ability.ReplaceComponents<BuffDescriptorImmunity>(BuffImmunity);
                     ability.SetDescription(description);
+                    buff.ReplaceComponents<SpellImmunityToSpellDescriptor>(SpellImmunity);
+                    buff.ReplaceComponents<BuffDescriptorImmunity>(BuffImmunity);
                     buff.SetDescription(description);
 
                     Main.LogPatch("Patched", ability);
@@ -245,12 +245,11 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 if (!Resources.Fixes.Spells.Fixes["RemoveFear"]) { return; }
                 var RemoveFear = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
                 var RemoveFearBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
-                var removeFearAction = Helpers.Create<ContextActionRemoveBuffsByDescriptor>(c => {
-                    c.SpellDescriptor = SpellDescriptor.Frightened | SpellDescriptor.Shaken | SpellDescriptor.Fear;
+                var suppressFear = Helpers.Create<SuppressBuffsPersistant>(c => {
+                    c.Descriptor = SpellDescriptor.Frightened | SpellDescriptor.Shaken | SpellDescriptor.Fear;
                 });
-                RemoveFear.GetComponent<AbilityEffectRunAction>().AddAction(removeFearAction);
-                Main.LogPatch("Patched", RemoveFear);
                 RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
+                RemoveFearBuff.AddComponent(suppressFear);
                 Main.LogPatch("Patched", RemoveFearBuff);
             }
             static void PatchWrachingRay() {

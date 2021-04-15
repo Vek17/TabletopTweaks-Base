@@ -135,6 +135,8 @@
     <Compile Include="NewComponents\ContextConditionHasBuffWithDescriptor.cs" />
     <Compile Include="NewComponents\ContextConditionHasFreeHand.cs" />
     <Compile Include="NewComponents\PrerequisiteNoClassLevelVisible.cs" />
+    <Compile Include="NewComponents\SuppressBuffsPersistant.cs" />
+    <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="NewComponents\BuffDescriptorImmunityAgainstAlignment.cs" />
