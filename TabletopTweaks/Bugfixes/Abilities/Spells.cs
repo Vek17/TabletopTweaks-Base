@@ -80,7 +80,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchAngelicAspectGreater() {
                 if (!Resources.Fixes.Spells.Fixes["AngelicAspectGreater"]) { return; }
-                var AuraOfAngelicAspectGreaterBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("87fcda72043d20840b4cdc2adcc69c63");
+                var AngelicAspectGreaterBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("87fcda72043d20840b4cdc2adcc69c63");
                 var AuraOfAngelicAspectGreaterEffectBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("6ab366720f4b8ed4f83ada36994d0890");
 
                 var FlyingSpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
@@ -89,8 +89,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var FlyingBuffImmunity = Helpers.Create<BuffDescriptorImmunity>(c => {
                     c.Descriptor = SpellDescriptor.Ground;
                 });
-                AuraOfAngelicAspectGreaterBuff.AddComponents(FlyingSpellImmunity, FlyingBuffImmunity);
-                Main.LogPatch("Patched", AuraOfAngelicAspectGreaterBuff);
+                AngelicAspectGreaterBuff.AddComponents(FlyingSpellImmunity, FlyingBuffImmunity);
+                Main.LogPatch("Patched", AngelicAspectGreaterBuff);
                 var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
                     c.Alignment = AlignmentComponent.Good;
                     c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;

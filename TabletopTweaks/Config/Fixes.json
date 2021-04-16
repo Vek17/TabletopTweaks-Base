@@ -79,6 +79,7 @@
     "DisableAllFixes": false,
     "Fixes": {
       "BloodlineAscendance": true,
+      "EnduringSpells":  true,
       "SecondBloodline": true
     }
   }

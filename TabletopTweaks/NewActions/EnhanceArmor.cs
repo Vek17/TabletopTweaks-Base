@@ -40,10 +40,10 @@ namespace TabletopTweaks.NewActions {
 			BlueprintItemEnchantment enchantment;
 			int i = Math.Min(EnchantLevel.Calculate(mechanicsContext), Enchantment.Length) - 1;
 			enchantment = Enchantment[i];
-			ApplyMagicWeapon(unit, duration, mechanicsContext, enchantment);
+			ApplyMagicVestment(unit, duration, mechanicsContext, enchantment);
 		}
 
-		private void ApplyMagicWeapon(UnitEntityData target, Rounds duration, MechanicsContext context, BlueprintItemEnchantment enchantment) {
+		private void ApplyMagicVestment(UnitEntityData target, Rounds duration, MechanicsContext context, BlueprintItemEnchantment enchantment) {
 			ItemEntityArmor armor = target.Body.Armor.MaybeArmor;
 			if (armor != null) {
 				EnchantSlot(armor, duration, context, enchantment);

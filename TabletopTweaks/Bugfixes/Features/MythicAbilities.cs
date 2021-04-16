@@ -3,6 +3,11 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Items;
+using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -31,12 +36,12 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Initialized = true;
                 if (Resources.Fixes.MythicAbilities.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Mythic Ability Resources");
-                patchBloodlineAscendance();
-                patchSecondBloodline();
+                PatchBloodlineAscendance();
+                PatchSecondBloodline();
                 Main.LogHeader("Patching Mythic Ability Resources Complete");
                 //Do Stuff
             }
-            static void patchBloodlineAscendance() {
+            static void PatchBloodlineAscendance() {
                 if (!Resources.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
                 BlueprintFeatureSelection BloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
@@ -56,11 +61,11 @@ namespace TabletopTweaks.Bugfixes.Features {
                 );
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
-            static void patchSecondBloodline() {
+            static void PatchSecondBloodline() {
                 if (!Resources.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
-                var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => { 
+                var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
                         ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
                         ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
@@ -76,6 +81,28 @@ namespace TabletopTweaks.Bugfixes.Features {
                 );
                 SecondBloodline.IgnorePrerequisites = false;
                 Main.LogPatch("Patched", SecondBloodline);
+            }
+
+        }
+        [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]
+        static class ItemEntity_AddEnchantment_EnduringSpells_Patch {
+            static BlueprintFeature EnduringSpells = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
+            static BlueprintFeature EnduringSpellsGreater = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
+            static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
+                if (Resources.Fixes.MythicAbilities.DisableAllFixes || !Resources.Fixes.MythicAbilities.Fixes["EnduringSpells"]) { return true; }
+                if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
+
+                    var owner = parentContext.MaybeOwner;
+                    if (owner.Descriptor.HasFact(EnduringSpells)) {
+                        if (owner.Descriptor.HasFact(EnduringSpellsGreater) && duration >= (DurationRate.Minutes.ToRounds() * 5)) {
+                            duration = DurationRate.Days.ToRounds();
+                        }
+                        else if(duration >= DurationRate.Hours.ToRounds()) {
+                            duration = DurationRate.Days.ToRounds();
+                        }
+                    }
+                }
+                return true;
             }
         }
     }
