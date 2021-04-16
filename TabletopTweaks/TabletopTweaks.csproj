@@ -129,6 +129,8 @@
     <Compile Include="Extensions\ExtentionMethods.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites.cs" />
     <Compile Include="MechanicsChanges\NewModifierDescriptors.cs" />
+    <Compile Include="NewActions\EnhanceShield.cs" />
+    <Compile Include="NewActions\EnhanceArmor.cs" />
     <Compile Include="NewComponents\AzataFavorableMagicComponent.cs" />
     <Compile Include="NewComponents\AzataZippyMagicComponent.cs" />
     <Compile Include="NewComponents\BlockSpellDuplicationComponent.cs" />

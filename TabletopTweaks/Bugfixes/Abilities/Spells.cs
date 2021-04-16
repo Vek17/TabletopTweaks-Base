@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -8,12 +10,14 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewActions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
@@ -40,14 +44,63 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Initialized = true;
                 if (Resources.Fixes.Spells.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Spell Resources");
+                PatchAngelicAspect();
+                PatchAngelicAspectGreater();
                 PatchBelieveInYourself();
-                PatchGreaterBestowCurse();
+                PatchBestowCurseGreater();
+                PatchCrusadersEdge();
+                PatchMagicalVestment();
                 PatchOdeToMiraculousMagicBuff();
                 PatchProtectionFromAlignment();
                 PatchProtectionFromAlignmentGreater();
                 PatchRemoveFear();
                 PatchWrachingRay();
                 Main.LogHeader("Patching Spells Complete");
+            }
+            static void PatchAngelicAspect() {
+                if (!Resources.Fixes.Spells.Fixes["AngelicAspect"]) { return; }
+                var AngelicAspectBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("b33f44fecadb3ca48b438dacac6454c2");
+
+                var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
+                    c.Alignment = AlignmentComponent.Good;
+                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
+                });
+                var BuffImmunityAlignment = Helpers.Create<BuffDescriptorImmunityAgainstAlignment>(c => {
+                    c.Alignment = AlignmentComponent.Good;
+                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
+                });
+                var FlyingSpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
+                    c.Descriptor = SpellDescriptor.Ground;
+                });
+                var FlyingBuffImmunity = Helpers.Create<BuffDescriptorImmunity>(c => {
+                    c.Descriptor = SpellDescriptor.Ground;
+                });
+                AngelicAspectBuff.AddComponents(SpellImmunityAlignment, BuffImmunityAlignment, FlyingSpellImmunity, FlyingBuffImmunity);
+                Main.LogPatch("Patched", AngelicAspectBuff);
+            }
+            static void PatchAngelicAspectGreater() {
+                if (!Resources.Fixes.Spells.Fixes["AngelicAspectGreater"]) { return; }
+                var AuraOfAngelicAspectGreaterBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("87fcda72043d20840b4cdc2adcc69c63");
+                var AuraOfAngelicAspectGreaterEffectBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("6ab366720f4b8ed4f83ada36994d0890");
+
+                var FlyingSpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
+                    c.Descriptor = SpellDescriptor.Ground;
+                });
+                var FlyingBuffImmunity = Helpers.Create<BuffDescriptorImmunity>(c => {
+                    c.Descriptor = SpellDescriptor.Ground;
+                });
+                AuraOfAngelicAspectGreaterBuff.AddComponents(FlyingSpellImmunity, FlyingBuffImmunity);
+                Main.LogPatch("Patched", AuraOfAngelicAspectGreaterBuff);
+                var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
+                    c.Alignment = AlignmentComponent.Good;
+                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
+                });
+                var BuffImmunityAlignment = Helpers.Create<BuffDescriptorImmunityAgainstAlignment>(c => {
+                    c.Alignment = AlignmentComponent.Good;
+                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
+                });
+                AuraOfAngelicAspectGreaterEffectBuff.AddComponents(SpellImmunityAlignment, BuffImmunityAlignment);
+                Main.LogPatch("Patched", AuraOfAngelicAspectGreaterEffectBuff);
             }
             static void PatchBelieveInYourself() {
                 if (!Resources.Fixes.Spells.Fixes["BelieveInYourself"]) { return; }
@@ -64,7 +117,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         });
                 }
             }
-            static void PatchGreaterBestowCurse() {
+            static void PatchBestowCurseGreater() {
                 if (!Resources.Fixes.Spells.Fixes["BestowCurseGreater"]) { return; }
                 var BestowCurseGreaterDeterioration = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
                 var BestowCurseGreaterFeebleBody    = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
@@ -110,6 +163,94 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     Main.LogPatch("Patched", curseBuff);
                 }
             }
+            static void PatchCrusadersEdge() {
+                if (!Resources.Fixes.Spells.Fixes["CrusadersEdge"]) { return; }
+                BlueprintBuff CrusadersEdgeBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
+                CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
+                Main.LogPatch("Patched", CrusadersEdgeBuff);
+            }
+            static void PatchMagicalVestment() {
+                if (!Resources.Fixes.Spells.Fixes["MagicalVestment"]) { return; }
+                PatchMagicalVestmentArmor();
+                PatchMagicalVestmentShield();
+
+                void PatchMagicalVestmentShield() {
+                    var MagicalVestmentShield = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("adcda176d1756eb45bd5ec9592073b09");
+                    var MagicalVestmentShieldBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("2e8446f820936a44f951b50d70a82b16");
+                    MagicalVestmentShield.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceSheild>(a => {
+                        a.EnchantLevel = new ContextValue();
+                        a.EnchantLevel.ValueType = ContextValueType.Rank;
+                        a.EnchantLevel.Value = 1;
+                        a.EnchantLevel.ValueRank = AbilityRankType.ProjectilesCount;
+
+                        a.DurationValue = new ContextDurationValue();
+                        a.DurationValue.m_IsExtendable = true;
+                        a.DurationValue.Rate = DurationRate.Hours;
+                        a.DurationValue.DiceCountValue = new ContextValue();
+                        a.DurationValue.BonusValue = new ContextValue();
+                        a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
+
+                        a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
+                    };
+                    }));
+                    var RankConfig = Helpers.CreateContextRankConfig();
+                    RankConfig.m_Type = AbilityRankType.ProjectilesCount;
+                    RankConfig.m_Progression = ContextRankProgression.DivStep;
+                    RankConfig.m_StepLevel = 4;
+                    RankConfig.m_Min = 1;
+                    RankConfig.m_Max = 5;
+
+                    MagicalVestmentShield.AddComponent(RankConfig);
+                    MagicalVestmentShield.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>().First().IsNotDispelable = true;
+
+                    Main.LogPatch("Patched", MagicalVestmentShield);
+                    MagicalVestmentShieldBuff.RemoveComponents<BlueprintComponent>();
+                    Main.LogPatch("Patched", MagicalVestmentShieldBuff);
+                }
+                void PatchMagicalVestmentArmor() {
+                    var MagicalVestmentArmor = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("956309af83352714aa7ee89fb4ecf201");
+                    var MagicalVestmentArmorBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("9e265139cf6c07c4fb8298cb8b646de9");
+                    MagicalVestmentArmor.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceArmor>(a => {
+                        a.EnchantLevel = new ContextValue();
+                        a.EnchantLevel.ValueType = ContextValueType.Rank;
+                        a.EnchantLevel.Value = 1;
+                        a.EnchantLevel.ValueRank = AbilityRankType.ProjectilesCount;
+
+                        a.DurationValue = new ContextDurationValue();
+                        a.DurationValue.m_IsExtendable = true;
+                        a.DurationValue.Rate = DurationRate.Hours;
+                        a.DurationValue.DiceCountValue = new ContextValue();
+                        a.DurationValue.BonusValue = new ContextValue();
+                        a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
+
+                        a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
+                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
+                    };
+                    }));
+                    var RankConfig = Helpers.CreateContextRankConfig();
+                    RankConfig.m_Type = AbilityRankType.ProjectilesCount;
+                    RankConfig.m_Progression = ContextRankProgression.DivStep;
+                    RankConfig.m_StepLevel = 4;
+                    RankConfig.m_Min = 1;
+                    RankConfig.m_Max = 5;
+
+                    MagicalVestmentArmor.AddComponent(RankConfig);
+                    MagicalVestmentArmor.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<ContextActionApplyBuff>().First().IsNotDispelable = true;
+                    Main.LogPatch("Patched", MagicalVestmentArmor);
+                    MagicalVestmentArmorBuff.RemoveComponents<BlueprintComponent>();
+                    Main.LogPatch("Patched", MagicalVestmentArmorBuff);
+                }
+            }
             static void PatchOdeToMiraculousMagicBuff() {
                 if (!Resources.Fixes.Spells.Fixes["OdeToMiraculousMagic"]) { return; }
                 BlueprintBuff OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
@@ -144,7 +285,11 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                             c.Alignment = alignment;
                             c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
                         });
-                        buff.AddComponent(SpellImmunity);
+                        var BuffImmunity = Helpers.Create<BuffDescriptorImmunityAgainstAlignment>(c => {
+                            c.Alignment = alignment;
+                            c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
+                        });
+                        buff.AddComponents(SpellImmunity, BuffImmunity);
                         buff.SetDescription(variantDescription);
                         Main.LogPatch("Patched", buff);
                     }

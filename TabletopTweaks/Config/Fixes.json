@@ -50,12 +50,16 @@
   "Spells": {
     "DisableAllFixes": false,
     "Fixes": {
+      "AngelicAspect": true,
+      "AngelicAspectGreater": true,
       "BelieveInYourself": true,
       "BestowCurseGreater": true,
+      "CrusadersEdge": true,
+      "MagicalVestment": true,
       "OdeToMiraculousMagic": true,
       "ProtectionFromAlignment": true,
       "ProtectionFromAlignmentGreater": true,
-      "RemoveFear":  true,
+      "RemoveFear": true,
       "WrackingRay": true
     }
   },

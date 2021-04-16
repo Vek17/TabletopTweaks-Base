@@ -8,6 +8,12 @@ using System;
 using UnityEngine;
 using Kingmaker.ElementsSystem;
 using System.Globalization;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Enums;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.UnitLogic.Mechanics.Properties;
+using Kingmaker.Blueprints.Classes;
+using System.Linq;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
@@ -92,6 +98,36 @@ namespace TabletopTweaks.Utilities {
             var result = ScriptableObject.CreateInstance<T>();
             if (init != null) init(result);
             return result;
+        }
+        public static ContextRankConfig CreateContextRankConfig(
+            ContextRankBaseValueType baseValueType = ContextRankBaseValueType.CasterLevel,
+            ContextRankProgression progression = ContextRankProgression.AsIs,
+            AbilityRankType type = AbilityRankType.Default,
+            int? min = null, int? max = null, int startLevel = 0, int stepLevel = 0,
+            bool exceptClasses = false, StatType stat = StatType.Unknown,
+            BlueprintUnitProperty customProperty = null,
+            BlueprintCharacterClass[] classes = null, BlueprintArchetype[] archetypes = null,
+            BlueprintFeature feature = null, BlueprintFeature[] featureList = null) {
+
+            var config = Create<ContextRankConfig>();
+            config.m_Type = type;
+            config.m_BaseValueType = baseValueType;
+            config.m_Progression = progression;
+            config.m_UseMin = min.HasValue;
+            config.m_Min = min.GetValueOrDefault();
+            config.m_UseMax = max.HasValue;
+            config.m_Max = max.GetValueOrDefault();
+            config.m_StartLevel = startLevel;
+            config.m_StepLevel = stepLevel;
+            config.m_Feature = feature.ToReference<BlueprintFeatureReference>();
+            config.m_ExceptClasses = exceptClasses;
+            config.m_CustomProperty = customProperty.ToReference<BlueprintUnitPropertyReference>();
+            config.m_Stat = stat;
+            config.m_Class = classes != null ? classes.Select(c => c.ToReference<BlueprintCharacterClassReference>()).ToArray() : Array.Empty<BlueprintCharacterClassReference>();
+            config.m_AdditionalArchetypes = archetypes != null ? archetypes.Select(c => c.ToReference<BlueprintArchetypeReference>()).ToArray() : Array.Empty<BlueprintArchetypeReference>();
+            config.m_FeatureList = featureList != null ? featureList.Select(c => c.ToReference<BlueprintFeatureReference>()).ToArray() : Array.Empty<BlueprintFeatureReference>();
+
+            return config;
         }
         public static ActionList CreateActionList(params GameAction[] actions) {
             if (actions == null || actions.Length == 1 && actions[0] == null) actions = Array.Empty<GameAction>();
