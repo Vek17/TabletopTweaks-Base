@@ -25,11 +25,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Initialized = true;
                 if (Resources.Fixes.Bloodrager.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Bloodrager Resources");
-                PatchSpellsPerDayTable();
+                PatchBaseClass();
                 Main.LogHeader("Patching Bloodrager Resources Complete");
             }
+            static void PatchBaseClass() {
+                if (Resources.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
+                PatchSpellsPerDayTable();
+            }
             static void PatchSpellsPerDayTable() {
-                if (!Resources.Fixes.Bloodrager.Fixes["SpellsPerDay"]) { return; }
+                if (!Resources.Fixes.Bloodrager.Base.Fixes["SpellsPerDay"]) { return; }
                 BlueprintSpellsTable BloodragerSpellPerDayTable = ResourcesLibrary.TryGetBlueprint<BlueprintSpellsTable>("caf7018942861664ebe87687893ad05d");
                 BloodragerSpellPerDayTable.Levels = new SpellsLevelEntry[] {
                     // 18 Spell levels is correct for w/e reason

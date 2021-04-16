@@ -122,6 +122,7 @@
     <Compile Include="Bugfixes\Classes\Azata.cs" />
     <Compile Include="Bugfixes\Classes\Bloodrager.cs" />
     <Compile Include="Bugfixes\Classes\DragonDisciple.cs" />
+    <Compile Include="Bugfixes\Classes\Rogue.cs" />
     <Compile Include="Bugfixes\Classes\Slayer.cs" />
     <Compile Include="Bugfixes\Classes\Witch.cs" />
     <Compile Include="Bugfixes\Features\Feats.cs" />

@@ -36,5 +36,9 @@ namespace TabletopTweaks {
             Log(message);
             return new InvalidOperationException(message);
         }
+
+        internal static void LogPatch(string v) {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,86 +1,108 @@
 {
-  "DisableNaturalArmorStacking": true,
-  "DisablePolymorphStacking": true,
-  "EnableArchetypePrerequisites": true,
-  "FixDemonSubtypes": true,
-  "Aeon": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "AeonBaneUses": true
+    "DisableNaturalArmorStacking": true,
+    "DisablePolymorphStacking": true,
+    "EnableArchetypePrerequisites": true,
+    "FixDemonSubtypes": true,
+    "Aeon": {
+        "DisableAllFixes": false,
+        "Fixes": {
+            "AeonBaneUses": true
+        }
+    },
+    "Azata": {
+        "DisableAllFixes": false,
+        "Fixes": {
+            "AzataPerformanceResource": true,
+            "FavorableMagic": true,
+            "ZippyMagic": true
+        }
+    },
+    "Bloodrager": {
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {
+                "SpellsPerDay": true
+            }
+        },
+        "Archetypes": {}
+    },
+    "Rogue": {
+        "DisableAllFixes": false,
+        "Base": {
+        },
+        "Archetypes": {
+            "EldritchScoundrel": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "SneakAttack": true
+                }
+            }
+        }
+    },
+    "Slayer": {
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {
+                "StudiedTarget": true
+            }
+        },
+        "Archetypes": {}
+    },
+    "Witch": {
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {
+                "DeathCurse": true,
+                "DeliciousFright": true,
+                "EvilEye": true,
+                "Hoarfrost": true,
+                "RestlessSlumber": true,
+                "Slumber": true
+            }
+        },
+        "Archetypes": {}
+    },
+    "DragonDisciple": {
+        "DisableAllFixes": false,
+        "Fixes": {
+            "BloodlineSelection": true,
+            "Prerequisites": true
+        }
+    },
+    "Spells": {
+        "DisableAllFixes": false,
+        "Fixes": {
+            "AngelicAspect": true,
+            "AngelicAspectGreater": true,
+            "BelieveInYourself": true,
+            "BestowCurseGreater": true,
+            "CrusadersEdge": true,
+            "MagicalVestment": true,
+            "OdeToMiraculousMagic": true,
+            "ProtectionFromAlignment": true,
+            "ProtectionFromAlignmentGreater": true,
+            "RemoveFear": true,
+            "WrackingRay": true
+        }
+    },
+    "Bloodlines": {
+        "DisableAllFixes": false,
+        "Fixes": {
+            "BloodlineRestrictions": true
+        }
+    },
+    "Feats": {
+        "DisableAllFixes": false,
+        "Fixes": {
+            "CraneWing": true
+        }
+    },
+    "MythicAbilities": {
+        "DisableAllFixes": false,
+        "Fixes": {
+            "BloodlineAscendance": true,
+            "EnduringSpells": true,
+            "SecondBloodline": true
+        }
     }
-  },
-  "Azata": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "AzataPerformanceResource": true,
-      "FavorableMagic": true,
-      "ZippyMagic": true
-    }
-  },
-  "Bloodrager": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "SpellsPerDay": true
-    }
-  },
-  "DragonDisciple": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "BloodlineSelection": true,
-      "Prerequisites": true
-    }
-  },
-  "Slayer": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "StudiedTarget": true
-    }
-  },
-  "Witch": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "DeathCurse": true,
-      "DeliciousFright": true,
-      "EvilEye": true,
-      "Hoarfrost": true,
-      "RestlessSlumber": true,
-      "Slumber": true
-    }
-  },
-  "Spells": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "AngelicAspect": true,
-      "AngelicAspectGreater": true,
-      "BelieveInYourself": true,
-      "BestowCurseGreater": true,
-      "CrusadersEdge": true,
-      "MagicalVestment": true,
-      "OdeToMiraculousMagic": true,
-      "ProtectionFromAlignment": true,
-      "ProtectionFromAlignmentGreater": true,
-      "RemoveFear": true,
-      "WrackingRay": true
-    }
-  },
-  "Bloodlines": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "BloodlineRestrictions": true
-    }
-  },
-  "Feats": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "CraneWing": true
-    }
-  },
-  "MythicAbilities": {
-    "DisableAllFixes": false,
-    "Fixes": {
-      "BloodlineAscendance": true,
-      "EnduringSpells":  true,
-      "SecondBloodline": true
-    }
-  }
 }

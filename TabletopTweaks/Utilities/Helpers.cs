@@ -14,6 +14,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Blueprints.Classes;
 using System.Linq;
+using Kingmaker.Utility;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
@@ -98,6 +99,28 @@ namespace TabletopTweaks.Utilities {
             var result = ScriptableObject.CreateInstance<T>();
             if (init != null) init(result);
             return result;
+        }
+        public static LevelEntry LevelEntry(int level, BlueprintFeatureBase feature) {
+            return new LevelEntry {
+                Level = level,
+                Features =
+                {
+                    feature
+                }
+            };
+        }
+
+        // Token: 0x060005A7 RID: 1447 RVA: 0x0008E01E File Offset: 0x0008C21E
+        public static LevelEntry LevelEntry(int level, params BlueprintFeatureBase[] features) {
+            return LevelEntry(level, features);
+        }
+
+        // Token: 0x060005A8 RID: 1448 RVA: 0x0008E038 File Offset: 0x0008C238
+        public static LevelEntry LevelEntry(int level, IEnumerable<BlueprintFeatureBase> features) {
+            LevelEntry levelEntry = new LevelEntry();
+            levelEntry.Level = level;
+            features.ForEach(f => levelEntry.Features.Add(f));
+            return levelEntry;
         }
         public static ContextRankConfig CreateContextRankConfig(
             ContextRankBaseValueType baseValueType = ContextRankBaseValueType.CasterLevel,

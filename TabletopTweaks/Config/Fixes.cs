@@ -9,10 +9,11 @@ namespace TabletopTweaks.Config {
         public bool FixDemonSubtypes = true;
         public FixGroup Aeon = new FixGroup();
         public FixGroup Azata = new FixGroup();
-        public FixGroup Bloodrager = new FixGroup();
+        public ClassGroup Bloodrager = new ClassGroup();
+        public ClassGroup Rogue = new ClassGroup();
+        public ClassGroup Slayer = new ClassGroup();
+        public ClassGroup Witch = new ClassGroup();
         public FixGroup DragonDisciple = new FixGroup();
-        public FixGroup Slayer = new FixGroup();
-        public FixGroup Witch = new FixGroup();
         public FixGroup Spells = new FixGroup();
         public FixGroup Bloodlines = new FixGroup();
         public FixGroup Feats = new FixGroup();
@@ -23,12 +24,17 @@ namespace TabletopTweaks.Config {
             DisablePolymorphStacking = newFixes.DisablePolymorphStacking;
             EnableArchetypePrerequisites = newFixes.EnableArchetypePrerequisites;
             FixDemonSubtypes = newFixes.FixDemonSubtypes;
+
             Aeon.LoadFixgroup(newFixes.Aeon);
             Azata.LoadFixgroup(newFixes.Azata);
-            Bloodrager.LoadFixgroup(newFixes.Bloodrager);
+
+            Bloodrager.LoadClassGroup(newFixes.Bloodrager);
+            Rogue.LoadClassGroup(newFixes.Rogue);
+            Slayer.LoadClassGroup(newFixes.Slayer);
+            Witch.LoadClassGroup(newFixes.Witch);
+
             DragonDisciple.LoadFixgroup(newFixes.DragonDisciple);
-            Slayer.LoadFixgroup(newFixes.Slayer);
-            Witch.LoadFixgroup(newFixes.Witch);
+
             Spells.LoadFixgroup(newFixes.Spells);
             Bloodlines.LoadFixgroup(newFixes.Bloodlines);
             MythicAbilities.LoadFixgroup(newFixes.MythicAbilities);
@@ -42,6 +48,21 @@ namespace TabletopTweaks.Config {
                 group.Fixes.ForEach(entry => { 
                     if (Fixes.ContainsKey(entry.Key)) {
                         Fixes[entry.Key] = entry.Value;
+                    }
+                });
+            }
+        }
+
+        public class ClassGroup {
+            public bool DisableAllFixes = false;
+            public FixGroup Base = new FixGroup();
+            public SortedDictionary<string, FixGroup> Archetypes = new SortedDictionary<string, FixGroup>();
+            public void LoadClassGroup(ClassGroup group) {
+                DisableAllFixes = group.DisableAllFixes;
+                Base.LoadFixgroup(group.Base);
+                group.Archetypes.ForEach(entry => {
+                    if (Archetypes.ContainsKey(entry.Key)) {
+                        Archetypes[entry.Key].LoadFixgroup(entry.Value);
                     }
                 });
             }
