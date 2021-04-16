@@ -23,7 +23,7 @@ namespace TabletopTweaks.NewActions {
 		}
 
 		public override string GetCaption() {
-			return "Magic Vestment";
+			return "Magic Vestment - Shield";
 		}
 
 		public override void RunAction() {
@@ -40,14 +40,12 @@ namespace TabletopTweaks.NewActions {
 			BlueprintItemEnchantment enchantment;
 			int i = Math.Min(EnchantLevel.Calculate(mechanicsContext), Enchantment.Length) - 1;
 			enchantment = Enchantment[i];
-			Main.Log($"Selected Enchant: {enchantment.name}");
 			ApplyMagicWeapon(unit, duration, mechanicsContext, enchantment);
 		}
 
 		private void ApplyMagicWeapon(UnitEntityData target, Rounds duration, MechanicsContext context, BlueprintItemEnchantment enchantment) {
 			ItemEntityShield shield = target.Body.SecondaryHand.MaybeShield;
 			if (shield != null) {
-				Main.Log($"Calling Enchant: {enchantment.name}");
 				EnchantSlot(shield, duration, context, enchantment);
 			}
 		}
@@ -62,16 +60,9 @@ namespace TabletopTweaks.NewActions {
 				if (!itemEnchantment.IsTemporary) {
 					return;
 				}
-				Main.Log($"Removeing Enchant: {enchantment.name}");
 				item.ArmorComponent.RemoveEnchantment(itemEnchantment);
 			}
-			Main.Log($"Adding Enchant: {enchantment.name} to {item.Name}");
 			item.ArmorComponent.AddEnchantment(enchantment, context, new Rounds?(duration));
-			Main.Log($"Added");
-
-			foreach (var enchant in item.Enchantments) {
-				Main.Log($"Enchantment {enchant.Blueprint.name}");
-			}
 		}
 
 		[SerializeField]

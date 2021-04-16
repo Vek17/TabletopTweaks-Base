@@ -23,7 +23,7 @@ namespace TabletopTweaks.NewActions {
 		}
 
 		public override string GetCaption() {
-			return "Magic Vestment";
+			return "Magic Vestment - Armor";
 		}
 
 		public override void RunAction() {
@@ -40,14 +40,12 @@ namespace TabletopTweaks.NewActions {
 			BlueprintItemEnchantment enchantment;
 			int i = Math.Min(EnchantLevel.Calculate(mechanicsContext), Enchantment.Length) - 1;
 			enchantment = Enchantment[i];
-			Main.Log($"Selected Enchant: {enchantment.name}");
 			ApplyMagicWeapon(unit, duration, mechanicsContext, enchantment);
 		}
 
 		private void ApplyMagicWeapon(UnitEntityData target, Rounds duration, MechanicsContext context, BlueprintItemEnchantment enchantment) {
 			ItemEntityArmor armor = target.Body.Armor.MaybeArmor;
 			if (armor != null) {
-				Main.Log($"Calling Enchant: {enchantment.name}");
 				EnchantSlot(armor, duration, context, enchantment);
 			}
 		}
@@ -64,9 +62,7 @@ namespace TabletopTweaks.NewActions {
 				}
 				item.RemoveEnchantment(itemEnchantment);
 			}
-			Main.Log($"Adding Enchant: {enchantment.name}");
 			item.AddEnchantment(enchantment, context, new Rounds?(duration));
-			Main.Log($"Removeing Enchant: {enchantment.name}");
 		}
 
 		[SerializeField]
