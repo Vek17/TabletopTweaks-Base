@@ -263,16 +263,28 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchProtectionFromAlignment() {
                 if (!Resources.Fixes.Spells.Fixes["ProtectionFromAlignment"]) { return; }
-                BlueprintAbility ProtectionFromAlignment = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
-                BlueprintAbility ProtectionFromAlignmentCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2cadf6c6350e4684baa109d067277a45");
-                BlueprintAbilityReference[] ProtectionFromAlignmentVariants = ProtectionFromAlignment
+                var ProtectionFromAlignment = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
+                var ProtectionFromAlignmentVariants = ProtectionFromAlignment
                         .GetComponent<AbilityVariants>()
                         .Variants;
-                BlueprintAbilityReference[] ProtectionFromAlignmentCommunalVariants = ProtectionFromAlignmentCommunal
+                var ProtectionFromAlignmentCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2cadf6c6350e4684baa109d067277a45");
+                var ProtectionFromAlignmentCommunalVariants = ProtectionFromAlignmentCommunal
                         .GetComponent<AbilityVariants>()
                         .Variants;
+                var ProtectionFromChaosEvil = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c28f7234f5fb8c943a77621ad96ad8f9");
+                var ProtectionFromChaosEvilVariants = ProtectionFromChaosEvil
+                        .GetComponent<AbilityVariants>()
+                        .Variants;
+                var ProtectionFromChaosEvilCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3026de673d4d8fe45baf40e0b5edd718");
+                var ProtectionFromChaosEvilCommunalVariants = ProtectionFromChaosEvilCommunal
+                        .GetComponent<AbilityVariants>()
+                        .Variants;
+
                 HashSet<BlueprintBuff> completedBuffs = new HashSet<BlueprintBuff>();
-                foreach (BlueprintAbility Variant in ProtectionFromAlignmentVariants.Concat(ProtectionFromAlignmentCommunalVariants)) {
+                foreach (BlueprintAbility Variant in ProtectionFromAlignmentVariants
+                    .Concat(ProtectionFromAlignmentCommunalVariants)
+                    .Concat(ProtectionFromChaosEvilVariants)
+                    .Concat(ProtectionFromChaosEvilCommunalVariants)) {
                     var buff = Variant.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     var alignment = buff.GetComponent<SavingThrowBonusAgainstAlignment>().Alignment;
 
@@ -302,8 +314,12 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         + $"spells of the corresponding alignment or spells cast by creatrues of the corresponding alignment.";
                 ProtectionFromAlignment.SetDescription(baseDescription);
                 ProtectionFromAlignmentCommunal.SetDescription(baseDescription);
+                ProtectionFromChaosEvil.SetDescription(baseDescription);
+                ProtectionFromChaosEvilCommunal.SetDescription(baseDescription);
                 Main.LogPatch("Patched", ProtectionFromAlignment);
                 Main.LogPatch("Patched", ProtectionFromAlignmentCommunal);
+                Main.LogPatch("Patched", ProtectionFromChaosEvil);
+                Main.LogPatch("Patched", ProtectionFromChaosEvilCommunal);
             }
             static void PatchProtectionFromAlignmentGreater() {
                 if (!Resources.Fixes.Spells.Fixes["ProtectionFromAlignmentGreater"]) { return; }
