@@ -4,9 +4,9 @@ namespace TabletopTweaks.Config {
         public bool CauldronWitchArchetype = false;
         public bool ElementalMasterArchetype = false;
 
-        public void OverrideFixes(AddedContent newAddedContent) {
-            CauldronWitchArchetype = newAddedContent.CauldronWitchArchetype;
-            ElementalMasterArchetype = newAddedContent.ElementalMasterArchetype;
+        public void OverrideFixes(AddedContent userSettings) {
+            CauldronWitchArchetype = userSettings.CauldronWitchArchetype;
+            ElementalMasterArchetype = userSettings.ElementalMasterArchetype;
         }
     }
 }

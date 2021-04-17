@@ -6,6 +6,7 @@ using System.Linq;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using TabletopTweaks.Utilities;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class Feats {

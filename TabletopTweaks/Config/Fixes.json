@@ -24,7 +24,14 @@
                 "SpellsPerDay": true
             }
         },
-        "Archetypes": {}
+        "Archetypes": {
+            "Primalist": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "RagePowerFeatQualifications": true
+                }
+            }
+        }
     },
     "Rogue": {
         "DisableAllFixes": false,

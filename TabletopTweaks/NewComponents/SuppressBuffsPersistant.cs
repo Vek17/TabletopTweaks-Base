@@ -66,7 +66,7 @@ namespace TabletopTweaks.NewComponents {
 			bool test2 = (buff.Context.SpellDescriptor & Descriptor) > SpellDescriptor.None;
 			bool test3 = Schools.Contains(buff.Context.SpellSchool);
 			bool result = test1 || test2 || test3;
-			Main.Log($"{result} - {test1}/{test2}/{test3} - {buff.Blueprint.name}");
+			Main.LogDebug($"{result} - {test1}/{test2}/{test3} - {buff.Blueprint.name}");
 			return result;
 		}
 

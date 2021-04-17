@@ -171,7 +171,7 @@ namespace TabletopTweaks.Utilities {
             String oldValue;
             if (strings.TryGetValue(key, out oldValue) && value != oldValue) {
 #if DEBUG
-                Main.Log($"Info: duplicate localized string `{key}`, different text.");
+                Main.LogDebug($"Info: duplicate localized string `{key}`, different text.");
 #endif
             }
             strings[key] = value;
@@ -213,7 +213,13 @@ namespace TabletopTweaks.Utilities {
             }
             return high.ToString("x16") + low.ToString("x16");
         }
-
+        public static T CreateCopy<T>(this T original, Action<T> action = null) where T : UnityEngine.Object {
+            var clone = UnityEngine.Object.Instantiate(original);
+            if (action != null) {
+                action(clone);
+            }
+            return clone;
+        }
     }
     public delegate ref S FastRef<T, S>(T source = default);
     public delegate void FastSetter<T, S>(T source, S value);

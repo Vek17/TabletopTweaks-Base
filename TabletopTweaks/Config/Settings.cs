@@ -34,72 +34,29 @@ namespace TabletopTweaks.Config {
                 return addedContent;
             }
         }
-        private static IEnumerable<BlueprintScriptableObject> blueprints;
-        public static IEnumerable<T> GetBlueprints<T>() where T : BlueprintScriptableObject {
-            if (blueprints == null) {
-                var bundle = ResourcesLibrary.s_BlueprintsBundle;
-                blueprints = bundle.LoadAllAssets<BlueprintScriptableObject>();
-            }
-            return blueprints.OfType<T>();
-        }
-        static private IEnumerable<BlueprintBuff> polymorphBuffs;
-        static public IEnumerable<BlueprintBuff> PolymorphBuffs {
+        private static Blueprints blueprints;
+        public static Blueprints Blueprints {
             get {
-                if (polymorphBuffs == null) {
-                    Main.LogHeader($"Identifying Polymorph Buffs");
-                    IEnumerable<BlueprintBuff> taggedPolyBuffs = Settings.GetBlueprints<BlueprintBuff>()
-                        .Where(bp => bp.GetComponents<SpellDescriptorComponent>()
-                            .Where(c => (c.Descriptor & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0);
-                    polymorphBuffs = Settings.GetBlueprints<BlueprintAbility>()
-                        .Where(bp =>
-                            (bp.GetComponents<SpellDescriptorComponent>()
-                                .Where(c => c != null)
-                                .Where(d => d.Descriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0)
-                            || (bp.GetComponents<AbilityExecuteActionOnCast>()
-                                .SelectMany(c => c.Actions.Actions.OfType<ContextActionRemoveBuffsByDescriptor>())
-                                .Where(c => c.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0)
-                            || (bp.GetComponents<AbilityEffectRunAction>()
-                                .SelectMany(c => c.Actions.Actions.OfType<ContextActionRemoveBuffsByDescriptor>()
-                                    .Concat(c.Actions.Actions.OfType<ContextActionConditionalSaved>()
-                                        .SelectMany(a => a.Failed.Actions
-                                        .OfType<ContextActionRemoveBuffsByDescriptor>())))
-                                .Where(c => c.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0))
-                        .SelectMany(a => a.FlattenAllActions())
-                        .OfType<ContextActionApplyBuff>()
-                        .Where(c => c.Buff != null)
-                        .Select(c => c.Buff)
-                        .Concat(taggedPolyBuffs)
-                        .Where(bp => bp.AssetGuid != "e6f2fc5d73d88064583cb828801212f4") // Fatigued
-                        .Where(bp => !bp.HasFlag(BlueprintBuff.Flags.HiddenInUi))
-                        .Distinct();
-
-                    polymorphBuffs
-                        .OrderBy(c => c.name)
-                        .ForEach(c => Main.LogPatch("PolymorphBuff Found", c));
-                    Main.LogHeader($"Identified: {polymorphBuffs.Count()} Polymorph Buffs");
+                if (addedContent == null) {
+                    LoadSettings();
                 }
-                return polymorphBuffs;
+                return blueprints;
             }
         }
+
 
         public static void LoadSettings() {
             var assembly = Assembly.GetExecutingAssembly();
-            var fixesResource = "TabletopTweaks.Config.Fixes.json";
-            var addedContentResource = "TabletopTweaks.Config.AddedContent.json";
             string userConfigFolder = ModEntry.Path + "UserSettings";
-            string userFixPath = userConfigFolder + $"{Path.DirectorySeparatorChar}Fixes.json";
-            string userAddedContentPath = userConfigFolder + $"{Path.DirectorySeparatorChar}AddedContent.json";
+            
+            Directory.CreateDirectory(userConfigFolder);
 
+            var fixesResource = "TabletopTweaks.Config.Fixes.json";
+            string userFixPath = userConfigFolder + $"{Path.DirectorySeparatorChar}Fixes.json";
             using (Stream stream = assembly.GetManifestResourceStream(fixesResource))
             using (StreamReader reader = new StreamReader(stream)) {
                 fixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
             }
-            using (Stream stream = assembly.GetManifestResourceStream(addedContentResource))
-            using (StreamReader reader = new StreamReader(stream)) {
-                addedContent = JsonConvert.DeserializeObject<AddedContent>(reader.ReadToEnd());
-            }
-            Directory.CreateDirectory(userConfigFolder);
-
             if (File.Exists(userFixPath)) {
                 using (StreamReader reader = File.OpenText(userFixPath)) {
                     try {
@@ -114,6 +71,12 @@ namespace TabletopTweaks.Config {
             }
             File.WriteAllText(userFixPath, JsonConvert.SerializeObject(fixes, Formatting.Indented));
 
+            var addedContentResource = "TabletopTweaks.Config.AddedContent.json";
+            string userAddedContentPath = userConfigFolder + $"{Path.DirectorySeparatorChar}AddedContent.json";
+            using (Stream stream = assembly.GetManifestResourceStream(addedContentResource))
+            using (StreamReader reader = new StreamReader(stream)) {
+                addedContent = JsonConvert.DeserializeObject<AddedContent>(reader.ReadToEnd());
+            }
             if (File.Exists(userAddedContentPath)) {
                 using (StreamReader reader = File.OpenText(userAddedContentPath)) {
                     try {
@@ -127,6 +90,26 @@ namespace TabletopTweaks.Config {
                 }
             }
             File.WriteAllText(userAddedContentPath, JsonConvert.SerializeObject(addedContent, Formatting.Indented));
+
+            var blueprintsResource = "TabletopTweaks.Config.Blueprints.json";
+            string blueprintsPath = userConfigFolder + $"{Path.DirectorySeparatorChar}Blueprints.json";
+            using (Stream stream = assembly.GetManifestResourceStream(blueprintsResource))
+            using (StreamReader reader = new StreamReader(stream)) {
+                blueprints = JsonConvert.DeserializeObject<Blueprints>(reader.ReadToEnd());
+            }
+            if (File.Exists(blueprintsPath)) {
+                using (StreamReader reader = File.OpenText(blueprintsPath)) {
+                    try {
+                        Blueprints userBlueprints = JsonConvert.DeserializeObject<Blueprints>(reader.ReadToEnd());
+                        blueprints.OverrideSettings(userBlueprints);
+                    }
+                    catch {
+                        Main.Error("Failed to load user settings. Settings will be rebuilt.");
+                        try { File.Copy(blueprintsPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_Blueprints.json", true); } catch { Main.Error("Failed to archive broken settings."); }
+                    }
+                }
+            }
+            File.WriteAllText(blueprintsPath, JsonConvert.SerializeObject(blueprints, Formatting.Indented));
         }
     }
 }

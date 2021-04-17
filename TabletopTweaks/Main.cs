@@ -20,26 +20,24 @@ namespace TabletopTweaks {
             Enabled = value;
             return true;
         }
-
-        [System.Diagnostics.Conditional("DEBUG")]
         public static void Log(string msg) {
             Settings.ModEntry.Logger.Log(msg);
         }
         [System.Diagnostics.Conditional("DEBUG")]
+        public static void LogDebug(string msg) {
+            Settings.ModEntry.Logger.Log(msg);
+        }
+        [System.Diagnostics.Conditional("DEBUG")]
         public static void LogPatch(string action, BlueprintScriptableObject bp) {
-            Log($"{action}: {bp.AssetGuid} - {bp.name}");
+            LogDebug($"{action}: {bp.AssetGuid} - {bp.name}");
         }
         [System.Diagnostics.Conditional("DEBUG")]
         public static void LogHeader(string msg) {
-            Log($"--{msg.ToUpper()}--");
+            LogDebug($"--{msg.ToUpper()}--");
         }
-        internal static Exception Error(String message) {
+        public static Exception Error(String message) {
             Log(message);
             return new InvalidOperationException(message);
-        }
-
-        internal static void LogPatch(string v) {
-            throw new NotImplementedException();
         }
     }
 }
