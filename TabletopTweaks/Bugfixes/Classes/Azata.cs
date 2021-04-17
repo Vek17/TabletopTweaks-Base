@@ -6,6 +6,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
@@ -31,7 +32,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Fixes.Azata.DisableAllFixes) { return; }
+                if (Settings.Fixes.Azata.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Azata Resources");
                 PatchAzataPerformanceResource();
                 PatchFavorableMagic();
@@ -40,7 +41,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             
             static void PatchAzataPerformanceResource() {
-                if (!Resources.Fixes.Azata.Fixes["AzataPerformanceResource"]) { return; }
+                if (!Settings.Fixes.Azata.Fixes["AzataPerformanceResource"]) { return; }
                 var AzataPerformanceResource = ResourcesLibrary.TryGetBlueprint<BlueprintAbilityResource>("83f8a1c45ed205a4a989b7826f5c0687");
 
                 BlueprintCharacterClassReference[] characterClasses = ResourcesLibrary
@@ -55,7 +56,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchFavorableMagic() {
-                if (!Resources.Fixes.Azata.Fixes["FavorableMagic"]) { return;  }
+                if (!Settings.Fixes.Azata.Fixes["FavorableMagic"]) { return;  }
                 var FavorableMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
                 var fixedComponent = Helpers.Create<NewComponents.AzataFavorableMagicComponent>();
 
@@ -64,7 +65,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchZippyMagicFeature() {
-                if (!Resources.Fixes.Azata.Fixes["ZippyMagic"]) { return; }
+                if (!Settings.Fixes.Azata.Fixes["ZippyMagic"]) { return; }
                 var ZippyMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
                 var ZippyMagic = Helpers.Create<NewComponents.AzataZippyMagicComponent>();
 

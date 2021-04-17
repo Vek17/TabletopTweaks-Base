@@ -15,14 +15,14 @@ namespace TabletopTweaks.BalanceAdjustments {
         static class RuleCanApplyBuff_OnTrigger_Patch { 
 
             static void Postfix(RuleCanApplyBuff __instance) {
-                if (!Resources.Fixes.DisablePolymorphStacking) { return; }
-                if (!Resources.PolymorphBuffs.Contains(__instance.Blueprint)) { return; }
+                if (!Settings.Fixes.DisablePolymorphStacking) { return; }
+                if (!Settings.PolymorphBuffs.Contains(__instance.Blueprint)) { return; }
                 if (__instance.CanApply && (__instance.Context.MaybeCaster.Faction == __instance.Initiator.Faction)) {
                     IEnumerable<BlueprintBuff> intesection = __instance.Initiator
                         .Buffs
                         .Enumerable
                         .Select(b => b.Blueprint)
-                        .Intersect(Resources.PolymorphBuffs);
+                        .Intersect(Settings.PolymorphBuffs);
                     if (intesection.Any()) {
                         foreach (BlueprintBuff buffToRemove in intesection.ToArray()) {
                             __instance.Initiator

@@ -10,12 +10,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using static UnityModManagerNet.UnityModManager;
 
-namespace TabletopTweaks {
-    static class Resources {
+namespace TabletopTweaks.Config {
+    static class Settings {
         public static ModEntry ModEntry;
         private static Fixes fixes;
         public static Fixes Fixes {
@@ -48,10 +47,10 @@ namespace TabletopTweaks {
             get {
                 if (polymorphBuffs == null) {
                     Main.LogHeader($"Identifying Polymorph Buffs");
-                    IEnumerable<BlueprintBuff> taggedPolyBuffs = Resources.GetBlueprints<BlueprintBuff>()
+                    IEnumerable<BlueprintBuff> taggedPolyBuffs = Settings.GetBlueprints<BlueprintBuff>()
                         .Where(bp => bp.GetComponents<SpellDescriptorComponent>()
                             .Where(c => (c.Descriptor & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0);
-                    polymorphBuffs = Resources.GetBlueprints<BlueprintAbility>()
+                    polymorphBuffs = Settings.GetBlueprints<BlueprintAbility>()
                         .Where(bp =>
                             (bp.GetComponents<SpellDescriptorComponent>()
                                 .Where(c => c != null)

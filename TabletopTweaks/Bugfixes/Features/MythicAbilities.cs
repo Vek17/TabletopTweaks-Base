@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Fixes.MythicAbilities.DisableAllFixes) { return; }
+                if (Settings.Fixes.MythicAbilities.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Mythic Ability Resources");
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
@@ -42,7 +43,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 //Do Stuff
             }
             static void PatchBloodlineAscendance() {
-                if (!Resources.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
+                if (!Settings.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
                 BlueprintFeatureSelection BloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
@@ -62,7 +63,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
             static void PatchSecondBloodline() {
-                if (!Resources.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
+                if (!Settings.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
@@ -89,7 +90,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static BlueprintFeature EnduringSpells = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
             static BlueprintFeature EnduringSpellsGreater = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
-                if (Resources.Fixes.MythicAbilities.DisableAllFixes || !Resources.Fixes.MythicAbilities.Fixes["EnduringSpells"]) { return true; }
+                if (Settings.Fixes.MythicAbilities.DisableAllFixes || !Settings.Fixes.MythicAbilities.Fixes["EnduringSpells"]) { return true; }
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
 
                     var owner = parentContext.MaybeOwner;

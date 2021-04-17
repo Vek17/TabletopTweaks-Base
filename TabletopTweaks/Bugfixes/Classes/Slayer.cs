@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Slayer {
@@ -24,7 +25,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Fixes.Slayer.DisableAllFixes) { return; }
+                if (Settings.Fixes.Slayer.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Slayer Resources");
                 PatchBaseClass();
                 Main.LogHeader("Slayer Resource Patch Complete");
@@ -32,11 +33,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 //Do Stuff
             }
             static void PatchBaseClass() {
-                if (Resources.Fixes.Slayer.Base.DisableAllFixes) { return; }
+                if (Settings.Fixes.Slayer.Base.DisableAllFixes) { return; }
                 PatchSlayerStudiedTarget();
             }
             static void PatchSlayerStudiedTarget() {
-                if (!Resources.Fixes.Slayer.Base.Fixes["StudiedTarget"]) { return; }
+                if (!Settings.Fixes.Slayer.Base.Fixes["StudiedTarget"]) { return; }
                 BlueprintBuff SlayerStudiedTargetBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
                 SlayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
                 Main.LogPatch("Patched", SlayerStudiedTargetBuff);

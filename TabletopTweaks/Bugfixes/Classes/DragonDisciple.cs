@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using System.Linq;
 using System.Text.RegularExpressions;
+using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
@@ -32,7 +33,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Fixes.DragonDisciple.DisableAllFixes) { return; }
+                if (Settings.Fixes.DragonDisciple.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Dragon Disciple Resources");
                 patchPrerequisites();
                 PatchBloodlineSelection();
@@ -40,7 +41,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 //Do Stuff
             }
             static void patchPrerequisites() {
-                if (!Resources.Fixes.DragonDisciple.Fixes["Prerequisites"]) { return; }
+                if (!Settings.Fixes.DragonDisciple.Fixes["Prerequisites"]) { return; }
                 BlueprintFeatureSelection BloodOfDragonsSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("da48f9d7f697ae44ca891bfc50727988");
                 BlueprintFeatureSelection BloodragerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 BlueprintFeatureSelection SorcererBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("24bef8d1bee12274686f6da6ccbc8914");
@@ -85,7 +86,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchSorcererArchetypes();
             }
             static void PatchBloodlineSelection() {
-                if (!Resources.Fixes.DragonDisciple.Fixes["BloodlineSelection"]) { return; }
+                if (!Settings.Fixes.DragonDisciple.Fixes["BloodlineSelection"]) { return; }
                 BlueprintFeatureSelection BloodOfDragonsSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("da48f9d7f697ae44ca891bfc50727988");
                 BlueprintFeatureSelection BloodragerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = BloodragerBloodlineSelection.m_AllFeatures;

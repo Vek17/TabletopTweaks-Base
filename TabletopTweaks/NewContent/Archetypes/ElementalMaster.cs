@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using System.Linq;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.NewContent.Archetypes {
     class ElementalMaster {
@@ -24,7 +25,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (!Resources.AddedContent.ElementalMasterArchetype) { return; }
+                if (!Settings.AddedContent.ElementalMasterArchetype) { return; }
                 Main.LogHeader("Added Elemental Master");
                 ElementalMaster();
             }

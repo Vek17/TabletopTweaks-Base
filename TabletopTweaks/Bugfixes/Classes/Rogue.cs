@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using System.Collections.Generic;
+using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Clases {
@@ -27,17 +28,17 @@ namespace TabletopTweaks.Bugfixes.Clases {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Fixes.Rogue.DisableAllFixes) { return; }
+                if (Settings.Fixes.Rogue.DisableAllFixes) { return; }
                 Main.LogHeader("Rogue Resources");
                 PatchArchetypes();
                 Main.LogHeader("Rogue Complete");
             }
             static void PatchArchetypes() {
-                if (Resources.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAllFixes) { return;  }
+                if (Settings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAllFixes) { return;  }
                 PatchEldritchScoundrel();
             }
             static void PatchEldritchScoundrel() {
-                if (!Resources.Fixes.Rogue.Archetypes["EldritchScoundrel"].Fixes["SneakAttack"]) { return; }
+                if (!Settings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Fixes["SneakAttack"]) { return; }
                 var EldritchScoundrelArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
                 var SneakAttack = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
                 EldritchScoundrelArchetype.RemoveFeatures = EldritchScoundrelArchetype.RemoveFeatures.AddToArray(Helpers.LevelEntry(1, SneakAttack));

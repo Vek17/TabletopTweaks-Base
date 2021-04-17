@@ -3,14 +3,15 @@ using HarmonyLib;
 using Kingmaker.Blueprints;
 using System;
 using TabletopTweaks.Utilities;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks {
     static class Main {
         public static bool Enabled;
         static bool Load(UnityModManager.ModEntry modEntry) {
             var harmony = new Harmony(modEntry.Info.Id);
-            Resources.ModEntry = modEntry;
-            Resources.LoadSettings();
+            Settings.ModEntry = modEntry;
+            Settings.LoadSettings();
             harmony.PatchAll();
             PostPatchInitializer.Initialize();
             return true;
@@ -22,7 +23,7 @@ namespace TabletopTweaks {
 
         [System.Diagnostics.Conditional("DEBUG")]
         public static void Log(string msg) {
-            Resources.ModEntry.Logger.Log(msg);
+            Settings.ModEntry.Logger.Log(msg);
         }
         [System.Diagnostics.Conditional("DEBUG")]
         public static void LogPatch(string action, BlueprintScriptableObject bp) {

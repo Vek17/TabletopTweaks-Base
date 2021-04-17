@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Bloodrager {
@@ -23,17 +24,17 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Resources.Fixes.Bloodrager.DisableAllFixes) { return; }
+                if (Settings.Fixes.Bloodrager.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Bloodrager Resources");
                 PatchBaseClass();
                 Main.LogHeader("Patching Bloodrager Resources Complete");
             }
             static void PatchBaseClass() {
-                if (Resources.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
+                if (Settings.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
                 PatchSpellsPerDayTable();
             }
             static void PatchSpellsPerDayTable() {
-                if (!Resources.Fixes.Bloodrager.Base.Fixes["SpellsPerDay"]) { return; }
+                if (!Settings.Fixes.Bloodrager.Base.Fixes["SpellsPerDay"]) { return; }
                 BlueprintSpellsTable BloodragerSpellPerDayTable = ResourcesLibrary.TryGetBlueprint<BlueprintSpellsTable>("caf7018942861664ebe87687893ad05d");
                 BloodragerSpellPerDayTable.Levels = new SpellsLevelEntry[] {
                     // 18 Spell levels is correct for w/e reason

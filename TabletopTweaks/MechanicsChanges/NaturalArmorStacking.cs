@@ -7,6 +7,7 @@ using Kingmaker.Utility;
 using System.Linq;
 using HarmonyLib;
 using System.Collections.Generic;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.MechanicsChanges {
     static class NaturalArmorStacking {
@@ -14,7 +15,7 @@ namespace TabletopTweaks.MechanicsChanges {
         static class ModifierDescriptorHelper_IsStackable_Patch {
 
             static void Postfix(ref bool __result, ModifierDescriptor descriptor) {
-                if (!Resources.Fixes.DisableNaturalArmorStacking) { return; }
+                if (!Settings.Fixes.DisableNaturalArmorStacking) { return; }
                 if (descriptor == ModifierDescriptor.NaturalArmor) {
                     __result = false;
                 }
@@ -43,7 +44,7 @@ namespace TabletopTweaks.MechanicsChanges {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (!Resources.Fixes.DisableNaturalArmorStacking) { return; }
+                if (!Settings.Fixes.DisableNaturalArmorStacking) { return; }
                 Main.LogHeader("Patching NaturalArmor Resources");
                 patchNaturalArmorEffects();
                 Main.LogHeader("NaturalArmor Resource Patch Complete");
@@ -59,7 +60,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 void patchAnimalCompanionFeatures() {
                     BlueprintFeature AnimalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
                     BlueprintFeature AnimalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
-                    IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = Resources.GetBlueprints<BlueprintFeature>()
+                    IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = Settings.GetBlueprints<BlueprintFeature>()
                         .Where(bp => !string.IsNullOrEmpty(bp.name))
                         .Where(bp => bp.name.Contains("AnimalCompanionUpgrade"))
                         .OrderBy(bp => bp.name);

@@ -5,6 +5,7 @@ using Kingmaker.Enums;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
+using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
@@ -68,7 +69,7 @@ namespace TabletopTweaks.MechanicsChanges {
 			static void Postfix(ModifierDescriptor descriptor, ref string __result) {
 				switch (descriptor) {
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus:
-						if (!Resources.Fixes.DisableNaturalArmorStacking) { break; }
+						if (!Settings.Fixes.DisableNaturalArmorStacking) { break; }
 						__result = "Natrual armor bonus";
 						break;
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize:
@@ -86,7 +87,7 @@ namespace TabletopTweaks.MechanicsChanges {
 			static void Postfix(ModifierDescriptor descriptor, ref string __result) {
 				switch (descriptor) {
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus:
-						if (!Resources.Fixes.DisableNaturalArmorStacking) { break; }
+						if (!Settings.Fixes.DisableNaturalArmorStacking) { break; }
 						__result = "Natrual armor bonus";
 						break;
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize:

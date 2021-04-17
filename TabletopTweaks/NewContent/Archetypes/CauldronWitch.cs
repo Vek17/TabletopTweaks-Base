@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using System.Linq;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.NewContent.Archetypes {
     class CauldronWitch {
@@ -24,7 +25,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (!Resources.AddedContent.CauldronWitchArchetype) { return; }
+                if (!Settings.AddedContent.CauldronWitchArchetype) { return; }
                 Main.LogHeader("Adding Cauldren Witch");
                 AddCauldrenWitch();
             }
