@@ -117,6 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
     <Compile Include="Bugfixes\Classes\Aeon.cs" />
     <Compile Include="Bugfixes\Classes\Azata.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Bugfixes\Classes\Witch.cs" />
     <Compile Include="Bugfixes\Features\Feats.cs" />
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
+    <Compile Include="Config\AddedContent.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites.cs" />
     <Compile Include="MechanicsChanges\NewModifierDescriptors.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="NewComponents\PrerequisiteNoClassLevelVisible.cs" />
     <Compile Include="NewComponents\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
+    <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="NewComponents\BuffDescriptorImmunityAgainstAlignment.cs" />
@@ -155,6 +158,7 @@
     <Compile Include="Bugfixes\Units\DemonSubtypes.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Config\AddedContent.json" />
     <None Include="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

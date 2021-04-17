@@ -26,6 +26,15 @@ namespace TabletopTweaks {
                 return fixes;
             }
         }
+        private static AddedContent addedContent;
+        public static AddedContent AddedContent {
+            get {
+                if (addedContent == null) {
+                    LoadSettings();
+                }
+                return addedContent;
+            }
+        }
         private static IEnumerable<BlueprintScriptableObject> blueprints;
         public static IEnumerable<T> GetBlueprints<T>() where T : BlueprintScriptableObject {
             if (blueprints == null) {
@@ -76,27 +85,49 @@ namespace TabletopTweaks {
 
         public static void LoadSettings() {
             var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "TabletopTweaks.Config.Fixes.json";
+            var fixesResource = "TabletopTweaks.Config.Fixes.json";
+            var addedContentResource = "TabletopTweaks.Config.AddedContent.json";
             string userConfigFolder = ModEntry.Path + "UserSettings";
-            string userConfigPath = userConfigFolder + $"{Path.DirectorySeparatorChar}Fixes.json";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            string userFixPath = userConfigFolder + $"{Path.DirectorySeparatorChar}Fixes.json";
+            string userAddedContentPath = userConfigFolder + $"{Path.DirectorySeparatorChar}AddedContent.json";
+
+            using (Stream stream = assembly.GetManifestResourceStream(fixesResource))
             using (StreamReader reader = new StreamReader(stream)) {
                 fixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
             }
+            using (Stream stream = assembly.GetManifestResourceStream(addedContentResource))
+            using (StreamReader reader = new StreamReader(stream)) {
+                addedContent = JsonConvert.DeserializeObject<AddedContent>(reader.ReadToEnd());
+            }
             Directory.CreateDirectory(userConfigFolder);
-            if (File.Exists(userConfigPath)) {
-                using (StreamReader reader = File.OpenText(userConfigPath)) {
+
+            if (File.Exists(userFixPath)) {
+                using (StreamReader reader = File.OpenText(userFixPath)) {
                     try {
                         Fixes userFixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
                         fixes.OverrideFixes(userFixes);
                     }
                     catch {
                         Main.Error("Failed to load user settings. Settings will be rebuilt.");
-                        try { File.Copy(userConfigPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_Fixes.json", true); } catch { Main.Error("Failed to archive broken settings."); }
+                        try { File.Copy(userFixPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_Fixes.json", true); } catch { Main.Error("Failed to archive broken settings."); }
                     }
                 }
             }
-            File.WriteAllText(userConfigPath, JsonConvert.SerializeObject(fixes, Formatting.Indented));
+            File.WriteAllText(userFixPath, JsonConvert.SerializeObject(fixes, Formatting.Indented));
+
+            if (File.Exists(userAddedContentPath)) {
+                using (StreamReader reader = File.OpenText(userAddedContentPath)) {
+                    try {
+                        AddedContent userAddedContent = JsonConvert.DeserializeObject<AddedContent>(reader.ReadToEnd());
+                        addedContent.OverrideFixes(userAddedContent);
+                    }
+                    catch {
+                        Main.Error("Failed to load user settings. Settings will be rebuilt.");
+                        try { File.Copy(userAddedContentPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_AddedContent.json", true); } catch { Main.Error("Failed to archive broken settings."); }
+                    }
+                }
+            }
+            File.WriteAllText(userAddedContentPath, JsonConvert.SerializeObject(addedContent, Formatting.Indented));
         }
     }
 }

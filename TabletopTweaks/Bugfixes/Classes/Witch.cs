@@ -6,6 +6,7 @@ using HarmonyLib;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.Blueprints.Classes;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Witch {
