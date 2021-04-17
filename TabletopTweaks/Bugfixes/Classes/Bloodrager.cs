@@ -74,17 +74,31 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchRagePowerFeatQualifications();
                 void PatchRagePowerFeatQualifications() {
                     if (!Settings.Fixes.Bloodrager.Archetypes["Primalist"].Fixes["RagePowerFeatQualifications"]) { return; }
-                    var PrimalistRagePowerSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>(Settings.Blueprints.NewBlueprints["PrimalistRagePowerSelection"]);
                     var PrimalistTakeRagePowers4 = ResourcesLibrary.TryGetBlueprint<BlueprintProgression>("8eb5c34bb8471a0438e7eb3994de3b92");
-                    var Level = new LevelEntry {
-                        Level = 4,
-                        Features = {
-                            PrimalistRagePowerSelection,
-                            PrimalistRagePowerSelection
-                        }
-                    };
-                    PrimalistTakeRagePowers4.LevelEntries = new LevelEntry[] { Level };
-                    Main.LogPatch("Patched", PrimalistTakeRagePowers4);
+                    var PrimalistTakeRagePowers8 = ResourcesLibrary.TryGetBlueprint<BlueprintProgression>("db2710cd915bbcf4193fa54083e56b27");
+                    var PrimalistTakeRagePowers12 = ResourcesLibrary.TryGetBlueprint<BlueprintProgression>("e43a7bfd5c90a514cab1c11b41c550b1");
+                    var PrimalistTakeRagePowers16 = ResourcesLibrary.TryGetBlueprint<BlueprintProgression>("b6412ff44f3a82f499d0dd6748a123bc");
+                    var PrimalistTakeRagePowers20 = ResourcesLibrary.TryGetBlueprint<BlueprintProgression>("5905a80d5934248439e83612d9101b4b");
+
+                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers4, 4);
+                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers8, 8);
+                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers12, 12);
+                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers16, 16);
+                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers20, 20);
+
+                    void PatchPrimalistTakeRagePowers(BlueprintProgression PrimalistTakeRagePowers, int level) {
+                        var PrimalistRagePowerSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>(Settings.Blueprints.NewBlueprints["PrimalistRagePowerSelection"]);
+                        PrimalistTakeRagePowers.LevelEntries = new LevelEntry[] {
+                            new LevelEntry {
+                                Level = level,
+                                Features = {
+                                    PrimalistRagePowerSelection,
+                                    PrimalistRagePowerSelection
+                                }
+                            }
+                        };
+                        Main.LogPatch("Patched", PrimalistTakeRagePowers);
+                    }
                 }
             }
         }
