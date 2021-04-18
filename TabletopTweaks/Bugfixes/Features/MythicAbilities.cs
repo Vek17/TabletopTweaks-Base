@@ -67,7 +67,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     .Where(c => c.GetType() != typeof(PrerequisiteFeature))
                     .Append(newPrerequisites)
                 );
-                SecondBloodline.IgnorePrerequisites = false;
+                SecondBloodline.IgnorePrerequisites = true;
                 Main.LogPatch("Patched", SecondBloodline);
             }
 

@@ -1,12 +1,13 @@
-﻿
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
@@ -58,6 +59,7 @@ namespace TabletopTweaks {
             if (blueprints == null) {
                 var bundle = ResourcesLibrary.s_BlueprintsBundle;
                 blueprints = bundle.LoadAllAssets<BlueprintScriptableObject>();
+                //blueprints = Kingmaker.Cheats.Utilities.GetScriptableObjects<BlueprintScriptableObject>();
             }
             return blueprints.Concat(ResourcesLibrary.s_LoadedBlueprints.Values).OfType<T>().Distinct();
         }
@@ -72,7 +74,7 @@ namespace TabletopTweaks {
                 }
             }
             else {
-                Main.LogDebug($"Asset ID: {assetId} already in use by: {loadedBlueprint.name}");
+                Main.Log($"Asset ID: {assetId} already in use by: {loadedBlueprint.name}");
             }
         }
     }

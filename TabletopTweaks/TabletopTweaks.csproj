@@ -123,7 +123,6 @@
     <Compile Include="Bugfixes\Classes\Aeon.cs" />
     <Compile Include="Bugfixes\Classes\Azata.cs" />
     <Compile Include="Bugfixes\Classes\Bloodrager.cs" />
-    <Compile Include="Bugfixes\Classes\DragonDisciple.cs" />
     <Compile Include="Bugfixes\Classes\Rogue.cs" />
     <Compile Include="Bugfixes\Classes\Slayer.cs" />
     <Compile Include="Bugfixes\Classes\Witch.cs" />
@@ -144,6 +143,7 @@
     <Compile Include="NewComponents\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Features\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="Utilities\Attributes.cs" />

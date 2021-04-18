@@ -13,7 +13,6 @@ namespace TabletopTweaks.Config {
         public ClassGroup Rogue = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
-        public FixGroup DragonDisciple = new FixGroup();
         public FixGroup Spells = new FixGroup();
         public FixGroup Bloodlines = new FixGroup();
         public FixGroup Feats = new FixGroup();
@@ -32,8 +31,6 @@ namespace TabletopTweaks.Config {
             Rogue.LoadClassGroup(newFixes.Rogue);
             Slayer.LoadClassGroup(newFixes.Slayer);
             Witch.LoadClassGroup(newFixes.Witch);
-
-            DragonDisciple.LoadFixgroup(newFixes.DragonDisciple);
 
             Spells.LoadFixgroup(newFixes.Spells);
             Bloodlines.LoadFixgroup(newFixes.Bloodlines);

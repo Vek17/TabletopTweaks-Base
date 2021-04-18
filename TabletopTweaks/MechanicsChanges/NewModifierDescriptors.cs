@@ -70,13 +70,13 @@ namespace TabletopTweaks.MechanicsChanges {
 				switch (descriptor) {
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus:
 						if (!Settings.Fixes.DisableNaturalArmorStacking) { break; }
-						__result = "Natrual armor bonus";
+						__result = "Natural armor bonus";
 						break;
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize:
-						__result = "Natrual armor size";
+						__result = "Natural armor size";
 						break;
 					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable:
-						__result = "Natrual armor";
+						__result = "Natural armor";
 						break;
 				}
 			}

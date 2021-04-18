@@ -179,12 +179,12 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
 
                         a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
-                    };
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
+                        };
                     }));
                     var RankConfig = Helpers.CreateContextRankConfig();
                     RankConfig.m_Type = AbilityRankType.ProjectilesCount;
@@ -218,12 +218,12 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
 
                         a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
-                        ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
-                    };
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
+                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
+                        };
                     }));
                     var RankConfig = Helpers.CreateContextRankConfig();
                     RankConfig.m_Type = AbilityRankType.ProjectilesCount;

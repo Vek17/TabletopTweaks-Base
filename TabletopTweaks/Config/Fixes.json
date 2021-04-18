@@ -69,13 +69,6 @@
         },
         "Archetypes": {}
     },
-    "DragonDisciple": {
-        "DisableAllFixes": false,
-        "Fixes": {
-            "BloodlineSelection": true,
-            "Prerequisites": true
-        }
-    },
     "Spells": {
         "DisableAllFixes": false,
         "Fixes": {

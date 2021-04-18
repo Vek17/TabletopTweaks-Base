@@ -1,6 +1,7 @@
 {
     "OverrideIds": false,
     "NewBlueprints": {
-        "PrimalistRagePowerSelection": "6baf176bc22c4a41ba421bce3fcd9497"
+        "PrimalistRagePowerSelection": "6baf176bc22c4a41ba421bce3fcd9497",
+        "BloodlineRequisiteFeature": "e2cfd3cedf7c40088b25aa82d6db3c77"
     }
 }
