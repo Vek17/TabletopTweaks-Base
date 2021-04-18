@@ -9,8 +9,12 @@ namespace TabletopTweaks.NewContent.Features {
     class PrimalistRagePowerSelection {
         [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
+            static bool Initialized;
+
             [HarmonyPriority(Priority.First)]
             static void Postfix() {
+                if (Initialized) { return; }
+                Initialized = true;
                 AddPrimalistRagePowerSelection();
             }
             static void AddPrimalistRagePowerSelection() {

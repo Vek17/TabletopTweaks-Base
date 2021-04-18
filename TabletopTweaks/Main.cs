@@ -39,5 +39,19 @@ namespace TabletopTweaks {
             Log(message);
             return new InvalidOperationException(message);
         }
+
+        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        static class ResourcesLibrary_InitializeLibrary_Patch {
+            static bool Initialized;
+
+            static bool Prefix() {
+                // When wrath first loads into the main menu InitializeLibrary is called by Kingmaker.GameStarter.
+                // When loading into maps, Kingmaker.Runner.Start will call InitializeLibrary which will
+                // clear the ResourcesLibrary.s_LoadedBlueprints cache which causes loaded blueprints to be garbage collected.
+                // Return false here to prevent ResourcesLibrary.InitializeLibrary from being called twice 
+                // to prevent blueprints from being garbage collected.
+                return Initialized ? false : Initialized = true;
+            }
+        }
     }
 }

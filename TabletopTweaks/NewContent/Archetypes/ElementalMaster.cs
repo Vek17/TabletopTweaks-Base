@@ -8,8 +8,12 @@ namespace TabletopTweaks.NewContent.Archetypes {
     class ElementalMaster {
         [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
+            static bool Initialized;
+
             [HarmonyPriority(Priority.First)]
             static void Postfix() {
+                if (Initialized) { return; }
+                Initialized = true;
                 if (!Settings.AddedContent.ElementalMasterArchetype) { return; }
                 Main.LogHeader("Adding Elemental Master");
                 ElementalMaster();

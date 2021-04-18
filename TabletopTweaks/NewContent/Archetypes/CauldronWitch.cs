@@ -9,6 +9,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
         [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
+
             [HarmonyPriority(Priority.First)]
             static void Postfix() {
                 if (Initialized) return;

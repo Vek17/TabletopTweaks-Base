@@ -18,7 +18,7 @@ namespace TabletopTweaks.MechanicsChanges {
 
         // Force Archetypes to Consider Prerequisites
         [HarmonyPatch(typeof(CharGenClassSelectorItemVM), "GetArchetypesList", typeof(BlueprintCharacterClass))]
-        static class CharGenClassSelectorItemVM_GetArchetypeList_patch {
+        static class CharGenClassSelectorItemVM_GetArchetypeList_Patch {
             static void Postfix(ref List<NestedSelectionGroupEntityVM> __result, CharGenClassSelectorItemVM __instance, BlueprintCharacterClass selectedClass) {
                 if (!Settings.Fixes.EnableArchetypePrerequisites) { return; }
                 List<NestedSelectionGroupEntityVM> list = new List<NestedSelectionGroupEntityVM>();
@@ -44,7 +44,7 @@ namespace TabletopTweaks.MechanicsChanges {
 
         // Enforce both Class and Archetype prerequisites for seletion
         [HarmonyPatch(typeof(BlueprintCharacterClass), "MeetsPrerequisites", new Type[] { typeof(UnitDescriptor), typeof(LevelUpState) })]
-        static class BlueprintCharacterClass_MeetsPrerequisites_patch {
+        static class BlueprintCharacterClass_MeetsPrerequisites_Patch {
             static void Postfix(ref bool __result, BlueprintCharacterClass __instance, UnitDescriptor unit,  LevelUpState state) {
                 if (!Settings.Fixes.EnableArchetypePrerequisites) { return; }
                 bool meetsArchetypePrerequisites = true;
@@ -61,7 +61,7 @@ namespace TabletopTweaks.MechanicsChanges {
 
         // Force Archetypes to Display Prerequisites
         [HarmonyPatch(typeof(TooltipTemplateLevelUp), "AddClassPrerequisites")]
-        static class TooltipTemplateLevelUp_AddClassPrerequisites_patch {
+        static class TooltipTemplateLevelUp_AddClassPrerequisites_Patch {
             static bool Prefix(TooltipTemplateLevelUp __instance, List<ITooltipBrick> bricks) {
                 if (!Settings.Fixes.EnableArchetypePrerequisites) { return true; }
                 if (__instance.ClassInfo.Class == null) { return true; }
