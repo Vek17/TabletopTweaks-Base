@@ -21,8 +21,12 @@ namespace TabletopTweaks.NewComponents {
 
         public override bool Check([CanBeNull] FeatureSelectionState selectionState, [NotNull] UnitDescriptor unit, [CanBeNull] LevelUpState state) {
             foreach (BlueprintFeature blueprintFeature in Features) {
+                int count = 0;
                 if ((!(selectionState != null) || !selectionState.IsSelectedInChildren(blueprintFeature)) && unit.HasFact(blueprintFeature)) {
-                    return false;
+                    count++;
+                    if (count > Amount) {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -30,11 +34,11 @@ namespace TabletopTweaks.NewComponents {
 
         public override string GetUIText() {
             StringBuilder stringBuilder = new StringBuilder();
-            if (amount == 0) {
+            if (Amount == 0) {
                 stringBuilder.Append("Doesn't have any of the following features");
             }
             else {
-                stringBuilder.Append($"Doesn't have more than {amount} of the following features");
+                stringBuilder.Append($"Doesn't have more than {Amount} of the following features");
             }
             stringBuilder.Append(":\n");
             for (int i = 0; i < Features.Length; i++) {
@@ -48,8 +52,7 @@ namespace TabletopTweaks.NewComponents {
 
         [SerializeField]
         [FormerlySerializedAs("Features")]
-        private BlueprintFeatureReference[] m_Features;
-
-        public int amount = 0;
+        public BlueprintFeatureReference[] m_Features;
+        public int Amount = 0;
     }
 }
