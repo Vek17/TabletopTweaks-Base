@@ -10,13 +10,13 @@ using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.MechanicsChanges {
-	public enum ExtraModifierDescriptor : int {
-		NaturalArmorBonus = ModifierDescriptor.NaturalArmor,
-		NaturalArmorSize = 1717,
-		NaturalArmorStackable = 1718
-	}
 
 	public class AdditionalModifierDescriptors {
+		public enum NaturalArmor : int {
+			Bonus = ModifierDescriptor.NaturalArmor,
+			Size = 1717,
+			Stackable = 1718
+		}
 		[PostPatchInitialize]
 		static void Update_ModifiableValueArmorClass_FilterIsArmor() {
 			Func<ModifiableValue.Modifier, bool> newFilterIsArmor = delegate (ModifiableValue.Modifier m) {
@@ -25,9 +25,9 @@ namespace TabletopTweaks.MechanicsChanges {
 					modDescriptor == ModifierDescriptor.Armor ||
 					modDescriptor == ModifierDescriptor.ArmorEnhancement ||
 					modDescriptor == ModifierDescriptor.ArmorFocus ||
-					modDescriptor == (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus ||
-					modDescriptor == (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize ||
-					modDescriptor == (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable ||
+					modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus ||
+					modDescriptor == (ModifierDescriptor)NaturalArmor.Size ||
+					modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable ||
 					modDescriptor == ModifierDescriptor.NaturalArmorEnhancement;
 			};
 
@@ -39,12 +39,12 @@ namespace TabletopTweaks.MechanicsChanges {
 		static void Update_ModifierDescriptorComparer_SortedValues() {
 			ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
 				.SortedValues.InsertAfterElement(
-					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize, 
-					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus);
+					(ModifierDescriptor)NaturalArmor.Size, 
+					(ModifierDescriptor)NaturalArmor.Bonus);
 			ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
 				.SortedValues.InsertBeforeElement(
-					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable, 
-					(ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus);
+					(ModifierDescriptor)NaturalArmor.Stackable, 
+					(ModifierDescriptor)NaturalArmor.Bonus);
 		}
 
 		[HarmonyPatch(typeof(ModifierDescriptorComparer), "Compare", new Type[] { typeof(ModifierDescriptor), typeof(ModifierDescriptor) })]
@@ -68,14 +68,14 @@ namespace TabletopTweaks.MechanicsChanges {
 		static class AbilityModifierStrings_GetName_Patch {
 			static void Postfix(ModifierDescriptor descriptor, ref string __result) {
 				switch (descriptor) {
-					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus:
+					case (ModifierDescriptor)NaturalArmor.Bonus:
 						if (!Settings.Fixes.DisableNaturalArmorStacking) { break; }
 						__result = "Natural armor bonus";
 						break;
-					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize:
+					case (ModifierDescriptor)NaturalArmor.Size:
 						__result = "Natural armor size";
 						break;
-					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable:
+					case (ModifierDescriptor)NaturalArmor.Stackable:
 						__result = "Natural armor";
 						break;
 				}
@@ -86,14 +86,14 @@ namespace TabletopTweaks.MechanicsChanges {
 		static class AbilityModifierStrings_GetDescription_Patch {
 			static void Postfix(ModifierDescriptor descriptor, ref string __result) {
 				switch (descriptor) {
-					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorBonus:
+					case (ModifierDescriptor)NaturalArmor.Bonus:
 						if (!Settings.Fixes.DisableNaturalArmorStacking) { break; }
 						__result = "Natrual armor bonus";
 						break;
-					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorSize:
+					case (ModifierDescriptor)NaturalArmor.Size:
 						__result = "Natrual armor size";
 						break;
-					case (ModifierDescriptor)ExtraModifierDescriptor.NaturalArmorStackable:
+					case (ModifierDescriptor)NaturalArmor.Stackable:
 						__result = "Natrual armor stackable";
 						break;
 				}
