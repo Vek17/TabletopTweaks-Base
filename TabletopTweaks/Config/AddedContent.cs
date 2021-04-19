@@ -1,8 +1,8 @@
 ﻿
 namespace TabletopTweaks.Config {
     class AddedContent {
-        public bool CauldronWitchArchetype = false;
-        public bool ElementalMasterArchetype = false;
+        public bool CauldronWitchArchetype = true;
+        public bool ElementalMasterArchetype = true;
 
         public void OverrideFixes(AddedContent userSettings) {
             CauldronWitchArchetype = userSettings.CauldronWitchArchetype;

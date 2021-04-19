@@ -17,6 +17,14 @@ namespace TabletopTweaks.MechanicsChanges {
 			Size = 1717,
 			Stackable = 1718
 		}
+		public enum Dodge : int {
+			Strength = 2121,
+			Dexterity = 2122,
+			Constitution = 2123,
+			Intelligence = 2124,
+			Wisdom = 2125,
+			Charisma = 2126
+		}
 		[PostPatchInitialize]
 		static void Update_ModifiableValueArmorClass_FilterIsArmor() {
 			Func<ModifiableValue.Modifier, bool> newFilterIsArmor = delegate (ModifiableValue.Modifier m) {
@@ -30,21 +38,47 @@ namespace TabletopTweaks.MechanicsChanges {
 					modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable ||
 					modDescriptor == ModifierDescriptor.NaturalArmorEnhancement;
 			};
-
 			var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsArmor");
 			FilterIsArmor.SetValue(null, newFilterIsArmor);
 		}
 
 		[PostPatchInitialize]
+		static void Update_ModifiableValueArmorClass_FilterIsDodge() {
+			Func<ModifiableValue.Modifier, bool> newFilterIsDodge = delegate (ModifiableValue.Modifier m) {
+				ModifierDescriptor modDescriptor = m.ModDescriptor;
+				return 
+				modDescriptor == ModifierDescriptor.Dodge ||
+				modDescriptor == (ModifierDescriptor)Dodge.Strength ||
+				modDescriptor == (ModifierDescriptor)Dodge.Dexterity ||
+				modDescriptor == (ModifierDescriptor)Dodge.Constitution ||
+				modDescriptor == (ModifierDescriptor)Dodge.Intelligence ||
+				modDescriptor == (ModifierDescriptor)Dodge.Wisdom ||
+				modDescriptor == (ModifierDescriptor)Dodge.Charisma ||
+				modDescriptor == ModifierDescriptor.DexterityBonus;
+			};
+			var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsDodge");
+			FilterIsArmor.SetValue(null, newFilterIsDodge);
+		}
+
+		[PostPatchInitialize]
 		static void Update_ModifierDescriptorComparer_SortedValues() {
-			ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
-				.SortedValues.InsertAfterElement(
-					(ModifierDescriptor)NaturalArmor.Size, 
-					(ModifierDescriptor)NaturalArmor.Bonus);
-			ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
-				.SortedValues.InsertBeforeElement(
-					(ModifierDescriptor)NaturalArmor.Stackable, 
-					(ModifierDescriptor)NaturalArmor.Bonus);
+			InsertAfter((ModifierDescriptor)NaturalArmor.Size, (ModifierDescriptor)NaturalArmor.Bonus);
+			InsertBefore((ModifierDescriptor)NaturalArmor.Stackable, (ModifierDescriptor)NaturalArmor.Bonus);
+			InsertBefore((ModifierDescriptor)Dodge.Strength, ModifierDescriptor.Dodge);
+			InsertBefore((ModifierDescriptor)Dodge.Dexterity, ModifierDescriptor.Dodge);
+			InsertBefore((ModifierDescriptor)Dodge.Constitution, ModifierDescriptor.Dodge);
+			InsertBefore((ModifierDescriptor)Dodge.Intelligence, ModifierDescriptor.Dodge);
+			InsertBefore((ModifierDescriptor)Dodge.Wisdom, ModifierDescriptor.Dodge);
+			InsertBefore((ModifierDescriptor)Dodge.Charisma, ModifierDescriptor.Dodge);
+
+			void InsertBefore(ModifierDescriptor value, ModifierDescriptor before) {
+				ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
+				.SortedValues.InsertBeforeElement(value, before);
+			};
+			void InsertAfter(ModifierDescriptor value, ModifierDescriptor after) {
+				ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
+				.SortedValues.InsertAfterElement(value, after);
+			};
 		}
 
 		[HarmonyPatch(typeof(ModifierDescriptorComparer), "Compare", new Type[] { typeof(ModifierDescriptor), typeof(ModifierDescriptor) })]
@@ -78,6 +112,14 @@ namespace TabletopTweaks.MechanicsChanges {
 					case (ModifierDescriptor)NaturalArmor.Stackable:
 						__result = "Natural armor";
 						break;
+					case (ModifierDescriptor)Dodge.Strength:
+					case (ModifierDescriptor)Dodge.Dexterity:
+					case (ModifierDescriptor)Dodge.Constitution:
+					case (ModifierDescriptor)Dodge.Intelligence:
+					case (ModifierDescriptor)Dodge.Wisdom:
+					case (ModifierDescriptor)Dodge.Charisma:
+						__result = "Dodge";
+						break;
 				}
 			}
 		}
@@ -94,7 +136,15 @@ namespace TabletopTweaks.MechanicsChanges {
 						__result = "Natrual armor size";
 						break;
 					case (ModifierDescriptor)NaturalArmor.Stackable:
-						__result = "Natrual armor stackable";
+						__result = "Natrual armor";
+						break;
+					case (ModifierDescriptor)Dodge.Strength:
+					case (ModifierDescriptor)Dodge.Dexterity:
+					case (ModifierDescriptor)Dodge.Constitution:
+					case (ModifierDescriptor)Dodge.Intelligence:
+					case (ModifierDescriptor)Dodge.Wisdom:
+					case (ModifierDescriptor)Dodge.Charisma:
+						__result = "Dodge";
 						break;
 				}
 			}

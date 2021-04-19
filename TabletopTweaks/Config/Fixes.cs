@@ -5,6 +5,7 @@ namespace TabletopTweaks.Config {
     public class Fixes {
         public bool DisableNaturalArmorStacking = true;
         public bool DisablePolymorphStacking = true;
+        public bool DisableCannyDefenseStacking = true;
         public bool EnableArchetypePrerequisites = true;
         public bool FixDemonSubtypes = true;
         public FixGroup Aeon = new FixGroup();
