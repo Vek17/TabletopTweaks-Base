@@ -25,39 +25,41 @@ namespace TabletopTweaks.MechanicsChanges {
 			Wisdom = 2125,
 			Charisma = 2126
 		}
-		[PostPatchInitialize]
-		static void Update_ModifiableValueArmorClass_FilterIsArmor() {
-			Func<ModifiableValue.Modifier, bool> newFilterIsArmor = delegate (ModifiableValue.Modifier m) {
-				ModifierDescriptor modDescriptor = m.ModDescriptor;
-				return
-					modDescriptor == ModifierDescriptor.Armor ||
-					modDescriptor == ModifierDescriptor.ArmorEnhancement ||
-					modDescriptor == ModifierDescriptor.ArmorFocus ||
-					modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus ||
-					modDescriptor == (ModifierDescriptor)NaturalArmor.Size ||
-					modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable ||
-					modDescriptor == ModifierDescriptor.NaturalArmorEnhancement;
-			};
-			var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsArmor");
-			FilterIsArmor.SetValue(null, newFilterIsArmor);
-		}
 
-		[PostPatchInitialize]
-		static void Update_ModifiableValueArmorClass_FilterIsDodge() {
-			Func<ModifiableValue.Modifier, bool> newFilterIsDodge = delegate (ModifiableValue.Modifier m) {
-				ModifierDescriptor modDescriptor = m.ModDescriptor;
-				return 
-				modDescriptor == ModifierDescriptor.Dodge ||
-				modDescriptor == (ModifierDescriptor)Dodge.Strength ||
-				modDescriptor == (ModifierDescriptor)Dodge.Dexterity ||
-				modDescriptor == (ModifierDescriptor)Dodge.Constitution ||
-				modDescriptor == (ModifierDescriptor)Dodge.Intelligence ||
-				modDescriptor == (ModifierDescriptor)Dodge.Wisdom ||
-				modDescriptor == (ModifierDescriptor)Dodge.Charisma ||
-				modDescriptor == ModifierDescriptor.DexterityBonus;
-			};
-			var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsDodge");
-			FilterIsArmor.SetValue(null, newFilterIsDodge);
+		private static class FilterAdjustments {
+			private static readonly Func<ModifiableValue.Modifier, bool> FilterIsDodgeOriginal = ModifiableValueArmorClass.FilterIsDodge;
+			private static readonly Func<ModifiableValue.Modifier, bool> FilterIsArmorOriginal = ModifiableValueArmorClass.FilterIsArmor;
+
+			[PostPatchInitialize]
+			static void Update_ModifiableValueArmorClass_FilterIsArmor() {
+				Func<ModifiableValue.Modifier, bool> newFilterIsArmor = delegate (ModifiableValue.Modifier m) {
+					ModifierDescriptor modDescriptor = m.ModDescriptor;
+					return
+						FilterIsArmorOriginal(m) ||
+						modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus ||
+						modDescriptor == (ModifierDescriptor)NaturalArmor.Size ||
+						modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable;
+				};
+				var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsArmor");
+				FilterIsArmor.SetValue(null, newFilterIsArmor);
+			}
+
+			[PostPatchInitialize]
+			static void Update_ModifiableValueArmorClass_FilterIsDodge() {
+				Func<ModifiableValue.Modifier, bool> newFilterIsDodge = delegate (ModifiableValue.Modifier m) {
+					ModifierDescriptor modDescriptor = m.ModDescriptor;
+					return
+						FilterIsDodgeOriginal(m) ||
+						modDescriptor == (ModifierDescriptor)Dodge.Strength ||
+						modDescriptor == (ModifierDescriptor)Dodge.Dexterity ||
+						modDescriptor == (ModifierDescriptor)Dodge.Constitution ||
+						modDescriptor == (ModifierDescriptor)Dodge.Intelligence ||
+						modDescriptor == (ModifierDescriptor)Dodge.Wisdom ||
+						modDescriptor == (ModifierDescriptor)Dodge.Charisma;
+				};
+				var FilterIsDodge = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsDodge");
+				FilterIsDodge.SetValue(null, newFilterIsDodge);
+			}
 		}
 
 		[PostPatchInitialize]
@@ -111,32 +113,6 @@ namespace TabletopTweaks.MechanicsChanges {
 						break;
 					case (ModifierDescriptor)NaturalArmor.Stackable:
 						__result = "Natural armor";
-						break;
-					case (ModifierDescriptor)Dodge.Strength:
-					case (ModifierDescriptor)Dodge.Dexterity:
-					case (ModifierDescriptor)Dodge.Constitution:
-					case (ModifierDescriptor)Dodge.Intelligence:
-					case (ModifierDescriptor)Dodge.Wisdom:
-					case (ModifierDescriptor)Dodge.Charisma:
-						__result = "Dodge";
-						break;
-				}
-			}
-		}
-
-		[HarmonyPatch(typeof(AbilityModifiersStrings), "GetDescription", new Type[] { typeof(ModifierDescriptor) })]
-		static class AbilityModifierStrings_GetDescription_Patch {
-			static void Postfix(ModifierDescriptor descriptor, ref string __result) {
-				switch (descriptor) {
-					case (ModifierDescriptor)NaturalArmor.Bonus:
-						if (!Settings.Fixes.DisableNaturalArmorStacking) { break; }
-						__result = "Natrual armor bonus";
-						break;
-					case (ModifierDescriptor)NaturalArmor.Size:
-						__result = "Natrual armor size";
-						break;
-					case (ModifierDescriptor)NaturalArmor.Stackable:
-						__result = "Natrual armor";
 						break;
 					case (ModifierDescriptor)Dodge.Strength:
 					case (ModifierDescriptor)Dodge.Dexterity:
