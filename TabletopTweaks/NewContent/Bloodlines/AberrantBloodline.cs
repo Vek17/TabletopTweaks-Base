@@ -22,6 +22,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Collections.Generic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Bloodlines {
@@ -387,7 +388,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
         public static void AddSorcererAberrantBloodline() {
             var SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
             var AcidArrow = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
-            var BloodlineInfernalClassSkill = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f07a37a5b245304429530842cb65e213");
+            var BloodlineInfernalClassSkill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f07a37a5b245304429530842cb65e213");
             //Bonus Spells
             var EnlargePerson = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c60969e7f264e6d4b84a1499fdcf9039").ToReference<BlueprintAbilityReference>();
             var SeeInvisibility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("30e5dc243f937fc4b95d2f8f4e1b7ff3").ToReference<BlueprintAbilityReference>();
@@ -426,6 +427,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Aberrant Bloodline Arcana");
                 bp.SetDescription("Whenever you cast a spell of the polymorph subschool, increase the duration "
                     +"of the spell by 50% (minimum 1 round). This bonus does not stack with the increase granted by the Extend Spell feat.");
+                bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
+                /*
                 bp.AddComponent(Helpers.Create<AutoMetamagic>(c => {
                     c.m_AllowedAbilities = AutoMetamagic.AllowedType.SpellOnly;
                     c.Metamagic = Metamagic.Extend;
@@ -433,6 +436,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Descriptor = SpellDescriptor.Polymorph;
                     c.School = SpellSchool.None;
                 }));
+                */
             });
             var SorcererAberrantAcidicRayResource = Helpers.Create<BlueprintAbilityResource>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayResource"];
@@ -795,13 +799,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 1, Features = { SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3, SorcererAberrantLongLimbs }},
                     new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7, SorcererAberrantFeatSelection }},
+                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
                     new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy }},
                     new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11 }},
-                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13, SorcererAberrantFeatSelection, SorcererAberrantUnusualAnatomy }},
+                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy }},
                     new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15, SorcererAberrantAlienResistance }},
                     new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17 }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19, SorcererAberrantFeatSelection }},
+                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
                     new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
                 };
                 bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
@@ -882,6 +886,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 }));
             });
+            BloodlineTools.RegisterSorcererFeatSelection(SorcererAberrantFeatSelection, SorcererAberrantBloodline);
 
             Resources.AddBlueprint(SorcererAberrantBloodline);
             Resources.AddBlueprint(CrossbloodedAberrantBloodline);
