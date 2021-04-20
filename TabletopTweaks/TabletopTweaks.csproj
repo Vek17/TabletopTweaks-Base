@@ -120,6 +120,7 @@
     <Compile Include="Config\Blueprints.cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
+    <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
     <Compile Include="Bugfixes\Classes\Aeon.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\Features\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\BloodlineTools.cs" />

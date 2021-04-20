@@ -132,8 +132,12 @@ namespace TabletopTweaks.Utilities {
         }
         public static void RegisterSorcererFeatSelection (BlueprintFeatureSelection selection, BlueprintProgression bloodline) {
             BlueprintFeatureSelection SorcererFeatSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3a60f0c0442acfb419b0c03b584e1394");
-            SorcererFeatSelection.m_Features = SorcererFeatSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
-            SorcererFeatSelection.m_AllFeatures = SorcererFeatSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
+            selection.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
+                c.Group = Prerequisite.GroupType.All;
+            }));
+            SorcererFeatSelection.m_Features = SorcererFeatSelection.m_AllFeatures.AddToArray(selection.ToReference<BlueprintFeatureReference>());
+            SorcererFeatSelection.m_AllFeatures = SorcererFeatSelection.m_AllFeatures.AddToArray(selection.ToReference<BlueprintFeatureReference>());
         }
         public static void RegisterCrossbloodedBloodline(BlueprintProgression bloodline) {
             BlueprintFeatureSelection CrossbloodedSecondaryBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("60c99d78a70e0b44f87ba01d02d909a6");

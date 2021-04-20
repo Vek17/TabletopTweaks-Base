@@ -11,7 +11,6 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -19,7 +18,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using System.Collections.Generic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -385,6 +383,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             if (!Settings.AddedContent.AberrantBloodline) { return; }
             BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline);
         }
+
         public static void AddSorcererAberrantBloodline() {
             var SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
             var AcidArrow = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
@@ -424,19 +423,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererAberrantBloodlineArcana = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantBloodlineArcana"];
                 bp.name = "SorcererAberrantBloodlineArcana";
+                bp.IsClassFeature = true;
                 bp.SetName("Aberrant Bloodline Arcana");
                 bp.SetDescription("Whenever you cast a spell of the polymorph subschool, increase the duration "
                     +"of the spell by 50% (minimum 1 round). This bonus does not stack with the increase granted by the Extend Spell feat.");
                 bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
-                /*
-                bp.AddComponent(Helpers.Create<AutoMetamagic>(c => {
-                    c.m_AllowedAbilities = AutoMetamagic.AllowedType.SpellOnly;
-                    c.Metamagic = Metamagic.Extend;
-                    c.Abilities = new List<BlueprintAbilityReference>();
-                    c.Descriptor = SpellDescriptor.Polymorph;
-                    c.School = SpellSchool.None;
-                }));
-                */
             });
             var SorcererAberrantAcidicRayResource = Helpers.Create<BlueprintAbilityResource>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayResource"];
@@ -543,14 +534,22 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererAberrantLongLimbs = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantLongLimbs"];
                 bp.name = "SorcererAberrantLongLimbs";
+                bp.Ranks = 3;
+                bp.IsClassFeature = true; ;
                 bp.SetName("Long Limbs");
                 bp.SetDescription("At 3rd level, your reach increases by 5 feet whenever you are making a melee touch attack. "
                     +"This ability does not otherwise increase your threatened area. At 11th level, this bonus to your reach "
                     +"increases to 10 feet. At 17th level, this bonus to your reach increases to 15 feet.");
+                bp.AddComponent(Helpers.Create<AddTouchReach>(c => {
+                    c.Value = 5;
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                }));
             });
             var SorcererAberrantUnusualAnatomy = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantUnusualAnatomy"];
                 bp.name = "SorcererAberrantUnusualAnatomy";
+                bp.IsClassFeature = true;
+                bp.Ranks = 2;
                 bp.SetName("Unusual Anatomy");
                 bp.SetDescription("At 9th level, your anatomy changes, giving you a 25% chance to ignore any critical hit or sneak attack scored against you. This chance increases to 50% at 13th level.");
                 bp.AddComponent(Helpers.Create<AddFortification>(c => {
@@ -561,6 +560,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererAberrantAlienResistance = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAlienResistance"];
                 bp.name = "SorcererAberrantAlienResistance";
+                bp.IsClassFeature = true;
                 bp.SetName("Alien Resistance");
                 bp.SetDescription("At 15th level, you gain spell resistance equal to your sorcerer level + 10.");
                 bp.AddComponent(Helpers.Create<AddSpellResistance>(c => {
@@ -645,6 +645,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererAberrantSpell3 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell3"];
                 bp.name = "SorcererAberrantSpell3";
+                bp.IsClassFeature = true;
                 var Spell = EnlargePerson;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -652,13 +653,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 1;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell5 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell5"];
                 bp.name = "SorcererAberrantSpell5";
+                bp.IsClassFeature = true;
                 var Spell = SeeInvisibility;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -666,13 +668,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 2;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell7 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell7"];
                 bp.name = "SorcererAberrantSpell7";
+                bp.IsClassFeature = true;
                 var Spell = Blink;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -687,6 +690,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererAberrantSpell9 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell9"];
                 bp.name = "SorcererAberrantSpell9";
+                bp.IsClassFeature = true;
                 var Spell = SpikeStones;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -694,13 +698,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 4;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell11 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell11"];
                 bp.name = "SorcererAberrantSpell11";
+                bp.IsClassFeature = true;
                 var Spell = Feeblemind;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -708,13 +713,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 5;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell13 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell13"];
                 bp.name = "SorcererAberrantSpell13";
+                bp.IsClassFeature = true;
                 var Spell = Eyebite;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -722,13 +728,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 6;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell15 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell15"];
                 bp.name = "SorcererAberrantSpell15";
+                bp.IsClassFeature = true;
                 var Spell = PolymorphGreaterBase;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -736,13 +743,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 7;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell17 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell17"];
                 bp.name = "SorcererAberrantSpell17";
+                bp.IsClassFeature = true;
                 var Spell = MindBlank;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -750,13 +758,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 8;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell19 = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell19"];
                 bp.name = "SorcererAberrantSpell19";
+                bp.IsClassFeature = true;
                 var Spell = ShapeChange;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -764,7 +773,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
-                    c.SpellLevel = 3;
+                    c.SpellLevel = 9;
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
@@ -801,10 +810,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
                     new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
                     new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11 }},
+                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11, SorcererAberrantLongLimbs }},
                     new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy }},
                     new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15, SorcererAberrantAlienResistance }},
-                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17 }},
+                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17, SorcererAberrantLongLimbs }},
                     new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
                     new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
                 };
