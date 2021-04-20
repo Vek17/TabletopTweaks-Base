@@ -144,10 +144,14 @@
     <Compile Include="NewComponents\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Bloodlines\AberrantBloodline.cs" />
+    <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
+    <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\Features\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="Utilities\Attributes.cs" />
+    <Compile Include="Utilities\BloodlineTools.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="NewComponents\BuffDescriptorImmunityAgainstAlignment.cs" />
     <Compile Include="NewComponents\SpellImmunityToSpellDescriptorAgainstAlignment.cs" />

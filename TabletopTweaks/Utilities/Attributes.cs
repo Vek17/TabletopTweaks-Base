@@ -16,6 +16,7 @@ namespace TabletopTweaks.Utilities {
                 .Where(x => x.GetCustomAttributes(typeof(PostPatchInitializeAttribute), false).FirstOrDefault() != null);
 
             foreach (var method in methods){
+                Main.LogDebug($"Executing Post Patch: {method.Name}");
                 method.Invoke(null, null); // invoke the method
             }
         }

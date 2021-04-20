@@ -15,6 +15,13 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Blueprints.Classes;
 using System.Linq;
 using Kingmaker.Utility;
+using TabletopTweaks.Extensions;
+using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
@@ -100,22 +107,20 @@ namespace TabletopTweaks.Utilities {
             if (init != null) init(result);
             return result;
         }
+
         public static LevelEntry LevelEntry(int level, BlueprintFeatureBase feature) {
             return new LevelEntry {
                 Level = level,
-                Features =
-                {
+                Features = {
                     feature
                 }
             };
         }
 
-        // Token: 0x060005A7 RID: 1447 RVA: 0x0008E01E File Offset: 0x0008C21E
         public static LevelEntry LevelEntry(int level, params BlueprintFeatureBase[] features) {
             return LevelEntry(level, features);
         }
 
-        // Token: 0x060005A8 RID: 1448 RVA: 0x0008E038 File Offset: 0x0008C238
         public static LevelEntry LevelEntry(int level, IEnumerable<BlueprintFeatureBase> features) {
             LevelEntry levelEntry = new LevelEntry();
             levelEntry.Level = level;
@@ -152,10 +157,30 @@ namespace TabletopTweaks.Utilities {
 
             return config;
         }
+        public static ContextValue CreateContextValueRank(AbilityRankType value = AbilityRankType.Default) => value.CreateContextValue();
+        public static ContextValue CreateContextValue(this AbilityRankType value) {
+            return new ContextValue() { ValueType = ContextValueType.Rank, ValueRank = value };
+        }
+        public static ContextValue CreateContextValue(this AbilitySharedValue value) {
+            return new ContextValue() { ValueType = ContextValueType.Shared, ValueShared = value };
+        }
         public static ActionList CreateActionList(params GameAction[] actions) {
             if (actions == null || actions.Length == 1 && actions[0] == null) actions = Array.Empty<GameAction>();
             return new ActionList() { Actions = actions };
         }
+        public static ContextActionSavingThrow CreateActionSavingThrow(this SavingThrowType savingThrow, params GameAction[] actions) {
+            var c = Create<ContextActionSavingThrow>();
+            c.Type = savingThrow;
+            c.Actions = CreateActionList(actions);
+            return c;
+        }
+        public static ContextActionConditionalSaved CreateConditionalSaved(GameAction[] success, GameAction[] failed) {
+            var c = Create<ContextActionConditionalSaved>();
+            c.Succeed = CreateActionList(success);
+            c.Failed = CreateActionList(failed);
+            return c;
+        }
+        
         // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
         static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
         static FastRef<LocalizedString, string> localizedString_m_Key = Helpers.CreateFieldSetter<LocalizedString, string>("m_Key");

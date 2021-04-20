@@ -63,6 +63,9 @@ namespace TabletopTweaks {
             }
             return blueprints.Concat(ResourcesLibrary.s_LoadedBlueprints.Values).OfType<T>().Distinct();
         }
+        public static void AddBlueprint([NotNull] BlueprintScriptableObject blueprint) {
+            AddBlueprint(blueprint, blueprint.AssetGuid);
+        }
         public static void AddBlueprint([NotNull]BlueprintScriptableObject blueprint, string assetId) {
             blueprint.m_AssetGuid = assetId;
             var loadedBlueprint = ResourcesLibrary.TryGetBlueprint<BlueprintScriptableObject>(assetId);

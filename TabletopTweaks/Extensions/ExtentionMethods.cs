@@ -12,6 +12,8 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -412,7 +414,7 @@ namespace TabletopTweaks.Extensions {
                 action.Actions = Helpers.CreateActionList(game_action);
             }
         }
-        
+
         public static void ReplaceComponent(this BlueprintScriptableObject blueprint, BlueprintComponent oldComponent, BlueprintComponent newComponent) {
             BlueprintComponent[] compnents_to_remove = blueprint.ComponentsArray;
             bool found = false;

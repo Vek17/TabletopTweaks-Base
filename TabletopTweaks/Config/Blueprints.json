@@ -2,6 +2,27 @@
     "OverrideIds": false,
     "NewBlueprints": {
         "PrimalistRagePowerSelection": "6baf176bc22c4a41ba421bce3fcd9497",
-        "BloodlineRequisiteFeature": "e2cfd3cedf7c40088b25aa82d6db3c77"
+        "BloodlineRequisiteFeature": "e2cfd3cedf7c40088b25aa82d6db3c77",
+        "AberrantBloodlineRequisiteFeature": "2ded002a790f47278b20ad73b9c0adf0",
+        "BloodragerAberrantStaggeringStrike": "9ea4c84279a540a986d60677358ee223",
+        "BloodragerAberrantStaggeringStrikeBuff": "340887eda584444aab68ec3dfeda6520",
+        "BloodragerAberrantAbnormalReach": "462bcb2e093144edb046993168b6d326",
+        "BloodragerAberrantAbnormalReachBuff": "d447b7753acd4c72b3e73489508772af",
+        "BloodragerAberrantFortitude": "36c61cf0719f491d92ae5ede60fa6842",
+        "BloodragerAberrantFortitudeBuff": "8bf9ab39f28c4e5795843781f2bb10da",
+        "BloodragerAberrantUnusualAnatomy": "1cef5ba909544085ad86266f118e1ff5",
+        "BloodragerAberrantUnusualAnatomyBuff": "9da9a8a2c1ee42f98d072cbe828c9af1",
+        "BloodragerAberrantResistance": "0e28176f8eb94518b8b1691794c224b5",
+        "BloodragerAberrantResistanceBuff": "982a14da9e8a4714a739e45111a1ae5a",
+        "BloodragerAberrantForm": "cbc0ba368e8e4c60b0f8218c1711e445",
+        "BloodragerAberrantFeatSelection": "78ffea9a643e4c608cbb6798c894c3b4",
+        "BloodragerAberrantFeatSelectionGreenrager": "5c4d1685cae4446f883c4db9a09e8d68",
+        "BloodragerAberrantSpell7": "a8652062d1774f23bd2e573c7c468cc6",
+        "BloodragerAberrantSpell10": "80519b57568a47ccbacb9eb5d1c4fef5",
+        "BloodragerAberrantSpell13": "7025b9cbe1344073a16dfb05ce0af9e8",
+        "BloodragerAberrantSpell16": "b0e6ca64004b4253903aa93dc084eaa0",
+        "BloodragerAberrantBaseBuff": "d0b261cfcb9a4223b36eb132f4bd302b",
+        "BloodragerAberrantBloodline": "540390e4735646019137625a37910df0",
+        "DestinedBloodlineRequisiteFeature": "facf9101fd984ad083846b159be802cd"
     }
 }
