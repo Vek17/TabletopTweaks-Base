@@ -114,5 +114,37 @@ namespace TabletopTweaks.Utilities {
             SecondBloodragerBloodline.m_AllFeatures = BloodragerBloodlineSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
             BloodragerBloodlineSelection.m_AllFeatures = BloodragerBloodlineSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
         }
+        public static void RegisterSorcererBloodline(BlueprintProgression bloodline) {
+            BlueprintFeatureSelection SorcererBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("24bef8d1bee12274686f6da6ccbc8914");
+            BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
+            BlueprintFeatureSelection BloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
+
+            SorcererBloodlineSelection.m_AllFeatures = SorcererBloodlineSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
+            SecondBloodline.m_AllFeatures = SecondBloodline.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
+
+            var capstone = bloodline.LevelEntries.Where(entry => entry.Level == 20).First().Features[0];
+            capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
+                c.Group = Prerequisite.GroupType.All;
+            }));
+            BloodlineAscendance.m_Features = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
+            BloodlineAscendance.m_AllFeatures = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
+        }
+        public static void RegisterCrossbloodedBloodline(BlueprintProgression bloodline) {
+            BlueprintFeatureSelection CrossbloodedSecondaryBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("60c99d78a70e0b44f87ba01d02d909a6");
+            CrossbloodedSecondaryBloodlineSelection.m_Features = CrossbloodedSecondaryBloodlineSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
+            CrossbloodedSecondaryBloodlineSelection.m_AllFeatures = CrossbloodedSecondaryBloodlineSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
+        }
+        public static void RegisterSeekerBloodline(BlueprintProgression bloodline) {
+            BlueprintFeatureSelection SeekerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
+            SeekerBloodlineSelection.m_Features = SeekerBloodlineSelection.m_Features.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
+            SeekerBloodlineSelection.m_AllFeatures = SeekerBloodlineSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
+
+            var capstone = bloodline.LevelEntries.Where(entry => entry.Level == 20).First().Features[0];
+            capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
+                c.Group = Prerequisite.GroupType.All;
+            }));
+        }
     }
 }
