@@ -396,7 +396,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             if (!Settings.AddedContent.AberrantBloodline) { return; }
             BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline);
         }
-
         public static void AddSorcererAberrantBloodline() {
             var SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
             var AcidArrow = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
