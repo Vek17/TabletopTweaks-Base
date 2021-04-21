@@ -73,7 +73,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantStaggeringStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantStaggeringStrikeBuff"];
                 bp.name = "BloodragerAberrantStaggeringStrikeBuff";
-                bp.SetName("Staggering Strike");
+                bp.SetName(BloodragerAberrantStaggeringStrike.Name);
+                bp.SetDescription(BloodragerAberrantStaggeringStrike.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 var Staggered = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("df3950af5a783bd4d91ab73eb8fa0fd3").ToReference<BlueprintBuffReference>();
 
@@ -117,6 +118,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantAbnormalReachBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantAbnormalReachBuff"];
                 bp.name = "BloodragerAberrantAbnormalReachBuff";
+                bp.SetName(BloodragerAberrantAbnormalReach.Name);
+                bp.SetDescription(BloodragerAberrantAbnormalReach.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -133,6 +136,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantFortitudeBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantFortitudeBuff"];
                 bp.name = "BloodragerAberrantFortitudeBuff";
+                bp.SetName(BloodragerAberrantFortitude.Name);
+                bp.SetDescription(BloodragerAberrantFortitude.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Sickened;
@@ -157,6 +162,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantUnusualAnatomyBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantUnusualAnatomyBuff"];
                 bp.name = "BloodragerAberrantUnusualAnatomyBuff";
+                bp.SetName(BloodragerAberrantUnusualAnatomy.Name);
+                bp.SetDescription(BloodragerAberrantUnusualAnatomy.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<AddFortification>(c => {
                     c.UseContextValue = false;
@@ -172,6 +179,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantResistanceBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantResistanceBuff"];
                 bp.name = "BloodragerAberrantResistanceBuff";
+                bp.SetName(BloodragerAberrantResistance.Name);
+                bp.SetDescription(BloodragerAberrantResistance.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Fatigued;
@@ -275,46 +284,50 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(BloodragerAberrantFeatSelectionGreenrager);
             //Bloodline Spells
             var BloodragerAberrantSpell7 = Helpers.Create<BlueprintFeature>(bp => {
+                var spell = EnlargePerson;
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell7"];
                 bp.name = "BloodragerAberrantSpell7";
-                bp.SetName("Bonus Spell — Enlarge Person");
+                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
-                    c.m_Spell = EnlargePerson;
+                    c.m_Spell = spell;
                     c.SpellLevel = 1;
                 }));
             });
             var BloodragerAberrantSpell10 = Helpers.Create<BlueprintFeature>(bp => {
+                var spell = SeeInvisibility;
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell10"];
                 bp.name = "BloodragerAberrantSpell10";
-                bp.SetName("Bonus Spell — See Invisibility");
+                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
-                    c.m_Spell = SeeInvisibility;
+                    c.m_Spell = spell;
                     c.SpellLevel = 2;
                 }));
             });
             var BloodragerAberrantSpell13 = Helpers.Create<BlueprintFeature>(bp => {
+                var spell = Displacement;
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell13"];
                 bp.name = "BloodragerAberrantSpell13";
-                bp.SetName("Bonus Spell — Displacement");
+                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
-                    c.m_Spell = Displacement;
+                    c.m_Spell = spell;
                     c.SpellLevel = 3;
                 }));
             });
             var BloodragerAberrantSpell16 = Helpers.Create<BlueprintFeature>(bp => {
+                var spell = SpikeStones;
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell16"];
                 bp.name = "BloodragerAberrantSpell16";
-                bp.SetName("Bonus Spell — Stoneskin");
+                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
-                    c.m_Spell = SpikeStones;
+                    c.m_Spell = spell;
                     c.SpellLevel = 4;
                 }));
             });

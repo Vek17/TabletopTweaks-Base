@@ -125,7 +125,7 @@ namespace TabletopTweaks.Utilities {
             var capstone = bloodline.LevelEntries.Where(entry => entry.Level == 20).First().Features[0];
             capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                 c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
-                c.Group = Prerequisite.GroupType.All;
+                c.Group = Prerequisite.GroupType.Any;
             }));
             BloodlineAscendance.m_Features = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
             BloodlineAscendance.m_AllFeatures = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
@@ -152,7 +152,7 @@ namespace TabletopTweaks.Utilities {
             var capstone = bloodline.LevelEntries.Where(entry => entry.Level == 20).First().Features[0];
             capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                 c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
-                c.Group = Prerequisite.GroupType.All;
+                c.Group = Prerequisite.GroupType.Any;
             }));
         }
     }
