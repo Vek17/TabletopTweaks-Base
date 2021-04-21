@@ -53,6 +53,21 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (!Settings.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
+                var SeekerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
+                SeekerBloodlineSelection.m_Features.ForEach(bloodline => {
+                    var capstone = ((BlueprintProgression)bloodline.Get()).LevelEntries.Where(entry => entry.Level == 20)
+                        .SelectMany(entry => entry.Features.Select(f => f))
+                        .Where(f => f.GetComponent<Prerequisite>())
+                        .First();
+                    capstone.GetComponents<Prerequisite>().ForEach(c => c.Group = Prerequisite.GroupType.Any);
+                    if (!capstone.GetComponents<PrerequisiteFeature>().Any(c => c.m_Feature.Get() ==  bloodline.Get())) {
+                        capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                            c.m_Feature = bloodline;
+                            c.Group = Prerequisite.GroupType.Any;
+                        }));
+                    }
+                });
+
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
                         ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
