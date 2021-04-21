@@ -45,6 +45,27 @@
         "SorcererAberrantBloodline": "1ff2d53c2bee429a801eeebb1197bcd1",
         "CrossbloodedAberrantBloodline": "d27567f75d0443b4bad9b1db9278fea0",
         "SeekerAberrantBloodline": "65128d5d9d274c7a9a1d7bbefb021c96",
-        "DestinedBloodlineRequisiteFeature": "facf9101fd984ad083846b159be802cd"
+        "DestinedBloodlineRequisiteFeature": "facf9101fd984ad083846b159be802cd",
+        "BloodragerDestinedStrikeResource": "254c9d6562f2496c80ae454b365f5848",
+        "BloodragerDestinedAbility": "4c3f4703f03d475992616e81d8fbcf72",
+        "BloodragerDestinedStrike": "8bccba9ac31243119f6eb74cc20e9fe9",
+        "BloodragerDestinedStrikeBuff": "45983c4d596d410ea55bcddb4d482590",
+        "BloodragerDestinedFatedBloodrager": "4e2f2a5c2e274ffba9b1d0c36735c8d1",
+        "BloodragerDestinedFatedBloodragerBuff": "48bdd85aae874621adc574b7f677d841",
+        "BloodragerDestinedCertainStrike": "6edb06a6c96c433da06cb66a33897df7",
+        "BloodragerDestinedCertainStrikeBuff": "6ac01a69ab5146f99f634a4c325d76fa",
+        "BloodragerDestinedDefyDeath": "092250b1e7af4ea7a1691a3695f76b3b",
+        "BloodragerDestinedDefyDeathBuff": "c47d9c4a00784dd2bfdac6920566bfc1",
+        "BloodragerDestinedUnstoppable": "cc4d4c82bb3240df8d29cf6e4ec0c655",
+        "BloodragerDestinedUnstoppableBuff": "70a08d1939f74efcae87d9c4c7c64883",
+        "BloodragerDestinedVictoryOrDeath": "8cff21b140254f3288f892aebdfa2285",
+        "BloodragerDestinedFeatSelection": "89b722b0d8304f9682ccecadfa494a14",
+        "BloodragerDestinedFeatSelectionGreenrager": "4da501017fe343288ebd250ca18495f8",
+        "BloodragerDestinedSpell7": "8c3a38a0873b40b8b8b85c43ec9bec15",
+        "BloodragerDestinedSpell10": "9b800fdf655c4305851fa81f4ec64280",
+        "BloodragerDestinedSpell13": "e8b06827406646fbbc55b92b6dcda83d",
+        "BloodragerDestinedSpell16": "393b049d00cf40fc812a69e27e79128c",
+        "BloodragerDestinedBloodline": "7076fd5affd142079ac6c9ff4882c16e",
+        "BloodragerDestinedBaseBuff": "5fd6712d428b4112853e24bd2f8f8a7b"
     }
 }
