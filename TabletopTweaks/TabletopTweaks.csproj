@@ -153,6 +153,7 @@
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="Resources.cs" />
+    <Compile Include="SaveGamePatch.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\BloodlineTools.cs" />
     <Compile Include="Utilities\Helpers.cs" />

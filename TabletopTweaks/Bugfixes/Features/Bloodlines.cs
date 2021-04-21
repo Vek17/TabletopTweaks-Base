@@ -5,6 +5,8 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -357,6 +359,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 else {
                     feature.SetName($"{split[0]} {split[2]} — {split[1]}");
                 }
+                feature.SetDescription("Bloodline Requisite Feature");
                 Main.LogPatch("Patched", feature);
             }
             void AddRequisiteFeature(BlueprintProgression bloodline, params BlueprintFeature[] requisites) {
@@ -380,6 +383,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 bloodline.RemoveComponents<Prerequisite>();
                 bloodline.AddComponents(noBloodline, requisiteFeature);
                 Main.LogPatch("Patched", bloodline);
+                AddSaveGamePatch(bloodline, requisite);
             }
             void FixBloodlineFeaturePrerequisites(BlueprintFeature bloodline, BlueprintFeature requisite) {
                 var noBloodline = Helpers.Create<PrerequisiteNoFeature>(c => {
@@ -399,6 +403,27 @@ namespace TabletopTweaks.Bugfixes.Features {
                 bloodline.RemoveComponents<Prerequisite>();
                 bloodline.AddComponents(noBloodline, requisiteFeature, addFacts);
                 Main.LogPatch("Patched", bloodline);
+                AddSaveGamePatch(bloodline, requisite);
+            }
+            void AddSaveGamePatch(BlueprintFeature bloodline, BlueprintFeature requisite) {
+                SaveGameFix.AddUnitPatch((unit) => {
+                    if (unit.HasFact(bloodline)) {
+                        if (!unit.HasFact(BloodlineRequisiteFeature)) {
+                            if (unit.AddFact(BloodlineRequisiteFeature) != null) {
+                                Main.Log($"Added: {BloodlineRequisiteFeature} To: {unit.CharacterName}");
+                                return;
+                            }
+                            Main.Log($"Failed Add: {BloodlineRequisiteFeature} To: {unit.CharacterName}");
+                        }
+                        if (!unit.HasFact(requisite)) {
+                            if (unit.AddFact(BloodlineRequisiteFeature) != null) {
+                                Main.Log($"Added: {BloodlineRequisiteFeature} To: {unit.CharacterName}");
+                                return;
+                            }
+                                Main.Log($"Failed Add: {BloodlineRequisiteFeature} To: {unit.CharacterName}");
+                        }
+                    }
+                });
             }
         }
     }
