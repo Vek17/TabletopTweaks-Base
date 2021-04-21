@@ -45,7 +45,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(AberrantBloodlineRequisiteFeature);
             return AberrantBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
         }
-        public static void AddBloodragerAberrantBloodline() {
+        public static void AddBloodragerDestinedBloodline() {
             var BloodragerStandardRageBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
             var BloodragerClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
             var GreenragerArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("5648585af75596f4a9fa3ae385127f57").ToReference<BlueprintArchetypeReference>();
@@ -412,35 +412,36 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodlineTools.RegisterBloodragerBloodline(BloodragerDestinedBloodline);
         }
 
-        public static void AddSorcererAberrantBloodline() {
+        public static void AddSorcererDestinedBloodline() {
             var SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
             var AcidArrow = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
             var BloodlineInfernalClassSkill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f07a37a5b245304429530842cb65e213");
+
             //Bonus Spells
-            var EnlargePerson = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c60969e7f264e6d4b84a1499fdcf9039").ToReference<BlueprintAbilityReference>();
-            var SeeInvisibility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("30e5dc243f937fc4b95d2f8f4e1b7ff3").ToReference<BlueprintAbilityReference>();
-            var Blink = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("045351f1421ee3f449a9143db701d192").ToReference<BlueprintAbilityReference>();
-            var SpikeStones = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d1afa8bc28c99104da7d784115552de5").ToReference<BlueprintAbilityReference>();
-            var Feeblemind = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("444eed6e26f773a40ab6e4d160c67faa").ToReference<BlueprintAbilityReference>();
-            var Eyebite = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3167d30dd3c622c46b0c0cb242061642").ToReference<BlueprintAbilityReference>();
-            var PolymorphGreaterBase = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("a9fc28e147dbb364ea4a3c1831e7e55f").ToReference<BlueprintAbilityReference>();
-            var MindBlank = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("df2a0ba6b6dcecf429cbb80a56fee5cf").ToReference<BlueprintAbilityReference>();
-            var ShapeChange = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("22b9044aa229815429d57d0a30e4b739").ToReference<BlueprintAbilityReference>();
+            var MageShield = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("ef768022b0785eb43a18969903c537c4").ToReference<BlueprintAbilityReference>();
+            var Blur = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("14ec7a4e52e90fa47a4c8d63c69fd5c1").ToReference<BlueprintAbilityReference>();
+            var ProtectionFromEnergy = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d2f116cfe05fcdd4a94e80143b67046f").ToReference<BlueprintAbilityReference>();
+            var FreedomOfMovement = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("4c349361d720e844e846ad8c19959b1e").ToReference<BlueprintAbilityReference>();
+            var BreakEnchantment = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("7792da00c85b9e042a0fdfc2b66ec9a8").ToReference<BlueprintAbilityReference>();
+            var HeroismGreater = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e15e5e7045fda2244b98c8f010adfe31").ToReference<BlueprintAbilityReference>();
+            var CircleOfClarity = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f333185ae986b2a45823cce86535a122").ToReference<BlueprintAbilityReference>();
+            var ProtectionFromSpells = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("42aa71adc7343714fa92e471baa98d42").ToReference<BlueprintAbilityReference>();
+            var Foresight = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1f01a098d737ec6419aedc4e7ad61fdd").ToReference<BlueprintAbilityReference>();
             //Bonus Feats
-            var CombatCasting = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("06964d468fde1dc4aa71a92ea04d930d").ToReference<BlueprintFeatureReference>();
-            var ImprovedDisarm = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("25bc9c439ac44fd44ac3b1e58890916f").ToReference<BlueprintFeatureReference>();
-            var ImprovedDirtyTrick = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("ed699d64870044b43bb5a7fbe3f29494").ToReference<BlueprintFeatureReference>(); //No Grapple
-            var ImprovedInitiative = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("797f25d709f559546b29e7bcb181cc74").ToReference<BlueprintFeatureReference>();
-            var ImprovedUnarmedStrike = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7812ad3672a4b9a4fb894ea402095167").ToReference<BlueprintFeatureReference>();
-            var IronWill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("175d1577bb6c9a04baf88eec99c66334").ToReference<BlueprintFeatureReference>();
-            var ExtendSpell = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef").ToReference<BlueprintFeatureReference>();
+            var ArcaneStrike = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0ab2f21a922feee4dab116238e3150b4").ToReference<BlueprintFeatureReference>();
+            var Diehard = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("86669ce8759f9d7478565db69b8c19ad").ToReference<BlueprintFeatureReference>();
+            var Endurance = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("54ee847996c25cd4ba8773d7b8555174").ToReference<BlueprintFeatureReference>();
+            var MaximizeSpell = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7f2b282626862e345935bbea5e66424b").ToReference<BlueprintFeatureReference>();
+            var SiezeTheMoment = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1191ef3065e6f8e4f9fbe1b7e3c0f760").ToReference<BlueprintFeatureReference>(); //No Grapple
+            var LightningReflexes = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("15e7da6645a7f3d41bdad7c8c4b9de1e").ToReference<BlueprintFeatureReference>();
+            var WeaponFocus = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e").ToReference<BlueprintFeatureReference>();
             var SkillFocusKnowledgeWorld = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("611e863120c0f9a4cab2d099f1eb20b4").ToReference<BlueprintFeatureReference>();
             //Bloodline Powers
-            var SorcererAberrantClassSkill = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantClassSkill"];
-                bp.name = "SorcererAberrantClassSkill";
+            var SorcererDestinedClassSkill = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedClassSkill"];
+                bp.name = "SorcererDestinedClassSkill";
                 bp.SetName("Class Skill — Knowledge (World)");
-                bp.SetDescription("Additional class skill from the aberrant bloodline.");
+                bp.SetDescription("Additional class skill from the destined bloodline.");
                 bp.AddComponent(Helpers.Create<AddClassSkill>(c => {
                     c.Skill = StatType.SkillKnowledgeWorld;
                 }));
@@ -448,18 +449,17 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = BloodlineInfernalClassSkill.Icon;
             });
-            var SorcererAberrantBloodlineArcana = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantBloodlineArcana"];
-                bp.name = "SorcererAberrantBloodlineArcana";
+            var SorcererDestinedBloodlineArcana = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcana"];
+                bp.name = "SorcererDestinedBloodlineArcana";
                 bp.IsClassFeature = true;
-                bp.SetName("Aberrant Bloodline Arcana");
-                bp.SetDescription("Whenever you cast a spell of the polymorph subschool, increase the duration "
-                    + "of the spell by 50% (minimum 1 round). This bonus does not stack with the increase granted by the Extend Spell feat.");
+                bp.SetName("Destined Bloodline Arcana");
+                bp.SetDescription("Whenever you cast a spell with a range of “personal,” you gain a luck bonus equal to the spell’s level on all your saving throws for 1 round.");
                 bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
             });
-            var SorcererAberrantAcidicRayResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayResource"];
-                bp.name = "SorcererAberrantAcidicRayResource";
+            var SorcererDestinedTouchOfDestinyResource = Helpers.Create<BlueprintAbilityResource>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestinyResource"];
+                bp.name = "SorcererDestinedTouchOfDestinyResource";
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
                     BaseValue = 3,
@@ -471,17 +471,17 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererAberrantAcidicRayAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayAbility"];
-                bp.name = "SorcererAberrantAcidicRayAbility";
-                bp.SetName("Acidic Ray");
-                bp.SetDescription("Starting at 1st level, you can fire an acidic ray as a standard action, targeting any "
-                    + "foe within 30 feet as a ranged touch attack. The acidic ray deals 1d6 points of acid damage + 1 "
-                    + "for every two sorcerer levels you possess. You can use this ability a number of times per day equal to 3 + your Charisma modifier.");
+            var SorcererDestinedTouchOfDestinyAbility = Helpers.Create<BlueprintAbility>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestinyAbility"];
+                bp.name = "SorcererDestinedTouchOfDestinyAbility";
+                bp.SetName("Touch of Destiny");
+                bp.SetDescription("At 1st level, you can touch a creature as a standard action, giving it an insight bonus on attack rolls, skill checks, "
+                    +"ability checks, and saving throws equal to 1/2 your sorcerer level (minimum 1) for 1 round. You can use this ability a number of "
+                    +"times per day equal to 3 + your Charisma modifier.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.CanTargetEnemies = true;
-                bp.Range = AbilityRange.Close;
+                bp.Range = AbilityRange.Touch;
                 bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
@@ -494,7 +494,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Descriptor = SpellDescriptor.Acid;
                 }));
                 bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
-                    c.m_RequiredResource = SorcererAberrantAcidicRayResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_RequiredResource = SorcererDestinedTouchOfDestinyResource.ToReference<BlueprintAbilityResourceReference>();
                     c.m_IsSpendResource = true;
                     c.Amount = 1;
                 }));
@@ -539,58 +539,154 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
                 }));
             });
-            var SorcererAberrantAcidicRay = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRay"];
-                bp.name = "SorcererAberrantAcidicRay";
-                bp.SetName("Acidic Ray");
-                bp.SetDescription("Starting at 1st level, you can fire an acidic ray as a standard action, targeting any "
-                    + "foe within 30 feet as a ranged touch attack. The acidic ray deals 1d6 points of acid damage + 1 "
-                    + "for every two sorcerer levels you possess. You can use this ability a number of times per day equal to 3 + your Charisma modifier.");
+            var SorcererDestinedTouchOfDestiny = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestiny"];
+                bp.name = "SorcererDestinedTouchOfDestiny";
+                bp.SetName(SorcererDestinedTouchOfDestinyAbility.Name);
+                bp.SetDescription(SorcererDestinedTouchOfDestinyAbility.Description);
                 bp.AddComponent(Helpers.Create<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
-                        SorcererAberrantAcidicRayAbility.ToReference<BlueprintUnitFactReference>(),
+                        SorcererDestinedTouchOfDestinyAbility.ToReference<BlueprintUnitFactReference>(),
                     };
                 }));
                 bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
-                    c.m_Resource = SorcererAberrantAcidicRayResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_Resource = SorcererDestinedTouchOfDestinyResource.ToReference<BlueprintAbilityResourceReference>();
                     c.RestoreAmount = true;
                 }));
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.m_Icon = SorcererAberrantAcidicRayAbility.Icon;
+                bp.m_Icon = SorcererDestinedTouchOfDestinyAbility.Icon;
             });
-            var SorcererAberrantLongLimbs = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantLongLimbs"];
-                bp.name = "SorcererAberrantLongLimbs";
+            var SorcererDestinedFated = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedFated"];
+                bp.name = "SorcererDestinedFated";
                 bp.Ranks = 3;
                 bp.IsClassFeature = true; ;
-                bp.SetName("Long Limbs");
-                bp.SetDescription("At 3rd level, your reach increases by 5 feet whenever you are making a melee touch attack. "
-                    + "This ability does not otherwise increase your threatened area. At 11th level, this bonus to your reach "
-                    + "increases to 10 feet. At 17th level, this bonus to your reach increases to 15 feet.");
+                bp.SetName("Fated");
+                bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during surprise rounds"
+                    +"(see Combat) and when you are otherwise unaware of an attack. At 7th level and every four levels thereafter, this bonus increases "
+                    +"by +1, to a maximum of +5 at 19th level.");
                 bp.AddComponent(Helpers.Create<AddTouchReach>(c => {
                     c.Value = 5;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                 }));
             });
-            var SorcererAberrantUnusualAnatomy = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantUnusualAnatomy"];
-                bp.name = "SorcererAberrantUnusualAnatomy";
+            var SorcererDestinedItWasMeantToBeResource = Helpers.Create<BlueprintAbilityResource>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeResource"];
+                bp.name = "SorcererDestinedItWasMeantToBeResource";
+                bp.m_Min = 0;
+                bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
+                    BaseValue = 3,
+                    IncreasedByStat = true,
+                    ResourceBonusStat = StatType.Charisma,
+                    m_Class = new BlueprintCharacterClassReference[0],
+                    m_ClassDiv = new BlueprintCharacterClassReference[0],
+                    m_Archetypes = new BlueprintArchetypeReference[0],
+                    m_ArchetypesDiv = new BlueprintArchetypeReference[0]
+                };
+            });
+            var SorcererDestinedItWasMeantToBeAbility = Helpers.Create<BlueprintAbility>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeAbility"];
+                bp.name = "SorcererDestinedItWasMeantToBeAbility";
+                bp.SetName("It Was Meant To Be");
+                bp.SetDescription("At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
+                    +"At 17th level, you can use this ability twice per day.");
+                bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
+                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.CanTargetEnemies = true;
+                bp.Range = AbilityRange.Touch;
+                bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
+                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
+                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
+                bp.m_Icon = AcidArrow.Icon;
+                bp.ResourceAssetIds = AcidArrow.ResourceAssetIds;
+                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
+                    c.School = SpellSchool.Conjuration;
+                }));
+                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
+                    c.Descriptor = SpellDescriptor.Acid;
+                }));
+                bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
+                    c.m_RequiredResource = SorcererDestinedItWasMeantToBeResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_IsSpendResource = true;
+                    c.Amount = 1;
+                }));
+                bp.AddComponent(Helpers.Create<AbilityDeliverProjectile>(c => {
+                    c.m_Projectiles = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Projectiles;
+                    c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5 };
+                    c.m_Weapon = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Weapon;
+                    c.NeedAttackRoll = true;
+                }));
+                var dealDamage = Helpers.Create<ContextActionDealDamage>(c => {
+                    c.DamageType = new DamageTypeDescription {
+                        Type = DamageType.Energy,
+                        Energy = DamageEnergyType.Acid
+                    };
+                    c.Duration = new ContextDurationValue() {
+                        m_IsExtendable = true,
+                        DiceCountValue = new ContextValue(),
+                        BonusValue = new ContextValue()
+                    };
+                    c.Value = new ContextDiceValue {
+                        DiceType = DiceType.D6,
+                        DiceCountValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 1
+                        },
+                        BonusValue = new ContextValue {
+                            ValueType = ContextValueType.Rank,
+                            ValueRank = AbilityRankType.DamageBonus
+                        }
+                    };
+                });
+                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
+                    c.Actions = new ActionList();
+                    c.Actions.Actions = new GameAction[] { dealDamage };
+                }));
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_Type = AbilityRankType.DamageBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_StartLevel = 1;
+                    c.m_StepLevel = 2;
+                    c.m_Max = 20;
+                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
+                }));
+            });
+            var SorcererDestinedItWasMeantToBe = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBe"];
+                bp.name = "SorcererDestinedItWasMeantToBe";
                 bp.IsClassFeature = true;
                 bp.Ranks = 2;
-                bp.SetName("Unusual Anatomy");
-                bp.SetDescription("At 9th level, your anatomy changes, giving you a 25% chance to ignore any critical hit or sneak attack scored against you. This chance increases to 50% at 13th level.");
+                bp.SetName("It Was Meant To Be");
+                bp.SetDescription(" At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
+                    +"At 9th level, you can use this ability once per day. At 17th level, you can use this ability twice per day.");
                 bp.AddComponent(Helpers.Create<AddFortification>(c => {
                     c.UseContextValue = false;
                     c.Bonus = 25;
                 }));
             });
-            var SorcererAberrantAlienResistance = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAlienResistance"];
-                bp.name = "SorcererAberrantAlienResistance";
+            var SorcererDestinedWithinReachResource = Helpers.Create<BlueprintAbilityResource>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedWithinReachResource"];
+                bp.name = "SorcererDestinedWithinReachResource";
+                bp.m_Min = 0;
+                bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
+                    BaseValue = 3,
+                    IncreasedByStat = true,
+                    ResourceBonusStat = StatType.Charisma,
+                    m_Class = new BlueprintCharacterClassReference[0],
+                    m_ClassDiv = new BlueprintCharacterClassReference[0],
+                    m_Archetypes = new BlueprintArchetypeReference[0],
+                    m_ArchetypesDiv = new BlueprintArchetypeReference[0]
+                };
+            });
+            var SorcererDestinedWithinReach = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedWithinReach"];
+                bp.name = "SorcererDestinedWithinReach";
                 bp.IsClassFeature = true;
-                bp.SetName("Alien Resistance");
-                bp.SetDescription("At 15th level, you gain spell resistance equal to your sorcerer level + 10.");
+                bp.SetName("Within Reach");
+                bp.SetDescription("At 15th level, your ultimate destiny is drawing near. Once per day, when an attack or spell that causes "
+                    +"damage would result in your death, you may attempt a DC 20 Will save. If successful, you are instead reduced to –1 hit "
+                    +"points and are automatically stabilized. The bonus from your fated ability applies to this save.");
                 bp.AddComponent(Helpers.Create<AddSpellResistance>(c => {
                     c.Value = new ContextValue();
                     c.Value.ValueType = ContextValueType.Rank;
@@ -604,12 +700,93 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
                 }));
             });
-            var SorcererAberrantForm = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantForm"];
-                bp.name = "SorcererAberrantForm";
-                bp.SetName("Aberrant Form");
-                bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. +"
-                    + "In addition, you gain blindsight with a range of 60 feet and damage reduction 5/—");
+            var SorcererDestinedDestinyRealizedResource = Helpers.Create<BlueprintAbilityResource>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedDestinyRealizedResource"];
+                bp.name = "SorcererDestinedDestinyRealizedResource";
+                bp.m_Min = 0;
+                bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
+                    BaseValue = 3,
+                    IncreasedByStat = true,
+                    ResourceBonusStat = StatType.Charisma,
+                    m_Class = new BlueprintCharacterClassReference[0],
+                    m_ClassDiv = new BlueprintCharacterClassReference[0],
+                    m_Archetypes = new BlueprintArchetypeReference[0],
+                    m_ArchetypesDiv = new BlueprintArchetypeReference[0]
+                };
+            });
+            var SorcererDestinedDestinyRealizedAbility = Helpers.Create<BlueprintAbility>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedDestinyRealizedAbility"];
+                bp.name = "SorcererDestinedDestinyRealizedAbility";
+                bp.SetName("Destiny Realized");
+                bp.SetDescription("Once per day, you can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
+                bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
+                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.CanTargetEnemies = true;
+                bp.Range = AbilityRange.Touch;
+                bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
+                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
+                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
+                bp.m_Icon = AcidArrow.Icon;
+                bp.ResourceAssetIds = AcidArrow.ResourceAssetIds;
+                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
+                    c.School = SpellSchool.Conjuration;
+                }));
+                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
+                    c.Descriptor = SpellDescriptor.Acid;
+                }));
+                bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
+                    c.m_RequiredResource = SorcererDestinedDestinyRealizedResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_IsSpendResource = true;
+                    c.Amount = 1;
+                }));
+                bp.AddComponent(Helpers.Create<AbilityDeliverProjectile>(c => {
+                    c.m_Projectiles = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Projectiles;
+                    c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5 };
+                    c.m_Weapon = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Weapon;
+                    c.NeedAttackRoll = true;
+                }));
+                var dealDamage = Helpers.Create<ContextActionDealDamage>(c => {
+                    c.DamageType = new DamageTypeDescription {
+                        Type = DamageType.Energy,
+                        Energy = DamageEnergyType.Acid
+                    };
+                    c.Duration = new ContextDurationValue() {
+                        m_IsExtendable = true,
+                        DiceCountValue = new ContextValue(),
+                        BonusValue = new ContextValue()
+                    };
+                    c.Value = new ContextDiceValue {
+                        DiceType = DiceType.D6,
+                        DiceCountValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 1
+                        },
+                        BonusValue = new ContextValue {
+                            ValueType = ContextValueType.Rank,
+                            ValueRank = AbilityRankType.DamageBonus
+                        }
+                    };
+                });
+                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
+                    c.Actions = new ActionList();
+                    c.Actions.Actions = new GameAction[] { dealDamage };
+                }));
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_Type = AbilityRankType.DamageBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_StartLevel = 1;
+                    c.m_StepLevel = 2;
+                    c.m_Max = 20;
+                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
+                }));
+            });
+            var SorcererDestinedDestinyRealized = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedDestinyRealized"];
+                bp.name = "SorcererDestinedDestinyRealized";
+                bp.SetName("Destiny Realized");
+                bp.SetDescription("At 20th level, your moment of destiny is at hand. Any critical threats made against you only confirm if the second "
+                    +"roll results in a natural 20 on the die. Any critical threats you score with a spell are automatically confirmed. Once per day, you "
+                    +"can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
                 bp.AddComponent(Helpers.Create<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;
@@ -636,45 +813,50 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Bonus = 100;
                 }));
             });
-            Resources.AddBlueprint(SorcererAberrantClassSkill);
-            Resources.AddBlueprint(SorcererAberrantBloodlineArcana);
-            Resources.AddBlueprint(SorcererAberrantAcidicRayResource);
-            Resources.AddBlueprint(SorcererAberrantAcidicRayAbility);
-            Resources.AddBlueprint(SorcererAberrantAcidicRay);
-            Resources.AddBlueprint(SorcererAberrantLongLimbs);
-            Resources.AddBlueprint(SorcererAberrantUnusualAnatomy);
-            Resources.AddBlueprint(SorcererAberrantAlienResistance);
-            Resources.AddBlueprint(SorcererAberrantForm);
+            Resources.AddBlueprint(SorcererDestinedClassSkill);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcana);
+            Resources.AddBlueprint(SorcererDestinedTouchOfDestinyResource);
+            Resources.AddBlueprint(SorcererDestinedTouchOfDestinyAbility);
+            Resources.AddBlueprint(SorcererDestinedTouchOfDestiny);
+            Resources.AddBlueprint(SorcererDestinedFated);
+            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeResource);
+            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeAbility);
+            Resources.AddBlueprint(SorcererDestinedItWasMeantToBe);
+            Resources.AddBlueprint(SorcererDestinedWithinReachResource);
+            Resources.AddBlueprint(SorcererDestinedWithinReach);
+            Resources.AddBlueprint(SorcererDestinedDestinyRealizedResource);
+            Resources.AddBlueprint(SorcererDestinedDestinyRealizedAbility);
+            Resources.AddBlueprint(SorcererDestinedDestinyRealized);
             //Bloodline Feats
-            var SorcererAberrantFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantFeatSelection"];
-                bp.name = "SorcererAberrantFeatSelection";
+            var SorcererDestinedFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedFeatSelection"];
+                bp.name = "SorcererDestinedFeatSelection";
                 bp.SetName("Bonus Feats");
-                bp.SetDescription("Bonus Feats: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+                bp.SetDescription("Bonus Feats: Arcane Strike, Diehard, Endurance, Sieze The Moment, Lightning Reflexes, Maximize Spell, Skill Focus (Knowledge World), Weapon Focus.");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = new BlueprintFeatureReference[] {
-                    CombatCasting,
-                    ImprovedDisarm,
-                    ImprovedDirtyTrick,
-                    ImprovedInitiative,
-                    ImprovedUnarmedStrike,
-                    IronWill,
-                    ExtendSpell,
-                    SkillFocusKnowledgeWorld
+                    ArcaneStrike,
+                    Diehard,
+                    Endurance,
+                    SiezeTheMoment,
+                    LightningReflexes,
+                    WeaponFocus,
+                    SkillFocusKnowledgeWorld,
+                    MaximizeSpell
                 };
                 bp.m_AllFeatures = bp.m_Features;
             });
-            Resources.AddBlueprint(SorcererAberrantFeatSelection);
+            Resources.AddBlueprint(SorcererDestinedFeatSelection);
             //Bloodline Spells
-            var SorcererAberrantSpell3 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell3"];
-                bp.name = "SorcererAberrantSpell3";
+            var SorcererDestinedSpell3 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = MageShield;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell3"];
+                bp.name = "SorcererDestinedSpell3";
                 bp.IsClassFeature = true;
-                var Spell = EnlargePerson;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -685,11 +867,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell5 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell5"];
-                bp.name = "SorcererAberrantSpell5";
+            var SorcererDestinedSpell5 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = Blur;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell5"];
+                bp.name = "SorcererDestinedSpell5";
                 bp.IsClassFeature = true;
-                var Spell = SeeInvisibility;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -700,11 +882,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell7 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell7"];
-                bp.name = "SorcererAberrantSpell7";
+            var SorcererDestinedSpell7 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = ProtectionFromEnergy;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell7"];
+                bp.name = "SorcererDestinedSpell7";
                 bp.IsClassFeature = true;
-                var Spell = Blink;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -715,11 +897,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell9 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell9"];
-                bp.name = "SorcererAberrantSpell9";
+            var SorcererDestinedSpell9 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = FreedomOfMovement;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell9"];
+                bp.name = "SorcererDestinedSpell9";
                 bp.IsClassFeature = true;
-                var Spell = SpikeStones;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -730,11 +912,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell11 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell11"];
-                bp.name = "SorcererAberrantSpell11";
+            var SorcererDestinedSpell11 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = BreakEnchantment;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell11"];
+                bp.name = "SorcererDestinedSpell11";
                 bp.IsClassFeature = true;
-                var Spell = Feeblemind;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -745,11 +927,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell13 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell13"];
-                bp.name = "SorcererAberrantSpell13";
+            var SorcererDestinedSpell13 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = HeroismGreater;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell13"];
+                bp.name = "SorcererDestinedSpell13";
                 bp.IsClassFeature = true;
-                var Spell = Eyebite;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -760,11 +942,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell15 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell15"];
-                bp.name = "SorcererAberrantSpell15";
+            var SorcererDestinedSpell15 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = CircleOfClarity;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell15"];
+                bp.name = "SorcererDestinedSpell15";
                 bp.IsClassFeature = true;
-                var Spell = PolymorphGreaterBase;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -775,11 +957,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell17 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell17"];
-                bp.name = "SorcererAberrantSpell17";
+            var SorcererDestinedSpell17 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = ProtectionFromSpells;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell17"];
+                bp.name = "SorcererDestinedSpell17";
                 bp.IsClassFeature = true;
-                var Spell = MindBlank;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -790,11 +972,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererAberrantSpell19 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell19"];
-                bp.name = "SorcererAberrantSpell19";
+            var SorcererDestinedSpell19 = Helpers.Create<BlueprintFeature>(bp => {
+                var Spell = Foresight;
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedSpell19"];
+                bp.name = "SorcererDestinedSpell19";
                 bp.IsClassFeature = true;
-                var Spell = ShapeChange;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
@@ -805,24 +987,23 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            Resources.AddBlueprint(SorcererAberrantSpell3);
-            Resources.AddBlueprint(SorcererAberrantSpell5);
-            Resources.AddBlueprint(SorcererAberrantSpell7);
-            Resources.AddBlueprint(SorcererAberrantSpell9);
-            Resources.AddBlueprint(SorcererAberrantSpell11);
-            Resources.AddBlueprint(SorcererAberrantSpell13);
-            Resources.AddBlueprint(SorcererAberrantSpell15);
-            Resources.AddBlueprint(SorcererAberrantSpell17);
-            Resources.AddBlueprint(SorcererAberrantSpell19);
+            Resources.AddBlueprint(SorcererDestinedSpell3);
+            Resources.AddBlueprint(SorcererDestinedSpell5);
+            Resources.AddBlueprint(SorcererDestinedSpell7);
+            Resources.AddBlueprint(SorcererDestinedSpell9);
+            Resources.AddBlueprint(SorcererDestinedSpell11);
+            Resources.AddBlueprint(SorcererDestinedSpell13);
+            Resources.AddBlueprint(SorcererDestinedSpell15);
+            Resources.AddBlueprint(SorcererDestinedSpell17);
+            Resources.AddBlueprint(SorcererDestinedSpell19);
             //Bloodline Core
-            var SorcererAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantBloodline"];
-                bp.name = "SorcererAberrantBloodline";
-                bp.SetName("Aberrant Bloodline");
-                bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
-                    + "from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
-                    + "Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
-                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+            var SorcererDestinedBloodline = Helpers.Create<BlueprintProgression>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodline"];
+                bp.name = "SorcererDestinedBloodline";
+                bp.SetName("Destined Bloodline");
+                bp.SetDescription("Your family is destined for greatness in some way. Your birth could have been foretold in prophecy, or perhaps "
+                    + "it occurred during an especially auspicious event, such as a solar eclipse. Regardless of your bloodline’s origin, you have a great future ahead.\n"
+                    + "Bonus Feats of the Aberrant Bloodline: Arcane Strike, Diehard, Endurance, Sieze The Moment, Lightning Reflexes, Maximize Spell, Skill Focus (Knowledge World), Weapon Focus.");
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
@@ -833,17 +1014,17 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.LevelEntries = new LevelEntry[] {
-                    new LevelEntry(){ Level = 1, Features = { SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
-                    new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3, SorcererAberrantLongLimbs }},
-                    new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
-                    new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11, SorcererAberrantLongLimbs }},
-                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15, SorcererAberrantAlienResistance }},
-                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17, SorcererAberrantLongLimbs }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
-                    new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
+                    new LevelEntry(){ Level = 1, Features = { SorcererDestinedTouchOfDestiny, SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
+                    new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3, SorcererDestinedFated }},
+                    new LevelEntry(){ Level = 5, Features = { SorcererDestinedSpell5 }},
+                    new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7 }},
+                    new LevelEntry(){ Level = 9, Features = { SorcererDestinedSpell9, SorcererDestinedItWasMeantToBe }},
+                    new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11 }},
+                    new LevelEntry(){ Level = 13, Features = { SorcererDestinedSpell13 }},
+                    new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15, SorcererDestinedWithinReach }},
+                    new LevelEntry(){ Level = 17, Features = { SorcererDestinedSpell17 }},
+                    new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }},
+                    new LevelEntry(){ Level = 20, Features = { SorcererDestinedDestinyRealized }},
                 };
                 bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
@@ -854,14 +1035,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
             });
-            var CrossbloodedAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["CrossbloodedAberrantBloodline"];
-                bp.name = "CrossbloodedAberrantBloodline";
-                bp.SetName("Aberrant Bloodline");
-                bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
-                    + "from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
-                    + "Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
-                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+            var CrossbloodedDestinedBloodline = Helpers.Create<BlueprintProgression>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["CrossbloodedDestinedBloodline"];
+                bp.name = "CrossbloodedDestinedBloodline";
+                bp.SetName(SorcererDestinedBloodline.Name);
+                bp.SetDescription(SorcererDestinedBloodline.Description);
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
@@ -872,26 +1050,23 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.LevelEntries = new LevelEntry[] {
-                    new LevelEntry(){ Level = 1, Features = { SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
-                    new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3 }},
-                    new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
-                    new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9 }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11 }},
-                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13 }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15 }},
-                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17 }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }}
+                    new LevelEntry(){ Level = 1, Features = { SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
+                    new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3 }},
+                    new LevelEntry(){ Level = 5, Features = { SorcererDestinedSpell5 }},
+                    new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7 }},
+                    new LevelEntry(){ Level = 9, Features = { SorcererDestinedSpell9 }},
+                    new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11 }},
+                    new LevelEntry(){ Level = 13, Features = { SorcererDestinedSpell13 }},
+                    new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15 }},
+                    new LevelEntry(){ Level = 17, Features = { SorcererDestinedSpell17 }},
+                    new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }}
                 };
             });
-            var SeekerAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SeekerAberrantBloodline"];
-                bp.name = "SeekerAberrantBloodline";
-                bp.SetName("Aberrant Bloodline");
-                bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
-                    + "from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
-                    + "Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
-                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+            var SeekerDestinedBloodline = Helpers.Create<BlueprintProgression>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SeekerDestinedBloodline"];
+                bp.name = "SeekerDestinedBloodline";
+                bp.SetName(SorcererDestinedBloodline.Name);
+                bp.SetDescription(SorcererDestinedBloodline.Description);
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
@@ -902,17 +1077,17 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.LevelEntries = new LevelEntry[] {
-                    new LevelEntry(){ Level = 1, Features = { SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
-                    new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3 }},
-                    new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
-                    new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11 }},
-                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15 }},
-                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17 }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
-                    new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
+                    new LevelEntry(){ Level = 1, Features = { SorcererDestinedTouchOfDestiny, SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
+                    new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3 }},
+                    new LevelEntry(){ Level = 5, Features = { SorcererDestinedSpell5 }},
+                    new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7 }},
+                    new LevelEntry(){ Level = 9, Features = { SorcererDestinedSpell9 }},
+                    new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11 }},
+                    new LevelEntry(){ Level = 13, Features = { SorcererDestinedSpell13 }},
+                    new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15 }},
+                    new LevelEntry(){ Level = 17, Features = { SorcererDestinedSpell17 }},
+                    new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }},
+                    new LevelEntry(){ Level = 20, Features = { SorcererDestinedDestinyRealized }},
                 };
                 bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
@@ -923,16 +1098,16 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
             });
-            BloodlineTools.RegisterSorcererFeatSelection(SorcererAberrantFeatSelection, SorcererAberrantBloodline);
+            BloodlineTools.RegisterSorcererFeatSelection(SorcererDestinedFeatSelection, SorcererDestinedBloodline);
 
-            Resources.AddBlueprint(SorcererAberrantBloodline);
-            Resources.AddBlueprint(CrossbloodedAberrantBloodline);
-            Resources.AddBlueprint(SeekerAberrantBloodline);
+            Resources.AddBlueprint(SorcererDestinedBloodline);
+            Resources.AddBlueprint(CrossbloodedDestinedBloodline);
+            Resources.AddBlueprint(SeekerDestinedBloodline);
 
             if (!Settings.AddedContent.AberrantBloodline || false) { return; }
-            BloodlineTools.RegisterSorcererBloodline(SorcererAberrantBloodline);
-            BloodlineTools.RegisterCrossbloodedBloodline(CrossbloodedAberrantBloodline);
-            BloodlineTools.RegisterSeekerBloodline(SeekerAberrantBloodline);
+            BloodlineTools.RegisterSorcererBloodline(SorcererDestinedBloodline);
+            BloodlineTools.RegisterCrossbloodedBloodline(CrossbloodedDestinedBloodline);
+            BloodlineTools.RegisterSeekerBloodline(SeekerDestinedBloodline);
         }
     }
 }

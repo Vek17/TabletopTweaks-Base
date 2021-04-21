@@ -842,11 +842,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var CrossbloodedAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["CrossbloodedAberrantBloodline"];
                 bp.name = "CrossbloodedAberrantBloodline";
-                bp.SetName("Aberrant Bloodline");
-                bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
-                    + "from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
-                    + "Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
-                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+                bp.SetName(SorcererAberrantBloodline.Name);
+                bp.SetDescription(SorcererAberrantBloodline.Description);
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
@@ -872,11 +869,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SeekerAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SeekerAberrantBloodline"];
                 bp.name = "SeekerAberrantBloodline";
-                bp.SetName("Aberrant Bloodline");
-                bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
-                    + "from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
-                    + "Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
-                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+                bp.SetName(SorcererAberrantBloodline.Name);
+                bp.SetDescription(SorcererAberrantBloodline.Description);
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
