@@ -22,6 +22,14 @@ namespace TabletopTweaks.NewComponents {
             unitPartTouchReach.RemoveModifiersFrom(base.Runtime);
         }
 
+        public override void OnActivate() {
+            OnTurnOn();
+        }
+
+        public override void OnDeactivate() {
+            OnTurnOff();
+        }
+
         public int Value;
         public ModifierDescriptor Descriptor;
     }
