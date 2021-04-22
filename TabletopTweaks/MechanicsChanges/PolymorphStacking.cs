@@ -3,10 +3,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,32 +47,12 @@ namespace TabletopTweaks.BalanceAdjustments {
 
             }
             static void FixModifers() {
-                IEnumerable<BlueprintBuff> taggedPolyBuffs = Resources.GetBlueprints<BlueprintBuff>()
-                    .Where(bp => bp.GetComponents<SpellDescriptorComponent>()
-                        .Where(c => (c.Descriptor & SpellDescriptor.Polymorph) == SpellDescriptor.Polymorph).Count() > 0);
-                IEnumerable<BlueprintBuff> polymorphBuffs = Resources.GetBlueprints<BlueprintAbility>()
-                    .Where(bp =>
-                        (bp.GetComponents<SpellDescriptorComponent>()
-                            .Where(c => c != null)
-                            .Where(d => d.Descriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0)
-                        || (bp.GetComponents<AbilityExecuteActionOnCast>()
-                            .SelectMany(c => c.Actions.Actions.OfType<ContextActionRemoveBuffsByDescriptor>())
-                            .Where(c => c.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0)
-                        || (bp.GetComponents<AbilityEffectRunAction>()
-                            .SelectMany(c => c.Actions.Actions.OfType<ContextActionRemoveBuffsByDescriptor>()
-                                .Concat(c.Actions.Actions.OfType<ContextActionConditionalSaved>()
-                                    .SelectMany(a => a.Failed.Actions
-                                    .OfType<ContextActionRemoveBuffsByDescriptor>())))
-                            .Where(c => c.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)).Count() > 0))
-                    .SelectMany(a => a.FlattenAllActions())
-                    .OfType<ContextActionApplyBuff>()
-                    .Where(c => c.Buff != null)
-                    .Select(c => c.Buff)
-                    .Except(taggedPolyBuffs)
-                    .Where(bp => bp.AssetGuid != "e6f2fc5d73d88064583cb828801212f4") // Fatigued
-                    .Where(bp => !bp.HasFlag(BlueprintBuff.Flags.HiddenInUi))
-                    .Distinct();
-
+                IEnumerable<BlueprintBuff> polymorphBuffs = new List<BlueprintBuff>() {
+                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("082caf8c1005f114ba6375a867f638cf"), //GeniekindDjinniBuff  
+                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("d47f45f29c4cfc0469f3734d02545e0b"), //GeniekindEfreetiBuff  
+                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("4f37fc07fe2cf7f4f8076e79a0a3bfe9"), //GeniekindMaridBuff  
+                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("1d498104f8e35e246b5d8180b0faed43"), //GeniekindShaitanBuff  
+                };
                 polymorphBuffs
                     .OrderBy(buff => buff.name)
                     .ForEach(buff => {

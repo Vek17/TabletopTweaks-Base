@@ -830,8 +830,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererDestinedFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedFeatSelection"];
                 bp.name = "SorcererDestinedFeatSelection";
-                bp.SetName("Bonus Feats");
-                bp.SetDescription("Bonus Feats: Arcane Strike, Diehard, Endurance, Sieze The Moment, Lightning Reflexes, Maximize Spell, Skill Focus (Knowledge World), Weapon Focus.");
+                bp.SetName("Bloodline Feat Selection");
+                bp.SetDescription("At 7th level, and every six levels thereafter, a sorcerer receives one bonus feat, chosen from a list specific to each bloodline. "
+                    + "The sorcerer must meet the prerequisites for these bonus feats."
+                    + "\nBonus Feats: Arcane Strike, Diehard, Endurance, Sieze The Moment, Lightning Reflexes, Maximize Spell, Skill Focus (Knowledge World), Weapon Focus.");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;

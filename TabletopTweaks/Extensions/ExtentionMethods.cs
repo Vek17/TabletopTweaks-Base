@@ -142,42 +142,6 @@ namespace TabletopTweaks.Extensions {
         internal static readonly List<BlueprintScriptableObject> newAssets = new List<BlueprintScriptableObject>();
 #endif
 
-        public static void AddAsset(this LibraryScriptableObject library, BlueprintScriptableObject blueprint, String guid) {
-            //Main.Mod.Debug(MethodBase.GetCurrentMethod());
-            if (guid == "") {
-                guid = Helpers.GuidStorage.getGuid(blueprint.name);
-            }
-            //Main.Mod.Debug(guid);
-            blueprintScriptableObject_set_AssetId(blueprint) = guid;
-            // Sanity check that we don't stop on our own GUIDs or someone else's.
-            BlueprintScriptableObject existing;
-            if (library.BlueprintsByAssetId.TryGetValue(guid, out existing)) {
-                throw Main.Error($"Duplicate AssetId for {blueprint.name}, existing entry ID: {guid}, name: {existing.name}, type: {existing.GetType().Name}");
-            } else if (guid == "") {
-                throw Main.Error($"Missing AssetId: {guid}, name: {existing.name}, type: {existing.GetType().Name}");
-            }
-#if DEBUG
-            newAssets.Add(blueprint);
-#endif
-#if false
-            // Sanity check that names are unique. This is less important, but the feat selection UI
-            // gets confused if multiple entries have the same name.
-            if (assetsByName.TryGetValue(blueprint.name, out existing))
-            {
-                Log.Write($"Warning: Duplicate name, existing entry ID: {existing.AssetGuid}, name: {existing.name}, type: {existing.GetType().Name}");
-            }
-            else
-            {
-                assetsByName.Add(blueprint.name, blueprint);
-            }
-#endif
-
-            library.GetAllBlueprints().Add(blueprint);
-            library.BlueprintsByAssetId[guid] = blueprint;
-            Helpers.GuidStorage.addEntry(blueprint.name, guid);
-
-        }
-
         public static void SetFeatures(this BlueprintFeatureSelection selection, IEnumerable<BlueprintFeature> features) {
             SetFeatures(selection, features.ToArray());
         }
@@ -246,10 +210,6 @@ namespace TabletopTweaks.Extensions {
             SetComponents(obj, components.ToArray());
         }
 
-        public static void AddAsset(this LibraryScriptableObject library, BlueprintScriptableObject blueprint, String guid1, String guid2) {
-            library.AddAsset(blueprint, Helpers.MergeIds(guid1, guid2));
-        }
-
         public static T Get<T>(this LibraryScriptableObject library, String assetId) where T : BlueprintScriptableObject {
             return (T)library.BlueprintsByAssetId[assetId];
         }
@@ -261,11 +221,11 @@ namespace TabletopTweaks.Extensions {
             }
             return null;
         }
-
+        /*
         public static T CopyAndAdd<T>(this LibraryScriptableObject library, String assetId, String newName, String newAssetId, String newAssetId2 = null) where T : BlueprintScriptableObject {
             return CopyAndAdd(library, Get<T>(library, assetId), newName, newAssetId, newAssetId2);
         }
-
+        
         public static T CopyAndAdd<T>(this LibraryScriptableObject library, T original, String newName, String newAssetId, String newAssetId2 = null) where T : BlueprintScriptableObject {
             var clone = UnityEngine.Object.Instantiate(original);
             clone.name = newName;
@@ -273,7 +233,7 @@ namespace TabletopTweaks.Extensions {
             AddAsset(library, clone, id);
             return clone;
         }
-
+        */
 
         public static T CreateCopy<T>(this T original, Action<T> action = null) where T : UnityEngine.Object {
             var clone = UnityEngine.Object.Instantiate(original);

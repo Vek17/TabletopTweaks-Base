@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
@@ -48,12 +49,17 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchFeats();
 
                 void PatchAnimalCompanionFeatures() {
-                    BlueprintFeature AnimalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
-                    BlueprintFeature AnimalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
-                    IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = Resources.GetBlueprints<BlueprintFeature>()
-                        .Where(bp => !string.IsNullOrEmpty(bp.name))
-                        .Where(bp => bp.name.Contains("AnimalCompanionUpgrade"))
-                        .OrderBy(bp => bp.name);
+                    var AnimalCompanionSelectionBase = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
+                    var AnimalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
+                    var AnimalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
+                    IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = AnimalCompanionSelectionBase.m_AllFeatures.Concat(AnimalCompanionSelectionBase.m_Features)
+                        .Select(feature => feature.Get())
+                        .Where(feature => feature.GetComponent<AddPet>())
+                        .Select(feature => feature.GetComponent<AddPet>())
+                        .Where(component => component.m_UpgradeFeature != null)
+                        .Select(component => component.m_UpgradeFeature.Get())
+                        .Where(feature => feature != null)
+                        .Distinct();
                     AnimalCompanionNaturalArmor.GetComponent<AddStatBonus>().Descriptor = (ModifierDescriptor)NaturalArmor.Stackable;
                     Main.LogPatch("Patched", AnimalCompanionNaturalArmor);
                     AnimalCompanionStatFeature.GetComponents<AddContextStatBonus>()

@@ -636,8 +636,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererAberrantFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantFeatSelection"];
                 bp.name = "SorcererAberrantFeatSelection";
-                bp.SetName("Bonus Feats");
-                bp.SetDescription("Bonus Feats: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+                bp.SetName("Bloodline Feat Selection");
+                bp.SetDescription("At 7th level, and every six levels thereafter, a sorcerer receives one bonus feat, chosen from a list specific to each bloodline. "
+                    +"The sorcerer must meet the prerequisites for these bonus feats."
+                    + "\nBonus Feats: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
