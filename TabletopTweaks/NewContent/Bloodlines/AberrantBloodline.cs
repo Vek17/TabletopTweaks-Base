@@ -340,7 +340,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantBloodline"];
                 bp.name = "BloodragerAberrantBloodline";
                 bp.SetName("Aberrant");
-                bp.SetDescription("There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.");
+                bp.SetDescription("There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.\n"
+                    + "While bloodraging, you gain the abilities and immunities of some aberrations, but show signs of your tainted heritage.\n"
+                    + BloodragerAberrantFeatSelection.Description
+                    +"\nBonus Spells: Enlarge Person (7th), See Invisability (10th), Displacement (13th), Spike Stones (16th).");
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = BloodragerClass
