@@ -1,14 +1,14 @@
-﻿using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
+﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
-using System.Linq;
-using HarmonyLib;
 using System.Collections.Generic;
+using System.Linq;
 using TabletopTweaks.Config;
+using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.MechanicsChanges {
     static class NaturalArmorStacking {

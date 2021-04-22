@@ -45,7 +45,7 @@ namespace TabletopTweaks.MechanicsChanges {
         // Enforce both Class and Archetype prerequisites for seletion
         [HarmonyPatch(typeof(BlueprintCharacterClass), "MeetsPrerequisites", new Type[] { typeof(UnitDescriptor), typeof(LevelUpState) })]
         static class BlueprintCharacterClass_MeetsPrerequisites_Patch {
-            static void Postfix(ref bool __result, BlueprintCharacterClass __instance, UnitDescriptor unit,  LevelUpState state) {
+            static void Postfix(ref bool __result, BlueprintCharacterClass __instance, UnitDescriptor unit, LevelUpState state) {
                 if (!Settings.Fixes.EnableArchetypePrerequisites) { return; }
                 bool meetsArchetypePrerequisites = true;
                 int classLevel = unit.Progression.GetClassLevel(__instance);
@@ -70,8 +70,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 var archetypes = new List<BlueprintArchetype>();
                 if (__instance.ClassInfo.Archetype != null) {
                     archetypes.Add(__instance.ClassInfo.Archetype);
-                }
-                else if (unit.Progression.GetClassLevel(__instance.ClassInfo.Class) >= 1) {
+                } else if (unit.Progression.GetClassLevel(__instance.ClassInfo.Class) >= 1) {
                     archetypes.AddRange(unit.Progression.GetClassData(__instance.ClassInfo.Class).Archetypes);
                 }
 

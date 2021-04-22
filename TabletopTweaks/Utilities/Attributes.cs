@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection;
 
 namespace TabletopTweaks.Utilities {
-    class PostPatchInitializeAttribute : Attribute {
+    class PostPatchInitializeAttribute: Attribute {
     }
 
-    static class PostPatchInitializer { 
+    static class PostPatchInitializer {
         public static void Initialize() {
             var methods = Assembly.GetExecutingAssembly()
                 .GetTypes()
@@ -15,7 +15,7 @@ namespace TabletopTweaks.Utilities {
                 .SelectMany(x => AccessTools.GetDeclaredMethods(x))
                 .Where(x => x.GetCustomAttributes(typeof(PostPatchInitializeAttribute), false).FirstOrDefault() != null);
 
-            foreach (var method in methods){
+            foreach (var method in methods) {
                 Main.LogDebug($"Executing Post Patch: {method.Name}");
                 method.Invoke(null, null); // invoke the method
             }

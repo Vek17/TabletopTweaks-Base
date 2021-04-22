@@ -1,12 +1,12 @@
-﻿using static Kingmaker.Blueprints.Classes.Spells.SpellDescriptor;
-using Kingmaker.Blueprints.Classes.Spells;
-using System.Linq;
+﻿using HarmonyLib;
 using Kingmaker.Blueprints;
-using HarmonyLib;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using System.Linq;
 using TabletopTweaks.Config;
+using static Kingmaker.Blueprints.Classes.Spells.SpellDescriptor;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Witch {

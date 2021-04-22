@@ -8,11 +8,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Utilities {
@@ -22,8 +18,7 @@ namespace TabletopTweaks.Utilities {
             if (conditional.IfTrue != null) {
                 conditional.IfTrue = Helpers.CreateActionList(conditional.IfTrue.Actions);
                 conditional.IfTrue.Actions = conditional.IfTrue.Actions.AddToArray(game_action);
-            }
-            else {
+            } else {
                 conditional.IfTrue = Helpers.CreateActionList(game_action);
             }
         }
@@ -31,8 +26,7 @@ namespace TabletopTweaks.Utilities {
             if (conditional.IfFalse != null) {
                 conditional.IfFalse = Helpers.CreateActionList(conditional.IfFalse.Actions);
                 conditional.IfFalse.Actions = conditional.IfFalse.Actions.AddToArray(game_action);
-            }
-            else {
+            } else {
                 conditional.IfFalse = Helpers.CreateActionList(game_action);
             }
         }
@@ -130,7 +124,7 @@ namespace TabletopTweaks.Utilities {
             BloodlineAscendance.m_Features = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
             BloodlineAscendance.m_AllFeatures = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
         }
-        public static void RegisterSorcererFeatSelection (BlueprintFeatureSelection selection, BlueprintProgression bloodline) {
+        public static void RegisterSorcererFeatSelection(BlueprintFeatureSelection selection, BlueprintProgression bloodline) {
             BlueprintFeatureSelection SorcererFeatSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3a60f0c0442acfb419b0c03b584e1394");
             selection.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                 c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();

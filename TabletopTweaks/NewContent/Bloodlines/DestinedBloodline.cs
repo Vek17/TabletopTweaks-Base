@@ -78,7 +78,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "BloodragerDestinedStrike";
                 bp.SetName("Destined Strike");
                 bp.SetDescription("At 1st level, as a free action up to three times per day you can grant yourself an insight bonus equal to 1/2 your "
-                    +"bloodrager level (minimum 1) on one melee attack. At 12th level, you can use this ability up to five times per day.");
+                    + "bloodrager level (minimum 1) on one melee attack. At 12th level, you can use this ability up to five times per day.");
             });
             var BloodragerDestinedStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedStrikeBuff"];
@@ -125,7 +125,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "BloodragerDestinedFatedBloodrager";
                 bp.SetName("Fated Bloodrager");
                 bp.SetDescription("At 4th level, you gain a +1 luck bonus to AC and on saving throws. At 8th level and every"
-                    +"4 levels thereafter, this bonus increases by 1 (to a maximum of +5 at 20th level).");
+                    + "4 levels thereafter, this bonus increases by 1 (to a maximum of +5 at 20th level).");
             });
             var BloodragerDestinedFatedBloodragerBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedFatedBloodragerBuff"];
@@ -144,7 +144,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "BloodragerDestinedCertainStrike";
                 bp.SetName("Certain Strike");
                 bp.SetDescription("At 8th level, you may reroll an attack roll once during a bloodrage. You must decide to use this ability after "
-                    +"the die is rolled, but before the GM reveals the results. You must take the second result, even if it’s worse.");
+                    + "the die is rolled, but before the GM reveals the results. You must take the second result, even if it’s worse.");
             });
             var BloodragerDestinedCertainStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedCertainStrikeBuff"];
@@ -170,8 +170,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "BloodragerDestinedDefyDeath";
                 bp.SetName("Defy Death");
                 bp.SetDescription("At 12th level, once per day when an attack or spell that deals damage would result in your death"
-                    +", you can attempt a DC 20 Fortitude save. If you succeed, you are instead reduced to 1 hit point; if you "
-                    +"succeed and already have less than 1 hit point, you instead take no damage.");
+                    + ", you can attempt a DC 20 Fortitude save. If you succeed, you are instead reduced to 1 hit point; if you "
+                    + "succeed and already have less than 1 hit point, you instead take no damage.");
             });
             var BloodragerDestinedDefyDeathBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedDefyDeathBuff"];
@@ -189,7 +189,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "BloodragerDestinedUnstoppable";
                 bp.SetName("Unstoppable ");
                 bp.SetDescription("At 16th level, any critical threats you score are automatically confirmed. Any critical "
-                    +"threats made against you confirm only if the second roll results in a natural 20 (or is automatically confirmed).");
+                    + "threats made against you confirm only if the second roll results in a natural 20 (or is automatically confirmed).");
             });
             var BloodragerDestinedUnstoppableBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedUnstoppableBuff"];
@@ -218,7 +218,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "BloodragerDestinedVictoryOrDeath";
                 bp.SetName("Victory or Death");
                 bp.SetDescription("At 20th level, you are immune to paralysis and petrification, as well as to the stunned, dazed, "
-                    +"and staggered conditions. You have these benefits constantly, even while not bloodraging.");
+                    + "and staggered conditions. You have these benefits constantly, even while not bloodraging.");
                 bp.AddComponent(Helpers.Create<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;
@@ -475,8 +475,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedTouchOfDestinyAbility";
                 bp.SetName("Touch of Destiny");
                 bp.SetDescription("At 1st level, you can touch a creature as a standard action, giving it an insight bonus on attack rolls, skill checks, "
-                    +"ability checks, and saving throws equal to 1/2 your sorcerer level (minimum 1) for 1 round. You can use this ability a number of "
-                    +"times per day equal to 3 + your Charisma modifier.");
+                    + "ability checks, and saving throws equal to 1/2 your sorcerer level (minimum 1) for 1 round. You can use this ability a number of "
+                    + "times per day equal to 3 + your Charisma modifier.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.CanTargetEnemies = true;
@@ -563,8 +563,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true; ;
                 bp.SetName("Fated");
                 bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during surprise rounds"
-                    +"(see Combat) and when you are otherwise unaware of an attack. At 7th level and every four levels thereafter, this bonus increases "
-                    +"by +1, to a maximum of +5 at 19th level.");
+                    + "(see Combat) and when you are otherwise unaware of an attack. At 7th level and every four levels thereafter, this bonus increases "
+                    + "by +1, to a maximum of +5 at 19th level.");
                 bp.AddComponent(Helpers.Create<AddTouchReach>(c => {
                     c.Value = 5;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -589,7 +589,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedItWasMeantToBeAbility";
                 bp.SetName("It Was Meant To Be");
                 bp.SetDescription("At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
-                    +"At 17th level, you can use this ability twice per day.");
+                    + "At 17th level, you can use this ability twice per day.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.CanTargetEnemies = true;
@@ -658,7 +658,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 2;
                 bp.SetName("It Was Meant To Be");
                 bp.SetDescription(" At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
-                    +"At 9th level, you can use this ability once per day. At 17th level, you can use this ability twice per day.");
+                    + "At 9th level, you can use this ability once per day. At 17th level, you can use this ability twice per day.");
                 bp.AddComponent(Helpers.Create<AddFortification>(c => {
                     c.UseContextValue = false;
                     c.Bonus = 25;
@@ -684,8 +684,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.SetName("Within Reach");
                 bp.SetDescription("At 15th level, your ultimate destiny is drawing near. Once per day, when an attack or spell that causes "
-                    +"damage would result in your death, you may attempt a DC 20 Will save. If successful, you are instead reduced to –1 hit "
-                    +"points and are automatically stabilized. The bonus from your fated ability applies to this save.");
+                    + "damage would result in your death, you may attempt a DC 20 Will save. If successful, you are instead reduced to –1 hit "
+                    + "points and are automatically stabilized. The bonus from your fated ability applies to this save.");
                 bp.AddComponent(Helpers.Create<AddSpellResistance>(c => {
                     c.Value = new ContextValue();
                     c.Value.ValueType = ContextValueType.Rank;
@@ -784,8 +784,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedDestinyRealized";
                 bp.SetName("Destiny Realized");
                 bp.SetDescription("At 20th level, your moment of destiny is at hand. Any critical threats made against you only confirm if the second "
-                    +"roll results in a natural 20 on the die. Any critical threats you score with a spell are automatically confirmed. Once per day, you "
-                    +"can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
+                    + "roll results in a natural 20 on the die. Any critical threats you score with a spell are automatically confirmed. Once per day, you "
+                    + "can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
                 bp.AddComponent(Helpers.Create<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;

@@ -1,12 +1,12 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using TabletopTweaks.Utilities;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.Config;
+using TabletopTweaks.NewComponents;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class Feats {

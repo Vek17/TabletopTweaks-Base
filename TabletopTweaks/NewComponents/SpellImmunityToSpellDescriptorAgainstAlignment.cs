@@ -12,12 +12,12 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
-    class SpellImmunityToSpellDescriptorAgainstAlignment : UnitFactComponentDelegate, 
-        IInitiatorRulebookHandler<RuleCanApplyBuff>, 
-        IRulebookHandler<RuleCanApplyBuff>, 
-        ISubscriber, 
-        IInitiatorRulebookSubscriber, 
-        IInitiatorRulebookHandler<RuleSavingThrow>, 
+    class SpellImmunityToSpellDescriptorAgainstAlignment: UnitFactComponentDelegate,
+        IInitiatorRulebookHandler<RuleCanApplyBuff>,
+        IRulebookHandler<RuleCanApplyBuff>,
+        ISubscriber,
+        IInitiatorRulebookSubscriber,
+        IInitiatorRulebookHandler<RuleSavingThrow>,
         IRulebookHandler<RuleSavingThrow> {
 
         public BlueprintUnitFact IgnoreFeature {
@@ -69,8 +69,7 @@ namespace TabletopTweaks.NewComponents {
                 CountableFlag flag;
                 if (context == null) {
                     flag = null;
-                }
-                else {
+                } else {
                     UnitEntityData maybeCaster = context.MaybeCaster;
                     flag = ((maybeCaster != null) ? maybeCaster.State.Features.MythicReduceResistances : null);
                 }

@@ -10,7 +10,7 @@ using Kingmaker.Utility;
 using System;
 
 namespace TabletopTweaks.NewUnitParts {
-    class MeleeTouchReach : UnitPart {
+    class MeleeTouchReach: UnitPart {
         public int Reach = 0;
         public ModifiableValue TouchValue {
             get {
@@ -25,7 +25,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
         public void AddModifier(int value, EntityFactComponent source, ModifierDescriptor desc = ModifierDescriptor.None) {
             TouchValue.AddModifier(value, source, desc);
-            
+
         }
         public void RemoveModifiersFrom(EntityFactComponent source) {
             TouchValue.RemoveModifiersFrom(source);

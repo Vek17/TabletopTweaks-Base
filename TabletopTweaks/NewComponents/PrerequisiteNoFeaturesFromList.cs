@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
-    class PrerequisiteNoFeaturesFromList : Prerequisite {
+    class PrerequisiteNoFeaturesFromList: Prerequisite {
         public ReferenceArrayProxy<BlueprintFeature, BlueprintFeatureReference> Features {
             get {
                 return m_Features;
@@ -36,8 +36,7 @@ namespace TabletopTweaks.NewComponents {
             StringBuilder stringBuilder = new StringBuilder();
             if (Amount == 0) {
                 stringBuilder.Append("Doesn't have any of the following features");
-            }
-            else {
+            } else {
                 stringBuilder.Append($"Doesn't have more than {Amount} of the following features");
             }
             stringBuilder.Append(":\n");

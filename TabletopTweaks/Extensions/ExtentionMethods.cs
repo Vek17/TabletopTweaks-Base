@@ -9,15 +9,11 @@ using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 using UnityEngine;
 
@@ -104,7 +100,7 @@ namespace TabletopTweaks.Extensions {
             int x = 0;
             bool added = false;
             for (int i = 0; i < len; i++) {
-                if(array[i].Equals(element) && !added) {
+                if (array[i].Equals(element) && !added) {
                     result[x++] = value;
                     added = true;
                 }
@@ -123,11 +119,10 @@ namespace TabletopTweaks.Extensions {
                     result[x++] = array[i];
                     result[x++] = value;
                     added = true;
-                }
-                else {
+                } else {
                     result[x++] = array[i];
                 }
-                
+
             }
             return result;
         }
@@ -158,8 +153,7 @@ namespace TabletopTweaks.Extensions {
             BlueprintScriptableObject existing;
             if (library.BlueprintsByAssetId.TryGetValue(guid, out existing)) {
                 throw Main.Error($"Duplicate AssetId for {blueprint.name}, existing entry ID: {guid}, name: {existing.name}, type: {existing.GetType().Name}");
-            }
-            else if (guid == "") {
+            } else if (guid == "") {
                 throw Main.Error($"Missing AssetId: {guid}, name: {existing.name}, type: {existing.GetType().Name}");
             }
 #if DEBUG
@@ -409,8 +403,7 @@ namespace TabletopTweaks.Extensions {
             if (action.Actions != null) {
                 action.Actions = Helpers.CreateActionList(action.Actions.Actions);
                 action.Actions.Actions = action.Actions.Actions.AddToArray(game_action);
-            }
-            else {
+            } else {
                 action.Actions = Helpers.CreateActionList(game_action);
             }
         }
@@ -418,7 +411,7 @@ namespace TabletopTweaks.Extensions {
         public static void ReplaceComponent(this BlueprintScriptableObject blueprint, BlueprintComponent oldComponent, BlueprintComponent newComponent) {
             BlueprintComponent[] compnents_to_remove = blueprint.ComponentsArray;
             bool found = false;
-            for(int i = 0; i < compnents_to_remove.Length; i++) {
+            for (int i = 0; i < compnents_to_remove.Length; i++) {
                 if (compnents_to_remove[i] == oldComponent) {
                     blueprint.RemoveComponent(oldComponent);
                 }
@@ -433,7 +426,7 @@ namespace TabletopTweaks.Extensions {
         public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, Predicate<T> predicate, BlueprintComponent newComponent) where T : BlueprintComponent {
             var compnents_to_remove = blueprint.GetComponents<T>().ToArray();
             bool found = false;
-            foreach(var c in compnents_to_remove) {
+            foreach (var c in compnents_to_remove) {
                 if (predicate(c)) {
                     blueprint.SetComponents(blueprint.ComponentsArray.RemoveFromArray(c));
                     found = true;

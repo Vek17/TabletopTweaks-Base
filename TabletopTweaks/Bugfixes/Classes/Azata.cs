@@ -26,7 +26,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchZippyMagicFeature();
                 Main.LogHeader("Azata Resource Patch Complete");
             }
-            
+
             static void PatchAzataPerformanceResource() {
                 if (!Settings.Fixes.Azata.Fixes["AzataPerformanceResource"]) { return; }
                 var AzataPerformanceResource = ResourcesLibrary.TryGetBlueprint<BlueprintAbilityResource>("83f8a1c45ed205a4a989b7826f5c0687");
@@ -43,7 +43,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchFavorableMagic() {
-                if (!Settings.Fixes.Azata.Fixes["FavorableMagic"]) { return;  }
+                if (!Settings.Fixes.Azata.Fixes["FavorableMagic"]) { return; }
                 var FavorableMagicFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
                 var fixedComponent = Helpers.Create<NewComponents.AzataFavorableMagicComponent>();
 

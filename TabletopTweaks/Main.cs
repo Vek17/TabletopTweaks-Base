@@ -1,9 +1,9 @@
-﻿using UnityModManagerNet;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using System;
-using TabletopTweaks.Utilities;
 using TabletopTweaks.Config;
+using TabletopTweaks.Utilities;
+using UnityModManagerNet;
 
 namespace TabletopTweaks {
     static class Main {

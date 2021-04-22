@@ -43,7 +43,7 @@ namespace TabletopTweaks.Config {
             public SortedDictionary<string, bool> Fixes = new SortedDictionary<string, bool>();
             public void LoadFixgroup(FixGroup group) {
                 DisableAllFixes = group.DisableAllFixes;
-                group.Fixes.ForEach(entry => { 
+                group.Fixes.ForEach(entry => {
                     if (Fixes.ContainsKey(entry.Key)) {
                         Fixes[entry.Key] = entry.Value;
                     }

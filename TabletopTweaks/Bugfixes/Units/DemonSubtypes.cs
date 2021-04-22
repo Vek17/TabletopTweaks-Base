@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
-using System;
-using System.Linq;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Utility;
+using System;
+using System.Linq;
 using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Units {

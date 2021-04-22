@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.UnitLogic;
 using System;
 using System.Collections.Generic;
 

@@ -1,16 +1,6 @@
-﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.Utility;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using TabletopTweaks.Extensions;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks.Config {
@@ -48,7 +38,7 @@ namespace TabletopTweaks.Config {
         public static void LoadSettings() {
             var assembly = Assembly.GetExecutingAssembly();
             string userConfigFolder = ModEntry.Path + "UserSettings";
-            
+
             Directory.CreateDirectory(userConfigFolder);
 
             var fixesResource = "TabletopTweaks.Config.Fixes.json";
@@ -62,8 +52,7 @@ namespace TabletopTweaks.Config {
                     try {
                         Fixes userFixes = JsonConvert.DeserializeObject<Fixes>(reader.ReadToEnd());
                         fixes.OverrideFixes(userFixes);
-                    }
-                    catch {
+                    } catch {
                         Main.Error("Failed to load user settings. Settings will be rebuilt.");
                         try { File.Copy(userFixPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_Fixes.json", true); } catch { Main.Error("Failed to archive broken settings."); }
                     }
@@ -82,8 +71,7 @@ namespace TabletopTweaks.Config {
                     try {
                         AddedContent userAddedContent = JsonConvert.DeserializeObject<AddedContent>(reader.ReadToEnd());
                         addedContent.OverrideFixes(userAddedContent);
-                    }
-                    catch {
+                    } catch {
                         Main.Error("Failed to load user settings. Settings will be rebuilt.");
                         try { File.Copy(userAddedContentPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_AddedContent.json", true); } catch { Main.Error("Failed to archive broken settings."); }
                     }
@@ -102,8 +90,7 @@ namespace TabletopTweaks.Config {
                     try {
                         Blueprints userBlueprints = JsonConvert.DeserializeObject<Blueprints>(reader.ReadToEnd());
                         blueprints.OverrideSettings(userBlueprints);
-                    }
-                    catch {
+                    } catch {
                         Main.Error("Failed to load user settings. Settings will be rebuilt.");
                         try { File.Copy(blueprintsPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_Blueprints.json", true); } catch { Main.Error("Failed to archive broken settings."); }
                     }

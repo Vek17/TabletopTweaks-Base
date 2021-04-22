@@ -438,7 +438,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.SetName("Aberrant Bloodline Arcana");
                 bp.SetDescription("Whenever you cast a spell of the polymorph subschool, increase the duration "
-                    +"of the spell by 50% (minimum 1 round). This bonus does not stack with the increase granted by the Extend Spell feat.");
+                    + "of the spell by 50% (minimum 1 round). This bonus does not stack with the increase granted by the Extend Spell feat.");
                 bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
             });
             var SorcererAberrantAcidicRayResource = Helpers.Create<BlueprintAbilityResource>(bp => {
@@ -460,8 +460,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererAberrantAcidicRayAbility";
                 bp.SetName("Acidic Ray");
                 bp.SetDescription("Starting at 1st level, you can fire an acidic ray as a standard action, targeting any "
-                    +"foe within 30 feet as a ranged touch attack. The acidic ray deals 1d6 points of acid damage + 1 "
-                    +"for every two sorcerer levels you possess. You can use this ability a number of times per day equal to 3 + your Charisma modifier.");
+                    + "foe within 30 feet as a ranged touch attack. The acidic ray deals 1d6 points of acid damage + 1 "
+                    + "for every two sorcerer levels you possess. You can use this ability a number of times per day equal to 3 + your Charisma modifier.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.CanTargetEnemies = true;
@@ -484,7 +484,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.AddComponent(Helpers.Create<AbilityDeliverProjectile>(c => {
                     c.m_Projectiles = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Projectiles;
-                    c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5};
+                    c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5 };
                     c.m_Weapon = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Weapon;
                     c.NeedAttackRoll = true;
                 }));
@@ -550,8 +550,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true; ;
                 bp.SetName("Long Limbs");
                 bp.SetDescription("At 3rd level, your reach increases by 5 feet whenever you are making a melee touch attack. "
-                    +"This ability does not otherwise increase your threatened area. At 11th level, this bonus to your reach "
-                    +"increases to 10 feet. At 17th level, this bonus to your reach increases to 15 feet.");
+                    + "This ability does not otherwise increase your threatened area. At 11th level, this bonus to your reach "
+                    + "increases to 10 feet. At 17th level, this bonus to your reach increases to 15 feet.");
                 bp.AddComponent(Helpers.Create<AddTouchReach>(c => {
                     c.Value = 5;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -593,7 +593,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererAberrantForm";
                 bp.SetName("Aberrant Form");
                 bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. +"
-                    +"In addition, you gain blindsight with a range of 60 feet and damage reduction 5/—");
+                    + "In addition, you gain blindsight with a range of 60 feet and damage reduction 5/—");
                 bp.AddComponent(Helpers.Create<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;
@@ -691,7 +691,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var Spell = Blink;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
-                    +$"{Spell.Get().Name}: {Spell.Get().Description}");
+                    + $"{Spell.Get().Name}: {Spell.Get().Description}");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
@@ -804,9 +804,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererAberrantBloodline";
                 bp.SetName("Aberrant Bloodline");
                 bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
-                    +"from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
-                    +"Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
-                    +"Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+                    + "from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
+                    + "Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
+                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass

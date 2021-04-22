@@ -1,13 +1,11 @@
 ﻿using JetBrains.Annotations;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
@@ -66,7 +64,7 @@ namespace TabletopTweaks {
         public static void AddBlueprint([NotNull] BlueprintScriptableObject blueprint) {
             AddBlueprint(blueprint, blueprint.AssetGuid);
         }
-        public static void AddBlueprint([NotNull]BlueprintScriptableObject blueprint, string assetId) {
+        public static void AddBlueprint([NotNull] BlueprintScriptableObject blueprint, string assetId) {
             blueprint.m_AssetGuid = assetId;
             var loadedBlueprint = ResourcesLibrary.TryGetBlueprint<BlueprintScriptableObject>(assetId);
             if (loadedBlueprint == null) {
@@ -75,8 +73,7 @@ namespace TabletopTweaks {
                 if (blueprint != null) {
                     blueprint.OnEnableWithLibrary();
                 }
-            }
-            else {
+            } else {
                 Main.Log($"Asset ID: {assetId} already in use by: {loadedBlueprint.name}");
             }
         }

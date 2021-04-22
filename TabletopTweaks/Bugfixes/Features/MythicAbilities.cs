@@ -12,7 +12,6 @@ using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
-using UnityEngine;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class MythicAbilities {
@@ -60,7 +59,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                         .Where(f => f.GetComponent<Prerequisite>())
                         .First();
                     capstone.GetComponents<Prerequisite>().ForEach(c => c.Group = Prerequisite.GroupType.Any);
-                    if (!capstone.GetComponents<PrerequisiteFeature>().Any(c => c.m_Feature.Get() ==  bloodline.Get())) {
+                    if (!capstone.GetComponents<PrerequisiteFeature>().Any(c => c.m_Feature.Get() == bloodline.Get())) {
                         capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                             c.m_Feature = bloodline;
                             c.Group = Prerequisite.GroupType.Any;
@@ -96,8 +95,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     if (owner.Descriptor.HasFact(EnduringSpells)) {
                         if (owner.Descriptor.HasFact(EnduringSpellsGreater) && duration >= (DurationRate.Minutes.ToRounds() * 5)) {
                             duration = DurationRate.Days.ToRounds();
-                        }
-                        else if(duration >= DurationRate.Hours.ToRounds()) {
+                        } else if (duration >= DurationRate.Hours.ToRounds()) {
                             duration = DurationRate.Days.ToRounds();
                         }
                     }

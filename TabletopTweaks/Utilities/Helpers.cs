@@ -2,26 +2,22 @@
 // This code is licensed under MIT license (see LICENSE for details)
 
 using Kingmaker.Blueprints;
-using Kingmaker.Localization;
-using System.Collections.Generic;
-using System;
-using UnityEngine;
-using Kingmaker.ElementsSystem;
-using System.Globalization;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.Enums;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Blueprints.Classes;
-using System.Linq;
-using Kingmaker.Utility;
-using TabletopTweaks.Extensions;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
+using Kingmaker.Utility;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using UnityEngine;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
@@ -63,8 +59,7 @@ namespace TabletopTweaks.Utilities {
                     if (original_guid != guid) {
                         throw Main.Error($"Asset: {name}, is already registered for object with another guid: {guid}");
                     }
-                }
-                else {
+                } else {
                     guids_in_use.Add(name, guid);
                 }
             }
@@ -80,11 +75,9 @@ namespace TabletopTweaks.Utilities {
                 string original_guid;
                 if (guids_in_use.TryGetValue(name, out original_guid)) {
                     return original_guid;
-                }
-                else if (allow_guid_generation) {
+                } else if (allow_guid_generation) {
                     return Guid.NewGuid().ToString("N");
-                }
-                else {
+                } else {
                     throw Main.Error($"Missing AssetId for: {name}"); //ensure that no guids generated in release mode
                 }
             }
@@ -94,8 +87,7 @@ namespace TabletopTweaks.Utilities {
                 string original_guid;
                 if (guids_in_use.TryGetValue(name, out original_guid)) {
                     return original_guid;
-                }
-                else {
+                } else {
                     return new_guid;
                 }
             }
@@ -180,7 +172,7 @@ namespace TabletopTweaks.Utilities {
             c.Failed = CreateActionList(failed);
             return c;
         }
-        
+
         // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
         static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
         static FastRef<LocalizedString, string> localizedString_m_Key = Helpers.CreateFieldSetter<LocalizedString, string>("m_Key");

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TabletopTweaks.Config {
     class Blueprints {
         public bool OverrideIds = false;
-        public SortedDictionary<string,string> NewBlueprints = new SortedDictionary<string, string>();
+        public SortedDictionary<string, string> NewBlueprints = new SortedDictionary<string, string>();
 
         public void OverrideSettings(Blueprints userSettings) {
             if (userSettings.OverrideIds) {

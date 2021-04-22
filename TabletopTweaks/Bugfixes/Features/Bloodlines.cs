@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -355,8 +354,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 string[] split = Regex.Split(feature.name, @"(?<!^)(?=[A-Z])");
                 if (length == 1) {
                     feature.SetName($"{split[0]} {split[1]}");
-                }
-                else {
+                } else {
                     feature.SetName($"{split[0]} {split[2]} — {split[1]}");
                 }
                 feature.SetDescription("Bloodline Requisite Feature");
@@ -395,7 +393,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.m_Feature = requisite.ToReference<BlueprintFeatureReference>();
                 });
                 var addFacts = Helpers.Create<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] { 
+                    c.m_Facts = new BlueprintUnitFactReference[] {
                         BloodlineRequisiteFeature.ToReference<BlueprintUnitFactReference>(),
                         requisite.ToReference<BlueprintUnitFactReference>()
                     };
@@ -420,7 +418,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                                 Main.Log($"Added: {BloodlineRequisiteFeature} To: {unit.CharacterName}");
                                 return;
                             }
-                                Main.Log($"Failed Add: {BloodlineRequisiteFeature} To: {unit.CharacterName}");
+                            Main.Log($"Failed Add: {BloodlineRequisiteFeature} To: {unit.CharacterName}");
                         }
                     }
                 });

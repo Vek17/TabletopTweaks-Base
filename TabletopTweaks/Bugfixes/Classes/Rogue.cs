@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using System.Collections.Generic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
 
@@ -20,7 +19,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 Main.LogHeader("Rogue Complete");
             }
             static void PatchArchetypes() {
-                if (Settings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAllFixes) { return;  }
+                if (Settings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAllFixes) { return; }
                 PatchEldritchScoundrel();
             }
             static void PatchEldritchScoundrel() {

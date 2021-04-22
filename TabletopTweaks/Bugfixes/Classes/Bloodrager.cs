@@ -4,7 +4,6 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using TabletopTweaks.Config;
-using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Bloodrager {
@@ -58,7 +57,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchPrimalist() {
-                if (Settings.Fixes.Bloodrager.Archetypes["Primalist"].DisableAllFixes) { return;  }
+                if (Settings.Fixes.Bloodrager.Archetypes["Primalist"].DisableAllFixes) { return; }
                 PatchRagePowerFeatQualifications();
                 void PatchRagePowerFeatQualifications() {
                     if (!Settings.Fixes.Bloodrager.Archetypes["Primalist"].Fixes["RagePowerFeatQualifications"]) { return; }

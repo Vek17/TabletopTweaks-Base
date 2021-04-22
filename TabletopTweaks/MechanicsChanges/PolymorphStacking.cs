@@ -11,7 +11,7 @@ namespace TabletopTweaks.BalanceAdjustments {
     class PolymorphStacking {
 
         [HarmonyPatch(typeof(RuleCanApplyBuff), "OnTrigger", new[] { typeof(RulebookEventContext) })]
-        static class RuleCanApplyBuff_OnTrigger_Patch { 
+        static class RuleCanApplyBuff_OnTrigger_Patch {
 
             static void Postfix(RuleCanApplyBuff __instance) {
                 if (!Settings.Fixes.DisablePolymorphStacking) { return; }

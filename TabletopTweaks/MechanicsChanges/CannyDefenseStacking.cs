@@ -1,9 +1,9 @@
-﻿using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
-using HarmonyLib;
+﻿using HarmonyLib;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Enums;
 using System;
 using TabletopTweaks.Config;
+using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.MechanicsChanges {
     class CannyDefenseStacking {
