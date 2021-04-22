@@ -78,11 +78,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                     };
                     c.Amount = 1;
                 });
-                SecondBloodline.SetComponents(SecondBloodline.ComponentsArray
-                    .Where(c => c.GetType() != typeof(PrerequisiteFeature))
-                    .Append(newPrerequisites)
-                );
-                SecondBloodline.IgnorePrerequisites = true;
+                SecondBloodline.RemoveComponents<PrerequisiteFeature>();
+                SecondBloodline.AddComponent(newPrerequisites);
                 Main.LogPatch("Patched", SecondBloodline);
             }
 

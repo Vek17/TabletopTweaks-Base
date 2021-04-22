@@ -365,6 +365,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { BloodragerDestinedStrike, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 4, Features = { BloodragerDestinedFatedBloodrager }},
@@ -1007,10 +1008,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         m_Class = SorcererClass
                     }
                 };
-                bp.GiveFeaturesForPreviousLevels = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { SorcererDestinedTouchOfDestiny, SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3, SorcererDestinedFated }},
@@ -1043,10 +1044,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         m_Class = SorcererClass
                     }
                 };
-                bp.GiveFeaturesForPreviousLevels = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3 }},
@@ -1074,6 +1075,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { SorcererDestinedTouchOfDestiny, SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3 }},

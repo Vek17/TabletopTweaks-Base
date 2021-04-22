@@ -346,10 +346,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         m_Class = BloodragerClass
                     }
                 };
-                bp.GiveFeaturesForPreviousLevels = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { BloodragerAberrantStaggeringStrike, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 4, Features = { BloodragerAberrantAbnormalReach }},
@@ -816,6 +816,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3, SorcererAberrantLongLimbs }},
@@ -852,6 +853,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3 }},
@@ -879,6 +881,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
                     new LevelEntry(){ Level = 1, Features = { SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3 }},

@@ -117,6 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Config\Blueprints.cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
