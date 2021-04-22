@@ -8,6 +8,7 @@ using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.MechanicsChanges {
@@ -35,18 +36,18 @@ namespace TabletopTweaks.MechanicsChanges {
                 Initialized = true;
                 if (!Settings.Fixes.DisableNaturalArmorStacking) { return; }
                 Main.LogHeader("Patching NaturalArmor Resources");
-                patchNaturalArmorEffects();
+                PatchNaturalArmorEffects();
                 Main.LogHeader("NaturalArmor Resource Patch Complete");
 
             }
-            static void patchNaturalArmorEffects() {
-                patchAnimalCompanionFeatures();
-                patchItemBuffs();
-                patchSpellBuffs();
-                patchClassFeatures();
-                patchFeats();
+            static void PatchNaturalArmorEffects() {
+                PatchAnimalCompanionFeatures();
+                PatchItemBuffs();
+                PatchSpellBuffs();
+                PatchClassFeatures();
+                PatchFeats();
 
-                void patchAnimalCompanionFeatures() {
+                void PatchAnimalCompanionFeatures() {
                     BlueprintFeature AnimalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
                     BlueprintFeature AnimalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
                     IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = Resources.GetBlueprints<BlueprintFeature>()
@@ -66,23 +67,24 @@ namespace TabletopTweaks.MechanicsChanges {
                         Main.LogPatch("Patched", bp);
                     });
                 }
-                void patchClassFeatures() {
+                void PatchClassFeatures() {
                     BlueprintFeature DragonDiscipleNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("aa4f9fd22a07ddb49982500deaed88f9");
                     DragonDiscipleNaturalArmor.GetComponent<AddStatBonus>().Descriptor = (ModifierDescriptor)NaturalArmor.Stackable;
                     Main.LogPatch("Patched", DragonDiscipleNaturalArmor);
                 }
-                void patchFeats() {
+                void PatchFeats() {
                     BlueprintFeature ImprovedNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("fe9482aad88e5a54682d47d1df910ce8");
                     ImprovedNaturalArmor.GetComponent<AddStatBonus>().Descriptor = (ModifierDescriptor)NaturalArmor.Stackable;
                     Main.LogPatch("Patched", ImprovedNaturalArmor);
                 }
-                void patchItemBuffs() {
+                void PatchItemBuffs() {
                     //Icy Protector
                     BlueprintBuff ProtectionOfColdBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
-                    ProtectionOfColdBuff.GetComponent<AddStatBonus>().Descriptor = (ModifierDescriptor)NaturalArmor.Stackable;
+                    ProtectionOfColdBuff.SetName("Iceplant");
+                    ProtectionOfColdBuff.GetComponent<AddStatBonus>().Value = 4;
                     Main.LogPatch("Patched", ProtectionOfColdBuff);
                 }
-                void patchSpellBuffs() {
+                void PatchSpellBuffs() {
                     BlueprintBuff LegendaryProportions = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
                     LegendaryProportions.GetComponents<AddContextStatBonus>()
                         .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorEnhancement)
