@@ -45,6 +45,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             return AberrantBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
         }
         public static void AddBloodragerDestinedBloodline() {
+            var TrueStrike = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2c38da66e5a599347ac95b3294acbe00");
+
             var BloodragerStandardRageBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
             var BloodragerClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
             var GreenragerArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("5648585af75596f4a9fa3ae385127f57").ToReference<BlueprintArchetypeReference>();
@@ -65,67 +67,118 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerDestinedStrikeResource = Helpers.Create<BlueprintAbilityResource>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedStrikeResource"];
                 bp.name = "BloodragerDestinedStrikeResource";
+                bp.m_Min = 0;
+                bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
+                    BaseValue = 3,
+                    IncreasedByStat = false,
+                    m_Class = new BlueprintCharacterClassReference[0],
+                    m_ClassDiv = new BlueprintCharacterClassReference[0],
+                    m_Archetypes = new BlueprintArchetypeReference[0],
+                    m_ArchetypesDiv = new BlueprintArchetypeReference[0]
+                };
             });
-            var BloodragerDestinedAbility = Helpers.Create<BlueprintFeature>(bp => {
+            var BloodragerDestinedStrikeResourceIncrease = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedStrikeResourceIncrease"];
+                bp.name = "BloodragerDestinedStrikeResourceIncrease";
+                bp.HideInUI = true;
+                bp.AddComponent(Helpers.Create<IncreaseResourceAmount>(c => {
+                    c.m_Resource = BloodragerDestinedStrikeResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.Value = 2;
+                }));
+            });
+            var BloodragerDestinedStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedStrikeBuff"];
+                bp.name = "BloodragerDestinedStrikeBuff";
+                bp.Stacking = StackingType.Rank;
+                bp.Ranks = 5;
+                bp.SetName("Destined Strike");
+                bp.SetDescription("You can grant yourself an insight bonus equal to 1/2 your bloodrager level (minimum 1) on one melee attack.");
+                bp.m_Icon = TrueStrike.Icon;
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.AdditionalAttackBonus;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<RemoveBuffRankOnAttack>());
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Progression = ContextRankProgression.Div2;
+                    c.m_StartLevel = 1;
+                    c.m_StepLevel = 2;
+                    c.m_Max = 20;
+                    c.m_Class = new BlueprintCharacterClassReference[] { BloodragerClass };
+                }));
+            });
+            var BloodragerDestinedStrikeAbility = Helpers.Create<BlueprintAbility>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedAbility"];
                 bp.name = "BloodragerDestinedAbility";
                 bp.SetName("Destined Strike");
                 bp.SetDescription("At 1st level, as a free action up to three times per day you can grant yourself an insight bonus equal to 1/2 your "
                     + "bloodrager level (minimum 1) on one melee attack. At 12th level, you can use this ability up to five times per day.");
+                bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
+                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.CanTargetEnemies = true;
+                bp.Range = AbilityRange.Personal;
+                bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
+                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Immediate;
+                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
+                bp.m_Icon = TrueStrike.Icon;
+                bp.ResourceAssetIds = TrueStrike.ResourceAssetIds;
+                bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
+                    c.m_RequiredResource = BloodragerDestinedStrikeResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_IsSpendResource = true;
+                    c.Amount = 1;
+                }));
+                var addInsightBonus = Helpers.Create<ContextActionApplyBuff>(c => {
+                    c.m_Buff = BloodragerDestinedStrikeBuff.ToReference<BlueprintBuffReference>();
+                    c.IsNotDispelable = true;
+                    c.DurationValue = new ContextDurationValue() {
+                        Rate = DurationRate.Rounds,
+                        DiceType = DiceType.Zero,
+                        DiceCountValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 0
+                        },
+                        BonusValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 1
+                        }
+                    };
+                });
+                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
+                    c.Actions = new ActionList();
+                    c.Actions.Actions = new GameAction[] { addInsightBonus };
+                }));
             });
             var BloodragerDestinedStrike = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedStrike"];
                 bp.name = "BloodragerDestinedStrike";
-                bp.SetName("Destined Strike");
-                bp.SetDescription("At 1st level, as a free action up to three times per day you can grant yourself an insight bonus equal to 1/2 your "
-                    + "bloodrager level (minimum 1) on one melee attack. At 12th level, you can use this ability up to five times per day.");
-            });
-            var BloodragerDestinedStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedStrikeBuff"];
-                bp.name = "BloodragerDestinedStrikeBuff";
-                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.SetName("Destined Strike");
-                bp.SetDescription("At 1st level, as a free action up to three times per day you can grant yourself an insight bonus equal to 1/2 your "
-                    + "bloodrager level (minimum 1) on one melee attack. At 12th level, you can use this ability up to five times per day.");
-                var Staggered = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("df3950af5a783bd4d91ab73eb8fa0fd3").ToReference<BlueprintBuffReference>();
-
-                var applyBuff = Helpers.Create<ContextActionApplyBuff>(c => {
-                    c.m_Buff = Staggered;
-                    c.AsChild = false;
-                    c.IsFromSpell = false;
-                    c.DurationValue = new ContextDurationValue();
-                    c.DurationValue.m_IsExtendable = true;
-                    c.DurationValue.DiceCountValue = new ContextValue();
-                    c.DurationValue.BonusValue = new ContextValue();
-                    c.DurationValue.BonusValue.ValueType = ContextValueType.Simple;
-                    c.DurationValue.BonusValue = 1;
-                });
-                var conditionSaved = Helpers.Create<ContextActionConditionalSaved>(c => {
-                    c.Failed = new ActionList();
-                    c.Failed.Actions = c.Failed.Actions.AddToArray(applyBuff);
-                });
-                var savingThrow = Helpers.Create<ContextActionSavingThrow>(c => {
-                    c.Type = SavingThrowType.Fortitude;
-                    c.Actions = new ActionList();
-                    c.Actions.Actions = c.Actions.Actions.AddToArray(conditionSaved);
-                });
-                bp.AddComponent(Helpers.Create<AddInitiatorAttackWithWeaponTrigger>(c => {
-                    c.OnlyHit = true;
-                    c.CriticalHit = true;
-                    c.Action = new ActionList();
-                    c.Action.Actions = c.Action.Actions.AddToArray(savingThrow);
+                bp.SetName(BloodragerDestinedStrikeAbility.Name);
+                bp.SetDescription(BloodragerDestinedStrikeAbility.Description);
+                bp.AddComponent(Helpers.Create<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        BloodragerDestinedStrikeAbility.ToReference<BlueprintUnitFactReference>(),
+                    };
                 }));
-                bp.AddComponent(Helpers.Create<ContextCalculateAbilityParamsBasedOnClass>(c => {
-                    c.m_CharacterClass = BloodragerClass;
-                    c.StatType = StatType.Constitution;
+                bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
+                    c.m_Resource = BloodragerDestinedStrikeResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.RestoreAmount = true;
                 }));
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.m_Icon = BloodragerDestinedStrikeAbility.Icon;
             });
             var BloodragerDestinedFatedBloodrager = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedFatedBloodrager"];
                 bp.name = "BloodragerDestinedFatedBloodrager";
                 bp.SetName("Fated Bloodrager");
-                bp.SetDescription("At 4th level, you gain a +1 luck bonus to AC and on saving throws. At 8th level and every"
+                bp.SetDescription("At 4th level, you gain a +1 luck bonus to AC and on saving throws. At 8th level and every "
                     + "4 levels thereafter, this bonus increases by 1 (to a maximum of +5 at 20th level).");
+                bp.Ranks = 5;
             });
             var BloodragerDestinedFatedBloodragerBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedFatedBloodragerBuff"];
@@ -133,10 +186,47 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedFatedBloodrager.Name);
                 bp.SetDescription(BloodragerDestinedFatedBloodrager.Description);
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.UntypedStackable;
-                    c.Stat = StatType.Reach;
-                    c.Value = 5;
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.AC;
+                    c.Multiplier = 1;
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Multiplier = 1;
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Multiplier = 1;
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Multiplier = 1;
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_Feature = BloodragerDestinedFatedBloodrager.ToReference<BlueprintFeatureReference>();
+                    c.m_Progression = ContextRankProgression.AsIs;
                 }));
             });
             var BloodragerDestinedCertainStrike = Helpers.Create<BlueprintFeature>(bp => {
@@ -152,17 +242,16 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedCertainStrike.Name);
                 bp.SetDescription(BloodragerDestinedCertainStrike.Description);
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
-                    c.Condition = UnitCondition.Sickened;
-                }));
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
-                    c.Condition = UnitCondition.Nauseated;
-                }));
-                bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.Nauseated | SpellDescriptor.Sickened;
-                }));
-                bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
-                    c.Descriptor = SpellDescriptor.Nauseated | SpellDescriptor.Sickened;
+                bp.AddComponent(Helpers.Create<ModifyD20>(c => {
+                    c.RerollOnlyIfFailed = true;
+                    c.Rule = RuleType.AttackRoll;
+                    c.DispellOnRerollFinished = true;
+                    c.RollsAmount = 1;
+                    c.TakeBest = true;
+                    c.Bonus = new ContextValue();
+                    c.Chance = new ContextValue();
+                    c.Value = new ContextValue();
+                    c.Skill = new StatType[0];
                 }));
             });
             var BloodragerDestinedDefyDeath = Helpers.Create<BlueprintFeature>(bp => {
@@ -197,21 +286,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerDestinedUnstoppable.Name);
                 bp.SetDescription(BloodragerDestinedUnstoppable.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
-                    c.Condition = UnitCondition.Fatigued;
+                bp.AddComponent(Helpers.Create<CriticalConfirmationACBonus>(c => {
+                    c.Bonus = 100;
                 }));
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
-                    c.Condition = UnitCondition.Exhausted;
-                }));
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
-                    c.Condition = UnitCondition.Staggered;
-                }));
-                bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.Fatigue | SpellDescriptor.Exhausted | SpellDescriptor.Staggered | SpellDescriptor.Disease | SpellDescriptor.Poison;
-                }));
-                bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
-                    c.Descriptor = SpellDescriptor.Fatigue | SpellDescriptor.Exhausted | SpellDescriptor.Staggered | SpellDescriptor.Disease | SpellDescriptor.Poison;
-                }));
+                bp.AddComponent(Helpers.Create<InitiatorCritAutoconfirm>());
             });
             var BloodragerDestinedVictoryOrDeath = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedVictoryOrDeath"];
@@ -219,35 +297,41 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Victory or Death");
                 bp.SetDescription("At 20th level, you are immune to paralysis and petrification, as well as to the stunned, dazed, "
                     + "and staggered conditions. You have these benefits constantly, even while not bloodraging.");
-                bp.AddComponent(Helpers.Create<Blindsense>(c => {
-                    c.Range.m_Value = 60;
-                    c.Blindsight = true;
+                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                    c.Condition = UnitCondition.Paralyzed;
+                }));
+                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                    c.Condition = UnitCondition.Petrified;
+                }));
+                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                    c.Condition = UnitCondition.Stunned;
+                }));
+                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                    c.Condition = UnitCondition.Dazed;
+                }));
+                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                    c.Condition = UnitCondition.Staggered;
                 }));
                 bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.GazeAttack;
+                    c.Descriptor = SpellDescriptor.Paralysis
+                    | SpellDescriptor.Petrified
+                    | SpellDescriptor.Stun
+                    | SpellDescriptor.Daze
+                    | SpellDescriptor.Staggered;
                 }));
                 bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
-                    c.Descriptor = SpellDescriptor.GazeAttack;
-                }));
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
-                    c.BypassedByAlignment = false;
-                    c.BypassedByForm = false;
-                    c.BypassedByMagic = false;
-                    c.BypassedByMaterial = false;
-                    c.BypassedByReality = false;
-                    c.BypassedByMeleeWeapon = false;
-                    c.BypassedByWeaponType = false;
-                    c.Value.Value = 1;
-                    c.Value.ValueType = ContextValueType.Simple;
-                }));
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
-                    c.UseContextValue = false;
-                    c.Bonus = 100;
+                    c.Descriptor = SpellDescriptor.Paralysis
+                    | SpellDescriptor.Petrified
+                    | SpellDescriptor.Stun
+                    | SpellDescriptor.Daze
+                    | SpellDescriptor.Staggered;
                 }));
             });
             Resources.AddBlueprint(BloodragerDestinedStrikeResource);
-            Resources.AddBlueprint(BloodragerDestinedStrike);
+            Resources.AddBlueprint(BloodragerDestinedStrikeResourceIncrease);
             Resources.AddBlueprint(BloodragerDestinedStrikeBuff);
+            Resources.AddBlueprint(BloodragerDestinedStrikeAbility);
+            Resources.AddBlueprint(BloodragerDestinedStrike);
             Resources.AddBlueprint(BloodragerDestinedFatedBloodrager);
             Resources.AddBlueprint(BloodragerDestinedFatedBloodragerBuff);
             Resources.AddBlueprint(BloodragerDestinedCertainStrike);
@@ -262,9 +346,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedFeatSelection"];
                 bp.name = "BloodragerDestinedFeatSelection";
                 bp.SetName("Bonus Feats");
-                bp.SetDescription("Bonus Feats: Combat Reflexes, Great Fortitude, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will.");
+                bp.SetDescription("Bonus Feats: Diehard, Endurance, Improved Initiative, Intimidating Prowess, Sieze The Moment, Lightning Reflexes, Weapon Focus.");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = new BlueprintFeatureReference[] {
@@ -281,10 +366,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerDestinedFeatSelectionGreenrager = Helpers.Create<BlueprintFeatureSelection>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedFeatSelectionGreenrager"];
                 bp.name = "BloodragerDestinedFeatSelectionGreenrager";
-                bp.SetName(BloodragerDestinedFeatSelection.m_DisplayName);
-                bp.SetDescription(BloodragerDestinedFeatSelection.m_Description);
+                bp.SetName(BloodragerDestinedFeatSelection.Name);
+                bp.SetDescription(BloodragerDestinedFeatSelection.Description);
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = BloodragerDestinedFeatSelection.m_Features;
@@ -337,8 +423,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerDestinedSpell16 = Helpers.Create<BlueprintFeature>(bp => {
                 var spell = FreedomOfMovement;
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedSpell16"];
+                bp.name = "BloodragerDestinedSpell16";
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
-                bp.SetName("Bonus Spell — Freedom Of Movement");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -355,7 +441,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedBloodline"];
                 bp.name = "BloodragerDestinedBloodline";
                 bp.SetName("Destined");
-                bp.SetDescription("Your bloodline is destined for great things. When you bloodrage, you exude a greatness that makes all but the most legendary creatures seem lesser.");
+                bp.SetDescription("Your bloodline is destined for great things. When you bloodrage, you exude a greatness that makes all but the most legendary creatures seem lesser.\n"
+                    + "Your future greatness grants you the might to strike your enemies with awe.\n"
+                    + BloodragerDestinedFeatSelection.Description
+                    + "\nBonus Spells: Shield (7th), Blur (10th), Protection From Energy (13th), Freedom Of Movement (16th).");
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = BloodragerClass
@@ -371,15 +460,15 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 4, Features = { BloodragerDestinedFatedBloodrager }},
                     new LevelEntry(){ Level = 6, Features = { BloodragerDestinedFeatSelectionGreenrager }},
                     new LevelEntry(){ Level = 7, Features = { BloodragerDestinedSpell7 }},
-                    new LevelEntry(){ Level = 8, Features = { BloodragerDestinedCertainStrike }},
+                    new LevelEntry(){ Level = 8, Features = { BloodragerDestinedCertainStrike, BloodragerDestinedFatedBloodrager }},
                     new LevelEntry(){ Level = 9, Features = { BloodragerDestinedFeatSelectionGreenrager }},
                     new LevelEntry(){ Level = 10, Features = { BloodragerDestinedSpell10 }},
-                    new LevelEntry(){ Level = 12, Features = { BloodragerDestinedFeatSelection, BloodragerDestinedDefyDeath }},
+                    new LevelEntry(){ Level = 12, Features = { BloodragerDestinedFeatSelection, BloodragerDestinedDefyDeath, BloodragerDestinedFatedBloodrager, BloodragerDestinedStrikeResourceIncrease }},
                     new LevelEntry(){ Level = 13, Features = { BloodragerDestinedSpell13 }},
                     new LevelEntry(){ Level = 15, Features = { BloodragerDestinedFeatSelection }},
-                    new LevelEntry(){ Level = 16, Features = { BloodragerDestinedUnstoppable, BloodragerDestinedSpell16 }},
+                    new LevelEntry(){ Level = 16, Features = { BloodragerDestinedUnstoppable, BloodragerDestinedSpell16, BloodragerDestinedFatedBloodrager }},
                     new LevelEntry(){ Level = 18, Features = { BloodragerDestinedFeatSelection }},
-                    new LevelEntry(){ Level = 20, Features = { BloodragerDestinedVictoryOrDeath }},
+                    new LevelEntry(){ Level = 20, Features = { BloodragerDestinedVictoryOrDeath, BloodragerDestinedFatedBloodrager }},
                 };
                 bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
@@ -392,13 +481,18 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerDestinedBaseBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.name = "BloodragerDestinedBaseBuff";
+                bp.SetName("Destined Bloodrage");
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedBaseBuff"];
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
 
             BloodragerDestinedBaseBuff.AddConditionalBuff(BloodragerDestinedFatedBloodrager, BloodragerDestinedFatedBloodragerBuff);
             BloodragerDestinedBaseBuff.AddConditionalBuff(BloodragerDestinedCertainStrike, BloodragerDestinedCertainStrikeBuff);
             BloodragerDestinedBaseBuff.AddConditionalBuff(BloodragerDestinedDefyDeath, BloodragerDestinedDefyDeathBuff);
             BloodragerDestinedBaseBuff.AddConditionalBuff(BloodragerDestinedUnstoppable, BloodragerDestinedUnstoppableBuff);
+
+            //Register Bloodrage Abilities
+            BloodragerDestinedBaseBuff.ApplyBloodrageRestriction(BloodragerDestinedStrikeAbility);
             Resources.AddBlueprint(BloodragerDestinedBloodline);
             Resources.AddBlueprint(BloodragerDestinedBaseBuff);
             BloodragerStandardRageBuff.AddConditionalBuff(BloodragerDestinedBloodline, BloodragerDestinedBaseBuff);

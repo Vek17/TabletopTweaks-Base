@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using System;
 using TabletopTweaks.Config;
@@ -27,13 +28,11 @@ namespace TabletopTweaks {
         public static void LogDebug(string msg) {
             Settings.ModEntry.Logger.Log(msg);
         }
-        [System.Diagnostics.Conditional("DEBUG")]
-        public static void LogPatch(string action, BlueprintScriptableObject bp) {
-            LogDebug($"{action}: {bp.AssetGuid} - {bp.name}");
+        public static void LogPatch(string action, [NotNull] BlueprintScriptableObject bp) {
+            Log($"{action}: {bp.AssetGuid} - {bp.name}");
         }
-        [System.Diagnostics.Conditional("DEBUG")]
         public static void LogHeader(string msg) {
-            LogDebug($"--{msg.ToUpper()}--");
+            Log($"--{msg.ToUpper()}--");
         }
         public static Exception Error(String message) {
             Log(message);

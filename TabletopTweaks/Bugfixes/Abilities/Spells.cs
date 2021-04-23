@@ -411,7 +411,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
                 Main.LogPatch("Patched", WrackingRay);
             }
-
         }
     }
 }

@@ -16,6 +16,7 @@ namespace TabletopTweaks.NewContent {
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();
                 Bloodlines.AberrantBloodline.AddSorcererAberrantBloodline();
+                Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
             }

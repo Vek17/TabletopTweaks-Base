@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -43,6 +43,7 @@ namespace TabletopTweaks.BalanceAdjustments {
                 if (Initialized) return;
                 Initialized = true;
                 if (!Settings.Fixes.DisablePolymorphStacking) { return; }
+                Main.LogHeader("Patching Polymorph Resources");
                 FixModifers();
 
             }

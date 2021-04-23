@@ -4,12 +4,14 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System.Linq;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 
 namespace TabletopTweaks.Utilities {
     public static class BloodlineTools {
@@ -71,6 +73,23 @@ namespace TabletopTweaks.Utilities {
                 }));
             }));
         }
+        public static void RemoveBuffAfterRage(this BlueprintBuff parent, BlueprintBuff buff) {
+            var AddfactContext = parent.GetComponent<AddFactContextActions>();
+            if (!AddfactContext) {
+                parent.AddComponent(Helpers.Create<AddFactContextActions>());
+                AddfactContext = parent.GetComponent<AddFactContextActions>();
+            }
+            AddfactContext.AddActionDeactivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
+                c.ConditionsChecker = new ConditionsChecker();
+                c.ConditionsChecker.Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
+                        condition.m_Fact = buff.ToReference<BlueprintUnitFactReference>();
+                    })
+                };
+                c.AddActionIfTrue(Helpers.Create<ContextActionRemoveBuff>(context => {
+                    context.m_Buff = buff.ToReference<BlueprintBuffReference>();
+                }));
+            }));
+        }
         public static void ApplyPrimalistException(BlueprintFeature power, int level, BlueprintProgression bloodline) {
             BlueprintFeature PrimalistProgression = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("d8b8d1dd83393484cbacf6c8830080ae");
             BlueprintFeature PrimalistTakePower4 = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("2140040bf367e8b4a9c6a632820becbe");
@@ -86,8 +105,13 @@ namespace TabletopTweaks.Utilities {
             );
             power.AddComponent(Helpers.Create<PrerequisiteNoFeature>(p => {
                 p.CheckInProgression = true;
+                p.Group = Prerequisite.GroupType.Any;
                 p.m_Feature = PrimalistProgression.ToReference<BlueprintFeatureReference>();
-
+            }));
+            power.AddComponent(Helpers.Create<PrerequisiteFeature>(p => {
+                p.CheckInProgression = true;
+                p.Group = Prerequisite.GroupType.Any;
+                p.m_Feature = power.ToReference<BlueprintFeatureReference>();
             }));
             BlueprintFeature SelectedPrimalistLevel() {
                 switch (level) {
@@ -99,6 +123,11 @@ namespace TabletopTweaks.Utilities {
                     default: return null;
                 }
             }
+        }
+        public static void ApplyBloodrageRestriction(this BlueprintBuff bloodrage, BlueprintAbility ability) {
+            ability.AddComponent(Helpers.Create<RestrictHasBuff>(c => {
+                c.RequiredBuff = bloodrage.ToReference<BlueprintBuffReference>();
+            }));
         }
         public static void RegisterBloodragerBloodline(BlueprintProgression bloodline) {
             BlueprintFeatureSelection BloodragerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");

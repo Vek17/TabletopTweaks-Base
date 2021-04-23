@@ -250,6 +250,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("Bonus Feats: Combat Reflexes, Great Fortitude, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will.");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = new BlueprintFeatureReference[] {
@@ -270,6 +271,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription(BloodragerAberrantFeatSelection.m_Description);
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
+                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = BloodragerAberrantFeatSelection.m_Features;
@@ -343,7 +345,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.\n"
                     + "While bloodraging, you gain the abilities and immunities of some aberrations, but show signs of your tainted heritage.\n"
                     + BloodragerAberrantFeatSelection.Description
-                    +"\nBonus Spells: Enlarge Person (7th), See Invisability (10th), Displacement (13th), Spike Stones (16th).");
+                    + "\nBonus Spells: Enlarge Person (7th), See Invisability (10th), Displacement (13th), Spike Stones (16th).");
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = BloodragerClass
@@ -380,6 +382,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantBaseBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.name = "BloodragerAberrantBaseBuff";
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantBaseBuff"];
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
 
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantStaggeringStrike, BloodragerAberrantStaggeringStrikeBuff);
@@ -638,7 +641,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererAberrantFeatSelection";
                 bp.SetName("Bloodline Feat Selection");
                 bp.SetDescription("At 7th level, and every six levels thereafter, a sorcerer receives one bonus feat, chosen from a list specific to each bloodline. "
-                    +"The sorcerer must meet the prerequisites for these bonus feats."
+                    + "The sorcerer must meet the prerequisites for these bonus feats."
                     + "\nBonus Feats: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
