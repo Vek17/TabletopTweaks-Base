@@ -48,6 +48,7 @@ namespace TabletopTweaks.Utilities {
             }
             AddfactContext.AddActionActivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
                 c.name = parent.name;
+                c.Comment = buff.name;
                 c.ConditionsChecker = new ConditionsChecker {
                     Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
                             condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
@@ -63,6 +64,7 @@ namespace TabletopTweaks.Utilities {
             }));
             AddfactContext.AddActionDeactivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
                 c.name = parent.name;
+                c.Comment = buff.name;
                 c.ConditionsChecker = new ConditionsChecker {
                     Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
                             condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
@@ -83,6 +85,7 @@ namespace TabletopTweaks.Utilities {
                 AddfactContext = parent.GetComponent<AddFactContextActions>();
             }
             AddfactContext.AddActionDeactivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
+                c.Comment = buff.name;
                 c.ConditionsChecker = new ConditionsChecker {
                     Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
                             condition.m_Fact = buff.ToReference<BlueprintUnitFactReference>();

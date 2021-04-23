@@ -136,6 +136,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var addInsightBonus = Helpers.Create<ContextActionApplyBuff>(c => {
                     c.m_Buff = BloodragerDestinedStrikeBuff.ToReference<BlueprintBuffReference>();
                     c.IsNotDispelable = true;
+                    c.Permanent = true;
                     c.DurationValue = new ContextDurationValue() {
                         Rate = DurationRate.Rounds,
                         DiceType = DiceType.Zero,
@@ -307,7 +308,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription(BloodragerDestinedUnstoppable.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<CriticalConfirmationACBonus>(c => {
-                    c.Bonus = 100;
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Simple,
+                    };
+                    c.Bonus = 200;
                 }));
                 bp.AddComponent(Helpers.Create<InitiatorCritAutoconfirm>());
             });
@@ -511,6 +515,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodragerDestinedBaseBuff.AddConditionalBuff(BloodragerDestinedCertainStrike, BloodragerDestinedCertainStrikeBuff);
             BloodragerDestinedBaseBuff.AddConditionalBuff(BloodragerDestinedDefyDeath, BloodragerDestinedDefyDeathBuff);
             BloodragerDestinedBaseBuff.AddConditionalBuff(BloodragerDestinedUnstoppable, BloodragerDestinedUnstoppableBuff);
+            BloodragerDestinedBaseBuff.RemoveBuffAfterRage(BloodragerDestinedStrikeBuff);
 
             //Register Bloodrage Abilities
             BloodragerDestinedBaseBuff.ApplyBloodrageRestriction(BloodragerDestinedStrikeAbility);
