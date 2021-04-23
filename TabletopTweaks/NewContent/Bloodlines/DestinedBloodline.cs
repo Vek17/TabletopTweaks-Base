@@ -254,6 +254,19 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Skill = new StatType[0];
                 }));
             });
+            var BloodragerDestinedDefyDeathResource = Helpers.Create<BlueprintAbilityResource>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedDefyDeathResource"];
+                bp.name = "BloodragerDestinedDefyDeathResource";
+                bp.m_Min = 0;
+                bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
+                    BaseValue = 1,
+                    IncreasedByStat = false,
+                    m_Class = new BlueprintCharacterClassReference[0],
+                    m_ClassDiv = new BlueprintCharacterClassReference[0],
+                    m_Archetypes = new BlueprintArchetypeReference[0],
+                    m_ArchetypesDiv = new BlueprintArchetypeReference[0]
+                };
+            });
             var BloodragerDestinedDefyDeath = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedDefyDeath"];
                 bp.name = "BloodragerDestinedDefyDeath";
@@ -261,6 +274,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 12th level, once per day when an attack or spell that deals damage would result in your death"
                     + ", you can attempt a DC 20 Fortitude save. If you succeed, you are instead reduced to 1 hit point; if you "
                     + "succeed and already have less than 1 hit point, you instead take no damage.");
+                bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
+                    c.m_Resource = BloodragerDestinedDefyDeathResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.RestoreAmount = true;
+                }));
             });
             var BloodragerDestinedDefyDeathBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedDefyDeathBuff"];
@@ -268,9 +285,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedDefyDeath.Name);
                 bp.SetDescription(BloodragerDestinedDefyDeath.Description);
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
-                    c.UseContextValue = false;
-                    c.Bonus = 50;
+                bp.AddComponent(Helpers.Create<SurviveDeathWithSave>(c => {
+                    c.DC = 20;
+                    c.Type = SavingThrowType.Fortitude;
+                    c.ForcedHP = 1;
+                    c.Resource = BloodragerDestinedDefyDeathResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.SpendAmount = 1;
                 }));
             });
             var BloodragerDestinedUnstoppable = Helpers.Create<BlueprintFeature>(bp => {
@@ -336,6 +356,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(BloodragerDestinedFatedBloodragerBuff);
             Resources.AddBlueprint(BloodragerDestinedCertainStrike);
             Resources.AddBlueprint(BloodragerDestinedCertainStrikeBuff);
+            Resources.AddBlueprint(BloodragerDestinedDefyDeathResource);
             Resources.AddBlueprint(BloodragerDestinedDefyDeath);
             Resources.AddBlueprint(BloodragerDestinedDefyDeathBuff);
             Resources.AddBlueprint(BloodragerDestinedUnstoppable);

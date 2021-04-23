@@ -124,6 +124,7 @@
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\RemoveBuffRankOnAttack.cs" />
     <Compile Include="NewComponents\RestrictHasBuff.cs" />
+    <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
     <Compile Include="Bugfixes\Classes\Aeon.cs" />

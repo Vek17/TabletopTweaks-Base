@@ -17,20 +17,16 @@ namespace TabletopTweaks.Utilities {
     public static class BloodlineTools {
 
         public static void AddActionIfTrue(this Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional conditional, GameAction game_action) {
-            if (conditional.IfTrue != null) {
-                conditional.IfTrue = Helpers.CreateActionList(conditional.IfTrue.Actions);
-                conditional.IfTrue.Actions = conditional.IfTrue.Actions.AddToArray(game_action);
-            } else {
-                conditional.IfTrue = Helpers.CreateActionList(game_action);
+            if (conditional.IfTrue == null) {
+                conditional.IfTrue = new ActionList();
             }
+            conditional.IfTrue.Actions = conditional.IfTrue.Actions.AddToArray(game_action);
         }
         public static void AddActionIfFalse(this Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional conditional, GameAction game_action) {
-            if (conditional.IfFalse != null) {
-                conditional.IfFalse = Helpers.CreateActionList(conditional.IfFalse.Actions);
-                conditional.IfFalse.Actions = conditional.IfFalse.Actions.AddToArray(game_action);
-            } else {
-                conditional.IfFalse = Helpers.CreateActionList(game_action);
+            if (conditional.IfFalse == null) {
+                conditional.IfFalse = new ActionList();
             }
+            conditional.IfFalse.Actions = conditional.IfTrue.Actions.AddToArray(game_action);
         }
         public static void AddActionActivated(this AddFactContextActions component, GameAction game_action) {
             if (component.Activated == null) {
@@ -51,26 +47,33 @@ namespace TabletopTweaks.Utilities {
                 AddfactContext = parent.GetComponent<AddFactContextActions>();
             }
             AddfactContext.AddActionActivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
-                c.ConditionsChecker = new ConditionsChecker();
-                c.ConditionsChecker.Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
-                        condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
-                    })
+                c.name = parent.name;
+                c.ConditionsChecker = new ConditionsChecker {
+                    Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
+                            condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
+                        })
+                    }
                 };
                 c.AddActionIfTrue(Helpers.Create<ContextActionApplyBuff>(context => {
                     context.m_Buff = buff.ToReference<BlueprintBuffReference>();
                     context.AsChild = true;
                     context.Permanent = true;
                 }));
+                c.IfFalse = new ActionList();
             }));
             AddfactContext.AddActionDeactivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
-                c.ConditionsChecker = new ConditionsChecker();
-                c.ConditionsChecker.Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
-                        condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
-                    })
+                c.name = parent.name;
+                c.ConditionsChecker = new ConditionsChecker {
+                    Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
+                            condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
+                        })
+                    }
                 };
                 c.AddActionIfTrue(Helpers.Create<ContextActionRemoveBuff>(context => {
                     context.m_Buff = buff.ToReference<BlueprintBuffReference>();
+
                 }));
+                c.IfFalse = new ActionList();
             }));
         }
         public static void RemoveBuffAfterRage(this BlueprintBuff parent, BlueprintBuff buff) {
