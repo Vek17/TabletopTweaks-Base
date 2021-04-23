@@ -23,8 +23,10 @@ namespace TabletopTweaks.NewComponents {
         public void HandleDamageDealt(RuleDealDamage dealDamage) {
             var unit = dealDamage.Target;
             if (unit != base.Owner) { return; }
+            if ((unit.Stats.HitPoints + (unit.Stats.Constitution * (unit.State.Features.MythicHardToKill ? 2 : 1))) >= unit.Damage) { return; }
             if (!HasEnoughResource()) { return; }
             Spend();
+
             RuleSavingThrow ruleSavingThrow = new RuleSavingThrow(unit, Type, DC);
             BlueprintBuff buff = base.Fact.Blueprint as BlueprintBuff;
             ruleSavingThrow.Buff = buff;

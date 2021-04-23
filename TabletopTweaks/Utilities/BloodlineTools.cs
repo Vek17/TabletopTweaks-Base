@@ -83,10 +83,11 @@ namespace TabletopTweaks.Utilities {
                 AddfactContext = parent.GetComponent<AddFactContextActions>();
             }
             AddfactContext.AddActionDeactivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
-                c.ConditionsChecker = new ConditionsChecker();
-                c.ConditionsChecker.Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
-                        condition.m_Fact = buff.ToReference<BlueprintUnitFactReference>();
-                    })
+                c.ConditionsChecker = new ConditionsChecker {
+                    Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
+                            condition.m_Fact = buff.ToReference<BlueprintUnitFactReference>();
+                        })
+                    }
                 };
                 c.AddActionIfTrue(Helpers.Create<ContextActionRemoveBuff>(context => {
                     context.m_Buff = buff.ToReference<BlueprintBuffReference>();
