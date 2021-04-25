@@ -226,10 +226,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value.Value = 1;
                     c.Value.ValueType = ContextValueType.Simple;
                 }));
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
-                    c.UseContextValue = false;
-                    c.Bonus = 100;
-                }));
+                bp.AddComponent(Helpers.Create<AddImmunityToCriticalHits>());
+                bp.AddComponent(Helpers.Create<AddImmunityToPrecisionDamage>());
             });
             Resources.AddBlueprint(BloodragerAberrantStaggeringStrike);
             Resources.AddBlueprint(BloodragerAberrantStaggeringStrikeBuff);
@@ -404,6 +402,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
         }
         public static void AddSorcererAberrantBloodline() {
             var SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
+            var MagusClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780").ToReference<BlueprintCharacterClassReference>();
+            var EldritchScionArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("d078b2ef073f2814c9e338a789d97b73").ToReference<BlueprintArchetypeReference>();
+            //Used Assets
             var AcidArrow = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
             var BloodlineInfernalClassSkill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f07a37a5b245304429530842cb65e213");
             //Bonus Spells
@@ -521,12 +522,16 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Actions.Actions = new GameAction[] { dealDamage };
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
-                    c.m_Type = AbilityRankType.DamageBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                    c.m_Progression = ContextRankProgression.Div2;
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 2;
                     c.m_Max = 20;
-                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass, MagusClass };
+                    c.Archetype = EldritchScionArchetype;
                 }));
             });
             var SorcererAberrantAcidicRay = Helpers.Create<BlueprintFeature>(bp => {
@@ -582,16 +587,19 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Alien Resistance");
                 bp.SetDescription("At 15th level, you gain spell resistance equal to your sorcerer level + 10.");
                 bp.AddComponent(Helpers.Create<AddSpellResistance>(c => {
-                    c.Value = new ContextValue();
-                    c.Value.ValueType = ContextValueType.Rank;
-                    c.Value.ValueRank = AbilityRankType.StatBonus;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    c.m_Progression = ContextRankProgression.BonusValue;
                     c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                    c.m_Progression = ContextRankProgression.BonusValue;
                     c.m_StepLevel = 10;
-                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
+                    c.m_Max = 20;
+                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass, MagusClass };
+                    c.Archetype = EldritchScionArchetype;
                 }));
             });
             var SorcererAberrantForm = Helpers.Create<BlueprintFeature>(bp => {
@@ -621,10 +629,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value.Value = 5;
                     c.Value.ValueType = ContextValueType.Simple;
                 }));
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
-                    c.UseContextValue = false;
-                    c.Bonus = 100;
-                }));
+                bp.AddComponent(Helpers.Create<AddImmunityToCriticalHits>());
+                bp.AddComponent(Helpers.Create<AddImmunityToPrecisionDamage>());
             });
             Resources.AddBlueprint(SorcererAberrantClassSkill);
             Resources.AddBlueprint(SorcererAberrantBloodlineArcana);
@@ -818,6 +824,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
+                    },
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = MagusClass
+                    }
+                };
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{ 
+                    new BlueprintProgression.ArchetypeWithLevel { 
+                        m_Archetype = EldritchScionArchetype  
                     }
                 };
                 bp.GiveFeaturesForPreviousLevels = true;
@@ -855,6 +869,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
+                    },
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = MagusClass
+                    }
+                };
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{
+                    new BlueprintProgression.ArchetypeWithLevel {
+                        m_Archetype = EldritchScionArchetype
                     }
                 };
                 bp.GiveFeaturesForPreviousLevels = true;
@@ -883,6 +905,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
+                    },
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = MagusClass
+                    }
+                };
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{
+                    new BlueprintProgression.ArchetypeWithLevel {
+                        m_Archetype = EldritchScionArchetype
                     }
                 };
                 bp.GiveFeaturesForPreviousLevels = true;

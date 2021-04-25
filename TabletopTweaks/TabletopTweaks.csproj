@@ -122,6 +122,8 @@
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
+    <Compile Include="NewComponents\InitiatorSpellCritAutoconfirm.cs" />
+    <Compile Include="NewComponents\RemoveBuffAfterSpellResistCheck.cs" />
     <Compile Include="NewComponents\RemoveBuffRankOnAttack.cs" />
     <Compile Include="NewComponents\RestrictHasBuff.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />

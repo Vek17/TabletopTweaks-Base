@@ -11,6 +11,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -45,11 +46,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             return AberrantBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
         }
         public static void AddBloodragerDestinedBloodline() {
-            var TrueStrike = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2c38da66e5a599347ac95b3294acbe00");
-
             var BloodragerStandardRageBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
             var BloodragerClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
             var GreenragerArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("5648585af75596f4a9fa3ae385127f57").ToReference<BlueprintArchetypeReference>();
+            //Used Assets
+            var TrueStrike = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2c38da66e5a599347ac95b3294acbe00");
             //Bonus Spells
             var MageShield = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("ef768022b0785eb43a18969903c537c4").ToReference<BlueprintAbilityReference>();
             var Blur = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("14ec7a4e52e90fa47a4c8d63c69fd5c1").ToReference<BlueprintAbilityReference>();
@@ -110,6 +111,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 2;
                     c.m_Max = 20;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { BloodragerClass };
                 }));
             });
@@ -121,7 +124,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "bloodrager level (minimum 1) on one melee attack. At 12th level, you can use this ability up to five times per day.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
-                bp.CanTargetEnemies = true;
                 bp.Range = AbilityRange.Personal;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Immediate;
@@ -289,7 +291,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<SurviveDeathWithSave>(c => {
                     c.DC = 20;
                     c.Type = SavingThrowType.Fortitude;
-                    c.ForcedHP = 1;
+                    c.TargetHP = 1;
+                    c.BlockIfBelowZero = true;
                     c.Resource = BloodragerDestinedDefyDeathResource.ToReference<BlueprintAbilityResourceReference>();
                     c.SpendAmount = 1;
                 }));
@@ -533,7 +536,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
         }
         public static void AddSorcererDestinedBloodline() {
             var SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
-            var AcidArrow = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
+            var MagusClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780").ToReference<BlueprintCharacterClassReference>();
+            var EldritchScionArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("d078b2ef073f2814c9e338a789d97b73").ToReference<BlueprintArchetypeReference>();
+            //Used Assets
+            var TrueSeeing = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("b3da3fbee6a751d4197e446c7e852bcb");
+            var LawDomainBaseAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("a970537ea2da20e42ae709c0bb8f793f");
+            var ThoughtSense = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("8fb1a1670b6e1f84b89ea846f589b627");
             var BloodlineInfernalClassSkill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f07a37a5b245304429530842cb65e213");
 
             //Bonus Spells
@@ -574,7 +582,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.SetDescription("Whenever you cast a spell with a range of “personal,” you gain a luck bonus equal to the spell’s level on all your saving throws for 1 round.");
-                bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
+                //bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
             });
             var SorcererDestinedTouchOfDestinyResource = Helpers.Create<BlueprintAbilityResource>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestinyResource"];
@@ -590,6 +598,145 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
+            var SorcererDestinedTouchOfDestinyBuff = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestinyBuff"];
+                bp.name = "SorcererDestinedTouchOfDestinyBuff";
+                bp.m_Icon = LawDomainBaseAbility.Icon;
+                bp.SetName("Touch of Destiny");
+                bp.SetDescription("");
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.AdditionalAttackBonus;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillAthletics;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillKnowledgeArcana;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillKnowledgeWorld;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillLoreNature;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillLoreReligion;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillMobility;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillPerception;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillPersuasion;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillStealth;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillThievery;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SkillUseMagicDevice;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                    c.m_Progression = ContextRankProgression.Div2;
+                    c.m_StartLevel = 1;
+                    c.m_StepLevel = 2;
+                    c.m_Max = 20;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass, MagusClass };
+                    c.Archetype = EldritchScionArchetype;
+                }));
+            });
             var SorcererDestinedTouchOfDestinyAbility = Helpers.Create<BlueprintAbility>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestinyAbility"];
                 bp.name = "SorcererDestinedTouchOfDestinyAbility";
@@ -599,63 +746,39 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "times per day equal to 3 + your Charisma modifier.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
-                bp.CanTargetEnemies = true;
+                bp.CanTargetFriends = true;
                 bp.Range = AbilityRange.Touch;
-                bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
+                bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
-                bp.m_Icon = AcidArrow.Icon;
-                bp.ResourceAssetIds = AcidArrow.ResourceAssetIds;
-                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
-                    c.School = SpellSchool.Conjuration;
-                }));
-                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
-                    c.Descriptor = SpellDescriptor.Acid;
-                }));
+                bp.m_Icon = LawDomainBaseAbility.Icon;
+                bp.ResourceAssetIds = LawDomainBaseAbility.ResourceAssetIds;
                 bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
                     c.m_RequiredResource = SorcererDestinedTouchOfDestinyResource.ToReference<BlueprintAbilityResourceReference>();
                     c.m_IsSpendResource = true;
                     c.Amount = 1;
                 }));
-                bp.AddComponent(Helpers.Create<AbilityDeliverProjectile>(c => {
-                    c.m_Projectiles = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Projectiles;
-                    c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5 };
-                    c.m_Weapon = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Weapon;
-                    c.NeedAttackRoll = true;
-                }));
-                var dealDamage = Helpers.Create<ContextActionDealDamage>(c => {
-                    c.DamageType = new DamageTypeDescription {
-                        Type = DamageType.Energy,
-                        Energy = DamageEnergyType.Acid
-                    };
-                    c.Duration = new ContextDurationValue() {
-                        m_IsExtendable = true,
-                        DiceCountValue = new ContextValue(),
-                        BonusValue = new ContextValue()
-                    };
-                    c.Value = new ContextDiceValue {
-                        DiceType = DiceType.D6,
+                var addInsightBonus = Helpers.Create<ContextActionApplyBuff>(c => {
+                    c.m_Buff = SorcererDestinedTouchOfDestinyBuff.ToReference<BlueprintBuffReference>();
+                    c.IsNotDispelable = false;
+                    c.Permanent = false;
+                    c.DurationValue = new ContextDurationValue() {
+                        Rate = DurationRate.Rounds,
+                        DiceType = DiceType.One,
                         DiceCountValue = new ContextValue() {
                             ValueType = ContextValueType.Simple,
-                            Value = 1
+                            Value = 0
                         },
-                        BonusValue = new ContextValue {
-                            ValueType = ContextValueType.Rank,
-                            ValueRank = AbilityRankType.DamageBonus
+                        BonusValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 1
                         }
                     };
                 });
                 bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
-                    c.Actions = new ActionList();
-                    c.Actions.Actions = new GameAction[] { dealDamage };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
-                    c.m_Type = AbilityRankType.DamageBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    c.m_StartLevel = 1;
-                    c.m_StepLevel = 2;
-                    c.m_Max = 20;
-                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
+                    c.Actions = new ActionList {
+                        Actions = new GameAction[] { addInsightBonus }
+                    };
                 }));
             });
             var SorcererDestinedTouchOfDestiny = Helpers.Create<BlueprintFeature>(bp => {
@@ -676,122 +799,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = SorcererDestinedTouchOfDestinyAbility.Icon;
             });
-            var SorcererDestinedFated = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedFated"];
-                bp.name = "SorcererDestinedFated";
-                bp.Ranks = 3;
-                bp.IsClassFeature = true; ;
-                bp.SetName("Fated");
-                bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during surprise rounds"
-                    + "(see Combat) and when you are otherwise unaware of an attack. At 7th level and every four levels thereafter, this bonus increases "
-                    + "by +1, to a maximum of +5 at 19th level.");
-                bp.AddComponent(Helpers.Create<AddTouchReach>(c => {
-                    c.Value = 5;
-                    c.Descriptor = ModifierDescriptor.UntypedStackable;
-                }));
-            });
-            var SorcererDestinedItWasMeantToBeResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeResource"];
-                bp.name = "SorcererDestinedItWasMeantToBeResource";
-                bp.m_Min = 0;
-                bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
-                    BaseValue = 3,
-                    IncreasedByStat = true,
-                    ResourceBonusStat = StatType.Charisma,
-                    m_Class = new BlueprintCharacterClassReference[0],
-                    m_ClassDiv = new BlueprintCharacterClassReference[0],
-                    m_Archetypes = new BlueprintArchetypeReference[0],
-                    m_ArchetypesDiv = new BlueprintArchetypeReference[0]
-                };
-            });
-            var SorcererDestinedItWasMeantToBeAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeAbility"];
-                bp.name = "SorcererDestinedItWasMeantToBeAbility";
-                bp.SetName("It Was Meant To Be");
-                bp.SetDescription("At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
-                    + "At 17th level, you can use this ability twice per day.");
-                bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
-                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
-                bp.CanTargetEnemies = true;
-                bp.Range = AbilityRange.Touch;
-                bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
-                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
-                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
-                bp.m_Icon = AcidArrow.Icon;
-                bp.ResourceAssetIds = AcidArrow.ResourceAssetIds;
-                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
-                    c.School = SpellSchool.Conjuration;
-                }));
-                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
-                    c.Descriptor = SpellDescriptor.Acid;
-                }));
-                bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
-                    c.m_RequiredResource = SorcererDestinedItWasMeantToBeResource.ToReference<BlueprintAbilityResourceReference>();
-                    c.m_IsSpendResource = true;
-                    c.Amount = 1;
-                }));
-                bp.AddComponent(Helpers.Create<AbilityDeliverProjectile>(c => {
-                    c.m_Projectiles = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Projectiles;
-                    c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5 };
-                    c.m_Weapon = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Weapon;
-                    c.NeedAttackRoll = true;
-                }));
-                var dealDamage = Helpers.Create<ContextActionDealDamage>(c => {
-                    c.DamageType = new DamageTypeDescription {
-                        Type = DamageType.Energy,
-                        Energy = DamageEnergyType.Acid
-                    };
-                    c.Duration = new ContextDurationValue() {
-                        m_IsExtendable = true,
-                        DiceCountValue = new ContextValue(),
-                        BonusValue = new ContextValue()
-                    };
-                    c.Value = new ContextDiceValue {
-                        DiceType = DiceType.D6,
-                        DiceCountValue = new ContextValue() {
-                            ValueType = ContextValueType.Simple,
-                            Value = 1
-                        },
-                        BonusValue = new ContextValue {
-                            ValueType = ContextValueType.Rank,
-                            ValueRank = AbilityRankType.DamageBonus
-                        }
-                    };
-                });
-                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
-                    c.Actions = new ActionList();
-                    c.Actions.Actions = new GameAction[] { dealDamage };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
-                    c.m_Type = AbilityRankType.DamageBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    c.m_StartLevel = 1;
-                    c.m_StepLevel = 2;
-                    c.m_Max = 20;
-                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
-                }));
-            });
-            var SorcererDestinedItWasMeantToBe = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBe"];
-                bp.name = "SorcererDestinedItWasMeantToBe";
-                bp.IsClassFeature = true;
-                bp.Ranks = 2;
-                bp.SetName("It Was Meant To Be");
-                bp.SetDescription(" At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
-                    + "At 9th level, you can use this ability once per day. At 17th level, you can use this ability twice per day.");
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
-                    c.UseContextValue = false;
-                    c.Bonus = 25;
-                }));
-            });
             var SorcererDestinedWithinReachResource = Helpers.Create<BlueprintAbilityResource>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedWithinReachResource"];
                 bp.name = "SorcererDestinedWithinReachResource";
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
-                    BaseValue = 3,
-                    IncreasedByStat = true,
-                    ResourceBonusStat = StatType.Charisma,
+                    BaseValue = 1,
+                    IncreasedByStat = false,
                     m_Class = new BlueprintCharacterClassReference[0],
                     m_ClassDiv = new BlueprintCharacterClassReference[0],
                     m_Archetypes = new BlueprintArchetypeReference[0],
@@ -806,17 +820,211 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 15th level, your ultimate destiny is drawing near. Once per day, when an attack or spell that causes "
                     + "damage would result in your death, you may attempt a DC 20 Will save. If successful, you are instead reduced to –1 hit "
                     + "points and are automatically stabilized. The bonus from your fated ability applies to this save.");
-                bp.AddComponent(Helpers.Create<AddSpellResistance>(c => {
-                    c.Value = new ContextValue();
-                    c.Value.ValueType = ContextValueType.Rank;
-                    c.Value.ValueRank = AbilityRankType.StatBonus;
+                bp.AddComponent(Helpers.Create<SurviveDeathWithSave>(c => {
+                    c.DC = 20;
+                    c.Type = SavingThrowType.Will;
+                    c.TargetHP = -1;
+                    c.BlockIfBelowZero = false;
+                    c.Resource = SorcererDestinedWithinReachResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.SpendAmount = 1;
+                }));
+                bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
+                    c.m_Resource = SorcererDestinedWithinReachResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.RestoreAmount = true;
+                }));
+            });
+            var SorcererDestinedFatedBuff = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedFatedBuff"];
+                bp.name = "SorcererDestinedFatedBuff";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Fated");
+                bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during the first"
+                    + "round of combat. At 7th level and every four levels thereafter, this bonus increases "
+                    + "by +1, to a maximum of +5 at 19th level.");
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.AC;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    c.m_Progression = ContextRankProgression.BonusValue;
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_StepLevel = 10;
-                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
+                    c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                    c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
+                    c.m_StartLevel = 3;
+                    c.m_StepLevel = 4;
+                    c.m_Max = 20;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass, MagusClass };
+                    c.Archetype = EldritchScionArchetype;
+                }));
+            });
+            var SorcererDestinedFated = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedFated"];
+                bp.name = "SorcererDestinedFated";
+                bp.IsClassFeature = true;
+                bp.Ranks = 5;
+                bp.SetName("Fated");
+                bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during the first"
+                    + "round of combat. At 7th level and every four levels thereafter, this bonus increases "
+                    + "by +1, to a maximum of +5 at 19th level.");
+                var fatedBuff = Helpers.Create<ContextActionApplyBuff>(c => {
+                    c.m_Buff = SorcererDestinedFatedBuff.ToReference<BlueprintBuffReference>();
+                    c.IsNotDispelable = true;
+                    c.DurationValue = new ContextDurationValue() {
+                        Rate = DurationRate.Rounds,
+                        DiceType = DiceType.Zero,
+                        DiceCountValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 0
+                        },
+                        BonusValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 1
+                        }
+                    };
+                });
+                bp.AddComponent(Helpers.Create<CombatStateTrigger>(c => {
+                    c.CombatStartActions = new ActionList() { 
+                        Actions = new GameAction[] {
+                            fatedBuff
+                        }
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstFact>(c => {
+                    c.m_CheckedFact = SorcererDestinedWithinReach.ToReference<BlueprintFeatureReference>();
+                    c.Value = 1;
+                    c.Descriptor = ModifierDescriptor.Luck;
+                }));
+            });
+            var SorcererDestinedItWasMeantToBeResource = Helpers.Create<BlueprintAbilityResource>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeResource"];
+                bp.name = "SorcererDestinedItWasMeantToBeResource";
+                bp.m_Min = 0;
+                bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
+                    BaseValue = 1,
+                    IncreasedByStat = false,
+                    m_Class = new BlueprintCharacterClassReference[0],
+                    m_ClassDiv = new BlueprintCharacterClassReference[0],
+                    m_Archetypes = new BlueprintArchetypeReference[0],
+                    m_ArchetypesDiv = new BlueprintArchetypeReference[0]
+                };
+            });
+            var SorcererDestinedItWasMeantToBeResourceIncrease = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeResourceIncrease"];
+                bp.name = "SorcererDestinedItWasMeantToBeResourceIncrease";
+                bp.SetName("It Was Meant To Be (+1 Uses)");
+                bp.SetDescription("It Was Meant To Be (+1 Uses)");
+                bp.HideInUI = true;
+                bp.AddComponent(Helpers.Create<IncreaseResourceAmount>(c => {
+                    c.m_Resource = SorcererDestinedItWasMeantToBeResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.Value = 1;
+                }));
+            });
+            var SorcererDestinedItWasMeantToBeBuff = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeBuff"];
+                bp.name = "SorcererDestinedItWasMeantToBeBuff";
+                bp.SetName("It Was Meant To Be");
+                bp.SetDescription("You may reroll any one attack roll, critical hit confirmation roll, or level check made to "
+                    +"overcome spell resistance.");
+                bp.AddComponent(Helpers.Create<ModifyD20>(c => {
+                    c.RerollOnlyIfFailed = true;
+                    c.RollsAmount = 1;
+                    c.TakeBest = true;
+                    c.Rule = RuleType.SpellResistance | RuleType.AttackRoll;
+                    c.DispellOnRerollFinished = true;
+                    c.Bonus = new ContextValue();
+                    c.Chance = new ContextValue();
+                    c.Value = new ContextValue();
+                    c.Skill = new StatType[0];
+                }));
+            });
+            var SorcererDestinedItWasMeantToBeAbility = Helpers.Create<BlueprintAbility>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeAbility"];
+                bp.name = "SorcererDestinedItWasMeantToBeAbility";
+                bp.SetName("It Was Meant To Be");
+                bp.SetDescription("At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
+                    + "At 17th level, you can use this ability twice per day.");
+                bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
+                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.CanTargetEnemies = true;
+                bp.Range = AbilityRange.Personal;
+                bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
+                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
+                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
+                bp.m_Icon = TrueSeeing.Icon;
+                bp.ResourceAssetIds = TrueSeeing.ResourceAssetIds;
+                var addReroll = Helpers.Create<ContextActionApplyBuff>(c => {
+                    c.m_Buff = SorcererDestinedItWasMeantToBeBuff.ToReference<BlueprintBuffReference>();
+                    c.IsNotDispelable = true;
+                    c.Permanent = true;
+                    c.DurationValue = new ContextDurationValue() {
+                        Rate = DurationRate.Rounds,
+                        DiceType = DiceType.Zero,
+                        DiceCountValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 0
+                        },
+                        BonusValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 1
+                        }
+                    };
+                });
+                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
+                    c.Actions = new ActionList {
+                        Actions = new GameAction[] { addReroll }
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
+                    c.m_RequiredResource = SorcererDestinedItWasMeantToBeResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_IsSpendResource = true;
+                    c.Amount = 1;
+                }));
+            });
+            var SorcererDestinedItWasMeantToBe = Helpers.Create<BlueprintFeature>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBe"];
+                bp.name = "SorcererDestinedItWasMeantToBe";
+                bp.IsClassFeature = true;
+                bp.m_Icon = TrueSeeing.Icon;
+                bp.SetName("It Was Meant To Be");
+                bp.SetDescription(" At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
+                    + "At 9th level, you can use this ability once per day. At 17th level, you can use this ability twice per day.");
+                bp.AddComponent(Helpers.Create<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        SorcererDestinedItWasMeantToBeAbility.ToReference<BlueprintUnitFactReference>(),
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
+                    c.m_Resource = SorcererDestinedItWasMeantToBeResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.RestoreAmount = true;
                 }));
             });
             var SorcererDestinedDestinyRealizedResource = Helpers.Create<BlueprintAbilityResource>(bp => {
@@ -824,14 +1032,23 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedDestinyRealizedResource";
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
-                    BaseValue = 3,
-                    IncreasedByStat = true,
-                    ResourceBonusStat = StatType.Charisma,
+                    BaseValue = 1,
+                    IncreasedByStat = false,
                     m_Class = new BlueprintCharacterClassReference[0],
                     m_ClassDiv = new BlueprintCharacterClassReference[0],
                     m_Archetypes = new BlueprintArchetypeReference[0],
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
+            });
+            var SorcererDestinedDestinyRealizedBuff = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedDestinyRealizedBuff"];
+                bp.name = "SorcererDestinedDestinyRealizedBuff";
+                bp.SetName("Destiny Realized");
+                bp.SetDescription("You automatically succeed at one caster level check made to overcome spell resistance.");
+                bp.AddComponent(Helpers.Create<IgnoreSpellResistanceForSpells>(c => {
+                    c.AllSpells = true;
+                }));
+                bp.AddComponent(Helpers.Create<RemoveBuffAfterSpellResistCheck>());
             });
             var SorcererDestinedDestinyRealizedAbility = Helpers.Create<BlueprintAbility>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedDestinyRealizedAbility"];
@@ -840,110 +1057,81 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("Once per day, you can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
-                bp.CanTargetEnemies = true;
-                bp.Range = AbilityRange.Touch;
-                bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
-                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
-                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
-                bp.m_Icon = AcidArrow.Icon;
-                bp.ResourceAssetIds = AcidArrow.ResourceAssetIds;
-                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
-                    c.School = SpellSchool.Conjuration;
-                }));
-                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
-                    c.Descriptor = SpellDescriptor.Acid;
-                }));
+                bp.Range = AbilityRange.Personal;
+                bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
+                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Immediate;
+                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
+                bp.m_Icon = ThoughtSense.Icon;
+                bp.ResourceAssetIds = ThoughtSense.ResourceAssetIds;
                 bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
                     c.m_RequiredResource = SorcererDestinedDestinyRealizedResource.ToReference<BlueprintAbilityResourceReference>();
                     c.m_IsSpendResource = true;
                     c.Amount = 1;
                 }));
-                bp.AddComponent(Helpers.Create<AbilityDeliverProjectile>(c => {
-                    c.m_Projectiles = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Projectiles;
-                    c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5 };
-                    c.m_Weapon = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Weapon;
-                    c.NeedAttackRoll = true;
-                }));
-                var dealDamage = Helpers.Create<ContextActionDealDamage>(c => {
-                    c.DamageType = new DamageTypeDescription {
-                        Type = DamageType.Energy,
-                        Energy = DamageEnergyType.Acid
-                    };
-                    c.Duration = new ContextDurationValue() {
-                        m_IsExtendable = true,
-                        DiceCountValue = new ContextValue(),
-                        BonusValue = new ContextValue()
-                    };
-                    c.Value = new ContextDiceValue {
-                        DiceType = DiceType.D6,
+                var autoSpellPen = Helpers.Create<ContextActionApplyBuff>(c => {
+                    c.m_Buff = SorcererDestinedDestinyRealizedBuff.ToReference<BlueprintBuffReference>();
+                    c.IsNotDispelable = true;
+                    c.Permanent = true;
+                    c.DurationValue = new ContextDurationValue() {
+                        Rate = DurationRate.Rounds,
+                        DiceType = DiceType.Zero,
                         DiceCountValue = new ContextValue() {
                             ValueType = ContextValueType.Simple,
-                            Value = 1
+                            Value = 0
                         },
-                        BonusValue = new ContextValue {
-                            ValueType = ContextValueType.Rank,
-                            ValueRank = AbilityRankType.DamageBonus
+                        BonusValue = new ContextValue() {
+                            ValueType = ContextValueType.Simple,
+                            Value = 1
                         }
                     };
                 });
                 bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList();
-                    c.Actions.Actions = new GameAction[] { dealDamage };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
-                    c.m_Type = AbilityRankType.DamageBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    c.m_StartLevel = 1;
-                    c.m_StepLevel = 2;
-                    c.m_Max = 20;
-                    c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass };
+                    c.Actions.Actions = new GameAction[] { autoSpellPen };
                 }));
             });
             var SorcererDestinedDestinyRealized = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedDestinyRealized"];
                 bp.name = "SorcererDestinedDestinyRealized";
+                bp.m_Icon = SorcererDestinedDestinyRealizedAbility.Icon;
                 bp.SetName("Destiny Realized");
                 bp.SetDescription("At 20th level, your moment of destiny is at hand. Any critical threats made against you only confirm if the second "
                     + "roll results in a natural 20 on the die. Any critical threats you score with a spell are automatically confirmed. Once per day, you "
                     + "can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
-                bp.AddComponent(Helpers.Create<Blindsense>(c => {
-                    c.Range.m_Value = 60;
-                    c.Blindsight = true;
+                bp.AddComponent(Helpers.Create<CriticalConfirmationACBonus>(c => {
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Simple,
+                    };
+                    c.Bonus = 200;
                 }));
-                bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.GazeAttack;
+                bp.AddComponent(Helpers.Create<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        SorcererDestinedDestinyRealizedAbility.ToReference<BlueprintUnitFactReference>(),
+                    };
                 }));
-                bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
-                    c.Descriptor = SpellDescriptor.GazeAttack;
+                bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
+                    c.m_Resource = SorcererDestinedDestinyRealizedResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.RestoreAmount = true;
                 }));
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
-                    c.BypassedByAlignment = false;
-                    c.BypassedByForm = false;
-                    c.BypassedByMagic = false;
-                    c.BypassedByMaterial = false;
-                    c.BypassedByReality = false;
-                    c.BypassedByMeleeWeapon = false;
-                    c.BypassedByWeaponType = false;
-                    c.Value.Value = 5;
-                    c.Value.ValueType = ContextValueType.Simple;
-                }));
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
-                    c.UseContextValue = false;
-                    c.Bonus = 100;
-                }));
+                bp.AddComponent(Helpers.Create<InitiatorSpellCritAutoconfirm>());
             });
             Resources.AddBlueprint(SorcererDestinedClassSkill);
             Resources.AddBlueprint(SorcererDestinedBloodlineArcana);
             Resources.AddBlueprint(SorcererDestinedTouchOfDestinyResource);
+            Resources.AddBlueprint(SorcererDestinedTouchOfDestinyBuff);
             Resources.AddBlueprint(SorcererDestinedTouchOfDestinyAbility);
             Resources.AddBlueprint(SorcererDestinedTouchOfDestiny);
+            Resources.AddBlueprint(SorcererDestinedFatedBuff);
             Resources.AddBlueprint(SorcererDestinedFated);
             Resources.AddBlueprint(SorcererDestinedItWasMeantToBeResource);
+            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeResourceIncrease);
+            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeBuff);
             Resources.AddBlueprint(SorcererDestinedItWasMeantToBeAbility);
             Resources.AddBlueprint(SorcererDestinedItWasMeantToBe);
             Resources.AddBlueprint(SorcererDestinedWithinReachResource);
             Resources.AddBlueprint(SorcererDestinedWithinReach);
             Resources.AddBlueprint(SorcererDestinedDestinyRealizedResource);
+            Resources.AddBlueprint(SorcererDestinedDestinyRealizedBuff);
             Resources.AddBlueprint(SorcererDestinedDestinyRealizedAbility);
             Resources.AddBlueprint(SorcererDestinedDestinyRealized);
             //Bloodline Feats
@@ -1128,6 +1316,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
+                    },
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = MagusClass
+                    }
+                };
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{
+                    new BlueprintProgression.ArchetypeWithLevel {
+                        m_Archetype = EldritchScionArchetype
                     }
                 };
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
@@ -1138,13 +1334,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 1, Features = { SorcererDestinedTouchOfDestiny, SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3, SorcererDestinedFated }},
                     new LevelEntry(){ Level = 5, Features = { SorcererDestinedSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7 }},
+                    new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7, SorcererDestinedFated }},
                     new LevelEntry(){ Level = 9, Features = { SorcererDestinedSpell9, SorcererDestinedItWasMeantToBe }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11 }},
+                    new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11, SorcererDestinedFated }},
                     new LevelEntry(){ Level = 13, Features = { SorcererDestinedSpell13 }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15, SorcererDestinedWithinReach }},
+                    new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15, SorcererDestinedWithinReach, SorcererDestinedFated }},
                     new LevelEntry(){ Level = 17, Features = { SorcererDestinedSpell17 }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }},
+                    new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19, SorcererDestinedFated }},
                     new LevelEntry(){ Level = 20, Features = { SorcererDestinedDestinyRealized }},
                 };
                 bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
@@ -1164,6 +1360,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
+                    },
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = MagusClass
+                    }
+                };
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{
+                    new BlueprintProgression.ArchetypeWithLevel {
+                        m_Archetype = EldritchScionArchetype
                     }
                 };
                 bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
@@ -1191,6 +1395,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
+                    },
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = MagusClass
+                    }
+                };
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{
+                    new BlueprintProgression.ArchetypeWithLevel {
+                        m_Archetype = EldritchScionArchetype
                     }
                 };
                 bp.GiveFeaturesForPreviousLevels = true;
@@ -1203,7 +1415,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3 }},
                     new LevelEntry(){ Level = 5, Features = { SorcererDestinedSpell5 }},
                     new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7 }},
-                    new LevelEntry(){ Level = 9, Features = { SorcererDestinedSpell9 }},
+                    new LevelEntry(){ Level = 9, Features = { SorcererDestinedSpell9, SorcererDestinedItWasMeantToBe }},
                     new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11 }},
                     new LevelEntry(){ Level = 13, Features = { SorcererDestinedSpell13 }},
                     new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15 }},

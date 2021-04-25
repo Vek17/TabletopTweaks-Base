@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
@@ -23,7 +24,7 @@ namespace TabletopTweaks.NewComponents {
         public void HandleDamageDealt(RuleDealDamage dealDamage) {
             var unit = dealDamage.Target;
             if (unit != base.Owner) { return; }
-            if ((unit.Stats.HitPoints + (unit.Stats.Constitution * (unit.State.Features.MythicHardToKill ? 2 : 1))) > unit.Damage) { return; }
+            if (WouldKill(unit, unit.Damage)) { return; }
             if (!HasEnoughResource()) { return; }
             Spend();
 
@@ -34,9 +35,15 @@ namespace TabletopTweaks.NewComponents {
             ruleSavingThrow = Rulebook.Trigger(ruleSavingThrow);
 
             if (ruleSavingThrow.IsPassed) {
-                UnitState state = unit.Descriptor.State;
-                unit.Damage = unit.Stats.HitPoints - ForcedHP;
+                if ((unit.Damage - dealDamage.Damage) > unit.Stats.HitPoints && BlockIfBelowZero) {
+                    unit.Damage -= dealDamage.Damage;
+                } else {
+                    unit.Damage = unit.Stats.HitPoints - TargetHP;
+                }
             }
+        }
+        private bool WouldKill(UnitEntityData unit, int damage) {
+            return (unit.Stats.HitPoints + (unit.Stats.Constitution * (unit.State.Features.MythicHardToKill ? 2 : 1))) > damage;
         }
         private bool HasEnoughResource() {
             return Owner.Resources.HasEnoughResource(RequiredResource, SpendAmount);
@@ -47,7 +54,8 @@ namespace TabletopTweaks.NewComponents {
 
         public int DC = 10;
         public SavingThrowType Type;
-        public int ForcedHP;
+        public int TargetHP;
+        public bool BlockIfBelowZero;
         public int SpendAmount;
         public BlueprintAbilityResourceReference Resource;
     }

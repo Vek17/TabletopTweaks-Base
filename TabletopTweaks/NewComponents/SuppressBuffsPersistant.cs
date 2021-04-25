@@ -27,8 +27,6 @@ namespace TabletopTweaks.NewComponents {
             UnitPartBuffSuppress unitPartBuffSuppress = Owner.Ensure<UnitPartBuffSuppress>();
             IEnumerable<BlueprintBuff> suppressedBuffs = GetSuppressedBuffs();
             foreach (BlueprintBuff buff in suppressedBuffs) {
-            }
-            foreach (BlueprintBuff buff in suppressedBuffs) {
                 try {
                     unitPartBuffSuppress.Suppress(buff);
                 } catch { }
