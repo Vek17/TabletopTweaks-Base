@@ -7,11 +7,8 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
-using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -576,13 +573,214 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = BloodlineInfernalClassSkill.Icon;
             });
+            var SorcererDestinedBloodlineArcanaBuff1 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff1"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff1";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 1;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 1;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 1;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff2 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff2"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff2";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 2;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 2;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 3;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff3 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff3"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff3";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 3;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 3;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 3;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff4 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff4"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff4";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 4;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 4;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 4;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff5 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff5"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff5";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 5;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 5;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 5;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff6 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff6"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff6";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 6;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 6;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 6;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff7 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff7"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff7";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 7;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 7;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 7;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff8 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff8"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff8";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 8;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 8;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 8;
+                }));
+            });
+            var SorcererDestinedBloodlineArcanaBuff9 = Helpers.Create<BlueprintBuff>(bp => {
+                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff9"];
+                bp.name = "SorcererDestinedBloodlineArcanaBuff9";
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.SetName("Destined Bloodline Arcana");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveFortitude;
+                    c.Value = 9;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveReflex;
+                    c.Value = 9;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Luck;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = 9;
+                }));
+            });
             var SorcererDestinedBloodlineArcana = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcana"];
                 bp.name = "SorcererDestinedBloodlineArcana";
                 bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.SetDescription("Whenever you cast a spell with a range of “personal,” you gain a luck bonus equal to the spell’s level on all your saving throws for 1 round.");
-                //bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
+                bp.AddComponent(Helpers.Create<DestinedArcanaComponent>(c => {
+                    c.Buffs = new BlueprintBuffReference[] {
+                        SorcererDestinedBloodlineArcanaBuff1.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff2.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff3.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff4.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff5.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff6.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff7.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff8.ToReference<BlueprintBuffReference>(),
+                        SorcererDestinedBloodlineArcanaBuff9.ToReference<BlueprintBuffReference>(),
+                    };
+                }));
             });
             var SorcererDestinedTouchOfDestinyResource = Helpers.Create<BlueprintAbilityResource>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestinyResource"];
@@ -893,7 +1091,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 5;
                 bp.SetName("Fated");
                 bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during the first"
-                    + "round of combat. At 7th level and every four levels thereafter, this bonus increases "
+                    + "round of combat or when you are otherwise unaware of an attack. At 7th level and every four levels thereafter, this bonus increases "
                     + "by +1, to a maximum of +5 at 19th level.");
                 var fatedBuff = Helpers.Create<ContextActionApplyBuff>(c => {
                     c.m_Buff = SorcererDestinedFatedBuff.ToReference<BlueprintBuffReference>();
@@ -912,13 +1110,17 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     };
                 });
                 bp.AddComponent(Helpers.Create<CombatStateTrigger>(c => {
-                    c.CombatStartActions = new ActionList() { 
+                    c.CombatStartActions = new ActionList() {
                         Actions = new GameAction[] {
                             fatedBuff
                         }
                     };
                 }));
-                bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstFact>(c => {
+                bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstUnaware>(c => {
+                    c.Value = 1;
+                    c.Descriptor = ModifierDescriptor.Luck;
+                }));
+                bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstAbility>(c => {
                     c.m_CheckedFact = SorcererDestinedWithinReach.ToReference<BlueprintFeatureReference>();
                     c.Value = 1;
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -953,7 +1155,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedItWasMeantToBeBuff";
                 bp.SetName("It Was Meant To Be");
                 bp.SetDescription("You may reroll any one attack roll, critical hit confirmation roll, or level check made to "
-                    +"overcome spell resistance.");
+                    + "overcome spell resistance.");
                 bp.AddComponent(Helpers.Create<ModifyD20>(c => {
                     c.RerollOnlyIfFailed = true;
                     c.RollsAmount = 1;
@@ -1116,6 +1318,15 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<InitiatorSpellCritAutoconfirm>());
             });
             Resources.AddBlueprint(SorcererDestinedClassSkill);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff1);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff2);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff3);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff4);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff5);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff6);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff7);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff8);
+            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff9);
             Resources.AddBlueprint(SorcererDestinedBloodlineArcana);
             Resources.AddBlueprint(SorcererDestinedTouchOfDestinyResource);
             Resources.AddBlueprint(SorcererDestinedTouchOfDestinyBuff);

@@ -829,9 +829,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         m_Class = MagusClass
                     }
                 };
-                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{ 
-                    new BlueprintProgression.ArchetypeWithLevel { 
-                        m_Archetype = EldritchScionArchetype  
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[]{
+                    new BlueprintProgression.ArchetypeWithLevel {
+                        m_Archetype = EldritchScionArchetype
                     }
                 };
                 bp.GiveFeaturesForPreviousLevels = true;
