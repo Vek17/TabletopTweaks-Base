@@ -18,6 +18,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogHeader("Patching Bloodrager Resources");
                 PatchBaseClass();
                 PatchPrimalist();
+                PatchSteelblood();
                 Main.LogHeader("Patching Bloodrager Resources Complete");
             }
             static void PatchBaseClass() {
@@ -86,6 +87,17 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         };
                         Main.LogPatch("Patched", PrimalistTakeRagePowers);
                     }
+                }
+            }
+            static void PatchSteelblood() {
+                if (Settings.Fixes.Bloodrager.Archetypes["Steelblood"].DisableAllFixes) { return; }
+                PatchArmoredSwiftness();
+
+                void PatchArmoredSwiftness() {
+                    if (!Settings.Fixes.Bloodrager.Archetypes["Steelblood"].Fixes["ArmoredSwiftness"]) { return; }
+                    var ArmoredHulkArmoredSwiftness = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f95f4f3a10917114c82bcbebc4d0fd36");
+                    var SteelbloodArmoredSwiftness = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("bd4397ee26a3baf4cadaeb766b018cff");
+                    SteelbloodArmoredSwiftness.ComponentsArray = ArmoredHulkArmoredSwiftness.ComponentsArray;
                 }
             }
         }

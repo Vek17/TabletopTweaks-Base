@@ -6,16 +6,16 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.NewComponents {
-    class SavingThrowBonusAgainstUnaware: UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
+    class SavingThrowBonusWhileUnaware: UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public void OnEventAboutToTrigger(RuleSavingThrow evt) {
             UnitEntityData target = evt.GetRuleTarget();
             UnitEntityData caster = evt.Reason.Caster;
             if (caster == null || target == null) { return; }
             if (!target.Memory.Contains(caster) || (UnitPartConcealment.Calculate(target, caster, false) == Concealment.Total)) {
-                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveWill.AddModifier(this.Value * base.Fact.GetRank(), base.Runtime, this.Descriptor));
-                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveReflex.AddModifier(this.Value * base.Fact.GetRank(), base.Runtime, this.Descriptor));
-                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveFortitude.AddModifier(this.Value * base.Fact.GetRank(), base.Runtime, this.Descriptor));
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveWill.AddModifier(Value * base.Fact.GetRank(), base.Runtime, Descriptor));
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveReflex.AddModifier(Value * base.Fact.GetRank(), base.Runtime, Descriptor));
+                evt.AddTemporaryModifier(evt.Initiator.Stats.SaveFortitude.AddModifier(Value * base.Fact.GetRank(), base.Runtime, Descriptor));
             }
         }
 

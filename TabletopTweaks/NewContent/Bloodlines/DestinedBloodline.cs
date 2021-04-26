@@ -48,6 +48,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var GreenragerArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("5648585af75596f4a9fa3ae385127f57").ToReference<BlueprintArchetypeReference>();
             //Used Assets
             var TrueStrike = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2c38da66e5a599347ac95b3294acbe00");
+            var LuckDomain = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9af0b584f6f754045a0a79293d100ab3"); 
             //Bonus Spells
             var MageShield = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("ef768022b0785eb43a18969903c537c4").ToReference<BlueprintAbilityReference>();
             var Blur = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("14ec7a4e52e90fa47a4c8d63c69fd5c1").ToReference<BlueprintAbilityReference>();
@@ -239,7 +240,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerDestinedCertainStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerDestinedCertainStrikeBuff"];
                 bp.name = "BloodragerDestinedCertainStrikeBuff";
-                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                //bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.m_Icon = LuckDomain.Icon;
                 bp.SetName(BloodragerDestinedCertainStrike.Name);
                 bp.SetDescription(BloodragerDestinedCertainStrike.Description);
                 bp.AddComponent(Helpers.Create<ModifyD20>(c => {
@@ -528,7 +530,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodlineTools.ApplyPrimalistException(BloodragerDestinedDefyDeath, 12, BloodragerDestinedBloodline);
             BloodlineTools.ApplyPrimalistException(BloodragerDestinedUnstoppable, 16, BloodragerDestinedBloodline);
             BloodlineTools.ApplyPrimalistException(BloodragerDestinedVictoryOrDeath, 20, BloodragerDestinedBloodline);
-            if (!Settings.AddedContent.AberrantBloodline || false) { return; }
+            if (!Settings.AddedContent.DestinedBloodline) { return; }
             BloodlineTools.RegisterBloodragerBloodline(BloodragerDestinedBloodline);
         }
         public static void AddSorcererDestinedBloodline() {
@@ -1116,7 +1118,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         }
                     };
                 }));
-                bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstUnaware>(c => {
+                bp.AddComponent(Helpers.Create<SavingThrowBonusWhileUnaware>(c => {
                     c.Value = 1;
                     c.Descriptor = ModifierDescriptor.Luck;
                 }));
@@ -1649,7 +1651,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(CrossbloodedDestinedBloodline);
             Resources.AddBlueprint(SeekerDestinedBloodline);
 
-            if (!Settings.AddedContent.AberrantBloodline || false) { return; }
+            if (!Settings.AddedContent.DestinedBloodline) { return; }
             BloodlineTools.RegisterSorcererBloodline(SorcererDestinedBloodline);
             BloodlineTools.RegisterCrossbloodedBloodline(CrossbloodedDestinedBloodline);
             BloodlineTools.RegisterSeekerBloodline(SeekerDestinedBloodline);
