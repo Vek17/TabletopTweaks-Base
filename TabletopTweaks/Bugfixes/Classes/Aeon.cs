@@ -22,11 +22,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchAeonBaneUses() {
                 if (!Settings.Fixes.Aeon.Fixes["AeonBaneUses"]) { return; }
-                var AeonClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("15a85e67b7d69554cab9ed5830d0268e");
-                var AeonBaneFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0b25e8d8b0488c84c9b5714e9ca0a204");
+                var AeonClass = Resources.GetBlueprint<BlueprintCharacterClass>("15a85e67b7d69554cab9ed5830d0268e");
+                var AeonBaneFeature = Resources.GetBlueprint<BlueprintFeature>("0b25e8d8b0488c84c9b5714e9ca0a204");
                 var AeonRankContext = AeonBaneFeature.GetComponent<ContextRankConfig>();
-                var InquisitorBaneResource = ResourcesLibrary.TryGetBlueprint<BlueprintAbilityResource>("a708945b17c56fa4196e8d20f8af1b0d");
-                var InquistorClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("f1a70d9e1b0b41e49874e1fa9052a1ce");
+                var InquisitorBaneResource = Resources.GetBlueprint<BlueprintAbilityResource>("a708945b17c56fa4196e8d20f8af1b0d");
+                var InquistorClass = Resources.GetBlueprint<BlueprintCharacterClass>("f1a70d9e1b0b41e49874e1fa9052a1ce");
 
                 List<BlueprintCharacterClassReference> characterClasses = new List<BlueprintCharacterClassReference>();
                 characterClasses.AddRange(ResourcesLibrary.GetRoot().Progression.CharacterMythics.Select(c => c.ToReference<BlueprintCharacterClassReference>()));

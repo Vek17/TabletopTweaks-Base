@@ -30,15 +30,15 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
             static void PatchBloodlineAscendance() {
                 if (!Settings.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
-                BlueprintFeatureSelection BloodlineAscendance = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
+                BlueprintFeatureSelection BloodlineAscendance = Resources.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>(),    // EmpyrealBloodlineProgression
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988").ToReference<BlueprintFeatureReference>()     // BloodOfDragonsSelection - Dragon Disciple
+                        Resources.GetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
+                        Resources.GetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
+                        Resources.GetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
+                        Resources.GetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
+                        Resources.GetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>(),    // EmpyrealBloodlineProgression
+                        Resources.GetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988").ToReference<BlueprintFeatureReference>()     // BloodOfDragonsSelection - Dragon Disciple
                     };
                     c.Amount = 1;
                 });
@@ -50,9 +50,9 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
             static void PatchSecondBloodline() {
                 if (!Settings.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
-                BlueprintFeatureSelection SecondBloodline = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
+                BlueprintFeatureSelection SecondBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
-                var SeekerBloodlineSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
+                var SeekerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
                 SeekerBloodlineSelection.m_Features.ForEach(bloodline => {
                     var capstone = ((BlueprintProgression)bloodline.Get()).LevelEntries.Where(entry => entry.Level == 20)
                         .SelectMany(entry => entry.Features.Select(f => f))
@@ -69,11 +69,11 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
-                        ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>()     // EmpyrealBloodlineProgression
+                        Resources.GetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
+                        Resources.GetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
+                        Resources.GetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
+                        Resources.GetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
+                        Resources.GetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>()     // EmpyrealBloodlineProgression
                     };
                     c.Amount = 1;
                 });
@@ -85,8 +85,8 @@ namespace TabletopTweaks.Bugfixes.Features {
         }
         [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]
         static class ItemEntity_AddEnchantment_EnduringSpells_Patch {
-            static BlueprintFeature EnduringSpells = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
-            static BlueprintFeature EnduringSpellsGreater = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
+            static BlueprintFeature EnduringSpells = Resources.GetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
+            static BlueprintFeature EnduringSpellsGreater = Resources.GetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
                 if (Settings.Fixes.MythicAbilities.DisableAllFixes || !Settings.Fixes.MythicAbilities.Fixes["EnduringSpells"]) { return true; }
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {

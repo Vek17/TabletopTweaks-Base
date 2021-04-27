@@ -25,7 +25,7 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Bloodlines {
     public static class AberrantBloodline {
-        static BlueprintFeatureReference BloodlineRequisiteFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>(
+        static BlueprintFeatureReference BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(
             Settings.Blueprints.NewBlueprints["BloodlineRequisiteFeature"]).ToReference<BlueprintFeatureReference>();
         static BlueprintFeatureReference AberrantBloodlineRequisiteFeature = CreateBloodlineRequisiteFeature();
 
@@ -44,22 +44,22 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             return AberrantBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
         }
         public static void AddBloodragerAberrantBloodline() {
-            var BloodragerStandardRageBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
-            var BloodragerClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
-            var GreenragerArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("5648585af75596f4a9fa3ae385127f57").ToReference<BlueprintArchetypeReference>();
+            var BloodragerStandardRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+            var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
+            var GreenragerArchetype = Resources.GetBlueprint<BlueprintArchetype>("5648585af75596f4a9fa3ae385127f57").ToReference<BlueprintArchetypeReference>();
             //Bonus Spells
-            var EnlargePerson = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c60969e7f264e6d4b84a1499fdcf9039").ToReference<BlueprintAbilityReference>();
-            var SeeInvisibility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("30e5dc243f937fc4b95d2f8f4e1b7ff3").ToReference<BlueprintAbilityReference>();
-            var Displacement = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("903092f6488f9ce45a80943923576ab3").ToReference<BlueprintAbilityReference>();
-            var SpikeStones = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d1afa8bc28c99104da7d784115552de5").ToReference<BlueprintAbilityReference>();
+            var EnlargePerson = Resources.GetBlueprint<BlueprintAbility>("c60969e7f264e6d4b84a1499fdcf9039").ToReference<BlueprintAbilityReference>();
+            var SeeInvisibility = Resources.GetBlueprint<BlueprintAbility>("30e5dc243f937fc4b95d2f8f4e1b7ff3").ToReference<BlueprintAbilityReference>();
+            var Displacement = Resources.GetBlueprint<BlueprintAbility>("903092f6488f9ce45a80943923576ab3").ToReference<BlueprintAbilityReference>();
+            var SpikeStones = Resources.GetBlueprint<BlueprintAbility>("d1afa8bc28c99104da7d784115552de5").ToReference<BlueprintAbilityReference>();
             //Bonus Feats
-            var CombatReflexes = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0f8939ae6f220984e8fb568abbdfba95").ToReference<BlueprintFeatureReference>();
-            var GreatFortitude = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("79042cb55f030614ea29956177977c52").ToReference<BlueprintFeatureReference>();
-            var ImprovedDisarm = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("25bc9c439ac44fd44ac3b1e58890916f").ToReference<BlueprintFeatureReference>();
-            var ImprovedDirtyTrick = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("ed699d64870044b43bb5a7fbe3f29494").ToReference<BlueprintFeatureReference>(); //No Grapple
-            var ImprovedInitiative = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("797f25d709f559546b29e7bcb181cc74").ToReference<BlueprintFeatureReference>();
-            var ImprovedUnarmedStrike = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7812ad3672a4b9a4fb894ea402095167").ToReference<BlueprintFeatureReference>();
-            var IronWill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("175d1577bb6c9a04baf88eec99c66334").ToReference<BlueprintFeatureReference>();
+            var CombatReflexes = Resources.GetBlueprint<BlueprintFeature>("0f8939ae6f220984e8fb568abbdfba95").ToReference<BlueprintFeatureReference>();
+            var GreatFortitude = Resources.GetBlueprint<BlueprintFeature>("79042cb55f030614ea29956177977c52").ToReference<BlueprintFeatureReference>();
+            var ImprovedDisarm = Resources.GetBlueprint<BlueprintFeature>("25bc9c439ac44fd44ac3b1e58890916f").ToReference<BlueprintFeatureReference>();
+            var ImprovedDirtyTrick = Resources.GetBlueprint<BlueprintFeature>("ed699d64870044b43bb5a7fbe3f29494").ToReference<BlueprintFeatureReference>(); //No Grapple
+            var ImprovedInitiative = Resources.GetBlueprint<BlueprintFeature>("797f25d709f559546b29e7bcb181cc74").ToReference<BlueprintFeatureReference>();
+            var ImprovedUnarmedStrike = Resources.GetBlueprint<BlueprintFeature>("7812ad3672a4b9a4fb894ea402095167").ToReference<BlueprintFeatureReference>();
+            var IronWill = Resources.GetBlueprint<BlueprintFeature>("175d1577bb6c9a04baf88eec99c66334").ToReference<BlueprintFeatureReference>();
             //Bloodline Powers
             var BloodragerAberrantStaggeringStrike = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantStaggeringStrike"];
@@ -76,7 +76,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerAberrantStaggeringStrike.Name);
                 bp.SetDescription(BloodragerAberrantStaggeringStrike.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                var Staggered = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("df3950af5a783bd4d91ab73eb8fa0fd3").ToReference<BlueprintBuffReference>();
+                var Staggered = Resources.GetBlueprint<BlueprintBuff>("df3950af5a783bd4d91ab73eb8fa0fd3").ToReference<BlueprintBuffReference>();
 
                 var applyBuff = Helpers.Create<ContextActionApplyBuff>(c => {
                     c.m_Buff = Staggered;
@@ -401,31 +401,31 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline);
         }
         public static void AddSorcererAberrantBloodline() {
-            var SorcererClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
-            var MagusClass = ResourcesLibrary.TryGetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780").ToReference<BlueprintCharacterClassReference>();
-            var EldritchScionArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("d078b2ef073f2814c9e338a789d97b73").ToReference<BlueprintArchetypeReference>();
+            var SorcererClass = Resources.GetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
+            var MagusClass = Resources.GetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780").ToReference<BlueprintCharacterClassReference>();
+            var EldritchScionArchetype = Resources.GetBlueprint<BlueprintArchetype>("d078b2ef073f2814c9e338a789d97b73").ToReference<BlueprintArchetypeReference>();
             //Used Assets
-            var AcidArrow = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
-            var BloodlineInfernalClassSkill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f07a37a5b245304429530842cb65e213");
+            var AcidArrow = Resources.GetBlueprint<BlueprintAbility>("9a46dfd390f943647ab4395fc997936d");
+            var BloodlineInfernalClassSkill = Resources.GetBlueprint<BlueprintFeature>("f07a37a5b245304429530842cb65e213");
             //Bonus Spells
-            var EnlargePerson = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c60969e7f264e6d4b84a1499fdcf9039").ToReference<BlueprintAbilityReference>();
-            var SeeInvisibility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("30e5dc243f937fc4b95d2f8f4e1b7ff3").ToReference<BlueprintAbilityReference>();
-            var Blink = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("045351f1421ee3f449a9143db701d192").ToReference<BlueprintAbilityReference>();
-            var SpikeStones = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("d1afa8bc28c99104da7d784115552de5").ToReference<BlueprintAbilityReference>();
-            var Feeblemind = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("444eed6e26f773a40ab6e4d160c67faa").ToReference<BlueprintAbilityReference>();
-            var Eyebite = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3167d30dd3c622c46b0c0cb242061642").ToReference<BlueprintAbilityReference>();
-            var PolymorphGreaterBase = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("a9fc28e147dbb364ea4a3c1831e7e55f").ToReference<BlueprintAbilityReference>();
-            var MindBlank = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("df2a0ba6b6dcecf429cbb80a56fee5cf").ToReference<BlueprintAbilityReference>();
-            var ShapeChange = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("22b9044aa229815429d57d0a30e4b739").ToReference<BlueprintAbilityReference>();
+            var EnlargePerson = Resources.GetBlueprint<BlueprintAbility>("c60969e7f264e6d4b84a1499fdcf9039").ToReference<BlueprintAbilityReference>();
+            var SeeInvisibility = Resources.GetBlueprint<BlueprintAbility>("30e5dc243f937fc4b95d2f8f4e1b7ff3").ToReference<BlueprintAbilityReference>();
+            var Blink = Resources.GetBlueprint<BlueprintAbility>("045351f1421ee3f449a9143db701d192").ToReference<BlueprintAbilityReference>();
+            var SpikeStones = Resources.GetBlueprint<BlueprintAbility>("d1afa8bc28c99104da7d784115552de5").ToReference<BlueprintAbilityReference>();
+            var Feeblemind = Resources.GetBlueprint<BlueprintAbility>("444eed6e26f773a40ab6e4d160c67faa").ToReference<BlueprintAbilityReference>();
+            var Eyebite = Resources.GetBlueprint<BlueprintAbility>("3167d30dd3c622c46b0c0cb242061642").ToReference<BlueprintAbilityReference>();
+            var PolymorphGreaterBase = Resources.GetBlueprint<BlueprintAbility>("a9fc28e147dbb364ea4a3c1831e7e55f").ToReference<BlueprintAbilityReference>();
+            var MindBlank = Resources.GetBlueprint<BlueprintAbility>("df2a0ba6b6dcecf429cbb80a56fee5cf").ToReference<BlueprintAbilityReference>();
+            var ShapeChange = Resources.GetBlueprint<BlueprintAbility>("22b9044aa229815429d57d0a30e4b739").ToReference<BlueprintAbilityReference>();
             //Bonus Feats
-            var CombatCasting = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("06964d468fde1dc4aa71a92ea04d930d").ToReference<BlueprintFeatureReference>();
-            var ImprovedDisarm = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("25bc9c439ac44fd44ac3b1e58890916f").ToReference<BlueprintFeatureReference>();
-            var ImprovedDirtyTrick = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("ed699d64870044b43bb5a7fbe3f29494").ToReference<BlueprintFeatureReference>(); //No Grapple
-            var ImprovedInitiative = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("797f25d709f559546b29e7bcb181cc74").ToReference<BlueprintFeatureReference>();
-            var ImprovedUnarmedStrike = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("7812ad3672a4b9a4fb894ea402095167").ToReference<BlueprintFeatureReference>();
-            var IronWill = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("175d1577bb6c9a04baf88eec99c66334").ToReference<BlueprintFeatureReference>();
-            var ExtendSpell = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef").ToReference<BlueprintFeatureReference>();
-            var SkillFocusKnowledgeWorld = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("611e863120c0f9a4cab2d099f1eb20b4").ToReference<BlueprintFeatureReference>();
+            var CombatCasting = Resources.GetBlueprint<BlueprintFeature>("06964d468fde1dc4aa71a92ea04d930d").ToReference<BlueprintFeatureReference>();
+            var ImprovedDisarm = Resources.GetBlueprint<BlueprintFeature>("25bc9c439ac44fd44ac3b1e58890916f").ToReference<BlueprintFeatureReference>();
+            var ImprovedDirtyTrick = Resources.GetBlueprint<BlueprintFeature>("ed699d64870044b43bb5a7fbe3f29494").ToReference<BlueprintFeatureReference>(); //No Grapple
+            var ImprovedInitiative = Resources.GetBlueprint<BlueprintFeature>("797f25d709f559546b29e7bcb181cc74").ToReference<BlueprintFeatureReference>();
+            var ImprovedUnarmedStrike = Resources.GetBlueprint<BlueprintFeature>("7812ad3672a4b9a4fb894ea402095167").ToReference<BlueprintFeatureReference>();
+            var IronWill = Resources.GetBlueprint<BlueprintFeature>("175d1577bb6c9a04baf88eec99c66334").ToReference<BlueprintFeatureReference>();
+            var ExtendSpell = Resources.GetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef").ToReference<BlueprintFeatureReference>();
+            var SkillFocusKnowledgeWorld = Resources.GetBlueprint<BlueprintFeature>("611e863120c0f9a4cab2d099f1eb20b4").ToReference<BlueprintFeatureReference>();
             //Bloodline Powers
             var SorcererAberrantClassSkill = Helpers.Create<BlueprintFeature>(bp => {
                 bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantClassSkill"];

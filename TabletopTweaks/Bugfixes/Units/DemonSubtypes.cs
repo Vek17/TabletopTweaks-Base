@@ -22,9 +22,9 @@ namespace TabletopTweaks.Bugfixes.Units {
 
         public static void patchDemonSubtypes() {
             if (!Settings.Fixes.FixDemonSubtypes) { return; }
-            BlueprintFeature subtypeDemon = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("dc960a234d365cb4f905bdc5937e623a");
-            BlueprintFeature subtypeEvil = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("5279fc8380dd9ba419b4471018ffadd1");
-            BlueprintFeature subtypeChaotic = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1dd712e7f147ab84bad6ffccd21a878d");
+            BlueprintFeature subtypeDemon = Resources.GetBlueprint<BlueprintFeature>("dc960a234d365cb4f905bdc5937e623a");
+            BlueprintFeature subtypeEvil = Resources.GetBlueprint<BlueprintFeature>("5279fc8380dd9ba419b4471018ffadd1");
+            BlueprintFeature subtypeChaotic = Resources.GetBlueprint<BlueprintFeature>("1dd712e7f147ab84bad6ffccd21a878d");
 
             var addFacts = subtypeDemon.GetComponent<AddFacts>();
             addFacts.m_Facts = addFacts.m_Facts.AddToArray(subtypeEvil.ToReference<BlueprintUnitFactReference>());

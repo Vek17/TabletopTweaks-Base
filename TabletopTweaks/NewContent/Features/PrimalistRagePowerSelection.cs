@@ -7,7 +7,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Features {
     class PrimalistRagePowerSelection {
         public static void AddPrimalistRagePowerSelection() {
-            var RagePowerSelection = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("28710502f46848d48b3f0d6132817c4e");
+            var RagePowerSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("28710502f46848d48b3f0d6132817c4e");
             var PrimalistRagePowerSelection = Helpers.CreateCopy<BlueprintFeatureSelection>(RagePowerSelection, bp => {
                 bp.name = "PrimalistRagePowerSelection";
                 bp.SetDescription("At 4th level and every 4 levels thereafter, a primalist can choose to take either his bloodline power "

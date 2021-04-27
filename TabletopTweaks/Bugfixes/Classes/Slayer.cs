@@ -24,7 +24,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchSlayerStudiedTarget() {
                 if (!Settings.Fixes.Slayer.Base.Fixes["StudiedTarget"]) { return; }
-                BlueprintBuff SlayerStudiedTargetBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
+                BlueprintBuff SlayerStudiedTargetBuff = Resources.GetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
                 SlayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
                 Main.LogPatch("Patched", SlayerStudiedTargetBuff);
             }

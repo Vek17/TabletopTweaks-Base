@@ -49,9 +49,9 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchFeats();
 
                 void PatchAnimalCompanionFeatures() {
-                    var AnimalCompanionSelectionBase = ResourcesLibrary.TryGetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
-                    var AnimalCompanionNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
-                    var AnimalCompanionStatFeature = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
+                    var AnimalCompanionSelectionBase = Resources.GetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
+                    var AnimalCompanionNaturalArmor = Resources.GetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
+                    var AnimalCompanionStatFeature = Resources.GetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
                     IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = AnimalCompanionSelectionBase.m_AllFeatures.Concat(AnimalCompanionSelectionBase.m_Features)
                         .Select(feature => feature.Get())
                         .Where(feature => feature.GetComponent<AddPet>())
@@ -74,24 +74,24 @@ namespace TabletopTweaks.MechanicsChanges {
                     });
                 }
                 void PatchClassFeatures() {
-                    BlueprintFeature DragonDiscipleNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("aa4f9fd22a07ddb49982500deaed88f9");
+                    BlueprintFeature DragonDiscipleNaturalArmor = Resources.GetBlueprint<BlueprintFeature>("aa4f9fd22a07ddb49982500deaed88f9");
                     DragonDiscipleNaturalArmor.GetComponent<AddStatBonus>().Descriptor = (ModifierDescriptor)NaturalArmor.Stackable;
                     Main.LogPatch("Patched", DragonDiscipleNaturalArmor);
                 }
                 void PatchFeats() {
-                    BlueprintFeature ImprovedNaturalArmor = ResourcesLibrary.TryGetBlueprint<BlueprintFeature>("fe9482aad88e5a54682d47d1df910ce8");
+                    BlueprintFeature ImprovedNaturalArmor = Resources.GetBlueprint<BlueprintFeature>("fe9482aad88e5a54682d47d1df910ce8");
                     ImprovedNaturalArmor.GetComponent<AddStatBonus>().Descriptor = (ModifierDescriptor)NaturalArmor.Stackable;
                     Main.LogPatch("Patched", ImprovedNaturalArmor);
                 }
                 void PatchItemBuffs() {
                     //Icy Protector
-                    BlueprintBuff ProtectionOfColdBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
+                    BlueprintBuff ProtectionOfColdBuff = Resources.GetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
                     ProtectionOfColdBuff.SetName("Iceplant");
                     ProtectionOfColdBuff.GetComponent<AddStatBonus>().Value = 4;
                     Main.LogPatch("Patched", ProtectionOfColdBuff);
                 }
                 void PatchSpellBuffs() {
-                    BlueprintBuff LegendaryProportions = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
+                    BlueprintBuff LegendaryProportions = Resources.GetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
                     LegendaryProportions.GetComponents<AddContextStatBonus>()
                         .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorEnhancement)
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Size);

@@ -308,7 +308,7 @@ namespace TabletopTweaks.Extensions {
         static readonly FastRef<BlueprintArchetype, Sprite> blueprintArchetype_set_Icon = Helpers.CreateFieldSetter<BlueprintArchetype, Sprite>("m_Icon");
 
         public static void FixDomainSpell(this BlueprintAbility spell, int level, string spellListId) {
-            var spellList = ResourcesLibrary.TryGetBlueprint<BlueprintSpellList>(spellListId);
+            var spellList = Resources.GetBlueprint<BlueprintSpellList>(spellListId);
             var spells = spellList.SpellsByLevel.First(s => s.SpellLevel == level).Spells;
             spells.Clear();
             spells.Add(spell);

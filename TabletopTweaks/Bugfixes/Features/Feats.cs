@@ -25,7 +25,7 @@ namespace TabletopTweaks.Bugfixes.Features {
 
             static void PatchCraneWing() {
                 if (!Settings.Fixes.Feats.Fixes["CraneWing"]) { return; }
-                BlueprintBuff CraneStyleBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("e8ea7bd10136195478d8a5fc5a44c7da");
+                BlueprintBuff CraneStyleBuff = Resources.GetBlueprint<BlueprintBuff>("e8ea7bd10136195478d8a5fc5a44c7da");
                 var FightingDefensivlyTrigger = CraneStyleBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
                 var Conditionals = FightingDefensivlyTrigger.Action.Actions.OfType<Conditional>();
 

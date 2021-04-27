@@ -47,7 +47,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchAngelicAspect() {
                 if (!Settings.Fixes.Spells.Fixes["AngelicAspect"]) { return; }
-                var AngelicAspectBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("b33f44fecadb3ca48b438dacac6454c2");
+                var AngelicAspectBuff = Resources.GetBlueprint<BlueprintBuff>("b33f44fecadb3ca48b438dacac6454c2");
 
                 var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
                     c.Alignment = AlignmentComponent.Good;
@@ -68,8 +68,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchAngelicAspectGreater() {
                 if (!Settings.Fixes.Spells.Fixes["AngelicAspectGreater"]) { return; }
-                var AngelicAspectGreaterBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("87fcda72043d20840b4cdc2adcc69c63");
-                var AuraOfAngelicAspectGreaterEffectBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("6ab366720f4b8ed4f83ada36994d0890");
+                var AngelicAspectGreaterBuff = Resources.GetBlueprint<BlueprintBuff>("87fcda72043d20840b4cdc2adcc69c63");
+                var AuraOfAngelicAspectGreaterEffectBuff = Resources.GetBlueprint<BlueprintBuff>("6ab366720f4b8ed4f83ada36994d0890");
 
                 var FlyingSpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
                     c.Descriptor = SpellDescriptor.Ground;
@@ -92,7 +92,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchBelieveInYourself() {
                 if (!Settings.Fixes.Spells.Fixes["BelieveInYourself"]) { return; }
-                BlueprintAbility BelieveInYourself = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
+                BlueprintAbility BelieveInYourself = Resources.GetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
                 BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
                     .GetComponent<AbilityVariants>()
                     .Variants;
@@ -107,20 +107,20 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchBestowCurseGreater() {
                 if (!Settings.Fixes.Spells.Fixes["BestowCurseGreater"]) { return; }
-                var BestowCurseGreaterDeterioration = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
-                var BestowCurseGreaterFeebleBody = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
-                var BestowCurseGreaterIdiocy = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
-                var BestowCurseGreaterWeakness = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("abb2d42dd9219eb41848ec56a8726d58");
+                var BestowCurseGreaterDeterioration = Resources.GetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
+                var BestowCurseGreaterFeebleBody = Resources.GetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
+                var BestowCurseGreaterIdiocy = Resources.GetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
+                var BestowCurseGreaterWeakness = Resources.GetBlueprint<BlueprintAbility>("abb2d42dd9219eb41848ec56a8726d58");
 
-                var BestowCurseGreaterDeteriorationCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("54606d540f5d3684d9f7d6e2e2be9b63");
-                var BestowCurseGreaterFeebleBodyCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("292d630a5abae64499bb18057aaa24b4");
-                var BestowCurseGreaterIdiocyCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("e0212142d2a426f43926edd4202996bb");
-                var BestowCurseGreaterWeaknessCast = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1168f36fac0bad64f965928206df7b86");
+                var BestowCurseGreaterDeteriorationCast = Resources.GetBlueprint<BlueprintAbility>("54606d540f5d3684d9f7d6e2e2be9b63");
+                var BestowCurseGreaterFeebleBodyCast = Resources.GetBlueprint<BlueprintAbility>("292d630a5abae64499bb18057aaa24b4");
+                var BestowCurseGreaterIdiocyCast = Resources.GetBlueprint<BlueprintAbility>("e0212142d2a426f43926edd4202996bb");
+                var BestowCurseGreaterWeaknessCast = Resources.GetBlueprint<BlueprintAbility>("1168f36fac0bad64f965928206df7b86");
 
-                var BestowCurseGreaterDeteriorationBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("8f8835d083f31c547a39ebc26ae42159");
-                var BestowCurseGreaterFeebleBodyBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("28c9db77dfb1aa54a94e8a7413b1840a");
-                var BestowCurseGreaterIdiocyBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("493dcc29a21abd94d9adb579e1f40318");
-                var BestowCurseGreaterWeaknessBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("0493a9d25687d7e4682e250ae3ccb187");
+                var BestowCurseGreaterDeteriorationBuff = Resources.GetBlueprint<BlueprintBuff>("8f8835d083f31c547a39ebc26ae42159");
+                var BestowCurseGreaterFeebleBodyBuff = Resources.GetBlueprint<BlueprintBuff>("28c9db77dfb1aa54a94e8a7413b1840a");
+                var BestowCurseGreaterIdiocyBuff = Resources.GetBlueprint<BlueprintBuff>("493dcc29a21abd94d9adb579e1f40318");
+                var BestowCurseGreaterWeaknessBuff = Resources.GetBlueprint<BlueprintBuff>("0493a9d25687d7e4682e250ae3ccb187");
 
                 RebuildCurse(
                     BestowCurseGreaterDeterioration,
@@ -153,7 +153,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchCrusadersEdge() {
                 if (!Settings.Fixes.Spells.Fixes["CrusadersEdge"]) { return; }
-                BlueprintBuff CrusadersEdgeBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
+                BlueprintBuff CrusadersEdgeBuff = Resources.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 Main.LogPatch("Patched", CrusadersEdgeBuff);
             }
@@ -163,8 +163,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchMagicalVestmentShield();
 
                 void PatchMagicalVestmentShield() {
-                    var MagicalVestmentShield = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("adcda176d1756eb45bd5ec9592073b09");
-                    var MagicalVestmentShieldBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("2e8446f820936a44f951b50d70a82b16");
+                    var MagicalVestmentShield = Resources.GetBlueprint<BlueprintAbility>("adcda176d1756eb45bd5ec9592073b09");
+                    var MagicalVestmentShieldBuff = Resources.GetBlueprint<BlueprintBuff>("2e8446f820936a44f951b50d70a82b16");
                     MagicalVestmentShield.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceSheild>(a => {
                         a.EnchantLevel = new ContextValue();
                         a.EnchantLevel.ValueType = ContextValueType.Rank;
@@ -179,11 +179,11 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
 
                         a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
                         };
                     }));
                     var RankConfig = Helpers.CreateContextRankConfig();
@@ -202,8 +202,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     Main.LogPatch("Patched", MagicalVestmentShieldBuff);
                 }
                 void PatchMagicalVestmentArmor() {
-                    var MagicalVestmentArmor = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("956309af83352714aa7ee89fb4ecf201");
-                    var MagicalVestmentArmorBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("9e265139cf6c07c4fb8298cb8b646de9");
+                    var MagicalVestmentArmor = Resources.GetBlueprint<BlueprintAbility>("956309af83352714aa7ee89fb4ecf201");
+                    var MagicalVestmentArmorBuff = Resources.GetBlueprint<BlueprintBuff>("9e265139cf6c07c4fb8298cb8b646de9");
                     MagicalVestmentArmor.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceArmor>(a => {
                         a.EnchantLevel = new ContextValue();
                         a.EnchantLevel.ValueType = ContextValueType.Rank;
@@ -218,11 +218,11 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
 
                         a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
-                            ResourcesLibrary.TryGetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
+                            Resources.GetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
                         };
                     }));
                     var RankConfig = Helpers.CreateContextRankConfig();
@@ -241,7 +241,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchOdeToMiraculousMagicBuff() {
                 if (!Settings.Fixes.Spells.Fixes["OdeToMiraculousMagic"]) { return; }
-                BlueprintBuff OdeToMiraculousMagicBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
+                BlueprintBuff OdeToMiraculousMagicBuff = Resources.GetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
                 IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
                     c.Type = SavingThrowType.Will;
                     c.BonusDC = 2;
@@ -251,19 +251,19 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchProtectionFromAlignment() {
                 if (!Settings.Fixes.Spells.Fixes["ProtectionFromAlignment"]) { return; }
-                var ProtectionFromAlignment = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
+                var ProtectionFromAlignment = Resources.GetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
                 var ProtectionFromAlignmentVariants = ProtectionFromAlignment
                         .GetComponent<AbilityVariants>()
                         .Variants;
-                var ProtectionFromAlignmentCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2cadf6c6350e4684baa109d067277a45");
+                var ProtectionFromAlignmentCommunal = Resources.GetBlueprint<BlueprintAbility>("2cadf6c6350e4684baa109d067277a45");
                 var ProtectionFromAlignmentCommunalVariants = ProtectionFromAlignmentCommunal
                         .GetComponent<AbilityVariants>()
                         .Variants;
-                var ProtectionFromChaosEvil = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("c28f7234f5fb8c943a77621ad96ad8f9");
+                var ProtectionFromChaosEvil = Resources.GetBlueprint<BlueprintAbility>("c28f7234f5fb8c943a77621ad96ad8f9");
                 var ProtectionFromChaosEvilVariants = ProtectionFromChaosEvil
                         .GetComponent<AbilityVariants>()
                         .Variants;
-                var ProtectionFromChaosEvilCommunal = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("3026de673d4d8fe45baf40e0b5edd718");
+                var ProtectionFromChaosEvilCommunal = Resources.GetBlueprint<BlueprintAbility>("3026de673d4d8fe45baf40e0b5edd718");
                 var ProtectionFromChaosEvilCommunalVariants = ProtectionFromChaosEvilCommunal
                         .GetComponent<AbilityVariants>()
                         .Variants;
@@ -317,7 +317,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 patchCloakOfChoas();
 
                 void patchHolyAura() {
-                    BlueprintAbility HolyAura = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("47f9cb1c367a5e4489cfa32fce290f86");
+                    BlueprintAbility HolyAura = Resources.GetBlueprint<BlueprintAbility>("47f9cb1c367a5e4489cfa32fce290f86");
                     BlueprintBuff HolyAuraBuff = HolyAura.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     string description = "A malevolent darkness surrounds the subjects, protecting them from attacks, "
                         + "granting them resistance to spells cast by good creatures, and weakening good creatures when they strike the subjects. "
@@ -330,7 +330,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     patchAbility(HolyAura, AlignmentComponent.Good, description);
                 }
                 void patchUnholyAura() {
-                    BlueprintAbility UnholyAura = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("808ab74c12df8784ab4eeaf6a107dbea");
+                    BlueprintAbility UnholyAura = Resources.GetBlueprint<BlueprintAbility>("808ab74c12df8784ab4eeaf6a107dbea");
                     BlueprintBuff UnholyAuraBuff = UnholyAura.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     string description = "A brilliant divine radiance surrounds the subjects, protecting them from attacks, "
                         + "granting them resistance to spells cast by evil creatures, and causing evil creatures to become "
@@ -345,7 +345,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     patchAbility(UnholyAura, AlignmentComponent.Evil, description);
                 }
                 void patchShieldOfLaw() {
-                    BlueprintAbility ShieldOfLaw = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("73e7728808865094b8892613ddfaf7f5");
+                    BlueprintAbility ShieldOfLaw = Resources.GetBlueprint<BlueprintAbility>("73e7728808865094b8892613ddfaf7f5");
                     BlueprintBuff ShieldOfLawBuff = ShieldOfLaw.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     string description = "A dim blue glow surrounds the subjects, protecting them from attacks, granting them resistance to spells "
                         + "cast by chaotic creatures, and slowing chaotic creatures when they strike the subjects. This abjuration has four effects."
@@ -358,7 +358,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     patchAbility(ShieldOfLaw, AlignmentComponent.Chaotic, description);
                 }
                 void patchCloakOfChoas() {
-                    BlueprintAbility CloakOfChoas = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9155dbc8268da1c49a7fc4834fa1a4b1");
+                    BlueprintAbility CloakOfChoas = Resources.GetBlueprint<BlueprintAbility>("9155dbc8268da1c49a7fc4834fa1a4b1");
                     BlueprintBuff CloakOfChoasBuff = CloakOfChoas.FlattenAllActions().OfType<ContextActionApplyBuff>().First().Buff;
                     string description = "A random pattern of color surrounds the subjects, protecting them from attacks, granting them resistance to spells"
                         + "cast by lawful creatures, and causing lawful creatures that strike the subjects to become confused. This abjuration has four effects."
@@ -392,8 +392,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchRemoveFear() {
                 if (!Settings.Fixes.Spells.Fixes["RemoveFear"]) { return; }
-                var RemoveFear = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
-                var RemoveFearBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
+                var RemoveFear = Resources.GetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
+                var RemoveFearBuff = Resources.GetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
                 var suppressFear = Helpers.Create<SuppressBuffsPersistant>(c => {
                     c.Descriptor = SpellDescriptor.Frightened | SpellDescriptor.Shaken | SpellDescriptor.Fear;
                 });
@@ -403,7 +403,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
             static void PatchWrachingRay() {
                 if (!Settings.Fixes.Spells.Fixes["WrackingRay"]) { return; }
-                var WrackingRay = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
+                var WrackingRay = Resources.GetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
                 foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
                     foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {
                         action.Value.DiceType = Kingmaker.RuleSystem.DiceType.D4;

@@ -49,10 +49,10 @@ namespace TabletopTweaks.BalanceAdjustments {
             }
             static void FixModifers() {
                 IEnumerable<BlueprintBuff> polymorphBuffs = new List<BlueprintBuff>() {
-                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("082caf8c1005f114ba6375a867f638cf"), //GeniekindDjinniBuff  
-                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("d47f45f29c4cfc0469f3734d02545e0b"), //GeniekindEfreetiBuff  
-                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("4f37fc07fe2cf7f4f8076e79a0a3bfe9"), //GeniekindMaridBuff  
-                    ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("1d498104f8e35e246b5d8180b0faed43"), //GeniekindShaitanBuff  
+                    Resources.GetBlueprint<BlueprintBuff>("082caf8c1005f114ba6375a867f638cf"), //GeniekindDjinniBuff  
+                    Resources.GetBlueprint<BlueprintBuff>("d47f45f29c4cfc0469f3734d02545e0b"), //GeniekindEfreetiBuff  
+                    Resources.GetBlueprint<BlueprintBuff>("4f37fc07fe2cf7f4f8076e79a0a3bfe9"), //GeniekindMaridBuff  
+                    Resources.GetBlueprint<BlueprintBuff>("1d498104f8e35e246b5d8180b0faed43"), //GeniekindShaitanBuff  
                 };
                 polymorphBuffs
                     .OrderBy(buff => buff.name)
