@@ -5,7 +5,6 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
-using System;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
@@ -27,7 +26,7 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void OnEventDidTrigger(RuleCastSpell evt) {
-            
+
         }
 #pragma warning disable 0649
         [SerializeField]

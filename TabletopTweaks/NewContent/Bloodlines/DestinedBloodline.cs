@@ -48,7 +48,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var GreenragerArchetype = ResourcesLibrary.TryGetBlueprint<BlueprintArchetype>("5648585af75596f4a9fa3ae385127f57").ToReference<BlueprintArchetypeReference>();
             //Used Assets
             var TrueStrike = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("2c38da66e5a599347ac95b3294acbe00");
-            var LuckDomain = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9af0b584f6f754045a0a79293d100ab3"); 
+            var LuckDomain = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("9af0b584f6f754045a0a79293d100ab3");
             //Bonus Spells
             var MageShield = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("ef768022b0785eb43a18969903c537c4").ToReference<BlueprintAbilityReference>();
             var Blur = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("14ec7a4e52e90fa47a4c8d63c69fd5c1").ToReference<BlueprintAbilityReference>();
