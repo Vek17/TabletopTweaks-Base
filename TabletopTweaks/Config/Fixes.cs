@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace TabletopTweaks.Config {
-    public class Fixes {
+    public class Fixes: IUpdatableSettings {
         public bool DisableNaturalArmorStacking = true;
         public bool DisablePolymorphStacking = true;
         public bool DisableCannyDefenseStacking = true;
@@ -19,23 +19,24 @@ namespace TabletopTweaks.Config {
         public FixGroup Feats = new FixGroup();
         public FixGroup MythicAbilities = new FixGroup();
 
-        public void OverrideFixes(Fixes newFixes) {
-            DisableNaturalArmorStacking = newFixes.DisableNaturalArmorStacking;
-            DisablePolymorphStacking = newFixes.DisablePolymorphStacking;
-            EnableArchetypePrerequisites = newFixes.EnableArchetypePrerequisites;
-            FixDemonSubtypes = newFixes.FixDemonSubtypes;
+        public void OverrideSettings(IUpdatableSettings userSettings) {
+            var loadedSettings = userSettings as Fixes;
+            DisableNaturalArmorStacking = loadedSettings.DisableNaturalArmorStacking;
+            DisablePolymorphStacking = loadedSettings.DisablePolymorphStacking;
+            EnableArchetypePrerequisites = loadedSettings.EnableArchetypePrerequisites;
+            FixDemonSubtypes = loadedSettings.FixDemonSubtypes;
 
-            Aeon.LoadFixgroup(newFixes.Aeon);
-            Azata.LoadFixgroup(newFixes.Azata);
+            Aeon.LoadFixgroup(loadedSettings.Aeon);
+            Azata.LoadFixgroup(loadedSettings.Azata);
 
-            Bloodrager.LoadClassGroup(newFixes.Bloodrager);
-            Rogue.LoadClassGroup(newFixes.Rogue);
-            Slayer.LoadClassGroup(newFixes.Slayer);
-            Witch.LoadClassGroup(newFixes.Witch);
+            Bloodrager.LoadClassGroup(loadedSettings.Bloodrager);
+            Rogue.LoadClassGroup(loadedSettings.Rogue);
+            Slayer.LoadClassGroup(loadedSettings.Slayer);
+            Witch.LoadClassGroup(loadedSettings.Witch);
 
-            Spells.LoadFixgroup(newFixes.Spells);
-            Bloodlines.LoadFixgroup(newFixes.Bloodlines);
-            MythicAbilities.LoadFixgroup(newFixes.MythicAbilities);
+            Spells.LoadFixgroup(loadedSettings.Spells);
+            Bloodlines.LoadFixgroup(loadedSettings.Bloodlines);
+            MythicAbilities.LoadFixgroup(loadedSettings.MythicAbilities);
         }
 
         public class FixGroup {

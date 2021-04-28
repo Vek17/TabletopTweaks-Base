@@ -103,6 +103,9 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
       <Private>False</Private>
@@ -119,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Config\Blueprints.cs" />
+    <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
@@ -160,9 +164,11 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\Features\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="SaveGamePatch.cs" />
+    <Compile Include="Utilities\AssetLoader.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\BloodlineTools.cs" />
     <Compile Include="Utilities\Helpers.cs" />
@@ -172,7 +178,7 @@
     <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
     <Compile Include="Bugfixes\Features\Bloodlines.cs" />
     <Compile Include="NewComponents\PrerequisiteNoFeaturesFromList.cs" />
-    <Compile Include="Config\Settings.cs" />
+    <Compile Include="Config\ModSettings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Config\Fixes.cs" />
@@ -189,6 +195,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Abilities\Icon_LongArm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" AfterTargets="BeforeClean">
     <PropertyGroup>

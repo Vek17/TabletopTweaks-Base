@@ -1,5 +1,4 @@
-﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Selection;
+﻿using Kingmaker.Blueprints.Classes.Selection;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -17,7 +16,7 @@ namespace TabletopTweaks.NewContent.Features {
                 + "does not count as the rage power class feature for determining feat prerequisites and other requirements.");
                 bp.SetName("Primalist Rage Power");
             });
-            Resources.AddBlueprint(PrimalistRagePowerSelection, Settings.Blueprints.NewBlueprints["PrimalistRagePowerSelection"]);
+            Resources.AddBlueprint(PrimalistRagePowerSelection, ModSettings.Blueprints.NewBlueprints["PrimalistRagePowerSelection"]);
         }
     }
 }

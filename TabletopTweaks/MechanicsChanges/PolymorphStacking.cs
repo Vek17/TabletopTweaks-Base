@@ -18,7 +18,7 @@ namespace TabletopTweaks.BalanceAdjustments {
         static class RuleCanApplyBuff_OnTrigger_Patch {
 
             static void Postfix(RuleCanApplyBuff __instance) {
-                if (!Settings.Fixes.DisablePolymorphStacking) { return; }
+                if (!ModSettings.Fixes.DisablePolymorphStacking) { return; }
                 var Descriptor = __instance.Blueprint.GetComponent<SpellDescriptorComponent>();
                 if (Descriptor == null) { return; }
                 if (!Descriptor.Descriptor.HasAnyFlag(SpellDescriptor.Polymorph)) { return; }
@@ -42,7 +42,7 @@ namespace TabletopTweaks.BalanceAdjustments {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (!Settings.Fixes.DisablePolymorphStacking) { return; }
+                if (!ModSettings.Fixes.DisablePolymorphStacking) { return; }
                 Main.LogHeader("Patching Polymorph Resources");
                 FixModifers();
 

@@ -22,14 +22,14 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Settings.Fixes.MythicAbilities.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.MythicAbilities.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Mythic Ability Resources");
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
                 Main.LogHeader("Patching Mythic Ability Resources Complete");
             }
             static void PatchBloodlineAscendance() {
-                if (!Settings.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
+                if (!ModSettings.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
                 BlueprintFeatureSelection BloodlineAscendance = Resources.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
@@ -49,7 +49,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
             static void PatchSecondBloodline() {
-                if (!Settings.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
+                if (!ModSettings.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
                 var SeekerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
@@ -88,7 +88,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static BlueprintFeature EnduringSpells = Resources.GetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
             static BlueprintFeature EnduringSpellsGreater = Resources.GetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
-                if (Settings.Fixes.MythicAbilities.DisableAllFixes || !Settings.Fixes.MythicAbilities.Fixes["EnduringSpells"]) { return true; }
+                if (ModSettings.Fixes.MythicAbilities.DisableAllFixes || !ModSettings.Fixes.MythicAbilities.Fixes["EnduringSpells"]) { return true; }
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
 
                     var owner = parentContext.MaybeOwner;

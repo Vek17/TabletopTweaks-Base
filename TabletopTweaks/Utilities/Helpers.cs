@@ -46,7 +46,7 @@ namespace TabletopTweaks.Utilities {
             levelEntry.Level = level;
             features.ForEach(f => levelEntry.Features.Add(f));
             return levelEntry;
-        }
+        }/*
         public static ContextRankConfig CreateContextRankConfig(
             ContextRankBaseValueType baseValueType = ContextRankBaseValueType.CasterLevel,
             ContextRankProgression progression = ContextRankProgression.AsIs,
@@ -76,7 +76,7 @@ namespace TabletopTweaks.Utilities {
             config.m_FeatureList = featureList != null ? featureList.Select(c => c.ToReference<BlueprintFeatureReference>()).ToArray() : Array.Empty<BlueprintFeatureReference>();
 
             return config;
-        }
+        }*/
         public static ContextValue CreateContextValueRank(AbilityRankType value = AbilityRankType.Default) => value.CreateContextValue();
         public static ContextValue CreateContextValue(this AbilityRankType value) {
             return new ContextValue() { ValueType = ContextValueType.Rank, ValueRank = value };
@@ -164,6 +164,37 @@ namespace TabletopTweaks.Utilities {
                 action(clone);
             }
             return clone;
+        }
+        public static ContextRankConfig CreateContextRankConfig(
+            ContextRankBaseValueType baseValueType = ContextRankBaseValueType.CasterLevel,
+            ContextRankProgression progression = ContextRankProgression.AsIs,
+            AbilityRankType type = AbilityRankType.Default,
+            int? min = null, int? max = null, int startLevel = 0, int stepLevel = 0,
+            bool exceptClasses = false, StatType stat = StatType.Unknown,
+            BlueprintUnitProperty customProperty = null,
+            BlueprintCharacterClass[] classes = null, BlueprintArchetype[] archetypes = null, BlueprintArchetype archetype = null,
+            BlueprintFeature feature = null, BlueprintFeature[] featureList = null,
+            (int, int)[] customProgression = null) {
+            var config = Helpers.Create<ContextRankConfig>(bp => {
+                bp.m_Type = type;
+                bp.m_BaseValueType = baseValueType;
+                bp.m_Progression = progression;
+                bp.m_UseMin = min.HasValue;
+                bp.m_Min = min.GetValueOrDefault();
+                bp.m_UseMax = max.HasValue;
+                bp.m_Max = max.GetValueOrDefault();
+                bp.m_StartLevel = startLevel;
+                bp.m_StepLevel = stepLevel;
+                bp.m_Feature = feature.ToReference<BlueprintFeatureReference>();
+                bp.m_ExceptClasses = exceptClasses;
+                bp.m_CustomProperty = customProperty.ToReference<BlueprintUnitPropertyReference>();
+                bp.m_Stat = stat;
+                bp.m_Class = classes == null ? Array.Empty<BlueprintCharacterClassReference>() : classes.Select(c => c.ToReference<BlueprintCharacterClassReference>()).ToArray();
+                bp.Archetype = archetype.ToReference<BlueprintArchetypeReference>();
+                bp.m_AdditionalArchetypes = archetypes == null ? Array.Empty<BlueprintArchetypeReference>() : archetypes.Select(c => c.ToReference<BlueprintArchetypeReference>()).ToArray();
+                bp.m_FeatureList = featureList == null ? Array.Empty<BlueprintFeatureReference>() : featureList.Select(c => c.ToReference<BlueprintFeatureReference>()).ToArray();
+            });
+            return config;
         }
     }
     public delegate ref S FastRef<T, S>(T source = default);

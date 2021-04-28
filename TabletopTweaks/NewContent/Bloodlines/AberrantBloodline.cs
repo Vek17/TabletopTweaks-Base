@@ -26,12 +26,12 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Bloodlines {
     public static class AberrantBloodline {
         static BlueprintFeatureReference BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(
-            Settings.Blueprints.NewBlueprints["BloodlineRequisiteFeature"]).ToReference<BlueprintFeatureReference>();
+            ModSettings.Blueprints.NewBlueprints["BloodlineRequisiteFeature"]).ToReference<BlueprintFeatureReference>();
         static BlueprintFeatureReference AberrantBloodlineRequisiteFeature = CreateBloodlineRequisiteFeature();
 
         static BlueprintFeatureReference CreateBloodlineRequisiteFeature() {
             var AberrantBloodlineRequisiteFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["AberrantBloodlineRequisiteFeature"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["AberrantBloodlineRequisiteFeature"];
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -62,7 +62,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var IronWill = Resources.GetBlueprint<BlueprintFeature>("175d1577bb6c9a04baf88eec99c66334").ToReference<BlueprintFeatureReference>();
             //Bloodline Powers
             var BloodragerAberrantStaggeringStrike = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantStaggeringStrike"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantStaggeringStrike"];
                 bp.name = "BloodragerAberrantStaggeringStrike";
                 bp.SetName("Staggering Strike");
                 bp.SetDescription("At 1st level, when you confirm a critical hit the target must succeed at a Fortitude saving "
@@ -71,7 +71,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "each effect individually.");
             });
             var BloodragerAberrantStaggeringStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantStaggeringStrikeBuff"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantStaggeringStrikeBuff"];
                 bp.name = "BloodragerAberrantStaggeringStrikeBuff";
                 bp.SetName(BloodragerAberrantStaggeringStrike.Name);
                 bp.SetDescription(BloodragerAberrantStaggeringStrike.Description);
@@ -110,13 +110,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var BloodragerAberrantAbnormalReach = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantAbnormalReach"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantAbnormalReach"];
                 bp.name = "BloodragerAberrantAbnormalReach";
                 bp.SetName("Abnormal Reach");
                 bp.SetDescription("At 4th level, your limbs elongate and your reach increases by 5 feet.");
             });
             var BloodragerAberrantAbnormalReachBuff = Helpers.Create<BlueprintBuff>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantAbnormalReachBuff"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantAbnormalReachBuff"];
                 bp.name = "BloodragerAberrantAbnormalReachBuff";
                 bp.SetName(BloodragerAberrantAbnormalReach.Name);
                 bp.SetDescription(BloodragerAberrantAbnormalReach.Description);
@@ -128,13 +128,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var BloodragerAberrantFortitude = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantFortitude"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantFortitude"];
                 bp.name = "BloodragerAberrantFortitude";
                 bp.SetName("Aberrant Fortitude");
                 bp.SetDescription("At 8th level, you become immune to the sickened and nauseated conditions.");
             });
             var BloodragerAberrantFortitudeBuff = Helpers.Create<BlueprintBuff>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantFortitudeBuff"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantFortitudeBuff"];
                 bp.name = "BloodragerAberrantFortitudeBuff";
                 bp.SetName(BloodragerAberrantFortitude.Name);
                 bp.SetDescription(BloodragerAberrantFortitude.Description);
@@ -153,14 +153,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var BloodragerAberrantUnusualAnatomy = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantUnusualAnatomy"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantUnusualAnatomy"];
                 bp.name = "BloodragerAberrantUnusualAnatomy";
                 bp.SetName("Unusual Anatomy");
                 bp.SetDescription("At 12th level, your internal anatomy shifts and changes, giving you a 50% chance to negate "
                     + "any critical hit or sneak attack that hits you. The damage is instead rolled normally.");
             });
             var BloodragerAberrantUnusualAnatomyBuff = Helpers.Create<BlueprintBuff>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantUnusualAnatomyBuff"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantUnusualAnatomyBuff"];
                 bp.name = "BloodragerAberrantUnusualAnatomyBuff";
                 bp.SetName(BloodragerAberrantUnusualAnatomy.Name);
                 bp.SetDescription(BloodragerAberrantUnusualAnatomy.Description);
@@ -171,13 +171,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var BloodragerAberrantResistance = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantResistance"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantResistance"];
                 bp.name = "BloodragerAberrantResistance";
                 bp.SetName("Aberrant Resistance");
                 bp.SetDescription("At 16th level, you are immune to disease, exhaustion, fatigue, and poison, and to the staggered condition.");
             });
             var BloodragerAberrantResistanceBuff = Helpers.Create<BlueprintBuff>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantResistanceBuff"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantResistanceBuff"];
                 bp.name = "BloodragerAberrantResistanceBuff";
                 bp.SetName(BloodragerAberrantResistance.Name);
                 bp.SetDescription(BloodragerAberrantResistance.Description);
@@ -199,7 +199,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var BloodragerAberrantForm = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantForm"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantForm"];
                 bp.name = "BloodragerAberrantForm";
                 bp.SetName("Aberrant Form");
                 bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. "
@@ -242,7 +242,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(BloodragerAberrantForm);
             //Bloodline Feats
             var BloodragerAberrantFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantFeatSelection"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantFeatSelection"];
                 bp.name = "BloodragerAberrantFeatSelection";
                 bp.SetName("Bonus Feats");
                 bp.SetDescription("Bonus Feats: Combat Reflexes, Great Fortitude, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will.");
@@ -263,7 +263,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_AllFeatures = bp.m_Features;
             });
             var BloodragerAberrantFeatSelectionGreenrager = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantFeatSelectionGreenrager"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantFeatSelectionGreenrager"];
                 bp.name = "BloodragerAberrantFeatSelectionGreenrager";
                 bp.SetName(BloodragerAberrantFeatSelection.m_DisplayName);
                 bp.SetDescription(BloodragerAberrantFeatSelection.m_Description);
@@ -285,7 +285,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             //Bloodline Spells
             var BloodragerAberrantSpell7 = Helpers.Create<BlueprintFeature>(bp => {
                 var spell = EnlargePerson;
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell7"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantSpell7"];
                 bp.name = "BloodragerAberrantSpell7";
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
@@ -297,7 +297,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerAberrantSpell10 = Helpers.Create<BlueprintFeature>(bp => {
                 var spell = SeeInvisibility;
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell10"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantSpell10"];
                 bp.name = "BloodragerAberrantSpell10";
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
@@ -309,7 +309,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerAberrantSpell13 = Helpers.Create<BlueprintFeature>(bp => {
                 var spell = Displacement;
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell13"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantSpell13"];
                 bp.name = "BloodragerAberrantSpell13";
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
@@ -321,7 +321,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerAberrantSpell16 = Helpers.Create<BlueprintFeature>(bp => {
                 var spell = SpikeStones;
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantSpell16"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantSpell16"];
                 bp.name = "BloodragerAberrantSpell16";
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
@@ -337,7 +337,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(BloodragerAberrantSpell16);
             //Bloodline Core
             var BloodragerAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantBloodline"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantBloodline"];
                 bp.name = "BloodragerAberrantBloodline";
                 bp.SetName("Aberrant");
                 bp.SetDescription("There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.\n"
@@ -379,7 +379,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerAberrantBaseBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.name = "BloodragerAberrantBaseBuff";
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["BloodragerAberrantBaseBuff"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantBaseBuff"];
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
 
@@ -397,7 +397,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodlineTools.ApplyPrimalistException(BloodragerAberrantUnusualAnatomy, 12, BloodragerAberrantBloodline);
             BloodlineTools.ApplyPrimalistException(BloodragerAberrantResistance, 16, BloodragerAberrantBloodline);
             BloodlineTools.ApplyPrimalistException(BloodragerAberrantForm, 20, BloodragerAberrantBloodline);
-            if (!Settings.AddedContent.AberrantBloodline) { return; }
+            if (!ModSettings.AddedContent.AberrantBloodline) { return; }
             BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline);
         }
         public static void AddSorcererAberrantBloodline() {
@@ -428,7 +428,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SkillFocusKnowledgeWorld = Resources.GetBlueprint<BlueprintFeature>("611e863120c0f9a4cab2d099f1eb20b4").ToReference<BlueprintFeatureReference>();
             //Bloodline Powers
             var SorcererAberrantClassSkill = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantClassSkill"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantClassSkill"];
                 bp.name = "SorcererAberrantClassSkill";
                 bp.SetName("Class Skill — Knowledge (World)");
                 bp.SetDescription("Additional class skill from the aberrant bloodline.");
@@ -440,7 +440,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = BloodlineInfernalClassSkill.Icon;
             });
             var SorcererAberrantBloodlineArcana = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantBloodlineArcana"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantBloodlineArcana"];
                 bp.name = "SorcererAberrantBloodlineArcana";
                 bp.IsClassFeature = true;
                 bp.SetName("Aberrant Bloodline Arcana");
@@ -449,7 +449,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
             });
             var SorcererAberrantAcidicRayResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayResource"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayResource"];
                 bp.name = "SorcererAberrantAcidicRayResource";
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
@@ -463,7 +463,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 };
             });
             var SorcererAberrantAcidicRayAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayAbility"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantAcidicRayAbility"];
                 bp.name = "SorcererAberrantAcidicRayAbility";
                 bp.SetName("Acidic Ray");
                 bp.SetDescription("Starting at 1st level, you can fire an acidic ray as a standard action, targeting any "
@@ -535,7 +535,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var SorcererAberrantAcidicRay = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAcidicRay"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantAcidicRay"];
                 bp.name = "SorcererAberrantAcidicRay";
                 bp.SetName("Acidic Ray");
                 bp.SetDescription("Starting at 1st level, you can fire an acidic ray as a standard action, targeting any "
@@ -555,7 +555,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = SorcererAberrantAcidicRayAbility.Icon;
             });
             var SorcererAberrantLongLimbs = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantLongLimbs"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantLongLimbs"];
                 bp.name = "SorcererAberrantLongLimbs";
                 bp.Ranks = 3;
                 bp.IsClassFeature = true; ;
@@ -569,7 +569,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var SorcererAberrantUnusualAnatomy = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantUnusualAnatomy"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantUnusualAnatomy"];
                 bp.name = "SorcererAberrantUnusualAnatomy";
                 bp.IsClassFeature = true;
                 bp.Ranks = 2;
@@ -581,7 +581,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var SorcererAberrantAlienResistance = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantAlienResistance"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantAlienResistance"];
                 bp.name = "SorcererAberrantAlienResistance";
                 bp.IsClassFeature = true;
                 bp.SetName("Alien Resistance");
@@ -603,7 +603,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var SorcererAberrantForm = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantForm"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantForm"];
                 bp.name = "SorcererAberrantForm";
                 bp.SetName("Aberrant Form");
                 bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. +"
@@ -643,7 +643,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(SorcererAberrantForm);
             //Bloodline Feats
             var SorcererAberrantFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantFeatSelection"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantFeatSelection"];
                 bp.name = "SorcererAberrantFeatSelection";
                 bp.SetName("Bloodline Feat Selection");
                 bp.SetDescription("At 7th level, and every six levels thereafter, a sorcerer receives one bonus feat, chosen from a list specific to each bloodline. "
@@ -669,7 +669,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(SorcererAberrantFeatSelection);
             //Bloodline Spells
             var SorcererAberrantSpell3 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell3"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell3"];
                 bp.name = "SorcererAberrantSpell3";
                 bp.IsClassFeature = true;
                 var Spell = EnlargePerson;
@@ -684,7 +684,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell5 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell5"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell5"];
                 bp.name = "SorcererAberrantSpell5";
                 bp.IsClassFeature = true;
                 var Spell = SeeInvisibility;
@@ -699,7 +699,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell7 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell7"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell7"];
                 bp.name = "SorcererAberrantSpell7";
                 bp.IsClassFeature = true;
                 var Spell = Blink;
@@ -714,7 +714,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell9 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell9"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell9"];
                 bp.name = "SorcererAberrantSpell9";
                 bp.IsClassFeature = true;
                 var Spell = SpikeStones;
@@ -729,7 +729,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell11 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell11"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell11"];
                 bp.name = "SorcererAberrantSpell11";
                 bp.IsClassFeature = true;
                 var Spell = Feeblemind;
@@ -744,7 +744,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell13 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell13"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell13"];
                 bp.name = "SorcererAberrantSpell13";
                 bp.IsClassFeature = true;
                 var Spell = Eyebite;
@@ -759,7 +759,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell15 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell15"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell15"];
                 bp.name = "SorcererAberrantSpell15";
                 bp.IsClassFeature = true;
                 var Spell = PolymorphGreaterBase;
@@ -774,7 +774,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell17 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell17"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell17"];
                 bp.name = "SorcererAberrantSpell17";
                 bp.IsClassFeature = true;
                 var Spell = MindBlank;
@@ -789,7 +789,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell19 = Helpers.Create<BlueprintFeature>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantSpell19"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantSpell19"];
                 bp.name = "SorcererAberrantSpell19";
                 bp.IsClassFeature = true;
                 var Spell = ShapeChange;
@@ -814,7 +814,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(SorcererAberrantSpell19);
             //Bloodline Core
             var SorcererAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SorcererAberrantBloodline"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererAberrantBloodline"];
                 bp.name = "SorcererAberrantBloodline";
                 bp.SetName("Aberrant Bloodline");
                 bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
@@ -862,7 +862,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var CrossbloodedAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["CrossbloodedAberrantBloodline"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["CrossbloodedAberrantBloodline"];
                 bp.name = "CrossbloodedAberrantBloodline";
                 bp.SetName(SorcererAberrantBloodline.Name);
                 bp.SetDescription(SorcererAberrantBloodline.Description);
@@ -898,7 +898,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 };
             });
             var SeekerAberrantBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.m_AssetGuid = Settings.Blueprints.NewBlueprints["SeekerAberrantBloodline"];
+                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["SeekerAberrantBloodline"];
                 bp.name = "SeekerAberrantBloodline";
                 bp.SetName(SorcererAberrantBloodline.Name);
                 bp.SetDescription(SorcererAberrantBloodline.Description);
@@ -948,7 +948,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(CrossbloodedAberrantBloodline);
             Resources.AddBlueprint(SeekerAberrantBloodline);
 
-            if (!Settings.AddedContent.AberrantBloodline) { return; }
+            if (!ModSettings.AddedContent.AberrantBloodline) { return; }
             BloodlineTools.RegisterSorcererBloodline(SorcererAberrantBloodline);
             BloodlineTools.RegisterCrossbloodedBloodline(CrossbloodedAberrantBloodline);
             BloodlineTools.RegisterSeekerBloodline(SeekerAberrantBloodline);

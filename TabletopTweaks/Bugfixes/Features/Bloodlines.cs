@@ -23,16 +23,16 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Settings.Fixes.Bloodlines.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Bloodlines.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Bloodline Resources");
                 PatchBloodlineRestrictions();
                 Main.LogHeader("Patching Bloodline Complete");
             }
         }
         static void PatchBloodlineRestrictions() {
-            if (!Settings.Fixes.Bloodlines.Fixes["BloodlineRestrictions"]) { return; }
+            if (!ModSettings.Fixes.Bloodlines.Fixes["BloodlineRestrictions"]) { return; }
             // Bloodline Requisite 
-            var BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(Settings.Blueprints.NewBlueprints["BloodlineRequisiteFeature"]);
+            var BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["BloodlineRequisiteFeature"]);
             // Requisite Features
             var AbyssalBloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>("b09b58c7f8efff244a33269489abeac6");
             var ArcaneBloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>("60d8632e96739a74dbac23dd078d205d");

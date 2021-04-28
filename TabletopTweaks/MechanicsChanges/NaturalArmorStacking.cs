@@ -18,7 +18,7 @@ namespace TabletopTweaks.MechanicsChanges {
         static class ModifierDescriptorHelper_IsStackable_Patch {
 
             static void Postfix(ref bool __result, ModifierDescriptor descriptor) {
-                if (!Settings.Fixes.DisableNaturalArmorStacking) { return; }
+                if (!ModSettings.Fixes.DisableNaturalArmorStacking) { return; }
                 if (descriptor == ModifierDescriptor.NaturalArmor) {
                     __result = false;
                 }
@@ -35,7 +35,7 @@ namespace TabletopTweaks.MechanicsChanges {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (!Settings.Fixes.DisableNaturalArmorStacking) { return; }
+                if (!ModSettings.Fixes.DisableNaturalArmorStacking) { return; }
                 Main.LogHeader("Patching NaturalArmor Resources");
                 PatchNaturalArmorEffects();
                 Main.LogHeader("NaturalArmor Resource Patch Complete");

@@ -30,7 +30,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Settings.Fixes.Spells.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Spells.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Spell Resources");
                 PatchAngelicAspect();
                 PatchAngelicAspectGreater();
@@ -46,7 +46,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogHeader("Patching Spells Complete");
             }
             static void PatchAngelicAspect() {
-                if (!Settings.Fixes.Spells.Fixes["AngelicAspect"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["AngelicAspect"]) { return; }
                 var AngelicAspectBuff = Resources.GetBlueprint<BlueprintBuff>("b33f44fecadb3ca48b438dacac6454c2");
 
                 var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
@@ -67,7 +67,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", AngelicAspectBuff);
             }
             static void PatchAngelicAspectGreater() {
-                if (!Settings.Fixes.Spells.Fixes["AngelicAspectGreater"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["AngelicAspectGreater"]) { return; }
                 var AngelicAspectGreaterBuff = Resources.GetBlueprint<BlueprintBuff>("87fcda72043d20840b4cdc2adcc69c63");
                 var AuraOfAngelicAspectGreaterEffectBuff = Resources.GetBlueprint<BlueprintBuff>("6ab366720f4b8ed4f83ada36994d0890");
 
@@ -91,7 +91,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", AuraOfAngelicAspectGreaterEffectBuff);
             }
             static void PatchBelieveInYourself() {
-                if (!Settings.Fixes.Spells.Fixes["BelieveInYourself"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["BelieveInYourself"]) { return; }
                 BlueprintAbility BelieveInYourself = Resources.GetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
                 BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
                     .GetComponent<AbilityVariants>()
@@ -106,7 +106,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
             }
             static void PatchBestowCurseGreater() {
-                if (!Settings.Fixes.Spells.Fixes["BestowCurseGreater"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["BestowCurseGreater"]) { return; }
                 var BestowCurseGreaterDeterioration = Resources.GetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
                 var BestowCurseGreaterFeebleBody = Resources.GetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
                 var BestowCurseGreaterIdiocy = Resources.GetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
@@ -152,13 +152,13 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
             }
             static void PatchCrusadersEdge() {
-                if (!Settings.Fixes.Spells.Fixes["CrusadersEdge"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["CrusadersEdge"]) { return; }
                 BlueprintBuff CrusadersEdgeBuff = Resources.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 Main.LogPatch("Patched", CrusadersEdgeBuff);
             }
             static void PatchMagicalVestment() {
-                if (!Settings.Fixes.Spells.Fixes["MagicalVestment"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["MagicalVestment"]) { return; }
                 PatchMagicalVestmentArmor();
                 PatchMagicalVestmentShield();
 
@@ -240,7 +240,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
             }
             static void PatchOdeToMiraculousMagicBuff() {
-                if (!Settings.Fixes.Spells.Fixes["OdeToMiraculousMagic"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["OdeToMiraculousMagic"]) { return; }
                 BlueprintBuff OdeToMiraculousMagicBuff = Resources.GetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
                 IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
                     c.Type = SavingThrowType.Will;
@@ -250,7 +250,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
             }
             static void PatchProtectionFromAlignment() {
-                if (!Settings.Fixes.Spells.Fixes["ProtectionFromAlignment"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["ProtectionFromAlignment"]) { return; }
                 var ProtectionFromAlignment = Resources.GetBlueprint<BlueprintAbility>("433b1faf4d02cc34abb0ade5ceda47c4");
                 var ProtectionFromAlignmentVariants = ProtectionFromAlignment
                         .GetComponent<AbilityVariants>()
@@ -310,7 +310,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", ProtectionFromChaosEvilCommunal);
             }
             static void PatchProtectionFromAlignmentGreater() {
-                if (!Settings.Fixes.Spells.Fixes["ProtectionFromAlignmentGreater"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["ProtectionFromAlignmentGreater"]) { return; }
                 patchUnholyAura();
                 patchHolyAura();
                 patchShieldOfLaw();
@@ -391,7 +391,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
             }
             static void PatchRemoveFear() {
-                if (!Settings.Fixes.Spells.Fixes["RemoveFear"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["RemoveFear"]) { return; }
                 var RemoveFear = Resources.GetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
                 var RemoveFearBuff = Resources.GetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
                 var suppressFear = Helpers.Create<SuppressBuffsPersistant>(c => {
@@ -402,7 +402,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", RemoveFearBuff);
             }
             static void PatchWrachingRay() {
-                if (!Settings.Fixes.Spells.Fixes["WrackingRay"]) { return; }
+                if (!ModSettings.Fixes.Spells.Fixes["WrackingRay"]) { return; }
                 var WrackingRay = Resources.GetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
                 foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
                     foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {

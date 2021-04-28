@@ -20,6 +20,7 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
+                Spells.LongArms.CreateLongArms();
             }
         }
     }

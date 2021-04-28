@@ -20,7 +20,7 @@ namespace TabletopTweaks.MechanicsChanges {
         [HarmonyPatch(typeof(CharGenClassSelectorItemVM), "GetArchetypesList", typeof(BlueprintCharacterClass))]
         static class CharGenClassSelectorItemVM_GetArchetypeList_Patch {
             static void Postfix(ref List<NestedSelectionGroupEntityVM> __result, CharGenClassSelectorItemVM __instance, BlueprintCharacterClass selectedClass) {
-                if (!Settings.Fixes.EnableArchetypePrerequisites) { return; }
+                if (!ModSettings.Fixes.EnableArchetypePrerequisites) { return; }
                 List<NestedSelectionGroupEntityVM> list = new List<NestedSelectionGroupEntityVM>();
                 if (selectedClass == null) {
                     __result = list;
@@ -46,7 +46,7 @@ namespace TabletopTweaks.MechanicsChanges {
         [HarmonyPatch(typeof(BlueprintCharacterClass), "MeetsPrerequisites", new Type[] { typeof(UnitDescriptor), typeof(LevelUpState) })]
         static class BlueprintCharacterClass_MeetsPrerequisites_Patch {
             static void Postfix(ref bool __result, BlueprintCharacterClass __instance, UnitDescriptor unit, LevelUpState state) {
-                if (!Settings.Fixes.EnableArchetypePrerequisites) { return; }
+                if (!ModSettings.Fixes.EnableArchetypePrerequisites) { return; }
                 bool meetsArchetypePrerequisites = true;
                 int classLevel = unit.Progression.GetClassLevel(__instance);
                 if (classLevel >= 1) {
@@ -63,7 +63,7 @@ namespace TabletopTweaks.MechanicsChanges {
         [HarmonyPatch(typeof(TooltipTemplateLevelUp), "AddClassPrerequisites")]
         static class TooltipTemplateLevelUp_AddClassPrerequisites_Patch {
             static bool Prefix(TooltipTemplateLevelUp __instance, List<ITooltipBrick> bricks) {
-                if (!Settings.Fixes.EnableArchetypePrerequisites) { return true; }
+                if (!ModSettings.Fixes.EnableArchetypePrerequisites) { return true; }
                 if (__instance.ClassInfo.Class == null) { return true; }
                 var unit = __instance.LevelupInfo.Unit;
                 var selectionClass = __instance.ClassInfo.Class;

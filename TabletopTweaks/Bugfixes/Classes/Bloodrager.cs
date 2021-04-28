@@ -14,7 +14,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Settings.Fixes.Bloodrager.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Bloodrager.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Bloodrager Resources");
                 PatchBaseClass();
                 PatchPrimalist();
@@ -22,11 +22,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogHeader("Patching Bloodrager Resources Complete");
             }
             static void PatchBaseClass() {
-                if (Settings.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
                 PatchSpellsPerDayTable();
 
                 void PatchSpellsPerDayTable() {
-                    if (!Settings.Fixes.Bloodrager.Base.Fixes["SpellsPerDay"]) { return; }
+                    if (!ModSettings.Fixes.Bloodrager.Base.Fixes["SpellsPerDay"]) { return; }
                     BlueprintSpellsTable BloodragerSpellPerDayTable = Resources.GetBlueprint<BlueprintSpellsTable>("caf7018942861664ebe87687893ad05d");
                     BloodragerSpellPerDayTable.Levels = new SpellsLevelEntry[] {
                     // 18 Spell levels is correct for w/e reason
@@ -58,10 +58,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchPrimalist() {
-                if (Settings.Fixes.Bloodrager.Archetypes["Primalist"].DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].DisableAllFixes) { return; }
                 PatchRagePowerFeatQualifications();
                 void PatchRagePowerFeatQualifications() {
-                    if (!Settings.Fixes.Bloodrager.Archetypes["Primalist"].Fixes["RagePowerFeatQualifications"]) { return; }
+                    if (!ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].Fixes["RagePowerFeatQualifications"]) { return; }
                     var PrimalistTakeRagePowers4 = Resources.GetBlueprint<BlueprintProgression>("8eb5c34bb8471a0438e7eb3994de3b92");
                     var PrimalistTakeRagePowers8 = Resources.GetBlueprint<BlueprintProgression>("db2710cd915bbcf4193fa54083e56b27");
                     var PrimalistTakeRagePowers12 = Resources.GetBlueprint<BlueprintProgression>("e43a7bfd5c90a514cab1c11b41c550b1");
@@ -75,7 +75,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers20, 20);
 
                     void PatchPrimalistTakeRagePowers(BlueprintProgression PrimalistTakeRagePowers, int level) {
-                        var PrimalistRagePowerSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(Settings.Blueprints.NewBlueprints["PrimalistRagePowerSelection"]);
+                        var PrimalistRagePowerSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["PrimalistRagePowerSelection"]);
                         PrimalistTakeRagePowers.LevelEntries = new LevelEntry[] {
                             new LevelEntry {
                                 Level = level,
@@ -90,11 +90,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchSteelblood() {
-                if (Settings.Fixes.Bloodrager.Archetypes["Steelblood"].DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].DisableAllFixes) { return; }
                 PatchArmoredSwiftness();
 
                 void PatchArmoredSwiftness() {
-                    if (!Settings.Fixes.Bloodrager.Archetypes["Steelblood"].Fixes["ArmoredSwiftness"]) { return; }
+                    if (!ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].Fixes["ArmoredSwiftness"]) { return; }
                     var ArmoredHulkArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("f95f4f3a10917114c82bcbebc4d0fd36");
                     var SteelbloodArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("bd4397ee26a3baf4cadaeb766b018cff");
                     SteelbloodArmoredSwiftness.ComponentsArray = ArmoredHulkArmoredSwiftness.ComponentsArray;

@@ -11,8 +11,8 @@ namespace TabletopTweaks {
         public static bool Enabled;
         static bool Load(UnityModManager.ModEntry modEntry) {
             var harmony = new Harmony(modEntry.Info.Id);
-            Settings.ModEntry = modEntry;
-            Settings.LoadSettings();
+            ModSettings.ModEntry = modEntry;
+            ModSettings.LoadAllSettings();
             harmony.PatchAll();
             PostPatchInitializer.Initialize();
             return true;
@@ -22,11 +22,11 @@ namespace TabletopTweaks {
             return true;
         }
         public static void Log(string msg) {
-            Settings.ModEntry.Logger.Log(msg);
+            ModSettings.ModEntry.Logger.Log(msg);
         }
         [System.Diagnostics.Conditional("DEBUG")]
         public static void LogDebug(string msg) {
-            Settings.ModEntry.Logger.Log(msg);
+            ModSettings.ModEntry.Logger.Log(msg);
         }
         public static void LogPatch(string action, [NotNull] BlueprintScriptableObject bp) {
             Log($"{action}: {bp.AssetGuid} - {bp.name}");

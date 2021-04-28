@@ -19,7 +19,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (Settings.Fixes.Azata.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Azata.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Azata Resources");
                 PatchAzataPerformanceResource();
                 PatchFavorableMagic();
@@ -28,7 +28,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchAzataPerformanceResource() {
-                if (!Settings.Fixes.Azata.Fixes["AzataPerformanceResource"]) { return; }
+                if (!ModSettings.Fixes.Azata.Fixes["AzataPerformanceResource"]) { return; }
                 var AzataPerformanceResource = Resources.GetBlueprint<BlueprintAbilityResource>("83f8a1c45ed205a4a989b7826f5c0687");
 
                 BlueprintCharacterClassReference[] characterClasses = ResourcesLibrary
@@ -43,7 +43,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchFavorableMagic() {
-                if (!Settings.Fixes.Azata.Fixes["FavorableMagic"]) { return; }
+                if (!ModSettings.Fixes.Azata.Fixes["FavorableMagic"]) { return; }
                 var FavorableMagicFeature = Resources.GetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
                 var fixedComponent = Helpers.Create<NewComponents.AzataFavorableMagicComponent>();
 
@@ -52,7 +52,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchZippyMagicFeature() {
-                if (!Settings.Fixes.Azata.Fixes["ZippyMagic"]) { return; }
+                if (!ModSettings.Fixes.Azata.Fixes["ZippyMagic"]) { return; }
                 var ZippyMagicFeature = Resources.GetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
                 var ZippyMagic = Helpers.Create<NewComponents.AzataZippyMagicComponent>();
 

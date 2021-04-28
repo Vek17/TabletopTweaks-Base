@@ -109,6 +109,8 @@
         "SorcererDestinedSpell19": "4b76c45e0bb24cd9bb3ef850210962a7",
         "SorcererDestinedBloodline": "62f017f07222457489eed83165e25682",
         "CrossbloodedDestinedBloodline": "388c59794add45ac93142656fb2e429b",
-        "SeekerDestinedBloodline": "1a62c90abfa8426f8f6c7962cb162447"
+        "SeekerDestinedBloodline": "1a62c90abfa8426f8f6c7962cb162447",
+        "LongArmBuff": "d6a18709af1b460089c3ce336373c4f7",
+        "LongArmAbility": "fde4d2da304345bca11a73eb8f06b755"
     }
 }
