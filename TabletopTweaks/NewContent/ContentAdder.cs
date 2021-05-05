@@ -1,9 +1,9 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 
 namespace TabletopTweaks.NewContent {
     class ContentAdder {
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
 
@@ -18,8 +18,6 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.AberrantBloodline.AddSorcererAberrantBloodline();
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
-                Archetypes.CauldronWitch.AddCauldrenWitch();
-                Archetypes.ElementalMaster.AddElementalMaster();
                 Spells.LongArms.CreateLongArms();
             }
         }

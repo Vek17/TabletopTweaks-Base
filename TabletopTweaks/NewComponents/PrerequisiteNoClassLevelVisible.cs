@@ -18,13 +18,12 @@ namespace TabletopTweaks.NewComponents {
                 return characterClass.Get();
             }
         }
-
-        public override bool Check(FeatureSelectionState selectionState, UnitDescriptor unit, LevelUpState state) {
-            return unit.Progression.GetClassLevel(CharacterClass) < 1;
+        public override string GetUITextInternal(UnitDescriptor unit) {
+            return $"Has no levels in the class {CharacterClass.Name}";
         }
 
-        public override string GetUIText() {
-            return $"Has no levels in the class {CharacterClass.Name}";
+        public override bool CheckInternal([CanBeNull] FeatureSelectionState selectionState, [NotNull] UnitDescriptor unit, [CanBeNull] LevelUpState state) {
+            return unit.Progression.GetClassLevel(CharacterClass) < 1;
         }
 
         [NotNull]

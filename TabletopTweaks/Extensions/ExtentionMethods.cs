@@ -134,7 +134,7 @@ namespace TabletopTweaks.Extensions {
 
         public static string StringJoin<T>(this IEnumerable<T> array, Func<T, string> map, string separator = " ") => string.Join(separator, array.Select(map));
 
-        static readonly FastRef<BlueprintScriptableObject, string> blueprintScriptableObject_set_AssetId = Helpers.CreateFieldSetter<BlueprintScriptableObject, string>("m_AssetGuid");
+        //static readonly FastRef<BlueprintScriptableObject, string> blueprintScriptableObject_set_AssetId = Helpers.CreateFieldSetter<BlueprintScriptableObject, string>("m_AssetGuid");
 
 #if DEBUG
         static readonly Dictionary<String, BlueprintScriptableObject> assetsByName = new Dictionary<String, BlueprintScriptableObject>();
@@ -336,26 +336,30 @@ namespace TabletopTweaks.Extensions {
         }
 
         public static AddConditionImmunity CreateImmunity(this UnitCondition condition) {
-            var b = Helpers.Create<AddConditionImmunity>();
-            b.Condition = condition;
+            var b = new AddConditionImmunity() {
+                Condition = condition
+            };
             return b;
         }
 
         public static AddCondition CreateAddCondition(this UnitCondition condition) {
-            var a = Helpers.Create<AddCondition>();
-            a.Condition = condition;
+            var a = new AddCondition() {
+                Condition = condition
+            };
             return a;
         }
 
         public static BuffDescriptorImmunity CreateBuffImmunity(this SpellDescriptor spell) {
-            var b = Helpers.Create<BuffDescriptorImmunity>();
-            b.Descriptor = spell;
+            var b = new BuffDescriptorImmunity() {
+                Descriptor = spell
+            };
             return b;
         }
 
         public static SpellImmunityToSpellDescriptor CreateSpellImmunity(this SpellDescriptor spell) {
-            var s = Helpers.Create<SpellImmunityToSpellDescriptor>();
-            s.Descriptor = spell;
+            var s = new SpellImmunityToSpellDescriptor() {
+                Descriptor = spell
+            };
             return s;
         }
 

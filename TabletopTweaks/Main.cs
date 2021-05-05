@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 using JetBrains.Annotations;
-using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using System;
 using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
@@ -28,7 +28,7 @@ namespace TabletopTweaks {
         public static void LogDebug(string msg) {
             ModSettings.ModEntry.Logger.Log(msg);
         }
-        public static void LogPatch(string action, [NotNull] BlueprintScriptableObject bp) {
+        public static void LogPatch(string action, [NotNull] IScriptableObjectWithAssetId bp) {
             Log($"{action}: {bp.AssetGuid} - {bp.name}");
         }
         public static void LogHeader(string msg) {
@@ -37,20 +37,6 @@ namespace TabletopTweaks {
         public static Exception Error(String message) {
             Log(message);
             return new InvalidOperationException(message);
-        }
-
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
-        static class ResourcesLibrary_InitializeLibrary_Patch {
-            static bool Initialized;
-
-            static bool Prefix() {
-                // When wrath first loads into the main menu InitializeLibrary is called by Kingmaker.GameStarter.
-                // When loading into maps, Kingmaker.Runner.Start will call InitializeLibrary which will
-                // clear the ResourcesLibrary.s_LoadedBlueprints cache which causes loaded blueprints to be garbage collected.
-                // Return false here to prevent ResourcesLibrary.InitializeLibrary from being called twice 
-                // to prevent blueprints from being garbage collected.
-                return Initialized ? false : Initialized = true;
-            }
         }
     }
 }

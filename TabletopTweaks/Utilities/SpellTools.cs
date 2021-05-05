@@ -8,9 +8,10 @@ using TabletopTweaks.Extensions;
 namespace TabletopTweaks.Utilities {
     static class SpellTools {
         public static void AddToSpellList(this BlueprintAbility spell, BlueprintSpellList spellList, int level) {
-            var comp = Helpers.Create<SpellListComponent>();
-            comp.SpellLevel = level;
-            comp.m_SpellList = spellList.ToReference<BlueprintSpellListReference>();
+            var comp = new SpellListComponent {
+                SpellLevel = level,
+                m_SpellList = spellList.ToReference<BlueprintSpellListReference>()
+            };
             spell.AddComponent(comp);
             spellList.SpellsByLevel[level].Spells.Add(spell);
             if (spellList == SpellList.WizardSpellList) {

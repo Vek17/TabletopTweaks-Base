@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -15,7 +16,7 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class MythicAbilities {
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
 

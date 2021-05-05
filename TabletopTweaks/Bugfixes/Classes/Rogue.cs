@@ -1,12 +1,12 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.JsonSystem;
 using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Clases {
     class Rogue {
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
 

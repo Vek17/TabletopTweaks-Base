@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -23,7 +24,7 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Abilities {
     class Spells {
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
 
@@ -50,11 +51,11 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var AngelicAspectBuff = Resources.GetBlueprint<BlueprintBuff>("b33f44fecadb3ca48b438dacac6454c2");
 
                 var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Good;
+                    c.Alignment = AlignmentComponent.Evil;
                     c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
                 });
                 var BuffImmunityAlignment = Helpers.Create<BuffDescriptorImmunityAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Good;
+                    c.Alignment = AlignmentComponent.Evil;
                     c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
                 });
                 var FlyingSpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
@@ -80,11 +81,11 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 AngelicAspectGreaterBuff.AddComponents(FlyingSpellImmunity, FlyingBuffImmunity);
                 Main.LogPatch("Patched", AngelicAspectGreaterBuff);
                 var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Good;
+                    c.Alignment = AlignmentComponent.Evil;
                     c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
                 });
                 var BuffImmunityAlignment = Helpers.Create<BuffDescriptorImmunityAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Good;
+                    c.Alignment = AlignmentComponent.Evil;
                     c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
                 });
                 AuraOfAngelicAspectGreaterEffectBuff.AddComponents(SpellImmunityAlignment, BuffImmunityAlignment);

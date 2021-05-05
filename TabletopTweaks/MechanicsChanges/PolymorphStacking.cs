@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -35,7 +36,7 @@ namespace TabletopTweaks.BalanceAdjustments {
                 }
             }
         }
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
 

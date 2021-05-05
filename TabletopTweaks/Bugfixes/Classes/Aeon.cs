@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Aeon {
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
 

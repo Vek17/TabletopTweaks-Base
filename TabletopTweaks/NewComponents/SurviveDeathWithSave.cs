@@ -35,8 +35,8 @@ namespace TabletopTweaks.NewComponents {
             ruleSavingThrow = Rulebook.Trigger(ruleSavingThrow);
 
             if (ruleSavingThrow.IsPassed) {
-                if ((unit.Damage - dealDamage.Damage) > unit.Stats.HitPoints && BlockIfBelowZero) {
-                    unit.Damage -= dealDamage.Damage;
+                if ((unit.Damage - dealDamage.Result) > unit.Stats.HitPoints && BlockIfBelowZero) {
+                    unit.Damage -= dealDamage.Result;
                 } else {
                     unit.Damage = unit.Stats.HitPoints - TargetHP;
                 }

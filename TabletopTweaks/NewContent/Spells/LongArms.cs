@@ -20,7 +20,7 @@ namespace TabletopTweaks.NewContent.Spells {
         public static void CreateLongArms() {
             var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var LongArmBuff = Helpers.Create<BlueprintBuff>(bp => {
-                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["LongArmBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["LongArmBuff"];
                 bp.name = "LongArmBuff";
                 bp.SetName("Long Arm");
                 bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
@@ -47,7 +47,7 @@ namespace TabletopTweaks.NewContent.Spells {
                 };
             });
             var LongArmAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.m_AssetGuid = ModSettings.Blueprints.NewBlueprints["LongArmAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["LongArmAbility"];
                 bp.name = "LongArmAbility";
                 bp.SetName("Long Arm");
                 bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");

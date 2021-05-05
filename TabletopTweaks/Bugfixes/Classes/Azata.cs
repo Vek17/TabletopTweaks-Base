@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -8,11 +9,10 @@ using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Azata {
-        [HarmonyPatch(typeof(ResourcesLibrary), "InitializeLibrary")]
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class ResourcesLibrary_InitializeLibrary_Patch {
             static bool Initialized;
 
@@ -45,7 +45,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchFavorableMagic() {
                 if (!ModSettings.Fixes.Azata.Fixes["FavorableMagic"]) { return; }
                 var FavorableMagicFeature = Resources.GetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
-                var fixedComponent = Helpers.Create<NewComponents.AzataFavorableMagicComponent>();
+                var fixedComponent = new NewComponents.AzataFavorableMagicComponent();
 
                 FavorableMagicFeature.ReplaceComponents<AzataFavorableMagic>(fixedComponent);
                 Main.LogPatch("Patched", FavorableMagicFeature);
@@ -54,7 +54,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchZippyMagicFeature() {
                 if (!ModSettings.Fixes.Azata.Fixes["ZippyMagic"]) { return; }
                 var ZippyMagicFeature = Resources.GetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
-                var ZippyMagic = Helpers.Create<NewComponents.AzataZippyMagicComponent>();
+                var ZippyMagic = new NewComponents.AzataZippyMagicComponent();
 
                 ZippyMagicFeature.ReplaceComponents<DublicateSpellComponent>(ZippyMagic);
                 Main.LogPatch("Patched", ZippyMagicFeature);
@@ -91,7 +91,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     inflictSpells.ForEach(spell => BlockSpellDuplication(spell));
                 }
                 void BlockSpellDuplication(BlueprintAbility blueprint) {
-                    blueprint.AddComponent(Helpers.Create<NewComponents.BlockSpellDuplicationComponent>());
+                    blueprint.AddComponent(new NewComponents.BlockSpellDuplicationComponent());
                     Main.LogPatch("Blocked Duplication", blueprint);
                 }
             }

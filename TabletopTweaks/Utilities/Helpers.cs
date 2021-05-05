@@ -9,7 +9,6 @@ using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
@@ -17,14 +16,12 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using UnityEngine;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
-
-        public static T Create<T>(Action<T> init = null) where T : ScriptableObject {
-            var result = ScriptableObject.CreateInstance<T>();
-            if (init != null) init(result);
+        public static T Create<T>(Action<T> init = null) where T : new() {
+            var result = new T();
+            init?.Invoke(result);
             return result;
         }
 
@@ -46,37 +43,7 @@ namespace TabletopTweaks.Utilities {
             levelEntry.Level = level;
             features.ForEach(f => levelEntry.Features.Add(f));
             return levelEntry;
-        }/*
-        public static ContextRankConfig CreateContextRankConfig(
-            ContextRankBaseValueType baseValueType = ContextRankBaseValueType.CasterLevel,
-            ContextRankProgression progression = ContextRankProgression.AsIs,
-            AbilityRankType type = AbilityRankType.Default,
-            int? min = null, int? max = null, int startLevel = 0, int stepLevel = 0,
-            bool exceptClasses = false, StatType stat = StatType.Unknown,
-            BlueprintUnitProperty customProperty = null,
-            BlueprintCharacterClass[] classes = null, BlueprintArchetype[] archetypes = null,
-            BlueprintFeature feature = null, BlueprintFeature[] featureList = null) {
-
-            var config = Create<ContextRankConfig>();
-            config.m_Type = type;
-            config.m_BaseValueType = baseValueType;
-            config.m_Progression = progression;
-            config.m_UseMin = min.HasValue;
-            config.m_Min = min.GetValueOrDefault();
-            config.m_UseMax = max.HasValue;
-            config.m_Max = max.GetValueOrDefault();
-            config.m_StartLevel = startLevel;
-            config.m_StepLevel = stepLevel;
-            config.m_Feature = feature.ToReference<BlueprintFeatureReference>();
-            config.m_ExceptClasses = exceptClasses;
-            config.m_CustomProperty = customProperty.ToReference<BlueprintUnitPropertyReference>();
-            config.m_Stat = stat;
-            config.m_Class = classes != null ? classes.Select(c => c.ToReference<BlueprintCharacterClassReference>()).ToArray() : Array.Empty<BlueprintCharacterClassReference>();
-            config.m_AdditionalArchetypes = archetypes != null ? archetypes.Select(c => c.ToReference<BlueprintArchetypeReference>()).ToArray() : Array.Empty<BlueprintArchetypeReference>();
-            config.m_FeatureList = featureList != null ? featureList.Select(c => c.ToReference<BlueprintFeatureReference>()).ToArray() : Array.Empty<BlueprintFeatureReference>();
-
-            return config;
-        }*/
+        }
         public static ContextValue CreateContextValueRank(AbilityRankType value = AbilityRankType.Default) => value.CreateContextValue();
         public static ContextValue CreateContextValue(this AbilityRankType value) {
             return new ContextValue() { ValueType = ContextValueType.Rank, ValueRank = value };
@@ -88,6 +55,7 @@ namespace TabletopTweaks.Utilities {
             if (actions == null || actions.Length == 1 && actions[0] == null) actions = Array.Empty<GameAction>();
             return new ActionList() { Actions = actions };
         }
+#if false
         public static ContextActionSavingThrow CreateActionSavingThrow(this SavingThrowType savingThrow, params GameAction[] actions) {
             var c = Create<ContextActionSavingThrow>();
             c.Type = savingThrow;
@@ -100,6 +68,7 @@ namespace TabletopTweaks.Utilities {
             c.Failed = CreateActionList(failed);
             return c;
         }
+#endif
 
         // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
         static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
@@ -175,6 +144,26 @@ namespace TabletopTweaks.Utilities {
             BlueprintCharacterClass[] classes = null, BlueprintArchetype[] archetypes = null, BlueprintArchetype archetype = null,
             BlueprintFeature feature = null, BlueprintFeature[] featureList = null,
             (int, int)[] customProgression = null) {
+            var config = new ContextRankConfig() {
+                m_Type = type,
+                m_BaseValueType = baseValueType,
+                m_Progression = progression,
+                m_UseMin = min.HasValue,
+                m_Min = min.GetValueOrDefault(),
+                m_UseMax = max.HasValue,
+                m_Max = max.GetValueOrDefault(),
+                m_StartLevel = startLevel,
+                m_StepLevel = stepLevel,
+                m_Feature = feature.ToReference<BlueprintFeatureReference>(),
+                m_ExceptClasses = exceptClasses,
+                m_CustomProperty = customProperty.ToReference<BlueprintUnitPropertyReference>(),
+                m_Stat = stat,
+                m_Class = classes == null ? Array.Empty<BlueprintCharacterClassReference>() : classes.Select(c => c.ToReference<BlueprintCharacterClassReference>()).ToArray(),
+                Archetype = archetype.ToReference<BlueprintArchetypeReference>(),
+                m_AdditionalArchetypes = archetypes == null ? Array.Empty<BlueprintArchetypeReference>() : archetypes.Select(c => c.ToReference<BlueprintArchetypeReference>()).ToArray(),
+                m_FeatureList = featureList == null ? Array.Empty<BlueprintFeatureReference>() : featureList.Select(c => c.ToReference<BlueprintFeatureReference>()).ToArray()
+            };
+#if false
             var config = Helpers.Create<ContextRankConfig>(bp => {
                 bp.m_Type = type;
                 bp.m_BaseValueType = baseValueType;
@@ -194,6 +183,7 @@ namespace TabletopTweaks.Utilities {
                 bp.m_AdditionalArchetypes = archetypes == null ? Array.Empty<BlueprintArchetypeReference>() : archetypes.Select(c => c.ToReference<BlueprintArchetypeReference>()).ToArray();
                 bp.m_FeatureList = featureList == null ? Array.Empty<BlueprintFeatureReference>() : featureList.Select(c => c.ToReference<BlueprintFeatureReference>()).ToArray();
             });
+#endif
             return config;
         }
     }

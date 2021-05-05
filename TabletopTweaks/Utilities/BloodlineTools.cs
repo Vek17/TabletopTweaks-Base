@@ -43,59 +43,64 @@ namespace TabletopTweaks.Utilities {
         public static void AddConditionalBuff(this BlueprintBuff parent, BlueprintFeature hasFeature, BlueprintBuff buff) {
             var AddfactContext = parent.GetComponent<AddFactContextActions>();
             if (!AddfactContext) {
-                parent.AddComponent(Helpers.Create<AddFactContextActions>());
+                parent.AddComponent(new AddFactContextActions());
                 AddfactContext = parent.GetComponent<AddFactContextActions>();
             }
-            AddfactContext.AddActionActivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
-                c.name = parent.name;
-                c.Comment = buff.name;
-                c.ConditionsChecker = new ConditionsChecker {
-                    Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
-                            condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
-                        })
+            var actionActivated = new Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional() {
+                name = parent.name,
+                Comment = buff.name,
+                ConditionsChecker = new ConditionsChecker {
+                    Conditions = new Condition[] { new ContextConditionHasFact() {
+                            m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>()
+                        }
                     }
-                };
-                c.AddActionIfTrue(Helpers.Create<ContextActionApplyBuff>(context => {
-                    context.m_Buff = buff.ToReference<BlueprintBuffReference>();
-                    context.AsChild = true;
-                    context.Permanent = true;
-                }));
-                c.IfFalse = new ActionList();
-            }));
-            AddfactContext.AddActionDeactivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
-                c.name = parent.name;
-                c.Comment = buff.name;
-                c.ConditionsChecker = new ConditionsChecker {
-                    Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
-                            condition.m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>();
-                        })
-                    }
-                };
-                c.AddActionIfTrue(Helpers.Create<ContextActionRemoveBuff>(context => {
-                    context.m_Buff = buff.ToReference<BlueprintBuffReference>();
+                },
+                IfFalse = new ActionList()
+            };
+            actionActivated.AddActionIfTrue(new ContextActionApplyBuff() {
+                m_Buff = buff.ToReference<BlueprintBuffReference>(),
+                AsChild = true,
+                Permanent = true
+            });
+            AddfactContext.AddActionActivated(actionActivated);
 
-                }));
-                c.IfFalse = new ActionList();
-            }));
+            var actionDeactivated = new Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional() {
+                name = parent.name,
+                Comment = buff.name,
+                ConditionsChecker = new ConditionsChecker {
+                    Conditions = new Condition[] { new ContextConditionHasFact() {
+                            m_Fact = hasFeature.ToReference<BlueprintUnitFactReference>()
+                        }
+                    }
+                },
+                IfFalse = new ActionList()
+            };
+            actionDeactivated.AddActionIfTrue(new ContextActionRemoveBuff() {
+                m_Buff = buff.ToReference<BlueprintBuffReference>()
+            });
+            AddfactContext.AddActionDeactivated(actionDeactivated);
         }
         public static void RemoveBuffAfterRage(this BlueprintBuff parent, BlueprintBuff buff) {
             var AddfactContext = parent.GetComponent<AddFactContextActions>();
             if (!AddfactContext) {
-                parent.AddComponent(Helpers.Create<AddFactContextActions>());
+                parent.AddComponent(new AddFactContextActions());
                 AddfactContext = parent.GetComponent<AddFactContextActions>();
             }
-            AddfactContext.AddActionDeactivated(Helpers.Create<Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional>(c => {
-                c.Comment = buff.name;
-                c.ConditionsChecker = new ConditionsChecker {
-                    Conditions = new Condition[] { Helpers.Create<ContextConditionHasFact>(condition => {
-                            condition.m_Fact = buff.ToReference<BlueprintUnitFactReference>();
-                        })
+            var actionDeactivated = new Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional() {
+                name = parent.name,
+                Comment = buff.name,
+                ConditionsChecker = new ConditionsChecker {
+                    Conditions = new Condition[] { new ContextConditionHasFact() {
+                            m_Fact = buff.ToReference<BlueprintUnitFactReference>()
+                        }
                     }
-                };
-                c.AddActionIfTrue(Helpers.Create<ContextActionRemoveBuff>(context => {
-                    context.m_Buff = buff.ToReference<BlueprintBuffReference>();
-                }));
-            }));
+                },
+                IfFalse = new ActionList()
+            };
+            actionDeactivated.AddActionIfTrue(new ContextActionRemoveBuff() {
+                m_Buff = buff.ToReference<BlueprintBuffReference>()
+            });
+            AddfactContext.AddActionDeactivated(actionDeactivated);
         }
         public static void ApplyPrimalistException(BlueprintFeature power, int level, BlueprintProgression bloodline) {
             BlueprintFeature PrimalistProgression = Resources.GetBlueprint<BlueprintFeature>("d8b8d1dd83393484cbacf6c8830080ae");
@@ -105,21 +110,21 @@ namespace TabletopTweaks.Utilities {
             BlueprintFeature PrimalistTakePower16 = Resources.GetBlueprint<BlueprintFeature>("a56a288b9b6097f4eb67be43404321f2");
             BlueprintFeature PrimalistTakePower20 = Resources.GetBlueprint<BlueprintFeature>("b264a03d036248544acfddbcad709345");
             SelectedPrimalistLevel().AddComponent(
-                Helpers.Create<AddFeatureIfHasFact>(c => {
-                    c.m_Feature = power.ToReference<BlueprintUnitFactReference>();
-                    c.m_CheckedFact = bloodline.ToReference<BlueprintUnitFactReference>();
-                })
+                new AddFeatureIfHasFact() {
+                    m_Feature = power.ToReference<BlueprintUnitFactReference>(),
+                    m_CheckedFact = bloodline.ToReference<BlueprintUnitFactReference>()
+                }
             );
-            power.AddComponent(Helpers.Create<PrerequisiteNoFeature>(p => {
-                p.CheckInProgression = true;
-                p.Group = Prerequisite.GroupType.Any;
-                p.m_Feature = PrimalistProgression.ToReference<BlueprintFeatureReference>();
-            }));
-            power.AddComponent(Helpers.Create<PrerequisiteFeature>(p => {
-                p.CheckInProgression = true;
-                p.Group = Prerequisite.GroupType.Any;
-                p.m_Feature = power.ToReference<BlueprintFeatureReference>();
-            }));
+            power.AddComponent(new PrerequisiteNoFeature() {
+                CheckInProgression = true,
+                Group = Prerequisite.GroupType.Any,
+                m_Feature = PrimalistProgression.ToReference<BlueprintFeatureReference>()
+            });
+            power.AddComponent(new PrerequisiteFeature() {
+                CheckInProgression = true,
+                Group = Prerequisite.GroupType.Any,
+                m_Feature = power.ToReference<BlueprintFeatureReference>()
+            });
             BlueprintFeature SelectedPrimalistLevel() {
                 switch (level) {
                     case 4: return PrimalistTakePower4;
@@ -132,9 +137,9 @@ namespace TabletopTweaks.Utilities {
             }
         }
         public static void ApplyBloodrageRestriction(this BlueprintBuff bloodrage, BlueprintAbility ability) {
-            ability.AddComponent(Helpers.Create<RestrictHasBuff>(c => {
-                c.RequiredBuff = bloodrage.ToReference<BlueprintBuffReference>();
-            }));
+            ability.AddComponent(new RestrictHasBuff() {
+                RequiredBuff = bloodrage.ToReference<BlueprintBuffReference>()
+            });
         }
         public static void RegisterBloodragerBloodline(BlueprintProgression bloodline) {
             BlueprintFeatureSelection BloodragerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
@@ -153,19 +158,19 @@ namespace TabletopTweaks.Utilities {
             SecondBloodline.m_AllFeatures = SecondBloodline.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
 
             var capstone = bloodline.LevelEntries.Where(entry => entry.Level == 20).First().Features[0];
-            capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
-                c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
-                c.Group = Prerequisite.GroupType.Any;
-            }));
+            capstone.AddComponent(new PrerequisiteFeature() {
+                m_Feature = bloodline.ToReference<BlueprintFeatureReference>(),
+                Group = Prerequisite.GroupType.Any
+            });
             BloodlineAscendance.m_Features = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
             BloodlineAscendance.m_AllFeatures = BloodlineAscendance.m_AllFeatures.AddToArray(capstone.ToReference<BlueprintFeatureReference>());
         }
         public static void RegisterSorcererFeatSelection(BlueprintFeatureSelection selection, BlueprintProgression bloodline) {
             BlueprintFeatureSelection SorcererFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("3a60f0c0442acfb419b0c03b584e1394");
-            selection.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
-                c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
-                c.Group = Prerequisite.GroupType.All;
-            }));
+            selection.AddComponent(new PrerequisiteFeature() {
+                m_Feature = bloodline.ToReference<BlueprintFeatureReference>(),
+                Group = Prerequisite.GroupType.All
+            });
             SorcererFeatSelection.m_Features = SorcererFeatSelection.m_AllFeatures.AddToArray(selection.ToReference<BlueprintFeatureReference>());
             SorcererFeatSelection.m_AllFeatures = SorcererFeatSelection.m_AllFeatures.AddToArray(selection.ToReference<BlueprintFeatureReference>());
         }
@@ -180,10 +185,10 @@ namespace TabletopTweaks.Utilities {
             SeekerBloodlineSelection.m_AllFeatures = SeekerBloodlineSelection.m_AllFeatures.AddToArray(bloodline.ToReference<BlueprintFeatureReference>());
 
             var capstone = bloodline.LevelEntries.Where(entry => entry.Level == 20).First().Features[0];
-            capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
-                c.m_Feature = bloodline.ToReference<BlueprintFeatureReference>();
-                c.Group = Prerequisite.GroupType.Any;
-            }));
+            capstone.AddComponent(new PrerequisiteFeature() {
+                m_Feature = bloodline.ToReference<BlueprintFeatureReference>(),
+                Group = Prerequisite.GroupType.Any
+            });
         }
     }
 }

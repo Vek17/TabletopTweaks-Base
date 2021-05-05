@@ -74,6 +74,9 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Owlcat.Runtime.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Owlcat.Runtime.UI">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
       <Private>False</Private>
@@ -146,7 +149,6 @@
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Config\AddedContent.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
-    <Compile Include="MechanicsChanges\ArchetypePrerequisites.cs" />
     <Compile Include="MechanicsChanges\NewModifierDescriptors.cs" />
     <Compile Include="NewActions\EnhanceShield.cs" />
     <Compile Include="NewActions\EnhanceArmor.cs" />
