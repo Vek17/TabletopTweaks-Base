@@ -27,6 +27,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogHeader("Patching Mythic Ability Resources");
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
+                PatchBloodragerSecondBloodline();
                 Main.LogHeader("Patching Mythic Ability Resources Complete");
             }
             static void PatchBloodlineAscendance() {
@@ -82,7 +83,20 @@ namespace TabletopTweaks.Bugfixes.Features {
                 SecondBloodline.AddComponent(newPrerequisites);
                 Main.LogPatch("Patched", SecondBloodline);
             }
-
+        }
+        static void PatchBloodragerSecondBloodline() {
+            if (!ModSettings.Fixes.MythicAbilities.Fixes["SecondBloodragerBloodline"]) { return; }
+            var ReformedFiendBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("dd62cb5011f64cd38b8b08abb19ba2cc");
+            var BloodragerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
+            var SecondBloodragerBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
+            SecondBloodragerBloodline.RemoveComponents<PrerequisiteFeature>();
+            SecondBloodragerBloodline.AddComponent(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
+                c.m_Features = new BlueprintFeatureReference[] { 
+                    ReformedFiendBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                    BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>()
+                };
+                c.Amount = 1;
+            }));
         }
         [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]
         static class ItemEntity_AddEnchantment_EnduringSpells_Patch {

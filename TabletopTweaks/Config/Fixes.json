@@ -109,7 +109,8 @@
         "Fixes": {
             "BloodlineAscendance": true,
             "EnduringSpells": true,
-            "SecondBloodline": true
+            "SecondBloodline": true,
+            "SecondBloodragerBloodline": true
         }
     }
 }
