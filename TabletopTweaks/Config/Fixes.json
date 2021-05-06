@@ -19,6 +19,7 @@
         }
     },
     "Bloodrager": {
+        "DisableAllFixes": false,
         "Base": {
             "DisableAllFixes": false,
             "Fixes": {
@@ -40,9 +41,28 @@
             }
         }
     },
+    "Ranger": {
+        "DisableAllFixes": false,
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {
+                "FavoredEnemy":  true
+            }
+        },
+        "Archetypes": {
+            "EldritchScoundrel": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "SneakAttack": true
+                }
+            }
+        }
+    },
     "Rogue": {
         "DisableAllFixes": false,
         "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {}
         },
         "Archetypes": {
             "EldritchScoundrel": {
@@ -54,6 +74,7 @@
         }
     },
     "Slayer": {
+        "DisableAllFixes": false,
         "Base": {
             "DisableAllFixes": false,
             "Fixes": {
@@ -63,6 +84,7 @@
         "Archetypes": {}
     },
     "Witch": {
+        "DisableAllFixes": false,
         "Base": {
             "DisableAllFixes": false,
             "Fixes": {

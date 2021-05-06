@@ -19,10 +19,10 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 Main.LogHeader("Rogue Complete");
             }
             static void PatchArchetypes() {
-                if (ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAllFixes) { return; }
                 PatchEldritchScoundrel();
             }
             static void PatchEldritchScoundrel() {
+                if (ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAllFixes) { return; }
                 if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Fixes["SneakAttack"]) { return; }
                 var EldritchScoundrelArchetype = Resources.GetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
                 var SneakAttack = Resources.GetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
