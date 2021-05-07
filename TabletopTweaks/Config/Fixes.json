@@ -147,7 +147,8 @@
             "EnduringSpells": true,
             "SecondBloodline": true,
             "SecondBloodragerBloodline": true,
-            "SecondMystery": true
+            "SecondMystery": true,
+            "SecondSpirit":  true
         }
     }
 }

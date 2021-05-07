@@ -29,6 +29,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
                 PatchSecondMystery();
+                PatchSecondSpirit();
             }
             static void PatchBloodlineAscendance() {
                 if (!ModSettings.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
@@ -103,6 +104,13 @@ namespace TabletopTweaks.Bugfixes.Features {
                 SecondMystery.m_Features = SecondMystery.m_AllFeatures;
                 SecondMystery.Group = FeatureGroup.None;
                 Main.LogPatch("Patched", SecondMystery);
+            }
+            static void PatchSecondSpirit() {
+                if (!ModSettings.Fixes.MythicAbilities.Fixes["SecondSpirit"]) { return; }
+                var SecondSpirit = Resources.GetBlueprint<BlueprintFeatureSelection>("2faa80662a56ab644aec2f875a68597f");
+                SecondSpirit.m_Features = SecondSpirit.m_AllFeatures;
+                SecondSpirit.Group = FeatureGroup.None;
+                Main.LogPatch("Patched", SecondSpirit);
             }
         }
         [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]
