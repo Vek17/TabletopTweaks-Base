@@ -20,11 +20,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Azata.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Azata Resources");
+                Main.LogHeader("Patching Azata");
                 PatchAzataPerformanceResource();
                 PatchFavorableMagic();
                 PatchZippyMagicFeature();
-                Main.LogHeader("Azata Resource Patch Complete");
             }
 
             static void PatchAzataPerformanceResource() {

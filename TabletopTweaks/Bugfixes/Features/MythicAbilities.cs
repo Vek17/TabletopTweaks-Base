@@ -24,12 +24,11 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.MythicAbilities.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Mythic Ability Resources");
+                Main.LogHeader("Patching Mythic Abilities");
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
                 PatchSecondMystery();
-                Main.LogHeader("Patching Mythic Ability Resources Complete");
             }
             static void PatchBloodlineAscendance() {
                 if (!ModSettings.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }

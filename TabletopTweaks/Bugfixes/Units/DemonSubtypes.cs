@@ -15,9 +15,8 @@ namespace TabletopTweaks.Bugfixes.Units {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                Main.LogHeader("Patching Demon Subtypes");
+                Main.LogHeader("Patching Demon Subtype");
                 patchDemonSubtypes();
-                Main.LogHeader("Demon Subtype Patch Complete");
             }
         }
 

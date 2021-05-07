@@ -22,11 +22,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Bloodrager.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Bloodrager Resources");
+                Main.LogHeader("Patching Bloodrager");
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchSteelblood();
-                Main.LogHeader("Patching Bloodrager Resources Complete");
             }
             static void PatchBaseClass() {
                 if (ModSettings.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
@@ -38,7 +37,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var BloodragerAbyssalBloodlineBaseBuff = Resources.GetBlueprint<BlueprintBuff>("2ba7b4b3b87156543b43d0686404655a");
                     var BloodragerAbyssalDemonicBulkBuff = Resources.GetBlueprint<BlueprintBuff>("031a8053a7c02ab42ad53f50dd2e9437");
                     var BloodragerAbyssalDemonicBulkEnlargeBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.NewBlueprints["BloodragerAbyssalDemonicBulkEnlargeBuff"]);
-                    Resources.AddBlueprint(BloodragerAbyssalDemonicBulkEnlargeBuff);
+
                     var ApplyBuff = new ContextActionApplyBuff() {
                         m_Buff = BloodragerAbyssalDemonicBulkEnlargeBuff.ToReference<BlueprintBuffReference>(),
                         AsChild = true,
@@ -48,6 +47,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         m_Buff = BloodragerAbyssalDemonicBulkEnlargeBuff.ToReference<BlueprintBuffReference>()
                     };
                     var AddFactContext = BloodragerAbyssalBloodlineBaseBuff.GetComponent<AddFactContextActions>();
+
                     AddFactContext.Activated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(ApplyBuff);
                     AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().IfTrue = null;
                     AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(RemoveBuff);

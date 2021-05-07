@@ -15,9 +15,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Cavalier.DisableAllFixes) { return; }
-                Main.LogHeader("Cavalier Resources");
+                Main.LogHeader("Patching Cavalier");
                 CavalierMountSelection();
-                Main.LogHeader("Cavalier Complete");
             }
             static void CavalierMountSelection() {
                 if (!ModSettings.Fixes.Cavalier.Base.Fixes["CavalierMountSelection"]) { return; }

@@ -19,7 +19,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (ModSettings.Fixes.Aeon.DisableAllFixes) { return; }
                 Main.LogHeader("Patching Aeon Resources");
                 PatchAeonBaneUses();
-                Main.LogHeader("Aeon Resource Patch Complete");
             }
             static void PatchAeonBaneUses() {
                 if (!ModSettings.Fixes.Aeon.Fixes["AeonBaneUses"]) { return; }

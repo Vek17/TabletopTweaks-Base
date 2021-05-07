@@ -32,7 +32,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Spells.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Spell Resources");
+                Main.LogHeader("Patching Spells");
                 PatchAngelicAspect();
                 PatchAngelicAspectGreater();
                 PatchBelieveInYourself();
@@ -44,7 +44,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchProtectionFromAlignmentGreater();
                 PatchRemoveFear();
                 PatchWrachingRay();
-                Main.LogHeader("Patching Spells Complete");
             }
             static void PatchAngelicAspect() {
                 if (!ModSettings.Fixes.Spells.Fixes["AngelicAspect"]) { return; }

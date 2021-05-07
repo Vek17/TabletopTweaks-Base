@@ -19,9 +19,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Witch.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Witch Resources");
+                Main.LogHeader("Patching Witch");
                 PatchBaseClass();
-                Main.LogHeader("Witch Resource Patch Complete");
             }
             static void PatchBaseClass() {
                 if (ModSettings.Fixes.Witch.Base.DisableAllFixes) { return; }

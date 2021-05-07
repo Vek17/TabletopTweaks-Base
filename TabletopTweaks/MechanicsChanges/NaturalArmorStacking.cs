@@ -37,9 +37,8 @@ namespace TabletopTweaks.MechanicsChanges {
                 if (Initialized) return;
                 Initialized = true;
                 if (!ModSettings.Fixes.DisableNaturalArmorStacking) { return; }
-                Main.LogHeader("Patching NaturalArmor Resources");
+                Main.LogHeader("Patching NaturalArmor");
                 PatchNaturalArmorEffects();
-                Main.LogHeader("NaturalArmor Resource Patch Complete");
 
             }
             static void PatchNaturalArmorEffects() {

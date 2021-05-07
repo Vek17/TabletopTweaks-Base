@@ -19,9 +19,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Feats.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Feat Resources");
+                Main.LogHeader("Patching Feats");
                 PatchCraneWing();
-                Main.LogHeader("Patching Feat Resources Complete");
             }
 
             static void PatchCraneWing() {

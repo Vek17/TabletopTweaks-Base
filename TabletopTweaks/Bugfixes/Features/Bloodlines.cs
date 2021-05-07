@@ -25,9 +25,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Bloodlines.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Bloodline Resources");
+                Main.LogHeader("Patching Bloodlines");
                 PatchBloodlineRestrictions();
-                Main.LogHeader("Patching Bloodline Complete");
             }
         }
         static void PatchBloodlineRestrictions() {

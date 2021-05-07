@@ -20,9 +20,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Ranger.DisableAllFixes) { return; }
-                Main.LogHeader("Ranger Resources");
+                Main.LogHeader("Patching Ranger");
                 PatchFavoredEnemy();
-                Main.LogHeader("Ranger Complete");
             }
             static void PatchFavoredEnemy() {
                 if (!ModSettings.Fixes.Ranger.Base.Fixes["FavoredEnemy"]) { return; }

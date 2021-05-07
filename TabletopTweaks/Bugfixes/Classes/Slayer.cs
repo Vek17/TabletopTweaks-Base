@@ -15,9 +15,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Slayer.DisableAllFixes) { return; }
-                Main.LogHeader("Patching Slayer Resources");
+                Main.LogHeader("Patching Slayer");
                 PatchBaseClass();
-                Main.LogHeader("Slayer Resource Patch Complete");
             }
             static void PatchBaseClass() {
                 if (ModSettings.Fixes.Slayer.Base.DisableAllFixes) { return; }

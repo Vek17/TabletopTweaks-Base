@@ -14,9 +14,8 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Rogue.DisableAllFixes) { return; }
-                Main.LogHeader("Rogue Resources");
+                Main.LogHeader("Patching Rogue");
                 PatchArchetypes();
-                Main.LogHeader("Rogue Complete");
             }
             static void PatchArchetypes() {
                 PatchEldritchScoundrel();

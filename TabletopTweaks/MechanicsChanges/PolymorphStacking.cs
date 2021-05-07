@@ -44,7 +44,7 @@ namespace TabletopTweaks.BalanceAdjustments {
                 if (Initialized) return;
                 Initialized = true;
                 if (!ModSettings.Fixes.DisablePolymorphStacking) { return; }
-                Main.LogHeader("Patching Polymorph Resources");
+                Main.LogHeader("Patching Polymorph Effects");
                 FixModifers();
 
             }

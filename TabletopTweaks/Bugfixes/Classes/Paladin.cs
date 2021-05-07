@@ -15,9 +15,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Paladin.DisableAllFixes) { return; }
-                Main.LogHeader("Paladin Resources");
+                Main.LogHeader("Patching Paladin");
                 PatchDivineMountSelection();
-                Main.LogHeader("Paladin Complete");
             }
             static void PatchDivineMountSelection() {
                 if (!ModSettings.Fixes.Paladin.Base.Fixes["DivineMountSelection"]) { return; }
