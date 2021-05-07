@@ -133,7 +133,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchHatredAgainstEvil();
 
                 void PatchHatredAgainstEvil() {
-                    if (!ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].Fixes["HatredAgainstEvil"]) { return; }
+                    if (!ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].Fixes["HatredAgainstEvil"]) { return; }
                     var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
                     var ReformedFiendBloodrageBuff = Resources.GetBlueprint<BlueprintBuff>("72a679f712bd4f69a07bf03d5800900b");
                     var rankConfig = ReformedFiendBloodrageBuff.GetComponent<ContextRankConfig>();
