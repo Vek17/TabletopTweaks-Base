@@ -25,6 +25,14 @@ namespace TabletopTweaks.MechanicsChanges {
             Wisdom = 2125,
             Charisma = 2126
         }
+        public enum Untyped: int {
+            Strength = 3121,
+            Dexterity = 3122,
+            Constitution = 3123,
+            Intelligence = 3124,
+            Wisdom = 3125,
+            Charisma = 3126
+        }
 
         private static class FilterAdjustments {
             private static readonly Func<ModifiableValue.Modifier, bool> FilterIsDodgeOriginal = ModifiableValueArmorClass.FilterIsDodge;
@@ -35,10 +43,10 @@ namespace TabletopTweaks.MechanicsChanges {
                 Func<ModifiableValue.Modifier, bool> newFilterIsArmor = delegate (ModifiableValue.Modifier m) {
                     ModifierDescriptor modDescriptor = m.ModDescriptor;
                     return
-                        FilterIsArmorOriginal(m) ||
-                        modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus ||
-                        modDescriptor == (ModifierDescriptor)NaturalArmor.Size ||
-                        modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable;
+                        FilterIsArmorOriginal(m) 
+                        ||modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus 
+                        ||modDescriptor == (ModifierDescriptor)NaturalArmor.Size 
+                        ||modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable;
                 };
                 var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsArmor");
                 FilterIsArmor.SetValue(null, newFilterIsArmor);
@@ -72,6 +80,12 @@ namespace TabletopTweaks.MechanicsChanges {
             InsertBefore((ModifierDescriptor)Dodge.Intelligence, ModifierDescriptor.Dodge);
             InsertBefore((ModifierDescriptor)Dodge.Wisdom, ModifierDescriptor.Dodge);
             InsertBefore((ModifierDescriptor)Dodge.Charisma, ModifierDescriptor.Dodge);
+            InsertAfter((ModifierDescriptor)Untyped.Strength, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.Dexterity, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.Constitution, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.Intelligence, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.Wisdom, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.Charisma, ModifierDescriptor.UntypedStackable);
 
             void InsertBefore(ModifierDescriptor value, ModifierDescriptor before) {
                 ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
@@ -121,6 +135,14 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Dodge.Wisdom:
                     case (ModifierDescriptor)Dodge.Charisma:
                         __result = "Dodge";
+                        break;
+                    case (ModifierDescriptor)Untyped.Strength:
+                    case (ModifierDescriptor)Untyped.Dexterity:
+                    case (ModifierDescriptor)Untyped.Constitution:
+                    case (ModifierDescriptor)Untyped.Intelligence:
+                    case (ModifierDescriptor)Untyped.Wisdom:
+                    case (ModifierDescriptor)Untyped.Charisma:
+                        __result = "Other";
                         break;
                 }
             }

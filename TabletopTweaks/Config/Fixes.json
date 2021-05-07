@@ -38,6 +38,12 @@
                 "Fixes": {
                     "ArmoredSwiftness": true
                 }
+            },
+            "ReformedFiend": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "HatredAgainstEvil": true
+                }
             }
         }
     },

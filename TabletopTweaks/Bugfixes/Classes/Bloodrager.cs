@@ -26,6 +26,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchSteelblood();
+                PatchReformedFiend();
             }
             static void PatchBaseClass() {
                 if (ModSettings.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
@@ -125,6 +126,21 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var ArmoredHulkArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("f95f4f3a10917114c82bcbebc4d0fd36");
                     var SteelbloodArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("bd4397ee26a3baf4cadaeb766b018cff");
                     SteelbloodArmoredSwiftness.ComponentsArray = ArmoredHulkArmoredSwiftness.ComponentsArray;
+                }
+            }
+            static void PatchReformedFiend() {
+                if (ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].DisableAllFixes) { return; }
+                PatchHatredAgainstEvil();
+
+                void PatchHatredAgainstEvil() {
+                    if (!ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].Fixes["HatredAgainstEvil"]) { return; }
+                    var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
+                    var ReformedFiendBloodrageBuff = Resources.GetBlueprint<BlueprintBuff>("72a679f712bd4f69a07bf03d5800900b");
+                    var rankConfig = ReformedFiendBloodrageBuff.GetComponent<ContextRankConfig>();
+
+                    rankConfig.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    rankConfig.m_Class = new BlueprintCharacterClassReference[] { BloodragerClass.ToReference<BlueprintCharacterClassReference>() };
+                    rankConfig.m_UseMin = true;
                 }
             }
         }

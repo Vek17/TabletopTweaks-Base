@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace TabletopTweaks {
     static class Resources {
-        private static IEnumerable<BlueprintScriptableObject> blueprints;
         public static readonly Dictionary<string, SimpleBlueprint> ModBlueprints = new Dictionary<string, SimpleBlueprint>();
 #if false
         public static IEnumerable<T> GetBlueprints<T>() where T : BlueprintScriptableObject {

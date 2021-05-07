@@ -131,10 +131,12 @@
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Config\Blueprints.cs" />
     <Compile Include="Config\IUpdatableSettings.cs" />
+    <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\DestinedArcanaComponent.cs" />
+    <Compile Include="NewComponents\IgnoreClassPrerequisites.cs" />
     <Compile Include="NewComponents\PrerequisiteSize.cs" />
     <Compile Include="NewComponents\SavingThrowBonusAgainstAbility.cs" />
     <Compile Include="NewComponents\InitiatorSpellCritAutoconfirm.cs" />
