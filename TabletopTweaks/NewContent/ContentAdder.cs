@@ -12,6 +12,7 @@ namespace TabletopTweaks.NewContent {
                 if (Initialized) return;
                 Initialized = true;
                 Main.LogHeader("Loading New Content");
+                Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.CavalierMounts.AddCavalierMountFeatureWolf();

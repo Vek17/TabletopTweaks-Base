@@ -6,7 +6,6 @@ namespace TabletopTweaks.Config {
         public bool DisableNaturalArmorStacking = true;
         public bool DisablePolymorphStacking = true;
         public bool DisableCannyDefenseStacking = true;
-        public bool EnableArchetypePrerequisites = true;
         public bool FixDemonSubtypes = true;
         public FixGroup Aeon = new FixGroup();
         public FixGroup Azata = new FixGroup();
@@ -26,7 +25,6 @@ namespace TabletopTweaks.Config {
             var loadedSettings = userSettings as Fixes;
             DisableNaturalArmorStacking = loadedSettings.DisableNaturalArmorStacking;
             DisablePolymorphStacking = loadedSettings.DisablePolymorphStacking;
-            EnableArchetypePrerequisites = loadedSettings.EnableArchetypePrerequisites;
             FixDemonSubtypes = loadedSettings.FixDemonSubtypes;
 
             Aeon.LoadFixgroup(loadedSettings.Aeon);

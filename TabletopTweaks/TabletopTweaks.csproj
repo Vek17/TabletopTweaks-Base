@@ -76,6 +76,7 @@
     </Reference>
     <Reference Include="Owlcat.Runtime.Core">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
@@ -108,6 +109,7 @@
     </Reference>
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure Demo\Wrath_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
@@ -168,6 +170,7 @@
     <Compile Include="NewContent\Bloodlines\AbyssalBloodline.cs" />
     <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
+    <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
     <Compile Include="NewContent\Features\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\CavalierMounts.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
