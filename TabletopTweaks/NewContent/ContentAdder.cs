@@ -19,6 +19,8 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Spells.LongArms.CreateLongArms();
+                Archetypes.CauldronWitch.AddCauldrenWitch();
+                Archetypes.ElementalMaster.AddElementalMaster();
             }
         }
     }

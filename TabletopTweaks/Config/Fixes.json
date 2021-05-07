@@ -23,6 +23,7 @@
         "Base": {
             "DisableAllFixes": false,
             "Fixes": {
+                "AbysalBulk": true,
                 "SpellsPerDay": true
             }
         },
@@ -132,7 +133,8 @@
             "BloodlineAscendance": true,
             "EnduringSpells": true,
             "SecondBloodline": true,
-            "SecondBloodragerBloodline": true
+            "SecondBloodragerBloodline": true,
+            "SecondMystery": true
         }
     }
 }

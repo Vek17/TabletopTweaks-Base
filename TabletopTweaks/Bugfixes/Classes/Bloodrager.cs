@@ -1,9 +1,19 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using System.Linq;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Bloodrager {
@@ -24,7 +34,46 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchBaseClass() {
                 if (ModSettings.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
                 PatchSpellsPerDayTable();
+                PatchAbysalBulk();
 
+                void PatchAbysalBulk() {
+                    if (!ModSettings.Fixes.Bloodrager.Base.Fixes["AbysalBulk"]) { return; }
+                    var BloodragerAbyssalBloodlineBaseBuff = Resources.GetBlueprint<BlueprintBuff>("2ba7b4b3b87156543b43d0686404655a");
+                    var BloodragerAbyssalDemonicBulkBuff = Resources.GetBlueprint<BlueprintBuff>("031a8053a7c02ab42ad53f50dd2e9437");
+                    var BloodragerAbyssalDemonicBulkEnlargeBuff = Helpers.Create<BlueprintBuff>(bp => {
+                        bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAbyssalDemonicBulkEnlargeBuff"];
+                        bp.name = "BloodragerAberrantResistanceBuff";
+                        bp.SetName("Abyssal Bulk");
+                        bp.SetDescription("At 4th level, when entering a bloodrage, you can choose to grow one size category larger than your base size (as enlarge person) even if you aren't humanoid.");
+                        bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                        bp.AddComponent(Helpers.Create<ChangeUnitSize>(c => {
+                            c.SizeDelta = 1;
+                        }));
+                        bp.AddComponent(Helpers.Create<AddGenericStatBonus>(c => {
+                            c.Descriptor = Kingmaker.Enums.ModifierDescriptor.Size;
+                            c.Value = 2;
+                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.Strength;
+                        }));
+                        bp.AddComponent(Helpers.Create<AddGenericStatBonus>(c => {
+                            c.Descriptor = Kingmaker.Enums.ModifierDescriptor.Size;
+                            c.Value = -2;
+                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
+                        }));
+                    });
+                    Resources.AddBlueprint(BloodragerAbyssalDemonicBulkEnlargeBuff);
+                    var ApplyBuff = new ContextActionApplyBuff() {
+                        m_Buff = BloodragerAbyssalDemonicBulkEnlargeBuff.ToReference<BlueprintBuffReference>(),
+                        AsChild = true,
+                        Permanent = true
+                    };
+                    var RemoveBuff = new ContextActionRemoveBuff() {
+                        m_Buff = BloodragerAbyssalDemonicBulkEnlargeBuff.ToReference<BlueprintBuffReference>()
+                    };
+                    var AddFactContext = BloodragerAbyssalBloodlineBaseBuff.GetComponent<AddFactContextActions>();
+                    AddFactContext.Activated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(ApplyBuff);
+                    AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().IfTrue = null;
+                    AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(RemoveBuff);
+                }
                 void PatchSpellsPerDayTable() {
                     if (!ModSettings.Fixes.Bloodrager.Base.Fixes["SpellsPerDay"]) { return; }
                     BlueprintSpellsTable BloodragerSpellPerDayTable = Resources.GetBlueprint<BlueprintSpellsTable>("caf7018942861664ebe87687893ad05d");
