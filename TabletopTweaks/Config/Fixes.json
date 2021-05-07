@@ -42,6 +42,16 @@
             }
         }
     },
+    "Cavalier": {
+        "DisableAllFixes": false,
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {
+                "CavalierMountSelection": true
+            }
+        },
+        "Archetypes": {}
+    },
     "Paladin": {
         "DisableAllFixes": false,
         "Base": {
