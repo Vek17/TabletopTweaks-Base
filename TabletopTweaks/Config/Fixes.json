@@ -42,22 +42,25 @@
             }
         }
     },
+    "Paladin": {
+        "DisableAllFixes": false,
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {
+                "DivineMountSelection": true
+            }
+        },
+        "Archetypes": {}
+    },
     "Ranger": {
         "DisableAllFixes": false,
         "Base": {
             "DisableAllFixes": false,
             "Fixes": {
-                "FavoredEnemy":  true
+                "FavoredEnemy": true
             }
         },
-        "Archetypes": {
-            "EldritchScoundrel": {
-                "DisableAllFixes": false,
-                "Fixes": {
-                    "SneakAttack": true
-                }
-            }
-        }
+        "Archetypes": {}
     },
     "Rogue": {
         "DisableAllFixes": false,

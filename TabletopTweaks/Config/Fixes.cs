@@ -12,6 +12,7 @@ namespace TabletopTweaks.Config {
         public FixGroup Azata = new FixGroup();
         public ClassGroup Bloodrager = new ClassGroup();
         public ClassGroup Ranger = new ClassGroup();
+        public ClassGroup Paladin = new ClassGroup();
         public ClassGroup Rogue = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
@@ -31,6 +32,7 @@ namespace TabletopTweaks.Config {
             Azata.LoadFixgroup(loadedSettings.Azata);
 
             Bloodrager.LoadClassGroup(loadedSettings.Bloodrager);
+            Paladin.LoadClassGroup(loadedSettings.Paladin);
             Ranger.LoadClassGroup(loadedSettings.Ranger);
             Rogue.LoadClassGroup(loadedSettings.Rogue);
             Slayer.LoadClassGroup(loadedSettings.Slayer);

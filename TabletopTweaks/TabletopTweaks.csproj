@@ -123,6 +123,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Config\Blueprints.cs" />
