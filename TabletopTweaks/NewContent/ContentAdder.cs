@@ -14,11 +14,13 @@ namespace TabletopTweaks.NewContent {
                 Main.LogHeader("Loading New Content");
                 Features.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
+                Features.CavalierMounts.AddCavalierMountFeatureWolf();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();
                 Bloodlines.AberrantBloodline.AddSorcererAberrantBloodline();
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
-                Spells.LongArms.CreateLongArms();
+                Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
+                Spells.LongArms.AddLongArms();
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
             }

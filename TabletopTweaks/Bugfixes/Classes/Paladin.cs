@@ -29,11 +29,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 var PaladinDivineMountSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("e2f0e0efc9e155e43ba431984429678e");
                 var AnimalCompanionEmptyCompanion = Resources.GetBlueprint<BlueprintFeature>("472091361cf118049a2b4339c4ea836a");
                 var AnimalCompanionFeatureHorse = Resources.GetBlueprint<BlueprintFeature>("9dc58b5901677c942854019d1dd98374");
-                var AnimalCompanionFeatureElk = Resources.GetBlueprint<BlueprintFeature>("aa92fea676be33d4dafd176d699d7996");
                 PaladinDivineMountSelection.m_AllFeatures = new BlueprintFeatureReference[] {
                     AnimalCompanionEmptyCompanion.ToReference<BlueprintFeatureReference>(),
                     AnimalCompanionFeatureHorse.ToReference<BlueprintFeatureReference>(),
-                    AnimalCompanionFeatureElk.ToReference<BlueprintFeatureReference>(),
                 };
                 PaladinDivineMountSelection.m_Features = PaladinDivineMountSelection.m_AllFeatures;
                 Main.LogPatch("Patched", PaladinDivineMountSelection);

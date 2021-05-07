@@ -17,7 +17,7 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Spells {
     static class LongArms {
-        public static void CreateLongArms() {
+        public static void AddLongArms() {
             var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var LongArmBuff = Helpers.Create<BlueprintBuff>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["LongArmBuff"];

@@ -40,26 +40,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (!ModSettings.Fixes.Bloodrager.Base.Fixes["AbysalBulk"]) { return; }
                     var BloodragerAbyssalBloodlineBaseBuff = Resources.GetBlueprint<BlueprintBuff>("2ba7b4b3b87156543b43d0686404655a");
                     var BloodragerAbyssalDemonicBulkBuff = Resources.GetBlueprint<BlueprintBuff>("031a8053a7c02ab42ad53f50dd2e9437");
-                    var BloodragerAbyssalDemonicBulkEnlargeBuff = Helpers.Create<BlueprintBuff>(bp => {
-                        bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAbyssalDemonicBulkEnlargeBuff"];
-                        bp.name = "BloodragerAberrantResistanceBuff";
-                        bp.SetName("Abyssal Bulk");
-                        bp.SetDescription("At 4th level, when entering a bloodrage, you can choose to grow one size category larger than your base size (as enlarge person) even if you aren't humanoid.");
-                        bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                        bp.AddComponent(Helpers.Create<ChangeUnitSize>(c => {
-                            c.SizeDelta = 1;
-                        }));
-                        bp.AddComponent(Helpers.Create<AddGenericStatBonus>(c => {
-                            c.Descriptor = Kingmaker.Enums.ModifierDescriptor.Size;
-                            c.Value = 2;
-                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.Strength;
-                        }));
-                        bp.AddComponent(Helpers.Create<AddGenericStatBonus>(c => {
-                            c.Descriptor = Kingmaker.Enums.ModifierDescriptor.Size;
-                            c.Value = -2;
-                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
-                        }));
-                    });
+                    var BloodragerAbyssalDemonicBulkEnlargeBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.NewBlueprints["BloodragerAbyssalDemonicBulkEnlargeBuff"]);
                     Resources.AddBlueprint(BloodragerAbyssalDemonicBulkEnlargeBuff);
                     var ApplyBuff = new ContextActionApplyBuff() {
                         m_Buff = BloodragerAbyssalDemonicBulkEnlargeBuff.ToReference<BlueprintBuffReference>(),
