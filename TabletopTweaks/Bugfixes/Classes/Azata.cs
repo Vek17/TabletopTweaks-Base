@@ -13,7 +13,7 @@ using TabletopTweaks.Extensions;
 namespace TabletopTweaks.Bugfixes.Classes {
     class Azata {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class ResourcesLibrary_InitializeLibrary_Patch {
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
             static void Postfix() {

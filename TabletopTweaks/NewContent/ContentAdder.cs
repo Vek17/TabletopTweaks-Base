@@ -4,7 +4,7 @@ using Kingmaker.Blueprints.JsonSystem;
 namespace TabletopTweaks.NewContent {
     class ContentAdder {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class ResourcesLibrary_InitializeLibrary_Patch {
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
             [HarmonyPriority(Priority.First)]

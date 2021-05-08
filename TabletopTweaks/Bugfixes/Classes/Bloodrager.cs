@@ -15,7 +15,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.Bugfixes.Classes {
     class Bloodrager {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class ResourcesLibrary_InitializeLibrary_Patch {
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
             static void Postfix() {

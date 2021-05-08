@@ -12,7 +12,7 @@ using static Kingmaker.Blueprints.Classes.Spells.SpellDescriptor;
 namespace TabletopTweaks.Bugfixes.Classes {
     class Witch {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class ResourcesLibrary_InitializeLibrary_Patch {
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
             static void Postfix() {

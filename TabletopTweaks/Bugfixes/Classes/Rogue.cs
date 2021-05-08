@@ -7,7 +7,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.Bugfixes.Clases {
     class Rogue {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class ResourcesLibrary_InitializeLibrary_Patch {
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
             static void Postfix() {
