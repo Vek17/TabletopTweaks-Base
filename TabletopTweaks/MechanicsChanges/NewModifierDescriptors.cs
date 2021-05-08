@@ -43,10 +43,10 @@ namespace TabletopTweaks.MechanicsChanges {
                 Func<ModifiableValue.Modifier, bool> newFilterIsArmor = delegate (ModifiableValue.Modifier m) {
                     ModifierDescriptor modDescriptor = m.ModDescriptor;
                     return
-                        FilterIsArmorOriginal(m) 
-                        ||modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus 
-                        ||modDescriptor == (ModifierDescriptor)NaturalArmor.Size 
-                        ||modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable;
+                        FilterIsArmorOriginal(m)
+                        || modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus
+                        || modDescriptor == (ModifierDescriptor)NaturalArmor.Size
+                        || modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable;
                 };
                 var FilterIsArmor = AccessTools.Field(typeof(ModifiableValueArmorClass), "FilterIsArmor");
                 FilterIsArmor.SetValue(null, newFilterIsArmor);

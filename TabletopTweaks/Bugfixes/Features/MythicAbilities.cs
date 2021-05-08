@@ -3,10 +3,14 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System.Linq;
@@ -131,6 +135,36 @@ namespace TabletopTweaks.Bugfixes.Features {
                     }
                 }
                 return true;
+            }
+        }
+        [HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
+        static class AutoMetamagic_ShouldApplyTo_DomainZealot_Patch {
+            static void Postfix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
+                if (ModSettings.Fixes.MythicAbilities.DisableAllFixes || !ModSettings.Fixes.MythicAbilities.Fixes["DomainZealot"]) { return; }
+                BlueprintAbility blueprintAbility;
+                if (data == null) {
+                    blueprintAbility = null;
+                } else {
+                    AbilityData convertedFrom = data.ConvertedFrom;
+                    blueprintAbility = (convertedFrom?.Blueprint.Or(null));
+                }
+                BlueprintAbility blueprintAbility2;
+                if ((blueprintAbility2 = blueprintAbility) == null) {
+                    BlueprintAbility blueprintAbility3 = ability.Or(null);
+                    blueprintAbility2 = (blueprintAbility3?.Parent.Or(null)) ?? ability;
+                }
+                BlueprintAbility blueprintAbility4 = blueprintAbility2;
+                var test = (blueprintAbility4 != ability && AutoMetamagic.ShouldApplyTo(c, blueprintAbility4, null))
+                    || c.Abilities.HasItem((BlueprintAbilityReference r) => r.Is(ability))
+                    || c.IsSuitableAbility(ability, data)
+                        && c.Abilities.Empty()
+                        && (c.Descriptor == SpellDescriptor.None | ability.SpellDescriptor.HasAnyFlag(c.Descriptor))
+                        && c.School != SpellSchool.None
+                        && ability.School == c.School
+                        && c.MaxSpellLevel > 0
+                        && data.SpellLevel <= c.MaxSpellLevel
+                        && (!c.CheckSpellbook || ability.IsInSpellList(c.Spellbook.SpellList));
+                __result = test;
             }
         }
     }

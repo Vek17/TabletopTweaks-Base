@@ -149,11 +149,12 @@
         "DisableAllFixes": false,
         "Fixes": {
             "BloodlineAscendance": true,
+            "DomainZealot": true,
             "EnduringSpells": true,
             "SecondBloodline": true,
             "SecondBloodragerBloodline": true,
             "SecondMystery": true,
-            "SecondSpirit":  true
+            "SecondSpirit": true
         }
     }
 }
