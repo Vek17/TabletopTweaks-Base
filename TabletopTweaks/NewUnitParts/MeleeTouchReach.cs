@@ -38,13 +38,13 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         private ModifiableValue m_touchRange;
-    }
 
-    [HarmonyPatch(typeof(AbilityData), "GetApproachDistance", new Type[] { typeof(UnitEntityData) })]
-    static class BlueprintAbility_GetRange_Patch {
-        static void Postfix(ref float __result, AbilityData __instance) {
-            if (__instance.Blueprint.Range == AbilityRange.Touch && !__instance.HasMetamagic(Metamagic.Reach) && __instance.Caster.Unit.Get<MeleeTouchReach>() != null) {
-                __result += __instance.Caster.Unit.Get<MeleeTouchReach>().GetModifiedValue().Feet().Meters;
+        [HarmonyPatch(typeof(AbilityData), "GetApproachDistance", new Type[] { typeof(UnitEntityData) })]
+        static class BlueprintAbility_GetRange_Patch {
+            static void Postfix(ref float __result, AbilityData __instance) {
+                if (__instance.Blueprint.Range == AbilityRange.Touch && !__instance.HasMetamagic(Metamagic.Reach) && __instance.Caster.Unit.Get<MeleeTouchReach>() != null) {
+                    __result += __instance.Caster.Unit.Get<MeleeTouchReach>().GetModifiedValue().Feet().Meters;
+                }
             }
         }
     }

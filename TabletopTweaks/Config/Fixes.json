@@ -80,6 +80,21 @@
         },
         "Archetypes": {}
     },
+    "Kineticist": {
+        "DisableAllFixes": false,
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {}
+        },
+        "Archetypes": {
+            "ElementalEngine": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "FixBrokenSelection": true
+                }
+            }
+        }
+    },
     "Paladin": {
         "DisableAllFixes": false,
         "Base": {
@@ -111,6 +126,12 @@
                 "DisableAllFixes": false,
                 "Fixes": {
                     "SneakAttack": true
+                }
+            },
+            "Rowdy": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "VitalForce": true
                 }
             }
         }
