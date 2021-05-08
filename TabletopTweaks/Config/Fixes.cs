@@ -9,9 +9,11 @@ namespace TabletopTweaks.Config {
         public bool FixDemonSubtypes = true;
         public FixGroup Aeon = new FixGroup();
         public FixGroup Azata = new FixGroup();
+        public ClassGroup Barbarian = new ClassGroup();
         public ClassGroup Bloodrager = new ClassGroup();
         public ClassGroup Cavalier = new ClassGroup();
         public ClassGroup Ranger = new ClassGroup();
+        public ClassGroup Monk = new ClassGroup();
         public ClassGroup Paladin = new ClassGroup();
         public ClassGroup Rogue = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
@@ -30,8 +32,10 @@ namespace TabletopTweaks.Config {
             Aeon.LoadFixgroup(loadedSettings.Aeon);
             Azata.LoadFixgroup(loadedSettings.Azata);
 
+            Barbarian.LoadClassGroup(loadedSettings.Barbarian);
             Bloodrager.LoadClassGroup(loadedSettings.Bloodrager);
             Cavalier.LoadClassGroup(loadedSettings.Cavalier);
+            Monk.LoadClassGroup(loadedSettings.Monk);
             Paladin.LoadClassGroup(loadedSettings.Paladin);
             Ranger.LoadClassGroup(loadedSettings.Ranger);
             Rogue.LoadClassGroup(loadedSettings.Rogue);

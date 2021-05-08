@@ -14,8 +14,9 @@ namespace TabletopTweaks.NewContent {
                 Main.LogHeader("Loading New Content");
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
-                Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
+                Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();
                 Features.CavalierMounts.AddCavalierMountFeatureWolf();
+                Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();
                 Bloodlines.AberrantBloodline.AddSorcererAberrantBloodline();
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();

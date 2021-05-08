@@ -17,6 +17,21 @@
             "ZippyMagic": true
         }
     },
+    "Barbarian": {
+        "DisableAllFixes": false,
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {}
+        },
+        "Archetypes": {
+            "InstinctualWarriorArchetype": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "CunningElusionFeature": true
+                }
+            }
+        }
+    },
     "Bloodrager": {
         "DisableAllFixes": false,
         "Base": {
@@ -56,6 +71,23 @@
             }
         },
         "Archetypes": {}
+    },
+    "Monk": {
+        "DisableAllFixes": false,
+        "Base": {
+            "DisableAllFixes": false,
+            "Fixes": {
+                "MonkACBonus": true
+            }
+        },
+        "Archetypes": {
+            "ScaledFist": {
+                "DisableAllFixes": false,
+                "Fixes": {
+                    "ScaledFistACBonus": true
+                }
+            }
+        }
     },
     "Paladin": {
         "DisableAllFixes": false,

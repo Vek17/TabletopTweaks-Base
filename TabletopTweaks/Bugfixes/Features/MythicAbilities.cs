@@ -141,20 +141,10 @@ namespace TabletopTweaks.Bugfixes.Features {
         static class AutoMetamagic_ShouldApplyTo_DomainZealot_Patch {
             static void Postfix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
                 if (ModSettings.Fixes.MythicAbilities.DisableAllFixes || !ModSettings.Fixes.MythicAbilities.Fixes["DomainZealot"]) { return; }
-                BlueprintAbility blueprintAbility;
-                if (data == null) {
-                    blueprintAbility = null;
-                } else {
-                    AbilityData convertedFrom = data.ConvertedFrom;
-                    blueprintAbility = (convertedFrom?.Blueprint.Or(null));
-                }
-                BlueprintAbility blueprintAbility2;
-                if ((blueprintAbility2 = blueprintAbility) == null) {
-                    BlueprintAbility blueprintAbility3 = ability.Or(null);
-                    blueprintAbility2 = (blueprintAbility3?.Parent.Or(null)) ?? ability;
-                }
-                BlueprintAbility blueprintAbility4 = blueprintAbility2;
-                var test = (blueprintAbility4 != ability && AutoMetamagic.ShouldApplyTo(c, blueprintAbility4, null))
+                BlueprintAbility blueprintAbility = data?.ConvertedFrom?.Blueprint;
+                BlueprintAbility parentAbility = blueprintAbility ?? ability?.Parent ?? ability;
+
+                var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, null))
                     || c.Abilities.HasItem((BlueprintAbilityReference r) => r.Is(ability))
                     || c.IsSuitableAbility(ability, data)
                         && c.Abilities.Empty()
