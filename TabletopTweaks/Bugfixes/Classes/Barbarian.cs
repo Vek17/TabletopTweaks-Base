@@ -31,7 +31,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchCunningElusionFeature();
 
                 void PatchCunningElusionFeature() {
-                    if (!ModSettings.Fixes.Barbarian.Archetypes["InstinctualWarriorArchetype"].Fixes["CunningElusionFeature"]) { return; }
+                    if (!ModSettings.Fixes.Barbarian.Archetypes["InstinctualWarriorArchetype"].Fixes["CunningElusion"]) { return; }
                     var InstinctualWarriorArchetype = Resources.GetBlueprint<BlueprintArchetype>("adffdd8a99094a89823a79292a503ee9");
                     var InstinctualWarriorACBonusUnlock = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["InstinctualWarriorACBonusUnlock"]);
                     var CunningElusionFeature = Resources.GetBlueprint<BlueprintFeature>("a71103ce28964f39b38442baa32a3031");
@@ -40,9 +40,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         InstinctualWarriorACBonusUnlock.ToReference<BlueprintFeatureBaseReference>()
                     };
                     Main.LogPatch("Patched", InstinctualWarriorArchetype);
-                    CunningElusionFeature.GetComponents<AddContextStatBonus>()
-                        .Where(c => c.Value.ValueRank == AbilityRankType.DamageDice)
-                        .First().Descriptor = (ModifierDescriptor)Untyped.Wisdom;
                     CunningElusionFeature.HideInUI = true;
                     Main.LogPatch("Patched", CunningElusionFeature);
                 }

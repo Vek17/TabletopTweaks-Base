@@ -135,6 +135,7 @@
     <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
+    <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\DestinedArcanaComponent.cs" />

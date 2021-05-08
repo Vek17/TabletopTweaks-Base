@@ -27,7 +27,7 @@
             "InstinctualWarriorArchetype": {
                 "DisableAllFixes": false,
                 "Fixes": {
-                    "CunningElusionFeature": true
+                    "CunningElusion": true
                 }
             }
         }
@@ -76,18 +76,9 @@
         "DisableAllFixes": false,
         "Base": {
             "DisableAllFixes": false,
-            "Fixes": {
-                "MonkACBonus": true
-            }
+            "Fixes": {}
         },
-        "Archetypes": {
-            "ScaledFist": {
-                "DisableAllFixes": false,
-                "Fixes": {
-                    "ScaledFistACBonus": true
-                }
-            }
-        }
+        "Archetypes": {}
     },
     "Paladin": {
         "DisableAllFixes": false,

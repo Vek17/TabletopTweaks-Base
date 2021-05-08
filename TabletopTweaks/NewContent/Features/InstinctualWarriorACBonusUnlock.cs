@@ -13,7 +13,6 @@ namespace TabletopTweaks.NewContent.Features {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["InstinctualWarriorACBonusUnlock"];
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.name = "InstinctualWarriorACBonusUnlock";
                 bp.m_Icon = CunningElusionFeature.Icon;
                 bp.SetName(CunningElusionFeature.Name);
