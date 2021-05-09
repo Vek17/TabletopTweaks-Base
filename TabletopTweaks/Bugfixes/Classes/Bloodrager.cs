@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -32,6 +33,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (ModSettings.Fixes.Bloodrager.Base.DisableAllFixes) { return; }
                 PatchSpellsPerDayTable();
                 PatchAbysalBulk();
+                PatchLimitlessRage();
 
                 void PatchAbysalBulk() {
                     if (!ModSettings.Fixes.Bloodrager.Base.Fixes["AbysalBulk"]) { return; }
@@ -83,6 +85,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         entry.Count = count;
                         return entry;
                     }
+                }
+                void PatchLimitlessRage() {
+                    if (!ModSettings.Fixes.Bloodrager.Base.Fixes["LimitlessRage"]) { return; }
+                    var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+                    var BloodragerRageResource = Resources.GetBlueprint<BlueprintAbilityResource>("4aec9ec9d9cd5e24a95da90e56c72e37");
+                    BloodragerStandartRageBuff
+                        .GetComponent<TemporaryHitPointsPerLevel>()
+                        .m_LimitlessRageResource = BloodragerRageResource.ToReference<BlueprintAbilityResourceReference>();
+                    Main.LogPatch("Patched", BloodragerRageResource);
                 }
             }
             static void PatchPrimalist() {

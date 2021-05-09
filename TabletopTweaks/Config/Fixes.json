@@ -2,6 +2,7 @@
     "DisableNaturalArmorStacking": true,
     "DisablePolymorphStacking": true,
     "DisableCannyDefenseStacking": true,
+    "DisableAfterCombatDeactivationOfUnlimitedAbilities)":  true,
     "FixDemonSubtypes": true,
     "Aeon": {
         "DisableAllFixes": false,
@@ -38,6 +39,7 @@
             "DisableAllFixes": false,
             "Fixes": {
                 "AbysalBulk": true,
+                "LimitlessRage": true,
                 "SpellsPerDay": true
             }
         },
