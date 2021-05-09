@@ -2,11 +2,9 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.Utility;
@@ -75,7 +73,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                         DamageDescription damageDescription2 = new DamageDescription {
                             TypeDescription = evt.DamageDescription.FirstItem().TypeDescription,
                             Dice = new DiceFormula(evt.Initiator.Descriptor.Stats.SneakAttack * 2, DiceType.D6),
-                            
+
                         };
                         evt.DamageDescription.Add(damageDescription2);
                     }

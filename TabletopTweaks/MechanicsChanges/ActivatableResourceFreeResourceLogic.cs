@@ -17,7 +17,7 @@ namespace TabletopTweaks.MechanicsChanges {
 
                 if (unit != __instance.Owner.Unit
                     || (!__instance.Blueprint.DeactivateIfCombatEnded && !OverrideDeactivateIfCombatEnded)
-                    || !__instance.IsStarted 
+                    || !__instance.IsStarted
                     || !__instance.Blueprint.DeactivateImmediately) {
                     return false;
                 }
@@ -34,11 +34,11 @@ namespace TabletopTweaks.MechanicsChanges {
                 var m_FreeBlueprint = __instance.Blueprint.GetComponent<ActivatableAbilityResourceLogic>()?.m_FreeBlueprint;
                 var OverrideDeactivateIfCombatEnded = m_FreeBlueprint != null && __instance.Owner.HasFact(m_FreeBlueprint);
 
-                if (__instance.m_ShouldBeDeactivatedInNextRound 
-                    || !__instance.IsOn 
-                    || !__instance.IsAvailable 
+                if (__instance.m_ShouldBeDeactivatedInNextRound
+                    || !__instance.IsOn
+                    || !__instance.IsAvailable
                     || (__instance.Blueprint.DeactivateIfCombatEnded && !OverrideDeactivateIfCombatEnded
-                        && !__instance.Owner.Unit.IsInCombat 
+                        && !__instance.Owner.Unit.IsInCombat
                         && (__instance.Blueprint.ActivateOnCombatStarts || __instance.m_WasInCombat))
                 ) {
                     __instance.Stop(false);
