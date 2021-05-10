@@ -45,6 +45,7 @@ namespace TabletopTweaks.Utilities {
             if (!AddfactContext) {
                 parent.AddComponent(new AddFactContextActions());
                 AddfactContext = parent.GetComponent<AddFactContextActions>();
+                AddfactContext.NewRound = new ActionList();
             }
             var actionActivated = new Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional() {
                 name = parent.name,

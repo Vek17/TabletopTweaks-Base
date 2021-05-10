@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Craft;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -9,7 +10,6 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System.IO;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -67,18 +67,11 @@ namespace TabletopTweaks.NewContent.Spells {
                 bp.AddComponent(Helpers.Create<SpellComponent>(c => {
                     c.School = SpellSchool.Transmutation;
                 }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
-                    c.m_Type = AbilityRankType.Default;
-                    c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                    c.m_Progression = ContextRankProgression.AsIs;
-                    c.m_StartLevel = 0;
-                    c.m_StepLevel = 0;
-                    c.m_Max = 20;
-                    c.m_Min = 1;
-                    c.m_UseMin = false;
+                bp.AddComponent(Helpers.Create<CraftInfoComponent>(c => {
+                    c.SpellType = CraftSpellType.Buff;
+                    c.SavingThrow = CraftSavingThrow.None;
+                    c.AOEType = CraftAOE.None;
                 }));
-                //bp.AddComponent(Helpers.CreateContextRankConfig());
-                bp.AddComponent(Helpers.Create<ContextCalculateAbilityParams>());
             });
             Resources.AddBlueprint(LongArmBuff);
             Resources.AddBlueprint(LongArmAbility);
