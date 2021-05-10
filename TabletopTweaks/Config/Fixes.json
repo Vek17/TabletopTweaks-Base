@@ -59,7 +59,8 @@
             "ReformedFiend": {
                 "DisableAllFixes": false,
                 "Fixes": {
-                    "HatredAgainstEvil": true
+                    "HatredAgainstEvil": true,
+                    "DamageReduction": true
                 }
             }
         }

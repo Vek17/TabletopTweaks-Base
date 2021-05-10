@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
@@ -142,6 +143,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchReformedFiend() {
                 if (ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].DisableAllFixes) { return; }
                 PatchHatredAgainstEvil();
+                PatchDamageReduction();
 
                 void PatchHatredAgainstEvil() {
                     if (!ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].Fixes["HatredAgainstEvil"]) { return; }
@@ -152,6 +154,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     rankConfig.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     rankConfig.m_Class = new BlueprintCharacterClassReference[] { BloodragerClass.ToReference<BlueprintCharacterClassReference>() };
                     rankConfig.m_UseMin = true;
+                }
+                void PatchDamageReduction() {
+                    if (!ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].Fixes["DamageReduction"]) { return; }
+                    var ReformedFiendDamageReductionFeature = Resources.GetBlueprint<BlueprintFeature>("2a3243ad1ccf43d5a5d69de3f9d0420e");
+                    ReformedFiendDamageReductionFeature.GetComponent<AddDamageResistancePhysical>().BypassedByAlignment = true;
                 }
             }
         }
