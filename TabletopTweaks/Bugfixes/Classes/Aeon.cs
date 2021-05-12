@@ -16,12 +16,12 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Aeon.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Aeon.DisableAll) { return; }
                 Main.LogHeader("Patching Aeon Resources");
                 PatchAeonBaneUses();
             }
             static void PatchAeonBaneUses() {
-                if (!ModSettings.Fixes.Aeon.Fixes["AeonBaneUses"]) { return; }
+                if (!ModSettings.Fixes.Aeon.Enabled["AeonBaneUses"]) { return; }
                 var AeonClass = Resources.GetBlueprint<BlueprintCharacterClass>("15a85e67b7d69554cab9ed5830d0268e");
                 var AeonBaneFeature = Resources.GetBlueprint<BlueprintFeature>("0b25e8d8b0488c84c9b5714e9ca0a204");
                 var AeonBaneIncreaseResourceFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["AeonBaneIncreaseResourceFeature"]);

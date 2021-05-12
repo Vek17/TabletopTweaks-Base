@@ -14,16 +14,16 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Slayer.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Slayer.DisableAll) { return; }
                 Main.LogHeader("Patching Slayer");
                 PatchBaseClass();
             }
             static void PatchBaseClass() {
-                if (ModSettings.Fixes.Slayer.Base.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Slayer.Base.DisableAll) { return; }
                 PatchSlayerStudiedTarget();
             }
             static void PatchSlayerStudiedTarget() {
-                if (!ModSettings.Fixes.Slayer.Base.Fixes["StudiedTarget"]) { return; }
+                if (!ModSettings.Fixes.Slayer.Base.Enabled["StudiedTarget"]) { return; }
                 BlueprintBuff SlayerStudiedTargetBuff = Resources.GetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
                 SlayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
                 Main.LogPatch("Patched", SlayerStudiedTargetBuff);

@@ -18,13 +18,13 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Feats.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Feats.DisableAll) { return; }
                 Main.LogHeader("Patching Feats");
                 PatchCraneWing();
             }
 
             static void PatchCraneWing() {
-                if (!ModSettings.Fixes.Feats.Fixes["CraneWing"]) { return; }
+                if (!ModSettings.Fixes.Feats.Enabled["CraneWing"]) { return; }
                 BlueprintBuff CraneStyleBuff = Resources.GetBlueprint<BlueprintBuff>("e8ea7bd10136195478d8a5fc5a44c7da");
                 var FightingDefensivlyTrigger = CraneStyleBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
                 var Conditionals = FightingDefensivlyTrigger.Action.Actions.OfType<Conditional>();

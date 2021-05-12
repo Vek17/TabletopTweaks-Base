@@ -19,12 +19,12 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Ranger.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Ranger.DisableAll) { return; }
                 Main.LogHeader("Patching Ranger");
                 PatchFavoredEnemy();
             }
             static void PatchFavoredEnemy() {
-                if (!ModSettings.Fixes.Ranger.Base.Fixes["FavoredEnemy"]) { return; }
+                if (!ModSettings.Fixes.Ranger.Base.Enabled["FavoredEnemy"]) { return; }
                 var FavoriteEnemySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("16cc2c937ea8d714193017780e7d4fc6");
                 var FavoriteEnemyOutsider = Resources.GetBlueprint<BlueprintFeature>("f643b38acc23e8e42a3ed577daeb6949");
                 var FavoriteEnemyDemonOfMagic = Resources.GetBlueprint<BlueprintFeature>("21328361091fd2c44a3909fcae0dd598");

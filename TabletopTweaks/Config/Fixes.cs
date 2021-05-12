@@ -9,8 +9,8 @@ namespace TabletopTweaks.Config {
         public bool DisableAfterCombatDeactivationOfUnlimitedAbilities = true;
         public bool DisableMonkACStacking = true;
         public bool FixDemonSubtypes = true;
-        public FixGroup Aeon = new FixGroup();
-        public FixGroup Azata = new FixGroup();
+        public SettingGroup Aeon = new SettingGroup();
+        public SettingGroup Azata = new SettingGroup();
         public ClassGroup Barbarian = new ClassGroup();
         public ClassGroup Bloodrager = new ClassGroup();
         public ClassGroup Cavalier = new ClassGroup();
@@ -21,10 +21,10 @@ namespace TabletopTweaks.Config {
         public ClassGroup Rogue = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
-        public FixGroup Spells = new FixGroup();
-        public FixGroup Bloodlines = new FixGroup();
-        public FixGroup Feats = new FixGroup();
-        public FixGroup MythicAbilities = new FixGroup();
+        public SettingGroup Spells = new SettingGroup();
+        public SettingGroup Bloodlines = new SettingGroup();
+        public SettingGroup Feats = new SettingGroup();
+        public SettingGroup MythicAbilities = new SettingGroup();
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as Fixes;
@@ -36,8 +36,8 @@ namespace TabletopTweaks.Config {
 
             FixDemonSubtypes = loadedSettings.FixDemonSubtypes;
 
-            Aeon.LoadFixgroup(loadedSettings.Aeon);
-            Azata.LoadFixgroup(loadedSettings.Azata);
+            Aeon.LoadSettingGroup(loadedSettings.Aeon);
+            Azata.LoadSettingGroup(loadedSettings.Azata);
 
             Barbarian.LoadClassGroup(loadedSettings.Barbarian);
             Bloodrager.LoadClassGroup(loadedSettings.Bloodrager);
@@ -50,34 +50,21 @@ namespace TabletopTweaks.Config {
             Slayer.LoadClassGroup(loadedSettings.Slayer);
             Witch.LoadClassGroup(loadedSettings.Witch);
 
-            Spells.LoadFixgroup(loadedSettings.Spells);
-            Bloodlines.LoadFixgroup(loadedSettings.Bloodlines);
-            MythicAbilities.LoadFixgroup(loadedSettings.MythicAbilities);
-        }
-
-        public class FixGroup {
-            public bool DisableAllFixes = false;
-            public SortedDictionary<string, bool> Fixes = new SortedDictionary<string, bool>();
-            public void LoadFixgroup(FixGroup group) {
-                DisableAllFixes = group.DisableAllFixes;
-                group.Fixes.ForEach(entry => {
-                    if (Fixes.ContainsKey(entry.Key)) {
-                        Fixes[entry.Key] = entry.Value;
-                    }
-                });
-            }
+            Spells.LoadSettingGroup(loadedSettings.Spells);
+            Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);
+            MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
         }
 
         public class ClassGroup {
-            public bool DisableAllFixes = false;
-            public FixGroup Base = new FixGroup();
-            public SortedDictionary<string, FixGroup> Archetypes = new SortedDictionary<string, FixGroup>();
+            public bool DisableAll = false;
+            public SettingGroup Base = new SettingGroup();
+            public SortedDictionary<string, SettingGroup> Archetypes = new SortedDictionary<string, SettingGroup>();
             public void LoadClassGroup(ClassGroup group) {
-                DisableAllFixes = group.DisableAllFixes;
-                Base.LoadFixgroup(group.Base);
+                DisableAll = group.DisableAll;
+                Base.LoadSettingGroup(group.Base);
                 group.Archetypes.ForEach(entry => {
                     if (Archetypes.ContainsKey(entry.Key)) {
-                        Archetypes[entry.Key].LoadFixgroup(entry.Value);
+                        Archetypes[entry.Key].LoadSettingGroup(entry.Value);
                     }
                 });
             }

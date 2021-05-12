@@ -5,39 +5,39 @@
     "DisableAfterCombatDeactivationOfUnlimitedAbilities":  true,
     "FixDemonSubtypes": true,
     "Aeon": {
-        "DisableAllFixes": false,
-        "Fixes": {
+        "DisableAll": false,
+        "Enabled": {
             "AeonBaneUses": true
         }
     },
     "Azata": {
-        "DisableAllFixes": false,
-        "Fixes": {
+        "DisableAll": false,
+        "Enabled": {
             "AzataPerformanceResource": true,
             "FavorableMagic": true,
             "ZippyMagic": true
         }
     },
     "Barbarian": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {}
+            "DisableAll": false,
+            "Enabled": {}
         },
         "Archetypes": {
             "InstinctualWarriorArchetype": {
-                "DisableAllFixes": false,
-                "Fixes": {
+                "DisableAll": false,
+                "Enabled": {
                     "CunningElusion": true
                 }
             }
         }
     },
     "Bloodrager": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {
+            "DisableAll": false,
+            "Enabled": {
                 "AbysalBulk": true,
                 "LimitlessRage": true,
                 "SpellsPerDay": true
@@ -45,20 +45,20 @@
         },
         "Archetypes": {
             "Primalist": {
-                "DisableAllFixes": false,
-                "Fixes": {
+                "DisableAll": false,
+                "Enabled": {
                     "RagePowerFeatQualifications": true
                 }
             },
             "Steelblood": {
-                "DisableAllFixes": false,
-                "Fixes": {
+                "DisableAll": false,
+                "Enabled": {
                     "ArmoredSwiftness": true
                 }
             },
             "ReformedFiend": {
-                "DisableAllFixes": false,
-                "Fixes": {
+                "DisableAll": false,
+                "Enabled": {
                     "HatredAgainstEvil": true,
                     "DamageReduction": true
                 }
@@ -66,94 +66,94 @@
         }
     },
     "Cavalier": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {
+            "DisableAll": false,
+            "Enabled": {
                 "CavalierMountSelection": true
             }
         },
         "Archetypes": {}
     },
     "Monk": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {}
+            "DisableAll": false,
+            "Enabled": {}
         },
         "Archetypes": {}
     },
     "Kineticist": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {}
+            "DisableAll": false,
+            "Enabled": {}
         },
         "Archetypes": {
             "ElementalEngine": {
-                "DisableAllFixes": false,
-                "Fixes": {
+                "DisableAll": false,
+                "Enabled": {
                     "FixBrokenSelection": true
                 }
             }
         }
     },
     "Paladin": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {
+            "DisableAll": false,
+            "Enabled": {
                 "DivineMountSelection": true
             }
         },
         "Archetypes": {}
     },
     "Ranger": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {
+            "DisableAll": false,
+            "Enabled": {
                 "FavoredEnemy": true
             }
         },
         "Archetypes": {}
     },
     "Rogue": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {}
+            "DisableAll": false,
+            "Enabled": {}
         },
         "Archetypes": {
             "EldritchScoundrel": {
-                "DisableAllFixes": false,
-                "Fixes": {
+                "DisableAll": false,
+                "Enabled": {
                     "SneakAttack": true
                 }
             },
             "Rowdy": {
-                "DisableAllFixes": false,
-                "Fixes": {
+                "DisableAll": false,
+                "Enabled": {
                     "VitalForce": true
                 }
             }
         }
     },
     "Slayer": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {
+            "DisableAll": false,
+            "Enabled": {
                 "StudiedTarget": true
             }
         },
         "Archetypes": {}
     },
     "Witch": {
-        "DisableAllFixes": false,
+        "DisableAll": false,
         "Base": {
-            "DisableAllFixes": false,
-            "Fixes": {
+            "DisableAll": false,
+            "Enabled": {
                 "DeathCurse": true,
                 "DeliciousFright": true,
                 "EvilEye": true,
@@ -165,8 +165,8 @@
         "Archetypes": {}
     },
     "Spells": {
-        "DisableAllFixes": false,
-        "Fixes": {
+        "DisableAll": false,
+        "Enabled": {
             "AngelicAspect": true,
             "AngelicAspectGreater": true,
             "BelieveInYourself": true,
@@ -181,20 +181,20 @@
         }
     },
     "Bloodlines": {
-        "DisableAllFixes": false,
-        "Fixes": {
+        "DisableAll": false,
+        "Enabled": {
             "BloodlineRestrictions": true
         }
     },
     "Feats": {
-        "DisableAllFixes": false,
-        "Fixes": {
+        "DisableAll": false,
+        "Enabled": {
             "CraneWing": true
         }
     },
     "MythicAbilities": {
-        "DisableAllFixes": false,
-        "Fixes": {
+        "DisableAll": false,
+        "Enabled": {
             "BloodlineAscendance": true,
             "DomainZealot": true,
             "EnduringSpells": true,

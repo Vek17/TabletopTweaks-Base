@@ -115,6 +115,8 @@
         "LongArmAbility": "fde4d2da304345bca11a73eb8f06b755",
         "CavalierMountFeatureWolf": "1b1fadae0e1d4b9a993841161ed341f5",
         "AeonBaneIncreaseResourceFeature": "ba1b0e6d7bec4a4994ae0e61a1fda1bd",
-        "InstinctualWarriorACBonusUnlock": "fc5f657547474374b1d0489db5e6669d"
+        "InstinctualWarriorACBonusUnlock": "fc5f657547474374b1d0489db5e6669d",
+        "ArcanistExploitQuickStudyAbility": "fdc6aa23a730426ba4a70a41b76a8fe2",
+        "ArcanistExploitQuickStudy": "8b51e860b80e44d3a3572b7e75d65f1b"
     }
 }

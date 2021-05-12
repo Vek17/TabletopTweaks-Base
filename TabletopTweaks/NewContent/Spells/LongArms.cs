@@ -34,13 +34,10 @@ namespace TabletopTweaks.NewContent.Spells {
             var applyBuff = Helpers.Create<Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff>(bp => {
                 bp.IsFromSpell = true;
                 bp.m_Buff = LongArmBuff.ToReference<BlueprintBuffReference>();
-                bp.Permanent = false;
-                bp.IsNotDispelable = false;
                 bp.DurationValue = new ContextDurationValue() {
                     Rate = DurationRate.Minutes,
                     BonusValue = new ContextValue() {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.Default
+                        ValueType = ContextValueType.Rank
                     },
                     DiceCountValue = new ContextValue(),
                     DiceType = DiceType.One
@@ -75,6 +72,7 @@ namespace TabletopTweaks.NewContent.Spells {
             });
             Resources.AddBlueprint(LongArmBuff);
             Resources.AddBlueprint(LongArmAbility);
+            if (ModSettings.AddedContent.Spells.DisableAll || !ModSettings.AddedContent.Spells.Enabled["LongArm"]) { return; }
             LongArmAbility.AddToSpellList(SpellTools.SpellList.AlchemistSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.BloodragerSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.MagusSpellList, 1);

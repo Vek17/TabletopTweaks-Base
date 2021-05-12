@@ -21,22 +21,22 @@ namespace TabletopTweaks.Bugfixes.Clases {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Rogue.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Rogue.DisableAll) { return; }
                 Main.LogHeader("Patching Rogue");
                 PatchEldritchScoundrel();
                 PatchRowdy();
             }
             static void PatchEldritchScoundrel() {
-                if (ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAllFixes) { return; }
-                if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Fixes["SneakAttack"]) { return; }
+                if (ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAll) { return; }
+                if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Enabled["SneakAttack"]) { return; }
                 var EldritchScoundrelArchetype = Resources.GetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
                 var SneakAttack = Resources.GetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
                 EldritchScoundrelArchetype.RemoveFeatures = EldritchScoundrelArchetype.RemoveFeatures.AddToArray(Helpers.LevelEntry(1, SneakAttack));
                 Main.LogPatch("Patched", EldritchScoundrelArchetype);
             }
             static void PatchRowdy() {
-                if (ModSettings.Fixes.Rogue.Archetypes["Rowdy"].DisableAllFixes) { return; }
-                if (!ModSettings.Fixes.Rogue.Archetypes["Rowdy"].Fixes["VitalForce"]) { return; }
+                if (ModSettings.Fixes.Rogue.Archetypes["Rowdy"].DisableAll) { return; }
+                if (!ModSettings.Fixes.Rogue.Archetypes["Rowdy"].Enabled["VitalForce"]) { return; }
                 var VitalStrikeAbility = Resources.GetBlueprint<BlueprintAbility>("efc60c91b8e64f244b95c66b270dbd7c");
                 var VitalStrikeAbilityImproved = Resources.GetBlueprint<BlueprintAbility>("c714cd636700ac24a91ca3df43326b00");
                 var VitalStrikeAbilityGreater = Resources.GetBlueprint<BlueprintAbility>("11f971b6453f74d4594c538e3c88d499");
@@ -60,8 +60,8 @@ namespace TabletopTweaks.Bugfixes.Clases {
         static class VitalStrike_OnEventDidTrigger_Rowdy_Patch {
 
             static bool Prefix(AbilityCustomMeleeAttack.VitalStrike __instance, RuleCalculateWeaponStats evt) {
-                if (ModSettings.Fixes.Rogue.Archetypes["Rowdy"].DisableAllFixes) { return true; }
-                if (!ModSettings.Fixes.Rogue.Archetypes["Rowdy"].Fixes["VitalForce"]) { return true; }
+                if (ModSettings.Fixes.Rogue.Archetypes["Rowdy"].DisableAll) { return true; }
+                if (!ModSettings.Fixes.Rogue.Archetypes["Rowdy"].Enabled["VitalForce"]) { return true; }
 
                 DamageDescription damageDescription = evt.DamageDescription.FirstItem();
                 if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {

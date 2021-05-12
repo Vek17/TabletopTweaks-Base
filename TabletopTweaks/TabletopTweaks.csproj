@@ -134,12 +134,14 @@
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Config\Blueprints.cs" />
     <Compile Include="Config\IUpdatableSettings.cs" />
+    <Compile Include="Config\SettingGroup.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
     <Compile Include="MechanicsChanges\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
+    <Compile Include="NewComponents\QuickStudy.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\DestinedArcanaComponent.cs" />
     <Compile Include="NewComponents\IgnoreClassPrerequisites.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="NewContent\Bloodlines\AbyssalBloodline.cs" />
     <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
+    <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
     <Compile Include="NewContent\Features\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\CavalierMounts.cs" />

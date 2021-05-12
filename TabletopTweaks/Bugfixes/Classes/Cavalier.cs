@@ -14,12 +14,12 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Cavalier.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Cavalier.DisableAll) { return; }
                 Main.LogHeader("Patching Cavalier");
                 CavalierMountSelection();
             }
             static void CavalierMountSelection() {
-                if (!ModSettings.Fixes.Cavalier.Base.Fixes["CavalierMountSelection"]) { return; }
+                if (!ModSettings.Fixes.Cavalier.Base.Enabled["CavalierMountSelection"]) { return; }
                 var CavalierMountSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("0605927df6e2fdd42af6ee2424eb89f2");
                 var AnimalCompanionEmptyCompanion = Resources.GetBlueprint<BlueprintFeature>("472091361cf118049a2b4339c4ea836a");
                 var AnimalCompanionFeatureHorse = Resources.GetBlueprint<BlueprintFeature>("9dc58b5901677c942854019d1dd98374");

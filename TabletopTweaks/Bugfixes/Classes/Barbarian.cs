@@ -15,20 +15,20 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Monk.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Monk.DisableAll) { return; }
                 Main.LogHeader("Patching Barbarian");
                 PatchBase();
                 PatchScaledFist();
             }
             static void PatchBase() {
-                if (ModSettings.Fixes.Barbarian.Base.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Barbarian.Base.DisableAll) { return; }
             }
             static void PatchScaledFist() {
-                if (ModSettings.Fixes.Barbarian.Archetypes["InstinctualWarriorArchetype"].DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Barbarian.Archetypes["InstinctualWarriorArchetype"].DisableAll) { return; }
                 PatchCunningElusionFeature();
 
                 void PatchCunningElusionFeature() {
-                    if (!ModSettings.Fixes.Barbarian.Archetypes["InstinctualWarriorArchetype"].Fixes["CunningElusion"]) { return; }
+                    if (!ModSettings.Fixes.Barbarian.Archetypes["InstinctualWarriorArchetype"].Enabled["CunningElusion"]) { return; }
                     var InstinctualWarriorArchetype = Resources.GetBlueprint<BlueprintArchetype>("adffdd8a99094a89823a79292a503ee9");
                     var InstinctualWarriorACBonusUnlock = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["InstinctualWarriorACBonusUnlock"]);
                     var CunningElusionFeature = Resources.GetBlueprint<BlueprintFeature>("a71103ce28964f39b38442baa32a3031");

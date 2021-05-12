@@ -24,13 +24,13 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Bloodlines.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.Bloodlines.DisableAll) { return; }
                 Main.LogHeader("Patching Bloodlines");
                 PatchBloodlineRestrictions();
             }
         }
         static void PatchBloodlineRestrictions() {
-            if (!ModSettings.Fixes.Bloodlines.Fixes["BloodlineRestrictions"]) { return; }
+            if (!ModSettings.Fixes.Bloodlines.Enabled["BloodlineRestrictions"]) { return; }
             // Bloodline Requisite 
             var BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["BloodlineRequisiteFeature"]);
             // Requisite Features

@@ -1,6 +1,28 @@
 {
-    "CauldronWitchArchetype": true,
-    "ElementalMasterArchetype": true,
-    "AberrantBloodline": true,
-    "DestinedBloodline": true
+    "Bloodlines": {
+        "DisableAll": false,
+        "Enabled": {
+            "AberrantBloodline": true,
+            "DestinedBloodline": true
+        }
+    },
+    "Archetypes": {
+        "DisableAll": false,
+        "Enabled": {
+            "CauldronWitchArchetype": true,
+            "ElementalMasterArchetype": true
+        }
+    },
+    "ArcanistExploits": {
+        "DisableAll": false,
+        "Enabled": {
+            "QuickStudy": true
+        }
+    },
+    "Spells": {
+        "DisableAll": false,
+        "Enabled": {
+            "LongArm": true
+        }
+    }
 }

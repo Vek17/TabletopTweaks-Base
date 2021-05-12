@@ -27,7 +27,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.MythicAbilities.DisableAllFixes) { return; }
+                if (ModSettings.Fixes.MythicAbilities.DisableAll) { return; }
                 Main.LogHeader("Patching Mythic Abilities");
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
@@ -36,7 +36,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchSecondSpirit();
             }
             static void PatchBloodlineAscendance() {
-                if (!ModSettings.Fixes.MythicAbilities.Fixes["BloodlineAscendance"]) { return; }
+                if (!ModSettings.Fixes.MythicAbilities.Enabled["BloodlineAscendance"]) { return; }
                 BlueprintFeatureSelection BloodlineAscendance = Resources.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
@@ -56,7 +56,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
             static void PatchSecondBloodline() {
-                if (!ModSettings.Fixes.MythicAbilities.Fixes["SecondBloodline"]) { return; }
+                if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
                 var SeekerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
@@ -89,7 +89,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", SecondBloodline);
             }
             static void PatchBloodragerSecondBloodline() {
-                if (!ModSettings.Fixes.MythicAbilities.Fixes["SecondBloodragerBloodline"]) { return; }
+                if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondBloodragerBloodline"]) { return; }
                 var ReformedFiendBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("dd62cb5011f64cd38b8b08abb19ba2cc");
                 var BloodragerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 var SecondBloodragerBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
@@ -103,14 +103,14 @@ namespace TabletopTweaks.Bugfixes.Features {
                 }));
             }
             static void PatchSecondMystery() {
-                if (!ModSettings.Fixes.MythicAbilities.Fixes["SecondMystery"]) { return; }
+                if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondMystery"]) { return; }
                 var SecondMystery = Resources.GetBlueprint<BlueprintFeatureSelection>("277b0164740b97945a3f8022bd572f48");
                 SecondMystery.m_Features = SecondMystery.m_AllFeatures;
                 SecondMystery.Group = FeatureGroup.None;
                 Main.LogPatch("Patched", SecondMystery);
             }
             static void PatchSecondSpirit() {
-                if (!ModSettings.Fixes.MythicAbilities.Fixes["SecondSpirit"]) { return; }
+                if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondSpirit"]) { return; }
                 var SecondSpirit = Resources.GetBlueprint<BlueprintFeatureSelection>("2faa80662a56ab644aec2f875a68597f");
                 SecondSpirit.m_Features = SecondSpirit.m_AllFeatures;
                 SecondSpirit.Group = FeatureGroup.None;
@@ -122,7 +122,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static BlueprintFeature EnduringSpells = Resources.GetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
             static BlueprintFeature EnduringSpellsGreater = Resources.GetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
-                if (ModSettings.Fixes.MythicAbilities.DisableAllFixes || !ModSettings.Fixes.MythicAbilities.Fixes["EnduringSpells"]) { return true; }
+                if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["EnduringSpells"]) { return true; }
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
 
                     var owner = parentContext.MaybeOwner;
@@ -140,7 +140,7 @@ namespace TabletopTweaks.Bugfixes.Features {
         [HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
         static class AutoMetamagic_ShouldApplyTo_DomainZealot_Patch {
             static void Postfix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
-                if (ModSettings.Fixes.MythicAbilities.DisableAllFixes || !ModSettings.Fixes.MythicAbilities.Fixes["DomainZealot"]) { return; }
+                if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["DomainZealot"]) { return; }
                 BlueprintAbility blueprintAbility = data?.ConvertedFrom?.Blueprint;
                 BlueprintAbility parentAbility = blueprintAbility ?? ability?.Parent ?? ability;
 
