@@ -13,6 +13,9 @@ namespace TabletopTweaks.NewContent {
                 Initialized = true;
                 Main.LogHeader("Loading New Content");
                 ArcanistExploits.QuickStudy.AddQuickStudy();
+                ArcanistExploits.ItemCrafting.AddItemCrafting();
+                ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();
+                ArcanistExploits.Familiar.AddFamiliar();
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();

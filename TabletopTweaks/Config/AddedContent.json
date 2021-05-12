@@ -16,7 +16,10 @@
     "ArcanistExploits": {
         "DisableAll": false,
         "Enabled": {
-            "QuickStudy": true
+            "QuickStudy": true,
+            "ItemCrafting": true,
+            "MetamagicKnowledge": true,
+            "Familiar": true
         }
     },
     "Spells": {

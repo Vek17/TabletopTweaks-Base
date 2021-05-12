@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("4515aeab69cc419ba926987dd2cce54f")]
-    class QuickStudy: AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
+    class QuickStudyComponent: AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
 
         public AbilityParameter RequiredParameters {
             get {
@@ -129,7 +129,7 @@ namespace TabletopTweaks.NewComponents {
                 List<AbilityData> list = __result.ToList();
                 if (__instance.SpellSlot != null && __instance.Spellbook != null) {
                     foreach (Ability ability in __instance.Caster.Abilities) {
-                        var QuickStudy = ability.Blueprint.GetComponent<QuickStudy>();
+                        var QuickStudy = ability.Blueprint.GetComponent<QuickStudyComponent>();
                         if (QuickStudy?.AddAsVarriant(__instance.SpellSlot, __instance.Spellbook, __instance.Caster) ?? false) {
                             var knownSpellList = __instance.Spellbook.GetKnownSpells(__instance.SpellSlot.SpellLevel);
                             IEnumerable<AbilityData> spellList;

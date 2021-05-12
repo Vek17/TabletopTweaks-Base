@@ -141,7 +141,7 @@
     <Compile Include="MechanicsChanges\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
-    <Compile Include="NewComponents\QuickStudy.cs" />
+    <Compile Include="NewComponents\QuickStudyComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\DestinedArcanaComponent.cs" />
     <Compile Include="NewComponents\IgnoreClassPrerequisites.cs" />
@@ -153,6 +153,9 @@
     <Compile Include="NewComponents\RestrictHasBuff.cs" />
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
+    <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
+    <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
+    <Compile Include="NewContent\ArcanistExploits\MetamagicKnowledge.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
     <Compile Include="Bugfixes\Classes\Aeon.cs" />
