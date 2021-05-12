@@ -74,7 +74,7 @@ namespace TabletopTweaks.NewComponents {
             var OppositionSchools = book.OppositionSchools;
             bool OpposedSlot = OppositionSchools.Contains(slot.Spell.Blueprint.School) || slot.Spell.Blueprint.SpellDescriptor.HasFlag(OppositionDescriptors);
             bool OpposedSpell = OppositionSchools.Contains(spell.Blueprint.School) || spell.Blueprint.SpellDescriptor.HasFlag(OppositionDescriptors);
-            return (!book.Blueprint.IsArcanist || !book.m_MemorizedSpells[level].Any(s => s.Spell == spell)) && OpposedSlot == OpposedSpell;
+            return (!book.Blueprint.IsArcanist || !book.m_MemorizedSpells[level].Any(s => s.Spell == spell)) && (!OpposedSpell || OpposedSlot == OpposedSpell);
         }
 
         public string GetAbilityRestrictionUIText() {
