@@ -5,6 +5,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -50,6 +51,7 @@ namespace TabletopTweaks.NewContent.Spells {
                 bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.LocalizedDuration = Helpers.CreateString("LongArmAbility.Duration", "1 minute/level");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken;
                 bp.Range = AbilityRange.Personal;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Self;

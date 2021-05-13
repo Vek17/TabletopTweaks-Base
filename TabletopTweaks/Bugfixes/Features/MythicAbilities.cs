@@ -145,9 +145,9 @@ namespace TabletopTweaks.Bugfixes.Features {
                 BlueprintAbility parentAbility = blueprintAbility ?? ability?.Parent ?? ability;
 
                 var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, null))
-                    || c.Abilities.HasItem((BlueprintAbilityReference r) => r.Is(ability))
+                    || (c?.Abilities?.HasItem((BlueprintAbilityReference r) => r.Is(ability)) ?? false)
                     || c.IsSuitableAbility(ability, data)
-                        && c.Abilities.Empty()
+                        && (c?.Abilities?.Empty() ?? true)
                         && (c.Descriptor == SpellDescriptor.None | ability.SpellDescriptor.HasAnyFlag(c.Descriptor))
                         && c.School != SpellSchool.None
                         && ability.School == c.School

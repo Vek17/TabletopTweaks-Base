@@ -4,6 +4,8 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.UI.Common;
+using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -74,7 +76,7 @@ namespace TabletopTweaks.NewComponents {
             var OppositionSchools = book.OppositionSchools;
             bool OpposedSlot = OppositionSchools.Contains(slot.Spell.Blueprint.School) || slot.Spell.Blueprint.SpellDescriptor.HasFlag(OppositionDescriptors);
             bool OpposedSpell = OppositionSchools.Contains(spell.Blueprint.School) || spell.Blueprint.SpellDescriptor.HasFlag(OppositionDescriptors);
-            return (!book.Blueprint.IsArcanist || !book.m_MemorizedSpells[level].Any(s => s.Spell == spell)) && (!OpposedSpell || OpposedSlot == OpposedSpell);
+            return (!book.Blueprint.IsArcanist || !book.m_MemorizedSpells[level].Any(s => s.Spell == spell && s.Available == true)) && (!OpposedSpell || OpposedSlot == OpposedSpell);
         }
 
         public string GetAbilityRestrictionUIText() {
@@ -132,11 +134,13 @@ namespace TabletopTweaks.NewComponents {
                         var QuickStudy = ability.Blueprint.GetComponent<QuickStudyComponent>();
                         if (QuickStudy?.AddAsVarriant(__instance.SpellSlot, __instance.Spellbook, __instance.Caster) ?? false) {
                             var knownSpellList = __instance.Spellbook.GetKnownSpells(__instance.SpellSlot.SpellLevel);
+                            var customSpellList = __instance.Spellbook.GetCustomSpells(__instance.SpellSlot.SpellLevel);
+
                             IEnumerable<AbilityData> spellList;
                             if (!__instance.Spellbook.Blueprint.IsArcanist) {
-                                spellList = knownSpellList.Where(s => !s.Equals(__instance.SpellSlot.Spell));
+                                spellList = knownSpellList.Concat(customSpellList).Where(s => !s.Equals(__instance.SpellSlot.Spell));
                             } else {
-                                spellList = knownSpellList;
+                                spellList = knownSpellList.Concat(customSpellList);
                             }
                             foreach (var spell in spellList.Where(s => QuickStudy.SpellQualifies(__instance.Spellbook, __instance.SpellLevel, __instance.SpellSlot, s))) {
                                 AbilityData.AddAbilityUnique(ref list, new AbilityData(ability) {
@@ -172,6 +176,23 @@ namespace TabletopTweaks.NewComponents {
             static void Postfix(AbilityData __instance, ref bool __result) {
                 if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
                     __result = true;
+                }
+            }
+        }
+        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationSprite")]
+        static class MechanicActionBarSlotSpontaneusConvertedSpell_GetDecorationSprite_QuickStudy_Patch {
+            static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Sprite __result) {
+                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
+                    __result = UIUtility.GetDecorationBorderByIndex(__instance.Spell.m_ConvertedFrom.DecorationBorderNumber);
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationColor")]
+        static class MechanicActionBarSlotSpontaneusConvertedSpell_GetDecorationColor_QuickStudy_Patch {
+            static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Color __result) {
+                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
+                    __result = UIUtility.GetDecorationColorByIndex(__instance.Spell.m_ConvertedFrom.DecorationColorNumber);
                 }
             }
         }
