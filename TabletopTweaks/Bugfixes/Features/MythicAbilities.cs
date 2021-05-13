@@ -7,11 +7,15 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -23,6 +27,7 @@ namespace TabletopTweaks.Bugfixes.Features {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
+            private static object hasFeature;
 
             static void Postfix() {
                 if (Initialized) return;
@@ -30,6 +35,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.MythicAbilities.DisableAll) { return; }
                 Main.LogHeader("Patching Mythic Abilities");
                 PatchBloodlineAscendance();
+                PatchEverlastingJudgement();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
                 PatchSecondMystery();
@@ -115,6 +121,29 @@ namespace TabletopTweaks.Bugfixes.Features {
                 SecondSpirit.m_Features = SecondSpirit.m_AllFeatures;
                 SecondSpirit.Group = FeatureGroup.None;
                 Main.LogPatch("Patched", SecondSpirit);
+            }
+            static void PatchEverlastingJudgement() {
+                if (!ModSettings.Fixes.MythicAbilities.Enabled["EverlastingJudgement"]) { return; }
+                var EverlastingJudgement = Resources.GetBlueprint<BlueprintFeature>("4a6dc772c9a7fe742a65820007107f03");
+                var JudgmentWatcherBuff = Resources.GetBlueprint<BlueprintBuff>("9b8bb2ce8f67e5b4fa634ed6a6671f7a");
+
+                var judgmentAddfacts = JudgmentWatcherBuff.GetComponent<AddFactContextActions>();
+                var condition = new Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional() {
+                    Comment = "EverlastingJudgement",
+                    ConditionsChecker = new ConditionsChecker {
+                            Conditions = new Condition[] { new ContextConditionHasFact() {
+                                m_Fact = EverlastingJudgement.ToReference<BlueprintUnitFactReference>()
+                            }
+                        }
+                    },
+                    IfTrue = new ActionList(),
+                    IfFalse = judgmentAddfacts.Activated
+                };
+                judgmentAddfacts.Activated = new ActionList() { 
+                    Actions = new GameAction[] { condition }
+                };
+
+                Main.LogPatch("Patched", JudgmentWatcherBuff);
             }
         }
         [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]
