@@ -8,25 +8,41 @@ using TabletopTweaks.Extensions;
 namespace TabletopTweaks.Utilities {
     static class SpellTools {
         public static void AddToSpellList(this BlueprintAbility spell, BlueprintSpellList spellList, int level) {
-            var comp = new SpellListComponent {
-                SpellLevel = level,
-                m_SpellList = spellList.ToReference<BlueprintSpellListReference>()
-            };
-            spell.AddComponent(comp);
-            spellList.SpellsByLevel[level].Spells.Add(spell);
+            AddComponentIfMissing(spellList);
+            AddToListIfMissing(spellList);
             if (spellList == SpellList.WizardSpellList) {
                 var school = spell.School;
                 var specialistList = specialistSchoolList.Value[(int)school];
                 specialistList?.SpellsByLevel[level].Spells.Add(spell);
+                AddComponentIfMissing(spellList);
+                AddToListIfMissing(spellList);
 
                 for (int i = 0; i < thassilonianSchoolList.Value.Length; i++) {
                     if (thassilonianOpposedSchools.Value[i] != null && !thassilonianOpposedSchools.Value[i].Contains(school)) {
-                        thassilonianSchoolList.Value[i]?.SpellsByLevel[level].Spells.Add(spell);
+                        AddComponentIfMissing(thassilonianSchoolList.Value[i]);
+                        AddToListIfMissing(thassilonianSchoolList.Value[i]);
                     }
                 }
 
                 if (school == SpellSchool.Enchantment || school == SpellSchool.Illusion) {
-                    SpellList.FeyspeakerSpelllist.SpellsByLevel[level].Spells.Add(spell);
+                    AddComponentIfMissing(SpellList.FeyspeakerSpelllist);
+                    AddToListIfMissing(SpellList.FeyspeakerSpelllist);
+                }
+            }
+            void AddComponentIfMissing(BlueprintSpellList list) {
+                if (list == null) { return; }
+                if (!spell.GetComponents<SpellListComponent>().Any(c => c.m_SpellList.Get() == list && c.SpellLevel == level)) {
+                    var comp = new SpellListComponent {
+                        SpellLevel = level,
+                        m_SpellList = list.ToReference<BlueprintSpellListReference>()
+                    };
+                    spell.AddComponent(comp);
+                }
+            }
+            void AddToListIfMissing(BlueprintSpellList list) {
+                if (list == null) { return; }
+                if (!list.SpellsByLevel[level].Spells.Contains(spell)) {
+                    list.SpellsByLevel[level].Spells.Add(spell);
                 }
             }
         }
