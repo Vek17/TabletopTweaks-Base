@@ -177,6 +177,7 @@
             "ProtectionFromAlignment": true,
             "ProtectionFromAlignmentGreater": true,
             "RemoveFear": true,
+            "ShadowConjuration": true,
             "WrackingRay": true
         }
     },

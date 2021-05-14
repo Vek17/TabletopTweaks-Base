@@ -43,6 +43,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchProtectionFromAlignment();
                 PatchProtectionFromAlignmentGreater();
                 PatchRemoveFear();
+                PatchShadowConjuration();
                 PatchWrachingRay();
             }
             static void PatchAngelicAspect() {
@@ -400,6 +401,12 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
                 RemoveFearBuff.AddComponent(suppressFear);
                 Main.LogPatch("Patched", RemoveFearBuff);
+            }
+            static void PatchShadowConjuration() {
+                if (!ModSettings.Fixes.Spells.Enabled["ShadowConjuration"]) { return; }
+                var ShadowConjuration = Resources.GetBlueprint<BlueprintAbility>("caac251ca7601324bbe000372a0a1005");
+                ShadowConjuration.AddToSpellList(SpellTools.SpellList.WizardSpellList, 4);
+                Main.LogPatch("Patched", ShadowConjuration);
             }
             static void PatchWrachingRay() {
                 if (!ModSettings.Fixes.Spells.Enabled["WrackingRay"]) { return; }
