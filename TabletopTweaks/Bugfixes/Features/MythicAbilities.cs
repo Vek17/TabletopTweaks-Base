@@ -168,12 +168,11 @@ namespace TabletopTweaks.Bugfixes.Features {
         }
         [HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
         static class AutoMetamagic_ShouldApplyTo_DomainZealot_Patch {
-            static void Postfix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
-                if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["DomainZealot"]) { return; }
-                BlueprintAbility blueprintAbility = data?.ConvertedFrom?.Blueprint;
-                BlueprintAbility parentAbility = blueprintAbility ?? ability?.Parent ?? ability;
+            static bool Prefix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
+                if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["DomainZealot"]) { return true; }
+                BlueprintAbility parentAbility = data?.ConvertedFrom?.Blueprint ?? ability?.Parent ?? ability;
 
-                var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, null))
+                var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, data?.ConvertedFrom))
                     || (c?.Abilities?.HasItem((BlueprintAbilityReference r) => r.Is(ability)) ?? false)
                     || c.IsSuitableAbility(ability, data)
                         && (c?.Abilities?.Empty() ?? true)
@@ -181,9 +180,12 @@ namespace TabletopTweaks.Bugfixes.Features {
                         && c.School != SpellSchool.None
                         && ability.School == c.School
                         && c.MaxSpellLevel > 0
+                        && data != null
                         && data.SpellLevel <= c.MaxSpellLevel
                         && (!c.CheckSpellbook || ability.IsInSpellList(c.Spellbook.SpellList));
+
                 __result = test;
+                return false;
             }
         }
     }
