@@ -2,7 +2,7 @@
 using Kingmaker.EntitySystem.Stats;
 using System;
 
-namespace TabletopTweaks.MechanicsChanges {
+namespace TabletopTweaks.Bugfixes.General {
     class TemporaryHitPointDisplayFix {
         [HarmonyPatch(typeof(ModifiableValueTemporaryHitPoints), "HandleDamage", new Type[] { typeof(int) })]
         static class ActivatableAbility_HandleUnitLeaveCombat_Patch {

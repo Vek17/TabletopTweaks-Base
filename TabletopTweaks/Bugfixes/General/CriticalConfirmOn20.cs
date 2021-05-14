@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace TabletopTweaks.MechanicsChanges {
+namespace TabletopTweaks.Bugfixes.General {
     class CriticalConfirmOn20 {
         [HarmonyPatch(typeof(RuleAttackRoll), "OnTrigger", new Type[] { typeof(RulebookEventContext) })]
         static class ActivatableAbility_HandleUnitLeaveCombat_Patch {

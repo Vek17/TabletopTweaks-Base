@@ -138,8 +138,8 @@
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
-    <Compile Include="MechanicsChanges\CriticalConfirmOn20.cs" />
-    <Compile Include="MechanicsChanges\TemporaryHitPointDisplayFix.cs" />
+    <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
+    <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
