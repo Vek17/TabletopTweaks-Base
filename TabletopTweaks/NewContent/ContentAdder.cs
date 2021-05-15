@@ -17,10 +17,10 @@ namespace TabletopTweaks.NewContent {
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();
                 ArcanistExploits.Familiar.AddFamiliar();
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
-                Features.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();
                 Features.CavalierMounts.AddCavalierMountFeatureWolf();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
+                Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();
                 Bloodlines.AberrantBloodline.AddSorcererAberrantBloodline();
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
@@ -29,6 +29,10 @@ namespace TabletopTweaks.NewContent {
                 Spells.LongArms.AddLongArms();
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
+                Races.Dwarf.AddDwarfHeritage();
+                Races.Elf.AddElfHeritage();
+                Races.Gnome.AddGnomeHeritage();
+                Races.Halfling.AddHalflingHeritage();
             }
         }
     }

@@ -120,6 +120,22 @@
         "ArcanistExploitFamiliar": "23fb1d26bbc1422487a3be92275bd40b",
         "ArcanistExploitMetamagicKnowledge": "ce3c4732fd7944bd98058264f31f0175",
         "ArcanistExploitQuickStudyAbility": "fdc6aa23a730426ba4a70a41b76a8fe2",
-        "ArcanistExploitQuickStudy": "8b51e860b80e44d3a3572b7e75d65f1b"
+        "ArcanistExploitQuickStudy": "8b51e860b80e44d3a3572b7e75d65f1b",
+        "GnomeHeritageDefaultFeature": "9d05bebe812342c6b864b6636a6769c1",
+        "GnomeHeritageClassicFeature": "66dd730f97594c4d851e57c450692c9d",
+        "GnomeHeritageArtisanFeature": "1940b229985244e19dd1b2792b90e270",
+        "GnomeHeritageSelection": "f6ecb5d9ed924f1f9aa6c4cdc10fd367",
+        "HalflingHeritageDefaultFeature": "7cfe9cc9676143559408806d87d092a6",
+        "HalflingHeritageClassicFeature": "7b541678fcb144c8aff4bc2642b6628c",
+        "HalflingHeritageBruiserFeature": "ed7d1955465c4484a4cea77326f5b697",
+        "HalflingHeritageSelection": "47dd607f5a6243f68a0cfe92e289adc9",
+        "ElfHeritageDefaultFeature": "ec0047793bed43529d698de3856972b6",
+        "ElfHeritageClassicFeature": "0c71158656c54b1cae5b04b911fbbd4c",
+        "ElfHeritageFieraniFeature": "2143895dbd8e4ba59fd5bbe8e492d119",
+        "ElfHeritageSelection": "3b4cb06cde974c00b2aee7999ea659c8",
+        "DwarfHeritageDefaultFeature": "e52eb388788249639d3f8ecf503731b0",
+        "DwarfHeritageClassicFeature": "561f615713fc442d86741031cae6994e",
+        "DwarfHeritageStoutheartFeature": "e82d45ab17b64ccdb024c51a550c5f0c",
+        "DwarfHeritageSelection": "f036bf784cbb40df84460bb855251a76"
     }
 }

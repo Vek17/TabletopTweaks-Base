@@ -27,7 +27,6 @@ namespace TabletopTweaks.Bugfixes.Features {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
-            private static object hasFeature;
 
             static void Postfix() {
                 if (Initialized) return;

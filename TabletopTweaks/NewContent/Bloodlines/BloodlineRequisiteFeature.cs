@@ -3,7 +3,7 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
-namespace TabletopTweaks.NewContent.Features {
+namespace TabletopTweaks.NewContent.Bloodlines {
     static class BloodlineRequisiteFeature {
         public static void AddBloodlineRequisiteFeature() {
             var BloodlineRequisiteFeature = Helpers.Create<BlueprintFeature>(bp => {

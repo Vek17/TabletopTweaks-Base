@@ -4,6 +4,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Archetypes = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup ArcanistExploits = new SettingGroup();
+        public SettingGroup Races = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
 
         public void OverrideSettings(IUpdatableSettings userSettings) {

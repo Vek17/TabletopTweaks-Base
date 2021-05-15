@@ -22,6 +22,15 @@
             "Familiar": true
         }
     },
+    "Races": {
+        "DisableAll": false,
+        "Enabled": {
+            "GnomeHomebrewHeritage": true,
+            "HalflingHomebrewHeritage": true,
+            "ElfHomebrewHeritage": true,
+            "DwarfHomebrewHeritage": true
+        }
+    },
     "Spells": {
         "DisableAll": false,
         "Enabled": {

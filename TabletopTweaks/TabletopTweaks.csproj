@@ -186,10 +186,14 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
-    <Compile Include="NewContent\Features\BloodlineRequisiteFeature.cs" />
+    <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\CavalierMounts.cs" />
     <Compile Include="NewContent\Features\InstinctualWarriorACBonusUnlock.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\Races\Elf.cs" />
+    <Compile Include="NewContent\Races\Dwarf.cs" />
+    <Compile Include="NewContent\Races\Gnome.cs" />
+    <Compile Include="NewContent\Races\Halfling.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="Resources.cs" />
