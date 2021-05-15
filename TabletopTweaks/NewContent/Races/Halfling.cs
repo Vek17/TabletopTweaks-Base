@@ -24,6 +24,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.name = "HalflingHeritageDefaultFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling");
                 bp.SetDescription("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
                     + "races. They gain +2 Dexterity, +2 Charisma, and –2 Strength.");
@@ -56,6 +57,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "HalflingHeritageClassicFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling");
                 bp.SetDescription(HalflingHeritageDefaultFeature.Description);
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -85,6 +87,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "HalflingHeritageBruiserFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Bruiser");
                 bp.SetDescription("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
                     +"streets, has made some halflings more adept at taking blows than dodging them. Halflings with this racial "
@@ -141,7 +144,6 @@ namespace TabletopTweaks.NewContent.Races {
                 c.m_Feature = HalflingHeritageDefaultFeature.ToReference<BlueprintFeatureReference>();
             }));
             Halfling.m_Features = Halfling.m_Features.AddToArray(HalflingHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
-            Main.LogPatch("Added", Halfling);
         }
     }
 }

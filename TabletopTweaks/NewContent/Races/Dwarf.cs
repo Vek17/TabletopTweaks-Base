@@ -25,7 +25,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.name = "DwarfHeritageDefaultFeature";
                 bp.SetName("Dwarf");
-                bp.SetDescription("Dwarf Default Racial Stats");
+                bp.SetDescription("Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Wisdom;
@@ -55,8 +56,9 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "DwarfHeritageClassicFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Dwarf");
-                bp.SetDescription("Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
+                bp.SetDescription(DwarfHeritageDefaultFeature.Description);
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Wisdom;
@@ -84,6 +86,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "DwarfHeritageStoutheartFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Stoutheart Dwarf");
                 bp.SetDescription("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
                     +"their kin. Dwarves with this racial trait gain +2 Constitution, +2 Charisma, and -2 Intelligence. "
@@ -140,7 +143,6 @@ namespace TabletopTweaks.NewContent.Races {
                 c.m_Feature = DwarfHeritageDefaultFeature.ToReference<BlueprintFeatureReference>();
             }));
             DwarfRace.m_Features = DwarfRace.m_Features.AddToArray(DwarfHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
-            Main.LogPatch("Added", DwarfRace);
         }
     }
 }

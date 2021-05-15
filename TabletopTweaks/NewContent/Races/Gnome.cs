@@ -24,6 +24,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.name = "GnomeHeritageDefaultFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome");
                 bp.SetDescription("Gnomes are physically weak but surprisingly hardy, and their attitude "
                     + "makes them naturally agreeable. They gain +2 Constitution, +2 Charisma, and –2 Strength.");
@@ -56,6 +57,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "GnomeHeritageClassicFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome");
                 bp.SetDescription(GnomeHeritageDefaultFeature.Description);
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -85,6 +87,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "GnomeHeritageArtisanFeature";
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome Artisan");
                 bp.SetDescription("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
                     +"all of their time and energy to their crafts. Such gnomes gain +2 Constitution, +2 Intelligence, "
@@ -141,7 +144,6 @@ namespace TabletopTweaks.NewContent.Races {
                 c.m_Feature = GnomeHeritageDefaultFeature.ToReference<BlueprintFeatureReference>();
             }));
             GnomeRace.m_Features = GnomeRace.m_Features.AddToArray(GnomeHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
-            Main.LogPatch("Added", GnomeRace);
         }
     }
 }
