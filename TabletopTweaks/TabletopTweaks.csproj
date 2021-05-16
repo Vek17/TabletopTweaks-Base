@@ -131,6 +131,7 @@
     <Compile Include="Bugfixes\Classes\Monk.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
+    <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Config\Blueprints.cs" />
     <Compile Include="Config\IUpdatableSettings.cs" />

@@ -2,8 +2,9 @@
     "DisableNaturalArmorStacking": true,
     "DisablePolymorphStacking": true,
     "DisableCannyDefenseStacking": true,
-    "DisableAfterCombatDeactivationOfUnlimitedAbilities":  true,
+    "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
     "FixDemonSubtypes": true,
+    "FixShadowSpells": true,
     "Aeon": {
         "DisableAll": false,
         "Enabled": {
