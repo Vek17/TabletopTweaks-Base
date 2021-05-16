@@ -136,6 +136,8 @@
         "DwarfHeritageDefaultFeature": "e52eb388788249639d3f8ecf503731b0",
         "DwarfHeritageClassicFeature": "561f615713fc442d86741031cae6994e",
         "DwarfHeritageStoutheartFeature": "e82d45ab17b64ccdb024c51a550c5f0c",
-        "DwarfHeritageSelection": "f036bf784cbb40df84460bb855251a76"
+        "DwarfHeritageSelection": "f036bf784cbb40df84460bb855251a76",
+        "ShadowEnchantmentGreater": "ba07962827484eb38bf0b6aadd9f5f22",
+        "ShadowEnchantment": "d934f706a12b40ec87a9c8baf221b8a9"
     }
 }

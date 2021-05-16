@@ -196,6 +196,7 @@
     <Compile Include="NewContent\Races\Gnome.cs" />
     <Compile Include="NewContent\Races\Halfling.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
+    <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="SaveGamePatch.cs" />
@@ -228,6 +229,12 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\Abilities\Icon_LongArm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_ShadowEnchantment.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_ShadowEnchantmentGreater.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

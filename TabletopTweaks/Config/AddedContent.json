@@ -34,7 +34,10 @@
     "Spells": {
         "DisableAll": false,
         "Enabled": {
-            "LongArm": true
+            "LongArm": true,
+            "ShadowEnchantment": true,
+            "ShadowEnchantmentGreater": true
+
         }
     }
 }

@@ -26,13 +26,15 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
-                Spells.LongArms.AddLongArms();
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();
                 Races.Gnome.AddGnomeHeritage();
                 Races.Halfling.AddHalflingHeritage();
+                Spells.LongArms.AddLongArms();
+                Spells.ShadowEnchantment.AddShadowEnchantment();
+                Spells.ShadowEnchantment.AddShadowEnchantmentGreater();
             }
         }
     }
