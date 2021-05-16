@@ -19,6 +19,12 @@
             "ZippyMagic": true
         }
     },
+    "Trickster": {
+        "DisableAll": false,
+        "Enabled": {
+            "TricksterTricks": true
+        }
+    },
     "Barbarian": {
         "DisableAll": false,
         "Base": {

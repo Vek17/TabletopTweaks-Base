@@ -12,6 +12,7 @@ namespace TabletopTweaks.Config {
         public bool FixShadowSpells = true;
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
+        public SettingGroup Trickster = new SettingGroup();
         public ClassGroup Barbarian = new ClassGroup();
         public ClassGroup Bloodrager = new ClassGroup();
         public ClassGroup Cavalier = new ClassGroup();
@@ -40,6 +41,7 @@ namespace TabletopTweaks.Config {
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon);
             Azata.LoadSettingGroup(loadedSettings.Azata);
+            Trickster.LoadSettingGroup(loadedSettings.Trickster);
 
             Barbarian.LoadClassGroup(loadedSettings.Barbarian);
             Bloodrager.LoadClassGroup(loadedSettings.Bloodrager);
