@@ -16,7 +16,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Trickster.DisableAll) { return; }
-                Main.LogHeader("Patching Aeon Resources");
+                Main.LogHeader("Patching Trickster Resources");
                 PatchTricksterTricks();
             }
             static void PatchTricksterTricks() {

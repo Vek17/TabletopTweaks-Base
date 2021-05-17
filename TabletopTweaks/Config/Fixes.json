@@ -25,6 +25,16 @@
             "TricksterTricks": true
         }
     },
+    "Arcanist": {
+        "DisableAll": false,
+        "Base": {
+            "DisableAll": false,
+            "Enabled": {
+                "ConsumeSpells": true
+            }
+        },
+        "Archetypes": {}
+    },
     "Barbarian": {
         "DisableAll": false,
         "Base": {
