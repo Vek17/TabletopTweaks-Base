@@ -91,18 +91,18 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 });
                 var conditionSaved = Helpers.Create<ContextActionConditionalSaved>(c => {
                     c.Failed = new ActionList();
-                    c.Failed.Actions = c.Failed.Actions.AddToArray(applyBuff);
+                    c.Failed.Actions = c.Failed.Actions.AppendToArray(applyBuff);
                 });
                 var savingThrow = Helpers.Create<ContextActionSavingThrow>(c => {
                     c.Type = SavingThrowType.Fortitude;
                     c.Actions = new ActionList();
-                    c.Actions.Actions = c.Actions.Actions.AddToArray(conditionSaved);
+                    c.Actions.Actions = c.Actions.Actions.AppendToArray(conditionSaved);
                 });
                 bp.AddComponent(Helpers.Create<AddInitiatorAttackWithWeaponTrigger>(c => {
                     c.OnlyHit = true;
                     c.CriticalHit = true;
                     c.Action = new ActionList();
-                    c.Action.Actions = c.Action.Actions.AddToArray(savingThrow);
+                    c.Action.Actions = c.Action.Actions.AppendToArray(savingThrow);
                 }));
                 bp.AddComponent(Helpers.Create<ContextCalculateAbilityParamsBasedOnClass>(c => {
                     c.m_CharacterClass = BloodragerClass;

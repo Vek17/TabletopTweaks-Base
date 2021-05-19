@@ -143,7 +143,7 @@ namespace TabletopTweaks.NewContent.Races {
             Halfling.AddComponent(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = HalflingHeritageDefaultFeature.ToReference<BlueprintFeatureReference>();
             }));
-            Halfling.m_Features = Halfling.m_Features.AddToArray(HalflingHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
+            Halfling.m_Features = Halfling.m_Features.AppendToArray(HalflingHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
         }
     }
 }

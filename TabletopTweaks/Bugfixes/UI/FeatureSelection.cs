@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿#if false
+using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.UnitLogic;
@@ -27,3 +28,4 @@ namespace TabletopTweaks.Bugfixes.UI {
         }
     }
 }
+#endif

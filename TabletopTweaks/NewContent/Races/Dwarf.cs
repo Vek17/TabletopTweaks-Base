@@ -142,7 +142,7 @@ namespace TabletopTweaks.NewContent.Races {
             DwarfRace.AddComponent(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = DwarfHeritageDefaultFeature.ToReference<BlueprintFeatureReference>();
             }));
-            DwarfRace.m_Features = DwarfRace.m_Features.AddToArray(DwarfHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
+            DwarfRace.m_Features = DwarfRace.m_Features.AppendToArray(DwarfHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
         }
     }
 }

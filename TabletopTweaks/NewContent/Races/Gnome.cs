@@ -143,7 +143,7 @@ namespace TabletopTweaks.NewContent.Races {
             GnomeRace.AddComponent(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = GnomeHeritageDefaultFeature.ToReference<BlueprintFeatureReference>();
             }));
-            GnomeRace.m_Features = GnomeRace.m_Features.AddToArray(GnomeHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
+            GnomeRace.m_Features = GnomeRace.m_Features.AppendToArray(GnomeHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
         }
     }
 }

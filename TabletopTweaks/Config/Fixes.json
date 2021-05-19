@@ -130,22 +130,38 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "FavoredEnemy": true
+                "FavoredEnemy": true,
             }
         },
-        "Archetypes": {}
+        "Archetypes": {
+            "EspionageExpert": {
+                "DisableAll": false,
+                "Enabled": {
+                    "Trapfinding": true
+                }
+            }
+        }
     },
     "Rogue": {
         "DisableAll": false,
         "Base": {
             "DisableAll": false,
-            "Enabled": {}
+            "Enabled": {
+                "Trapfinding": true
+            }
         },
         "Archetypes": {
             "EldritchScoundrel": {
                 "DisableAll": false,
                 "Enabled": {
                     "SneakAttack": true
+                }
+            },
+            "MasterOfAll": {
+                "DisableAll": false,
+                "Enabled": {
+                    "SkillFocus": true,
+                    "BardicKnowledge": true
                 }
             },
             "Rowdy": {
@@ -161,6 +177,7 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
+                "Trapfinding": true,
                 "StudiedTarget": true
             }
         },

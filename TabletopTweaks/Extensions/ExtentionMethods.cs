@@ -63,7 +63,7 @@ namespace TabletopTweaks.Extensions {
             return value;
         }
 
-        public static T[] AddToArray<T>(this T[] array, T value) {
+        public static T[] AppendToArray<T>(this T[] array, T value) {
             var len = array.Length;
             var result = new T[len + 1];
             Array.Copy(array, result, len);
@@ -83,7 +83,7 @@ namespace TabletopTweaks.Extensions {
             return list.ToArray();
         }
 
-        public static T[] AddToArray<T>(this T[] array, params T[] values) {
+        public static T[] AppendToArray<T>(this T[] array, params T[] values) {
             var len = array.Length;
             var valueLen = values.Length;
             var result = new T[len + valueLen];
@@ -92,7 +92,7 @@ namespace TabletopTweaks.Extensions {
             return result;
         }
 
-        public static T[] AddToArray<T>(this T[] array, IEnumerable<T> values) => AddToArray(array, values.ToArray());
+        public static T[] AppendToArray<T>(this T[] array, IEnumerable<T> values) => AppendToArray(array, values.ToArray());
 
         public static T[] InsertBeforeElement<T>(this T[] array, T value, T element) {
             var len = array.Length;
@@ -157,7 +157,7 @@ namespace TabletopTweaks.Extensions {
         }
 
         public static void AddComponent(this BlueprintScriptableObject obj, BlueprintComponent component) {
-            obj.SetComponents(obj.ComponentsArray.AddToArray(component));
+            obj.SetComponents(obj.ComponentsArray.AppendToArray(component));
         }
 
         public static void RemoveComponent(this BlueprintScriptableObject obj, BlueprintComponent component) {
@@ -366,7 +366,7 @@ namespace TabletopTweaks.Extensions {
         public static void AddAction(this Kingmaker.UnitLogic.Abilities.Components.AbilityEffectRunAction action, Kingmaker.ElementsSystem.GameAction game_action) {
             if (action.Actions != null) {
                 action.Actions = Helpers.CreateActionList(action.Actions.Actions);
-                action.Actions.Actions = action.Actions.Actions.AddToArray(game_action);
+                action.Actions.Actions = action.Actions.Actions.AppendToArray(game_action);
             } else {
                 action.Actions = Helpers.CreateActionList(game_action);
             }

@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.Units {
     static class DemonSubtypes {
@@ -27,8 +28,8 @@ namespace TabletopTweaks.Bugfixes.Units {
             BlueprintFeature subtypeChaotic = Resources.GetBlueprint<BlueprintFeature>("1dd712e7f147ab84bad6ffccd21a878d");
 
             var addFacts = subtypeDemon.GetComponent<AddFacts>();
-            addFacts.m_Facts = addFacts.m_Facts.AddToArray(subtypeEvil.ToReference<BlueprintUnitFactReference>());
-            addFacts.m_Facts = addFacts.m_Facts.AddToArray(subtypeChaotic.ToReference<BlueprintUnitFactReference>());
+            addFacts.m_Facts = addFacts.m_Facts.AppendToArray(subtypeEvil.ToReference<BlueprintUnitFactReference>());
+            addFacts.m_Facts = addFacts.m_Facts.AppendToArray(subtypeChaotic.ToReference<BlueprintUnitFactReference>());
             Main.LogPatch("Patched", subtypeDemon);
         }
     }
