@@ -37,6 +37,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
             static void PatchBase() {
                 if (ModSettings.Fixes.Rogue.Base.DisableAll) { return; }
                 PatchTrapfinding();
+                PatchRogueTalentSelection();
 
                 void PatchTrapfinding() {
                     if (!ModSettings.Fixes.Rogue.Base.Enabled["Trapfinding"]) { return; }
@@ -50,6 +51,12 @@ namespace TabletopTweaks.Bugfixes.Clases {
                     }));
                     Trapfinding.SetDescription("A rogue adds 1/2 her level on {g|Encyclopedia:Perception}Perception checks{/g} and {g|Encyclopedia:Trickery}Trickery checks{/g}.");
                     Main.LogPatch("Patched", Trapfinding);
+                }
+                void PatchRogueTalentSelection() {
+                    if (!ModSettings.Fixes.Rogue.Base.Enabled["RogueTalentSelection"]) { return; }
+                    var RogueTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
+                    RogueTalentSelection.Mode = SelectionMode.OnlyNew;
+                    Main.LogPatch("Patched", RogueTalentSelection);
                 }
             }
             static void PatchEldritchScoundrel() {

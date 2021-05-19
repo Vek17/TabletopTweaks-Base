@@ -147,7 +147,8 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "Trapfinding": true
+                "Trapfinding": true,
+                "RogueTalentSelection": true
             }
         },
         "Archetypes": {
