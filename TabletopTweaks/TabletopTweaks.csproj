@@ -194,6 +194,7 @@
     <Compile Include="NewContent\Features\CavalierMounts.cs" />
     <Compile Include="NewContent\Features\InstinctualWarriorACBonusUnlock.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />
     <Compile Include="NewContent\Races\Elf.cs" />
     <Compile Include="NewContent\Races\Dwarf.cs" />
     <Compile Include="NewContent\Races\Gnome.cs" />

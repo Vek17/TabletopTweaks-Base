@@ -9,7 +9,7 @@ namespace TabletopTweaks.NewContent.Features {
     class InstinctualWarriorACBonusUnlock {
         public static void AddInstinctualWarriorACBonusUnlock() {
             var CunningElusionFeature = Resources.GetBlueprint<BlueprintFeature>("a71103ce28964f39b38442baa32a3031");
-            var BloodlineRequisiteFeature = Helpers.Create<BlueprintFeature>(bp => {
+            var InstinctualWarriorACBonusUnlock = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["InstinctualWarriorACBonusUnlock"];
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
@@ -21,7 +21,7 @@ namespace TabletopTweaks.NewContent.Features {
                     c.m_NewFact = CunningElusionFeature.ToReference<BlueprintUnitFactReference>();
                 }));
             });
-            Resources.AddBlueprint(BloodlineRequisiteFeature);
+            Resources.AddBlueprint(InstinctualWarriorACBonusUnlock);
         }
     }
 }

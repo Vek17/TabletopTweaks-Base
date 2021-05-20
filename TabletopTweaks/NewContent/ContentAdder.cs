@@ -35,6 +35,7 @@ namespace TabletopTweaks.NewContent {
                 Spells.LongArms.AddLongArms();
                 Spells.ShadowEnchantment.AddShadowEnchantment();
                 Spells.ShadowEnchantment.AddShadowEnchantmentGreater();
+                MythicAbilities.ImpossibleSpeed.AddImpossibleSpeed();
             }
         }
     }
