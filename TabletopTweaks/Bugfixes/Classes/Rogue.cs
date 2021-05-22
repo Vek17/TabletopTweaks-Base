@@ -3,17 +3,23 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System;
+using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -38,6 +44,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 if (ModSettings.Fixes.Rogue.Base.DisableAll) { return; }
                 PatchTrapfinding();
                 PatchRogueTalentSelection();
+                PatchDoubleDebilitation();
 
                 void PatchTrapfinding() {
                     if (!ModSettings.Fixes.Rogue.Base.Enabled["Trapfinding"]) { return; }
@@ -57,6 +64,141 @@ namespace TabletopTweaks.Bugfixes.Clases {
                     var RogueTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
                     RogueTalentSelection.Mode = SelectionMode.OnlyNew;
                     Main.LogPatch("Patched", RogueTalentSelection);
+                }
+                void PatchDoubleDebilitation() {
+                    if (!ModSettings.Fixes.Rogue.Base.Enabled["DoubleDebilitation"]) { return; }
+                    var DoubleDebilitation = Resources.GetBlueprint<BlueprintFeature>("dd699394df0ef8847abba26038333f02");
+                    var DebilitatingInjuryHamperedActiveBuff = Resources.GetBlueprint<BlueprintBuff>("cc9a43f5157309646b23a0a690fee84b");
+                    var DebilitatingInjuryDisorientedActiveBuff = Resources.GetBlueprint<BlueprintBuff>("6339eac5bdcef1747ac46885d2cf4e25");
+                    var DebilitatingInjuryBewilderedActiveBuff = Resources.GetBlueprint<BlueprintBuff>("116ee72b2149f4d44a330296a7e42d13");
+
+                    var DebilitatingInjuryHamperedEffectBuff = Resources.GetBlueprint<BlueprintBuff>("5bfefc22a68e736488b0c309d9c1c1d4");
+                    var DebilitatingInjuryDisorientedEffectBuff = Resources.GetBlueprint<BlueprintBuff>("1f1e42f8c06d7dc4bb70cc12c73dfb38");
+                    var DebilitatingInjuryBewilderedEffectBuff = Resources.GetBlueprint<BlueprintBuff>("22b1d98502050cb4cbdb3679ac53115e");
+
+                    PatchEffect(DebilitatingInjuryHamperedActiveBuff);
+                    PatchEffect(DebilitatingInjuryDisorientedActiveBuff);
+                    PatchEffect(DebilitatingInjuryBewilderedActiveBuff);
+
+                    DebilitatingInjuryHamperedEffectBuff.m_Icon = DebilitatingInjuryHamperedActiveBuff.Icon;
+                    Main.LogPatch("Patched", DebilitatingInjuryHamperedEffectBuff);
+
+                    void PatchEffect(BlueprintBuff targetBuff) {
+                        var InitiatorAttackRollTrigger = targetBuff.GetComponent<AddInitiatorAttackRollTrigger>();
+                        var applyBuff = Helpers.Create<ContextActionApplyBuff>(c => {
+                            c.m_Buff = InitiatorAttackRollTrigger.Action.Actions.OfType<ContextActionApplyBuff>().First().m_Buff;
+                            c.DurationValue = new ContextDurationValue {
+                                m_IsExtendable = true,
+                                DiceCountValue = new ContextValue(),
+                                BonusValue = new ContextValue() {
+                                    Value = 1
+                                }
+                            };
+                        });
+                        InitiatorAttackRollTrigger.Action.Actions = new GameAction[] {
+                            applyBuff,
+                            CreateNoDouble(),
+                            CreateDouble()
+                        };
+                        Main.LogPatch("Patched", targetBuff);
+                    }
+                    Conditional CreateNoDouble() {
+                        return new Conditional() {
+                            ConditionsChecker = new ConditionsChecker {
+                                Conditions = new Condition[] {
+                                    new ContextConditionCasterHasFact() {
+                                        m_Fact = DoubleDebilitation.ToReference<BlueprintUnitFactReference>(),
+                                        Not = true
+                                    }
+                                },
+                            },
+                            IfTrue = new ActionList() {
+                                Actions = new GameAction[] {
+                                    CreateRemoveBuff(DebilitatingInjuryHamperedActiveBuff, DebilitatingInjuryHamperedEffectBuff),
+                                    CreateRemoveBuff(DebilitatingInjuryDisorientedActiveBuff, DebilitatingInjuryDisorientedEffectBuff),
+                                    CreateRemoveBuff(DebilitatingInjuryBewilderedActiveBuff, DebilitatingInjuryBewilderedEffectBuff)
+                                }
+                            },
+                            IfFalse = new ActionList()
+                        };
+                    }
+                    Conditional CreateDouble() {
+                        return new Conditional() {
+                            ConditionsChecker = new ConditionsChecker {
+                                Conditions = new Condition[] {
+                                    new ContextConditionCasterHasFact() {
+                                        m_Fact = DoubleDebilitation.ToReference<BlueprintUnitFactReference>(),
+                                    }
+                                },
+                            },
+                            IfTrue = new ActionList() {
+                                Actions = new GameAction[] {
+                                    CreateDoubleRemoveBuff(DebilitatingInjuryHamperedActiveBuff, DebilitatingInjuryHamperedEffectBuff),
+                                    CreateDoubleRemoveBuff(DebilitatingInjuryDisorientedActiveBuff, DebilitatingInjuryDisorientedEffectBuff),
+                                    CreateDoubleRemoveBuff(DebilitatingInjuryBewilderedActiveBuff, DebilitatingInjuryBewilderedEffectBuff)
+                                }
+                            },
+                            IfFalse = new ActionList()
+                        };
+                    }
+                    Conditional CreateDoubleRemoveBuff(BlueprintBuff triggerBuff, BlueprintBuff effectBuff) {
+                        return new Conditional() {
+                            ConditionsChecker = new ConditionsChecker {
+                                Operation = Operation.And,
+                                Conditions = new Condition[] {
+                                    new ContextConditionHasBuffFromCaster() {
+                                        m_Buff = DebilitatingInjuryHamperedEffectBuff.ToReference<BlueprintBuffReference>(),
+                                    },
+                                    new ContextConditionHasBuffFromCaster() {
+                                        m_Buff = DebilitatingInjuryHamperedEffectBuff.ToReference<BlueprintBuffReference>(),
+                                    },
+                                    new ContextConditionHasBuffFromCaster() {
+                                        m_Buff = DebilitatingInjuryHamperedEffectBuff.ToReference<BlueprintBuffReference>(),
+                                    }
+                                },
+                            },
+                            IfTrue = new ActionList() {
+                                Actions = new GameAction[] {
+                                    CreateRemoveBuff(triggerBuff, effectBuff)
+                                }
+                            },
+                            IfFalse = new ActionList()
+                        };
+                    }
+                    Conditional CreateRemoveBuff(BlueprintBuff triggerBuff, BlueprintBuff effectBuff) {
+                        return new Conditional() {
+                            ConditionsChecker = new ConditionsChecker {
+                                Conditions = new Condition[] {
+                                    new ContextConditionCasterHasFact() {
+                                        m_Fact = triggerBuff.ToReference<BlueprintUnitFactReference>(),
+                                        Not = true
+                                    }
+                                },
+                            },
+                            IfTrue = new ActionList() {
+                                Actions = new GameAction[] {
+                                    new Conditional() {
+                                        ConditionsChecker = new ConditionsChecker {
+                                            Conditions = new Condition[] {
+                                                new ContextConditionHasBuffFromCaster() {
+                                                    m_Buff = effectBuff.ToReference<BlueprintBuffReference>()
+                                                }
+                                            },
+                                        },
+                                        IfTrue = new ActionList() {
+                                            Actions = new GameAction[] {
+                                                new ContextActionRemoveBuff(){
+                                                    m_Buff = effectBuff.ToReference<BlueprintBuffReference>()
+                                                }
+                                            }
+                                        },
+                                        IfFalse = new ActionList()
+                                    }
+                                }
+                            },
+                            IfFalse = new ActionList()
+                        }; 
+                    }
                 }
             }
             static void PatchEldritchScoundrel() {

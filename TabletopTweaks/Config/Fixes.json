@@ -140,6 +140,7 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
+                "DoubleDebilitation": true,
                 "Trapfinding": true,
                 "RogueTalentSelection": true
             }
