@@ -106,14 +106,7 @@
             "DisableAll": false,
             "Enabled": {}
         },
-        "Archetypes": {
-            "ElementalEngine": {
-                "DisableAll": false,
-                "Enabled": {
-                    "FixBrokenSelection": true
-                }
-            }
-        }
+        "Archetypes": {}
     },
     "Paladin": {
         "DisableAll": false,
