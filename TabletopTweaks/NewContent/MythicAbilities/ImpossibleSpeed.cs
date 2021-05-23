@@ -13,6 +13,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
     class ImpossibleSpeed {
         public static void AddImpossibleSpeed() {
             var MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
+            var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
             var FastMovement = Resources.GetBlueprint<BlueprintFeature>("d294a5dddd0120046aae7d4eb6cbc4fc");
             var ImpossibleSpeedFeature = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ImpossibleSpeedFeature"];
@@ -43,7 +44,10 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
             });
             Resources.AddBlueprint(ImpossibleSpeedFeature);
+            if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ImpossibleSpeed"]) { return; }
             MythicAbilitySelection.m_AllFeatures = MythicAbilitySelection.m_AllFeatures
+                .AppendToArray(ImpossibleSpeedFeature.ToReference<BlueprintFeatureReference>());
+            ExtraMythicAbilityMythicFeat.m_AllFeatures = ExtraMythicAbilityMythicFeat.m_AllFeatures
                 .AppendToArray(ImpossibleSpeedFeature.ToReference<BlueprintFeatureReference>());
         }
     }
