@@ -132,7 +132,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 var condition = new Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional() {
                     Comment = "EverlastingJudgement",
                     ConditionsChecker = new ConditionsChecker {
-                            Conditions = new Condition[] { new ContextConditionHasFact() {
+                        Conditions = new Condition[] { new ContextConditionHasFact() {
                                 m_Fact = EverlastingJudgement.ToReference<BlueprintUnitFactReference>()
                             }
                         }
@@ -140,7 +140,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     IfTrue = new ActionList(),
                     IfFalse = judgmentAddfacts.Activated
                 };
-                judgmentAddfacts.Activated = new ActionList() { 
+                judgmentAddfacts.Activated = new ActionList() {
                     Actions = new GameAction[] { condition }
                 };
 

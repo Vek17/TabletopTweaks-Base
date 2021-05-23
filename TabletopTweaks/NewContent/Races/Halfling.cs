@@ -90,8 +90,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Bruiser");
                 bp.SetDescription("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
-                    +"streets, has made some halflings more adept at taking blows than dodging them. Halflings with this racial "
-                    +"trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers.");
+                    + "streets, has made some halflings more adept at taking blows than dodging them. Halflings with this racial "
+                    + "trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;

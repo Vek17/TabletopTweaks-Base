@@ -44,7 +44,8 @@
         "DisableAll": false,
         "Enabled": {
             "ImpossibleSpeed": true,
-            "ArmorMaster": true
+            "ArmorMaster": true,
+            "ArmoredMight": true
         }
     }
 }

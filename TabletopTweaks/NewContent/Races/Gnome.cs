@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewContent.Races {
             var KitsuneHeritageSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ec40cc350b18c8c47a59b782feb91d1f");
             var GnomeRace = Resources.GetBlueprint<BlueprintRace>("ef35a22c9a27da345a4528f0d5889157");
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
-            
+
             var GnomeHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["GnomeHeritageDefaultFeature"];
                 bp.IsClassFeature = true;
@@ -90,8 +90,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome Artisan");
                 bp.SetDescription("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
-                    +"all of their time and energy to their crafts. Such gnomes gain +2 Constitution, +2 Intelligence, "
-                    +"and -2 Strength. This racial trait alters the gnomes’ ability score modifiers.");
+                    + "all of their time and energy to their crafts. Such gnomes gain +2 Constitution, +2 Intelligence, "
+                    + "and -2 Strength. This racial trait alters the gnomes’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Intelligence;

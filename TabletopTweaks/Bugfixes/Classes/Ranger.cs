@@ -30,7 +30,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (ModSettings.Fixes.Slayer.Base.DisableAll) { return; }
                 PatchFavoredEnemy();
 
-                
+
                 void PatchFavoredEnemy() {
                     if (!ModSettings.Fixes.Ranger.Base.Enabled["FavoredEnemy"]) { return; }
                     var FavoriteEnemySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("16cc2c937ea8d714193017780e7d4fc6");

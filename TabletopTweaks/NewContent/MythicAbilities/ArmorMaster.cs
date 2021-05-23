@@ -12,10 +12,11 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.MythicAbilities {
     class ArmorMaster {
-        private static readonly BlueprintFeatureSelection MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
-        private static readonly BlueprintFeatureSelection ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
-        private static readonly BlueprintAbility EffortlessArmor = Resources.GetBlueprint<BlueprintAbility>("e1291272c8f48c14ab212a599ad17aac");
         public static void AddArmorMaster() {
+            var MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
+            var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
+            var EffortlessArmor = Resources.GetBlueprint<BlueprintAbility>("e1291272c8f48c14ab212a599ad17aac");
+
             var ArmorMasterLightFeature = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorMasterLightFeature"];
                 bp.IsClassFeature = true;
@@ -98,7 +99,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             Resources.AddBlueprint(ArmorMasterMediumFeature);
             Resources.AddBlueprint(ArmorMasterHeavyFeature);
 
-            if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ImpossibleSpeed"]) { return; }
+            if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
             MythicAbilitySelection.m_AllFeatures = MythicAbilitySelection.m_AllFeatures
                 .AppendToArray(
                     ArmorMasterLightFeature.ToReference<BlueprintFeatureReference>(),

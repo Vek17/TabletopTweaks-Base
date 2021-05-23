@@ -89,8 +89,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Stoutheart Dwarf");
                 bp.SetDescription("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
-                    +"their kin. Dwarves with this racial trait gain +2 Constitution, +2 Charisma, and -2 Intelligence. "
-                    +"This racial trait alters the dwarves’ ability score modifiers.");
+                    + "their kin. Dwarves with this racial trait gain +2 Constitution, +2 Charisma, and -2 Intelligence. "
+                    + "This racial trait alters the dwarves’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;

@@ -89,8 +89,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Fierani Elf");
                 bp.SetDescription("Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
-                    +"to nature than most of their kin. Elves with this racial trait gain +2 Dexterity, +2 Wisdom, and -2 Constitution. "
-                    +"This racial trait alters the elves’ ability score modifiers.");
+                    + "to nature than most of their kin. Elves with this racial trait gain +2 Dexterity, +2 Wisdom, and -2 Constitution. "
+                    + "This racial trait alters the elves’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Wisdom;

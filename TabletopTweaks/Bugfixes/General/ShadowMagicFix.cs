@@ -38,7 +38,7 @@ namespace TabletopTweaks.Bugfixes.General {
                 var ParentAbility = evt.AbilityData?.ConvertedFrom;
                 if (ParentAbility?.Blueprint?.GetComponent<AbilityShadowSpell>() != null) {
                     spell = ParentAbility.Blueprint;
-                } 
+                }
 
                 bool isSchool = __instance.School == SpellSchool.None;
                 if (!isSchool) {

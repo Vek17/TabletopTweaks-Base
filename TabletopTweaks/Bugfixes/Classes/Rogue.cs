@@ -197,7 +197,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                                 }
                             },
                             IfFalse = new ActionList()
-                        }; 
+                        };
                     }
                 }
             }

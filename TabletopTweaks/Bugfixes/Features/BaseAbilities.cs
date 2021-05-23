@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.ActivatableAbilities;
-using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class BaseAbilities {
