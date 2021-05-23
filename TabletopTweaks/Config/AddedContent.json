@@ -43,7 +43,8 @@
     "MythicAbilities": {
         "DisableAll": false,
         "Enabled": {
-            "ImpossibleSpeed": true
+            "ImpossibleSpeed": true,
+            "ArmorMaster": true
         }
     }
 }

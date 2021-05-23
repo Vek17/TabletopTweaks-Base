@@ -36,6 +36,7 @@ namespace TabletopTweaks.NewContent {
                 Spells.ShadowEnchantment.AddShadowEnchantment();
                 Spells.ShadowEnchantment.AddShadowEnchantmentGreater();
                 MythicAbilities.ImpossibleSpeed.AddImpossibleSpeed();
+                MythicAbilities.ArmorMaster.AddArmorMaster();
             }
         }
     }

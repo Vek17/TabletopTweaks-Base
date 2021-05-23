@@ -139,6 +139,9 @@
         "DwarfHeritageSelection": "f036bf784cbb40df84460bb855251a76",
         "ShadowEnchantmentGreater": "ba07962827484eb38bf0b6aadd9f5f22",
         "ShadowEnchantment": "d934f706a12b40ec87a9c8baf221b8a9",
-        "ImpossibleSpeedFeature": "318b7e1acbce4c02a4a29d8953154d84"
+        "ImpossibleSpeedFeature": "318b7e1acbce4c02a4a29d8953154d84",
+        "ArmorMasterLightFeature": "2fd6f711bb9945098f19779986fe4461",
+        "ArmorMasterMediumFeature": "eb1c16e53f65472fba6dd7e5452de83a",
+        "ArmorMasterHeavyFeature": "351dfff95701467991000dee66f3cfb7"
     }
 }
