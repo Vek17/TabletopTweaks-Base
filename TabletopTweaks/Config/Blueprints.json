@@ -143,6 +143,11 @@
         "ArmorMasterLightFeature": "2fd6f711bb9945098f19779986fe4461",
         "ArmorMasterMediumFeature": "eb1c16e53f65472fba6dd7e5452de83a",
         "ArmorMasterHeavyFeature": "351dfff95701467991000dee66f3cfb7",
-        "ArmoredMightFeature": "9315267ae128452f86955c354c5489e2"
+        "ArmoredMightFeature": "9315267ae128452f86955c354c5489e2",
+        "MountedManiacDCBuff": "6502a1786ab74c7c9a3c99d2e0f73ba3",
+        "MountedManiacAbility": "a2b1dbf38ed24ea7b9e4e7b12cd97c2c",
+        "MountedManiacBuff": "f6b9faa265674c19bf2f15336c30113c",
+        "MountedManiacActivatableAbility": "b9c55a9ff0ff4a7387da44998baea2b9",
+        "MountedManiacFeature": "60d069da3bb844a587ea7921487314a5"
     }
 }

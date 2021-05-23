@@ -45,7 +45,8 @@
         "Enabled": {
             "ImpossibleSpeed": true,
             "ArmorMaster": true,
-            "ArmoredMight": true
+            "ArmoredMight": true,
+            "MountedManiac": true
         }
     }
 }

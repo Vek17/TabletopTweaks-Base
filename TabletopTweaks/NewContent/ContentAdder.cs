@@ -38,6 +38,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.ImpossibleSpeed.AddImpossibleSpeed();
                 MythicAbilities.ArmorMaster.AddArmorMaster();
                 MythicAbilities.ArmoredMight.AddArmoredMight();
+                MythicAbilities.MountedManiac.AddMountedManiac();
             }
         }
     }
