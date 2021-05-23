@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -9,6 +10,7 @@ using System;
 using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("e9cfd3c8b2ee49caada37795d9925af3")]
     class AberrantArcanaExtendComponent: UnitFactComponentDelegate, IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
 
         public void HandleBuffDidAdded(Buff buff) {

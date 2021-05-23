@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.PubSubSystem;
@@ -9,6 +10,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("6ac52746855e4c82a1427a787bb26edb")]
     class SurviveDeathWithSave: UnitFactComponentDelegate, IDamageHandler, IGlobalSubscriber, ISubscriber {
 
         public BlueprintAbilityResource RequiredResource {

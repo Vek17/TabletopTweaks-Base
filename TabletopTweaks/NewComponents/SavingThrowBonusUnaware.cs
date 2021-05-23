@@ -1,4 +1,5 @@
-﻿using Kingmaker.EntitySystem.Entities;
+﻿using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -6,6 +7,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("95dfe16fb6c4457bafb5eb56c983b8b5")]
     class SavingThrowBonusWhileUnaware: UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public void OnEventAboutToTrigger(RuleSavingThrow evt) {

@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Controllers.Optimization;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums.Damage;
@@ -15,6 +16,7 @@ using System.Linq;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("39daf11ada364bbab00b4ff8a92dba1d")]
     class AzataZippyMagicComponent: UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCastSpell>,
         IRulebookHandler<RuleCastSpell>,

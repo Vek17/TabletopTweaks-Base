@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -7,6 +8,7 @@ using Kingmaker.UnitLogic;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("c19c12bbbba146dca21b7ef7e6867acf")]
     class SavingThrowBonusAgainstAbility: UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public BlueprintFeature CheckedFact {

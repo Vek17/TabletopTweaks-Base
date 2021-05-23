@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using System.Text;
@@ -9,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("33c66b9aaaa348cfa8efd39841cf255b")]
     class PrerequisiteNoFeaturesFromList: Prerequisite {
         public ReferenceArrayProxy<BlueprintFeature, BlueprintFeatureReference> Features {
             get {

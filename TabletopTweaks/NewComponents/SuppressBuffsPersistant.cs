@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -11,6 +12,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("f97c2c9ad47743b49972f7c8c026d416")]
     class SuppressBuffsPersistant: UnitFactComponentDelegate {
 
         public ReferenceArrayProxy<BlueprintBuff, BlueprintBuffReference> Buffs {

@@ -1,10 +1,11 @@
-﻿using Kingmaker.Enums;
+﻿using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("16d26ba95fde4646ae3c19d555a191f5")]
     class AddTouchReach: UnitFactComponentDelegate {
-
         public override void OnTurnOn() {
             MeleeTouchReach unitPartTouchReach = Owner.Ensure<MeleeTouchReach>();
 

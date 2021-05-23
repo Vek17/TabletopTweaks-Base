@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
@@ -12,6 +13,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("7faa8aa8ecb445629a804248ac4fdba1")]
     class SpellImmunityToSpellDescriptorAgainstAlignment: UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCanApplyBuff>,
         IRulebookHandler<RuleCanApplyBuff>,

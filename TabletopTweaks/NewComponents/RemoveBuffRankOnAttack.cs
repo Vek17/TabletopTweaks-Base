@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -7,6 +8,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintBuff))]
+    [TypeId("00008ebd4ddb41e6895baa47a7f19708")]
     class RemoveBuffRankOnAttack: UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleAttackWithWeapon>,
         IRulebookHandler<RuleAttackWithWeapon>, ISubscriber,

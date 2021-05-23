@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
@@ -14,6 +15,7 @@ using UnityEngine.Serialization;
 namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact))]
+    [TypeId("5b18fee676234c20afb6ee8321a7dd40")]
     public class BuffDescriptorImmunityAgainstAlignment: UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCanApplyBuff>,
         IRulebookHandler<RuleCanApplyBuff>,
