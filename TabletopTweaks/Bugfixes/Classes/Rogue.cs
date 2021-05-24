@@ -87,6 +87,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                         var InitiatorAttackRollTrigger = targetBuff.GetComponent<AddInitiatorAttackRollTrigger>();
                         var applyBuff = Helpers.Create<ContextActionApplyBuff>(c => {
                             c.m_Buff = InitiatorAttackRollTrigger.Action.Actions.OfType<ContextActionApplyBuff>().First().m_Buff;
+                            c.AsChild = false;
                             c.DurationValue = new ContextDurationValue {
                                 m_IsExtendable = true,
                                 DiceCountValue = new ContextValue(),

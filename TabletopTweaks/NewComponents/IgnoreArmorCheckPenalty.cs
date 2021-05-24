@@ -30,15 +30,18 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void OnEventDidTrigger(RuleCalculateArmorCheckPenalty evt) {
+            if (!CheckCategory) {
+                evt.Result = 0;
+                return;
+            }
             if (!evt.Armor.Blueprint.IsShield && CheckCategory && Categorys.Contains(evt.Armor.ArmorType())) {
                 evt.Result = 0;
+                return;
             }
             if (evt.Armor.Blueprint.IsShield && CheckCategory && Categorys.Contains(evt.Armor.Blueprint.ProficiencyGroup)) {
                 evt.Result = 0;
             }
-            if (!CheckCategory) {
-                evt.Result = 0;
-            }
+            
         }
 
         public bool CheckCategory = true;

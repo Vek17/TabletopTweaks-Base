@@ -22,7 +22,6 @@ namespace TabletopTweaks.NewComponents {
                     Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateStats();
                     Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateMaxDexBonus();
                 }
-
             }
         }
 
@@ -30,13 +29,15 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void OnEventDidTrigger(RuleCalculateArmorMaxDexBonusLimit evt) {
+            if (!CheckCategory) {
+                evt.Result = null;
+                return;
+            }
             if (!evt.Armor.Blueprint.IsShield && CheckCategory && Categorys.Contains(evt.Armor.ArmorType())) {
                 evt.Result = null;
+                return;
             }
             if (evt.Armor.Blueprint.IsShield && CheckCategory && Categorys.Contains(evt.Armor.Blueprint.ProficiencyGroup)) {
-                evt.Result = null;
-            }
-            if (!CheckCategory) {
                 evt.Result = null;
             }
         }

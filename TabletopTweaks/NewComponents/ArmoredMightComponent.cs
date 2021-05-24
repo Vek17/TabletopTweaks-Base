@@ -44,7 +44,9 @@ namespace TabletopTweaks.NewComponents {
         }
 
         private void ActivateModifier() {
-            Owner.Stats.AC.AddModifierUnique(CalculateModifier(), base.Runtime, ModifierDescriptor.ArmorFocus);
+            if (Owner.Body.Armor.HasArmor && Owner.Body.Armor.Armor.Blueprint.IsArmor) {
+                Owner.Stats.AC.AddModifierUnique(CalculateModifier(), base.Runtime, ModifierDescriptor.ArmorFocus);
+            }
         }
 
         private void DeactivateModifier() {

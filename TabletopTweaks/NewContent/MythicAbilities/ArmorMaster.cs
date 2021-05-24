@@ -14,7 +14,6 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
         public static void AddArmorMaster() {
             var MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
             var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
-            //var EffortlessArmor = Resources.GetBlueprint<BlueprintAbility>("e1291272c8f48c14ab212a599ad17aac");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_ArmorMaster.png");
 
             var ArmorMasterLightFeature = Helpers.Create<BlueprintFeature>(bp => {
@@ -25,7 +24,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Ranks = 1;
                 bp.name = "ArmorMasterLightFeature";
                 bp.m_Icon = icon;
-                bp.SetName("Armor Master (Light)");
+                bp.SetName("Armor Master (Light Armor)");
                 bp.SetDescription("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing light armor or using any shield. " +
                     "In addition, the maximum Dexterity bonus of light armor doesn’t apply to you.");
                 bp.AddComponent(Helpers.Create<ArcaneArmorProficiency>(c => {
@@ -60,7 +59,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Ranks = 1;
                 bp.name = "ArmorMasterMediumFeature";
                 bp.m_Icon = icon;
-                bp.SetName("Armor Master (Medium)");
+                bp.SetName("Armor Master (Medium Armor)");
                 bp.SetDescription("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing medium armor or using any shield. " +
                     "In addition, the maximum Dexterity bonus of medium armor doesn’t apply to you.");
                 bp.AddComponent(Helpers.Create<ArcaneArmorProficiency>(c => {
@@ -98,7 +97,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Ranks = 1;
                 bp.name = "ArmorMasterHeavyFeature";
                 bp.m_Icon = icon;
-                bp.SetName("Armor Master (Heavy)");
+                bp.SetName("Armor Master (Heavy Armor)");
                 bp.SetDescription("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing heavy armor or using any shield. " +
                     "In addition, the maximum Dexterity bonus of heavy armor doesn’t apply to you.");
                 bp.AddComponent(Helpers.Create<ArcaneArmorProficiency>(c => {
