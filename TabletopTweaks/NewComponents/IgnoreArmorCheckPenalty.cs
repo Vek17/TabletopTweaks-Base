@@ -7,10 +7,10 @@ using Kingmaker.Utility;
 using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
-    [TypeId("0542dd3cbb5949a7b120f2165758db9b")]
-    class IgnoreArmorMaxDexBonus: UnitFactComponentDelegate,
-        IInitiatorRulebookHandler<RuleCalculateArmorMaxDexBonusLimit>,
-        IRulebookHandler<RuleCalculateArmorMaxDexBonusLimit>,
+    [TypeId("f361784981e6444d84312f063c506e76")]
+    class IgnoreArmorCheckPenalty: UnitFactComponentDelegate,
+        IInitiatorRulebookHandler<RuleCalculateArmorCheckPenalty>,
+        IRulebookHandler<RuleCalculateArmorCheckPenalty>,
         ISubscriber, IInitiatorRulebookSubscriber {
 
         public override void OnTurnOn() {
@@ -18,21 +18,26 @@ namespace TabletopTweaks.NewComponents {
             if (Owner.Body.Armor.HasArmor && Owner.Body.Armor.Armor.Blueprint.IsArmor) {
                 Owner.Body.Armor.Armor.RecalculateStats();
                 Owner.Body.Armor.Armor.RecalculateMaxDexBonus();
+                if (Owner.Body.SecondaryHand.HasShield) {
+                    Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateStats();
+                    Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateMaxDexBonus();
+                }
+                
             }
         }
 
-        public void OnEventAboutToTrigger(RuleCalculateArmorMaxDexBonusLimit evt) {
+        public void OnEventAboutToTrigger(RuleCalculateArmorCheckPenalty evt) {
         }
 
-        public void OnEventDidTrigger(RuleCalculateArmorMaxDexBonusLimit evt) {
+        public void OnEventDidTrigger(RuleCalculateArmorCheckPenalty evt) {
             if (!evt.Armor.Blueprint.IsShield && CheckCategory && Categorys.Contains(evt.Armor.ArmorType())) {
-                evt.Result = null;
+                evt.Result = 0;
             }
             if (evt.Armor.Blueprint.IsShield && CheckCategory && Categorys.Contains(evt.Armor.Blueprint.ProficiencyGroup)) {
-                evt.Result = null;
+                evt.Result = 0;
             }
             if (!CheckCategory) {
-                evt.Result = null;
+                evt.Result = 0;
             }
         }
 

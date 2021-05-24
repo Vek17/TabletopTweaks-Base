@@ -38,7 +38,18 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
                 bp.AddComponent(Helpers.Create<IgnoreArmorMaxDexBonus>(c => {
                     c.CheckCategory = true;
-                    c.Category = ArmorProficiencyGroup.Light;
+                    c.Categorys = new ArmorProficiencyGroup[] {
+                        ArmorProficiencyGroup.Light
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<IgnoreArmorCheckPenalty>(c => {
+                    c.CheckCategory = true;
+                    c.Categorys = new ArmorProficiencyGroup[] {
+                        ArmorProficiencyGroup.Light,
+                        ArmorProficiencyGroup.LightShield,
+                        ArmorProficiencyGroup.HeavyShield,
+                        ArmorProficiencyGroup.TowerShield
+                    };
                 }));
             });
             var ArmorMasterMediumFeature = Helpers.Create<BlueprintFeature>(bp => {
@@ -62,7 +73,18 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
                 bp.AddComponent(Helpers.Create<IgnoreArmorMaxDexBonus>(c => {
                     c.CheckCategory = true;
-                    c.Category = ArmorProficiencyGroup.Medium;
+                    c.Categorys = new ArmorProficiencyGroup[] {
+                        ArmorProficiencyGroup.Medium
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<IgnoreArmorCheckPenalty>(c => {
+                    c.CheckCategory = true;
+                    c.Categorys = new ArmorProficiencyGroup[] {
+                        ArmorProficiencyGroup.Medium,
+                        ArmorProficiencyGroup.LightShield,
+                        ArmorProficiencyGroup.HeavyShield,
+                        ArmorProficiencyGroup.TowerShield
+                    };
                 }));
                 bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = ArmorMasterLightFeature.ToReference<BlueprintFeatureReference>();
@@ -89,7 +111,18 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
                 bp.AddComponent(Helpers.Create<IgnoreArmorMaxDexBonus>(c => {
                     c.CheckCategory = true;
-                    c.Category = ArmorProficiencyGroup.Heavy;
+                    c.Categorys = new ArmorProficiencyGroup[] {
+                        ArmorProficiencyGroup.Heavy
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<IgnoreArmorCheckPenalty>(c => {
+                    c.CheckCategory = true;
+                    c.Categorys = new ArmorProficiencyGroup[] {
+                        ArmorProficiencyGroup.Heavy,
+                        ArmorProficiencyGroup.LightShield,
+                        ArmorProficiencyGroup.HeavyShield,
+                        ArmorProficiencyGroup.TowerShield
+                    };
                 }));
                 bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = ArmorMasterMediumFeature.ToReference<BlueprintFeatureReference>();

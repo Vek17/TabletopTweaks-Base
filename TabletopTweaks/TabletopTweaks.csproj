@@ -147,6 +147,7 @@
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />
+    <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
@@ -229,6 +230,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Config\AddedContent.json" />
     <EmbeddedResource Include="Config\Blueprints.json" />
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
