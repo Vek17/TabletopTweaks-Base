@@ -18,6 +18,11 @@ namespace TabletopTweaks.NewComponents {
             if (Owner.Body.Armor.HasArmor && Owner.Body.Armor.Armor.Blueprint.IsArmor) {
                 Owner.Body.Armor.Armor.RecalculateStats();
                 Owner.Body.Armor.Armor.RecalculateMaxDexBonus();
+                if (Owner.Body.SecondaryHand.HasShield) {
+                    Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateStats();
+                    Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateMaxDexBonus();
+                }
+
             }
         }
 
