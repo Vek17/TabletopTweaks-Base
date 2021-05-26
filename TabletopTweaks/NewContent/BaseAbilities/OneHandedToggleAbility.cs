@@ -34,8 +34,6 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 bp.m_Buff = OneHandedBuff.ToReference<BlueprintBuffReference>();
                 bp.IsOnByDefault = false;
                 bp.DoNotTurnOffOnRest = true;
-                bp.ActivationType = AbilityActivationType.WithUnitCommand;
-                bp.m_ActivateWithUnitCommand = UnitCommand.CommandType.Free;
                 bp.DeactivateImmediately = true;
             });
             var OneHandedToggleFeature = Helpers.Create<BlueprintFeature>(bp => {

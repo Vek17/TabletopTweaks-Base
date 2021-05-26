@@ -219,7 +219,9 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
-            "CraneWing": true
+            "CraneWing": true,
+            "FencingGrace": true,
+            "SlashingGrace": true
         }
     },
     "MythicAbilities": {

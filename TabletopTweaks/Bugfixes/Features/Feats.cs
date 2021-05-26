@@ -1,11 +1,14 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
@@ -21,6 +24,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.DisableAll) { return; }
                 Main.LogHeader("Patching Feats");
                 PatchCraneWing();
+                PatchFencingGrace();
+                PatchSlashingGrace();
             }
 
             static void PatchCraneWing() {
@@ -33,6 +38,18 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Conditionals.First().ConditionsChecker.Conditions = Conditionals.First().ConditionsChecker.Conditions.AddItem(newConditonal).ToArray();
 
                 Main.LogPatch("Patched", CraneStyleBuff);
+            }
+            static void PatchFencingGrace() {
+                if (!ModSettings.Fixes.Feats.Enabled["FencingGrace"]) { return; }
+                var FencingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("47b352ea0f73c354aba777945760b441");
+                FencingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
+                Main.LogPatch("Patched", FencingGrace);
+            }
+            static void PatchSlashingGrace() {
+                if (!ModSettings.Fixes.Feats.Enabled["SlashingGrace"]) { return; }
+                var SlashingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("697d64669eb2c0543abb9c9b07998a38");
+                SlashingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
+                Main.LogPatch("Patched", SlashingGrace);
             }
         }
     }

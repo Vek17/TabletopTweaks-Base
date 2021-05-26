@@ -147,6 +147,7 @@
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />
+    <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
