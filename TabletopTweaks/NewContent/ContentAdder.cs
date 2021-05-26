@@ -12,6 +12,7 @@ namespace TabletopTweaks.NewContent {
                 if (Initialized) return;
                 Initialized = true;
                 Main.LogHeader("Loading New Content");
+                BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
                 ArcanistExploits.QuickStudy.AddQuickStudy();
                 ArcanistExploits.ItemCrafting.AddItemCrafting();
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();

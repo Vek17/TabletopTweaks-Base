@@ -1,4 +1,10 @@
 {
+    "BaseAbilities": {
+        "DisableAll": false,
+        "Enabled": {
+            "OneHandedToggle": true
+        }
+    },
     "Bloodlines": {
         "DisableAll": false,
         "Enabled": {

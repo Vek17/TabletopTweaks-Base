@@ -204,11 +204,25 @@ namespace TabletopTweaks.Bugfixes.Clases {
             }
             static void PatchEldritchScoundrel() {
                 if (ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAll) { return; }
-                if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Enabled["SneakAttack"]) { return; }
-                var EldritchScoundrelArchetype = Resources.GetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
-                var SneakAttack = Resources.GetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
-                EldritchScoundrelArchetype.RemoveFeatures = EldritchScoundrelArchetype.RemoveFeatures.AppendToArray(Helpers.LevelEntry(1, SneakAttack));
-                Main.LogPatch("Patched", EldritchScoundrelArchetype);
+                PatchSneakAttackProgression();
+                //PatchRogueTalentProgression();
+
+                void PatchSneakAttackProgression() {
+                    if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Enabled["SneakAttackProgression"]) { return; }
+                    var EldritchScoundrelArchetype = Resources.GetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
+                    var SneakAttack = Resources.GetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
+                    EldritchScoundrelArchetype.RemoveFeatures = EldritchScoundrelArchetype.RemoveFeatures.AppendToArray(Helpers.LevelEntry(1, SneakAttack));
+
+                    Main.LogPatch("Patched", EldritchScoundrelArchetype);
+                }
+                void PatchRogueTalentProgression() {
+                    if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Enabled["RogueTalentProgression"]) { return; }
+                    var EldritchScoundrelArchetype = Resources.GetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
+                    var SneakAttack = Resources.GetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
+
+                    EldritchScoundrelArchetype.RemoveFeatures.Where(entry => entry.Level == 4).ForEach(entry => entry.Level = 2);
+                    Main.LogPatch("Patched", EldritchScoundrelArchetype);
+                }
             }
             static void PatchRowdy() {
                 if (ModSettings.Fixes.Rogue.Archetypes["Rowdy"].DisableAll) { return; }

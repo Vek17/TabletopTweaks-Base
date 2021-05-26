@@ -123,7 +123,7 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "FavoredEnemy": true,
+                "FavoredEnemy": true
             }
         },
         "Archetypes": {
@@ -149,7 +149,7 @@
             "EldritchScoundrel": {
                 "DisableAll": false,
                 "Enabled": {
-                    "SneakAttack": true
+                    "SneakAttackProgression": true
                 }
             },
             "MasterOfAll": {

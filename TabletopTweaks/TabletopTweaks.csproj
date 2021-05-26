@@ -187,6 +187,7 @@
     <Compile Include="NewComponents\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\BaseAbilities\OneHandedToggleAbility.cs" />
     <Compile Include="NewContent\Bloodlines\AberrantBloodline.cs" />
     <Compile Include="NewContent\Bloodlines\AbyssalBloodline.cs" />
     <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
@@ -242,6 +243,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Assets\Abilities\Icon_LongArm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_OneHandedToggle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_ShadowEnchantment.png">

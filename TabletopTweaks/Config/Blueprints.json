@@ -148,6 +148,9 @@
         "MountedManiacAbility": "a2b1dbf38ed24ea7b9e4e7b12cd97c2c",
         "MountedManiacBuff": "f6b9faa265674c19bf2f15336c30113c",
         "MountedManiacActivatableAbility": "b9c55a9ff0ff4a7387da44998baea2b9",
-        "MountedManiacFeature": "60d069da3bb844a587ea7921487314a5"
+        "MountedManiacFeature": "60d069da3bb844a587ea7921487314a5",
+        "OneHandedBuff": "549016f34f4349fdb6b20ecb11e79a73",
+        "OneHandedToggleAbility": "15542aa4e3f542a4bbd66bcb13392798",
+        "OneHandedToggleFeature": "21a2cfc0fc894dd9ac1ab49e4c35ba38"
     }
 }
