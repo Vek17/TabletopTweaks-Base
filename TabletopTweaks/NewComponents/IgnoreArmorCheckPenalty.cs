@@ -22,7 +22,7 @@ namespace TabletopTweaks.NewComponents {
                     Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateStats();
                     Owner.Body.SecondaryHand.MaybeShield.ArmorComponent.RecalculateMaxDexBonus();
                 }
-                
+
             }
         }
 
@@ -41,7 +41,7 @@ namespace TabletopTweaks.NewComponents {
             if (evt.Armor.Blueprint.IsShield && CheckCategory && Categorys.Contains(evt.Armor.Blueprint.ProficiencyGroup)) {
                 evt.Result = 0;
             }
-            
+
         }
 
         public bool CheckCategory = true;
