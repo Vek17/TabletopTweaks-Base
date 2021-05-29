@@ -17,6 +17,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Barbarian = new ClassGroup();
         public ClassGroup Bloodrager = new ClassGroup();
         public ClassGroup Cavalier = new ClassGroup();
+        public ClassGroup Fighter = new ClassGroup();
         public ClassGroup Kineticist = new ClassGroup();
         public ClassGroup Monk = new ClassGroup();
         public ClassGroup Paladin = new ClassGroup();
@@ -48,6 +49,7 @@ namespace TabletopTweaks.Config {
             Barbarian.LoadClassGroup(loadedSettings.Barbarian);
             Bloodrager.LoadClassGroup(loadedSettings.Bloodrager);
             Cavalier.LoadClassGroup(loadedSettings.Cavalier);
+            Fighter.LoadClassGroup(loadedSettings.Fighter);
             Kineticist.LoadClassGroup(loadedSettings.Kineticist);
             Monk.LoadClassGroup(loadedSettings.Monk);
             Paladin.LoadClassGroup(loadedSettings.Paladin);

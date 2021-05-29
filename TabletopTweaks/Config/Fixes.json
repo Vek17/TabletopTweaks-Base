@@ -92,6 +92,21 @@
         },
         "Archetypes": {}
     },
+    "Fighter": {
+        "DisableAll": false,
+        "Base": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Archetypes": {
+            "TwoHandedFighter": {
+                "DisableAll": false,
+                "Enabled": {
+                    "AdvancedWeaponTraining": true
+                }
+            }
+        }
+    },
     "Monk": {
         "DisableAll": false,
         "Base": {
