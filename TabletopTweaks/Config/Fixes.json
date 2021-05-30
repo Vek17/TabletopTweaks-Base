@@ -96,7 +96,9 @@
         "DisableAll": false,
         "Base": {
             "DisableAll": false,
-            "Enabled": {}
+            "Enabled": {
+                "AdvancedWeaponTraining": true
+            }
         },
         "Archetypes": {
             "TwoHandedFighter": {

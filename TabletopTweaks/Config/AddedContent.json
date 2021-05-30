@@ -28,6 +28,13 @@
             "Familiar": true
         }
     },
+    "FighterAdvancedWeaponTraining": {
+        "DisableAll": false,
+        "Enabled": {
+            "TrainedGrace": true,
+            "TrainedThrow": true
+        }
+    },
     "Races": {
         "DisableAll": false,
         "Enabled": {

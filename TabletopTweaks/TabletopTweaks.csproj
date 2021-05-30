@@ -163,6 +163,7 @@
     <Compile Include="NewComponents\RestrictHasBuff.cs" />
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
+    <Compile Include="NewComponents\TrainedGraceComponent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
     <Compile Include="NewContent\ArcanistExploits\MetamagicKnowledge.cs" />
@@ -200,6 +201,9 @@
     <Compile Include="NewContent\Features\CavalierMounts.cs" />
     <Compile Include="NewContent\Features\InstinctualWarriorACBonusUnlock.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\AdvancedWeapontrainingSelection.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />

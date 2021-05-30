@@ -17,6 +17,9 @@ namespace TabletopTweaks.NewContent {
                 ArcanistExploits.ItemCrafting.AddItemCrafting();
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();
                 ArcanistExploits.Familiar.AddFamiliar();
+                FighterAdvancedWeaponTrainings.TrainedThrow.AddTrainedThrow();
+                FighterAdvancedWeaponTrainings.TrainedGrace.AddTrainedGrace();
+                FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();
                 Features.CavalierMounts.AddCavalierMountFeatureWolf();

@@ -151,6 +151,9 @@
         "MountedManiacFeature": "60d069da3bb844a587ea7921487314a5",
         "OneHandedBuff": "549016f34f4349fdb6b20ecb11e79a73",
         "OneHandedToggleAbility": "15542aa4e3f542a4bbd66bcb13392798",
-        "OneHandedToggleFeature": "21a2cfc0fc894dd9ac1ab49e4c35ba38"
+        "OneHandedToggleFeature": "21a2cfc0fc894dd9ac1ab49e4c35ba38",
+        "TrainedThrowFeature": "e44ffa121bd747438565f87aba5b8784",
+        "TrainedGraceFeature": "2eaea009af024038b7caafa83ea1fc87",
+        "AdvancedWeaponTrainingSelection": "538bc73900c2425b93677cc02a3048b1"
     }
 }
