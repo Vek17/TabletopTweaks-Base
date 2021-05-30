@@ -43,6 +43,7 @@ namespace TabletopTweaks.Utilities {
                 if (list == null) { return; }
                 if (!list.SpellsByLevel[level].Spells.Contains(spell)) {
                     list.SpellsByLevel[level].Spells.Add(spell);
+                    list.SpellsByLevel[level].m_Spells.Sort((x, y) => x.Get().Name.CompareTo(y.Get().Name));
                 }
             }
         }
