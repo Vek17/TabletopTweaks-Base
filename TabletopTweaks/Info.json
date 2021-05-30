@@ -1,11 +1,12 @@
 ﻿{
-  "AssemblyName": "TabletopTweaks.dll",
-  "Author": "Sean Petrie",
-  "DisplayName": "Tabletop Tweaks",
-  "EntryMethod": "TabletopTweaks.Main.Load",
-  "GameVersion": "0.6.0",
-  "Id": "TabletopTweaks",
-  "ManagerVersion": "0.23.0",
-  "Requirements": [],
-  "Version": "0.1.3"
+    "AssemblyName": "TabletopTweaks.dll",
+    "Author": "Sean Petrie",
+    "DisplayName": "Tabletop Tweaks",
+    "EntryMethod": "TabletopTweaks.Main.Load",
+    "GameVersion": "0.6.0",
+    "HomePage": "https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/12",
+    "Id": "TabletopTweaks",
+    "ManagerVersion": "0.23.0",
+    "Requirements": [],
+    "Version": "0.1.3"
 }
