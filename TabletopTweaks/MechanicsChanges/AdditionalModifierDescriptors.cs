@@ -31,7 +31,8 @@ namespace TabletopTweaks.MechanicsChanges {
             Constitution = 3123,
             Intelligence = 3124,
             Wisdom = 3125,
-            Charisma = 3126
+            Charisma = 3126,
+            WeaponTraining = 3127
         }
 
         private static class FilterAdjustments {
@@ -86,6 +87,7 @@ namespace TabletopTweaks.MechanicsChanges {
             InsertAfter((ModifierDescriptor)Untyped.Intelligence, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.Wisdom, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.Charisma, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.WeaponTraining, ModifierDescriptor.UntypedStackable);
 
             void InsertBefore(ModifierDescriptor value, ModifierDescriptor before) {
                 ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
@@ -142,6 +144,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Untyped.Intelligence:
                     case (ModifierDescriptor)Untyped.Wisdom:
                     case (ModifierDescriptor)Untyped.Charisma:
+                    case (ModifierDescriptor)Untyped.WeaponTraining:
                         __result = "Other";
                         break;
                 }

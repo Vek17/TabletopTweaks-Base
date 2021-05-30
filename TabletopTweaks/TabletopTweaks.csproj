@@ -179,7 +179,7 @@
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Config\AddedContent.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
-    <Compile Include="MechanicsChanges\NewModifierDescriptors.cs" />
+    <Compile Include="MechanicsChanges\AdditionalModifierDescriptors.cs" />
     <Compile Include="NewActions\EnhanceShield.cs" />
     <Compile Include="NewActions\EnhanceArmor.cs" />
     <Compile Include="NewComponents\AzataFavorableMagicComponent.cs" />
