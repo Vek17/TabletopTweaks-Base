@@ -154,6 +154,20 @@
         "OneHandedToggleFeature": "21a2cfc0fc894dd9ac1ab49e4c35ba38",
         "TrainedThrowFeature": "e44ffa121bd747438565f87aba5b8784",
         "TrainedGraceFeature": "2eaea009af024038b7caafa83ea1fc87",
-        "AdvancedWeaponTrainingSelection": "538bc73900c2425b93677cc02a3048b1"
+        "AdvancedWeaponTrainingSelection": "538bc73900c2425b93677cc02a3048b1",
+        "AdvancedArmorTrainingSelection": "5bf17c2ae9ee4615b27c993629ed9bc3",
+        "AdvancedArmorTraining1": "c1e7a208b5a544f58071af88a61ab842",
+        "AdvancedArmorTraining2": "7743a11f841449b4935224ac1de82edd",
+        "AdvancedArmorTraining3": "59cb9654de7147399b4d6a384d32dd3a",
+        "AdvancedArmorTraining4": "67eb66ec98754e228a6b4633a10327fa",
+        "AdvancedArmorTraining5": "bae7b370c4e8427c939a30e7133501c7",
+        "AdvancedArmorTraining6": "80246fa3dfe14dea94ec6e6640900083",
+        "ArmorSpecializationSelection": "5bb00bcc3dd746d3a68760157d1a9643",
+        "ArmorSpecializationLightEffect": "710dffcd0e85430593e5a6cfad44ebe0",
+        "ArmorSpecializationLightFeature": "893059a94677412d9a4fc0edb91a8447",
+        "ArmorSpecializationMediumEffect": "2b4495a7a1b14272993c1916986438ca",
+        "ArmorSpecializationMediumFeature": "7c5de273c97540bc908555a1ca06645c",
+        "ArmorSpecializationHeavyEffect": "ce4c4331087f4245aa18cada916992f7",
+        "ArmorSpecializationHeavyFeature": "36d5057b8ba44090a605729506c92ed9"
     }
 }

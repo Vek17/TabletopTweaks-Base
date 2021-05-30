@@ -148,6 +148,7 @@
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />
+    <Compile Include="NewComponents\ArmorFactUnlock.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
@@ -201,6 +202,8 @@
     <Compile Include="NewContent\Features\CavalierMounts.cs" />
     <Compile Include="NewContent\Features\InstinctualWarriorACBonusUnlock.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\AdvancedArmorTraining.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmorSpecialization.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\AdvancedWeapontrainingSelection.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />

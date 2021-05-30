@@ -107,8 +107,9 @@ namespace TabletopTweaks.Utilities {
 #endif
             }
             strings[key] = value;
-            localized = new LocalizedString();
-            localized.m_Key = key;
+            localized = new LocalizedString {
+                m_Key = key
+            };
             //localizedString_m_Key(localized) = key;
             textToLocalizedString[value] = localized;
             return localized;
