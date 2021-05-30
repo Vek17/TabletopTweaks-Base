@@ -37,7 +37,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var AdvancedWeapontrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedWeaponTrainingSelection"]);
 
                     WeaponTrainingSelection.m_AllFeatures = WeaponTrainingSelection.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
-                    WeaponTrainingSelection.m_AllFeatures = WeaponTrainingSelection.m_AllFeatures.AppendToArray(AdvancedWeapontrainingSelection.ToReference<BlueprintFeatureReference>());
+                    WeaponTrainingSelection.AddFeatures(AdvancedWeapontrainingSelection);
                     Main.LogPatch("Patched", WeaponTrainingSelection);
                     AdvancedWeapontrainingSelection.m_AllFeatures.ForEach(feature => {
                         feature.Get().RemoveComponents<PrerequisiteClassLevel>();

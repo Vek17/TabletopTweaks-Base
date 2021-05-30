@@ -150,6 +150,16 @@ namespace TabletopTweaks.Extensions {
             selection.m_AllFeatures = selection.m_Features = features.Select(bp => bp.ToReference<BlueprintFeatureReference>()).ToArray();
         }
 
+        public static void AddFeatures(this BlueprintFeatureSelection selection, params BlueprintFeature[] features) {
+            foreach(var feature in features) {
+                var featureReference = feature.ToReference<BlueprintFeatureReference>();
+                if (!selection.m_AllFeatures.Contains(featureReference)) {
+                    selection.m_AllFeatures = selection.m_AllFeatures.AppendToArray(featureReference);
+                }
+            }
+            selection.m_AllFeatures = selection.m_AllFeatures.OrderBy(feature => feature.Get().Name).ToArray();
+        }
+
         public static void InsertComponent(this BlueprintScriptableObject obj, int index, BlueprintComponent component) {
             var components = obj.ComponentsArray.ToList();
             components.Insert(index, component);

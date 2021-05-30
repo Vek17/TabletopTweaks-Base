@@ -11,7 +11,6 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
         public static void AddArmoredMight() {
             var MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
             var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
-            //var MagicalVestment = Resources.GetBlueprint<BlueprintAbility>("2d4263d80f5136b4296d6eb43a221d7d");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_ArmoredMight.png");
 
             var ArmoredMightFeature = Helpers.Create<BlueprintFeature>(bp => {
@@ -29,14 +28,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             Resources.AddBlueprint(ArmoredMightFeature);
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
-            MythicAbilitySelection.m_AllFeatures = MythicAbilitySelection.m_AllFeatures
-                .AppendToArray(
-                    ArmoredMightFeature.ToReference<BlueprintFeatureReference>()
-                );
-            ExtraMythicAbilityMythicFeat.m_AllFeatures = ExtraMythicAbilityMythicFeat.m_AllFeatures
-                .AppendToArray(
-                    ArmoredMightFeature.ToReference<BlueprintFeatureReference>()
-                );
+            MythicAbilitySelection.AddFeatures(ArmoredMightFeature);
+            ExtraMythicAbilityMythicFeat.AddFeatures(ArmoredMightFeature);
         }
     }
 }

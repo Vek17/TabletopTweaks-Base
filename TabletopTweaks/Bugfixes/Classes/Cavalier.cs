@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Cavalier {
@@ -25,11 +26,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 var AnimalCompanionFeatureHorse = Resources.GetBlueprint<BlueprintFeature>("9dc58b5901677c942854019d1dd98374");
                 var CavalierMountFeatureWolf = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["CavalierMountFeatureWolf"]);
 
-                CavalierMountSelection.m_AllFeatures = new BlueprintFeatureReference[] {
-                    AnimalCompanionEmptyCompanion.ToReference<BlueprintFeatureReference>(),
-                    AnimalCompanionFeatureHorse.ToReference<BlueprintFeatureReference>(),
-                    CavalierMountFeatureWolf.ToReference<BlueprintFeatureReference>(),
-                };
+
+                CavalierMountSelection.SetFeatures(AnimalCompanionEmptyCompanion, AnimalCompanionFeatureHorse, CavalierMountFeatureWolf);
                 CavalierMountSelection.m_Features = CavalierMountSelection.m_AllFeatures;
                 Main.LogPatch("Patched", CavalierMountSelection);
             }

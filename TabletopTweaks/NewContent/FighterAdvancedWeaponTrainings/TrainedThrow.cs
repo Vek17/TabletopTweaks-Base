@@ -37,11 +37,11 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             });
             Resources.AddBlueprint(TrainedThrowFeature);
             if (ModSettings.AddedContent.FighterAdvancedWeaponTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedWeaponTraining.Enabled["TrainedGrace"]) { return; }
-            WeaponTrainingSelection.m_AllFeatures = WeaponTrainingSelection.m_AllFeatures.AppendToArray(TrainedThrowFeature.ToReference<BlueprintFeatureReference>());
-            AdvancedWeaponTraining1.m_AllFeatures = AdvancedWeaponTraining1.m_AllFeatures.AppendToArray(TrainedThrowFeature.ToReference<BlueprintFeatureReference>());
-            AdvancedWeaponTraining2.m_AllFeatures = AdvancedWeaponTraining2.m_AllFeatures.AppendToArray(TrainedThrowFeature.ToReference<BlueprintFeatureReference>());
-            AdvancedWeaponTraining3.m_AllFeatures = AdvancedWeaponTraining3.m_AllFeatures.AppendToArray(TrainedThrowFeature.ToReference<BlueprintFeatureReference>());
-            AdvancedWeaponTraining4.m_AllFeatures = AdvancedWeaponTraining4.m_AllFeatures.AppendToArray(TrainedThrowFeature.ToReference<BlueprintFeatureReference>());
+            WeaponTrainingSelection.AddFeatures(TrainedThrowFeature);
+            AdvancedWeaponTraining1.AddFeatures(TrainedThrowFeature);
+            AdvancedWeaponTraining2.AddFeatures(TrainedThrowFeature);
+            AdvancedWeaponTraining3.AddFeatures(TrainedThrowFeature);
+            AdvancedWeaponTraining4.AddFeatures(TrainedThrowFeature);
         }
     }
 }

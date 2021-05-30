@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using System.Linq;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Trickster {
@@ -32,15 +33,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 var TricksterKnowledgeWorldTier3Feature = Resources.GetBlueprint<BlueprintFeature>("26691ec239c84568bd27b055a1528912");
                 var TricksterRank3Selection = Resources.GetBlueprint<BlueprintFeatureSelection>("446f4a8b32019f5478a8dfeddac74710");
 
-                TricksterRank3Selection.m_AllFeatures = TricksterRank3Selection.m_AllFeatures.Concat(new BlueprintFeatureReference[] {
-                    TricksterTrickeryTier3Feature.ToReference<BlueprintFeatureReference>(),
-                    TricksterStealthTier3Feature.ToReference<BlueprintFeatureReference>(),
-                    TricksterPersuasionTier3Feature.ToReference<BlueprintFeatureReference>(),
-                    TricksterMobilityTier3Feature.ToReference<BlueprintFeatureReference>(),
-                    TricksterKnowledgeArcanaTier3Feature.ToReference<BlueprintFeatureReference>(),
-                    TricksterAthleticsTier3Feature.ToReference<BlueprintFeatureReference>(),
-                    TricksterLoreReligionTier3Parametrized.ToReference<BlueprintFeatureReference>()
-                }).ToArray();
+                TricksterRank3Selection.AddFeatures(
+                    TricksterTrickeryTier3Feature,
+                    TricksterStealthTier3Feature,
+                    TricksterPersuasionTier3Feature,
+                    TricksterMobilityTier3Feature,
+                    TricksterKnowledgeArcanaTier3Feature,
+                    TricksterAthleticsTier3Feature,
+                    TricksterLoreReligionTier3Parametrized
+                );
                 Main.LogPatch("Patched", TricksterRank3Selection);
             }
         }

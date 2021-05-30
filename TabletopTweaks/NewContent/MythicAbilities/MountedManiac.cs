@@ -152,14 +152,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             Resources.AddBlueprint(MountedManiacFeature);
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["MountedManiac"]) { return; }
-            MythicAbilitySelection.m_AllFeatures = MythicAbilitySelection.m_AllFeatures
-                .AppendToArray(
-                    MountedManiacFeature.ToReference<BlueprintFeatureReference>()
-                );
-            ExtraMythicAbilityMythicFeat.m_AllFeatures = ExtraMythicAbilityMythicFeat.m_AllFeatures
-                .AppendToArray(
-                    MountedManiacFeature.ToReference<BlueprintFeatureReference>()
-                );
+            MythicAbilitySelection.AddFeatures(MountedManiacFeature);
+            ExtraMythicAbilityMythicFeat.AddFeatures(MountedManiacFeature);
         }
     }
 }

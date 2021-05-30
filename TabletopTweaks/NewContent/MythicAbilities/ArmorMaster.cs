@@ -132,18 +132,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             Resources.AddBlueprint(ArmorMasterHeavyFeature);
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
-            MythicAbilitySelection.m_AllFeatures = MythicAbilitySelection.m_AllFeatures
-                .AppendToArray(
-                    ArmorMasterLightFeature.ToReference<BlueprintFeatureReference>(),
-                    ArmorMasterMediumFeature.ToReference<BlueprintFeatureReference>(),
-                    ArmorMasterHeavyFeature.ToReference<BlueprintFeatureReference>()
-                );
-            ExtraMythicAbilityMythicFeat.m_AllFeatures = ExtraMythicAbilityMythicFeat.m_AllFeatures
-                .AppendToArray(
-                    ArmorMasterLightFeature.ToReference<BlueprintFeatureReference>(),
-                    ArmorMasterMediumFeature.ToReference<BlueprintFeatureReference>(),
-                    ArmorMasterHeavyFeature.ToReference<BlueprintFeatureReference>()
-                );
+            MythicAbilitySelection.AddFeatures(ArmorMasterLightFeature, ArmorMasterMediumFeature, ArmorMasterHeavyFeature);
+            ExtraMythicAbilityMythicFeat.AddFeatures(ArmorMasterLightFeature, ArmorMasterMediumFeature, ArmorMasterHeavyFeature);
         }
     }
 }
