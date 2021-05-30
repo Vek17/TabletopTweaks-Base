@@ -5,7 +5,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup BaseAbilities = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup ArcanistExploits = new SettingGroup();
-        public SettingGroup FighterAdvancedWeaponTraining= new SettingGroup();
+        public SettingGroup FighterAdvancedWeaponTraining = new SettingGroup();
         public SettingGroup Races = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();

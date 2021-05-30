@@ -8,7 +8,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Bloodlines {
     class AbyssalBloodline {
         public static void AddBloodragerAbyssalDemonicBulkEnlargeBuff() {
-            var BloodragerAbyssalDemonicBulkEnlargeBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerAbyssalDemonicBulkEnlargeBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAbyssalDemonicBulkEnlargeBuff"];
                 bp.name = "BloodragerAbyssalDemonicBulkEnlargeBuff";
                 bp.SetName("Abyssal Bulk");

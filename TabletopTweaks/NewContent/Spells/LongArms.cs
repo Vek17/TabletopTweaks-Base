@@ -8,7 +8,6 @@ using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using TabletopTweaks.Config;
@@ -20,7 +19,7 @@ namespace TabletopTweaks.NewContent.Spells {
         public static void AddLongArms() {
             //var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_LongArm.png");
-            var LongArmBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var LongArmBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["LongArmBuff"];
                 bp.name = "LongArmBuff";
                 bp.SetName("Long Arm");

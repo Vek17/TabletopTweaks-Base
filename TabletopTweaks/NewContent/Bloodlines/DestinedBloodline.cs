@@ -85,7 +85,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 2;
                 }));
             });
-            var BloodragerDestinedStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerDestinedStrikeBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerDestinedStrikeBuff"];
                 bp.name = "BloodragerDestinedStrikeBuff";
                 bp.Stacking = StackingType.Rank;
@@ -181,7 +181,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "4 levels thereafter, this bonus increases by 1 (to a maximum of +5 at 20th level).");
                 bp.Ranks = 5;
             });
-            var BloodragerDestinedFatedBloodragerBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerDestinedFatedBloodragerBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerDestinedFatedBloodragerBuff"];
                 bp.name = "BloodragerDestinedFatedBloodragerBuff";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -237,7 +237,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 8th level, you may reroll an attack roll once during a bloodrage. You must decide to use this ability after "
                     + "the die is rolled, but before the GM reveals the results. You must take the second result, even if it’s worse.");
             });
-            var BloodragerDestinedCertainStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerDestinedCertainStrikeBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerDestinedCertainStrikeBuff"];
                 bp.name = "BloodragerDestinedCertainStrikeBuff";
                 //bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -281,7 +281,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.RestoreAmount = true;
                 }));
             });
-            var BloodragerDestinedDefyDeathBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerDestinedDefyDeathBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerDestinedDefyDeathBuff"];
                 bp.name = "BloodragerDestinedDefyDeathBuff";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -303,7 +303,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 16th level, any critical threats you score are automatically confirmed. Any critical "
                     + "threats made against you confirm only if the second roll results in a natural 20 (or is automatically confirmed).");
             });
-            var BloodragerDestinedUnstoppableBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerDestinedUnstoppableBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerDestinedUnstoppableBuff"];
                 bp.name = "BloodragerDestinedUnstoppableBuff";
                 bp.SetName(BloodragerDestinedUnstoppable.Name);
@@ -506,7 +506,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
             });
-            var BloodragerDestinedBaseBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerDestinedBaseBuff = Helpers.CreateBuff(bp => {
                 bp.name = "BloodragerDestinedBaseBuff";
                 bp.SetName("Destined Bloodrage");
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerDestinedBaseBuff"];
@@ -575,7 +575,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = BloodlineInfernalClassSkill.Icon;
             });
-            var SorcererDestinedBloodlineArcanaBuff1 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff1 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff1"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff1";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -596,7 +596,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 1;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff2 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff2 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff2"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff2";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -617,7 +617,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 3;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff3 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff3 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff3"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff3";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -638,7 +638,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 3;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff4 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff4 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff4"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff4";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -659,7 +659,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 4;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff5 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff5 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff5"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff5";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -680,7 +680,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 5;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff6 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff6 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff6"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff6";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -701,7 +701,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 6;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff7 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff7 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff7"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff7";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -722,7 +722,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 7;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff8 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff8 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff8"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff8";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -743,7 +743,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 8;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff9 = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedBloodlineArcanaBuff9 = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedBloodlineArcanaBuff9"];
                 bp.name = "SorcererDestinedBloodlineArcanaBuff9";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -798,7 +798,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedTouchOfDestinyBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedTouchOfDestinyBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedTouchOfDestinyBuff"];
                 bp.name = "SorcererDestinedTouchOfDestinyBuff";
                 bp.m_Icon = LawDomainBaseAbility.Icon;
@@ -1033,7 +1033,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.RestoreAmount = true;
                 }));
             });
-            var SorcererDestinedFatedBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedFatedBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedFatedBuff"];
                 bp.name = "SorcererDestinedFatedBuff";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -1152,7 +1152,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 1;
                 }));
             });
-            var SorcererDestinedItWasMeantToBeBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedItWasMeantToBeBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedItWasMeantToBeBuff"];
                 bp.name = "SorcererDestinedItWasMeantToBeBuff";
                 bp.SetName("It Was Meant To Be");
@@ -1244,7 +1244,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedDestinyRealizedBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var SorcererDestinedDestinyRealizedBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SorcererDestinedDestinyRealizedBuff"];
                 bp.name = "SorcererDestinedDestinyRealizedBuff";
                 bp.SetName("Destiny Realized");

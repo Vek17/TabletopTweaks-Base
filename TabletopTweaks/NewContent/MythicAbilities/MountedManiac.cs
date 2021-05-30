@@ -30,7 +30,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var DazzlingDisplayAction = Resources.GetBlueprint<BlueprintAbility>("5f3126d4120b2b244a95cb2ec23d69fb");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_MountedManiac.png");
 
-            var MountedManiacDCBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var MountedManiacDCBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MountedManiacDCBuff"];
                 bp.name = "MountedManiacDCBuff";
                 bp.m_Icon = icon;
@@ -66,7 +66,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
                 bp.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<Demoralize>().First().DazzlingDisplay = false;
             });
-            var MountedManiacBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var MountedManiacBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MountedManiacBuff"];
                 bp.name = "MountedManiacBuff";
                 bp.m_Icon = icon;

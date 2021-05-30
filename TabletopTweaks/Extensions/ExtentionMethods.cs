@@ -151,7 +151,7 @@ namespace TabletopTweaks.Extensions {
         }
 
         public static void AddFeatures(this BlueprintFeatureSelection selection, params BlueprintFeature[] features) {
-            foreach(var feature in features) {
+            foreach (var feature in features) {
                 var featureReference = feature.ToReference<BlueprintFeatureReference>();
                 if (!selection.m_AllFeatures.Contains(featureReference)) {
                     selection.m_AllFeatures = selection.m_AllFeatures.AppendToArray(featureReference);

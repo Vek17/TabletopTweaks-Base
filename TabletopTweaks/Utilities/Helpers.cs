@@ -7,7 +7,9 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
@@ -22,6 +24,15 @@ namespace TabletopTweaks.Utilities {
     public static class Helpers {
         public static T Create<T>(Action<T> init = null) where T : new() {
             var result = new T();
+            init?.Invoke(result);
+            return result;
+        }
+
+        public static BlueprintBuff CreateBuff(Action<BlueprintBuff> init = null) {
+            var result = Helpers.Create<BlueprintBuff>(bp => {
+                bp.FxOnStart = new PrefabLink();
+                bp.FxOnRemove = new PrefabLink();
+            });
             init?.Invoke(result);
             return result;
         }

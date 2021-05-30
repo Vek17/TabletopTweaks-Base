@@ -70,7 +70,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "Constitution modifier. These effects stack with the Staggering Critical feat; the target must save against "
                     + "each effect individually.");
             });
-            var BloodragerAberrantStaggeringStrikeBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerAberrantStaggeringStrikeBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantStaggeringStrikeBuff"];
                 bp.name = "BloodragerAberrantStaggeringStrikeBuff";
                 bp.SetName(BloodragerAberrantStaggeringStrike.Name);
@@ -115,7 +115,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Abnormal Reach");
                 bp.SetDescription("At 4th level, your limbs elongate and your reach increases by 5 feet.");
             });
-            var BloodragerAberrantAbnormalReachBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerAberrantAbnormalReachBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantAbnormalReachBuff"];
                 bp.name = "BloodragerAberrantAbnormalReachBuff";
                 bp.SetName(BloodragerAberrantAbnormalReach.Name);
@@ -133,7 +133,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Aberrant Fortitude");
                 bp.SetDescription("At 8th level, you become immune to the sickened and nauseated conditions.");
             });
-            var BloodragerAberrantFortitudeBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerAberrantFortitudeBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantFortitudeBuff"];
                 bp.name = "BloodragerAberrantFortitudeBuff";
                 bp.SetName(BloodragerAberrantFortitude.Name);
@@ -159,7 +159,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 12th level, your internal anatomy shifts and changes, giving you a 50% chance to negate "
                     + "any critical hit or sneak attack that hits you. The damage is instead rolled normally.");
             });
-            var BloodragerAberrantUnusualAnatomyBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerAberrantUnusualAnatomyBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantUnusualAnatomyBuff"];
                 bp.name = "BloodragerAberrantUnusualAnatomyBuff";
                 bp.SetName(BloodragerAberrantUnusualAnatomy.Name);
@@ -176,7 +176,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Aberrant Resistance");
                 bp.SetDescription("At 16th level, you are immune to disease, exhaustion, fatigue, and poison, and to the staggered condition.");
             });
-            var BloodragerAberrantResistanceBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerAberrantResistanceBuff = Helpers.CreateBuff(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantResistanceBuff"];
                 bp.name = "BloodragerAberrantResistanceBuff";
                 bp.SetName(BloodragerAberrantResistance.Name);
@@ -377,7 +377,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 }));
             });
-            var BloodragerAberrantBaseBuff = Helpers.Create<BlueprintBuff>(bp => {
+            var BloodragerAberrantBaseBuff = Helpers.CreateBuff(bp => {
                 bp.name = "BloodragerAberrantBaseBuff";
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["BloodragerAberrantBaseBuff"];
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;

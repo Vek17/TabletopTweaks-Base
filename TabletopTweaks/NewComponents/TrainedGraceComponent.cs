@@ -14,14 +14,14 @@ namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("a07e963bb1e74da1a615e3a426004c47")]
-    class TrainedGraceComponent: UnitFactComponentDelegate, 
-        IInitiatorRulebookHandler<RuleCalculateWeaponStats>, 
-        IRulebookHandler<RuleCalculateWeaponStats>, 
-        ISubscriber, 
+    class TrainedGraceComponent: UnitFactComponentDelegate,
+        IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
+        IRulebookHandler<RuleCalculateWeaponStats>,
+        ISubscriber,
         IInitiatorRulebookSubscriber {
 
         public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {
-            
+
         }
 
         public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
