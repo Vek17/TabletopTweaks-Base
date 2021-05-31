@@ -25,6 +25,7 @@ namespace TabletopTweaks.NewContent {
 
                 FighterAdvancedArmorTrainings.AdvancedArmorTraining.AddAdvancedArmorTraining();
                 FighterAdvancedArmorTrainings.ArmorSpecialization.AddArmorSpecialization();
+                FighterAdvancedArmorTrainings.CriticalDeflection.AddCriticalDeflection();
 
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();

@@ -50,18 +50,22 @@ namespace TabletopTweaks.NewComponents {
 			if (Owner.Body.IsPolymorphed) { return; }
 			var Armor = Owner.Body?.Armor?.MaybeArmor;
 			var Shield = Owner.Body?.SecondaryHand?.MaybeShield?.ArmorComponent;
-			if (Armor == null && Shield == null) { return; };
-            if (RequiredArmor.Contains(Armor?.Blueprint?.ProficiencyGroup ?? (ArmorProficiencyGroup)192837)
-					|| RequiredArmor.Contains(Shield?.Blueprint?.ProficiencyGroup ?? (ArmorProficiencyGroup)192837)
-				&& !ForbiddenArmor.Contains(Armor?.Blueprint?.ProficiencyGroup ?? (ArmorProficiencyGroup)192837)
-					|| !ForbiddenArmor.Contains(Shield?.Blueprint?.ProficiencyGroup ?? (ArmorProficiencyGroup)192837)) {
+			if (Armor != null 
+				&& RequiredArmor.Contains(Armor.Blueprint.ProficiencyGroup)
+				&& !ForbiddenArmor.Contains(Armor.Blueprint.ProficiencyGroup)) {
 				AddFact();
-			}
+				return;
+			};
+			if (Shield != null
+				&& RequiredArmor.Contains(Shield.Blueprint.ProficiencyGroup)
+				&& !ForbiddenArmor.Contains(Shield.Blueprint.ProficiencyGroup)) {
+				AddFact();
+				return;
+			};
 		}
 
 		private void AddFact() {
 			if (Data.AppliedFact == null) {
-				Main.LogDebug("Called Add Fact");
 				Data.AppliedFact = Owner.AddFact(NewFact, null, null);
 			}
 		}

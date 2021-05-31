@@ -37,12 +37,13 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchBase() {
                 if (ModSettings.Fixes.Fighter.Base.DisableAll) { return; }
-                PatchAdvancedWeaponTraining();
                 PatchTwoHandedWeaponTraining();
+                PatchAdvancedWeaponTraining();
 
                 void PatchAdvancedWeaponTraining() {
                     if (!ModSettings.Fixes.Fighter.Base.Enabled["AdvancedWeaponTraining"]) { return; }
                     var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("b8cecf4e5e464ad41b79d5b42b76b399");
+                    var WeaponTrainingRankUpSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("5f3cc7b9a46b880448275763fe70c0b0");
                     var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
                     var AdvancedWeaponTraining2 = Resources.GetBlueprint<BlueprintFeatureSelection>("70a139f0a4c6c534eaa34feea0d08622");
                     var AdvancedWeaponTraining3 = Resources.GetBlueprint<BlueprintFeatureSelection>("ee9ab0117ca06b84f9c66469f4428c61");
@@ -50,8 +51,19 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var AdvancedWeapontrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedWeaponTrainingSelection"]);
 
                     WeaponTrainingSelection.m_AllFeatures = WeaponTrainingSelection.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
+                    WeaponTrainingSelection.Mode = SelectionMode.Default;
                     WeaponTrainingSelection.AddFeatures(AdvancedWeapontrainingSelection);
                     Main.LogPatch("Patched", WeaponTrainingSelection);
+                    WeaponTrainingRankUpSelection.m_AllFeatures = WeaponTrainingRankUpSelection.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
+                    WeaponTrainingRankUpSelection.m_AllFeatures.ForEach(feature => {
+                        feature.Get().AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                            c.m_Feature = feature;
+                            c.HideInUI = true;
+                        }));
+                        Main.LogPatch("Patched", feature.Get());
+                    });
+                    WeaponTrainingRankUpSelection.IgnorePrerequisites = true;
+                    Main.LogPatch("Patched", WeaponTrainingRankUpSelection);
                     AdvancedWeapontrainingSelection.m_AllFeatures.ForEach(feature => {
                         feature.Get().RemoveComponents<PrerequisiteClassLevel>();
                         Main.LogPatch("Patched", feature.Get());
@@ -107,14 +119,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeature>("b8cecf4e5e464ad41b79d5b42b76b399");
 
                     var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeature>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
-                    var AdvancedWeaponTraining2 = Resources.GetBlueprint<BlueprintFeature>("70a139f0a4c6c534eaa34feea0d08622");
-                    var AdvancedWeaponTraining3 = Resources.GetBlueprint<BlueprintFeature>("ee9ab0117ca06b84f9c66469f4428c61");
-                    var AdvancedWeaponTraining4 = Resources.GetBlueprint<BlueprintFeature>("0b55d725ded1ae549bb858fba1d84114");
-
                     PatchPrerequisites(AdvancedWeaponTraining1);
-                    PatchPrerequisites(AdvancedWeaponTraining2);
-                    PatchPrerequisites(AdvancedWeaponTraining3);
-                    PatchPrerequisites(AdvancedWeaponTraining4);
 
                     void PatchPrerequisites(BlueprintFeature AdvancedWeaponTraining) {
                         AdvancedWeaponTraining.GetComponent<PrerequisiteFeature>().Group = Prerequisite.GroupType.Any;

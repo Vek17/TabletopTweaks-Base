@@ -35,6 +35,14 @@
             "TrainedThrow": true
         }
     },
+    "FighterAdvancedArmorTraining": {
+        "DisableAll": false,
+        "Enabled": {
+            "Feats": true,
+            "ArmorSpecialization": true,
+            "CriticalDeflection": true
+        }
+    },
     "Races": {
         "DisableAll": false,
         "Enabled": {

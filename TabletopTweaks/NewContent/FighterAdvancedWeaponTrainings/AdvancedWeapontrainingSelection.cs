@@ -13,7 +13,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
             var AdvancedWeapontrainingSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["AdvancedWeaponTrainingSelection"];
-                bp.name = "AdvancedWeaponTrainingSelection";
+                bp.name = "AdvancedWeaponTrainingSelection1";
                 bp.SetName("Advanced Weapon Training");
                 bp.SetDescription("Highly skilled and experienced fighters can gain advanced weapon training, learning techniques " +
                     "and applications of the weapon training class feature that give them special benefits in exchange for specializing " +
@@ -22,6 +22,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
 
                 bp.m_AllFeatures = AdvancedWeaponTraining1.m_AllFeatures;
                 bp.IsClassFeature = true;
+                bp.HideNotAvailibleInUI = true;
                 bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 9;

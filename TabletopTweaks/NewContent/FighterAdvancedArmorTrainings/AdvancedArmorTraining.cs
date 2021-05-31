@@ -38,6 +38,10 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 3;
                 }));
+                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
             });
             var AdvancedArmorTraining2 = CreateAdvancedArmorFeat(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining2"];
@@ -45,6 +49,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 6;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                    c.m_Feature = AdvancedArmorTraining1.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
                 }));
             });
             var AdvancedArmorTraining3 = CreateAdvancedArmorFeat(bp => {
@@ -54,6 +66,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 9;
                 }));
+                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                    c.m_Feature = AdvancedArmorTraining2.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
             });
             var AdvancedArmorTraining4 = CreateAdvancedArmorFeat(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining4"];
@@ -61,6 +81,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 12;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                    c.m_Feature = AdvancedArmorTraining3.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
                 }));
             });
             var AdvancedArmorTraining5 = CreateAdvancedArmorFeat(bp => {
@@ -70,6 +98,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 15;
                 }));
+                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                    c.m_Feature = AdvancedArmorTraining4.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
             });
             var AdvancedArmorTraining6 = CreateAdvancedArmorFeat(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining6"];
@@ -77,6 +113,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 18;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                    c.m_Feature = AdvancedArmorTraining5.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                }));
+                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
                 }));
             });
 
@@ -87,6 +131,24 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             Resources.AddBlueprint(AdvancedArmorTraining4);
             Resources.AddBlueprint(AdvancedArmorTraining5);
             Resources.AddBlueprint(AdvancedArmorTraining6);
+
+            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["Feats"]) { return; }
+            BasicFeatSelection.AddFeatures(
+                AdvancedArmorTraining1,
+                AdvancedArmorTraining2,
+                AdvancedArmorTraining3,
+                AdvancedArmorTraining4,
+                AdvancedArmorTraining5,
+                AdvancedArmorTraining6
+            );
+            FighterFeatSelection.AddFeatures(
+                AdvancedArmorTraining1,
+                AdvancedArmorTraining2,
+                AdvancedArmorTraining3,
+                AdvancedArmorTraining4,
+                AdvancedArmorTraining5,
+                AdvancedArmorTraining6
+            );
 
             BlueprintFeatureSelection CreateAdvancedArmorFeat(Action<BlueprintFeatureSelection> init = null) {
                 var ArmorTrainingFeat =  Helpers.Create<BlueprintFeatureSelection>(bp => {
@@ -99,6 +161,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     bp.m_AllFeatures = new BlueprintFeatureReference[0];
                     bp.m_Features = new BlueprintFeatureReference[0];
                     bp.IsClassFeature = true;
+                    bp.HideNotAvailibleInUI = true;
                     bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                         c.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
                     }));
@@ -106,6 +169,23 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 init?.Invoke(ArmorTrainingFeat);
                 return ArmorTrainingFeat;
             }
+        }
+        public static void AddToAdvancedArmorTrainingSelection(params BlueprintFeature[] features) {
+            var AdvancedArmorTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedArmorTrainingSelection"]);
+            var AdvancedArmorTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining1"]);
+            var AdvancedArmorTraining2 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining2"]);
+            var AdvancedArmorTraining3 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining3"]);
+            var AdvancedArmorTraining4 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining4"]);
+            var AdvancedArmorTraining5 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining5"]);
+            var AdvancedArmorTraining6 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedArmorTraining6"]);
+
+            AdvancedArmorTrainingSelection.AddFeatures(features);
+            AdvancedArmorTraining1.AddFeatures(features);
+            AdvancedArmorTraining2.AddFeatures(features);
+            AdvancedArmorTraining3.AddFeatures(features);
+            AdvancedArmorTraining4.AddFeatures(features);
+            AdvancedArmorTraining5.AddFeatures(features);
+            AdvancedArmorTraining6.AddFeatures(features);
         }
     }
 }

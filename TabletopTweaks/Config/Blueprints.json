@@ -168,6 +168,8 @@
         "ArmorSpecializationMediumEffect": "2b4495a7a1b14272993c1916986438ca",
         "ArmorSpecializationMediumFeature": "7c5de273c97540bc908555a1ca06645c",
         "ArmorSpecializationHeavyEffect": "ce4c4331087f4245aa18cada916992f7",
-        "ArmorSpecializationHeavyFeature": "36d5057b8ba44090a605729506c92ed9"
+        "ArmorSpecializationHeavyFeature": "36d5057b8ba44090a605729506c92ed9",
+        "CriticalDeflectionEffect": "55820b140d024c7083705db648918baa",
+        "CriticalDeflectionFeature": "d0ec464f17ae49c99dd089f602c767bb"
     }
 }
