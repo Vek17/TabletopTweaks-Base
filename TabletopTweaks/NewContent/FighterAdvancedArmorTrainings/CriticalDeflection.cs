@@ -52,9 +52,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
                     c.NewFact = CriticalDeflectionEffect.ToReference<BlueprintUnitFactReference>();
-                    c.RequiredArmor = new ArmorProficiencyGroup[] { 
-                        ArmorProficiencyGroup.Light, 
-                        ArmorProficiencyGroup.Medium, 
+                    c.RequiredArmor = new ArmorProficiencyGroup[] {
+                        ArmorProficiencyGroup.Light,
+                        ArmorProficiencyGroup.Medium,
                         ArmorProficiencyGroup.Heavy,
                         ArmorProficiencyGroup.Buckler,
                         ArmorProficiencyGroup.LightShield,

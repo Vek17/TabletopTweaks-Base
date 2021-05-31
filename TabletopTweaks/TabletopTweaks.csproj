@@ -207,6 +207,7 @@
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredJuggernaut.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmorSpecialization.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\CriticalDeflection.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\SteelHeadbutt.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\AdvancedWeapontrainingSelection.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />

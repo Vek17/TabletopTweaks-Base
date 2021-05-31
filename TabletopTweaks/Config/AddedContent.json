@@ -42,7 +42,8 @@
             "ArmoredConfidence": true,
             "ArmoredJuggernaut": true,
             "ArmorSpecialization": true,
-            "CriticalDeflection": true
+            "CriticalDeflection": true,
+            "SteelHeadbutt": true
         }
     },
     "Races": {

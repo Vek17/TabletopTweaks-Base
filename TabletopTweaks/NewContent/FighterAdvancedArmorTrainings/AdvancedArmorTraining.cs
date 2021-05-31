@@ -151,7 +151,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             );
 
             BlueprintFeatureSelection CreateAdvancedArmorFeat(Action<BlueprintFeatureSelection> init = null) {
-                var ArmorTrainingFeat =  Helpers.Create<BlueprintFeatureSelection>(bp => {
+                var ArmorTrainingFeat = Helpers.Create<BlueprintFeatureSelection>(bp => {
                     bp.SetName("Advanced Armor Training");
                     bp.SetDescription("Select one advanced armor training option.");
                     bp.Groups = new FeatureGroup[] {

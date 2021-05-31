@@ -178,6 +178,11 @@
         "ArmoredConfidenceLightEffect": "93a321542f6346ec8067a5375f3b7f21",
         "ArmoredConfidenceMediumEffect": "e74431e86eb04466908ac55684a564eb",
         "ArmoredConfidenceHeavyEffect": "76b764f8203c42baa8483b10b35fc4ff",
-        "ArmoredConfidenceFeature": "0b2295536baf47098646af903bb98620"
+        "ArmoredConfidenceFeature": "0b2295536baf47098646af903bb98620",
+        "SteelHeadbutt1d4": "3acac6f4a10444dbb84ef62805019cc3",
+        "SteelHeadbutt1d3": "d8c9cc61cf494023a63d0317e180edae",
+        "SteelHeadbuttMediumEffect": "2dbcd9730d9242ee8ee25289ed1a1d9c",
+        "SteelHeadbuttHeavyEffect": "8a4c95b21302496b94759e4ff2c5e073",
+        "SteelHeadbuttFeature": "de5ff5c8dab74c7ab98d701d4af6f61a"
     }
 }

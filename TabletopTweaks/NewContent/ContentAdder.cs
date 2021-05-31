@@ -28,6 +28,7 @@ namespace TabletopTweaks.NewContent {
                 FighterAdvancedArmorTrainings.ArmoredJuggernaut.AddArmoredJuggernaut();
                 FighterAdvancedArmorTrainings.ArmorSpecialization.AddArmorSpecialization();
                 FighterAdvancedArmorTrainings.CriticalDeflection.AddCriticalDeflection();
+                FighterAdvancedArmorTrainings.SteelHeadbutt.AddSteelHeadbutt();
 
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();

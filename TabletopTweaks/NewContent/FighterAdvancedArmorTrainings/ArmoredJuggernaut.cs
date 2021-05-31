@@ -67,7 +67,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                    c.Pool = new ContextValue {};
+                    c.Pool = new ContextValue { };
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
@@ -98,7 +98,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                    c.Pool = new ContextValue {};
+                    c.Pool = new ContextValue { };
                 }));
                 bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;
@@ -109,7 +109,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         ValueType = ContextValueType.Simple,
                         Value = 1
                     };
-                    c.Pool = new ContextValue {};
+                    c.Pool = new ContextValue { };
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;

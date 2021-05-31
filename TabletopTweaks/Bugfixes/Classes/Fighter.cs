@@ -152,7 +152,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         WeaponGroupAttackBonus weaponGroupAttackBonus = entityFactComponent.SourceBlueprintComponent as WeaponGroupAttackBonus;
                         WeaponFighterGroup? weaponFighterGroup = (weaponGroupAttackBonus != null) ? new WeaponFighterGroup?(weaponGroupAttackBonus.WeaponGroup) : null;
                         WeaponFighterGroup fighterGroup = weapon.Blueprint.Type.FighterGroup;
-                        if(weaponFighterGroup == null) {
+                        if (weaponFighterGroup == null) {
                             continue;
                         }
                         if (weaponFighterGroup.GetValueOrDefault() == fighterGroup) {
@@ -183,14 +183,14 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     );
                     return false;
                 }
-                if (evt.Weapon != null 
+                if (evt.Weapon != null
                     && __instance.WeaponGroup == (WeaponFighterGroup)AdditionalWeaponFighterGroups.TwoHanded
                     && evt.Weapon.Blueprint.IsTwoHanded) {
 
                     int num = __instance.multiplyByContext ? (__instance.contextMultiplier.Calculate(__instance.Context) * __instance.AttackBonus) : __instance.AttackBonus;
                     evt.AddModifier(
-                        bonus: num * __instance.Fact.GetRank(), 
-                        source: __instance.Fact, 
+                        bonus: num * __instance.Fact.GetRank(),
+                        source: __instance.Fact,
                         descriptor: (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.WeaponTraining
                     );
                 }
@@ -218,10 +218,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     && __instance.WeaponGroup == (WeaponFighterGroup)AdditionalWeaponFighterGroups.TwoHanded
                     && evt.Weapon.Blueprint.IsTwoHanded) {
 
-                    
+
                     evt.AddTemporaryModifier(evt.Initiator.Stats.AdditionalDamage.AddModifier(
-                        value: __instance.DamageBonus * __instance.Fact.GetRank() + num, 
-                        source: __instance.Runtime, 
+                        value: __instance.DamageBonus * __instance.Fact.GetRank() + num,
+                        source: __instance.Runtime,
                         desc: __instance.Descriptor
                     ));
                 }

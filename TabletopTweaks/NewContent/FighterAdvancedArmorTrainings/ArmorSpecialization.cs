@@ -69,7 +69,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.name = "ArmorSpecializationLightFeature";
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Light Armor Specialization");
-                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} graned by any light armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 3.") ;
+                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} graned by any light armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 3.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
