@@ -21,6 +21,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Critical Deflection");
                 bp.SetDescription("Critical Deflection");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<CriticalConfirmationACBonus>(c => {
                     c.Bonus = 2;

@@ -25,6 +25,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Armored Confidence Effect");
                 bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -58,6 +59,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Armored Confidence Effect");
                 bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -90,6 +92,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Armored Confidence Effect");
                 bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;

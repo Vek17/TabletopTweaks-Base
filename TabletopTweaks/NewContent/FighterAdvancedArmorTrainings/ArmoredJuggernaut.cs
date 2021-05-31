@@ -22,6 +22,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Armored Juggernaut Effect");
                 bp.SetDescription("Armored Juggernaut");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;
@@ -55,6 +56,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Armored Juggernaut Effect");
                 bp.SetDescription("Armored Juggernaut");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;
@@ -85,6 +87,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Armored Juggernaut Effect");
                 bp.SetDescription("Armored Juggernaut");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;

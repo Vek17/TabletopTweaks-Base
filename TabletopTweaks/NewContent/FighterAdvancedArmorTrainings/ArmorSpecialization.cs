@@ -41,6 +41,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Light Armor Specialization");
                 bp.SetDescription("Light Armor Specialization");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.ArmorFocus;
@@ -82,6 +83,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Medium Armor Specialization");
                 bp.SetDescription("Medium Armor Specialization");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.ArmorFocus;
@@ -123,6 +125,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("Heavy Armor Specialization");
                 bp.SetDescription("Heavy Armor Specialization");
                 bp.IsClassFeature = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.ArmorFocus;
