@@ -40,11 +40,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             });
             Resources.AddBlueprint(TrainedGraceFeature);
             if (ModSettings.AddedContent.FighterAdvancedWeaponTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedWeaponTraining.Enabled["TrainedThrow"]) { return; }
-            WeaponTrainingSelection.AddFeatures(TrainedGraceFeature);
-            AdvancedWeaponTraining1.AddFeatures(TrainedGraceFeature);
-            AdvancedWeaponTraining2.AddFeatures(TrainedGraceFeature);
-            AdvancedWeaponTraining3.AddFeatures(TrainedGraceFeature);
-            AdvancedWeaponTraining4.AddFeatures(TrainedGraceFeature);
+            AdvancedWeapontrainingSelection.AddToAdvancedWeaponTrainingSelection(TrainedGraceFeature);
         }
     }
 }

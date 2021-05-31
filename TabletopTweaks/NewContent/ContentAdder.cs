@@ -19,9 +19,9 @@ namespace TabletopTweaks.NewContent {
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();
                 ArcanistExploits.Familiar.AddFamiliar();
 
+                FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
                 FighterAdvancedWeaponTrainings.TrainedThrow.AddTrainedThrow();
                 FighterAdvancedWeaponTrainings.TrainedGrace.AddTrainedGrace();
-                FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
 
                 FighterAdvancedArmorTrainings.AdvancedArmorTraining.AddAdvancedArmorTraining();
                 FighterAdvancedArmorTrainings.ArmoredConfidence.AddArmoredConfidence();

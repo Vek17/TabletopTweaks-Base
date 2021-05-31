@@ -30,5 +30,20 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             });
             Resources.AddBlueprint(AdvancedWeapontrainingSelection);
         }
+        public static void AddToAdvancedWeaponTrainingSelection(params BlueprintFeature[] features) {
+            var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
+            var AdvancedWeaponTraining2 = Resources.GetBlueprint<BlueprintFeatureSelection>("70a139f0a4c6c534eaa34feea0d08622");
+            var AdvancedWeaponTraining3 = Resources.GetBlueprint<BlueprintFeatureSelection>("ee9ab0117ca06b84f9c66469f4428c61");
+            var AdvancedWeaponTraining4 = Resources.GetBlueprint<BlueprintFeatureSelection>("0b55d725ded1ae549bb858fba1d84114");
+            var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("b8cecf4e5e464ad41b79d5b42b76b399");
+            var AdvancedWeapontrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["AdvancedWeaponTrainingSelection"]);
+
+            AdvancedWeaponTraining1.AddFeatures(features);
+            AdvancedWeaponTraining2.AddFeatures(features);
+            AdvancedWeaponTraining3.AddFeatures(features);
+            AdvancedWeaponTraining4.AddFeatures(features);
+            WeaponTrainingSelection.AddFeatures(features);
+            AdvancedWeapontrainingSelection.AddFeatures(features);
+        }
     }
 }

@@ -17,7 +17,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
     class ArmoredConfidence {
         public static void AddArmoredConfidence() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
-            var ArmorFocusLight = Resources.GetBlueprint<BlueprintFeature>("3bc6e1d2b44b5bb4d92e6ba59577cf62");
 
             var ArmoredConfidenceLightEffect = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceLightEffect"];
@@ -122,7 +121,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var ArmoredConfidenceFeature = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceFeature"];
                 bp.name = "ArmoredConfidence";
-                bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Armored Confidence");
                 bp.SetDescription("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
                     "+1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter " +
