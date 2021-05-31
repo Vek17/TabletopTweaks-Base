@@ -39,6 +39,8 @@
         "DisableAll": false,
         "Enabled": {
             "Feats": true,
+            "ArmoredConfidence": true,
+            "ArmoredJuggernaut": true,
             "ArmorSpecialization": true,
             "CriticalDeflection": true
         }

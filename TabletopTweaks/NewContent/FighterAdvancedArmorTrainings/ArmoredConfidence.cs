@@ -1,0 +1,151 @@
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
+using TabletopTweaks.Utilities;
+
+namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
+    class ArmoredConfidence {
+        public static void AddArmoredConfidence() {
+            var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+            var ArmorFocusLight = Resources.GetBlueprint<BlueprintFeature>("3bc6e1d2b44b5bb4d92e6ba59577cf62");
+
+            var ArmoredConfidenceLightEffect = Helpers.Create<BlueprintFeature>(bp => {
+                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceLightEffect"];
+                bp.name = "ArmoredConfidenceLightEffect";
+                bp.SetName("Armored Confidence Effect");
+                bp.SetDescription("Armored Confidence");
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.Stat = StatType.CheckIntimidate;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.Stat = StatType.CheckIntimidate;
+                    c.Value = 1;
+                }));
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
+                    c.m_StartLevel = 7;
+                    c.m_StepLevel = 4;
+                    c.m_Max = 4;
+                    c.m_Min = 1;
+                    c.m_UseMax = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                }));
+            });
+            
+            var ArmoredConfidenceMediumEffect = Helpers.Create<BlueprintFeature>(bp => {
+                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceMediumEffect"];
+                bp.name = "ArmoredConfidenceMediumEffect";
+                bp.SetName("Armored Confidence Effect");
+                bp.SetDescription("Armored Confidence");
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.Stat = StatType.CheckIntimidate;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.Stat = StatType.CheckIntimidate;
+                    c.Value = 2;
+                }));
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
+                    c.m_StartLevel = 7;
+                    c.m_StepLevel = 4;
+                    c.m_Max = 4;
+                    c.m_Min = 1;
+                    c.m_UseMax = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                }));
+            });
+            var ArmoredConfidenceHeavyEffect = Helpers.Create<BlueprintFeature>(bp => {
+                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceHeavyEffect"];
+                bp.name = "ArmoredConfidenceHeavyEffect";
+                bp.SetName("Armored Confidence Effect");
+                bp.SetDescription("Armored Confidence");
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.Stat = StatType.CheckIntimidate;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.Stat = StatType.CheckIntimidate;
+                    c.Value = 3;
+                }));
+                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
+                    c.m_StartLevel = 7;
+                    c.m_StepLevel = 4;
+                    c.m_Max = 4;
+                    c.m_Min = 1;
+                    c.m_UseMax = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                }));
+            });
+            var ArmoredConfidenceFeature = Helpers.Create<BlueprintFeature>(bp => {
+                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceFeature"];
+                bp.name = "ArmoredConfidence";
+                bp.m_Icon = ArmorFocusLight.Icon;
+                bp.SetName("Armored Confidence");
+                bp.SetDescription("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
+                    "+1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter " +
+                    "levels thereafter, to a maximum of +4 at 19th level.");
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                    c.NewFact = ArmoredConfidenceLightEffect.ToReference<BlueprintUnitFactReference>();
+                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Light };
+                }));
+                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                    c.NewFact = ArmoredConfidenceMediumEffect.ToReference<BlueprintUnitFactReference>();
+                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
+                }));
+                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                    c.NewFact = ArmoredConfidenceHeavyEffect.ToReference<BlueprintUnitFactReference>();
+                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
+                }));
+            });
+
+            Resources.AddBlueprint(ArmoredConfidenceLightEffect);
+            Resources.AddBlueprint(ArmoredConfidenceMediumEffect);
+            Resources.AddBlueprint(ArmoredConfidenceHeavyEffect);
+            Resources.AddBlueprint(ArmoredConfidenceFeature);
+            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["ArmoredConfidence"]) { return; }
+            AdvancedArmorTraining.AddToAdvancedArmorTrainingSelection(ArmoredConfidenceFeature);
+        }
+    }
+}

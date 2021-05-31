@@ -203,6 +203,8 @@
     <Compile Include="NewContent\Features\InstinctualWarriorACBonusUnlock.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\AdvancedArmorTraining.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredConfidence.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredJuggernaut.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmorSpecialization.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\CriticalDeflection.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\AdvancedWeapontrainingSelection.cs" />

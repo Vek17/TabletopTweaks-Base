@@ -33,7 +33,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
-                    c.m_StartLevel = 3;
+                    c.m_StartLevel = 7;
                     c.m_StepLevel = 4;
                     c.m_Max = 4;
                     c.m_Min = 1;

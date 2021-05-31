@@ -170,6 +170,14 @@
         "ArmorSpecializationHeavyEffect": "ce4c4331087f4245aa18cada916992f7",
         "ArmorSpecializationHeavyFeature": "36d5057b8ba44090a605729506c92ed9",
         "CriticalDeflectionEffect": "55820b140d024c7083705db648918baa",
-        "CriticalDeflectionFeature": "d0ec464f17ae49c99dd089f602c767bb"
+        "CriticalDeflectionFeature": "d0ec464f17ae49c99dd089f602c767bb",
+        "ArmoredJuggernautLightEffect": "4f0c02e864ef46699a32ad375695b34d",
+        "ArmoredJuggernautMediumEffect": "875333ed56bb491199853366c8f82cd0",
+        "ArmoredJuggernautHeavyEffect": "4d415870907a4b97bc0c78407672aa46",
+        "ArmoredJuggernautFeature": "2c83cda242f04e8bbfdbc7bfe5203805",
+        "ArmoredConfidenceLightEffect": "93a321542f6346ec8067a5375f3b7f21",
+        "ArmoredConfidenceMediumEffect": "e74431e86eb04466908ac55684a564eb",
+        "ArmoredConfidenceHeavyEffect": "76b764f8203c42baa8483b10b35fc4ff",
+        "ArmoredConfidenceFeature": "0b2295536baf47098646af903bb98620"
     }
 }

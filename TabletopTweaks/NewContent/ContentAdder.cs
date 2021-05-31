@@ -24,6 +24,8 @@ namespace TabletopTweaks.NewContent {
                 FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
 
                 FighterAdvancedArmorTrainings.AdvancedArmorTraining.AddAdvancedArmorTraining();
+                FighterAdvancedArmorTrainings.ArmoredConfidence.AddArmoredConfidence();
+                FighterAdvancedArmorTrainings.ArmoredJuggernaut.AddArmoredJuggernaut();
                 FighterAdvancedArmorTrainings.ArmorSpecialization.AddArmorSpecialization();
                 FighterAdvancedArmorTrainings.CriticalDeflection.AddCriticalDeflection();
 
