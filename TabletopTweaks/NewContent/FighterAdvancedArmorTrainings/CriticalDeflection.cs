@@ -14,7 +14,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
     class CriticalDeflection {
         public static void AddCriticalDeflection() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
-            var ArmorFocusLight = Resources.GetBlueprint<BlueprintFeature>("3bc6e1d2b44b5bb4d92e6ba59577cf62");
 
             var CriticalDeflectionEffect = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CriticalDeflectionEffect"];
@@ -45,8 +44,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             });
             var CriticalDeflectionFeature = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CriticalDeflectionFeature"];
-                bp.name = "CriticalDeflectionFeature";
-                bp.m_Icon = ArmorFocusLight.Icon;
+                bp.name = "CriticalDeflection";
                 bp.SetName("Critical Deflection");
                 bp.SetDescription("While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to " +
                     "confirm a critical hit. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +6 at 19th level.");
