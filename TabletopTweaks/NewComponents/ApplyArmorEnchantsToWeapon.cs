@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers;
 using Kingmaker.Items;
@@ -121,7 +120,7 @@ namespace TabletopTweaks.NewComponents {
         public BlueprintItemWeaponReference Weapon;
         [JsonProperty]
         private List<ItemEnchantment> m_enchants = new List<ItemEnchantment>();
-        private static BlueprintWeaponEnchantment[] EnhancmentBonuses = new BlueprintWeaponEnchantment[] { 
+        private static BlueprintWeaponEnchantment[] EnhancmentBonuses = new BlueprintWeaponEnchantment[] {
             Resources.GetBlueprint<BlueprintWeaponEnchantment>("d704f90f54f813043a525f304f6c0050"), //TemporaryEnhancement1
             Resources.GetBlueprint<BlueprintWeaponEnchantment>("9e9bab3020ec5f64499e007880b37e52"), //TemporaryEnhancement2
             Resources.GetBlueprint<BlueprintWeaponEnchantment>("d072b841ba0668846adeb007f623bd6c"), //TemporaryEnhancement3

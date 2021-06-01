@@ -32,14 +32,14 @@ namespace TabletopTweaks.NewComponents {
 
         private void ApplyDefaultIfMissing() {
             var Selection = Fact.Blueprint as BlueprintFeatureSelection;
-            if(Selection == null) { Main.Error($"{Fact.Blueprint.AssetGuid} - {Fact.Blueprint.name}: SelectionDefaultFeature Applied on Null Selection"); return; }
+            if (Selection == null) { Main.Error($"{Fact.Blueprint.AssetGuid} - {Fact.Blueprint.name}: SelectionDefaultFeature Applied on Null Selection"); return; }
             int ranks = Fact.GetRank();
             var Progressions = Owner.Progression.m_Progressions;
             if (!Owner.Progression.GetSelectionData(Selection).IsEmpty) { return; }
             Main.LogDebug($"Apply Default: {Owner.CharacterName} - {Owner.Progression.CharacterLevel} - {Owner.Blueprint.AssetGuid} - {Owner.UniqueId}");
-            foreach(var Progression in Progressions) {
-                for(int level = 1; level <= Progression.Value.Level; level++) {
-                    foreach(var entry in Progression.Key.LevelEntries.Where(e => e.Level == level)) {
+            foreach (var Progression in Progressions) {
+                for (int level = 1; level <= Progression.Value.Level; level++) {
+                    foreach (var entry in Progression.Key.LevelEntries.Where(e => e.Level == level)) {
                         Main.LogDebug($"Checking Level {level} - {Progression.Key.name}");
                         if (entry.Features.Contains(Selection)) {
                             var Selections = Owner.Progression.GetSelections(Selection, level);
