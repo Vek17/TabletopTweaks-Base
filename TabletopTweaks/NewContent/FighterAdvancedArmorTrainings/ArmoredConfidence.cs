@@ -125,15 +125,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     "levels thereafter, to a maximum of +4 at 19th level.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
                     c.NewFact = ArmoredConfidenceLightEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Light };
                 }));
-                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
                     c.NewFact = ArmoredConfidenceMediumEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
                 }));
-                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
                     c.NewFact = ArmoredConfidenceHeavyEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
                 }));

@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using System;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
@@ -18,6 +19,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var AdvancedArmorTrainingSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["AdvancedArmorTrainingSelection"];
                 bp.name = "AdvancedArmorTrainingSelection";
+                bp.Ranks = 3;
                 bp.SetName("Advanced Armor Training");
                 bp.SetDescription("Beginning at 7th level, instead of increasing the benefits provided by armor training " +
                     "(reducing his armor’s check penalty by 1 and increasing its maximum Dexterity bonus by 1), a fighter can " +
@@ -124,6 +126,28 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
 
+            var ArmorTrainingSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
+                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorTrainingSelection"];
+                bp.name = "ArmorTrainingSelection";
+                bp.Ranks = 4;
+                bp.m_Icon = ArmorTraining.Icon;
+                bp.SetName("Armor Training");
+                bp.SetDescription(ArmorTraining.Description);
+                bp.m_AllFeatures = new BlueprintFeatureReference[] {
+                    ArmorTraining.ToReference<BlueprintFeatureReference>(),
+                    AdvancedArmorTrainingSelection.ToReference<BlueprintFeatureReference>()
+                };
+                bp.m_Features = new BlueprintFeatureReference[0];
+                bp.IsClassFeature = true;
+                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+                    c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
+                    c.Level = 7;
+                }));
+                bp.AddComponent(Helpers.Create<SelectionDefaultFeature>(c => {
+                    c.DefaultFeature = ArmorTraining.ToReference<BlueprintFeatureReference>();
+                }));
+            });
+
             Resources.AddBlueprint(AdvancedArmorTrainingSelection);
             Resources.AddBlueprint(AdvancedArmorTraining1);
             Resources.AddBlueprint(AdvancedArmorTraining2);
@@ -131,6 +155,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             Resources.AddBlueprint(AdvancedArmorTraining4);
             Resources.AddBlueprint(AdvancedArmorTraining5);
             Resources.AddBlueprint(AdvancedArmorTraining6);
+            Resources.AddBlueprint(ArmorTrainingSelection);
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["Feats"]) { return; }
             BasicFeatSelection.AddFeatures(

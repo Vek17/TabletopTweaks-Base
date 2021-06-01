@@ -132,15 +132,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     "and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
                     c.NewFact = ArmoredJuggernautLightEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Light };
                 }));
-                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
                     c.NewFact = ArmoredJuggernautMediumEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
                 }));
-                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
                     c.NewFact = ArmoredJuggernautHeavyEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
                 }));

@@ -39,6 +39,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (ModSettings.Fixes.Fighter.Base.DisableAll) { return; }
                 PatchTwoHandedWeaponTraining();
                 PatchAdvancedWeaponTraining();
+                EnableAdvancedArmorTraining();
 
                 void PatchAdvancedWeaponTraining() {
                     if (!ModSettings.Fixes.Fighter.Base.Enabled["AdvancedWeaponTraining"]) { return; }
@@ -106,6 +107,28 @@ namespace TabletopTweaks.Bugfixes.Classes {
                                 Main.LogPatch("Patched", feature.Get());
                             }
                         });
+                }
+                void EnableAdvancedArmorTraining() {
+                    var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
+                    var ArmorTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.NewBlueprints["ArmorTrainingSelection"]);
+                    var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+                    var BaseProgression = FighterClass.Progression;
+
+                    BaseProgression.LevelEntries
+                        .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
+                        .ForEach(entry => {
+                            entry.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
+                            entry.m_Features.Remove(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
+                        });
+                    Main.LogPatch("Patched", BaseProgression);
+                    foreach (var Archetype in FighterClass.Archetypes) {
+                        Archetype.RemoveFeatures.Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
+                            .ForEach(entry => {
+                                entry.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
+                                entry.m_Features.Remove(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
+                            });
+                        Main.LogPatch("Patched", Archetype);
+                    }
                 }
             }
             static void PatchTwoHandedFighter() {

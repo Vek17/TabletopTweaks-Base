@@ -50,7 +50,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     "confirm a critical hit. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +6 at 19th level.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<ArmorFactUnlock>(c => {
+                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
                     c.NewFact = CriticalDeflectionEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] {
                         ArmorProficiencyGroup.Light,

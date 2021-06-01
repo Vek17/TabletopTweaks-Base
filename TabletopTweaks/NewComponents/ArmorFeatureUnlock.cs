@@ -19,16 +19,18 @@ namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("708754fe955c4c83922dddf4e89c86a7")]
-    class ArmorFactUnlock: UnitFactComponentDelegate<ArmorFactUnlock.ArmorFeatureUnlockData>,
+    class ArmorFeatureUnlock: UnitFactComponentDelegate<ArmorFeatureUnlock.ArmorFeatureUnlockData>,
         IUnitActiveEquipmentSetHandler,
         IUnitLevelUpHandler,
         IGlobalSubscriber, ISubscriber,
         IUnitEquipmentHandler {
         public override void OnTurnOn() {
+            base.OnTurnOn();
             CheckEligibility();
         }
 
         public override void OnTurnOff() {
+            base.OnTurnOff();
             RemoveFact();
         }
 
@@ -50,14 +52,12 @@ namespace TabletopTweaks.NewComponents {
             var Armor = Owner.Body?.Armor?.MaybeArmor;
             var Shield = Owner.Body?.SecondaryHand?.MaybeShield?.ArmorComponent;
             if (Armor != null
-                && RequiredArmor.Contains(Armor.Blueprint.ProficiencyGroup)
-                && !ForbiddenArmor.Contains(Armor.Blueprint.ProficiencyGroup)) {
+                && (RequiredArmor.Contains(Armor.Blueprint.ProficiencyGroup) == !Invert)) {
                 AddFact();
                 return;
             };
             if (Shield != null
-                && RequiredArmor.Contains(Shield.Blueprint.ProficiencyGroup)
-                && !ForbiddenArmor.Contains(Shield.Blueprint.ProficiencyGroup)) {
+                && (RequiredArmor.Contains(Shield.Blueprint.ProficiencyGroup) == !Invert)) {
                 AddFact();
                 return;
             };
@@ -97,7 +97,7 @@ namespace TabletopTweaks.NewComponents {
         [FormerlySerializedAs("NewFact")]
         public BlueprintUnitFactReference NewFact;
         public ArmorProficiencyGroup[] RequiredArmor = new ArmorProficiencyGroup[0];
-        public ArmorProficiencyGroup[] ForbiddenArmor = new ArmorProficiencyGroup[0];
+        public bool Invert = false;
 
         public class ArmorFeatureUnlockData {
             [JsonProperty]

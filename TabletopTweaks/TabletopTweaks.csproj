@@ -147,8 +147,9 @@
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
+    <Compile Include="NewComponents\ApplyArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />
-    <Compile Include="NewComponents\ArmorFactUnlock.cs" />
+    <Compile Include="NewComponents\ArmorFeatureUnlock.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="NewComponents\RemoveBuffRankOnAttack.cs" />
     <Compile Include="NewComponents\RestrictHasBuff.cs" />
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
+    <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
