@@ -17,11 +17,7 @@ namespace TabletopTweaks.NewComponents {
     [TypeId("2476cd4ea3674fc58402daf57bf72562")]
     class SelectionDefaultFeature: UnitFactComponentDelegate,
         IGlobalSubscriber, ISubscriber,
-        IUnitLevelUpHandler, IAreaLoadingStagesHandler {
-
-        public override void OnPostLoad() {
-            ApplyDefaultIfMissing();
-        }
+        IUnitLevelUpHandler, IAreaLoadingStagesHandler, ICompanionChangeHandler, IUnitSpawnHandler {
 
         public void OnAreaScenesLoaded() {
         }
@@ -30,13 +26,31 @@ namespace TabletopTweaks.NewComponents {
             ApplyDefaultIfMissing();
         }
 
+        public void HandleUnitBeforeLevelUp(UnitEntityData unit) {
+            ApplyDefaultIfMissing();
+        }
+
+        public void HandleUnitAfterLevelUp(UnitEntityData unit, LevelUpController controller) {
+        }
+
+        public void HandleRecruit(UnitEntityData companion) {
+            ApplyDefaultIfMissing();
+        }
+
+        public void HandleUnrecruit(UnitEntityData companion) {
+        }
+
+        public void HandleUnitSpawned(UnitEntityData unit) {
+            ApplyDefaultIfMissing();
+        }
+
         private void ApplyDefaultIfMissing() {
             var Selection = Fact.Blueprint as BlueprintFeatureSelection;
             if (Selection == null) { Main.Error($"{Fact.Blueprint.AssetGuid} - {Fact.Blueprint.name}: SelectionDefaultFeature Applied on Null Selection"); return; }
-            int ranks = Fact.GetRank();
-            var Progressions = Owner.Progression.m_Progressions;
             if (!Owner.Progression.GetSelectionData(Selection).IsEmpty) { return; }
             Main.LogDebug($"Apply Default: {Owner.CharacterName} - {Owner.Progression.CharacterLevel} - {Owner.Blueprint.AssetGuid} - {Owner.UniqueId}");
+
+            var Progressions = Owner.Progression.m_Progressions;
             foreach (var Progression in Progressions) {
                 for (int level = 1; level <= Progression.Value.Level; level++) {
                     foreach (var entry in Progression.Key.LevelEntries.Where(e => e.Level == level)) {
@@ -52,13 +66,6 @@ namespace TabletopTweaks.NewComponents {
                     }
                 }
             }
-        }
-
-        public void HandleUnitBeforeLevelUp(UnitEntityData unit) {
-        }
-
-        public void HandleUnitAfterLevelUp(UnitEntityData unit, LevelUpController controller) {
-            ApplyDefaultIfMissing();
         }
 
         [SerializeField]
