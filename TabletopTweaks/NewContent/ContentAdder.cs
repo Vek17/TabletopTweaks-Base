@@ -34,6 +34,7 @@ namespace TabletopTweaks.NewContent {
                 Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();
                 Features.CavalierMounts.AddCavalierMountFeatureWolf();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
+                Features.LongspearChargeBuff.AddLongspearChargeBuff();
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();
