@@ -129,7 +129,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var MountedCombat = Resources.GetBlueprint<BlueprintFeature>("f308a03bea0d69843a8ed0af003d47a9");
                     var MountedCombatCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
 
-                    IndomitableMount.AddComponent(Helpers.Create<IndomitableMount>(c => {
+                    IndomitableMount.AddComponent(Helpers.Create<IndomitableMountFixed>(c => {
                         c.m_CooldownBuff = IndomitableMountCooldownBuff.ToReference<BlueprintBuffReference>();
                     }));
                     MountedCombat.AddComponent(Helpers.Create<MountedCombatFixed>(c => {

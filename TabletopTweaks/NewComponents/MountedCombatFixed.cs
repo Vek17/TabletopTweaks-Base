@@ -1,5 +1,4 @@
-﻿using System;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Stats;
@@ -7,7 +6,6 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.Utility;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -60,11 +58,6 @@ namespace TabletopTweaks.NewComponents {
 				Main.LogDebug("MountedCombat - Result");
 				Main.LogDebug($"IsAutomiss: {evt.AutoMiss}");
 			}
-		}
-
-        public void HandleAttackHitRoll(RuleAttackRoll rollAttackHit) {
-			Main.LogDebug("HandleAttackHitRoll");
-			OnEventDidTrigger(rollAttackHit);
 		}
 
         [SerializeField]
