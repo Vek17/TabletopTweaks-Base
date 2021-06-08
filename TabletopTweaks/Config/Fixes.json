@@ -238,6 +238,7 @@
         "DisableAll": false,
         "Enabled": {
             "CraneWing": true,
+            "Endurance": true,
             "FencingGrace": true,
             "SlashingGrace": true
         }
