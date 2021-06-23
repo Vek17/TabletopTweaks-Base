@@ -149,8 +149,9 @@ namespace TabletopTweaks.Bugfixes.Features {
         }
         [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]
         static class ItemEntity_AddEnchantment_EnduringSpells_Patch {
-            static BlueprintFeature EnduringSpells = Resources.GetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
-            static BlueprintFeature EnduringSpellsGreater = Resources.GetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
+            private static readonly BlueprintFeature EnduringSpells = Resources.GetBlueprint<BlueprintFeature>("2f206e6d292bdfb4d981e99dcf08153f");
+            private static readonly BlueprintFeature EnduringSpellsGreater = Resources.GetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
+
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
                 if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["EnduringSpells"]) { return true; }
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
