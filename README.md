@@ -15,7 +15,7 @@ Once a game is saved with this mod is enabled it will likely require this mod to
         Destined Bloodrager Bloodline
     
     Adds the following spells:
-    ﻿    Long Arm
+        Long Arm
         Shadow Enchantment
         Shadow Enchantment Greater
     
@@ -25,13 +25,13 @@ Once a game is saved with this mod is enabled it will likely require this mod to
         Armored Might
     
     Adds the following arcanist exploits:
-    ﻿    Quick Study
+        Quick Study
         Familiar
         Metamagic Knowledge
         Item Crafting
     
     Adds the following advanced weapon trainings:
-    ﻿    Trained Grace
+        Trained Grace
         Trained Throw
         
     Enables the following data mined content:
