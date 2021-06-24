@@ -261,7 +261,6 @@
     </None>
     <EmbeddedResource Include="Config\Fixes.json" />
     <None Include="packages.config" />
-    <None Include="Repository.json" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
