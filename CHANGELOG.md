@@ -2,7 +2,7 @@
 
 * fixed mounted combat
 * fixed indomitable mount
-* fixed spiritied charge
+* fixed spirited  charge
 * fixed cavalier supreme charge 
 * fixed cavalier transfixing charge 
 * added cavalier mobility

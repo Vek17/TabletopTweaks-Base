@@ -57,6 +57,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         fixes temporary hp not updating properly when damage is taken
         Natural 20s now are always a success when rolled during critical confirmation
         Limited fixes to shadow spells
+        Longspears now fill the roll of lances for mounted bonus damage
     
     Adds new racial homebrew heritages for:
         Dwarf
@@ -86,7 +87,12 @@ All fixes and added content are configurable and can be disabled by editing the 
         Reformed Fiend
             Fixes Hatred Against Evil
     Cavalier
+        Adds cavalier mobility feature
         Fixes base mount selection
+        Fixes supreme charge
+        Gendarme
+            Fixes transfixing charge
+
     Fighter
         Advanced Weapon Training Feat now properly repects prerequisites
         Two Handed Weapon Training now works with all Weapon Training effects
@@ -142,6 +148,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         Crane wing now requires a free hand
         Slashing grace now always requires a free hand
         Fencing grace now always requires a free hand
+        Mounted Combat now works properly
+        Indomitable Mount now works properly
+        Spirited Charage now works properly
     Mythic Abilities
         Bloodline Ascendance now works with mutated bloodlines
         Domain zealot now works properly
