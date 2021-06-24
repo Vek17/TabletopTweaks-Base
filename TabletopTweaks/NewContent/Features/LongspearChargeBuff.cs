@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Mechanics;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -15,11 +14,8 @@ namespace TabletopTweaks.NewContent.Features {
                 bp.SetName("Longspear Charge");
                 bp.SetDescription("");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.AddComponent(Helpers.Create<OutcomingAdditionalDamageAndHealingModifier>(c => {
-                    c.Type = OutcomingAdditionalDamageAndHealingModifier.ModifyingType.OnlyDamage;
-                    c.ModifierPercents = new ContextValue() {
-                        Value = 100
-                    };
+                bp.AddComponent(Helpers.Create<AddOutgoingWeaponDamageBonus>(c => {
+                    c.BonusDamageMultiplier = 1;
                 }));
                 bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
             });

@@ -27,15 +27,20 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.Feats.DisableAll) { return; }
+
                 Main.LogHeader("Patching Feats");
                 PatchCraneWing();
                 PatchEndurance();
                 PatchFencingGrace();
+                PatchIndomitableMount();
+                PatchMountedCombat();
                 PatchSlashingGrace();
+                PatchSpiritedCharge();
             }
 
             static void PatchCraneWing() {
                 if (!ModSettings.Fixes.Feats.Enabled["CraneWing"]) { return; }
+
                 BlueprintBuff CraneStyleBuff = Resources.GetBlueprint<BlueprintBuff>("e8ea7bd10136195478d8a5fc5a44c7da");
                 var FightingDefensivlyTrigger = CraneStyleBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
                 var Conditionals = FightingDefensivlyTrigger.Action.Actions.OfType<Conditional>();
@@ -47,12 +52,14 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
             static void PatchFencingGrace() {
                 if (!ModSettings.Fixes.Feats.Enabled["FencingGrace"]) { return; }
+
                 var FencingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("47b352ea0f73c354aba777945760b441");
                 FencingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
                 Main.LogPatch("Patched", FencingGrace);
             }
             static void PatchSlashingGrace() {
                 if (!ModSettings.Fixes.Feats.Enabled["SlashingGrace"]) { return; }
+
                 var SlashingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("697d64669eb2c0543abb9c9b07998a38");
                 SlashingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
                 Main.LogPatch("Patched", SlashingGrace);
@@ -80,7 +87,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.m_BaseValueType = ContextRankBaseValueType.BaseStat;
                     c.m_Stat = StatType.SkillAthletics;
                     c.m_Progression = ContextRankProgression.Custom;
-                    c.m_CustomProgression = new ContextRankConfig.CustomProgressionItem[] { 
+                    c.m_CustomProgression = new ContextRankConfig.CustomProgressionItem[] {
                         new ContextRankConfig.CustomProgressionItem() {
                             BaseValue = 9,
                             ProgressionValue = 2
@@ -95,6 +102,49 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.m_Max = 20;
                 }));
                 Main.LogPatch("Patched", Endurance);
+            }
+            static void PatchMountedCombat() {
+                if (!ModSettings.Fixes.Feats.Enabled["MountedCombat"]) { return; }
+
+                var MountedCombat = Resources.GetBlueprint<BlueprintFeature>("f308a03bea0d69843a8ed0af003d47a9");
+                var MountedCombatCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
+                MountedCombat.AddComponent(Helpers.Create<MountedCombatFixed>(c => {
+                    c.m_CooldownBuff = MountedCombatCooldownBuff.ToReference<BlueprintBuffReference>();
+                }));
+                Main.LogPatch("Patched", MountedCombat);
+            }
+            static void PatchIndomitableMount() {
+                if (!ModSettings.Fixes.Feats.Enabled["IndomitableMount"]) { return; }
+
+                var IndomitableMount = Resources.GetBlueprint<BlueprintFeature>("68e814f1f3ce55942a52c1dd536eaa5b");
+                var IndomitableMountCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("34762bab68ec86c45a15884b9a9929fc");
+                IndomitableMount.AddComponent(Helpers.Create<IndomitableMountFixed>(c => {
+                    c.m_CooldownBuff = IndomitableMountCooldownBuff.ToReference<BlueprintBuffReference>();
+                }));
+                Main.LogPatch("Patched", IndomitableMount);
+            }
+            static void PatchSpiritedCharge() {
+                if (!ModSettings.Fixes.Feats.Enabled["SpiritedCharge"]) { return; }
+
+                var ChargeBuff = Resources.GetBlueprint<BlueprintBuff>("f36da144a379d534cad8e21667079066");
+                var MountedBuff = Resources.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
+                var SpiritedCharge = Resources.GetBlueprint<BlueprintFeature>("95ef0ff14771f2549897f300ce62c95c");
+                var SpiritedChargeBuff = Resources.GetBlueprint<BlueprintBuff>("5a191fc6731bd4845bbbcc8ff3ff4c1d");
+
+                SpiritedCharge.RemoveComponents<BuffExtraEffects>();
+                SpiritedCharge.AddComponent(Helpers.Create<BuffExtraEffectsRequirements>(c => {
+                    c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
+                    c.CheckFacts = true;
+                    c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff.ToReference<BlueprintUnitFactReference>() };
+                    c.ExtraEffectBuff = SpiritedChargeBuff.ToReference<BlueprintBuffReference>();
+                }));
+                SpiritedChargeBuff.RemoveComponents<AddOutgoingDamageBonus>();
+                SpiritedChargeBuff.AddComponent(Helpers.Create<AddOutgoingWeaponDamageBonus>(c => {
+                    c.BonusDamageMultiplier = 1;
+                }));
+                SpiritedChargeBuff.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
+                Main.LogPatch("Patched", SpiritedCharge);
+                Main.LogPatch("Patched", SpiritedChargeBuff);
             }
         }
     }

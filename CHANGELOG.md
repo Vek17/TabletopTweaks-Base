@@ -1,3 +1,13 @@
+## Version 0.3.0
+
+* fixed mounted combat
+* fixed indomitable mount
+* fixed spiritied charge
+* fixed cavalier supreme charge 
+* fixed cavalier transfixing charge 
+* added cavalier mobility
+* longspears are now treated as lances for the purposes of mounted bonus damage
+
 ## Version 0.2.0
 
 * added one handed weapon toggle

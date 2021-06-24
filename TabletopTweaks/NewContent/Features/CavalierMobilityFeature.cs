@@ -25,7 +25,7 @@ namespace TabletopTweaks.NewContent.Features {
                     c.Stat = StatType.SkillMobility;
                 }));
             });
-            
+
             var CavalierMobilityFeature = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CavalierMobilityFeature"];
                 bp.IsClassFeature = true;

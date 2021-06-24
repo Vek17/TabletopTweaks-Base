@@ -9,6 +9,7 @@ namespace TabletopTweaks.Config {
         public bool DisableAfterCombatDeactivationOfUnlimitedAbilities = true;
         public bool DisableMonkACStacking = true;
         public bool FixDemonSubtypes = true;
+        public bool FixMountedLongspearModifer = true;
         public bool FixShadowSpells = true;
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
@@ -39,6 +40,7 @@ namespace TabletopTweaks.Config {
             DisableMonkACStacking = loadedSettings.DisableMonkACStacking;
 
             FixDemonSubtypes = loadedSettings.FixDemonSubtypes;
+            FixMountedLongspearModifer = loadedSettings.FixMountedLongspearModifer;
             FixShadowSpells = loadedSettings.FixShadowSpells;
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon);

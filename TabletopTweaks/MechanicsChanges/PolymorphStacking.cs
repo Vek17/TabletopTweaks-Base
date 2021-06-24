@@ -12,7 +12,7 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
-namespace TabletopTweaks.BalanceAdjustments {
+namespace TabletopTweaks.MechanicsChanges {
     class PolymorphStacking {
 
         [HarmonyPatch(typeof(RuleCanApplyBuff), "OnTrigger", new[] { typeof(RulebookEventContext) })]

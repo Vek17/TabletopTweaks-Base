@@ -4,6 +4,7 @@
     "DisableCannyDefenseStacking": true,
     "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
     "FixDemonSubtypes": true,
+    "FixMountedLongspearModifer": true,
     "FixShadowSpells": true,
     "Aeon": {
         "DisableAll": false,
@@ -87,10 +88,19 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "CavalierMountSelection": true
+                "CavalierMobility": true,
+                "CavalierMountSelection": true,
+                "SupremeCharge": true
             }
         },
-        "Archetypes": {}
+        "Archetypes": {
+            "Gendarme": {
+                "DisableAll": false,
+                "Enabled": {
+                    "TransfixingCharge": true
+                }
+            }
+        }
     },
     "Fighter": {
         "DisableAll": false,
@@ -240,7 +250,10 @@
             "CraneWing": true,
             "Endurance": true,
             "FencingGrace": true,
-            "SlashingGrace": true
+            "IndomitableMount": true,
+            "MountedCombat": true,
+            "SlashingGrace": true,
+            "SpiritedCharge": true
         }
     },
     "MythicAbilities": {

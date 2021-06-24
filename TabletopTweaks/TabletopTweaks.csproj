@@ -147,6 +147,7 @@
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\MonkACStacking.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
+    <Compile Include="NewComponents\AddOutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewComponents\ApplyArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />
     <Compile Include="NewComponents\ArmorFeatureUnlock.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
+    <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="SaveGamePatch.cs" />
     <Compile Include="Utilities\AssetLoader.cs" />
@@ -285,6 +287,7 @@
     <Content Include="Assets\Feats\Icon_MountedManiac.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Include="MechanicsChanges\MountedCombatModifiers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" AfterTargets="BeforeClean">
