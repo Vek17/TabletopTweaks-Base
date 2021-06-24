@@ -4,9 +4,10 @@
     "DisplayName": "Tabletop Tweaks",
     "EntryMethod": "TabletopTweaks.Main.Load",
     "GameVersion": "0.6.0",
-    "HomePage": "https://www.nexusmods.com/pathfinderwrathoftherighteous/mods/12",
+    "HomePage": "https://github.com/Vek17/WrathMods-TabletopTweaks/releases",
     "Id": "TabletopTweaks",
     "ManagerVersion": "0.23.0",
+    "Repository": "https://github.com/cabarius/ToyBox/Repository.json",
     "Requirements": [],
     "Version": "0.2.0"
 }
