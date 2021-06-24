@@ -5,6 +5,15 @@ This mod seeks to adjust the game to be closer to the tabletop Pathfinder rulese
 Additionally this mod seeks to add in content that was not included in the base game from the source books.
 Once a game is saved with this mod is enabled it will likely require this mod to be present to load so do not remove or disable the mod once enabled. You can however disable any feature of the mod at will without breaking saves.
 
+All fixes and added content are configurable and can be disabled by editing the various settings json files present in the UserSettings folder of the mod. If this folder is no present start your game with the mod enabled and it will generate.
+
+How to install
+
+1. Download and install Unity Mod Manager, make sure it is at least version 0.23.0
+2. Run Unity Mod Manger and set it up to find Wrath of the Righteous
+3. Download the Tabletop Tweaks mod
+4. Install the mod by dragging the zip file from step 5 into the Unity Mod Manager window under the Mods tab
+
 
     Adds One Handed Weapon toggle
     
@@ -142,17 +151,6 @@ Once a game is saved with this mod is enabled it will likely require this mod to
         Second mystery now is selectable
         Second spirit now is selectable    
         Everlasting Judgment is now Functional
-
-
-
-All fixes and added content are configurable and can be disabled by editing the various settings json files present in the UserSettings folder of the mod. If this folder is no present start your game with the mod enabled and it will generate.
-
-How to install
-
-1. Download and install Unity Mod Manager, make sure it is at least version 0.23.0
-2. Run Unity Mod Manger and set it up to find Wrath of the Righteous
-3. Download the Tabletop Tweaks mod
-4. Install the mod by dragging the zip file from step 5 into the Unity Mod Manager window under the Mods tab
 
 Acknowledgments:  
 
