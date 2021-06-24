@@ -7,13 +7,14 @@ Once a game is saved with this mod is enabled it will likely require this mod to
 
 All fixes and added content are configurable and can be disabled by editing the various settings json files present in the UserSettings folder of the mod. If this folder is no present start your game with the mod enabled and it will generate.
 
-How to install
+*How to install**
 
 1. Download and install Unity Mod Manager, make sure it is at least version 0.23.0
 2. Run Unity Mod Manger and set it up to find Wrath of the Righteous
 3. Download the Tabletop Tweaks mod
 4. Install the mod by dragging the zip file from step 5 into the Unity Mod Manager window under the Mods tab
 
+**FEATURES:**
 
     Adds One Handed Weapon toggle
     
