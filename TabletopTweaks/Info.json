@@ -7,7 +7,7 @@
     "HomePage": "https://github.com/Vek17/WrathMods-TabletopTweaks/releases",
     "Id": "TabletopTweaks",
     "ManagerVersion": "0.23.0",
-    "Repository": "https://github.com/cabarius/ToyBox/Repository.json",
+    "Repository": "https://raw.githubusercontent.com/Vek17/WrathMods-TabletopTweaks/master/Repository.json",
     "Requirements": [],
     "Version": "0.2.0"
 }
