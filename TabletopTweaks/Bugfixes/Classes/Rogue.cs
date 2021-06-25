@@ -284,9 +284,23 @@ namespace TabletopTweaks.Bugfixes.Clases {
 
                 DamageDescription damageDescription = evt.DamageDescription.FirstItem();
                 if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
-                    damageDescription.Dice = new DiceFormula(damageDescription.Dice.Rolls * __instance.m_DamageMod, damageDescription.Dice.Dice);
-                    if (__instance.m_Mythic) {
-                        damageDescription.Bonus *= __instance.m_DamageMod;
+                    if (ModSettings.Fixes.Feats.Enabled["VitalStrike"] && !ModSettings.Fixes.Feats.DisableAll) {
+                        var vitalDamage = new DamageDescription() {
+                            Dice = new DiceFormula(damageDescription.Dice.Rolls * Math.Max(1, __instance.m_DamageMod - 1), damageDescription.Dice.Dice),
+                            Bonus = __instance.m_Mythic ? damageDescription.Bonus * Math.Max(1, __instance.m_DamageMod - 1) : 0,
+                            TypeDescription = damageDescription.TypeDescription,
+                            IgnoreReduction = damageDescription.IgnoreReduction,
+                            IgnoreImmunities = damageDescription.IgnoreImmunities,
+                            SourceFact = damageDescription.SourceFact,
+                            CausedByCheckFail = damageDescription.CausedByCheckFail,
+                            m_BonusWithSource = 0
+                        };
+                        evt.DamageDescription.Insert(1, vitalDamage);
+                    } else {
+                        damageDescription.Dice = new DiceFormula(damageDescription.Dice.Rolls * __instance.m_DamageMod, damageDescription.Dice.Dice);
+                        if (__instance.m_Mythic) {
+                            damageDescription.Bonus *= __instance.m_DamageMod;
+                        }
                     }
                     if (__instance.m_Rowdy) {
                         DamageDescription damageDescription2 = new DamageDescription {

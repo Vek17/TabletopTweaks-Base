@@ -253,7 +253,8 @@
             "IndomitableMount": true,
             "MountedCombat": true,
             "SlashingGrace": true,
-            "SpiritedCharge": true
+            "SpiritedCharge": true,
+            "VitalStrike": true
         }
     },
     "MythicAbilities": {

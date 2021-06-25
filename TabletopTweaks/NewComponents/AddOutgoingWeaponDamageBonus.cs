@@ -21,16 +21,19 @@ namespace TabletopTweaks.NewComponents {
                 dice: new DiceFormula(WeaponDamage.Dice.Rolls * BonusDamageMultiplier, WeaponDamage.Dice.Dice),
                 bonus: WeaponDamage.Bonus * BonusDamageMultiplier
             );
+            additionalDamage.SourceFact = base.Fact;
             var DamageBonus = base.Owner.Ensure<OutgoingWeaponDamageBonus>();
             DamageBonus.AddBonus(evt, additionalDamage);
         }
 
         public void OnEventDidTrigger(RuleCalculateDamage evt) {
+#if false
             OutgoingWeaponDamageBonus unitOutgoingWeaponDamageBonus = Owner.Get<OutgoingWeaponDamageBonus>();
             if (!unitOutgoingWeaponDamageBonus) {
                 return;
             }
             Owner.Remove<OutgoingWeaponDamageBonus>();
+#endif
         }
 
         public int BonusDamageMultiplier = 1;

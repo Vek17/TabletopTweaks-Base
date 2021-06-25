@@ -1,4 +1,5 @@
 ﻿using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 
@@ -7,23 +8,22 @@ namespace TabletopTweaks.NewUnitParts {
 
         public void AddBonus(RuleCalculateDamage evt, BaseDamage additionalDamage) {
             if (this.evt != evt) {
+                if (lastAttack == evt.ParentRule?.AttackRoll) { return; }
                 this.evt = evt;
+                lastAttack = evt.ParentRule?.AttackRoll;
                 baseDamage = null;
             }
             if (baseDamage == null) {
                 baseDamage = additionalDamage;
                 evt.ParentRule.m_DamageBundle.m_Chunks.Insert(1, baseDamage);
             } else {
-                var Dice = baseDamage.Dice;
                 baseDamage.Dice = new DiceFormula(baseDamage.Dice.Rolls + additionalDamage.Dice.Rolls, baseDamage.Dice.Dice);
                 baseDamage.Bonus += additionalDamage.Bonus;
             }
         }
-        private void TryRemovePart() {
-            base.Owner.Remove<OutgoingWeaponDamageBonus>();
-        }
 
         private BaseDamage baseDamage;
         private RuleCalculateDamage evt;
+        private RuleAttackRoll lastAttack;
     }
 }
