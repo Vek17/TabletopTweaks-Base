@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -580,19 +581,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff1";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 1;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 1;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 1;
                 }));
             });
@@ -601,20 +591,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff2";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
                     c.Value = 2;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 2;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
-                    c.Value = 3;
                 }));
             });
             var SorcererDestinedBloodlineArcanaBuff3 = Helpers.CreateBuff(bp => {
@@ -622,19 +601,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff3";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 3;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 3;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 3;
                 }));
             });
@@ -643,19 +611,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff4";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 4;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 4;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 4;
                 }));
             });
@@ -664,19 +621,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff5";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 5;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 5;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 5;
                 }));
             });
@@ -685,19 +631,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff6";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 6;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 6;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 6;
                 }));
             });
@@ -706,19 +641,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff7";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 7;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 7;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 7;
                 }));
             });
@@ -727,19 +651,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff8";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 8;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 8;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 8;
                 }));
             });
@@ -748,19 +661,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.name = "SorcererDestinedBloodlineArcanaBuff9";
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveFortitude;
-                    c.Value = 9;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveReflex;
-                    c.Value = 9;
-                }));
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Luck;
-                    c.Stat = StatType.SaveWill;
                     c.Value = 9;
                 }));
             });
@@ -828,98 +730,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         ValueRank = AbilityRankType.StatBonus
                     };
                 }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                bp.AddComponent(Helpers.Create<BuffAllSkillsBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SaveWill;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillAthletics;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillKnowledgeArcana;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillKnowledgeWorld;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillLoreNature;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillLoreReligion;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillMobility;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillPerception;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillPersuasion;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillStealth;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillThievery;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Stat = StatType.SkillUseMagicDevice;
-                    c.Value = new ContextValue {
+                    c.Value = 1;
+                    c.Multiplier = new ContextValue {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
@@ -1547,13 +1361,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 1, Features = { SorcererDestinedTouchOfDestiny, SorcererDestinedBloodlineArcana, SorcererDestinedClassSkill, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
                     new LevelEntry(){ Level = 3, Features = { SorcererDestinedSpell3, SorcererDestinedFated }},
                     new LevelEntry(){ Level = 5, Features = { SorcererDestinedSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7, SorcererDestinedFated }},
+                    new LevelEntry(){ Level = 7, Features = { SorcererDestinedSpell7 }},
                     new LevelEntry(){ Level = 9, Features = { SorcererDestinedSpell9, SorcererDestinedItWasMeantToBe }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11, SorcererDestinedFated }},
+                    new LevelEntry(){ Level = 11, Features = { SorcererDestinedSpell11 }},
                     new LevelEntry(){ Level = 13, Features = { SorcererDestinedSpell13 }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15, SorcererDestinedWithinReach, SorcererDestinedFated }},
+                    new LevelEntry(){ Level = 15, Features = { SorcererDestinedSpell15, SorcererDestinedWithinReach }},
                     new LevelEntry(){ Level = 17, Features = { SorcererDestinedSpell17 }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19, SorcererDestinedFated }},
+                    new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }},
                     new LevelEntry(){ Level = 20, Features = { SorcererDestinedDestinyRealized }},
                 };
                 bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {

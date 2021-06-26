@@ -1,3 +1,7 @@
+## Version 0.3.1
+* fixed vital strike crits
+* fixed bug where charge bonus damage could sometimes apply too often
+
 ## Version 0.3.0
 
 * fixed mounted combat
