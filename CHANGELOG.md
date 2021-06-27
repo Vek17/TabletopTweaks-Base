@@ -1,6 +1,11 @@
 ## Version 0.3.1
 * fixed vital strike crits
 * fixed bug where charge bonus damage could sometimes apply too often
+* added magical aptitude feat
+* added scholar feat
+* added self-sufficent feat
+* added shingle runner feat
+* added street smarts feat
 
 ## Version 0.3.0
 

@@ -5,6 +5,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup BaseAbilities = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup ArcanistExploits = new SettingGroup();
+        public SettingGroup Feats = new SettingGroup();
         public SettingGroup FighterAdvancedArmorTraining = new SettingGroup();
         public SettingGroup FighterAdvancedWeaponTraining = new SettingGroup();
         public SettingGroup Races = new SettingGroup();
@@ -17,6 +18,7 @@ namespace TabletopTweaks.Config {
             BaseAbilities.LoadSettingGroup(loadedSettings.BaseAbilities);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);
             ArcanistExploits.LoadSettingGroup(loadedSettings.ArcanistExploits);
+            Feats.LoadSettingGroup(loadedSettings.Feats);
             FighterAdvancedArmorTraining.LoadSettingGroup(loadedSettings.FighterAdvancedArmorTraining);
             FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining);
             Spells.LoadSettingGroup(loadedSettings.Spells);

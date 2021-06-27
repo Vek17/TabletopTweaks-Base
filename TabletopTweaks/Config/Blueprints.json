@@ -188,6 +188,12 @@
         "SteelHeadbuttFeature": "de5ff5c8dab74c7ab98d701d4af6f61a",
         "LongspearChargeBuff": "470bba70cc214113bb901931b0e2b222",
         "CavalierMobilityBuff": "cf1ba9f6399043299e2b73bab391b010",
-        "CavalierMobilityFeature": "272aa4cca7384a6992da395f4fae3d22"
+        "CavalierMobilityFeature": "272aa4cca7384a6992da395f4fae3d22",
+        "Scholar": "6be1a070d6c74d3c95c61e502bdf7ff9",
+        "Self-Sufficent": "15b614ff3f904f8398d7ad7777e22e9d",
+        "MagicalAptitude": "b9ec76f3c3e641d79af7204916b40c0d",
+        "StreetSmarts": "7be7a08cde3f4409a167eb4857a0c42b",
+        "ShingleRunner": "e6c54b27d20e40f48a06e032172afa1d",
+        "MasterfulTalent": "d3915f4751c343ca873a4996205f62f6"
     }
 }

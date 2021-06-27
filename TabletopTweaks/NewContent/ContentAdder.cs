@@ -60,6 +60,14 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.ArmorMaster.AddArmorMaster();
                 MythicAbilities.ArmoredMight.AddArmoredMight();
                 MythicAbilities.MountedManiac.AddMountedManiac();
+
+                Feats.MagicalAptitude.AddMagicalAptitude();
+                Feats.Scholar.AddScholar();
+                Feats.SelfSufficent.AddSelfSufficent();
+                Feats.ShingleRunner.AddShingleRunner();
+                Feats.StreetSmarts.AddStreetSmarts();
+
+                AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }
         }
     }

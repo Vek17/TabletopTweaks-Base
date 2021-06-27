@@ -28,6 +28,16 @@
             "Familiar": true
         }
     },
+    "Feats": {
+        "DisableAll": false,
+        "Enabled": {
+            "MagicalAptitude": true,
+            "Scholar": true,
+            "Self-Sufficent": true,
+            "ShingleRunner": true,
+            "StreetSmarts": true
+        }
+    },
     "FighterAdvancedWeaponTraining": {
         "DisableAll": false,
         "Enabled": {

@@ -173,6 +173,7 @@
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
+    <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
     <Compile Include="NewContent\ArcanistExploits\MetamagicKnowledge.cs" />
@@ -205,6 +206,11 @@
     <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
+    <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
+    <Compile Include="NewContent\Feats\Scholar.cs" />
+    <Compile Include="NewContent\Feats\SelfSufficient.cs" />
+    <Compile Include="NewContent\Feats\ShingleRunner.cs" />
+    <Compile Include="NewContent\Feats\StreetSmarts.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
     <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\CavalierMobilityFeature.cs" />
@@ -238,6 +244,7 @@
     <Compile Include="Utilities\AssetLoader.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\BloodlineTools.cs" />
+    <Compile Include="Utilities\FeatTools.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="NewComponents\BuffDescriptorImmunityAgainstAlignment.cs" />
     <Compile Include="NewComponents\SpellImmunityToSpellDescriptorAgainstAlignment.cs" />
