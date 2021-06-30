@@ -30,6 +30,7 @@ namespace TabletopTweaks {
             if (loadedBlueprint == null) {
                 ModBlueprints[assetId] = blueprint;
                 ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(assetId, blueprint);
+                blueprint.OnEnable();
                 Main.LogPatch("Added", blueprint);
             } else {
                 Main.Log($"Failed to Add: {blueprint.name}");

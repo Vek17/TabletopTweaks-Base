@@ -66,6 +66,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.School = SpellSchool.Transmutation;
                 }));
                 bp.AddComponent(Helpers.Create<CraftInfoComponent>(c => {
+                    c.OwnerBlueprint = bp;
                     c.SpellType = CraftSpellType.Buff;
                     c.SavingThrow = CraftSavingThrow.None;
                     c.AOEType = CraftAOE.None;
