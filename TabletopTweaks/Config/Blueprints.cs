@@ -47,6 +47,7 @@ namespace TabletopTweaks.Config {
                 }
 #endif
             }
+            if (Id == null) { Main.Error($"ERROR: GUID for {name} not found"); }
             UsedGUIDs[name] = Id;
             return Id;
         }
