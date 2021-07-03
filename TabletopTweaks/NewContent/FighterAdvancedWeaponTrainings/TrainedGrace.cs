@@ -19,7 +19,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var AdvancedWeaponTraining4 = Resources.GetBlueprint<BlueprintFeatureSelection>("0b55d725ded1ae549bb858fba1d84114");
 
             var TrainedGraceFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["TrainedGraceFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("TrainedGraceFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "TrainedGrace";

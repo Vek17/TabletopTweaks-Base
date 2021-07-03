@@ -39,7 +39,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var CavalierMountSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("0605927df6e2fdd42af6ee2424eb89f2");
                     var AnimalCompanionEmptyCompanion = Resources.GetBlueprint<BlueprintFeature>("472091361cf118049a2b4339c4ea836a");
                     var AnimalCompanionFeatureHorse = Resources.GetBlueprint<BlueprintFeature>("9dc58b5901677c942854019d1dd98374");
-                    var CavalierMountFeatureWolf = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["CavalierMountFeatureWolf"]);
+                    var CavalierMountFeatureWolf = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("CavalierMountFeatureWolf"));
 
 
                     CavalierMountSelection.SetFeatures(AnimalCompanionEmptyCompanion, AnimalCompanionFeatureHorse, CavalierMountFeatureWolf);
@@ -73,7 +73,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (!ModSettings.Fixes.Cavalier.Base.Enabled["CavalierMobility"]) { return; }
 
                     var CavalierProgression = Resources.GetBlueprint<BlueprintProgression>("aa70326bdaa7015438df585cf2ab93b9");
-                    var CavalierMobilityFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["CavalierMobilityFeature"]);
+                    var CavalierMobilityFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("CavalierMobilityFeature"));
                     var DiscipleOfThePikeArchetype = Resources.GetBlueprint<BlueprintArchetype>("4c4c3f9df00a5e04680d172a290111c4");
 
                     CavalierProgression.LevelEntries.Where(l => l.Level == 1).First().m_Features.Add(CavalierMobilityFeature.ToReference<BlueprintFeatureBaseReference>());

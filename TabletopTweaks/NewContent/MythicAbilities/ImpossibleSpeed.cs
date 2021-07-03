@@ -15,7 +15,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
             var FastMovement = Resources.GetBlueprint<BlueprintFeature>("d294a5dddd0120046aae7d4eb6cbc4fc");
             var ImpossibleSpeedFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ImpossibleSpeedFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ImpossibleSpeedFeature");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };

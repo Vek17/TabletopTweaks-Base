@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Races {
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
             var GnomeHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["GnomeHeritageDefaultFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageDefaultFeature");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -53,7 +53,7 @@ namespace TabletopTweaks.NewContent.Races {
                 c.m_Feature = GnomeHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
             var GnomeHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["GnomeHeritageClassicFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageClassicFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "GnomeHeritageClassicFeature";
@@ -83,7 +83,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var GnomeHeritageArtisanFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["GnomeHeritageArtisanFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageArtisanFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "GnomeHeritageArtisanFeature";
@@ -115,7 +115,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var GnomeHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["GnomeHeritageSelection"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageSelection");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "GnomeHeritageSelection";

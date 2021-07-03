@@ -17,7 +17,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
             var ArmoredJuggernautLightEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredJuggernautLightEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredJuggernautLightEffect");
                 bp.name = "ArmoredJuggernautLightEffect";
                 bp.SetName("Armored Juggernaut Effect");
                 bp.SetDescription("Armored Juggernaut");
@@ -51,7 +51,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             });
 
             var ArmoredJuggernautMediumEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredJuggernautMediumEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredJuggernautMediumEffect");
                 bp.name = "ArmoredJuggernautMediumEffect";
                 bp.SetName("Armored Juggernaut Effect");
                 bp.SetDescription("Armored Juggernaut");
@@ -82,7 +82,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmoredJuggernautHeavyEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredJuggernautHeavyEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredJuggernautHeavyEffect");
                 bp.name = "ArmoredJuggernautHeavyEffect";
                 bp.SetName("Armored Juggernaut Effect");
                 bp.SetDescription("Armored Juggernaut");
@@ -124,7 +124,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmoredJuggernautFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredJuggernautFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredJuggernautFeature");
                 bp.name = "ArmoredJuggernautFeature";
                 bp.SetName("Armored Juggernaut");
                 bp.SetDescription("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +

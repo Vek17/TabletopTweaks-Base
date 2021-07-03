@@ -17,7 +17,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var Gore1d6 = Resources.GetBlueprint<BlueprintItemWeapon>("daf4ab765feba8548b244e174e7af5be");
 
             var SteelHeadbutt1d3 = Helpers.CreateCopy(Gore1d6, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SteelHeadbutt1d3"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbutt1d3");
                 bp.name = "SteelHeadbutt1d3";
                 bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Description", "Steel Headbutt");
                 bp.m_OverrideDamageType = true;
@@ -26,7 +26,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_DamageDice = new DiceFormula(1, DiceType.D3);
             });
             var SteelHeadbutt1d4 = Helpers.CreateCopy(Gore1d6, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SteelHeadbutt1d4"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbutt1d4");
                 bp.name = "SteelHeadbutt1d4";
                 bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Description", "Steel Headbutt");
                 bp.m_OverrideDamageType = true;
@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_DamageDice = new DiceFormula(1, DiceType.D4);
             });
             var SteelHeadbuttMediumEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SteelHeadbuttMediumEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbuttMediumEffect");
                 bp.name = "SteelHeadbuttMediumEffect";
                 bp.SetName("Steel Headbutt Effect");
                 bp.SetDescription("Steel Headbutt");
@@ -50,7 +50,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var SteelHeadbuttHeavyEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SteelHeadbuttHeavyEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbuttHeavyEffect");
                 bp.name = "SteelHeadbuttHeavyEffect";
                 bp.SetName("Steel Headbutt Effect");
                 bp.SetDescription("Steel Headbutt");
@@ -65,7 +65,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var SteelHeadbuttFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["SteelHeadbuttFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbuttFeature");
                 bp.name = "SteelHeadbutt";
                 bp.SetName("Steel Headbutt");
                 bp.SetDescription("While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. " +

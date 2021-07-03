@@ -30,7 +30,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 void PatchCunningElusionFeature() {
                     if (!ModSettings.Fixes.Barbarian.Archetypes["InstinctualWarriorArchetype"].Enabled["CunningElusion"]) { return; }
                     var InstinctualWarriorArchetype = Resources.GetBlueprint<BlueprintArchetype>("adffdd8a99094a89823a79292a503ee9");
-                    var InstinctualWarriorACBonusUnlock = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.NewBlueprints["InstinctualWarriorACBonusUnlock"]);
+                    var InstinctualWarriorACBonusUnlock = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("InstinctualWarriorACBonusUnlock"));
                     var CunningElusionFeature = Resources.GetBlueprint<BlueprintFeature>("a71103ce28964f39b38442baa32a3031");
 
                     InstinctualWarriorArchetype.AddFeatures.Where(entry => entry.Level == 2).First().m_Features = new List<BlueprintFeatureBaseReference>() {

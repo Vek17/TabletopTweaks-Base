@@ -7,7 +7,7 @@ namespace TabletopTweaks.NewContent.Feats {
     static class MagicalAptitude {
         public static void AddMagicalAptitude() {
             var MagicalAptitude = FeatTools.CreateSkillFeat(StatType.SkillKnowledgeArcana, StatType.SkillUseMagicDevice, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MagicalAptitude"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MagicalAptitude");
                 bp.name = "MagicalAptitude";
                 bp.SetName("Magical Aptitude");
                 bp.SetDescription("You are skilled at spellcasting and using magic items." +

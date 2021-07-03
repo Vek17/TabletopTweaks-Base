@@ -31,7 +31,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var icon = AssetLoader.LoadInternal("Feats", "Icon_MountedManiac.png");
 
             var MountedManiacDCBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MountedManiacDCBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacDCBuff");
                 bp.name = "MountedManiacDCBuff";
                 bp.m_Icon = icon;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -57,7 +57,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
             });
             var MountedManiacAbility = Helpers.CreateCopy(DazzlingDisplayAction, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MountedManiacAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacAbility");
                 bp.name = "MountedManiacAbility";
                 bp.m_Icon = icon;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
@@ -67,7 +67,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<Demoralize>().First().DazzlingDisplay = false;
             });
             var MountedManiacBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MountedManiacBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacBuff");
                 bp.name = "MountedManiacBuff";
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
@@ -119,7 +119,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
             });
             var MountedManiacActivatableAbility = Helpers.Create<BlueprintActivatableAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MountedManiacActivatableAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacActivatableAbility");
                 bp.name = "MountedManiacActivatableAbility";
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
@@ -129,7 +129,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.IsOnByDefault = true;
             });
             var MountedManiacFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MountedManiacFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacFeature");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };

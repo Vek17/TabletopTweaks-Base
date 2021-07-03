@@ -8,7 +8,7 @@ namespace TabletopTweaks.NewContent.Feats {
         public static void AddSelfSufficent() {
             // Icon: Spell Focus? Alertness?
             var SelfSufficent = FeatTools.CreateSkillFeat(StatType.SkillLoreNature, StatType.SkillLoreReligion, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["Self-Sufficent"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("Self-Sufficent");
                 bp.name = "Self-Sufficent";
                 bp.SetName("Self-Sufficent");
                 bp.SetDescription("You know how to get along in the wild and how to effectively treat wounds." +

@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Races {
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
             var DwarfHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["DwarfHeritageDefaultFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageDefaultFeature");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -52,7 +52,7 @@ namespace TabletopTweaks.NewContent.Races {
                 c.m_Feature = DwarfHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
             var DwarfHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["DwarfHeritageClassicFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageClassicFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "DwarfHeritageClassicFeature";
@@ -82,7 +82,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var DwarfHeritageStoutheartFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["DwarfHeritageStoutheartFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageStoutheartFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "DwarfHeritageStoutheartFeature";
@@ -114,7 +114,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var DwarfHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["DwarfHeritageSelection"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageSelection");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "DwarfHeritageSelection";

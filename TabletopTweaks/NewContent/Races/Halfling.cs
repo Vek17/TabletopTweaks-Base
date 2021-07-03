@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Races {
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
             var HalflingHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["HalflingHeritageDefaultFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageDefaultFeature");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -53,7 +53,7 @@ namespace TabletopTweaks.NewContent.Races {
                 c.m_Feature = HalflingHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
             var HalflingHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["HalflingHeritageClassicFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageClassicFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "HalflingHeritageClassicFeature";
@@ -83,7 +83,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var HalflingHeritageBruiserFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["HalflingHeritageBruiserFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageBruiserFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "HalflingHeritageBruiserFeature";
@@ -115,7 +115,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var HalflingHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["HalflingHeritageSelection"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageSelection");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "HalflingHeritageSelection";

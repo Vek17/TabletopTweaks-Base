@@ -8,7 +8,7 @@ namespace TabletopTweaks.NewContent.Feats {
         public static void AddScholar() {
             // Icon: Spell Focus? Alertness?
             var Scholar = FeatTools.CreateSkillFeat(StatType.SkillKnowledgeArcana, StatType.SkillKnowledgeWorld, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["Scholar"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("Scholar");
                 bp.name = "Scholar";
                 bp.SetName("Scholar");
                 bp.SetDescription("You have graduated from one of the many colleges, universities, and specialized schools of higher learning scattered throughout the Inner Sea region." +

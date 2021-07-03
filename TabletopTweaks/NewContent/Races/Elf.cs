@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Races {
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
             var ElfHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ElfHeritageDefaultFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageDefaultFeature");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -52,7 +52,7 @@ namespace TabletopTweaks.NewContent.Races {
                 c.m_Feature = ElfHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
             var ElfHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ElfHeritageClassicFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageClassicFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "ElfHeritageClassicFeature";
@@ -82,7 +82,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var ElfHeritageFieraniFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ElfHeritageFieraniFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageFieraniFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "ElfHeritageFieraniFeature";
@@ -114,7 +114,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(RemoveDefaultHeritage);
             });
             var ElfHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ElfHeritageSelection"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageSelection");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "ElfHeritageSelection";

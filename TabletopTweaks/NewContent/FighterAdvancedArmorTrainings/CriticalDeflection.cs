@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
             var CriticalDeflectionEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CriticalDeflectionEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CriticalDeflectionEffect");
                 bp.name = "CriticalDeflectionEffect";
                 bp.SetName("Critical Deflection");
                 bp.SetDescription("Critical Deflection");
@@ -43,7 +43,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var CriticalDeflectionFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CriticalDeflectionFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CriticalDeflectionFeature");
                 bp.name = "CriticalDeflection";
                 bp.SetName("Critical Deflection");
                 bp.SetDescription("While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to " +

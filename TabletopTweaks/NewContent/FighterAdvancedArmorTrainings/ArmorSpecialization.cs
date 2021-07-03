@@ -19,7 +19,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var ArmorFocusLight = Resources.GetBlueprint<BlueprintFeature>("3bc6e1d2b44b5bb4d92e6ba59577cf62");
 
             var ArmorSpecializationSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorSpecializationSelection"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorSpecializationSelection");
                 bp.name = "ArmorSpecialization";
                 bp.SetName("Armor Specialization");
                 bp.SetDescription("The fighter selects one specific type of armor with which he is proficient, such as light or heavy. " +
@@ -36,7 +36,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
             });
             var ArmorSpecializationLightEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorSpecializationLightEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorSpecializationLightEffect");
                 bp.name = "ArmorSpecializationLightEffect";
                 bp.SetName("Light Armor Specialization");
                 bp.SetDescription("Light Armor Specialization");
@@ -65,7 +65,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmorSpecializationLightFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorSpecializationLightFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorSpecializationLightFeature");
                 bp.name = "ArmorSpecializationLightFeature";
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Light Armor Specialization");
@@ -78,7 +78,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmorSpecializationMediumEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorSpecializationMediumEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorSpecializationMediumEffect");
                 bp.name = "ArmorSpecializationMediumEffect";
                 bp.SetName("Medium Armor Specialization");
                 bp.SetDescription("Medium Armor Specialization");
@@ -107,7 +107,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmorSpecializationMediumFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorSpecializationMediumFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorSpecializationMediumFeature");
                 bp.name = "ArmorSpecializationMediumFeature";
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Medium Armor Specialization");
@@ -120,7 +120,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmorSpecializationHeavyEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorSpecializationHeavyEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorSpecializationHeavyEffect");
                 bp.name = "ArmorSpecializationHeavyEffect";
                 bp.SetName("Heavy Armor Specialization");
                 bp.SetDescription("Heavy Armor Specialization");
@@ -149,7 +149,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmorSpecializationHeavyFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorSpecializationHeavyFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorSpecializationHeavyFeature");
                 bp.name = "ArmorSpecializationHeavyFeature";
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Heavy Armor Specialization");

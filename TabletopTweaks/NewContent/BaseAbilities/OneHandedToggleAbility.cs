@@ -20,14 +20,14 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_OneHandedToggle.png");
 
             var OneHandedBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["OneHandedBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("OneHandedBuff");
                 bp.name = "OneHandedBuff";
                 bp.m_Icon = icon;
                 bp.SetName("Use Weapon One Handed");
                 bp.SetDescription("");
             });
             var OneHandedToggleAbility = Helpers.Create<BlueprintActivatableAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["OneHandedToggleAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("OneHandedToggleAbility");
                 bp.name = "OneHandedToggleAbility";
                 bp.m_Icon = icon;
                 bp.SetName("Use Weapon One Handed");
@@ -39,7 +39,7 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 bp.AddComponent(Helpers.CreateCopy(FightDefensivelyToggleAbility.GetComponent<ActionPanelLogic>()));
             });
             var OneHandedToggleFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["OneHandedToggleFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("OneHandedToggleFeature");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.ReapplyOnLevelUp = true;
@@ -65,7 +65,7 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
         [HarmonyPatch(typeof(ItemEntityWeapon), "HoldInTwoHands", MethodType.Getter)]
         static class ItemEntityWeapon_HoldInTwoHands_Patch {
             static void Postfix(ItemEntityWeapon __instance, ref bool __result) {
-                var OneHandedBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.NewBlueprints["OneHandedBuff"]);
+                var OneHandedBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.GetGUID("OneHandedBuff"));
                 if (__instance.Wielder != null && __instance.Wielder.HasFact(OneHandedBuff)) {
                     if (__instance.Blueprint.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {
                         __result = false;

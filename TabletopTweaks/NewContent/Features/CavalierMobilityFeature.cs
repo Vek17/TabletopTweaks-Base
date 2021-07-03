@@ -15,7 +15,7 @@ namespace TabletopTweaks.NewContent.Features {
             var MountedBuff = Resources.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
 
             var CavalierMobilityBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CavalierMobilityBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CavalierMobilityBuff");
                 bp.name = "CavalierMobilityBuff";
                 bp.SetName("Cavalier Mobility");
                 bp.SetDescription("A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
@@ -27,7 +27,7 @@ namespace TabletopTweaks.NewContent.Features {
             });
 
             var CavalierMobilityFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CavalierMobilityFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CavalierMobilityFeature");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.name = "CavalierMobility";

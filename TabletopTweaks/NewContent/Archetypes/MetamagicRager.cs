@@ -40,7 +40,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
         public static void AddMetamagicRager() {
 
             var MetaRageEmpowerBuff = CreateMetamagicBuff(EmpowerSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageEmpowerBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageEmpowerBuff");
                 bp.name = "MetaRageEmpowerBuff";
                 bp.SetName("Meta-Rage (Empower)");
                 bp.SetDescription("The metamagic rager can spend 4 rounds of bloodrage as a " +
@@ -48,7 +48,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Empowered as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageExtendBuff = CreateMetamagicBuff(ExtendSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageExtendBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageExtendBuff");
                 bp.name = "MetaRageExtendBuff";
                 bp.SetName("Meta-Rage (Extend)");
                 bp.SetDescription("The metamagic rager can spend 2 rounds of bloodrage as a " +
@@ -56,7 +56,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Extended as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageMaximizeBuff = CreateMetamagicBuff(MaximizeSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageMaximizeBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageMaximizeBuff");
                 bp.name = "MetaRageMaximizeBuff";
                 bp.SetName("Meta-Rage (Maximize)");
                 bp.SetDescription("The metamagic rager can spend 6 rounds of bloodrage as a " +
@@ -64,7 +64,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Maximized as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRagePersistentBuff = CreateMetamagicBuff(PersistentSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRagePersistentBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRagePersistentBuff");
                 bp.name = "MetaRagePersistentBuff";
                 bp.SetName("Meta-Rage (Persistent)");
                 bp.SetDescription("The metamagic rager can spend 4 rounds of bloodrage as a " +
@@ -72,7 +72,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Persistent as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageQuickenBuff = CreateMetamagicBuff(QuickenSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageQuickenBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageQuickenBuff");
                 bp.name = "MetaRageQuickenBuff";
                 bp.SetName("Meta-Rage (Quicken)");
                 bp.SetDescription("The metamagic rager can spend 6 rounds of bloodrage as a " +
@@ -80,7 +80,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Quickened as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageReachBuff = CreateMetamagicBuff(ReachSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageReachBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageReachBuff");
                 bp.name = "MetaRageReachBuff";
                 bp.SetName("Meta-Rage (Reach)");
                 bp.SetDescription("The metamagic rager can spend 2 rounds of bloodrage as a " +
@@ -88,7 +88,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Reach as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageSelectiveBuff = CreateMetamagicBuff(SelectiveSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageSelectiveBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageSelectiveBuff");
                 bp.name = "MetaRageSelectiveBuff";
                 bp.SetName("Meta-Rage (Selective)");
                 bp.SetDescription("The metamagic rager can spend 2 rounds of bloodrage as a " +
@@ -107,50 +107,50 @@ namespace TabletopTweaks.NewContent.Archetypes {
             };
 
             var MetaRageEmpowerAbility = CreateMetamagicAbility(MetaRageEmpowerBuff, 4, EmpowerSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageEmpowerAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageEmpowerAbility");
                 bp.name = "MetaRageEmpowerAbility";
                 bp.SetName("Meta-Rage (Empower)");
                 bp.SetDescription(MetaRageEmpowerBuff.Description);
             });
             var MetaRageExtendAbility = CreateMetamagicAbility(MetaRageExtendBuff, 2, ExtendSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageExtendAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageExtendAbility");
                 bp.name = "MetaRageExtendAbility";
                 bp.SetName("Meta-Rage (Extend)");
                 bp.SetDescription(MetaRageExtendBuff.Description);
             });
             var MetaRageMaximizeAbility = CreateMetamagicAbility(MetaRageMaximizeBuff, 6, MaximizeSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageMaximizeAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageMaximizeAbility");
                 bp.name = "MetaRageMaximizeAbility";
                 bp.SetName("Meta-Rage (Maximize)");
                 bp.SetDescription(MetaRageMaximizeBuff.Description);
             });
             var MetaRagePersistentAbility = CreateMetamagicAbility(MetaRagePersistentBuff, 4, PersistentSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRagePersistentAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRagePersistentAbility");
                 bp.name = "MetaRagePersistentAbility";
                 bp.SetName("Meta-Rage (Persistent)");
                 bp.SetDescription(MetaRagePersistentBuff.Description);
             });
             var MetaRageQuickenAbility = CreateMetamagicAbility(MetaRageQuickenBuff, 6, QuickenSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageQuickenAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageQuickenAbility");
                 bp.name = "MetaRageQuickenAbility";
                 bp.SetName("Meta-Rage (Quicken)");
                 bp.SetDescription(MetaRageQuickenBuff.Description);
             });
             var MetaRageReachAbility = CreateMetamagicAbility(MetaRageReachBuff, 2, ReachSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageReachAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageReachAbility");
                 bp.name = "MetaRageReachAbility";
                 bp.SetName("Meta-Rage (Reach)");
                 bp.SetDescription(MetaRageReachBuff.Description);
             });
             var MetaRageSelectiveAbility = CreateMetamagicAbility(MetaRageSelectiveBuff, 2, SelectiveSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageSelectiveAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageSelectiveAbility");
                 bp.name = "MetaRageSelectiveAbility";
                 bp.SetName("Meta-Rage (Selective)");
                 bp.SetDescription(MetaRageSelectiveBuff.Description);
             });
 
             var MetaRageBaseAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageBaseAbility"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageBaseAbility");
                 bp.name = "MetaRageBaseAbility";
                 bp.SetName("Meta-Rage");
                 bp.SetDescription("At 5th level, a metamagic rager can sacrifice additional rounds of " +
@@ -178,7 +178,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 }));
             });
             var MetaRageFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetaRageFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageFeature");
                 bp.name = "MetaRageFeature";
                 bp.SetName("Meta-Rage");
                 bp.SetDescription(MetaRageBaseAbility.Description);
@@ -190,7 +190,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 }));
             });
             var MetamagicRagerArchetype = Helpers.Create<BlueprintArchetype>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["MetamagicRagerArchetype"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetamagicRagerArchetype");
                 bp.name = "MetamagicRagerArchetype";
                 bp.LocalizedName = Helpers.CreateString("MetamagicRagerArchetype.Name", "Metamagic Rager");
                 bp.LocalizedDescription = Helpers.CreateString("MetamagicRagerArchetype.Description", "While metamagic is difficult for many bloodragers to utilize, " +

@@ -26,7 +26,7 @@ namespace TabletopTweaks.MechanicsChanges {
             static void FixModifers() {
                 var ChargeBuff = Resources.GetBlueprint<BlueprintBuff>("f36da144a379d534cad8e21667079066");
                 var MountedBuff = Resources.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
-                var LongspearChargeBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.NewBlueprints["LongspearChargeBuff"]);
+                var LongspearChargeBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.GetGUID("LongspearChargeBuff"));
 
                 MountedBuff.AddComponent(Helpers.Create<BuffExtraEffectsRequirements>(c => {
                     c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();

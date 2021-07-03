@@ -1,4 +1,4 @@
-## Version 0.3.1
+## Version 0.4.0
 * fixed vital strike crits
 * fixed bug where charge bonus damage could sometimes apply too often
 * added magical aptitude feat
@@ -6,6 +6,7 @@
 * added self-sufficent feat
 * added shingle runner feat
 * added street smarts feat
+* added metamagic rager
 
 ## Version 0.3.0
 

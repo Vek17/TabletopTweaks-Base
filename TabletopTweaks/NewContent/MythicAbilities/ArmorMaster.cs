@@ -17,7 +17,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var icon = AssetLoader.LoadInternal("Feats", "Icon_ArmorMaster.png");
 
             var ArmorMasterLightFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorMasterLightFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorMasterLightFeature");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
@@ -52,7 +52,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
             });
             var ArmorMasterMediumFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorMasterMediumFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorMasterMediumFeature");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
@@ -90,7 +90,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
             });
             var ArmorMasterHeavyFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmorMasterHeavyFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorMasterHeavyFeature");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };

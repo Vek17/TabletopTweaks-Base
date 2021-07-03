@@ -9,7 +9,7 @@ namespace TabletopTweaks.NewContent.Features {
         public static void AddCavalierMountFeatureWolf() {
             var AnimalCompanionFeatureWolf = Resources.GetBlueprint<BlueprintFeature>("67a9dc42b15d0954ca4689b13e8dedea");
             var CavalierMountFeatureWolf = Helpers.CreateCopy(AnimalCompanionFeatureWolf, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["CavalierMountFeatureWolf"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CavalierMountFeatureWolf");
                 bp.name = "CavalierMountFeatureWolf";
                 bp.AddComponent(Helpers.Create<PrerequisiteSize>(c => {
                     c.Size = Kingmaker.Enums.Size.Small;

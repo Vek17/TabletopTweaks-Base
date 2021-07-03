@@ -158,7 +158,7 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(AbilityData), "Name", MethodType.Getter)]
         static class AbilityData_Name_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref string __result) {
-                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
+                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
                     __result = __result + " - " + __instance.m_ConvertedFrom.Name;
                 }
             }
@@ -166,7 +166,7 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(AbilityData), "Icon", MethodType.Getter)]
         static class AbilityData_Icon_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref Sprite __result) {
-                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
+                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
                     __result = __instance.m_ConvertedFrom.Icon;
                 }
             }
@@ -174,7 +174,7 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(AbilityData), "IsAvailableInSpellbook", MethodType.Getter)]
         static class AbilityData_IsAvailableInSpellbook_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref bool __result) {
-                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
+                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
                     __result = true;
                 }
             }
@@ -182,7 +182,7 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationSprite")]
         static class MechanicActionBarSlotSpontaneusConvertedSpell_GetDecorationSprite_QuickStudy_Patch {
             static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Sprite __result) {
-                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
+                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
                     __result = UIUtility.GetDecorationBorderByIndex(__instance.Spell.m_ConvertedFrom.DecorationBorderNumber);
                 }
             }
@@ -191,7 +191,7 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationColor")]
         static class MechanicActionBarSlotSpontaneusConvertedSpell_GetDecorationColor_QuickStudy_Patch {
             static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Color __result) {
-                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.NewBlueprints["ArcanistExploitQuickStudyAbility"])) {
+                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
                     __result = UIUtility.GetDecorationColorByIndex(__instance.Spell.m_ConvertedFrom.DecorationColorNumber);
                 }
             }

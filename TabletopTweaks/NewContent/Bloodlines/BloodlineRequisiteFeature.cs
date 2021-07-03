@@ -15,7 +15,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Bloodline");
                 bp.SetDescription("Bloodline Requisite Feature");
             });
-            Resources.AddBlueprint(BloodlineRequisiteFeature, ModSettings.Blueprints.NewBlueprints["BloodlineRequisiteFeature"]);
+            Resources.AddBlueprint(BloodlineRequisiteFeature, ModSettings.Blueprints.GetGUID("BloodlineRequisiteFeature"));
         }
     }
 }

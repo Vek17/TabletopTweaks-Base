@@ -19,7 +19,7 @@ namespace TabletopTweaks.NewContent.Spells {
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
 
             var ShadowEnchantment = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ShadowEnchantment"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ShadowEnchantment");
                 bp.name = "ShadowEnchantment";
                 bp.SetName("Shadow Enchantment");
                 bp.SetDescription("You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level "
@@ -94,7 +94,7 @@ namespace TabletopTweaks.NewContent.Spells {
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
 
             var ShadowEnchantmentGreater = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ShadowEnchantmentGreater"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ShadowEnchantmentGreater");
                 bp.name = "ShadowEnchantmentGreater";
                 bp.SetName("Shadow Enchantment, Greater");
                 bp.SetDescription("This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, "

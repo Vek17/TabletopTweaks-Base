@@ -7,7 +7,7 @@ namespace TabletopTweaks.NewContent.Feats {
     static class StreetSmarts {
         public static void AddStreetSmarts() {
             var StreetSmarts = FeatTools.CreateSkillFeat(StatType.SkillKnowledgeWorld, StatType.SkillPerception, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["StreetSmarts"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("StreetSmarts");
                 bp.name = "StreetSmarts";
                 bp.SetName("Street Smarts");
                 bp.SetDescription("You are able to navigate the streets and personalities of whatever locale you run across." +

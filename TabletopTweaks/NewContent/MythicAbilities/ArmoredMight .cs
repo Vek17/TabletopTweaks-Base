@@ -13,7 +13,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var icon = AssetLoader.LoadInternal("Feats", "Icon_ArmoredMight.png");
 
             var ArmoredMightFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredMightFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredMightFeature");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };

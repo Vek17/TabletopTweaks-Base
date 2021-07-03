@@ -17,7 +17,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
             var ArmoredConfidenceLightEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceLightEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredConfidenceLightEffect");
                 bp.name = "ArmoredConfidenceLightEffect";
                 bp.SetName("Armored Confidence Effect");
                 bp.SetDescription("Armored Confidence");
@@ -51,7 +51,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             });
 
             var ArmoredConfidenceMediumEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceMediumEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredConfidenceMediumEffect");
                 bp.name = "ArmoredConfidenceMediumEffect";
                 bp.SetName("Armored Confidence Effect");
                 bp.SetDescription("Armored Confidence");
@@ -84,7 +84,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmoredConfidenceHeavyEffect = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceHeavyEffect"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredConfidenceHeavyEffect");
                 bp.name = "ArmoredConfidenceHeavyEffect";
                 bp.SetName("Armored Confidence Effect");
                 bp.SetDescription("Armored Confidence");
@@ -117,7 +117,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
             var ArmoredConfidenceFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["ArmoredConfidenceFeature"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredConfidenceFeature");
                 bp.name = "ArmoredConfidence";
                 bp.SetName("Armored Confidence");
                 bp.SetDescription("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +

@@ -9,7 +9,7 @@ namespace TabletopTweaks.NewContent.Features {
     class LongspearChargeBuff {
         public static void AddLongspearChargeBuff() {
             var LongspearChargeBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.NewBlueprints["LongspearChargeBuff"];
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("LongspearChargeBuff");
                 bp.name = "LongspearChargeBuff";
                 bp.SetName("Longspear Charge");
                 bp.SetDescription("");
