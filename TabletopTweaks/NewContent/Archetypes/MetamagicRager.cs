@@ -7,7 +7,6 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
@@ -195,8 +194,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedName = Helpers.CreateString("MetamagicRagerArchetype.Name", "Metamagic Rager");
                 bp.LocalizedDescription = Helpers.CreateString("MetamagicRagerArchetype.Description", "While metamagic is difficult for many bloodragers to utilize, " +
                     "a talented few are able to channel their bloodrage in ways that push their spells to impressive ends.");
-                bp.AddFeatures = new LevelEntry[] { 
-                    new LevelEntry() { 
+                bp.AddFeatures = new LevelEntry[] {
+                    new LevelEntry() {
                         Level = 5,
                         m_Features = new System.Collections.Generic.List<BlueprintFeatureBaseReference>() {
                             MetaRageFeature.ToReference<BlueprintFeatureBaseReference>()

@@ -1,8 +1,6 @@
-﻿using Kingmaker.Blueprints.Classes.Spells;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.IO;
 using System.Reflection;
-using TabletopTweaks.Utilities;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks.Config {
