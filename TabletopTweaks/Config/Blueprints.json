@@ -194,6 +194,23 @@
         "MagicalAptitude": "b9ec76f3c3e641d79af7204916b40c0d",
         "StreetSmarts": "7be7a08cde3f4409a167eb4857a0c42b",
         "ShingleRunner": "e6c54b27d20e40f48a06e032172afa1d",
-        "MasterfulTalent": "d3915f4751c343ca873a4996205f62f6"
+        "MasterfulTalent": "d3915f4751c343ca873a4996205f62f6",
+        "MetaRageEmpowerBuff": "ba5b56447d574022a477dee5402cd541",
+        "MetaRageExtendBuff": "d77e67a814d686842802c9cfd8ef8432",
+        "MetaRageMaximizeBuff": "a5f8e8b26b4140bc93563686a31793bf",
+        "MetaRagePersistentBuff": "2cdc85b273624b8a8f851311ac204420",
+        "MetaRageQuickenBuff": "39a451bd2b0a4369ab57bf7c9116514d",
+        "MetaRageReachBuff": "83af0b82e10349e285c06b78e3e1ac0b",
+        "MetaRageSelectiveBuff": "49fe123a10a447728f47c3a1a04d71f7",
+        "MetaRageEmpowerAbility": "54efc7be691e402c91a155f9d812feb2",
+        "MetaRageExtendAbility": "d77e67a814d686842802c9cfd8ef8eee",
+        "MetaRageMaximizeAbility": "75c3a28f844c47c8a9cea5840f19b82b",
+        "MetaRagePersistentAbility": "5e8f034441854d5ea7041a9ad36edb27",
+        "MetaRageQuickenAbility": "c6c5116b6e984e36b1df7511a032bf98",
+        "MetaRageReachAbility": "1c4a707abd92430d9a2267c648ef9538",
+        "MetaRageSelectiveAbility": "b754b7ae57ed45e391d75eedcbbcfd42",
+        "MetaRageBaseAbility": "b9aac1fd19af439ab86b2559fd80025e",
+        "MetaRageFeature": "e33cc0c06ff1474686a64bfb63439f54",
+        "MetamagicRagerArchetype": "e4142305e74f438c90b9fe9a545a41af"
     }
 }

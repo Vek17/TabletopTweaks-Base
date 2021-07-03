@@ -14,6 +14,11 @@ namespace TabletopTweaks.NewContent {
                 Main.LogHeader("Loading New Content");
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
+                Races.Dwarf.AddDwarfHeritage();
+                Races.Elf.AddElfHeritage();
+                Races.Gnome.AddGnomeHeritage();
+                Races.Halfling.AddHalflingHeritage();
+
                 ArcanistExploits.QuickStudy.AddQuickStudy();
                 ArcanistExploits.ItemCrafting.AddItemCrafting();
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();
@@ -46,11 +51,7 @@ namespace TabletopTweaks.NewContent {
 
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
-
-                Races.Dwarf.AddDwarfHeritage();
-                Races.Elf.AddElfHeritage();
-                Races.Gnome.AddGnomeHeritage();
-                Races.Halfling.AddHalflingHeritage();
+                Archetypes.MetamagicRager.AddMetamagicRager();
 
                 Spells.LongArms.AddLongArms();
                 Spells.ShadowEnchantment.AddShadowEnchantment();
