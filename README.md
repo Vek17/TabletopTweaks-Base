@@ -44,6 +44,16 @@ All fixes and added content are configurable and can be disabled by editing the 
         Trained Grace
         Trained Throw
         
+    Adds the following archetypes:
+        Metamagic Rager
+
+    Adds the following feats:
+        Magical Aptitude
+        Scholar
+        Self-Sufficent
+        Shingle Runner
+        Street Smarts
+
     Enables the following data mined content:
         Cauldron Witch Archetype
         Elemental Master Archetype
@@ -58,6 +68,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Natural 20s now are always a success when rolled during critical confirmation
         Limited fixes to shadow spells
         Longspears now fill the roll of lances for mounted bonus damage
+        Vital Strike no longer crits incorrectly
     
     Adds new racial homebrew heritages for:
         Dwarf
