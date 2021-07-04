@@ -32,7 +32,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchBaseClass() {
                 if (ModSettings.Fixes.Bloodrager.Base.DisableAll) { return; }
-                PatchSpellsPerDayTable();
+                PatchSpellbook();
                 PatchAbysalBulk();
                 PatchLimitlessRage();
 
@@ -56,11 +56,39 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().IfTrue = null;
                     AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(RemoveBuff);
                 }
-                void PatchSpellsPerDayTable() {
-                    if (!ModSettings.Fixes.Bloodrager.Base.Enabled["SpellsPerDay"]) { return; }
-                    BlueprintSpellsTable BloodragerSpellPerDayTable = Resources.GetBlueprint<BlueprintSpellsTable>("caf7018942861664ebe87687893ad05d");
+                void PatchSpellbook() {
+                    if (!ModSettings.Fixes.Bloodrager.Base.Enabled["Spellbook"]) { return; }
+                    BlueprintSpellbook BloodragerSpellbook = Resources.GetBlueprint<BlueprintSpellbook>("e19484252c2f80e4a9439b3681b20f00");
+                    var BloodragerSpellKnownTable = BloodragerSpellbook.SpellsKnown;
+                    var BloodragerSpellPerDayTable = BloodragerSpellbook.SpellsPerDay;
+                    BloodragerSpellbook.CasterLevelModifier = 0;
+                    BloodragerSpellKnownTable.Levels = new SpellsLevelEntry[] {
+                        CreateSpellLevelEntry(0),
+                        CreateSpellLevelEntry(0),
+                        CreateSpellLevelEntry(0),
+                        CreateSpellLevelEntry(0),
+                        CreateSpellLevelEntry(0,2),
+                        CreateSpellLevelEntry(0,3),
+                        CreateSpellLevelEntry(0,4),
+                        CreateSpellLevelEntry(0,4,2),
+                        CreateSpellLevelEntry(0,4,3),
+                        CreateSpellLevelEntry(0,5,4),
+                        CreateSpellLevelEntry(0,5,4,2),
+                        CreateSpellLevelEntry(0,5,4,3),
+                        CreateSpellLevelEntry(0,6,5,4),
+                        CreateSpellLevelEntry(0,6,5,4,2),
+                        CreateSpellLevelEntry(0,6,5,4,3),
+                        CreateSpellLevelEntry(0,6,6,5,4),
+                        CreateSpellLevelEntry(0,6,6,5,4),
+                        CreateSpellLevelEntry(0,6,6,5,4),
+                        CreateSpellLevelEntry(0,6,6,6,5),
+                        CreateSpellLevelEntry(0,6,6,6,5),
+                        CreateSpellLevelEntry(0,6,6,6,5)
+                    };
                     BloodragerSpellPerDayTable.Levels = new SpellsLevelEntry[] {
-                    // 18 Spell levels is correct for w/e reason
+                        CreateSpellLevelEntry(0),
+                        CreateSpellLevelEntry(0),
+                        CreateSpellLevelEntry(0),
                         CreateSpellLevelEntry(0),
                         CreateSpellLevelEntry(0,1),
                         CreateSpellLevelEntry(0,1),

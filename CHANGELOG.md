@@ -6,6 +6,7 @@
 * added self-sufficent feat
 * added shingle runner feat
 * added street smarts feat
+* fixed bloodrager caster level
 * added metamagic rager
 
 ## Version 0.3.0

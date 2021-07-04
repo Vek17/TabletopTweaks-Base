@@ -58,7 +58,7 @@
             "Enabled": {
                 "AbysalBulk": true,
                 "LimitlessRage": true,
-                "SpellsPerDay": true
+                "Spellbook": true
             }
         },
         "Archetypes": {

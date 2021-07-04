@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
@@ -16,176 +18,50 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
 
 namespace TabletopTweaks.NewContent.Archetypes {
     static class MetamagicRager {
-        private static BlueprintCharacterClass BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
-        private static BlueprintSpellbook BloodragerSpellbook = Resources.GetBlueprint<BlueprintSpellbook>("e19484252c2f80e4a9439b3681b20f00");
-        private static BlueprintAbilityResource BloodragerRageResource = Resources.GetBlueprint<BlueprintAbilityResource>("4aec9ec9d9cd5e24a95da90e56c72e37");
-        private static BlueprintFeature ImprovedUncannyDodge = Resources.GetBlueprint<BlueprintFeature>("485a18c05792521459c7d06c63128c79");
+        private static readonly BlueprintCharacterClass BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
+        private static readonly BlueprintSpellbook BloodragerSpellbook = Resources.GetBlueprint<BlueprintSpellbook>("e19484252c2f80e4a9439b3681b20f00");
+        private static readonly BlueprintAbilityResource BloodragerRageResource = Resources.GetBlueprint<BlueprintAbilityResource>("4aec9ec9d9cd5e24a95da90e56c72e37");
+        private static readonly BlueprintFeature ImprovedUncannyDodge = Resources.GetBlueprint<BlueprintFeature>("485a18c05792521459c7d06c63128c79");
 
-        private static BlueprintFeature EmpowerSpellFeat = Resources.GetBlueprint<BlueprintFeature>("a1de1e4f92195b442adb946f0e2b9d4e");
-        private static BlueprintFeature ExtendSpellFeat = Resources.GetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef");
-        private static BlueprintFeature MaximizeSpellFeat = Resources.GetBlueprint<BlueprintFeature>("7f2b282626862e345935bbea5e66424b");
-        private static BlueprintFeature PersistentSpellFeat = Resources.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
-        private static BlueprintFeature QuickenSpellFeat = Resources.GetBlueprint<BlueprintFeature>("ef7ece7bb5bb66a41b256976b27f424e");
-        private static BlueprintFeature ReachSpellFeat = Resources.GetBlueprint<BlueprintFeature>("46fad72f54a33dc4692d3b62eca7bb78");
-        private static BlueprintFeature SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
+        private static readonly BlueprintFeature EmpowerSpellFeat = Resources.GetBlueprint<BlueprintFeature>("a1de1e4f92195b442adb946f0e2b9d4e");
+        private static readonly BlueprintFeature ExtendSpellFeat = Resources.GetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef");
+        private static readonly BlueprintFeature HeightenSpellFeat = Resources.GetBlueprint<BlueprintFeature>("2f5d1e705c7967546b72ad8218ccf99c");
+        private static readonly BlueprintFeature MaximizeSpellFeat = Resources.GetBlueprint<BlueprintFeature>("7f2b282626862e345935bbea5e66424b");
+        private static readonly BlueprintFeature PersistentSpellFeat = Resources.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
+        private static readonly BlueprintFeature QuickenSpellFeat = Resources.GetBlueprint<BlueprintFeature>("ef7ece7bb5bb66a41b256976b27f424e");
+        private static readonly BlueprintFeature ReachSpellFeat = Resources.GetBlueprint<BlueprintFeature>("46fad72f54a33dc4692d3b62eca7bb78");
+        private static readonly BlueprintFeature SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
 
         public static void AddMetamagicRager() {
-
-            var MetaRageEmpowerBuff = CreateMetamagicBuff(EmpowerSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageEmpowerBuff");
-                bp.name = "MetaRageEmpowerBuff";
-                bp.SetName("Meta-Rage (Empower)");
-                bp.SetDescription("The metamagic rager can spend 4 rounds of bloodrage as a " +
-                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " +
-                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Empowered as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
-            });
-            var MetaRageExtendBuff = CreateMetamagicBuff(ExtendSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageExtendBuff");
-                bp.name = "MetaRageExtendBuff";
-                bp.SetName("Meta-Rage (Extend)");
-                bp.SetDescription("The metamagic rager can spend 2 rounds of bloodrage as a " +
-                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " +
-                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Extended as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
-            });
-            var MetaRageMaximizeBuff = CreateMetamagicBuff(MaximizeSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageMaximizeBuff");
-                bp.name = "MetaRageMaximizeBuff";
-                bp.SetName("Meta-Rage (Maximize)");
-                bp.SetDescription("The metamagic rager can spend 6 rounds of bloodrage as a " +
-                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " +
-                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Maximized as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
-            });
-            var MetaRagePersistentBuff = CreateMetamagicBuff(PersistentSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRagePersistentBuff");
-                bp.name = "MetaRagePersistentBuff";
-                bp.SetName("Meta-Rage (Persistent)");
-                bp.SetDescription("The metamagic rager can spend 4 rounds of bloodrage as a " +
-                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " +
-                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Persistent as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
-            });
-            var MetaRageQuickenBuff = CreateMetamagicBuff(QuickenSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageQuickenBuff");
-                bp.name = "MetaRageQuickenBuff";
-                bp.SetName("Meta-Rage (Quicken)");
-                bp.SetDescription("The metamagic rager can spend 6 rounds of bloodrage as a " +
-                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " +
-                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Quickened as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
-            });
-            var MetaRageReachBuff = CreateMetamagicBuff(ReachSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageReachBuff");
-                bp.name = "MetaRageReachBuff";
-                bp.SetName("Meta-Rage (Reach)");
-                bp.SetDescription("The metamagic rager can spend 2 rounds of bloodrage as a " +
-                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " +
-                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Reach as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
-            });
-            var MetaRageSelectiveBuff = CreateMetamagicBuff(SelectiveSpellFeat, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageSelectiveBuff");
-                bp.name = "MetaRageSelectiveBuff";
-                bp.SetName("Meta-Rage (Selective)");
-                bp.SetDescription("The metamagic rager can spend 2 rounds of bloodrage as a " +
-                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " +
-                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Selective as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
-            });
-
-            var MetaRageBuffs = new BlueprintUnitFactReference[] {
-                MetaRageEmpowerBuff.ToReference<BlueprintUnitFactReference>(),
-                MetaRageExtendBuff.ToReference<BlueprintUnitFactReference>(),
-                MetaRageMaximizeBuff.ToReference<BlueprintUnitFactReference>(),
-                MetaRagePersistentBuff.ToReference<BlueprintUnitFactReference>(),
-                MetaRageQuickenBuff.ToReference<BlueprintUnitFactReference>(),
-                MetaRageReachBuff.ToReference<BlueprintUnitFactReference>(),
-                MetaRageSelectiveBuff.ToReference<BlueprintUnitFactReference>(),
-            };
-
-            var MetaRageEmpowerAbility = CreateMetamagicAbility(MetaRageEmpowerBuff, 4, EmpowerSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageEmpowerAbility");
-                bp.name = "MetaRageEmpowerAbility";
-                bp.SetName("Meta-Rage (Empower)");
-                bp.SetDescription(MetaRageEmpowerBuff.Description);
-            });
-            var MetaRageExtendAbility = CreateMetamagicAbility(MetaRageExtendBuff, 2, ExtendSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageExtendAbility");
-                bp.name = "MetaRageExtendAbility";
-                bp.SetName("Meta-Rage (Extend)");
-                bp.SetDescription(MetaRageExtendBuff.Description);
-            });
-            var MetaRageMaximizeAbility = CreateMetamagicAbility(MetaRageMaximizeBuff, 6, MaximizeSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageMaximizeAbility");
-                bp.name = "MetaRageMaximizeAbility";
-                bp.SetName("Meta-Rage (Maximize)");
-                bp.SetDescription(MetaRageMaximizeBuff.Description);
-            });
-            var MetaRagePersistentAbility = CreateMetamagicAbility(MetaRagePersistentBuff, 4, PersistentSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRagePersistentAbility");
-                bp.name = "MetaRagePersistentAbility";
-                bp.SetName("Meta-Rage (Persistent)");
-                bp.SetDescription(MetaRagePersistentBuff.Description);
-            });
-            var MetaRageQuickenAbility = CreateMetamagicAbility(MetaRageQuickenBuff, 6, QuickenSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageQuickenAbility");
-                bp.name = "MetaRageQuickenAbility";
-                bp.SetName("Meta-Rage (Quicken)");
-                bp.SetDescription(MetaRageQuickenBuff.Description);
-            });
-            var MetaRageReachAbility = CreateMetamagicAbility(MetaRageReachBuff, 2, ReachSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageReachAbility");
-                bp.name = "MetaRageReachAbility";
-                bp.SetName("Meta-Rage (Reach)");
-                bp.SetDescription(MetaRageReachBuff.Description);
-            });
-            var MetaRageSelectiveAbility = CreateMetamagicAbility(MetaRageSelectiveBuff, 2, SelectiveSpellFeat, MetaRageBuffs, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageSelectiveAbility");
-                bp.name = "MetaRageSelectiveAbility";
-                bp.SetName("Meta-Rage (Selective)");
-                bp.SetDescription(MetaRageSelectiveBuff.Description);
-            });
-
-            var MetaRageBaseAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageBaseAbility");
-                bp.name = "MetaRageBaseAbility";
-                bp.SetName("Meta-Rage");
-                bp.SetDescription("At 5th level, a metamagic rager can sacrifice additional rounds of " +
-                    "bloodrage to apply a metamagic feat he knows to a bloodrager spell. This costs a number of rounds of bloodrage equal to twice what the spell’s " +
-                    "adjusted level would normally be with the metamagic feat applied (minimum 2 rounds). The metamagic rager does not have to be bloodraging " +
-                    "to use this ability. The metamagic effect is applied without increasing the level of the spell slot expended, though the casting time is " +
-                    "increased as normal. The metamagic rager can apply only one metamagic feat he knows in this manner with each casting.");
-                bp.Type = AbilityType.Supernatural;
-                bp.Range = AbilityRange.Personal;
-                bp.CanTargetSelf = true;
-                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Omni;
-                bp.LocalizedDuration = new LocalizedString();
-                bp.LocalizedSavingThrow = new LocalizedString();
-                bp.m_Icon = AssetLoader.LoadInternal("Abilities", "Icon_MetaRage.png");
-                bp.AddComponent(Helpers.Create<AbilityVariants>(c => {
-                    c.m_Variants = new BlueprintAbilityReference[] {
-                        MetaRageEmpowerAbility.ToReference<BlueprintAbilityReference>(),
-                        MetaRageExtendAbility.ToReference<BlueprintAbilityReference>(),
-                        MetaRageMaximizeAbility.ToReference<BlueprintAbilityReference>(),
-                        MetaRagePersistentAbility.ToReference<BlueprintAbilityReference>(),
-                        MetaRageQuickenAbility.ToReference<BlueprintAbilityReference>(),
-                        MetaRageReachAbility.ToReference<BlueprintAbilityReference>(),
-                        MetaRageSelectiveAbility.ToReference<BlueprintAbilityReference>(),
-                    };
-                }));
-            });
+            var MetaRageBaseAbility1 = CreateMetaRageLevel(1);
+            var MetaRageBaseAbility2 = CreateMetaRageLevel(2);
+            var MetaRageBaseAbility3 = CreateMetaRageLevel(3);
+            var MetaRageBaseAbility4 = CreateMetaRageLevel(4);
             var MetaRageFeature = Helpers.Create<BlueprintFeature>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("MetaRageFeature");
                 bp.name = "MetaRageFeature";
                 bp.SetName("Meta-Rage");
-                bp.SetDescription(MetaRageBaseAbility.Description);
+                bp.SetDescription(MetaRageBaseAbility1.Description);
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.m_Icon = AssetLoader.LoadInternal("Abilities", "Icon_MetaRage.png");
                 bp.AddComponent(Helpers.Create<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] { MetaRageBaseAbility.ToReference<BlueprintUnitFactReference>() };
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        MetaRageBaseAbility1.ToReference<BlueprintUnitFactReference>(),
+                        MetaRageBaseAbility2.ToReference<BlueprintUnitFactReference>(),
+                        MetaRageBaseAbility3.ToReference<BlueprintUnitFactReference>(),
+                        MetaRageBaseAbility4.ToReference<BlueprintUnitFactReference>()
+                    };
                 }));
             });
             var MetamagicRagerArchetype = Helpers.Create<BlueprintArchetype>(bp => {
@@ -212,32 +88,14 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 };
             });
 
-            Resources.AddBlueprint(MetaRageEmpowerBuff);
-            Resources.AddBlueprint(MetaRageExtendBuff);
-            Resources.AddBlueprint(MetaRageMaximizeBuff);
-            Resources.AddBlueprint(MetaRagePersistentBuff);
-            Resources.AddBlueprint(MetaRageQuickenBuff);
-            Resources.AddBlueprint(MetaRageReachBuff);
-            Resources.AddBlueprint(MetaRageSelectiveBuff);
-
-            Resources.AddBlueprint(MetaRageEmpowerAbility);
-            Resources.AddBlueprint(MetaRageExtendAbility);
-            Resources.AddBlueprint(MetaRageMaximizeAbility);
-            Resources.AddBlueprint(MetaRagePersistentAbility);
-            Resources.AddBlueprint(MetaRageQuickenAbility);
-            Resources.AddBlueprint(MetaRageReachAbility);
-            Resources.AddBlueprint(MetaRageSelectiveAbility);
-
-            Resources.AddBlueprint(MetaRageBaseAbility);
             Resources.AddBlueprint(MetaRageFeature);
             Resources.AddBlueprint(MetamagicRagerArchetype);
-
-            //if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["ElementalMasterArchetype"]) { return; }
-
+            PatchBloodlines(MetamagicRagerArchetype);
+            if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["MetamagicRager"]) { return; }
             BloodragerClass.m_Archetypes = BloodragerClass.m_Archetypes.AppendToArray(MetamagicRagerArchetype.ToReference<BlueprintArchetypeReference>());
             Main.LogPatch("Added", MetamagicRagerArchetype);
         }
-        private static BlueprintBuff CreateMetamagicBuff(BlueprintFeature metamagicFeat, Action<BlueprintBuff> init = null) {
+        private static BlueprintBuff CreateMetamagicBuff(BlueprintFeature metamagicFeat, int level, Action<BlueprintBuff> init = null) {
             var result = Helpers.CreateBuff(bp => {
                 bp.m_Icon = metamagicFeat.Icon;
                 bp.AddComponent(Helpers.Create<AddAbilityUseTrigger>(c => {
@@ -255,7 +113,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.m_Spellbook = BloodragerSpellbook.ToReference<BlueprintSpellbookReference>();
                     c.Metamagic = metamagicFeat.GetComponent<AddMetamagicFeat>().Metamagic;
                     c.School = SpellSchool.None;
-                    c.MaxSpellLevel = 10;
+                    c.MaxSpellLevel = level;
                     c.CheckSpellbook = true;
                 }));
             });
@@ -293,7 +151,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
                     c.m_RequiredResource = BloodragerRageResource.ToReference<BlueprintAbilityResourceReference>();
                     c.m_IsSpendResource = true;
-                    c.Amount = cost;
+                    c.Amount = buff.GetComponent<AutoMetamagic>().MaxSpellLevel * 2 + cost;
                 }));
                 bp.AddComponent(Helpers.Create<AbilityShowIfCasterHasFact>(c => {
                     c.m_UnitFact = metamagicFeat.ToReference<BlueprintUnitFactReference>();
@@ -304,6 +162,301 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
             init?.Invoke(result);
             return result;
+        }
+        private static BlueprintAbility CreateMetaRageLevel(int level) {
+            var MetaRageEmpowerBuff = CreateMetamagicBuff(EmpowerSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageEmpowerBuff{level}");
+                bp.name = $"MetaRageEmpowerBuff{level}";
+                bp.SetName("Meta-Rage (Empower)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 4} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Empowered as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageExtendBuff = CreateMetamagicBuff(ExtendSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageExtendBuff{level}");
+                bp.name = $"MetaRageExtendBuff{level}";
+                bp.SetName("Meta-Rage (Extend)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Extended as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageMaximizeBuff = CreateMetamagicBuff(MaximizeSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageMaximizeBuff{level}");
+                bp.name = $"MetaRageMaximizeBuff{level}";
+                bp.SetName("Meta-Rage (Maximize)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 6} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Maximized as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRagePersistentBuff = CreateMetamagicBuff(PersistentSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRagePersistentBuff{level}");
+                bp.name = $"MetaRagePersistentBuff{level}";
+                bp.SetName("Meta-Rage (Persistent)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 4} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Persistent as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageQuickenBuff = CreateMetamagicBuff(QuickenSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageQuickenBuff{level}");
+                bp.name = $"MetaRageQuickenBuff{level}";
+                bp.SetName("Meta-Rage (Quicken)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 8} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Quickened as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageReachBuff = CreateMetamagicBuff(ReachSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageReachBuff{level}");
+                bp.name = $"MetaRageReachBuff{level}";
+                bp.SetName("Meta-Rage (Reach)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Reach as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageSelectiveBuff = CreateMetamagicBuff(SelectiveSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageSelectiveBuff{level}");
+                bp.name = $"MetaRageSelectiveBuff{level}";
+                bp.SetName("Meta-Rage (Selective)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Selective as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+
+            var MetaRageBuffs = new BlueprintUnitFactReference[] {
+                MetaRageEmpowerBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageExtendBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageMaximizeBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRagePersistentBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageQuickenBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageReachBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageSelectiveBuff.ToReference<BlueprintUnitFactReference>(),
+            };
+
+            var MetaRageEmpowerAbility = CreateMetamagicAbility(MetaRageEmpowerBuff, 4, EmpowerSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageEmpowerAbility{level}");
+                bp.name = $"MetaRageEmpowerAbility{level}";
+                bp.SetName("Meta-Rage (Empower)");
+                bp.SetDescription(MetaRageEmpowerBuff.Description);
+            });
+            var MetaRageExtendAbility = CreateMetamagicAbility(MetaRageExtendBuff, 2, ExtendSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageExtendAbility{level}");
+                bp.name = $"MetaRageExtendAbility{level}";
+                bp.SetName("Meta-Rage (Extend)");
+                bp.SetDescription(MetaRageExtendBuff.Description);
+            });
+            var MetaRageMaximizeAbility = CreateMetamagicAbility(MetaRageMaximizeBuff, 6, MaximizeSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageMaximizeAbility{level}");
+                bp.name = $"MetaRageMaximizeAbility{level}";
+                bp.SetName("Meta-Rage (Maximize)");
+                bp.SetDescription(MetaRageMaximizeBuff.Description);
+            });
+            var MetaRagePersistentAbility = CreateMetamagicAbility(MetaRagePersistentBuff, 4, PersistentSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRagePersistentAbility{level}");
+                bp.name = $"MetaRagePersistentAbility{level}";
+                bp.SetName("Meta-Rage (Persistent)");
+                bp.SetDescription(MetaRagePersistentBuff.Description);
+            });
+            var MetaRageQuickenAbility = CreateMetamagicAbility(MetaRageQuickenBuff, 8, QuickenSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageQuickenAbility{level}");
+                bp.name = $"MetaRageQuickenAbility{level}";
+                bp.SetName("Meta-Rage (Quicken)");
+                bp.SetDescription(MetaRageQuickenBuff.Description);
+            });
+            var MetaRageReachAbility = CreateMetamagicAbility(MetaRageReachBuff, 2, ReachSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageReachAbility{level}");
+                bp.name = $"MetaRageReachAbility{level}";
+                bp.SetName("Meta-Rage (Reach)");
+                bp.SetDescription(MetaRageReachBuff.Description);
+            });
+            var MetaRageSelectiveAbility = CreateMetamagicAbility(MetaRageSelectiveBuff, 2, SelectiveSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageSelectiveAbility{level}");
+                bp.name = $"MetaRageSelectiveAbility{level}";
+                bp.SetName("Meta-Rage (Selective)");
+                bp.SetDescription(MetaRageSelectiveBuff.Description);
+            });
+
+            var MetaRageBaseAbility = Helpers.Create<BlueprintAbility>(bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageBaseAbility{level}");
+                bp.name = $"MetaRageBaseAbility{level}";
+                bp.SetName("Meta-Rage");
+                bp.SetDescription("At 5th level, a metamagic rager can sacrifice additional rounds of " +
+                    "bloodrage to apply a metamagic feat he knows to a bloodrager spell. This costs a number of rounds of bloodrage equal to twice what the spell’s " +
+                    "adjusted level would normally be with the metamagic feat applied (minimum 2 rounds). The metamagic rager does not have to be bloodraging " +
+                    "to use this ability. The metamagic effect is applied without increasing the level of the spell slot expended, though the casting time is " +
+                    "increased as normal. The metamagic rager can apply only one metamagic feat he knows in this manner with each casting.");
+                bp.Type = AbilityType.Supernatural;
+                bp.Range = AbilityRange.Personal;
+                bp.CanTargetSelf = true;
+                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Omni;
+                bp.LocalizedDuration = new LocalizedString();
+                bp.LocalizedSavingThrow = new LocalizedString();
+                bp.m_Icon = AssetLoader.LoadInternal("Abilities", $"Icon_MetaRage{level}.png");
+                bp.AddComponent(Helpers.Create<AbilityVariants>(c => {
+                    c.m_Variants = new BlueprintAbilityReference[] {
+                        MetaRageEmpowerAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageExtendAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageMaximizeAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRagePersistentAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageQuickenAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageReachAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageSelectiveAbility.ToReference<BlueprintAbilityReference>(),
+                    };
+                }));
+                bp.AddComponent(Helpers.Create<AbilityShowIfCasterCanCastSpells>(c => {
+                    c.Class = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
+                    c.Level = level;
+                }));
+            });
+            Resources.AddBlueprint(MetaRageEmpowerBuff);
+            Resources.AddBlueprint(MetaRageExtendBuff);
+            Resources.AddBlueprint(MetaRageMaximizeBuff);
+            Resources.AddBlueprint(MetaRagePersistentBuff);
+            Resources.AddBlueprint(MetaRageQuickenBuff);
+            Resources.AddBlueprint(MetaRageReachBuff);
+            Resources.AddBlueprint(MetaRageSelectiveBuff);
+
+            Resources.AddBlueprint(MetaRageEmpowerAbility);
+            Resources.AddBlueprint(MetaRageExtendAbility);
+            Resources.AddBlueprint(MetaRageMaximizeAbility);
+            Resources.AddBlueprint(MetaRagePersistentAbility);
+            Resources.AddBlueprint(MetaRageQuickenAbility);
+            Resources.AddBlueprint(MetaRageReachAbility);
+            Resources.AddBlueprint(MetaRageSelectiveAbility);
+
+            Resources.AddBlueprint(MetaRageBaseAbility);
+
+            return MetaRageBaseAbility;
+        }
+        private static void PatchBloodlines(BlueprintArchetype archetype) {
+            var basicBloodlines = new BlueprintProgression[] {
+                BloodlineTools.Bloodline.BloodragerAberrantBloodline,
+                BloodlineTools.Bloodline.BloodragerAbyssalBloodline,
+                BloodlineTools.Bloodline.BloodragerArcaneBloodline,
+                BloodlineTools.Bloodline.BloodragerDestinedBloodline,
+                BloodlineTools.Bloodline.BloodragerFeyBloodline,
+                BloodlineTools.Bloodline.BloodragerInfernalBloodline,
+                BloodlineTools.Bloodline.BloodragerSerpentineBloodline,
+                BloodlineTools.Bloodline.BloodragerUndeadBloodline,
+            };
+            var draconicBloodlines = new BlueprintProgression[] {
+                BloodlineTools.Bloodline.BloodragerDragonBlackBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonBlueBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonBrassBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonBronzeBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonCopperBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonGoldBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonGreenBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonRedBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonSilverBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonWhiteBloodline,
+            };
+            var elementalBloodlines = new BlueprintProgression[] {
+                BloodlineTools.Bloodline.BloodragerElementalAcidBloodline,
+                BloodlineTools.Bloodline.BloodragerElementalColdBloodline,
+                BloodlineTools.Bloodline.BloodragerElementalElectricityBloodline,
+                BloodlineTools.Bloodline.BloodragerElementalFireBloodline
+            };
+            int[] featLevels = { 6, 9, 12, 15, 18 };
+            var metamagicFeats = new BlueprintFeature[] {
+                EmpowerSpellFeat,
+                ExtendSpellFeat,
+                HeightenSpellFeat,
+                MaximizeSpellFeat,
+                PersistentSpellFeat,
+                QuickenSpellFeat,
+                ReachSpellFeat,
+                SelectiveSpellFeat
+            };
+            foreach (var bloodline in basicBloodlines) {
+                BlueprintFeatureSelection MetamagicRagerFeatSelection = null;
+                foreach (var levelEntry in bloodline.LevelEntries.Where(entry => featLevels.Contains(entry.Level))) {
+                    foreach (var selection in levelEntry.Features.Where(f => f is BlueprintFeatureSelection)) {
+                        if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
+                        var featSelect = selection as BlueprintFeatureSelection;
+                        if (MetamagicRagerFeatSelection == null) {
+                            MetamagicRagerFeatSelection = Helpers.CreateCopy(featSelect, bp => {
+                                bp.name = GenerateName(bloodline);
+                                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+                                bp.AddFeatures(metamagicFeats);
+                                bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
+                                    c.HideInUI = true;
+                                    c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
+                                    c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
+                                }));
+                            });
+                            Resources.AddBlueprint(MetamagicRagerFeatSelection);
+                        }
+                        selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
+                            c.HideInUI = true;
+                            c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
+                            c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
+                            c.CheckInProgression = true;
+                        }));
+                    }
+                    levelEntry.m_Features.Add(MetamagicRagerFeatSelection.ToReference<BlueprintFeatureBaseReference>());
+                }
+            }
+            BlueprintFeatureSelection DraconicMetamagicRagerFeatSelection = null;
+            foreach (var bloodline in draconicBloodlines) {
+                foreach (var levelEntry in bloodline.LevelEntries.Where(entry => featLevels.Contains(entry.Level))) {
+                    foreach (var selection in levelEntry.Features.Where(f => f is BlueprintFeatureSelection)) {
+                        if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
+                        var featSelect = selection as BlueprintFeatureSelection;
+                        if (DraconicMetamagicRagerFeatSelection == null) {
+                            DraconicMetamagicRagerFeatSelection = Helpers.CreateCopy(featSelect, bp => {
+                                bp.name = GenerateName(bloodline);
+                                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+                                bp.AddFeatures(metamagicFeats);
+                                bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
+                                    c.HideInUI = true;
+                                    c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
+                                    c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
+                                }));
+                            });
+                            Resources.AddBlueprint(DraconicMetamagicRagerFeatSelection);
+                        }
+                        selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
+                            c.HideInUI = true;
+                            c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
+                            c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
+                            c.CheckInProgression = true;
+                        }));
+                    }
+                    levelEntry.m_Features.Add(DraconicMetamagicRagerFeatSelection.ToReference<BlueprintFeatureBaseReference>());
+                }
+            }
+            BlueprintFeatureSelection ElementalMetamagicRagerFeatSelection = null;
+            foreach (var bloodline in elementalBloodlines) {
+                foreach (var levelEntry in bloodline.LevelEntries.Where(entry => featLevels.Contains(entry.Level))) {
+                    foreach (var selection in levelEntry.Features.Where(f => f is BlueprintFeatureSelection)) {
+                        if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
+                        var featSelect = selection as BlueprintFeatureSelection;
+                        if (ElementalMetamagicRagerFeatSelection == null) {
+                            ElementalMetamagicRagerFeatSelection = Helpers.CreateCopy(featSelect, bp => {
+                                bp.name = GenerateName(bloodline); ;
+                                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+                                bp.AddFeatures(metamagicFeats);
+                                bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
+                                    c.HideInUI = true;
+                                    c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
+                                    c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
+                                }));
+                            });
+                            Resources.AddBlueprint(ElementalMetamagicRagerFeatSelection);
+                        }
+                        selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
+                            c.HideInUI = true;
+                            c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
+                            c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
+                            c.CheckInProgression = true;
+                        }));
+                    }
+                    levelEntry.m_Features.Add(ElementalMetamagicRagerFeatSelection.ToReference<BlueprintFeatureBaseReference>());
+                }
+            }
+            string GenerateName(BlueprintFeature bloodline) {
+                string[] split = Regex.Split(bloodline.name, @"(?<!^)(?=[A-Z])");
+                return $"{split[0]}{split[1]}MetamagicRagerFeatSelection";
+            }
         }
 
         [HarmonyPatch(typeof(MechanicActionBarSlotActivableAbility), "GetResource")]

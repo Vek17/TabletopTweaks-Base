@@ -16,7 +16,8 @@
         "DisableAll": false,
         "Enabled": {
             "CauldronWitchArchetype": true,
-            "ElementalMasterArchetype": true
+            "ElementalMasterArchetype": true,
+            "MetamagicRager": true
         }
     },
     "ArcanistExploits": {
