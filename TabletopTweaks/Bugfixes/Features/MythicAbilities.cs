@@ -179,8 +179,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                     || c.IsSuitableAbility(ability, data)
                         && (c?.Abilities?.Empty() ?? true)
                         && (c.Descriptor == SpellDescriptor.None | ability.SpellDescriptor.HasAnyFlag(c.Descriptor))
-                        && c.School != SpellSchool.None ? ability.School == c.School : true
-                        //&& ability.School == c.School
+                        && (c.School == SpellSchool.None 
+                            || ability.School == c.School)
                         && c.MaxSpellLevel > 0
                         && data != null
                         && data.SpellLevel <= c.MaxSpellLevel

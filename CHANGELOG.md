@@ -1,3 +1,6 @@
+## Version 0.4.1
+* fixed issue where auto metamagic was broken in some cases
+
 ## Version 0.4.0
 * fixed vital strike crits
 * fixed bug where charge bonus damage could sometimes apply too often

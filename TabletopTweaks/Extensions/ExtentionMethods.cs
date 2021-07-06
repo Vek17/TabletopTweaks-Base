@@ -212,8 +212,8 @@ namespace TabletopTweaks.Extensions {
                     c.name = name;
                 }
             }
-
             obj.ComponentsArray = components;
+            obj.OnEnable(); // To make sure components are fully initialized
         }
 
         public static void SetComponents(this BlueprintScriptableObject obj, IEnumerable<BlueprintComponent> components) {
