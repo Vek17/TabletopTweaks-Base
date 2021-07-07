@@ -220,17 +220,6 @@ namespace TabletopTweaks.Extensions {
             SetComponents(obj, components.ToArray());
         }
 
-        public static T Get<T>(this LibraryScriptableObject library, String assetId) where T : BlueprintScriptableObject {
-            return (T)library.BlueprintsByAssetId[assetId];
-        }
-
-        public static T TryGet<T>(this LibraryScriptableObject library, String assetId) where T : BlueprintScriptableObject {
-            BlueprintScriptableObject result;
-            if (library.BlueprintsByAssetId.TryGetValue(assetId, out result)) {
-                return (T)result;
-            }
-            return null;
-        }
         /*
         public static T CopyAndAdd<T>(this LibraryScriptableObject library, String assetId, String newName, String newAssetId, String newAssetId2 = null) where T : BlueprintScriptableObject {
             return CopyAndAdd(library, Get<T>(library, assetId), newName, newAssetId, newAssetId2);

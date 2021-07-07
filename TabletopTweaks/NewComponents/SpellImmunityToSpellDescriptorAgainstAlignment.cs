@@ -51,7 +51,7 @@ namespace TabletopTweaks.NewComponents {
             bool hasDescriptor = this.Descriptor.HasAnyFlag(context.SpellDescriptor);
             bool noImmunityBypassFeature = this.IgnoreFeature == null || noCaster || !context.MaybeCaster.Descriptor.HasFact(this.IgnoreFeature);
             bool noImmunityFact = !this.CheckFact || (!noCaster && context.MaybeCaster.Descriptor.HasFact(this.FactToCheck));
-            bool casterHasAlignment = !noCaster && context.MaybeCaster.Descriptor.Alignment.Value.HasComponent(this.Alignment);
+            bool casterHasAlignment = !noCaster && context.MaybeCaster.Descriptor.Alignment.ValueRaw.HasComponent(this.Alignment);
             bool spellHasAlignment = context.SpellDescriptor.HasAnyFlag(this.Alignment.GetAlignmentDescriptor());
             return hasDescriptor && noImmunityBypassFeature && noImmunityFact && (casterHasAlignment || spellHasAlignment);
         }
