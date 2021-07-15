@@ -379,6 +379,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                                 bp.AddFeatures(metamagicFeats);
                                 bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
+                                    c.CheckInProgression = true;
                                     c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                                 }));
@@ -408,6 +409,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                                 bp.AddFeatures(metamagicFeats);
                                 bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
+                                    c.CheckInProgression = true;
                                     c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                                 }));
@@ -437,6 +439,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                                 bp.AddFeatures(metamagicFeats);
                                 bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
+                                    c.CheckInProgression = true;
                                     c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                                 }));
