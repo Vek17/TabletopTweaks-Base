@@ -7,6 +7,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
     static class BloodlineRequisiteFeature {
         public static void AddBloodlineRequisiteFeature() {
             var BloodlineRequisiteFeature = Helpers.Create<BlueprintFeature>(bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodlineRequisiteFeature");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -15,7 +16,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Bloodline");
                 bp.SetDescription("Bloodline Requisite Feature");
             });
-            Resources.AddBlueprint(BloodlineRequisiteFeature, ModSettings.Blueprints.GetGUID("BloodlineRequisiteFeature"));
+            Resources.AddBlueprint(BloodlineRequisiteFeature);
         }
     }
 }
