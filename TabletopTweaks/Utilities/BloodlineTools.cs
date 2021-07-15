@@ -2,9 +2,11 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -146,10 +148,20 @@ namespace TabletopTweaks.Utilities {
         public static void RegisterBloodragerBloodline(BlueprintProgression bloodline) {
             BlueprintFeatureSelection BloodragerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
             BlueprintFeatureSelection SecondBloodragerBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
+            BlueprintAbility MixedBloodlineAbility = Resources.GetBlueprint<BlueprintAbility>("352b4e8bb5ca4301b6e6084304a86546");
+            BlueprintAbility MixedBloodlineAbility2 = Resources.GetBlueprint<BlueprintAbility>("291fa8cf38fa401397dd3c9b7515b153");
 
             SecondBloodragerBloodline.m_Features = BloodragerBloodlineSelection.m_AllFeatures.AppendToArray(bloodline.ToReference<BlueprintFeatureReference>());
             SecondBloodragerBloodline.m_AllFeatures = BloodragerBloodlineSelection.m_AllFeatures.AppendToArray(bloodline.ToReference<BlueprintFeatureReference>());
             BloodragerBloodlineSelection.m_AllFeatures = BloodragerBloodlineSelection.m_AllFeatures.AppendToArray(bloodline.ToReference<BlueprintFeatureReference>());
+
+            AddFactToApply(MixedBloodlineAbility, bloodline);
+            AddFactToApply(MixedBloodlineAbility2, bloodline);
+
+            void AddFactToApply(BlueprintAbility ability, BlueprintUnitFact fact ) {
+                var component = ability.GetComponent<AbilityApplyFact>();
+                component.m_Facts = component.m_Facts.AppendToArray(fact.ToReference<BlueprintUnitFactReference>());
+            }
         }
         public static void RegisterSorcererBloodline(BlueprintProgression bloodline) {
             BlueprintFeatureSelection SorcererBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("24bef8d1bee12274686f6da6ccbc8914");

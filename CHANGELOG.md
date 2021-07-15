@@ -1,3 +1,6 @@
+## Version 0.5.0
+* updated for beta3
+
 ## Version 0.4.1
 * fixed issue where auto metamagic was broken in some cases
 
