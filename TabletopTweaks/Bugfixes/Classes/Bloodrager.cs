@@ -125,38 +125,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     Main.LogPatch("Patched", BloodragerRageResource);
                 }
             }
-            static void PatchPrimalist() {
-                if (ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].DisableAll) { return; }
-                PatchRagePowerFeatQualifications();
-                void PatchRagePowerFeatQualifications() {
-                    if (!ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].Enabled["RagePowerFeatQualifications"]) { return; }
-                    var PrimalistTakeRagePowers4 = Resources.GetBlueprint<BlueprintProgression>("8eb5c34bb8471a0438e7eb3994de3b92");
-                    var PrimalistTakeRagePowers8 = Resources.GetBlueprint<BlueprintProgression>("db2710cd915bbcf4193fa54083e56b27");
-                    var PrimalistTakeRagePowers12 = Resources.GetBlueprint<BlueprintProgression>("e43a7bfd5c90a514cab1c11b41c550b1");
-                    var PrimalistTakeRagePowers16 = Resources.GetBlueprint<BlueprintProgression>("b6412ff44f3a82f499d0dd6748a123bc");
-                    var PrimalistTakeRagePowers20 = Resources.GetBlueprint<BlueprintProgression>("5905a80d5934248439e83612d9101b4b");
-
-                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers4, 4);
-                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers8, 8);
-                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers12, 12);
-                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers16, 16);
-                    PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers20, 20);
-
-                    void PatchPrimalistTakeRagePowers(BlueprintProgression PrimalistTakeRagePowers, int level) {
-                        var PrimalistRagePowerSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("PrimalistRagePowerSelection"));
-                        PrimalistTakeRagePowers.LevelEntries = new LevelEntry[] {
-                            new LevelEntry {
-                                Level = level,
-                                Features = {
-                                    PrimalistRagePowerSelection,
-                                    PrimalistRagePowerSelection
-                                }
-                            }
-                        };
-                        Main.LogPatch("Patched", PrimalistTakeRagePowers);
-                    }
-                }
-            }
+            
             static void PatchSteelblood() {
                 if (ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].DisableAll) { return; }
                 PatchArmoredSwiftness();
