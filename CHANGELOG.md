@@ -1,3 +1,6 @@
+## Version 0.5.1
+* fixed weapon finesse being applied to all weapons with DamageGrace
+
 ## Version 0.5.0
 * updated for beta3
 

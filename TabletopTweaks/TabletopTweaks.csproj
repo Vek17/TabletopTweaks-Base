@@ -152,6 +152,7 @@
     <Compile Include="NewComponents\ApplyArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />
     <Compile Include="NewComponents\ArmorFeatureUnlock.cs" />
+    <Compile Include="NewComponents\AttackStatReplacementEnforced.cs" />
     <Compile Include="NewComponents\BuffExtraEffectsRequirements.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />

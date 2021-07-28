@@ -254,7 +254,8 @@
             "MountedCombat": true,
             "SlashingGrace": true,
             "SpiritedCharge": true,
-            "VitalStrike": true
+            "VitalStrike": true,
+            "WeaponFinesse": true
         }
     },
     "MythicAbilities": {

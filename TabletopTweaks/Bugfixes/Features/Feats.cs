@@ -36,6 +36,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchMountedCombat();
                 PatchSlashingGrace();
                 PatchSpiritedCharge();
+                PatchWeaponFinesse();
             }
 
             static void PatchCraneWing() {
@@ -145,6 +146,17 @@ namespace TabletopTweaks.Bugfixes.Features {
                 SpiritedChargeBuff.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
                 Main.LogPatch("Patched", SpiritedCharge);
                 Main.LogPatch("Patched", SpiritedChargeBuff);
+            }
+            static void PatchWeaponFinesse() {
+                if (!ModSettings.Fixes.Feats.Enabled["WeaponFinesse"]) { return; }
+
+                var WeaponFinesse = Resources.GetBlueprint<BlueprintFeature>("90e54424d682d104ab36436bd527af09");
+
+                WeaponFinesse.ReplaceComponents<AttackStatReplacement>(Helpers.Create<AttackStatReplacementEnforced>(c => {
+                    c.ReplacementStat = StatType.Dexterity;
+                    c.SubCategory = WeaponSubCategory.Finessable;
+                }));
+                Main.LogPatch("Patched", WeaponFinesse);
             }
         }
     }
