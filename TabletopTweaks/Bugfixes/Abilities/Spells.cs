@@ -33,8 +33,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Initialized = true;
                 if (ModSettings.Fixes.Spells.DisableAll) { return; }
                 Main.LogHeader("Patching Spells");
-                PatchAngelicAspect();
-                PatchAngelicAspectGreater();
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
                 PatchCrusadersEdge();
@@ -45,51 +43,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchRemoveFear();
                 PatchShadowConjuration();
                 PatchWrachingRay();
-            }
-            static void PatchAngelicAspect() {
-                if (!ModSettings.Fixes.Spells.Enabled["AngelicAspect"]) { return; }
-                var AngelicAspectBuff = Resources.GetBlueprint<BlueprintBuff>("b33f44fecadb3ca48b438dacac6454c2");
-
-                var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Evil;
-                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
-                });
-                var BuffImmunityAlignment = Helpers.Create<BuffDescriptorImmunityAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Evil;
-                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
-                });
-                var FlyingSpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.Ground;
-                });
-                var FlyingBuffImmunity = Helpers.Create<BuffDescriptorImmunity>(c => {
-                    c.Descriptor = SpellDescriptor.Ground;
-                });
-                AngelicAspectBuff.AddComponents(SpellImmunityAlignment, BuffImmunityAlignment, FlyingSpellImmunity, FlyingBuffImmunity);
-                Main.LogPatch("Patched", AngelicAspectBuff);
-            }
-            static void PatchAngelicAspectGreater() {
-                if (!ModSettings.Fixes.Spells.Enabled["AngelicAspectGreater"]) { return; }
-                var AngelicAspectGreaterBuff = Resources.GetBlueprint<BlueprintBuff>("87fcda72043d20840b4cdc2adcc69c63");
-                var AuraOfAngelicAspectGreaterEffectBuff = Resources.GetBlueprint<BlueprintBuff>("6ab366720f4b8ed4f83ada36994d0890");
-
-                var FlyingSpellImmunity = Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.Ground;
-                });
-                var FlyingBuffImmunity = Helpers.Create<BuffDescriptorImmunity>(c => {
-                    c.Descriptor = SpellDescriptor.Ground;
-                });
-                AngelicAspectGreaterBuff.AddComponents(FlyingSpellImmunity, FlyingBuffImmunity);
-                Main.LogPatch("Patched", AngelicAspectGreaterBuff);
-                var SpellImmunityAlignment = Helpers.Create<SpellImmunityToSpellDescriptorAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Evil;
-                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
-                });
-                var BuffImmunityAlignment = Helpers.Create<BuffDescriptorImmunityAgainstAlignment>(c => {
-                    c.Alignment = AlignmentComponent.Evil;
-                    c.Descriptor = SpellDescriptor.Charm | SpellDescriptor.Compulsion;
-                });
-                AuraOfAngelicAspectGreaterEffectBuff.AddComponents(SpellImmunityAlignment, BuffImmunityAlignment);
-                Main.LogPatch("Patched", AuraOfAngelicAspectGreaterEffectBuff);
             }
             static void PatchBelieveInYourself() {
                 if (!ModSettings.Fixes.Spells.Enabled["BelieveInYourself"]) { return; }
