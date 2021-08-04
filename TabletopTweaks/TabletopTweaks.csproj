@@ -258,7 +258,6 @@
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Config\Fixes.cs" />
-    <Compile Include="Bugfixes\Units\DemonSubtypes.cs" />
     <Compile Include="Utilities\SpellTools.cs" />
   </ItemGroup>
   <ItemGroup>
