@@ -42,14 +42,7 @@
             "DisableAll": false,
             "Enabled": {}
         },
-        "Archetypes": {
-            "InstinctualWarriorArchetype": {
-                "DisableAll": false,
-                "Enabled": {
-                    "CunningElusion": true
-                }
-            }
-        }
+        "Archetypes": {}
     },
     "Bloodrager": {
         "DisableAll": false,

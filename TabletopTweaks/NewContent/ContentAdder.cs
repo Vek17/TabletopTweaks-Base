@@ -36,7 +36,6 @@ namespace TabletopTweaks.NewContent {
                 FighterAdvancedArmorTrainings.SteelHeadbutt.AddSteelHeadbutt();
 
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
-                Features.InstinctualWarriorACBonusUnlock.AddInstinctualWarriorACBonusUnlock();
                 Features.CavalierMounts.AddCavalierMountFeatureWolf();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.LongspearChargeBuff.AddLongspearChargeBuff();
