@@ -224,8 +224,6 @@
     "Spells": {
         "DisableAll": false,
         "Enabled": {
-            "AngelicAspect": true,
-            "AngelicAspectGreater": true,
             "BelieveInYourself": true,
             "BestowCurseGreater": true,
             "CrusadersEdge": true,
