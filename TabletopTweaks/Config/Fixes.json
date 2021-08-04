@@ -3,7 +3,6 @@
     "DisablePolymorphStacking": true,
     "DisableCannyDefenseStacking": true,
     "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
-    "FixDemonSubtypes": true,
     "FixMountedLongspearModifer": true,
     "FixShadowSpells": true,
     "Aeon": {
@@ -171,13 +170,6 @@
                 "DisableAll": false,
                 "Enabled": {
                     "SneakAttackProgression": true
-                }
-            },
-            "MasterOfAll": {
-                "DisableAll": false,
-                "Enabled": {
-                    "SkillFocus": true,
-                    "BardicKnowledge": true
                 }
             },
             "Rowdy": {

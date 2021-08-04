@@ -8,7 +8,6 @@ namespace TabletopTweaks.Config {
         public bool DisableCannyDefenseStacking = true;
         public bool DisableAfterCombatDeactivationOfUnlimitedAbilities = true;
         public bool DisableMonkACStacking = true;
-        public bool FixDemonSubtypes = true;
         public bool FixMountedLongspearModifer = true;
         public bool FixShadowSpells = true;
         public SettingGroup Aeon = new SettingGroup();
@@ -39,7 +38,6 @@ namespace TabletopTweaks.Config {
             DisableAfterCombatDeactivationOfUnlimitedAbilities = loadedSettings.DisableAfterCombatDeactivationOfUnlimitedAbilities;
             DisableMonkACStacking = loadedSettings.DisableMonkACStacking;
 
-            FixDemonSubtypes = loadedSettings.FixDemonSubtypes;
             FixMountedLongspearModifer = loadedSettings.FixMountedLongspearModifer;
             FixShadowSpells = loadedSettings.FixShadowSpells;
 
