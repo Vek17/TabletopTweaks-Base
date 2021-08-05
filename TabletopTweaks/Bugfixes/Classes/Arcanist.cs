@@ -68,7 +68,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         return i + 1;
                     }
                 }
-                Main.Error("CRITICAL CONFIRM PATCH: COULD NOT FIND TARGET");
+                Main.Error("ARCANIST SPELLBOOK ACTION BAR PATCH: COULD NOT FIND TARGET");
                 return -1;
             }
         }
