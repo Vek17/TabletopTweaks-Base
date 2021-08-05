@@ -37,7 +37,6 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchEverlastingJudgement();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
-                PatchSecondMystery();
                 PatchSecondSpirit();
             }
             static void PatchBloodlineAscendance() {
@@ -108,13 +107,6 @@ namespace TabletopTweaks.Bugfixes.Features {
                 };
                     c.Amount = 1;
                 }));
-            }
-            static void PatchSecondMystery() {
-                if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondMystery"]) { return; }
-                var SecondMystery = Resources.GetBlueprint<BlueprintFeatureSelection>("277b0164740b97945a3f8022bd572f48");
-                SecondMystery.m_Features = SecondMystery.m_AllFeatures;
-                SecondMystery.Group = FeatureGroup.None;
-                Main.LogPatch("Patched", SecondMystery);
             }
             static void PatchSecondSpirit() {
                 if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondSpirit"]) { return; }
