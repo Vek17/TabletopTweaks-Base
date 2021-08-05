@@ -30,7 +30,8 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "ConsumeSpells": true
+                "ConsumeSpells": true,
+                "PreparedSpellUI": true
             }
         },
         "Archetypes": {}

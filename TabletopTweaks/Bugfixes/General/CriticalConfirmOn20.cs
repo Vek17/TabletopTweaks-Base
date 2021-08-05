@@ -18,7 +18,7 @@ namespace TabletopTweaks.Bugfixes.General {
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
-                //LogIL(codes);
+                //Utilities.ILUtils.LogIL(codes);
                 codes.InsertRange(target, new CodeInstruction[] {
                     new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, get_CriticalConfirmationD20),
@@ -27,7 +27,7 @@ namespace TabletopTweaks.Bugfixes.General {
                     new CodeInstruction(OpCodes.Ceq),
                     new CodeInstruction(OpCodes.Or),
                 });
-                //LogIL(codes);
+                //Utilities.ILUtils.LogIL(codes);
                 return codes.AsEnumerable();
             }
             private static int FindInsertionTarget(List<CodeInstruction> codes) {
@@ -43,17 +43,6 @@ namespace TabletopTweaks.Bugfixes.General {
                 }
                 Main.Error("CRITICAL CONFIRM PATCH: COULD NOT FIND TARGET");
                 return -1;
-            }
-            private static void LogIL(List<CodeInstruction> codes) {
-                Main.LogDebug("");
-                for (int i = 0; i < codes.Count; i++) {
-                    object operand = codes[i].operand;
-                    if (operand is Label) {
-                        Main.LogDebug($"{i} - {codes[i].labels.Aggregate("", (s, label) => $"{s}[{label.GetHashCode()}]")} - {codes[i].opcode} - {operand.GetHashCode()}");
-                    } else {
-                        Main.LogDebug($"{i} - {codes[i].labels.Aggregate("", (s, label) => $"{s}[{label.GetHashCode()}]")} - {codes[i].opcode} - {codes[i].operand}");
-                    }
-                }
             }
         }
     }
