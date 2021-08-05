@@ -161,6 +161,7 @@
     <Compile Include="NewComponents\MountedCombatFixed.cs" />
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
+    <Compile Include="NewComponents\PrerequisiteAttributeRacialBonus.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\DestinedArcanaComponent.cs" />
