@@ -7,7 +7,6 @@ namespace TabletopTweaks.Config {
         public bool DisablePolymorphStacking = true;
         public bool DisableCannyDefenseStacking = true;
         public bool DisableAfterCombatDeactivationOfUnlimitedAbilities = true;
-        public bool DisableMonkACStacking = true;
         public bool FixMountedLongspearModifer = true;
         public bool FixShadowSpells = true;
         public SettingGroup Aeon = new SettingGroup();
@@ -36,7 +35,6 @@ namespace TabletopTweaks.Config {
             DisablePolymorphStacking = loadedSettings.DisablePolymorphStacking;
             DisableCannyDefenseStacking = loadedSettings.DisableCannyDefenseStacking;
             DisableAfterCombatDeactivationOfUnlimitedAbilities = loadedSettings.DisableAfterCombatDeactivationOfUnlimitedAbilities;
-            DisableMonkACStacking = loadedSettings.DisableMonkACStacking;
 
             FixMountedLongspearModifer = loadedSettings.FixMountedLongspearModifer;
             FixShadowSpells = loadedSettings.FixShadowSpells;
