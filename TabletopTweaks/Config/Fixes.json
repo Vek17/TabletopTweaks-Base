@@ -30,7 +30,6 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "ConsumeSpells": true,
                 "PreparedSpellUI": true
             }
         },

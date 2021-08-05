@@ -27,15 +27,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchBase() {
                 if (ModSettings.Fixes.Arcanist.Base.DisableAll) { return; }
-
-                PatchConsumeSpells();
-
-                void PatchConsumeSpells() {
-                    if (!ModSettings.Fixes.Arcanist.Base.Enabled["ConsumeSpells"]) { return; }
-                    var ArcanistConsumeSpellsResource = Resources.GetBlueprint<BlueprintAbilityResource>("d67ddd98ad019854d926f3d6a4e681c5");
-                    ArcanistConsumeSpellsResource.m_Min = 1;
-                    Main.LogPatch("Patched", ArcanistConsumeSpellsResource);
-                }
             }
         }
 
