@@ -11,9 +11,9 @@ namespace TabletopTweaks.Bugfixes.General {
     class CriticalConfirmOn20 {
         [HarmonyPatch(typeof(RuleAttackRoll), "OnTrigger", new Type[] { typeof(RulebookEventContext) })]
         static class ActivatableAbility_HandleUnitLeaveCombat_Patch {
-            static MethodInfo get_CriticalConfirmationRoll = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "CriticalConfirmationRoll");
-            static MethodInfo get_CriticalConfirmationD20 = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "CriticalConfirmationD20");
-            static MethodInfo RuleRollDice_op_Implicit = AccessTools.Method(typeof(RuleRollDice), "op_Implicit");
+            static readonly MethodInfo get_CriticalConfirmationRoll = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "CriticalConfirmationRoll");
+            static readonly MethodInfo get_CriticalConfirmationD20 = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "CriticalConfirmationD20");
+            static readonly MethodInfo RuleRollDice_op_Implicit = AccessTools.Method(typeof(RuleRollDice), "op_Implicit");
 
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
                 var codes = new List<CodeInstruction>(instructions);
