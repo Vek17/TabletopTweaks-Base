@@ -34,7 +34,6 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.MythicAbilities.DisableAll) { return; }
                 Main.LogHeader("Patching Mythic Abilities");
                 PatchBloodlineAscendance();
-                PatchEverlastingJudgement();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
             }
@@ -106,29 +105,6 @@ namespace TabletopTweaks.Bugfixes.Features {
                 };
                     c.Amount = 1;
                 }));
-            }
-            static void PatchEverlastingJudgement() {
-                if (!ModSettings.Fixes.MythicAbilities.Enabled["EverlastingJudgement"]) { return; }
-                var EverlastingJudgement = Resources.GetBlueprint<BlueprintFeature>("4a6dc772c9a7fe742a65820007107f03");
-                var JudgmentWatcherBuff = Resources.GetBlueprint<BlueprintBuff>("9b8bb2ce8f67e5b4fa634ed6a6671f7a");
-
-                var judgmentAddfacts = JudgmentWatcherBuff.GetComponent<AddFactContextActions>();
-                var condition = new Kingmaker.Designers.EventConditionActionSystem.Actions.Conditional() {
-                    Comment = "EverlastingJudgement",
-                    ConditionsChecker = new ConditionsChecker {
-                        Conditions = new Condition[] { new ContextConditionHasFact() {
-                                m_Fact = EverlastingJudgement.ToReference<BlueprintUnitFactReference>()
-                            }
-                        }
-                    },
-                    IfTrue = new ActionList(),
-                    IfFalse = judgmentAddfacts.Activated
-                };
-                judgmentAddfacts.Activated = new ActionList() {
-                    Actions = new GameAction[] { condition }
-                };
-
-                Main.LogPatch("Patched", JudgmentWatcherBuff);
             }
         }
         [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]
