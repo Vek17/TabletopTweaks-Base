@@ -247,8 +247,7 @@
             "EnduringSpells": true,
             "EverlastingJudgement": true,
             "SecondBloodline": true,
-            "SecondBloodragerBloodline": true,
-            "SecondSpirit": true
+            "SecondBloodragerBloodline": true
         }
     }
 }
