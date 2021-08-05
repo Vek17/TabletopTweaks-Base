@@ -1,9 +1,5 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
-using System.Collections.Generic;
-using System.Linq;
 using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Classes {

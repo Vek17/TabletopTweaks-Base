@@ -4,9 +4,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.MVVM._VM.ActionBar;
-using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Abilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,7 +38,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
         }
-        
+
         [HarmonyPatch(typeof(ActionBarVM), "CollectSpells", new Type[] { typeof(UnitEntityData) })]
         static class Arcanist_SpellbookActionBar_Patch {
             static FieldInfo BlueprintSpellbook_Spontaneous = AccessTools.Field(typeof(BlueprintSpellbook), "Spontaneous");
@@ -48,7 +46,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static FieldInfo Spellbook_BlueprintSpellbook = AccessTools.Field(typeof(Spellbook), "Blueprint");
             //Add an exception to the spontantous spell UI if the spellbook is arcanist
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if(ModSettings.Fixes.Arcanist.Base.DisableAll || !ModSettings.Fixes.Arcanist.Base.Enabled["PreparedSpellUI"]) { return instructions; }
+                if (ModSettings.Fixes.Arcanist.Base.DisableAll || !ModSettings.Fixes.Arcanist.Base.Enabled["PreparedSpellUI"]) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
                 //Utilities.ILUtils.LogIL(codes);

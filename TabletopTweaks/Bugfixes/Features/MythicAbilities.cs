@@ -7,15 +7,11 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.ElementsSystem;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -139,7 +135,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     || c.IsSuitableAbility(ability, data)
                         && (c?.Abilities?.Empty() ?? true)
                         && (c.Descriptor == SpellDescriptor.None | ability.SpellDescriptor.HasAnyFlag(c.Descriptor))
-                        && (c.School == SpellSchool.None 
+                        && (c.School == SpellSchool.None
                             || ability.School == c.School)
                         && c.MaxSpellLevel > 0
                         && data != null

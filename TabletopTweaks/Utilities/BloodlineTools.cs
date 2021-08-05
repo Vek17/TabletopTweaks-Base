@@ -158,7 +158,7 @@ namespace TabletopTweaks.Utilities {
             AddFactToApply(MixedBloodlineAbility, bloodline);
             AddFactToApply(MixedBloodlineAbility2, bloodline);
 
-            void AddFactToApply(BlueprintAbility ability, BlueprintUnitFact fact ) {
+            void AddFactToApply(BlueprintAbility ability, BlueprintUnitFact fact) {
                 var component = ability.GetComponent<AbilityApplyFact>();
                 component.m_Facts = component.m_Facts.AppendToArray(fact.ToReference<BlueprintUnitFactReference>());
             }
