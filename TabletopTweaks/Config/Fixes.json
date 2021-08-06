@@ -132,9 +132,7 @@
         "DisableAll": false,
         "Base": {
             "DisableAll": false,
-            "Enabled": {
-                "DivineMountSelection": true
-            }
+            "Enabled": {}
         },
         "Archetypes": {}
     },
