@@ -17,7 +17,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
             Resources.AddBlueprint(StreetSmarts);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["StreetSmarts"]) { return; }
-            FeatTools.AddToFeatList(StreetSmarts);
+            FeatTools.AddAsFeat(StreetSmarts);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
             Resources.AddBlueprint(Scholar);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["Scholar"]) { return; }
-            FeatTools.AddToFeatList(Scholar);
+            FeatTools.AddAsFeat(Scholar);
         }
     }
 }

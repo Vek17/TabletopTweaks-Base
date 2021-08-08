@@ -66,6 +66,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.SelfSufficent.AddSelfSufficent();
                 Feats.ShingleRunner.AddShingleRunner();
                 Feats.StreetSmarts.AddStreetSmarts();
+                Feats.GracefulAthlete.AddGracefulAthlete();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }

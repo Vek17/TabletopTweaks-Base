@@ -17,7 +17,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
             Resources.AddBlueprint(MagicalAptitude);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["MagicalAptitude"]) { return; }
-            FeatTools.AddToFeatList(MagicalAptitude);
+            FeatTools.AddAsFeat(MagicalAptitude);
         }
     }
 }

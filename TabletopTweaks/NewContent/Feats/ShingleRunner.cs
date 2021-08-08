@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
             Resources.AddBlueprint(ShingleRunner);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["ShingleRunner"]) { return; }
-            FeatTools.AddToFeatList(ShingleRunner);
+            FeatTools.AddAsFeat(ShingleRunner);
         }
     }
 }

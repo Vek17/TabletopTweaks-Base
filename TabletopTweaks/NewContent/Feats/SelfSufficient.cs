@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
             Resources.AddBlueprint(SelfSufficent);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["Self-Sufficent"]) { return; }
-            FeatTools.AddToFeatList(SelfSufficent);
+            FeatTools.AddAsFeat(SelfSufficent);
         }
     }
 }
