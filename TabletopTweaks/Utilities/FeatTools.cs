@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
@@ -12,7 +13,9 @@ namespace TabletopTweaks.Utilities {
     static class FeatTools {
         public static void AddToFeatList(BlueprintFeature feature) {
             var BasicFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
+            var ExtraFeatMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("e10c4f18a6c8b4342afe6954bde0587b");
             BasicFeatSelection.AddFeatures(feature);
+            ExtraFeatMythicFeat.AddFeatures(feature);
         }
         public static BlueprintFeature CreateSkillFeat(StatType skill1, StatType skill2, Action<BlueprintFeature> init = null) {
             var SkillFeat = Helpers.Create<BlueprintFeature>(bp => {
@@ -75,6 +78,9 @@ namespace TabletopTweaks.Utilities {
                     c.m_StepLevel = 3;
                     c.m_Min = 10;
                     c.m_Max = 20;
+                }));
+                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Skills;
                 }));
             });
             init?.Invoke(SkillFeat);
