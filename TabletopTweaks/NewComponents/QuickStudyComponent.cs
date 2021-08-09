@@ -4,7 +4,12 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UI;
+using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.Common;
+using Kingmaker.UI.MVVM._VM.ActionBar;
+using Kingmaker.UI.MVVM._VM.Tooltip.Templates;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -158,41 +163,102 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(AbilityData), "Name", MethodType.Getter)]
         static class AbilityData_Name_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref string __result) {
-                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
-                    __result = __result + " - " + __instance.m_ConvertedFrom.Name;
+                if (__instance.Blueprint.GetComponent<QuickStudyComponent>()) {
+                    __result = $"{__instance.Blueprint.Name} - {__instance.m_ConvertedFrom.m_ConvertedFrom.Name}";
                 }
             }
         }
-        [HarmonyPatch(typeof(AbilityData), "Icon", MethodType.Getter)]
-        static class AbilityData_Icon_QuickStudy_Patch {
-            static void Postfix(AbilityData __instance, ref Sprite __result) {
-                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
-                    __result = __instance.m_ConvertedFrom.Icon;
-                }
-            }
-        }
+        
         [HarmonyPatch(typeof(AbilityData), "IsAvailableInSpellbook", MethodType.Getter)]
         static class AbilityData_IsAvailableInSpellbook_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref bool __result) {
-                if (__instance.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
+                if (__instance.Blueprint.GetComponent<QuickStudyComponent>()) {
                     __result = true;
                 }
             }
         }
-        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationSprite")]
-        static class MechanicActionBarSlotSpontaneusConvertedSpell_GetDecorationSprite_QuickStudy_Patch {
-            static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Sprite __result) {
-                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
-                    __result = UIUtility.GetDecorationBorderByIndex(__instance.Spell.m_ConvertedFrom.DecorationBorderNumber);
+
+        [HarmonyPatch(typeof(ActionBarSpontaneousConvertedSlot), "Set", new Type[] { typeof(UnitEntityData), typeof(AbilityData) })]
+        static class ActionBarSpontaneousConvertedSlot_Set_QuickStudy_Patch {
+            static bool Prefix(ActionBarSpontaneousConvertedSlot __instance, UnitEntityData selected, AbilityData spell) {
+                Main.LogDebug("ActionBarSpontaneousConvertedSlot Trigger");
+                if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
+                    __instance.Selected = selected;
+                    if (selected == null) {
+                        return true;
+                    }
+                    __instance.MechanicSlot = new MechanicActionBarSlotQuickStudy {
+                        Spell = spell,
+                        Unit = selected
+                    };
+                    __instance.MechanicSlot.SetSlot(__instance);
+                    return false;
                 }
+                return true;
             }
         }
 
-        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationColor")]
-        static class MechanicActionBarSlotSpontaneusConvertedSpell_GetDecorationColor_QuickStudy_Patch {
-            static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Color __result) {
-                if (__instance.Spell.Blueprint == Resources.GetBlueprint<BlueprintAbility>(ModSettings.Blueprints.GetGUID("ArcanistExploitQuickStudyAbility"))) {
-                    __result = UIUtility.GetDecorationColorByIndex(__instance.Spell.m_ConvertedFrom.DecorationColorNumber);
+        [HarmonyPatch(typeof(ActionBarSlotVM), "OnShowConvertRequest")]
+        static class ActionBarSlotVM_OnShowConvertRequest_QuickStudy_Patch {
+            static bool Prefix(ActionBarSlotVM __instance) {
+                if (__instance.ConvertedVm.Value != null && !__instance.ConvertedVm.Value.IsDisposed) {
+                    __instance.CloseConvert();
+                    return false;
+                }
+                if (__instance.m_Conversion.Count == 0) {
+                    return false;
+                }
+                __instance.ConvertedVm.Value = new ActionBarConvertedVM(__instance.m_Conversion.Select(abilityData => {
+                    if (abilityData.Blueprint.GetComponent<QuickStudyComponent>()) {
+                        return new MechanicActionBarSlotQuickStudy {
+                            Spell = abilityData,
+                            Unit = __instance.MechanicActionBarSlot.Unit
+                        };
+                    } else {
+                        return new MechanicActionBarSlotSpontaneusConvertedSpell {
+                            Spell = abilityData,
+                            Unit = __instance.MechanicActionBarSlot.Unit
+                        };
+                    }
+
+                }).ToList(), new Action(__instance.CloseConvert));
+                return false;
+            }
+        }
+
+        class MechanicActionBarSlotQuickStudy : MechanicActionBarSlotSpontaneusConvertedSpell { 
+
+            public override string GetTitle() {
+                return $"{Spell.Name} - {Spell.m_ConvertedFrom.Name}";
+            }
+
+            public override TooltipBaseTemplate GetTooltipTemplate() {
+                return new TooltipTemplateQuickStudy(Spell);
+            }
+
+            public override Sprite GetIcon() {
+                return Spell.m_ConvertedFrom.Icon;
+            }
+
+            public override Sprite GetForeIcon() {
+                return null;
+            }
+
+            public override Sprite GetDecorationSprite() {
+                return UIUtility.GetDecorationBorderByIndex(Spell.m_ConvertedFrom.DecorationBorderNumber);
+            }
+
+            public override Color GetDecorationColor() {
+                return UIUtility.GetDecorationColorByIndex(Spell.m_ConvertedFrom.DecorationColorNumber);
+            }
+        }
+
+        class TooltipTemplateQuickStudy : TooltipTemplateAbility {
+
+            public TooltipTemplateQuickStudy(AbilityData abilityData) : base(abilityData) {
+                if (abilityData.ConvertedFrom?.MetamagicData != null) {
+                    var m_Metamagic = AccessTools.Field(typeof(TooltipTemplateQuickStudy), "m_Metamagic");
+                    m_Metamagic.SetValue(this, UIUtilityTexts.GetMetamagicList(abilityData.ConvertedFrom.MetamagicData.MetamagicMask));
                 }
             }
         }
