@@ -13,9 +13,9 @@ namespace TabletopTweaks.Bugfixes.Features {
     class Backgrounds {
         [HarmonyPatch(typeof(ModifiableValueSkill), "UpdateInternalModifiers")]
         static class Arcanist_SpellbookActionBar_Patch {
-            static readonly MethodInfo Modifier_AddModifier = AccessTools.Method(typeof(ModifiableValue), "AddModifier", new Type[] { 
-                typeof(int), 
-                typeof(EntityFact), 
+            static readonly MethodInfo Modifier_AddModifier = AccessTools.Method(typeof(ModifiableValue), "AddModifier", new Type[] {
+                typeof(int),
+                typeof(EntityFact),
                 typeof(ModifierDescriptor)
             });
             //Change bonus descriptor to Trait instead of Competence

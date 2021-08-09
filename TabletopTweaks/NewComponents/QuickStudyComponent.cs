@@ -5,7 +5,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.UI;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.ActionBar;
@@ -13,13 +12,11 @@ using Kingmaker.UI.MVVM._VM.Tooltip.Templates;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TabletopTweaks.Config;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
@@ -168,7 +165,7 @@ namespace TabletopTweaks.NewComponents {
                 }
             }
         }
-        
+
         [HarmonyPatch(typeof(AbilityData), "IsAvailableInSpellbook", MethodType.Getter)]
         static class AbilityData_IsAvailableInSpellbook_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref bool __result) {
@@ -226,7 +223,7 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
-        class MechanicActionBarSlotQuickStudy : MechanicActionBarSlotSpontaneusConvertedSpell { 
+        class MechanicActionBarSlotQuickStudy: MechanicActionBarSlotSpontaneusConvertedSpell {
 
             public override string GetTitle() {
                 return $"{Spell.Name} - {Spell.m_ConvertedFrom.Name}";
@@ -253,7 +250,7 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
-        class TooltipTemplateQuickStudy : TooltipTemplateAbility {
+        class TooltipTemplateQuickStudy: TooltipTemplateAbility {
 
             public TooltipTemplateQuickStudy(AbilityData abilityData) : base(abilityData) {
                 if (abilityData.ConvertedFrom?.MetamagicData != null) {
