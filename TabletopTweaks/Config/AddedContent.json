@@ -32,6 +32,7 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
+            "GracefulAthlete": true,
             "MagicalAptitude": true,
             "Scholar": true,
             "Self-Sufficent": true,

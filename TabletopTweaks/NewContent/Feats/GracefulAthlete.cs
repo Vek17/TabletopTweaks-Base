@@ -45,6 +45,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 }));
             });
             Resources.AddBlueprint(GracefulAthlete);
+            if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["GracefulAthlete"]) { return; }
             FeatTools.AddAsFeat(GracefulAthlete);
             FeatTools.AddAsRogueTalent(GracefulAthlete);
         }
