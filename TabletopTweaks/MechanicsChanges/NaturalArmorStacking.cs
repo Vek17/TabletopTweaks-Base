@@ -93,7 +93,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 void PatchSpellBuffs() {
                     BlueprintBuff LegendaryProportions = Resources.GetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
                     LegendaryProportions.GetComponents<AddContextStatBonus>()
-                        .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorEnhancement)
+                        .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorForm)
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Size);
                     Main.LogPatch("Patched", LegendaryProportions);
                 }
