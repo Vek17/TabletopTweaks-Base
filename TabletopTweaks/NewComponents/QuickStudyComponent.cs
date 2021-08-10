@@ -178,7 +178,6 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(ActionBarSpontaneousConvertedSlot), "Set", new Type[] { typeof(UnitEntityData), typeof(AbilityData) })]
         static class ActionBarSpontaneousConvertedSlot_Set_QuickStudy_Patch {
             static bool Prefix(ActionBarSpontaneousConvertedSlot __instance, UnitEntityData selected, AbilityData spell) {
-                Main.LogDebug("ActionBarSpontaneousConvertedSlot Trigger");
                 if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
                     __instance.Selected = selected;
                     if (selected == null) {
