@@ -14,7 +14,7 @@ namespace TabletopTweaks.NewComponents {
     [ComponentName("Replace attack stat")]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("a2f09aa00803458fb96caa907389a8e7")]
-    class AttackStatReplacementEnforced: UnitFactComponentDelegate,
+    class AttackStatReplacementEnforced : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateAttackBonusWithoutTarget>,
         IRulebookHandler<RuleCalculateAttackBonusWithoutTarget>, ISubscriber,
         IInitiatorRulebookSubscriber {

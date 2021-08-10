@@ -4,7 +4,7 @@ using Kingmaker.UnitLogic.Mechanics.Conditions;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("5e7a0461a88943ea862df008d52e2cff")]
-    public class ContextConditionHasFreeHand: ContextCondition {
+    public class ContextConditionHasFreeHand : ContextCondition {
         public override string GetConditionCaption() {
             return "Check if caster has a free hand";
         }

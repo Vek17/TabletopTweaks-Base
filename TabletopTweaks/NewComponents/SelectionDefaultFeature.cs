@@ -15,7 +15,7 @@ namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintFeatureSelection))]
     [TypeId("2476cd4ea3674fc58402daf57bf72562")]
-    class SelectionDefaultFeature: UnitFactComponentDelegate,
+    class SelectionDefaultFeature : UnitFactComponentDelegate,
         IGlobalSubscriber, ISubscriber,
         IUnitLevelUpHandler, IAreaLoadingStagesHandler, ICompanionChangeHandler, IUnitSpawnHandler {
 

@@ -21,7 +21,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("4515aeab69cc419ba926987dd2cce54f")]
-    class QuickStudyComponent: AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
+    class QuickStudyComponent : AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
 
         public AbilityParameter RequiredParameters {
             get {
@@ -222,7 +222,7 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
-        class MechanicActionBarSlotQuickStudy: MechanicActionBarSlotSpontaneusConvertedSpell {
+        class MechanicActionBarSlotQuickStudy : MechanicActionBarSlotSpontaneusConvertedSpell {
 
             public override string GetTitle() {
                 return $"{Spell.Name} - {Spell.m_ConvertedFrom.Name}";
@@ -249,7 +249,7 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
-        class TooltipTemplateQuickStudy: TooltipTemplateAbility {
+        class TooltipTemplateQuickStudy : TooltipTemplateAbility {
 
             public TooltipTemplateQuickStudy(AbilityData abilityData) : base(abilityData) {
                 if (abilityData.ConvertedFrom?.MetamagicData != null) {

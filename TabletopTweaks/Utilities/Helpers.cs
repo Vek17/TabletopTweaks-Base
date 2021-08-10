@@ -233,7 +233,7 @@ namespace TabletopTweaks.Utilities {
                     return false;
                 }
             }
-            private class ReferenceEqualityComparer: EqualityComparer<Object> {
+            private class ReferenceEqualityComparer : EqualityComparer<Object> {
                 public override bool Equals(object x, object y) {
                     return ReferenceEquals(x, y);
                 }

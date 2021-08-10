@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintFeature))]
     [AllowedOn(typeof(BlueprintBuff))]
     [TypeId("bbd018ab3de94718bbcdd0a737629873")]
-    class BuffExtraEffectsRequirements: UnitFactComponentDelegate<BuffExtraEffectsRequirements.BuffExtraEffectsData>, IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
+    class BuffExtraEffectsRequirements : UnitFactComponentDelegate<BuffExtraEffectsRequirements.BuffExtraEffectsData>, IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
 
         public override void OnActivate() {
             if (Owner.HasFact(CheckedBuff)) {

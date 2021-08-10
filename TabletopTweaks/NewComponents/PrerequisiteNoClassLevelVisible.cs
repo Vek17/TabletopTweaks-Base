@@ -10,7 +10,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("cb76145587814eabbbbaed3d2a9b5d99")]
-    public class PrerequisiteNoClassLevelVisible: Prerequisite {
+    public class PrerequisiteNoClassLevelVisible : Prerequisite {
         public BlueprintCharacterClass CharacterClass {
             get {
                 BlueprintCharacterClassReference characterClass = m_CharacterClass;

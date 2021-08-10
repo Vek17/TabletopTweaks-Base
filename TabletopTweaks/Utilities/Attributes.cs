@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 
 namespace TabletopTweaks.Utilities {
-    class PostPatchInitializeAttribute: Attribute {
+    class PostPatchInitializeAttribute : Attribute {
     }
 
     static class PostPatchInitializer {

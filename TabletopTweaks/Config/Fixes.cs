@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace TabletopTweaks.Config {
-    public class Fixes: IUpdatableSettings {
+    public class Fixes : IUpdatableSettings {
         public bool DisableNaturalArmorStacking = true;
         public bool DisablePolymorphStacking = true;
         public bool DisableCannyDefenseStacking = true;

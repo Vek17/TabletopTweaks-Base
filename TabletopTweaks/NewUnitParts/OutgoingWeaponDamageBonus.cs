@@ -4,7 +4,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 
 namespace TabletopTweaks.NewUnitParts {
-    class OutgoingWeaponDamageBonus: UnitPart {
+    class OutgoingWeaponDamageBonus : UnitPart {
 
         public void AddBonus(RuleCalculateDamage evt, BaseDamage additionalDamage) {
             if (this.evt != evt) {

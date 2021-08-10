@@ -10,7 +10,7 @@ using System;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("4cc6ea51fc1b40dd965e44aa645751ff")]
-    class NegateArmorCheckSkillPenalty: UnitFactComponentDelegate,
+    class NegateArmorCheckSkillPenalty : UnitFactComponentDelegate,
         IUnitActiveEquipmentSetHandler,
         IGlobalSubscriber,
         ISubscriber,

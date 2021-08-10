@@ -13,7 +13,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("f97c2c9ad47743b49972f7c8c026d416")]
-    class SuppressBuffsPersistant: UnitFactComponentDelegate {
+    class SuppressBuffsPersistant : UnitFactComponentDelegate {
 
         public ReferenceArrayProxy<BlueprintBuff, BlueprintBuffReference> Buffs {
             get {

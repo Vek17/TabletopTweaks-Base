@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("49c9258f5eff4224bcf52ba3772b7d0c")]
-    class ApplyArmorEnchantsToWeapon: UnitFactComponentDelegate, IUnitActiveEquipmentSetHandler,
+    class ApplyArmorEnchantsToWeapon : UnitFactComponentDelegate, IUnitActiveEquipmentSetHandler,
         IGlobalSubscriber,
         ISubscriber,
         IUnitEquipmentHandler,

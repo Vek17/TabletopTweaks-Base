@@ -8,7 +8,7 @@ using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("95dfe16fb6c4457bafb5eb56c983b8b5")]
-    class SavingThrowBonusWhileUnaware: UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
+    class SavingThrowBonusWhileUnaware : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public void OnEventAboutToTrigger(RuleSavingThrow evt) {
             UnitEntityData target = evt.GetRuleTarget();

@@ -14,7 +14,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewActions {
 
-    public class EnhanceArmor: ContextAction {
+    public class EnhanceArmor : ContextAction {
 
         public ReferenceArrayProxy<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> Enchantment {
             get {

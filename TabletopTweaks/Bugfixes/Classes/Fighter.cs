@@ -156,7 +156,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
         }
 
-        private enum AdditionalWeaponFighterGroups: int {
+        private enum AdditionalWeaponFighterGroups : int {
             TwoHanded = 1717
         }
         [HarmonyPatch(typeof(UnitPartWeaponTraining), "GetWeaponRank", new Type[] { typeof(ItemEntityWeapon) })]

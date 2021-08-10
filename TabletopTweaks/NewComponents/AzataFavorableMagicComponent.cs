@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("e3b2dcf430cb449684c76fd854e732ea")]
-    class AzataFavorableMagicComponent: UnitFactComponentDelegate,
+    class AzataFavorableMagicComponent : UnitFactComponentDelegate,
         IWasRoll,
         IGlobalSubscriber,
         ISubscriber {

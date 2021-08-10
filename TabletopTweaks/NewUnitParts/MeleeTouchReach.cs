@@ -10,7 +10,7 @@ using Kingmaker.Utility;
 using System;
 
 namespace TabletopTweaks.NewUnitParts {
-    class MeleeTouchReach: UnitPart {
+    class MeleeTouchReach : UnitPart {
         public int Reach = 0;
         public ModifiableValue TouchValue {
             get {

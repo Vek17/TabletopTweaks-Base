@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("f361784981e6444d84312f063c506e76")]
-    class IgnoreArmorCheckPenalty: UnitFactComponentDelegate,
+    class IgnoreArmorCheckPenalty : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateArmorCheckPenalty>,
         IRulebookHandler<RuleCalculateArmorCheckPenalty>,
         ISubscriber, IInitiatorRulebookSubscriber {

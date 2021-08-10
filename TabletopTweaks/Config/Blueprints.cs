@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 
 namespace TabletopTweaks.Config {
-    public class Blueprints: IUpdatableSettings {
+    public class Blueprints : IUpdatableSettings {
         [JsonProperty]
         private bool OverrideIds = false;
         [JsonProperty]

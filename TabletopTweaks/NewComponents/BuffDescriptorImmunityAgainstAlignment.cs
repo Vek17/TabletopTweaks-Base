@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("5b18fee676234c20afb6ee8321a7dd40")]
-    public class BuffDescriptorImmunityAgainstAlignment: UnitFactComponentDelegate,
+    public class BuffDescriptorImmunityAgainstAlignment : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCanApplyBuff>,
         IRulebookHandler<RuleCanApplyBuff>,
         ISubscriber,

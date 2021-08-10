@@ -12,12 +12,12 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.MechanicsChanges {
 
     public class AdditionalModifierDescriptors {
-        public enum NaturalArmor: int {
+        public enum NaturalArmor : int {
             Bonus = ModifierDescriptor.NaturalArmor,
             Size = 1717,
             Stackable = 1718
         }
-        public enum Dodge: int {
+        public enum Dodge : int {
             Strength = 2121,
             Dexterity = 2122,
             Constitution = 2123,
@@ -25,7 +25,7 @@ namespace TabletopTweaks.MechanicsChanges {
             Wisdom = 2125,
             Charisma = 2126
         }
-        public enum Untyped: int {
+        public enum Untyped : int {
             Strength = 3121,
             Dexterity = 3122,
             Constitution = 3123,

@@ -13,7 +13,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewActions {
 
-    public class EnhanceSheild: ContextAction {
+    public class EnhanceSheild : ContextAction {
 
         public ReferenceArrayProxy<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> Enchantment {
             get {

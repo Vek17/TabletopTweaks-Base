@@ -1,6 +1,6 @@
 ﻿
 namespace TabletopTweaks.Config {
-    public class AddedContent: IUpdatableSettings {
+    public class AddedContent : IUpdatableSettings {
         public SettingGroup Archetypes = new SettingGroup();
         public SettingGroup BaseAbilities = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();

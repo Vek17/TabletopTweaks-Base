@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("080a6418d97c4bd48cd37851b9cfe89e")]
-    class DestinedArcanaComponent: UnitFactComponentDelegate,
+    class DestinedArcanaComponent : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCastSpell>,
         IRulebookHandler<RuleCastSpell>, ISubscriber,
         IInitiatorRulebookSubscriber {

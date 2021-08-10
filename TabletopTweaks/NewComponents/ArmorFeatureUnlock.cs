@@ -19,7 +19,7 @@ namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("708754fe955c4c83922dddf4e89c86a7")]
-    class ArmorFeatureUnlock: UnitFactComponentDelegate<ArmorFeatureUnlock.ArmorFeatureUnlockData>,
+    class ArmorFeatureUnlock : UnitFactComponentDelegate<ArmorFeatureUnlock.ArmorFeatureUnlockData>,
         IUnitActiveEquipmentSetHandler,
         IUnitLevelUpHandler,
         IGlobalSubscriber, ISubscriber,
