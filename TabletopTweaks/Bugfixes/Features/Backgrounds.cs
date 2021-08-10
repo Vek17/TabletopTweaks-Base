@@ -12,7 +12,7 @@ using TabletopTweaks.Config;
 namespace TabletopTweaks.Bugfixes.Features {
     class Backgrounds {
         [HarmonyPatch(typeof(ModifiableValueSkill), "UpdateInternalModifiers")]
-        static class Arcanist_SpellbookActionBar_Patch {
+        static class Backgrounds_Descriptor_Patch {
             static readonly MethodInfo Modifier_AddModifier = AccessTools.Method(typeof(ModifiableValue), "AddModifier", new Type[] {
                 typeof(int),
                 typeof(EntityFact),
