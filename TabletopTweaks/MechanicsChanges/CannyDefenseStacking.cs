@@ -20,7 +20,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 typeof(EntityFactComponent),
                 typeof(ModifierDescriptor)
             });
-            //Change bonus descriptor to Trait instead of Competence
+            //Change bonus descriptor to Dodge.Intelligence instead of Dodge
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
                 if (!ModSettings.Fixes.DisableCannyDefenseStacking) { return instructions; }
 
