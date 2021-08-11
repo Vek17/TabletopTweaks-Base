@@ -120,7 +120,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredConfidenceFeature");
                 bp.name = "ArmoredConfidence";
                 bp.SetName("Armored Confidence");
-                bp.SetDescription("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
+                bp.SetDescriptionTagged("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
                     "+1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter " +
                     "levels thereafter, to a maximum of +4 at 19th level.");
                 bp.IsClassFeature = true;

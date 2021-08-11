@@ -24,7 +24,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.Ranks = 1;
                 bp.name = "TrainedGrace";
                 bp.SetName("Trained Grace");
-                bp.SetDescription("When the fighter uses Weapon Finesse to make a melee attack with a weapon, using his Dexterity modifier on " +
+                bp.SetDescriptionTagged("When the fighter uses Weapon Finesse to make a melee attack with a weapon, using his Dexterity modifier on " +
                     "attack rolls and his Strength modifier on damage rolls, he doubles his weapon training bonus on damage rolls. The fighter " +
                     "must have Weapon Finesse in order to choose this option.");
                 bp.AddComponent(Helpers.Create<TrainedGraceComponent>(c => {

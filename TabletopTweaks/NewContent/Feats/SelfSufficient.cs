@@ -11,9 +11,9 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("Self-Sufficent");
                 bp.name = "Self-Sufficent";
                 bp.SetName("Self-Sufficent");
-                bp.SetDescription("You know how to get along in the wild and how to effectively treat wounds." +
-                    "\nYou get a +2 bonus on {g|Encyclopedia:Lore_Nature}Lore (Nature){/g} and " +
-                    "{g|Encyclopedia:Lore_Religion}Lore (Religion){/g} skill checks. If you have 10 or more ranks in one of these skills," +
+                bp.SetDescriptionTagged("You know how to get along in the wild and how to effectively treat wounds." +
+                    "\nYou get a +2 bonus on Lore (Nature) and " +
+                    "Lore (Religion) skill checks. If you have 10 or more ranks in one of these skills," +
                     " the bonus increases to +4 for that skill.");
             });
             Resources.AddBlueprint(SelfSufficent);

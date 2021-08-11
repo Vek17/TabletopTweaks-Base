@@ -26,7 +26,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.name = "GnomeHeritageDefaultFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome");
-                bp.SetDescription("Gnomes are physically weak but surprisingly hardy, and their attitude "
+                bp.SetDescriptionTagged("Gnomes are physically weak but surprisingly hardy, and their attitude "
                     + "makes them naturally agreeable. They gain +2 Constitution, +2 Charisma, and –2 Strength.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -89,7 +89,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.name = "GnomeHeritageArtisanFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome Artisan");
-                bp.SetDescription("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
+                bp.SetDescriptionTagged("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
                     + "all of their time and energy to their crafts. Such gnomes gain +2 Constitution, +2 Intelligence, "
                     + "and -2 Strength. This racial trait alters the gnomes’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -120,7 +120,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.name = "GnomeHeritageSelection";
                 bp.SetName("Gnome Heritage");
-                bp.SetDescription("The following alternate heritages may be selected for gnome {g|Encyclopedia:Race}race{/g}.");
+                bp.SetDescriptionTagged("The following alternate heritages may be selected for gnome {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;
                 bp.m_Features = new BlueprintFeatureReference[] {
                     GnomeHeritageClassicFeature.ToReference<BlueprintFeatureReference>(),

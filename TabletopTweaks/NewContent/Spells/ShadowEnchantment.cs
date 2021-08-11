@@ -22,7 +22,7 @@ namespace TabletopTweaks.NewContent.Spells {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("ShadowEnchantment");
                 bp.name = "ShadowEnchantment";
                 bp.SetName("Shadow Enchantment");
-                bp.SetDescription("You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level "
+                bp.SetDescriptionTagged("You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level "
                     + "or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment "
                     + "spell has a damaging effect, that effect is one-fifth as strong (if applicable) or only 20% likely to occur.\n"
                     + "If recognized as a shadow enchantment, a damaging spell deals only one - fifth(20 %) the normal amount of damage.\n"

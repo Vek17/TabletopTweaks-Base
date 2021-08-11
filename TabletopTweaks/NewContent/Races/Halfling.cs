@@ -26,7 +26,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.name = "HalflingHeritageDefaultFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling");
-                bp.SetDescription("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
+                bp.SetDescriptionTagged("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
                     + "races. They gain +2 Dexterity, +2 Charisma, and –2 Strength.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -89,7 +89,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.name = "HalflingHeritageBruiserFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Bruiser");
-                bp.SetDescription("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
+                bp.SetDescriptionTagged("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
                     + "streets, has made some halflings more adept at taking blows than dodging them. Halflings with this racial "
                     + "trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -120,7 +120,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.name = "HalflingHeritageSelection";
                 bp.SetName("Halfling Heritage");
-                bp.SetDescription("The following alternate heritages may be selected for halfling {g|Encyclopedia:Race}race{/g}.");
+                bp.SetDescriptionTagged("The following alternate heritages may be selected for halfling {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;
                 bp.m_Features = new BlueprintFeatureReference[] {
                     HalflingHeritageClassicFeature.ToReference<BlueprintFeatureReference>(),

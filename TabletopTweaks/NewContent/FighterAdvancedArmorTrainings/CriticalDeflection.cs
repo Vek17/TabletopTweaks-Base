@@ -46,7 +46,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("CriticalDeflectionFeature");
                 bp.name = "CriticalDeflection";
                 bp.SetName("Critical Deflection");
-                bp.SetDescription("While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to " +
+                bp.SetDescriptionTagged("While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to " +
                     "confirm a critical hit. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +6 at 19th level.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;

@@ -127,7 +127,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmoredJuggernautFeature");
                 bp.name = "ArmoredJuggernautFeature";
                 bp.SetName("Armored Juggernaut");
-                bp.SetDescription("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
+                bp.SetDescriptionTagged("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
                     "and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, " +
                     "and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-");
                 bp.IsClassFeature = true;

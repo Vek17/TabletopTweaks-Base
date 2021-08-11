@@ -21,8 +21,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.name = "AdvancedArmorTrainingSelection";
                 bp.Ranks = 3;
                 bp.SetName("Advanced Armor Training");
-                bp.SetDescription("Beginning at 7th level, instead of increasing the benefits provided by armor training " +
-                    "(reducing his armor’s check penalty by 1 and increasing its maximum Dexterity bonus by 1), a fighter can " +
+                bp.SetDescriptionTagged("Beginning at 7th level, instead of increasing the benefits provided by armor training " +
+                    "(reducing his armor check penalty by 1 and increasing its maximum Dexterity bonus by 1), a fighter can " +
                     "choose an advanced armor training option (see Advanced Armor Training below) . If the fighter does so, " +
                     "he still gains the ability to move at his normal speed while wearing medium armor at 3rd level, and while wearing heavy armor at 7th level.");
                 bp.m_AllFeatures = new BlueprintFeatureReference[0];

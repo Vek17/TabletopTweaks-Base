@@ -22,7 +22,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("GracefulAthlete");
                 bp.name = "GracefulAthlete";
                 bp.SetName("Graceful Athlete");
-                bp.SetDescription(" Add your Dexterity modifier instead of your Strength bonus to Athletics checks. This feat grants no benefit " +
+                bp.SetDescriptionTagged("Add your Dexterity modifier instead of your Strength bonus to Athletics checks. This feat grants no benefit " +
                     "to creatures that already add their Dexterity modifier to Athletics checks (such as all Tiny or smaller creatures).");
                 bp.AddComponent(Helpers.Create<ReplaceStatBaseAttribute>(c => {
                     c.TargetStat = StatType.SkillAthletics;

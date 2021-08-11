@@ -25,7 +25,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.name = "DwarfHeritageDefaultFeature";
                 bp.SetName("Dwarf");
-                bp.SetDescription("Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
+                bp.SetDescriptionTagged("Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -88,7 +88,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.name = "DwarfHeritageStoutheartFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Stoutheart Dwarf");
-                bp.SetDescription("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
+                bp.SetDescriptionTagged("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
                     + "their kin. Dwarves with this racial trait gain +2 Constitution, +2 Charisma, and -2 Intelligence. "
                     + "This racial trait alters the dwarves’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -119,7 +119,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.name = "DwarfHeritageSelection";
                 bp.SetName("Dwarf Heritage");
-                bp.SetDescription("The following alternate heritages may be selected for Dwarf {g|Encyclopedia:Race}race{/g}.");
+                bp.SetDescriptionTagged("The following alternate heritages may be selected for Dwarf {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;
                 bp.m_Features = new BlueprintFeatureReference[] {
                     DwarfHeritageClassicFeature.ToReference<BlueprintFeatureReference>(),

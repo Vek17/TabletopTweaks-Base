@@ -26,7 +26,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.name = "ElfHeritageDefaultFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Elf");
-                bp.SetDescription("Elves are nimble, both in body and mind, but their form is frail. They gain +2 Dexterity, +2 Intelligence, and –2 Constitution.");
+                bp.SetDescriptionTagged("Elves are nimble, both in body and mind, but their form is frail. They gain +2 Dexterity, +2 Intelligence, and –2 Constitution.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Intelligence;
@@ -88,7 +88,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.name = "ElfHeritageFieraniFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Fierani Elf");
-                bp.SetDescription("Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
+                bp.SetDescriptionTagged("Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
                     + "to nature than most of their kin. Elves with this racial trait gain +2 Dexterity, +2 Wisdom, and -2 Constitution. "
                     + "This racial trait alters the elves’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -119,7 +119,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.name = "ElfHeritageSelection";
                 bp.SetName("Elf Heritage");
-                bp.SetDescription("The following alternate heritages may be selected for Elf {g|Encyclopedia:Race}race{/g}.");
+                bp.SetDescriptionTagged("The following alternate heritages may be selected for Elf {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;
                 bp.m_Features = new BlueprintFeatureReference[] {
                     ElfHeritageClassicFeature.ToReference<BlueprintFeatureReference>(),

@@ -23,7 +23,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.name = "ImpossibleSpeedFeature";
                 bp.m_Icon = FastMovement.Icon;
                 bp.SetName("Impossible Speed");
-                bp.SetDescription("Your base land speed increases by 30 feet plus an additional 5 feet for every mythic rank.");
+                bp.SetDescriptionTagged("Your base land speed increases by 30 feet plus an additional 5 feet for every mythic rank.");
                 bp.AddComponent(Helpers.Create<BuffMovementSpeed>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Value = 30;

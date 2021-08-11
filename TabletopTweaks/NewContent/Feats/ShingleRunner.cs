@@ -10,10 +10,10 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("ShingleRunner");
                 bp.name = "ShingleRunner";
                 bp.SetName("Shingle Runner");
-                bp.SetDescription("Many of those who dwell among the rooftops become skillful at making bounding " +
+                bp.SetDescriptionTagged("Many of those who dwell among the rooftops become skillful at making bounding " +
                     "leaps and clambering up steep surfaces, and learn how to land more safely when they fall." +
-                    "\nYou get a +2 bonus on {g|Encyclopedia:Athletics}Athletics{/g} and " +
-                    "{g|Encyclopedia:Mobility}Mobility{/g} skill checks. If you have 10 or more ranks in one of these skills," +
+                    "\nYou get a +2 bonus on Athletics and " +
+                    "Mobility skill checks. If you have 10 or more ranks in one of these skills," +
                     " the bonus increases to +4 for that skill.");
             });
             Resources.AddBlueprint(ShingleRunner);
