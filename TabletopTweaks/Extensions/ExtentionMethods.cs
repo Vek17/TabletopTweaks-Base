@@ -284,7 +284,8 @@ namespace TabletopTweaks.Extensions {
         }
 
         public static void SetDescription(this BlueprintUnitFact feature, String description) {
-            blueprintUnitFact_set_Description(feature) = Helpers.CreateString(feature.name + ".Description", description);
+            SetDescriptionTagged(feature, description);
+            //blueprintUnitFact_set_Description(feature) = Helpers.CreateString(feature.name + ".Description", description);
         }
 
         public static void SetDescription(this BlueprintUnitFact feature, LocalizedString description) {
