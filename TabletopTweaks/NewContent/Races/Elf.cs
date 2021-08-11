@@ -142,7 +142,7 @@ namespace TabletopTweaks.NewContent.Races {
             ElfRace.AddComponent(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = ElfHeritageDefaultFeature.ToReference<BlueprintFeatureReference>();
             }));
-            ElfRace.m_Features = ElfRace.m_Features.AppendToArray(ElfHeritageSelection.ToReference<BlueprintFeatureBaseReference>());
+            ElfRace.m_Features = new BlueprintFeatureBaseReference[] { ElfHeritageSelection.ToReference<BlueprintFeatureBaseReference>() }.AppendToArray(ElfRace.m_Features);
         }
     }
 }
