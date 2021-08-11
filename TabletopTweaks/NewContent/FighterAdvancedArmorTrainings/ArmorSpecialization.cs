@@ -69,7 +69,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.name = "ArmorSpecializationLightFeature";
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Light Armor Specialization");
-                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} graned by any light armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 3.");
+                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} granted by any light armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 3.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
@@ -111,7 +111,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.name = "ArmorSpecializationMediumFeature";
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Medium Armor Specialization");
-                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} graned by any medium armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 4.");
+                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} granted by any medium armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 4.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
@@ -153,7 +153,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.name = "ArmorSpecializationHeavyFeature";
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("Heavy Armor Specialization");
-                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} graned by any heavy armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 5.");
+                bp.SetDescription("The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} granted by any heavy armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 5.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {

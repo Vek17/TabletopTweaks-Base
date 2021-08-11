@@ -78,7 +78,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Race",
-                Keywords = { @"(?<!\w+)Race(?![^\s\.{]+)" }
+                Keywords = { @"(?<!\w+)Race(?![^\s\.]+)" }
             },
             new EncyclopediaEntry {
                 Entry = "Caster_Level",
@@ -89,7 +89,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "DC",
-                Keywords = { @"(?<!\w+)DC(?![^\s\.{]+)" }
+                Keywords = { @"(?<!\w+)DC(?![^\s\.]+)" }
             },
             new EncyclopediaEntry {
                 Entry = "Saving_Throw",
@@ -105,12 +105,12 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Bonus",
-                Keywords = { @"(?<!\w+)Bonus(?![^\s\.{]+)" }
+                Keywords = { @"(?<!\w+)Bonus(?![^\s\.]+)" }
             },
             
             new EncyclopediaEntry {
                 Entry = "Speed",
-                Keywords = { @"(?<!\w+)Speed(?![^\s\.{]+)" }
+                Keywords = { @"(?<!\w+)Speed(?![^\s\.]+)" }
             },
             new EncyclopediaEntry {
                 Entry = "Armor_Class",
@@ -125,11 +125,11 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Damage_Reduction",
-                Keywords = { @"(?<!\w+)DR(?![^\s\.{]+)" }
+                Keywords = { @"(?<!\w+)DR(?![^\s\.]+)" }
             },
             new EncyclopediaEntry {
                 Entry = "Penalty",
-                Keywords = { @"(?< !\w +)Penalty(?![^\s\.{] +)" }
+                Keywords = { @"(?<!\w+)Penalty(?![^\s\.]+)" }
             }
         };
 
