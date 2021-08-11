@@ -73,23 +73,23 @@ namespace TabletopTweaks.Utilities {
                 Entry = "Use_Magic_Device",
                 Keywords = { 
                     "Use Magic Device",
-                    @"(?<!\w+)UMD(?![^\s\.{]+)"
+                    "UMD"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Race",
-                Keywords = { @"(?<!\w+)Race(?![^\s\.]+)" }
+                Keywords = { "Race" }
             },
             new EncyclopediaEntry {
                 Entry = "Caster_Level",
                 Keywords = {
                     "Caster Level",
-                    @"(?<!\w+)CL(?![^\s\.]+)" 
+                    "CL" 
                 }
             },
             new EncyclopediaEntry {
                 Entry = "DC",
-                Keywords = { @"(?<!\w+)DC(?![^\s\.]+)" }
+                Keywords = { "DC" }
             },
             new EncyclopediaEntry {
                 Entry = "Saving_Throw",
@@ -105,18 +105,20 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Bonus",
-                Keywords = { @"(?<!\w+)Bonus(?![^\s\.]+)" }
+                Keywords = { 
+                    "Bonus",
+                    "Bonuses"
+                }
             },
-            
             new EncyclopediaEntry {
                 Entry = "Speed",
-                Keywords = { @"(?<!\w+)Speed(?![^\s\.]+)" }
+                Keywords = { "Speed" }
             },
             new EncyclopediaEntry {
                 Entry = "Armor_Class",
                 Keywords = { 
                     "Armor Class",
-                    @"(?<!\w+)AC(?![^\s\.]+)" 
+                    "AC" 
                 }
             },
             new EncyclopediaEntry {
@@ -125,12 +127,62 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Damage_Reduction",
-                Keywords = { @"(?<!\w+)DR(?![^\s\.]+)" }
+                Keywords = { "DR" }
+            },
+            new EncyclopediaEntry {
+                Entry = "Skills",
+                Keywords = {
+                    "Skill Check",
+                    "Skills Check",
+                    "Skill Checks"
+                }
+            },
+            new EncyclopediaEntry {
+                Entry = "Concentration_Checks",
+                Keywords = {
+                    "Concentration Check",
+                    "Concentration Checks"
+                }
+            },
+            new EncyclopediaEntry {
+                Entry = "Combat_Maneuvers",
+                Keywords = {
+                    "Combat Maneuvers",
+                    "Combat Maneuver"
+                }
+            },
+            new EncyclopediaEntry {
+                Entry = "CMB",
+                Keywords = { 
+                    "Combat Maneuver Bonus",
+                    "CMB" 
+                }
+            },
+            new EncyclopediaEntry {
+                Entry = "CMD",
+                Keywords = {
+                    "Combat Maneuver Defense",
+                    "CMD" 
+                }
+            },
+            new EncyclopediaEntry {
+                Entry = "BAB",
+                Keywords = { 
+                    "Base Attack Bonus",
+                    "BAB" 
+                }
             },
             new EncyclopediaEntry {
                 Entry = "Penalty",
-                Keywords = { @"(?<!\w+)Penalty(?![^\s\.]+)" }
-            }
+                Keywords = { "Penalty" }
+            },
+            new EncyclopediaEntry {
+                Entry = "Check",
+                Keywords = {
+                    "Check",
+                    "Checks"
+                }
+            },
         };
 
         public static string TagEncyclopediaEntries(string description) {
@@ -153,14 +205,21 @@ namespace TabletopTweaks.Utilities {
         }
 
         static private string ApplyTags(this string str, string from, EncyclopediaEntry entry) {
-            var matches = Regex.Matches(str, from, RegexOptions.IgnoreCase)
+            var pattern = from.EnforceSolo().ExcludeTagged();
+            var matches = Regex.Matches(str, pattern, RegexOptions.IgnoreCase)
                 .OfType<Match>()
                 .Select(m => m.Value)
                 .Distinct();
             foreach (string match in matches) {
-                str = str.Replace(match, entry.Tag(match));
+                str = Regex.Replace(str, pattern, entry.Tag(match), RegexOptions.IgnoreCase);
             }
             return str;
+        }
+        static private string ExcludeTagged(this string str) {
+            return $"{@"(?<!{g\|Encyclopedia:\w+}[^}]*)"}{str}{@"(?![^{]*{\/g})"}";
+        }
+        static private string EnforceSolo(this string str) {
+            return $"{@"(?<!\w+)"}{str}{@"(?![^\s\.,""']+)"}";
         }
     }
 }
