@@ -129,7 +129,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Penalty",
-                Keywords = { "Penalty" }
+                Keywords = { @"(?< !\w +)Penalty(?![^\s\.{] +)" }
             }
         };
 
