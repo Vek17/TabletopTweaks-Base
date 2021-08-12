@@ -41,6 +41,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
         private static readonly BlueprintFeature QuickenSpellFeat = Resources.GetBlueprint<BlueprintFeature>("ef7ece7bb5bb66a41b256976b27f424e");
         private static readonly BlueprintFeature ReachSpellFeat = Resources.GetBlueprint<BlueprintFeature>("46fad72f54a33dc4692d3b62eca7bb78");
         private static readonly BlueprintFeature SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
+        private static readonly BlueprintFeature BolsteredSpellFeat = Resources.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
 
         public static void AddMetamagicRager() {
             var MetaRageBaseAbility1 = CreateMetaRageLevel(1);
@@ -220,6 +221,14 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Selective as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
+            var MetaRageBolsteredBuff = CreateMetamagicBuff(BolsteredSpellFeat, level, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageBolsteredBuff{level}");
+                bp.name = $"MetaRageBolsteredBuff{level}";
+                bp.SetName("Meta-Rage (Bolstered)");
+                bp.SetDescription($"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Bolstered as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
 
             var MetaRageBuffs = new BlueprintUnitFactReference[] {
                 MetaRageEmpowerBuff.ToReference<BlueprintUnitFactReference>(),
@@ -229,6 +238,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 MetaRageQuickenBuff.ToReference<BlueprintUnitFactReference>(),
                 MetaRageReachBuff.ToReference<BlueprintUnitFactReference>(),
                 MetaRageSelectiveBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageBolsteredBuff.ToReference<BlueprintUnitFactReference>()
             };
 
             var MetaRageEmpowerAbility = CreateMetamagicAbility(MetaRageEmpowerBuff, 4, EmpowerSpellFeat, MetaRageBuffs, bp => {
@@ -273,6 +283,12 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.SetName("Meta-Rage (Selective)");
                 bp.SetDescription(MetaRageSelectiveBuff.Description);
             });
+            var MetaRageBolsteredAbility = CreateMetamagicAbility(MetaRageBolsteredBuff, 2, BolsteredSpellFeat, MetaRageBuffs, bp => {
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageBolsteredAbility{level}");
+                bp.name = $"MetaRageBolsteredAbility{level}";
+                bp.SetName("Meta-Rage (Bolstered)");
+                bp.SetDescription(MetaRageBolsteredBuff.Description);
+            });
 
             var MetaRageBaseAbility = Helpers.Create<BlueprintAbility>(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID($"MetaRageBaseAbility{level}");
@@ -299,6 +315,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         MetaRageQuickenAbility.ToReference<BlueprintAbilityReference>(),
                         MetaRageReachAbility.ToReference<BlueprintAbilityReference>(),
                         MetaRageSelectiveAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageBolsteredAbility.ToReference<BlueprintAbilityReference>()
                     };
                 }));
                 bp.AddComponent(Helpers.Create<AbilityShowIfCasterCanCastSpells>(c => {
@@ -313,6 +330,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             Resources.AddBlueprint(MetaRageQuickenBuff);
             Resources.AddBlueprint(MetaRageReachBuff);
             Resources.AddBlueprint(MetaRageSelectiveBuff);
+            Resources.AddBlueprint(MetaRageBolsteredBuff);
 
             Resources.AddBlueprint(MetaRageEmpowerAbility);
             Resources.AddBlueprint(MetaRageExtendAbility);
@@ -321,6 +339,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             Resources.AddBlueprint(MetaRageQuickenAbility);
             Resources.AddBlueprint(MetaRageReachAbility);
             Resources.AddBlueprint(MetaRageSelectiveAbility);
+            Resources.AddBlueprint(MetaRageBolsteredAbility);
 
             Resources.AddBlueprint(MetaRageBaseAbility);
 

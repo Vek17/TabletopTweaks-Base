@@ -7,269 +7,269 @@ namespace TabletopTweaks.Utilities {
         private static readonly EncyclopediaEntry[] EncyclopediaEntries = new EncyclopediaEntry[] {
             new EncyclopediaEntry {
                 Entry = "Strength",
-                Keywords = { "Strength" }
+                Patterns = { "Strength" }
             },
             new EncyclopediaEntry {
                 Entry = "Dexterity",
-                Keywords = { "Dexterity" }
+                Patterns = { "Dexterity" }
             },
             new EncyclopediaEntry {
                 Entry = "Constitution",
-                Keywords = { "Constitution" }
+                Patterns = { "Constitution" }
             },
             new EncyclopediaEntry {
                 Entry = "Intelligence",
-                Keywords = { "Intelligence" }
+                Patterns = { "Intelligence" }
             },
             new EncyclopediaEntry {
                 Entry = "Wisdom",
-                Keywords = { "Wisdom" }
+                Patterns = { "Wisdom" }
             },
             new EncyclopediaEntry {
                 Entry = "Charisma",
-                Keywords = { "Charisma" }
+                Patterns = { "Charisma" }
             },
             new EncyclopediaEntry {
                 Entry = "Ability_Scores",
-                Keywords = { "Ability Scores?" }
+                Patterns = { "Ability Scores?" }
             },
             new EncyclopediaEntry {
                 Entry = "Athletics",
-                Keywords = { "Athletics" }
+                Patterns = { "Athletics" }
             },
             new EncyclopediaEntry {
                 Entry = "Persuasion",
-                Keywords = { "Persuasion" }
+                Patterns = { "Persuasion" }
             },
             new EncyclopediaEntry {
                 Entry = "Knowledge_World",
-                Keywords = { @"Knowledge \(?World\)?" }
+                Patterns = { @"Knowledge \(?World\)?" }
             },
             new EncyclopediaEntry {
                 Entry = "Knowledge_Arcana",
-                Keywords = { @"Knowledge \(?Arcana\)?" }
+                Patterns = { @"Knowledge \(?Arcana\)?" }
             },
             new EncyclopediaEntry {
                 Entry = "Lore_Nature",
-                Keywords = { @"Lore \(?Nature\)?" }
+                Patterns = { @"Lore \(?Nature\)?" }
             },
             new EncyclopediaEntry {
                 Entry = "Lore_Religion",
-                Keywords = { @"Lore \(?Religion\)?" }
+                Patterns = { @"Lore \(?Religion\)?" }
             },
             new EncyclopediaEntry {
                 Entry = "Mobility",
-                Keywords = { "Mobility" }
+                Patterns = { "Mobility" }
             },
             new EncyclopediaEntry {
                 Entry = "Perception",
-                Keywords = { "Perception" }
+                Patterns = { "Perception" }
             },
             new EncyclopediaEntry {
                 Entry = "Stealth",
-                Keywords = { "Stealth" }
+                Patterns = { "Stealth" }
             },
             new EncyclopediaEntry {
                 Entry = "Trickery",
-                Keywords = { "Trickery" }
+                Patterns = { "Trickery" }
             },
             new EncyclopediaEntry {
                 Entry = "Use_Magic_Device",
-                Keywords = { 
+                Patterns = { 
                     "Use Magic Device",
                     "UMD"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Race",
-                Keywords = { "Race" }
+                Patterns = { "Race" }
             },
             new EncyclopediaEntry {
                 Entry = "Alignment",
-                Keywords = { "Alignment" }
+                Patterns = { "Alignment" }
             },
             new EncyclopediaEntry {
                 Entry = "Caster_Level",
-                Keywords = {
+                Patterns = {
                     "Caster Level",
                     "CL" 
                 }
             },
             new EncyclopediaEntry {
                 Entry = "DC",
-                Keywords = { "DC" }
+                Patterns = { "DC" }
             },
             new EncyclopediaEntry {
                 Entry = "Saving_Throw",
-                Keywords = { "Saving Throw" }
+                Patterns = { "Saving Throw" }
             },
             new EncyclopediaEntry {
                 Entry = "Spell_Resistance",
-                Keywords = { "Spell Resistance" }
+                Patterns = { "Spell Resistance" }
             },
             new EncyclopediaEntry {
                 Entry = "Spell_Fail_Chance",
-                Keywords = { "Arcane Spell Failure" }
+                Patterns = { "Arcane Spell Failure" }
             },
             new EncyclopediaEntry {
                 Entry = "Concentration_Checks",
-                Keywords = { "Concentration Checks?" }
+                Patterns = { "Concentration Checks?" }
             },
             new EncyclopediaEntry {
                 Entry = "Concealment",
-                Keywords = { "Concealment" }
+                Patterns = { "Concealment" }
             },
             new EncyclopediaEntry {
                 Entry = "Bonus",
-                Keywords = {"Bonus(es)?"}
+                Patterns = {"Bonus(es)?"}
             },
             new EncyclopediaEntry {
                 Entry = "Speed",
-                Keywords = { "Speed" }
+                Patterns = { "Speed" }
             },
             new EncyclopediaEntry {
                 Entry = "Flat_Footed_AC",
-                Keywords = { 
+                Patterns = { 
                     "Flat Footed AC",
                     "Flat Footed Armor Class"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Flat_Footed",
-                Keywords = { "Flat Footed" }
+                Patterns = { "Flat Footed" }
             },
             new EncyclopediaEntry {
                 Entry = "Armor_Class",
-                Keywords = { 
+                Patterns = { 
                     "Armor Class",
                     "AC" 
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Armor_Check_Penalty",
-                Keywords = { "Armor Check Penalty" }
+                Patterns = { "Armor Check Penalty" }
             },
             new EncyclopediaEntry {
                 Entry = "Damage_Reduction",
-                Keywords = { "DR" }
+                Patterns = { "DR" }
             },
             new EncyclopediaEntry {
                 Entry = "Free_Action",
-                Keywords = { "Free Action" }
+                Patterns = { "Free Action" }
             },
             new EncyclopediaEntry {
                 Entry = "Swift_Action",
-                Keywords = { "Swift Action" }
+                Patterns = { "Swift Action" }
             },
             new EncyclopediaEntry {
                 Entry = "Standard_Actions",
-                Keywords = { "Standard Action" }
+                Patterns = { "Standard Action" }
             },
             new EncyclopediaEntry {
                 Entry = "Full_Round_Action",
-                Keywords = { "Full Round Action" }
+                Patterns = { "Full Round Action" }
             },
             new EncyclopediaEntry {
                 Entry = "Skills",
-                Keywords = { "Skills? Checks?" }
+                Patterns = { "Skills? Checks?" }
             },
             new EncyclopediaEntry {
                 Entry = "Combat_Maneuvers",
-                Keywords = { "Combat Maneuvers?" }
+                Patterns = { "Combat Maneuvers?" }
             },
             new EncyclopediaEntry {
                 Entry = "CMB",
-                Keywords = { 
+                Patterns = { 
                     "Combat Maneuver Bonus",
                     "CMB" 
                 }
             },
             new EncyclopediaEntry {
                 Entry = "CMD",
-                Keywords = {
+                Patterns = {
                     "Combat Maneuver Defense",
                     "CMD" 
                 }
             },
             new EncyclopediaEntry {
                 Entry = "BAB",
-                Keywords = { 
+                Patterns = { 
                     "Base Attack Bonus",
                     "BAB" 
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Incorporeal_Touch_Attack",
-                Keywords = { "Incorporeal Touch Attacks?" }
+                Patterns = { "Incorporeal Touch Attacks?" }
             },
             new EncyclopediaEntry {
                 Entry = "TouchAttack",
-                Keywords = { "Touch Attacks?" }
+                Patterns = { "Touch Attacks?" }
             },
             new EncyclopediaEntry {
                 Entry = "NaturalAttack",
-                Keywords = { 
+                Patterns = { 
                     "Natural Attacks?",
                     "Natural Weapons?"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Attack_Of_Opportunity",
-                Keywords = {
+                Patterns = {
                     "Attacks? Of Opportunity",
                     "AoO"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Penalty",
-                Keywords = { "Penalty" }
+                Patterns = { "Penalty" }
             },
             new EncyclopediaEntry {
                 Entry = "Check",
-                Keywords = { "Checks?" }
+                Patterns = { "Checks?" }
             },
             new EncyclopediaEntry {
                 Entry = "Spells",
-                Keywords = { "Spells?" }
+                Patterns = { "Spells?" }
             },
             new EncyclopediaEntry {
                 Entry = "Attack",
-                Keywords = { "Attacks?" }
+                Patterns = { "Attacks?" }
             },
             new EncyclopediaEntry {
                 Entry = "Feat",
-                Keywords = { "Feats?" }
+                Patterns = { "Feats?" }
             },
             new EncyclopediaEntry {
                 Entry = "Charge",
-                Keywords = { "Charge" }
+                Patterns = { "Charge" }
             },
             new EncyclopediaEntry {
                 Entry = "Critical",
-                Keywords = { "Critical Hit" }
+                Patterns = { "Critical Hit" }
             },
             new EncyclopediaEntry {
                 Entry = "Fast_Healing",
-                Keywords = { "Fast Healing" }
+                Patterns = { "Fast Healing" }
             },
             new EncyclopediaEntry {
                 Entry = "Temporary_HP",
-                Keywords = { "Temporary HP" }
+                Patterns = { "Temporary HP" }
             },
             new EncyclopediaEntry {
                 Entry = "Flanking",
-                Keywords = { 
+                Patterns = { 
                     "Flanking",
                     "Flanked"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "Magic_School",
-                Keywords = { "School of Magic" }
+                Patterns = { "School of Magic" }
             },
             new EncyclopediaEntry {
                 Entry = "Damage_Type",
-                Keywords = { 
+                Patterns = { 
                     "Bludgeoning",
                     "Piercing",
                     "Slashing"
@@ -281,8 +281,8 @@ namespace TabletopTweaks.Utilities {
             var result = description;
             result = result.StripHTML();
             foreach (var entry in EncyclopediaEntries) {
-                foreach (var keyword in entry.Keywords) {
-                    result = result.ApplyTags(keyword, entry);
+                foreach (var pattern in entry.Patterns) {
+                    result = result.ApplyTags(pattern, entry);
                 }
             }
             return result;
@@ -290,7 +290,7 @@ namespace TabletopTweaks.Utilities {
 
         private class EncyclopediaEntry {
             public string Entry = "";
-            public List<string> Keywords = new List<string>();
+            public List<string> Patterns = new List<string>();
 
             public string Tag(string keyword) {
                 return $"{{g|Encyclopedia:{Entry}}}{keyword}{{/g}}";

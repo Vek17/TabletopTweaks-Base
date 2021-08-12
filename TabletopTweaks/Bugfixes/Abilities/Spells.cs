@@ -51,7 +51,10 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     Variant.FlattenAllActions()
                         .OfType<ContextActionApplyBuff>()
                         .ForEach(b => {
-                            b.Buff.GetComponent<ContextRankConfig>().m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                            var ContextRankConfig = b.Buff.GetComponent<ContextRankConfig>();
+                            ContextRankConfig.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                            ContextRankConfig.m_Progression = ContextRankProgression.DivStep;
+                            ContextRankConfig.m_StepLevel = 4;
                             Main.LogPatch("Patched", b.Buff);
                         });
                 }
