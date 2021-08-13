@@ -213,6 +213,8 @@
             "OdeToMiraculousMagic": true,
             "RemoveFear": true,
             "ShadowConjuration": true,
+            "ShadowEvocation": true,
+            "ShadowEvocationGreater": true,
             "WrackingRay": true
         }
     },

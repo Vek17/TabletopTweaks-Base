@@ -32,7 +32,12 @@ namespace TabletopTweaks.NewContent.Spells {
                     + "to mind-affecting effects automatically succeed at their Will saves against this spell.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
-                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken;
+                bp.AvailableMetamagic = Metamagic.Empower
+                    | Metamagic.Quicken
+                    | Metamagic.Heighten
+                    | Metamagic.Reach
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetEnemies = true;
                 bp.CanTargetFriends = true;
@@ -101,6 +106,12 @@ namespace TabletopTweaks.NewContent.Spells {
                     + "or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it’s only three-fifths (60%) as effective.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.AvailableMetamagic = Metamagic.Empower
+                    | Metamagic.Quicken
+                    | Metamagic.Heighten
+                    | Metamagic.Reach
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetEnemies = true;
                 bp.CanTargetFriends = true;

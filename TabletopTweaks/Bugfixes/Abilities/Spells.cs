@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -39,6 +40,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchOdeToMiraculousMagicBuff();
                 PatchRemoveFear();
                 PatchShadowConjuration();
+                PatchShadowEvocation();
+                PatchShadowEvocationGreater();
                 PatchWrachingRay();
             }
             static void PatchBelieveInYourself() {
@@ -219,6 +222,34 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var ShadowConjuration = Resources.GetBlueprint<BlueprintAbility>("caac251ca7601324bbe000372a0a1005");
                 ShadowConjuration.AddToSpellList(SpellTools.SpellList.WizardSpellList, 4);
                 Main.LogPatch("Patched", ShadowConjuration);
+            }
+            static void PatchShadowEvocation() {
+                if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocation"]) { return; }
+                var ShadowEvocation = Resources.GetBlueprint<BlueprintAbility>("237427308e48c3341b3d532b9d3a001f");
+                ShadowEvocation.AvailableMetamagic = Metamagic.Empower
+                    | Metamagic.Maximize
+                    | Metamagic.Quicken
+                    | Metamagic.Heighten
+                    | Metamagic.Reach
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent
+                    | Metamagic.Selective
+                    | Metamagic.Bolstered;
+                Main.LogPatch("Patched", ShadowEvocation);
+            }
+            static void PatchShadowEvocationGreater() {
+                if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocationGreater"]) { return; }
+                var ShadowEvocationGreater = Resources.GetBlueprint<BlueprintAbility>("3c4a2d4181482e84d9cd752ef8edc3b6");
+                ShadowEvocationGreater.AvailableMetamagic = Metamagic.Empower
+                    | Metamagic.Maximize
+                    | Metamagic.Quicken
+                    | Metamagic.Heighten
+                    | Metamagic.Reach
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent
+                    | Metamagic.Selective
+                    | Metamagic.Bolstered;
+                Main.LogPatch("Patched", ShadowEvocationGreater);
             }
             static void PatchWrachingRay() {
                 if (!ModSettings.Fixes.Spells.Enabled["WrackingRay"]) { return; }

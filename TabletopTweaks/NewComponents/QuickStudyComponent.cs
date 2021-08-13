@@ -160,8 +160,8 @@ namespace TabletopTweaks.NewComponents {
         [HarmonyPatch(typeof(AbilityData), "Name", MethodType.Getter)]
         static class AbilityData_Name_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref string __result) {
-                if (__instance.Blueprint.GetComponent<QuickStudyComponent>()) {
-                    __result = $"{__instance.Blueprint.Name} - {__instance.m_ConvertedFrom.m_ConvertedFrom.Name}";
+                if (__instance?.Blueprint?.GetComponent<QuickStudyComponent>() ?? false) {
+                    __result = $"{__instance.Blueprint.Name} - {__instance.m_ConvertedFrom.Name}";
                 }
             }
         }
