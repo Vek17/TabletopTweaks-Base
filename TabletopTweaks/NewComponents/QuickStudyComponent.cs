@@ -4,7 +4,9 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.QA;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.ActionBar;
@@ -13,10 +15,12 @@ using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.Utilities;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
@@ -53,6 +57,15 @@ namespace TabletopTweaks.NewComponents {
 
             SpellSlot notAvailableSpellSlot = GetNotAvailableSpellSlot(context.Ability.m_ConvertedFrom);
             notAvailableSpellSlot.Available = true;
+
+            using (context.GetDataScope(target)) {
+                try {
+                    ProvokeAoO.RunAction();
+                } catch (Exception ex) {
+                    ElementLogicException exception = (ex as ElementLogicException) ?? new ElementLogicException(ProvokeAoO, ex);
+                    PFLog.Actions.ExceptionWithReport(exception, null, Array.Empty<object>());
+                }
+            }
         }
 
         public bool IsAbilityRestrictionPassed(AbilityData ability) {
@@ -126,6 +139,9 @@ namespace TabletopTweaks.NewComponents {
 #pragma warning restore 0649
         public BlueprintCharacterClassReference[] CharacterClass;
         public BlueprintArchetypeReference[] Archetypes;
+        private ContextActionProvokeAttackOfOpportunity ProvokeAoO = Helpers.Create<ContextActionProvokeAttackOfOpportunity>(a => {
+            a.ApplyToCaster = true;
+        });
 
         [HarmonyPatch(typeof(AbilityData), "GetConversions")]
         static class AbilityData_GetConversions_QuickStudy_Patch {
@@ -162,6 +178,15 @@ namespace TabletopTweaks.NewComponents {
             static void Postfix(AbilityData __instance, ref string __result) {
                 if (__instance?.Blueprint?.GetComponent<QuickStudyComponent>() ?? false) {
                     __result = $"{__instance.Blueprint.Name} - {__instance.m_ConvertedFrom.Name}";
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(AbilityData), "Icon", MethodType.Getter)]
+        static class AbilityData_Icon_QuickStudy_Patch {
+            static void Postfix(AbilityData __instance, ref Sprite __result) {
+                if (__instance?.Blueprint?.GetComponent<QuickStudyComponent>() ?? false) {
+                    __result = __instance.m_ConvertedFrom.Icon;
                 }
             }
         }
