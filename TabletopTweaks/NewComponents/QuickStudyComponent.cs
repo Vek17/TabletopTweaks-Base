@@ -291,20 +291,7 @@ namespace TabletopTweaks.NewComponents {
                 AddQuickStudyDescription(list, type);
 
                 AddAbilityHeader(list);
-
-                AddTrainedCompanions(list, this.m_Companions);
-                AddMetamagic(list);
-                AddTarget(list);
-                AddCastingTime(list);
-                AddDuration(list);
-                AddSpellResistance(list);
-                AddSavingThrow(list);
-                AddDC(list);
-                AddSpellDescriptor(list);
-                AddMaterialComponent(list);
-                AddDamageInfo(list);
-
-                AddDescription(list, type);
+                list.AddRange(base.GetBody(type));
                 return list;
             }
             private void AddQuickStudyCastingTime(List<ITooltipBrick> bricks) {
