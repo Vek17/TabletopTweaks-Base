@@ -299,6 +299,9 @@
     <Content Include="Assets\Abilities\Icon_OneHandedToggle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Abilities\Icon_QuickStudy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Abilities\Icon_ShadowEnchantment.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

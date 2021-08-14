@@ -4,13 +4,16 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.QA;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.ActionBar;
+using Kingmaker.UI.MVVM._VM.Tooltip.Bricks;
 using Kingmaker.UI.MVVM._VM.Tooltip.Templates;
+using Kingmaker.UI.Tooltip;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -173,24 +176,6 @@ namespace TabletopTweaks.NewComponents {
                 __result = list;
             }
         }
-        [HarmonyPatch(typeof(AbilityData), "Name", MethodType.Getter)]
-        static class AbilityData_Name_QuickStudy_Patch {
-            static void Postfix(AbilityData __instance, ref string __result) {
-                if (__instance?.Blueprint?.GetComponent<QuickStudyComponent>() ?? false) {
-                    __result = $"{__instance.Blueprint.Name} - {__instance.m_ConvertedFrom.Name}";
-                }
-            }
-        }
-
-        [HarmonyPatch(typeof(AbilityData), "Icon", MethodType.Getter)]
-        static class AbilityData_Icon_QuickStudy_Patch {
-            static void Postfix(AbilityData __instance, ref Sprite __result) {
-                if (__instance?.Blueprint?.GetComponent<QuickStudyComponent>() ?? false) {
-                    __result = __instance.m_ConvertedFrom.Icon;
-                }
-            }
-        }
-
         [HarmonyPatch(typeof(AbilityData), "IsAvailableInSpellbook", MethodType.Getter)]
         static class AbilityData_IsAvailableInSpellbook_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref bool __result) {
@@ -277,11 +262,89 @@ namespace TabletopTweaks.NewComponents {
         class TooltipTemplateQuickStudy : TooltipTemplateAbility {
 
             public TooltipTemplateQuickStudy(AbilityData abilityData) : base(abilityData) {
-                if (abilityData.ConvertedFrom?.MetamagicData != null) {
-                    var m_Metamagic = AccessTools.Field(typeof(TooltipTemplateQuickStudy), "m_Metamagic");
-                    m_Metamagic.SetValue(this, UIUtilityTexts.GetMetamagicList(abilityData.ConvertedFrom.MetamagicData.MetamagicMask));
-                }
             }
+
+            public override void Prepare(TooltipTemplateType type) {
+                QuickStudyData = m_AbilityData;
+                var abilityDataField = AccessTools.Field(typeof(TooltipTemplateQuickStudy), "m_AbilityData");
+                var blueprintAbilityField = AccessTools.Field(typeof(TooltipTemplateQuickStudy), "BlueprintAbility");
+                abilityDataField.SetValue(this, m_AbilityData.ConvertedFrom);
+                blueprintAbilityField.SetValue(this, m_AbilityData.Blueprint);
+                base.Prepare(type);
+
+                QuickStudyShortDescription = QuickStudyData.ShortenedDescription;
+                QuickStudyDescription = QuickStudyData.Description;
+                QuickStudyIcon = QuickStudyData.Icon;
+                QuickStudyName = QuickStudyData.Name;
+                QuickStudyType = LocalizedTexts.Instance.AbilityTypes.GetText(QuickStudyData.Blueprint.Type);
+                QuickStudyActionTime = UIUtilityTexts.GetAbilityActionText(QuickStudyData.Blueprint, null);
+            }
+
+            public override IEnumerable<ITooltipBrick> GetHeader(TooltipTemplateType type) {
+                yield return AddQuickStudyAbilityHeader();
+                yield break;
+            }
+
+            public override IEnumerable<ITooltipBrick> GetBody(TooltipTemplateType type) {
+                List<ITooltipBrick> list = new List<ITooltipBrick>();
+                AddQuickStudyCastingTime(list);
+                AddQuickStudyDescription(list, type);
+
+                AddAbilityHeader(list);
+
+                AddTrainedCompanions(list, this.m_Companions);
+                AddMetamagic(list);
+                AddTarget(list);
+                AddCastingTime(list);
+                AddDuration(list);
+                AddSpellResistance(list);
+                AddSavingThrow(list);
+                AddDC(list);
+                AddSpellDescriptor(list);
+                AddMaterialComponent(list);
+                AddDamageInfo(list);
+                
+                AddDescription(list, type);
+                return list;
+            }
+            private void AddQuickStudyCastingTime(List<ITooltipBrick> bricks) {
+                if (string.IsNullOrEmpty(this.m_ActionTime)) {
+                    return;
+                }
+                string glossaryEntryName = UIUtility.GetGlossaryEntryName(TooltipElement.CastingTime.ToString());
+                bricks.Add(new TooltipBrickIconValueStat(glossaryEntryName, QuickStudyActionTime, UIRoot.Instance.UIIcons.TimeIcon, TooltipIconValueStatType.Inverted, null));
+                bricks.Add(new TooltipBrickSeparator(TooltipBrickElementType.Medium));
+            }
+            private void AddQuickStudyDescription(List<ITooltipBrick> bricks, TooltipTemplateType type) {
+                string text = string.Empty;
+                if (type != TooltipTemplateType.Tooltip) {
+                    if (type == TooltipTemplateType.Info) {
+                        text = QuickStudyDescription;
+                    }
+                } else {
+                    text = QuickStudyShortDescription;
+                }
+                if (string.IsNullOrEmpty(text)) {
+                    return;
+                }
+                bricks.Add(new TooltipBrickText(text, TooltipTextType.Paragraph));
+                bricks.Add(new TooltipBrickSeparator(TooltipBrickElementType.Medium));
+            }
+            private ITooltipBrick AddQuickStudyAbilityHeader() {
+                return new TooltipBrickEntityHeader(QuickStudyName, QuickStudyIcon, QuickStudyType, "", "");
+                //return new TooltipBrickEntityHeader(QuickStudyName, QuickStudyIcon, QuickStudyType, "", "");
+            }
+            private void AddAbilityHeader(List<ITooltipBrick> bricks) {
+                bricks.Add(new TooltipBrickEntityHeader(this.m_Name, this.m_Icon, this.m_Type, this.m_School, this.m_Level));
+            }
+
+            private AbilityData QuickStudyData;
+            private string QuickStudyName;
+            private Sprite QuickStudyIcon;
+            private string QuickStudyType;
+            private string QuickStudyActionTime;
+            private string QuickStudyShortDescription;
+            private string QuickStudyDescription;
         }
     }
 }
