@@ -303,7 +303,7 @@ namespace TabletopTweaks.NewComponents {
                 AddSpellDescriptor(list);
                 AddMaterialComponent(list);
                 AddDamageInfo(list);
-                
+
                 AddDescription(list, type);
                 return list;
             }
@@ -332,7 +332,6 @@ namespace TabletopTweaks.NewComponents {
             }
             private ITooltipBrick AddQuickStudyAbilityHeader() {
                 return new TooltipBrickEntityHeader(QuickStudyName, QuickStudyIcon, QuickStudyType, "", "");
-                //return new TooltipBrickEntityHeader(QuickStudyName, QuickStudyIcon, QuickStudyType, "", "");
             }
             private void AddAbilityHeader(List<ITooltipBrick> bricks) {
                 bricks.Add(new TooltipBrickEntityHeader(this.m_Name, this.m_Icon, this.m_Type, this.m_School, this.m_Level));

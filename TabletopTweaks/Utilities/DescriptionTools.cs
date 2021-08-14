@@ -75,7 +75,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Use_Magic_Device",
-                Patterns = { 
+                Patterns = {
                     "Use Magic Device",
                     "UMD"
                 }
@@ -92,7 +92,7 @@ namespace TabletopTweaks.Utilities {
                 Entry = "Caster_Level",
                 Patterns = {
                     "Caster Level",
-                    "CL" 
+                    "CL"
                 }
             },
             new EncyclopediaEntry {
@@ -129,7 +129,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Flat_Footed_AC",
-                Patterns = { 
+                Patterns = {
                     "Flat Footed AC",
                     "Flat Footed Armor Class"
                 }
@@ -140,9 +140,9 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Armor_Class",
-                Patterns = { 
+                Patterns = {
                     "Armor Class",
-                    "AC" 
+                    "AC"
                 }
             },
             new EncyclopediaEntry {
@@ -179,23 +179,23 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "CMB",
-                Patterns = { 
+                Patterns = {
                     "Combat Maneuver Bonus",
-                    "CMB" 
+                    "CMB"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "CMD",
                 Patterns = {
                     "Combat Maneuver Defense",
-                    "CMD" 
+                    "CMD"
                 }
             },
             new EncyclopediaEntry {
                 Entry = "BAB",
-                Patterns = { 
+                Patterns = {
                     "Base Attack Bonus",
-                    "BAB" 
+                    "BAB"
                 }
             },
             new EncyclopediaEntry {
@@ -208,7 +208,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "NaturalAttack",
-                Patterns = { 
+                Patterns = {
                     "Natural Attacks?",
                     "Natural Weapons?"
                 }
@@ -258,7 +258,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Flanking",
-                Patterns = { 
+                Patterns = {
                     "Flanking",
                     "Flanked"
                 }
@@ -269,7 +269,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Damage_Type",
-                Patterns = { 
+                Patterns = {
                     "Bludgeoning",
                     "Piercing",
                     "Slashing"
