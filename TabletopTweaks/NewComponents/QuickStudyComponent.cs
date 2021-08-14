@@ -321,7 +321,7 @@ namespace TabletopTweaks.NewComponents {
                 return new TooltipBrickEntityHeader(QuickStudyName, QuickStudyIcon, QuickStudyType, "", "");
             }
             private void AddAbilityHeader(List<ITooltipBrick> bricks) {
-                bricks.Add(new TooltipBrickEntityHeader(this.m_Name, this.m_Icon, this.m_Type, this.m_School, this.m_Level));
+                bricks.Add(base.AddAbilityHeader());
             }
 
             private AbilityData QuickStudyData;
