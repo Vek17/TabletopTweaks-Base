@@ -20,7 +20,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             });
             //Change bonus descriptor to Trait instead of Competence
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if (ModSettings.Fixes.Arcanist.Base.DisableAll || !ModSettings.Fixes.Arcanist.Base.Enabled["PreparedSpellUI"]) { return instructions; }
+                if (!ModSettings.Fixes.FixBackgroundModifiers) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
                 //Utilities.ILUtils.LogIL(codes);

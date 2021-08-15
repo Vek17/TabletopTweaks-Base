@@ -5,6 +5,7 @@
     "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
     "FixMountedLongspearModifer": true,
     "FixInherentSkillpoints": true,
+    "FixBackgroundModifiers": true,
     "FixShadowSpells": true,
     "Aeon": {
         "DisableAll": false,

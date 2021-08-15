@@ -9,6 +9,7 @@ namespace TabletopTweaks.Config {
         public bool DisableAfterCombatDeactivationOfUnlimitedAbilities = true;
         public bool FixMountedLongspearModifer = true;
         public bool FixInherentSkillpoints = true;
+        public bool FixBackgroundModifiers = true;
         public bool FixShadowSpells = true;
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
