@@ -4,6 +4,7 @@
     "DisableCannyDefenseStacking": true,
     "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
     "FixMountedLongspearModifer": true,
+    "FixInherentSkillpoints": true,
     "FixShadowSpells": true,
     "Aeon": {
         "DisableAll": false,
