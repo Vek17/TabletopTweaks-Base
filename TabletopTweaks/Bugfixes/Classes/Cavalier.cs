@@ -39,10 +39,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var CavalierMountSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("0605927df6e2fdd42af6ee2424eb89f2");
                     var AnimalCompanionEmptyCompanion = Resources.GetBlueprint<BlueprintFeature>("472091361cf118049a2b4339c4ea836a");
                     var AnimalCompanionFeatureHorse = Resources.GetBlueprint<BlueprintFeature>("9dc58b5901677c942854019d1dd98374");
+                    var AnimalCompanionFeatureHorse_PreorderBonus = Resources.GetBlueprint<BlueprintFeature>("bfeb9be0a3c9420b8b2beecc8171029c");
                     var CavalierMountFeatureWolf = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("CavalierMountFeatureWolf"));
 
-
-                    CavalierMountSelection.SetFeatures(AnimalCompanionEmptyCompanion, AnimalCompanionFeatureHorse, CavalierMountFeatureWolf);
+                    CavalierMountSelection.SetFeatures(
+                        AnimalCompanionEmptyCompanion, 
+                        AnimalCompanionFeatureHorse,
+                        AnimalCompanionFeatureHorse_PreorderBonus,
+                        CavalierMountFeatureWolf
+                    );
                     CavalierMountSelection.m_Features = CavalierMountSelection.m_AllFeatures;
                     Main.LogPatch("Patched", CavalierMountSelection);
                 }
