@@ -15,7 +15,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     || m.ModDescriptor == ModifierDescriptor.Inherent;
             };
 
-            static void  Postfix(ModifiableValueAttributeStat __instance, ref int __result) {
+            static void Postfix(ModifiableValueAttributeStat __instance, ref int __result) {
                 if (!ModSettings.Fixes.FixInherentSkillpoints) { return; }
                 __result = __instance.ApplyModifiersFiltered(__instance.CalculateBaseValue(__instance.BaseValue), FilterGrantsSkillpoints);
             }

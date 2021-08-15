@@ -226,7 +226,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void PatchShadowEvocation() {
                 if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocation"]) { return; }
                 var ShadowEvocation = Resources.GetBlueprint<BlueprintAbility>("237427308e48c3341b3d532b9d3a001f");
-                ShadowEvocation.AvailableMetamagic = Metamagic.Empower
+                ShadowEvocation.AvailableMetamagic |= Metamagic.Empower
                     | Metamagic.Maximize
                     | Metamagic.Quicken
                     | Metamagic.Heighten
@@ -240,7 +240,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void PatchShadowEvocationGreater() {
                 if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocationGreater"]) { return; }
                 var ShadowEvocationGreater = Resources.GetBlueprint<BlueprintAbility>("3c4a2d4181482e84d9cd752ef8edc3b6");
-                ShadowEvocationGreater.AvailableMetamagic = Metamagic.Empower
+                ShadowEvocationGreater.AvailableMetamagic |= Metamagic.Empower
                     | Metamagic.Maximize
                     | Metamagic.Quicken
                     | Metamagic.Heighten
