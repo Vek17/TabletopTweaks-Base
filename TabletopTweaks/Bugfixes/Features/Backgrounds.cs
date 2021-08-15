@@ -1,16 +1,49 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class Backgrounds {
+
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                if (!ModSettings.Fixes.FixBackgroundModifiers) { return; }
+                PatchBackgrounds();
+                Main.LogHeader("Patched Backgrounds");
+
+                void PatchBackgrounds() {
+                    var BackgroundsBaseSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("f926dabeee7f8a54db8f2010b323383c");
+                    BackgroundsBaseSelection.m_Features
+                        .Where(f => f.Get() is BlueprintFeatureSelection)
+                        .SelectMany(f => ((BlueprintFeatureSelection)f.Get()).m_Features)
+                        .Select(f => f.Get())
+                        .OfType<BlueprintFeature>()
+                        .ForEach(f => {
+                            if (!f.Description.Contains("competence bonus")) { return; }
+                            f.SetDescription(f.Description.Replace("competence bonus", "trait bonus"));
+                            Main.LogPatch("Patched", f);
+                        });
+                }
+            }
+        }
+
         [HarmonyPatch(typeof(ModifiableValueSkill), "UpdateInternalModifiers")]
         static class Backgrounds_Descriptor_Patch {
             static readonly MethodInfo Modifier_AddModifier = AccessTools.Method(typeof(ModifiableValue), "AddModifier", new Type[] {
