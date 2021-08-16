@@ -124,27 +124,5 @@ namespace TabletopTweaks.Bugfixes.Features {
                 return true;
             }
         }
-        [HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
-        static class AutoMetamagic_ShouldApplyTo_DomainZealot_Patch {
-            static bool Prefix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
-                if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["DomainZealot"]) { return true; }
-                BlueprintAbility parentAbility = data?.ConvertedFrom?.Blueprint ?? ability?.Parent ?? ability;
-
-                var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, data?.ConvertedFrom))
-                    || (c?.Abilities?.HasItem((BlueprintAbilityReference r) => r.Is(ability)) ?? false)
-                    || c.IsSuitableAbility(ability, data)
-                        && (c?.Abilities?.Empty() ?? true)
-                        && (c.Descriptor == SpellDescriptor.None | ability.SpellDescriptor.HasAnyFlag(c.Descriptor))
-                        && (c.School == SpellSchool.None
-                            || ability.School == c.School)
-                        && c.MaxSpellLevel > 0
-                        && data != null
-                        && data.SpellLevel <= c.MaxSpellLevel
-                        && (!c.CheckSpellbook || ability.IsInSpellList(c.Spellbook.SpellList));
-
-                __result = test;
-                return false;
-            }
-        }
     }
 }

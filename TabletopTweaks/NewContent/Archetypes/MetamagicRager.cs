@@ -9,6 +9,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
@@ -17,6 +18,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.Utility;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -491,6 +493,28 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         __result = 1;
                     }
                 }
+            }
+        }
+        [HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
+        static class AutoMetamagic_MetamagicRager_Patch {
+            static bool Prefix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
+                if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["MetamagicRager"]) { return true; }
+                BlueprintAbility parentAbility = data?.ConvertedFrom?.Blueprint ?? ability?.Parent ?? ability;
+
+                var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, data?.ConvertedFrom))
+                    || (c?.Abilities?.HasItem((BlueprintAbilityReference r) => r.Is(ability)) ?? false)
+                    || c.IsSuitableAbility(ability, data)
+                        && (c?.Abilities?.Empty() ?? true)
+                        && (c.Descriptor == SpellDescriptor.None | ability.SpellDescriptor.HasAnyFlag(c.Descriptor))
+                        && (c.School == SpellSchool.None
+                            || ability.School == c.School)
+                        && c.MaxSpellLevel > 0
+                        && data != null
+                        && data.SpellLevel <= c.MaxSpellLevel
+                        && (!c.CheckSpellbook || ability.IsInSpellList(c.Spellbook.SpellList));
+
+                __result = test;
+                return false;
             }
         }
     }
