@@ -486,7 +486,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
         [HarmonyPatch(typeof(MechanicActionBarSlotActivableAbility), "GetResource")]
         static class MechanicActionBarSlotActivableAbility_Limitless_Patch {
             static void Postfix(ref int __result, MechanicActionBarSlotActivableAbility __instance) {
-                //if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["DomainZealot"]) { return true; }
+                if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["MetamagicRager"]) { return; }
                 var resourceLogic = __instance.ActivatableAbility.Blueprint.GetComponent<ActivatableAbilityResourceLogic>();
                 if (resourceLogic != null && __result == 0) {
                     if (__instance.ActivatableAbility.Owner.HasFact(resourceLogic.FreeBlueprint)) {
