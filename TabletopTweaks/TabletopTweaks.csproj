@@ -138,6 +138,7 @@
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
+    <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Config\Blueprints.cs" />
     <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="Config\SettingGroup.cs" />
