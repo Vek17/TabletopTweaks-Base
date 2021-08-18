@@ -56,7 +56,7 @@ namespace TabletopTweaks.NewComponents {
         }
 
         private UnitEntityData GetNewTarget(AbilityData data, UnitEntityData baseTarget) {
-            List<UnitEntityData> list = EntityBoundsHelper.FindUnitsInRange(Owner.Position, m_FeetsRaiuds.Feet().Meters);
+            List<UnitEntityData> list = EntityBoundsHelper.FindUnitsInRange(Owner.Position, m_FeetsRadius.Feet().Meters);
             list.Remove(baseTarget);
             list.Remove(Owner);
             list.RemoveAll((UnitEntityData x) => x.Faction != baseTarget.Faction || !data.CanTarget(x));
@@ -67,7 +67,7 @@ namespace TabletopTweaks.NewComponents {
         }
 
         [SerializeField]
-        private int m_FeetsRaiuds = 30;
+        private int m_FeetsRadius = 30;
 
         private HashSet<RuleCastSpell> m_GeneratedRules = new HashSet<RuleCastSpell>();
     }

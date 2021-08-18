@@ -23,7 +23,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogHeader("Patching Azata");
                 PatchAzataPerformanceResource();
                 PatchFavorableMagic();
-                PatchZippyMagicFeature();
+                //PatchZippyMagicFeature();
             }
 
             static void PatchAzataPerformanceResource() {
