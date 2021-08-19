@@ -3,6 +3,7 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using System;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents {
@@ -17,7 +18,9 @@ namespace TabletopTweaks.NewComponents {
             if (evt.DamageBundle.First == null) { return; }
 
             var WeaponDamage = evt.DamageBundle.First;
-            BaseDamage additionalDamage = WeaponDamage.CreateTypeDescription().CreateDamage(
+            DamageTypeDescription description = GenerateTypeDescriptiron(WeaponDamage);
+
+            BaseDamage additionalDamage = description.CreateDamage(
                 dice: new DiceFormula(WeaponDamage.Dice.Rolls * BonusDamageMultiplier, WeaponDamage.Dice.Dice),
                 bonus: WeaponDamage.Bonus * BonusDamageMultiplier
             );
@@ -34,6 +37,36 @@ namespace TabletopTweaks.NewComponents {
             }
             Owner.Remove<OutgoingWeaponDamageBonus>();
 #endif
+        }
+
+        private static DamageTypeDescription GenerateTypeDescriptiron(BaseDamage WeaponDamage) {
+            DamageTypeDescription description = WeaponDamage.CreateTypeDescription();
+
+            switch (WeaponDamage.Type) {
+                case DamageType.Physical: {
+                    var physical = WeaponDamage as PhysicalDamage;
+                    description.Physical.Enhancement = physical.Enchantment;
+                    description.Physical.EnhancementTotal = physical.EnchantmentTotal;
+                    description.Physical.Form = physical.Form;
+                    description.Physical.Material = physical.MaterialsMask;
+                    return description;
+                }
+                case DamageType.Energy:
+                    var energy = WeaponDamage as EnergyDamage;
+                    description.Energy = energy.EnergyType;
+                    return description;
+                case DamageType.Force:
+                    var force = WeaponDamage as ForceDamage;
+                    return description;
+                case DamageType.Direct:
+                    var direct = WeaponDamage as DirectDamage;
+                    return description;
+                case DamageType.Untyped:
+                    var untyped = WeaponDamage as UntypedDamage;
+                    return description;
+                default:
+                    return description;
+            }
         }
 
         public int BonusDamageMultiplier = 1;

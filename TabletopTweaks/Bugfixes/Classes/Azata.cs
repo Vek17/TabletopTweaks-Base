@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogHeader("Patching Azata");
                 PatchAzataPerformanceResource();
                 PatchFavorableMagic();
-                //PatchZippyMagicFeature();
+                PatchZippyMagicFeature();
             }
 
             static void PatchAzataPerformanceResource() {
@@ -55,6 +56,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 var ZippyMagicFeature = Resources.GetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
                 var ZippyMagic = new NewComponents.AzataZippyMagicComponent();
 
+                ZippyMagicFeature.RemoveComponents<AddAbilityUseTrigger>();
                 ZippyMagicFeature.ReplaceComponents<DublicateSpellComponent>(ZippyMagic);
                 Main.LogPatch("Patched", ZippyMagicFeature);
                 PatchCureWoundsDamage();
