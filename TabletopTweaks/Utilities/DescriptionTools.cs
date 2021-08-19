@@ -304,7 +304,7 @@ namespace TabletopTweaks.Utilities {
                 .Select(m => m.Value)
                 .Distinct();
             foreach (string match in matches) {
-                str = Regex.Replace(str, pattern, entry.Tag(match), RegexOptions.IgnoreCase);
+                str = Regex.Replace(str, Regex.Escape(match).EnforceSolo(), entry.Tag(match), RegexOptions.IgnoreCase);
             }
             return str;
         }

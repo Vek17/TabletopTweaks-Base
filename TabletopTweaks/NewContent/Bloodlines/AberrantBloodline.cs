@@ -648,7 +648,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Bloodline Feat Selection");
                 bp.SetDescription("At 7th level, and every six levels thereafter, a sorcerer receives one bonus feat, chosen from a list specific to each bloodline. "
                     + "The sorcerer must meet the prerequisites for these bonus feats."
-                    + "\nBonus Feats: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+                    + "\nBonus Feats: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge (World)).");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
@@ -820,7 +820,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems "
                     + "from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\n"
                     + "Bonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, "
-                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge World).");
+                    + "Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge (World)).");
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
