@@ -42,13 +42,13 @@ namespace TabletopTweaks.MechanicsChanges {
                     int empowerExtraDamage = 0;
                     if (empowerBonus > 1) {
                         var empowerMultiplier = empowerBonus - 1;
-                        empowerExtraDamage = __instance.Roll(
-                            new DiceFormula((int)Math.Round(damage.Dice.Rolls * empowerMultiplier), damage.Dice.Dice),
+                        empowerExtraDamage = (int)Math.Round(__instance.Roll(
+                            new DiceFormula((damage.Dice.Rolls), damage.Dice.Dice),
                             criticalModifier,
                             __instance.UnitsCount,
                             DamageCalculationType.Normal
-                        );
-                        Main.LogDebug($"Empower Bonus {empowerMultiplier}: {damage.Dice.Rolls / 2}{damage.Dice.Dice} = {empowerExtraDamage}");
+                        ) * empowerMultiplier);
+                        Main.LogDebug($"Empower Bonus {empowerMultiplier}: {damage.Dice.Rolls}{damage.Dice.Dice}/{1/empowerMultiplier} = {empowerExtraDamage}");
                     }
                     num3 = ((num4 + empowerExtraDamage) + (damage.Bonus * __instance.UnitsCount) * empowerBonus * num2) * damage.TacticalCriticalModifier;
                 }

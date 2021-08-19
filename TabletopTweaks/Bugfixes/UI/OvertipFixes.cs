@@ -20,14 +20,14 @@ namespace TabletopTweaks.Bugfixes.UI {
 				//if (!ModSettings.Fixes.FixBackgroundModifiers) { return instructions; }
 				var codes = new List<CodeInstruction>(instructions);
 				int target = FindInsertionTarget(codes);
-				Utilities.ILUtils.LogIL(codes);
+				//Utilities.ILUtils.LogIL(codes);
 				codes.InsertRange(target + 4, new CodeInstruction[] {
 					codes[target].Clone(),
 					codes[target + 1].Clone(),
 					new CodeInstruction(OpCodes.Call, RuleSavingThrow_StatValue),
 					new CodeInstruction(OpCodes.Sub),
 				});
-				Utilities.ILUtils.LogIL(codes);
+				//Utilities.ILUtils.LogIL(codes);
 				return codes.AsEnumerable();
 			}
 			private static int FindInsertionTarget(List<CodeInstruction> codes) {

@@ -1,10 +1,12 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -25,20 +27,33 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (Initialized) return;
                 Initialized = true;
                 if (!ModSettings.Fixes.FixBackgroundModifiers) { return; }
+                Main.LogHeader("Patching Backgrounds");
                 PatchBackgrounds();
-                Main.LogHeader("Patched Backgrounds");
 
                 void PatchBackgrounds() {
                     var BackgroundsBaseSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("f926dabeee7f8a54db8f2010b323383c");
-                    BackgroundsBaseSelection.m_Features
+                    BackgroundsBaseSelection.m_AllFeatures
                         .Where(f => f.Get() is BlueprintFeatureSelection)
                         .SelectMany(f => ((BlueprintFeatureSelection)f.Get()).m_Features)
                         .Select(f => f.Get())
                         .OfType<BlueprintFeature>()
                         .ForEach(f => {
-                            if (!f.Description.Contains("competence bonus")) { return; }
-                            f.SetDescription(f.Description.Replace("competence bonus", "trait bonus"));
-                            Main.LogPatch("Patched", f);
+                            bool changed = false;
+                            string description = f.Description;
+                            f.GetComponents<AddBackgroundWeaponProficiency>()
+                                .ForEach(c => c.StackBonusType = ModifierDescriptor.Trait);
+                            if (f.Description.Contains("competence bonus")) {
+                                description = description.Replace("competence", "trait");
+                                changed = true;
+                            }
+                            if (f.Description.Contains("enhancement bonus")) {
+                                description = description.Replace("enhancement", "trait");
+                                changed = true;
+                            }
+                            if (changed) {
+                                f.SetDescription(description);
+                                Main.LogPatch("Patched", f); 
+                            }
                         });
                 }
             }
