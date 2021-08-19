@@ -38,14 +38,18 @@ namespace TabletopTweaks.MechanicsChanges {
                     } else {
                         num4 = __instance.Roll(damage.Dice, criticalModifier, __instance.UnitsCount, damage.CalculationType);
                     }
-                    var empowerOffset = (int)(1 / (empowerBonus > 1 ? empowerBonus - 1 : 0));
-                    var empowerExtraDamage = __instance.Roll(
-                        new DiceFormula(damage.Dice.Rolls / empowerOffset, damage.Dice.Dice),
-                        criticalModifier,
-                        __instance.UnitsCount,
-                        DamageCalculationType.Normal
-                    );
-                    //Main.LogDebug($"Empower Bonus {1f / (float)empowerOffset}: {damage.Dice.Rolls / 2}{damage.Dice.Dice}: {empowerExtraDamage}");
+                    //Custom Empower Logic
+                    int empowerExtraDamage = 0;
+                    if (empowerBonus > 1) {
+                        var empowerMultiplier = empowerBonus - 1;
+                        empowerExtraDamage = __instance.Roll(
+                            new DiceFormula((int)Math.Round(damage.Dice.Rolls * empowerMultiplier), damage.Dice.Dice),
+                            criticalModifier,
+                            __instance.UnitsCount,
+                            DamageCalculationType.Normal
+                        );
+                        Main.LogDebug($"Empower Bonus {empowerMultiplier}: {damage.Dice.Rolls / 2}{damage.Dice.Dice} = {empowerExtraDamage}");
+                    }
                     num3 = ((num4 + empowerExtraDamage) + (damage.Bonus * __instance.UnitsCount) * empowerBonus * num2) * damage.TacticalCriticalModifier;
                 }
                 int rolledValue = (int)num3;
