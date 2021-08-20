@@ -67,6 +67,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ShingleRunner.AddShingleRunner();
                 Feats.StreetSmarts.AddStreetSmarts();
                 Feats.GracefulAthlete.AddGracefulAthlete();
+                Feats.DervishDance.AddDervishDance();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }

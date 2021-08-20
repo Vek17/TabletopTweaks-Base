@@ -32,6 +32,7 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
+            "DervishDance": true,
             "GracefulAthlete": true,
             "MagicalAptitude": true,
             "Scholar": true,

@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
@@ -11,6 +12,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -158,6 +160,21 @@ namespace TabletopTweaks.Extensions {
                 }
             }
             selection.m_AllFeatures = selection.m_AllFeatures.OrderBy(feature => feature.Get().Name).ToArray();
+        }
+
+        public static void AddPrerequisiteFeature(this BlueprintFeature obj, BlueprintFeature feature) {
+            obj.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                c.m_Feature = feature.ToReference<BlueprintFeatureReference>();
+            }));
+            feature.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>());
+        }
+
+        public static void AddPrerequisiteFeaturesFromList(this BlueprintScriptableObject obj, int amount, params BlueprintFeature[] features) {
+            obj.AddComponent(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
+                c.m_Features = features.Select(f => f.ToReference<BlueprintFeatureReference>()).ToArray();
+                c.Amount = amount;
+            }));
+            features.ForEach(f => f.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>()));
         }
 
         public static void InsertComponent(this BlueprintScriptableObject obj, int index, BlueprintComponent component) {

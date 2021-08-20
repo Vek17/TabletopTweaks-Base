@@ -21,8 +21,7 @@ namespace TabletopTweaks.NewComponents {
         ISubscriber,
         IInitiatorRulebookSubscriber {
         public override void OnTurnOn() {
-            FeatureParam param = base.Param;
-            WeaponCategory? category = (param != null) ? param.WeaponCategory : null;
+            WeaponCategory? category = base.Param?.WeaponCategory ?? Category;
             base.Owner.Ensure<UnitPartDamageGrace>().AddEntry(category, base.Fact);
         }
 
@@ -42,7 +41,7 @@ namespace TabletopTweaks.NewComponents {
                 ModifiableValueAttributeStat dexterity = evt.Initiator.Descriptor.Stats.Dexterity;
                 ModifiableValueAttributeStat modifiableValueAttributeStat = (evt.DamageBonusStat != null) ? (base.Owner.Descriptor.Stats.GetStat(evt.DamageBonusStat.Value) as ModifiableValueAttributeStat) : null;
                 if (dexterity != null && (modifiableValueAttributeStat == null || dexterity.Bonus > modifiableValueAttributeStat.Bonus)
-                    && evt.Weapon.Blueprint.Type.Category == base.Param) {
+                    && evt.Weapon.Blueprint.Type.Category == (base.Param?.WeaponCategory ?? Category)) {
                     evt.OverrideDamageBonusStat(StatType.Dexterity);
                 }
                 return;
@@ -51,6 +50,6 @@ namespace TabletopTweaks.NewComponents {
 
         public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
         }
-
+        public WeaponCategory? Category;
     }
 }
