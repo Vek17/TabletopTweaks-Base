@@ -6,9 +6,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Feats {
     static class StreetSmarts {
         public static void AddStreetSmarts() {
-            var StreetSmarts = FeatTools.CreateSkillFeat(StatType.SkillKnowledgeWorld, StatType.SkillPerception, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("StreetSmarts");
-                bp.name = "StreetSmarts";
+            var StreetSmarts = FeatTools.CreateSkillFeat("StreetSmarts", StatType.SkillKnowledgeWorld, StatType.SkillPerception, bp => {
                 bp.SetName("Street Smarts");
                 bp.SetDescriptionTagged("You are able to navigate the streets and personalities of whatever locale you run across." +
                     "\nYou get a +2 bonus on Knowledge (World) and " +

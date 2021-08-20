@@ -37,8 +37,8 @@ namespace TabletopTweaks.Utilities {
             };
             TalentSelections.ForEach(selection => selection.AddFeatures(feature));
         }
-        public static BlueprintFeature CreateSkillFeat(StatType skill1, StatType skill2, Action<BlueprintFeature> init = null) {
-            var SkillFeat = Helpers.Create<BlueprintFeature>(bp => {
+        public static BlueprintFeature CreateSkillFeat(string name, StatType skill1, StatType skill2, Action<BlueprintFeature> init = null) {
+            var SkillFeat = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;

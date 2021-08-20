@@ -6,17 +6,14 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Bloodlines {
     static class BloodlineRequisiteFeature {
         public static void AddBloodlineRequisiteFeature() {
-            var BloodlineRequisiteFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodlineRequisiteFeature");
+            var BloodlineRequisiteFeature = Helpers.CreateBlueprint<BlueprintFeature>("BloodlineRequisiteFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.name = "BloodlineRequisiteFeature";
                 bp.SetName("Bloodline");
                 bp.SetDescription("Bloodline Requisite Feature");
             });
-            Resources.AddBlueprint(BloodlineRequisiteFeature);
         }
     }
 }

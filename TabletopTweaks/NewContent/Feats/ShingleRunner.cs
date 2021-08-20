@@ -6,9 +6,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Feats {
     static class ShingleRunner {
         public static void AddShingleRunner() {
-            var ShingleRunner = FeatTools.CreateSkillFeat(StatType.SkillAthletics, StatType.SkillMobility, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ShingleRunner");
-                bp.name = "ShingleRunner";
+            var ShingleRunner = FeatTools.CreateSkillFeat("ShingleRunner", StatType.SkillAthletics, StatType.SkillMobility, bp => {
                 bp.SetName("Shingle Runner");
                 bp.SetDescriptionTagged("Many of those who dwell among the rooftops become skillful at making bounding " +
                     "leaps and clambering up steep surfaces, and learn how to land more safely when they fall." +

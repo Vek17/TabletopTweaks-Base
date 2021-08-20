@@ -14,9 +14,7 @@ namespace TabletopTweaks.NewContent.Features {
         public static void AddCavalierMobilityFeature() {
             var MountedBuff = Resources.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
 
-            var CavalierMobilityBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CavalierMobilityBuff");
-                bp.name = "CavalierMobilityBuff";
+            var CavalierMobilityBuff = Helpers.CreateBuff("CavalierMobilityBuff", bp => {
                 bp.SetName("Cavalier Mobility");
                 bp.SetDescription("A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -26,13 +24,11 @@ namespace TabletopTweaks.NewContent.Features {
                 }));
             });
 
-            var CavalierMobilityFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CavalierMobilityFeature");
-                bp.IsClassFeature = true;
-                bp.Ranks = 1;
-                bp.name = "CavalierMobility";
+            var CavalierMobilityFeature = Helpers.CreateBlueprint<BlueprintFeature>("CavalierMobility", bp => {
                 bp.SetName("Cavalier Mobility");
                 bp.SetDescription("A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<BuffExtraEffects>(c => {
                     c.m_CheckedBuff = MountedBuff.ToReference<BlueprintBuffReference>();
                     c.m_ExtraEffectBuff = CavalierMobilityBuff.ToReference<BlueprintBuffReference>();

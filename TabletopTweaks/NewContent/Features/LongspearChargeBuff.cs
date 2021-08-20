@@ -8,9 +8,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Features {
     class LongspearChargeBuff {
         public static void AddLongspearChargeBuff() {
-            var LongspearChargeBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("LongspearChargeBuff");
-                bp.name = "LongspearChargeBuff";
+            var LongspearChargeBuff = Helpers.CreateBuff("LongspearChargeBuff", bp => {
                 bp.SetName("Longspear Charge");
                 bp.SetDescription("");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;

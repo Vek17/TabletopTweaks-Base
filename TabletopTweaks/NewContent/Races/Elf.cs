@@ -17,13 +17,11 @@ namespace TabletopTweaks.NewContent.Races {
             var ElfRace = Resources.GetBlueprint<BlueprintRace>("25a5878d125338244896ebd3238226c8");
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
-            var ElfHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageDefaultFeature");
+            var ElfHeritageDefaultFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfHeritageDefaultFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.name = "ElfHeritageDefaultFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Elf");
                 bp.SetDescriptionTagged("Elves are nimble, both in body and mind, but their form is frail. They gain +2 Dexterity, +2 Intelligence, and –2 Constitution.");
@@ -51,11 +49,9 @@ namespace TabletopTweaks.NewContent.Races {
             var RemoveDefaultHeritage = Helpers.Create<RemoveFeatureOnApply>(c => {
                 c.m_Feature = ElfHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
-            var ElfHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageClassicFeature");
+            var ElfHeritageClassicFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfHeritageClassicFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "ElfHeritageClassicFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Elf");
                 bp.SetDescription(ElfHeritageDefaultFeature.Description);
@@ -81,11 +77,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var ElfHeritageFieraniFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageFieraniFeature");
+            var ElfHeritageFieraniFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfHeritageFieraniFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "ElfHeritageFieraniFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Fierani Elf");
                 bp.SetDescriptionTagged("Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
@@ -113,11 +107,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var ElfHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ElfHeritageSelection");
+            var ElfHeritageSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ElfHeritageSelection", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "ElfHeritageSelection";
                 bp.SetName("Elf Heritage");
                 bp.SetDescriptionTagged("The following alternate heritages may be selected for Elf {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;

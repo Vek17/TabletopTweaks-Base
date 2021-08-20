@@ -7,9 +7,7 @@ namespace TabletopTweaks.NewContent.Feats {
     static class SelfSufficent {
         public static void AddSelfSufficent() {
             // Icon: Spell Focus? Alertness?
-            var SelfSufficent = FeatTools.CreateSkillFeat(StatType.SkillLoreNature, StatType.SkillLoreReligion, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("Self-Sufficent");
-                bp.name = "Self-Sufficent";
+            var SelfSufficent = FeatTools.CreateSkillFeat("Self-Sufficent", StatType.SkillLoreNature, StatType.SkillLoreReligion, bp => {
                 bp.SetName("Self-Sufficent");
                 bp.SetDescriptionTagged("You know how to get along in the wild and how to effectively treat wounds." +
                     "\nYou get a +2 bonus on Lore (Nature) and " +

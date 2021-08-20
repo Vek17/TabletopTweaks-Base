@@ -30,15 +30,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
         static BlueprintFeatureReference DestinedBloodlineRequisiteFeature = CreateBloodlineRequisiteFeature();
 
         static BlueprintFeatureReference CreateBloodlineRequisiteFeature() {
-            var AberrantBloodlineRequisiteFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DestinedBloodlineRequisiteFeature");
+            var AberrantBloodlineRequisiteFeature = Helpers.CreateBlueprint<BlueprintFeature>("DestinedBloodlineRequisiteFeature", bp => {
+                bp.SetName("Destined Bloodline");
+                bp.SetDescription("Destined Bloodline Requisite Feature");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.name = "DestinedBloodlineRequisiteFeature";
-                bp.SetName("Destined Bloodline");
-                bp.SetDescription("Destined Bloodline Requisite Feature");
             });
             Resources.AddBlueprint(AberrantBloodlineRequisiteFeature);
             return AberrantBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
@@ -64,9 +62,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var LightningReflexes = Resources.GetBlueprint<BlueprintFeature>("15e7da6645a7f3d41bdad7c8c4b9de1e").ToReference<BlueprintFeatureReference>();
             var WeaponFocus = Resources.GetBlueprint<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e").ToReference<BlueprintFeatureReference>();
             //Bloodline Powers
-            var BloodragerDestinedStrikeResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedStrikeResource");
-                bp.name = "BloodragerDestinedStrikeResource";
+            var BloodragerDestinedStrikeResource = Helpers.CreateBlueprint<BlueprintAbilityResource>("BloodragerDestinedStrikeResource", bp => {
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
                     BaseValue = 3,
@@ -77,18 +73,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var BloodragerDestinedStrikeResourceIncrease = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedStrikeResourceIncrease");
-                bp.name = "BloodragerDestinedStrikeResourceIncrease";
+            var BloodragerDestinedStrikeResourceIncrease = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedStrikeResourceIncrease", bp => {
                 bp.HideInUI = true;
                 bp.AddComponent(Helpers.Create<IncreaseResourceAmount>(c => {
                     c.m_Resource = BloodragerDestinedStrikeResource.ToReference<BlueprintAbilityResourceReference>();
                     c.Value = 2;
                 }));
             });
-            var BloodragerDestinedStrikeBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedStrikeBuff");
-                bp.name = "BloodragerDestinedStrikeBuff";
+            var BloodragerDestinedStrikeBuff = Helpers.CreateBuff("BloodragerDestinedStrikeBuff", bp => {
                 bp.Stacking = StackingType.Rank;
                 bp.Ranks = 5;
                 bp.SetName("Destined Strike");
@@ -115,9 +107,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Class = new BlueprintCharacterClassReference[] { BloodragerClass };
                 }));
             });
-            var BloodragerDestinedStrikeAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedAbility");
-                bp.name = "BloodragerDestinedAbility";
+            var BloodragerDestinedStrikeAbility = Helpers.CreateBlueprint<BlueprintAbility>("BloodragerDestinedAbility", bp => {
                 bp.SetName("Destined Strike");
                 bp.SetDescription("At 1st level, as a free action up to three times per day you can grant yourself an insight bonus equal to 1/2 your "
                     + "bloodrager level (minimum 1) on one melee attack. At 12th level, you can use this ability up to five times per day.");
@@ -156,9 +146,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Actions.Actions = new GameAction[] { addInsightBonus };
                 }));
             });
-            var BloodragerDestinedStrike = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedStrike");
-                bp.name = "BloodragerDestinedStrike";
+            var BloodragerDestinedStrike = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedStrike", bp => {
                 bp.SetName(BloodragerDestinedStrikeAbility.Name);
                 bp.SetDescription(BloodragerDestinedStrikeAbility.Description);
                 bp.AddComponent(Helpers.Create<AddFacts>(c => {
@@ -174,17 +162,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = BloodragerDestinedStrikeAbility.Icon;
             });
-            var BloodragerDestinedFatedBloodrager = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedFatedBloodrager");
-                bp.name = "BloodragerDestinedFatedBloodrager";
+            var BloodragerDestinedFatedBloodrager = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedFatedBloodrager", bp => {
                 bp.SetName("Fated Bloodrager");
                 bp.SetDescription("At 4th level, you gain a +1 luck bonus to AC and on saving throws. At 8th level and every "
                     + "4 levels thereafter, this bonus increases by 1 (to a maximum of +5 at 20th level).");
                 bp.Ranks = 5;
             });
-            var BloodragerDestinedFatedBloodragerBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedFatedBloodragerBuff");
-                bp.name = "BloodragerDestinedFatedBloodragerBuff";
+            var BloodragerDestinedFatedBloodragerBuff = Helpers.CreateBuff("BloodragerDestinedFatedBloodragerBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedFatedBloodrager.Name);
                 bp.SetDescription(BloodragerDestinedFatedBloodrager.Description);
@@ -231,16 +215,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Progression = ContextRankProgression.AsIs;
                 }));
             });
-            var BloodragerDestinedCertainStrike = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedCertainStrike");
-                bp.name = "BloodragerDestinedCertainStrike";
+            var BloodragerDestinedCertainStrike = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedCertainStrike", bp => {
                 bp.SetName("Certain Strike");
                 bp.SetDescription("At 8th level, you may reroll an attack roll once during a bloodrage. You must decide to use this ability after "
                     + "the die is rolled, but before the GM reveals the results. You must take the second result, even if it’s worse.");
             });
-            var BloodragerDestinedCertainStrikeBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedCertainStrikeBuff");
-                bp.name = "BloodragerDestinedCertainStrikeBuff";
+            var BloodragerDestinedCertainStrikeBuff = Helpers.CreateBuff("BloodragerDestinedCertainStrikeBuff", bp => {
                 //bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.m_Icon = LuckDomain.Icon;
                 bp.SetName(BloodragerDestinedCertainStrike.Name);
@@ -257,9 +237,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Skill = new StatType[0];
                 }));
             });
-            var BloodragerDestinedDefyDeathResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedDefyDeathResource");
-                bp.name = "BloodragerDestinedDefyDeathResource";
+            var BloodragerDestinedDefyDeathResource = Helpers.CreateBlueprint<BlueprintAbilityResource>("BloodragerDestinedDefyDeathResource", bp => {
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
                     BaseValue = 1,
@@ -270,9 +248,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var BloodragerDestinedDefyDeath = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedDefyDeath");
-                bp.name = "BloodragerDestinedDefyDeath";
+            var BloodragerDestinedDefyDeath = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedDefyDeath", bp => {
                 bp.SetName("Defy Death");
                 bp.SetDescription("At 12th level, once per day when an attack or spell that deals damage would result in your death"
                     + ", you can attempt a DC 20 Fortitude save. If you succeed, you are instead reduced to 1 hit point; if you "
@@ -282,9 +258,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.RestoreAmount = true;
                 }));
             });
-            var BloodragerDestinedDefyDeathBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedDefyDeathBuff");
-                bp.name = "BloodragerDestinedDefyDeathBuff";
+            var BloodragerDestinedDefyDeathBuff = Helpers.CreateBuff("BloodragerDestinedDefyDeathBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedDefyDeath.Name);
                 bp.SetDescription(BloodragerDestinedDefyDeath.Description);
@@ -297,16 +271,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.SpendAmount = 1;
                 }));
             });
-            var BloodragerDestinedUnstoppable = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedUnstoppable");
-                bp.name = "BloodragerDestinedUnstoppable";
+            var BloodragerDestinedUnstoppable = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedUnstoppable", bp => {
                 bp.SetName("Unstoppable ");
                 bp.SetDescription("At 16th level, any critical threats you score are automatically confirmed. Any critical "
                     + "threats made against you confirm only if the second roll results in a natural 20 (or is automatically confirmed).");
             });
-            var BloodragerDestinedUnstoppableBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedUnstoppableBuff");
-                bp.name = "BloodragerDestinedUnstoppableBuff";
+            var BloodragerDestinedUnstoppableBuff = Helpers.CreateBuff("BloodragerDestinedUnstoppableBuff", bp => {
                 bp.SetName(BloodragerDestinedUnstoppable.Name);
                 bp.SetDescription(BloodragerDestinedUnstoppable.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -318,9 +288,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.AddComponent(Helpers.Create<InitiatorCritAutoconfirm>());
             });
-            var BloodragerDestinedVictoryOrDeath = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedVictoryOrDeath");
-                bp.name = "BloodragerDestinedVictoryOrDeath";
+            var BloodragerDestinedVictoryOrDeath = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedVictoryOrDeath", bp => {
                 bp.SetName("Victory or Death");
                 bp.SetDescription("At 20th level, you are immune to paralysis and petrification, as well as to the stunned, dazed, "
                     + "and staggered conditions. You have these benefits constantly, even while not bloodraging.");
@@ -370,9 +338,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(BloodragerDestinedUnstoppableBuff);
             Resources.AddBlueprint(BloodragerDestinedVictoryOrDeath);
             //Bloodline Feats
-            var BloodragerDestinedFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedFeatSelection");
-                bp.name = "BloodragerDestinedFeatSelection";
+            var BloodragerDestinedFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BloodragerDestinedFeatSelection", bp => {
                 bp.SetName("Bonus Feats");
                 bp.SetDescription("Bonus Feats: Diehard, Endurance, Improved Initiative, Intimidating Prowess, Sieze The Moment, Lightning Reflexes, Weapon Focus.");
                 bp.Ranks = 1;
@@ -391,9 +357,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 };
                 bp.m_AllFeatures = bp.m_Features;
             });
-            var BloodragerDestinedFeatSelectionGreenrager = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedFeatSelectionGreenrager");
-                bp.name = "BloodragerDestinedFeatSelectionGreenrager";
+            var BloodragerDestinedFeatSelectionGreenrager = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BloodragerDestinedFeatSelectionGreenrager", bp => {
                 bp.SetName(BloodragerDestinedFeatSelection.Name);
                 bp.SetDescription(BloodragerDestinedFeatSelection.Description);
                 bp.Ranks = 1;
@@ -409,13 +373,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Archetype = GreenragerArchetype;
                 }));
             });
-            Resources.AddBlueprint(BloodragerDestinedFeatSelection);
-            Resources.AddBlueprint(BloodragerDestinedFeatSelectionGreenrager);
             //Bloodline Spells
-            var BloodragerDestinedSpell7 = Helpers.Create<BlueprintFeature>(bp => {
+            var BloodragerDestinedSpell7 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell7", bp => {
                 var spell = MageShield;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedSpell7");
-                bp.name = "BloodragerDestinedSpell7";
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
@@ -424,10 +384,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.SpellLevel = 1;
                 }));
             });
-            var BloodragerDestinedSpell10 = Helpers.Create<BlueprintFeature>(bp => {
+            var BloodragerDestinedSpell10 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell10", bp => {
                 var spell = Blur;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedSpell10");
-                bp.name = "BloodragerDestinedSpell10";
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
@@ -436,10 +394,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.SpellLevel = 2;
                 }));
             });
-            var BloodragerDestinedSpell13 = Helpers.Create<BlueprintFeature>(bp => {
+            var BloodragerDestinedSpell13 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell13", bp => {
                 var spell = ProtectionFromEnergy;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedSpell13");
-                bp.name = "BloodragerDestinedSpell13";
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
@@ -448,10 +404,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.SpellLevel = 3;
                 }));
             });
-            var BloodragerDestinedSpell16 = Helpers.Create<BlueprintFeature>(bp => {
+            var BloodragerDestinedSpell16 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell16", bp => {
                 var spell = FreedomOfMovement;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedSpell16");
-                bp.name = "BloodragerDestinedSpell16";
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
@@ -465,9 +419,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(BloodragerDestinedSpell13);
             Resources.AddBlueprint(BloodragerDestinedSpell16);
             //Bloodline Core
-            var BloodragerDestinedBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedBloodline");
-                bp.name = "BloodragerDestinedBloodline";
+            var BloodragerDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("BloodragerDestinedBloodline", bp => {
                 bp.SetName("Destined");
                 bp.SetDescription("Your bloodline is destined for great things. When you bloodrage, you exude a greatness that makes all but the most legendary creatures seem lesser.\n"
                     + "Your future greatness grants you the might to strike your enemies with awe.\n"
@@ -507,9 +459,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
             });
-            var BloodragerDestinedBaseBuff = Helpers.CreateBuff(bp => {
-                bp.name = "BloodragerDestinedBaseBuff";
-                bp.SetName("Destined Bloodrage");
+            var BloodragerDestinedBaseBuff = Helpers.CreateBuff("BloodragerDestinedBaseBuff", bp => {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedBaseBuff");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
@@ -564,9 +514,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var WeaponFocus = Resources.GetBlueprint<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e").ToReference<BlueprintFeatureReference>();
             var SkillFocusKnowledgeWorld = Resources.GetBlueprint<BlueprintFeature>("611e863120c0f9a4cab2d099f1eb20b4").ToReference<BlueprintFeatureReference>();
             //Bloodline Powers
-            var SorcererDestinedClassSkill = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedClassSkill");
-                bp.name = "SorcererDestinedClassSkill";
+            var SorcererDestinedClassSkill = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedClassSkill", bp => {
                 bp.SetName("Class Skill — Knowledge (World)");
                 bp.SetDescription("Additional class skill from the destined bloodline.");
                 bp.AddComponent(Helpers.Create<AddClassSkill>(c => {
@@ -576,29 +524,23 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = BloodlineInfernalClassSkill.Icon;
             });
-            var SorcererDestinedBloodlineArcanaBuff1 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff1");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff1";
-                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+            var SorcererDestinedBloodlineArcanaBuff1 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff1", bp => {
                 bp.SetName("Destined Bloodline Arcana");
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Value = 1;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff2 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff2");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff2";
-                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+            var SorcererDestinedBloodlineArcanaBuff2 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff2", bp => {
                 bp.SetName("Destined Bloodline Arcana");
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Value = 2;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff3 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff3");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff3";
+            var SorcererDestinedBloodlineArcanaBuff3 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff3", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
@@ -606,9 +548,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 3;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff4 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff4");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff4";
+            var SorcererDestinedBloodlineArcanaBuff4 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff4", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
@@ -616,9 +556,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 4;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff5 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff5");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff5";
+            var SorcererDestinedBloodlineArcanaBuff5 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff5", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
@@ -626,9 +564,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 5;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff6 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff6");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff6";
+            var SorcererDestinedBloodlineArcanaBuff6 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff6", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
@@ -636,9 +572,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 6;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff7 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff7");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff7";
+            var SorcererDestinedBloodlineArcanaBuff7 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff7", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
@@ -646,9 +580,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 7;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff8 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff8");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff8";
+            var SorcererDestinedBloodlineArcanaBuff8 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff8", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
@@ -656,9 +588,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 8;
                 }));
             });
-            var SorcererDestinedBloodlineArcanaBuff9 = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcanaBuff9");
-                bp.name = "SorcererDestinedBloodlineArcanaBuff9";
+            var SorcererDestinedBloodlineArcanaBuff9 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff9", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
@@ -666,9 +596,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 9;
                 }));
             });
-            var SorcererDestinedBloodlineArcana = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodlineArcana");
-                bp.name = "SorcererDestinedBloodlineArcana";
+            var SorcererDestinedBloodlineArcana = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedBloodlineArcana", bp => {
                 bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.SetDescription("Whenever you cast a spell with a range of “personal,” you gain a luck bonus equal to the spell’s level on all your saving throws for 1 round.");
@@ -686,9 +614,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     };
                 }));
             });
-            var SorcererDestinedTouchOfDestinyResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedTouchOfDestinyResource");
-                bp.name = "SorcererDestinedTouchOfDestinyResource";
+            var SorcererDestinedTouchOfDestinyResource = Helpers.CreateBlueprint<BlueprintAbilityResource>("SorcererDestinedTouchOfDestinyResource", bp => {
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
                     BaseValue = 3,
@@ -700,9 +626,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedTouchOfDestinyBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedTouchOfDestinyBuff");
-                bp.name = "SorcererDestinedTouchOfDestinyBuff";
+            var SorcererDestinedTouchOfDestinyBuff = Helpers.CreateBuff("SorcererDestinedTouchOfDestinyBuff", bp => {
                 bp.m_Icon = LawDomainBaseAbility.Icon;
                 bp.SetName("Touch of Destiny");
                 bp.SetDescription("");
@@ -751,9 +675,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Archetype = EldritchScionArchetype;
                 }));
             });
-            var SorcererDestinedTouchOfDestinyAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedTouchOfDestinyAbility");
-                bp.name = "SorcererDestinedTouchOfDestinyAbility";
+            var SorcererDestinedTouchOfDestinyAbility = Helpers.CreateBlueprint<BlueprintAbility>("SorcererDestinedTouchOfDestinyAbility", bp => {
                 bp.SetName("Touch of Destiny");
                 bp.SetDescription("At 1st level, you can touch a creature as a standard action, giving it an insight bonus on attack rolls, skill checks, "
                     + "ability checks, and saving throws equal to 1/2 your sorcerer level (minimum 1) for 1 round. You can use this ability a number of "
@@ -795,9 +717,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     };
                 }));
             });
-            var SorcererDestinedTouchOfDestiny = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedTouchOfDestiny");
-                bp.name = "SorcererDestinedTouchOfDestiny";
+            var SorcererDestinedTouchOfDestiny = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedTouchOfDestiny", bp => {
                 bp.SetName(SorcererDestinedTouchOfDestinyAbility.Name);
                 bp.SetDescription(SorcererDestinedTouchOfDestinyAbility.Description);
                 bp.AddComponent(Helpers.Create<AddFacts>(c => {
@@ -813,9 +733,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = SorcererDestinedTouchOfDestinyAbility.Icon;
             });
-            var SorcererDestinedWithinReachResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedWithinReachResource");
-                bp.name = "SorcererDestinedWithinReachResource";
+            var SorcererDestinedWithinReachResource = Helpers.CreateBlueprint<BlueprintAbilityResource>("SorcererDestinedWithinReachResource", bp => {
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
                     BaseValue = 1,
@@ -826,9 +744,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedWithinReach = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedWithinReach");
-                bp.name = "SorcererDestinedWithinReach";
+            var SorcererDestinedWithinReach = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedWithinReach", bp => {
                 bp.IsClassFeature = true;
                 bp.SetName("Within Reach");
                 bp.SetDescription("At 15th level, your ultimate destiny is drawing near. Once per day, when an attack or spell that causes "
@@ -847,9 +763,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.RestoreAmount = true;
                 }));
             });
-            var SorcererDestinedFatedBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedFatedBuff");
-                bp.name = "SorcererDestinedFatedBuff";
+            var SorcererDestinedFatedBuff = Helpers.CreateBuff("SorcererDestinedFatedBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Fated");
                 bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during the first"
@@ -900,9 +814,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Archetype = EldritchScionArchetype;
                 }));
             });
-            var SorcererDestinedFated = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedFated");
-                bp.name = "SorcererDestinedFated";
+            var SorcererDestinedFated = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedFated", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 5;
                 bp.SetName("Fated");
@@ -942,9 +854,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Descriptor = ModifierDescriptor.Luck;
                 }));
             });
-            var SorcererDestinedItWasMeantToBeResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedItWasMeantToBeResource");
-                bp.name = "SorcererDestinedItWasMeantToBeResource";
+            var SorcererDestinedItWasMeantToBeResource = Helpers.CreateBlueprint<BlueprintAbilityResource>("SorcererDestinedItWasMeantToBeResource", bp => {
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
                     BaseValue = 1,
@@ -955,9 +865,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedItWasMeantToBeResourceIncrease = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedItWasMeantToBeResourceIncrease");
-                bp.name = "SorcererDestinedItWasMeantToBeResourceIncrease";
+            var SorcererDestinedItWasMeantToBeResourceIncrease = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedItWasMeantToBeResourceIncrease", bp => {
                 bp.SetName("It Was Meant To Be (+1 Uses)");
                 bp.SetDescription("It Was Meant To Be (+1 Uses)");
                 bp.HideInUI = true;
@@ -966,9 +874,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Value = 1;
                 }));
             });
-            var SorcererDestinedItWasMeantToBeBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedItWasMeantToBeBuff");
-                bp.name = "SorcererDestinedItWasMeantToBeBuff";
+            var SorcererDestinedItWasMeantToBeBuff = Helpers.CreateBuff("SorcererDestinedItWasMeantToBeBuff", bp => {
                 bp.SetName("It Was Meant To Be");
                 bp.SetDescription("You may reroll any one attack roll, critical hit confirmation roll, or level check made to "
                     + "overcome spell resistance.");
@@ -984,9 +890,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Skill = new StatType[0];
                 }));
             });
-            var SorcererDestinedItWasMeantToBeAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedItWasMeantToBeAbility");
-                bp.name = "SorcererDestinedItWasMeantToBeAbility";
+            var SorcererDestinedItWasMeantToBeAbility = Helpers.CreateBlueprint<BlueprintAbility>("SorcererDestinedItWasMeantToBeAbility", bp => {
                 bp.SetName("It Was Meant To Be");
                 bp.SetDescription("At 9th level, you may reroll any one attack roll, critical hit confirmation roll, or level check made to overcome spell resistance. "
                     + "At 17th level, you can use this ability twice per day.");
@@ -1027,9 +931,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Amount = 1;
                 }));
             });
-            var SorcererDestinedItWasMeantToBe = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedItWasMeantToBe");
-                bp.name = "SorcererDestinedItWasMeantToBe";
+            var SorcererDestinedItWasMeantToBe = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedItWasMeantToBe", bp => {
                 bp.IsClassFeature = true;
                 bp.m_Icon = TrueSeeing.Icon;
                 bp.SetName("It Was Meant To Be");
@@ -1045,9 +947,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.RestoreAmount = true;
                 }));
             });
-            var SorcererDestinedDestinyRealizedResource = Helpers.Create<BlueprintAbilityResource>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedDestinyRealizedResource");
-                bp.name = "SorcererDestinedDestinyRealizedResource";
+            var SorcererDestinedDestinyRealizedResource = Helpers.CreateBlueprint<BlueprintAbilityResource>("SorcererDestinedDestinyRealizedResource", bp => {
                 bp.m_Min = 0;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
                     BaseValue = 1,
@@ -1058,9 +958,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedDestinyRealizedBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedDestinyRealizedBuff");
-                bp.name = "SorcererDestinedDestinyRealizedBuff";
+            var SorcererDestinedDestinyRealizedBuff = Helpers.CreateBuff("SorcererDestinedDestinyRealizedBuff", bp => {
                 bp.SetName("Destiny Realized");
                 bp.SetDescription("You automatically succeed at one caster level check made to overcome spell resistance.");
                 bp.AddComponent(Helpers.Create<IgnoreSpellResistanceForSpells>(c => {
@@ -1068,9 +966,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.AddComponent(Helpers.Create<RemoveBuffAfterSpellResistCheck>());
             });
-            var SorcererDestinedDestinyRealizedAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedDestinyRealizedAbility");
-                bp.name = "SorcererDestinedDestinyRealizedAbility";
+            var SorcererDestinedDestinyRealizedAbility = Helpers.CreateBlueprint<BlueprintAbility>("SorcererDestinedDestinyRealizedAbility", bp => {
                 bp.SetName("Destiny Realized");
                 bp.SetDescription("Once per day, you can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
@@ -1108,9 +1004,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Actions.Actions = new GameAction[] { autoSpellPen };
                 }));
             });
-            var SorcererDestinedDestinyRealized = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedDestinyRealized");
-                bp.name = "SorcererDestinedDestinyRealized";
+            var SorcererDestinedDestinyRealized = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedDestinyRealized", bp => {
                 bp.m_Icon = SorcererDestinedDestinyRealizedAbility.Icon;
                 bp.SetName("Destiny Realized");
                 bp.SetDescription("At 20th level, your moment of destiny is at hand. Any critical threats made against you only confirm if the second "
@@ -1162,7 +1056,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(SorcererDestinedDestinyRealizedAbility);
             Resources.AddBlueprint(SorcererDestinedDestinyRealized);
             //Bloodline Feats
-            var SorcererDestinedFeatSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
+            var SorcererDestinedFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("SorcererDestinedFeatSelection", bp => {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedFeatSelection");
                 bp.name = "SorcererDestinedFeatSelection";
                 bp.SetName("Bloodline Feat Selection");
@@ -1186,12 +1080,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 };
                 bp.m_AllFeatures = bp.m_Features;
             });
-            Resources.AddBlueprint(SorcererDestinedFeatSelection);
             //Bloodline Spells
-            var SorcererDestinedSpell3 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell3 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell3", bp => {
                 var Spell = MageShield;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell3");
-                bp.name = "SorcererDestinedSpell3";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1203,10 +1094,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell5 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell5 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell5", bp => {
                 var Spell = Blur;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell5");
-                bp.name = "SorcererDestinedSpell5";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1218,10 +1107,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell7 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell7 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell7", bp => {
                 var Spell = ProtectionFromEnergy;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell7");
-                bp.name = "SorcererDestinedSpell7";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1233,10 +1120,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell9 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell9 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell9", bp => {
                 var Spell = FreedomOfMovement;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell9");
-                bp.name = "SorcererDestinedSpell9";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1248,10 +1133,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell11 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell11 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell11", bp => {
                 var Spell = BreakEnchantment;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell11");
-                bp.name = "SorcererDestinedSpell11";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1263,10 +1146,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell13 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell13 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell13", bp => {
                 var Spell = HeroismGreater;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell13");
-                bp.name = "SorcererDestinedSpell13";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1278,10 +1159,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell15 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell15 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell15", bp => {
                 var Spell = CircleOfClarity;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell15");
-                bp.name = "SorcererDestinedSpell15";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1293,10 +1172,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell17 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell17 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell17", bp => {
                 var Spell = ProtectionFromSpells;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell17");
-                bp.name = "SorcererDestinedSpell17";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1308,10 +1185,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            var SorcererDestinedSpell19 = Helpers.Create<BlueprintFeature>(bp => {
+            var SorcererDestinedSpell19 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedSpell19", bp => {
                 var Spell = Foresight;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedSpell19");
-                bp.name = "SorcererDestinedSpell19";
                 bp.IsClassFeature = true;
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
@@ -1333,9 +1208,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             Resources.AddBlueprint(SorcererDestinedSpell17);
             Resources.AddBlueprint(SorcererDestinedSpell19);
             //Bloodline Core
-            var SorcererDestinedBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedBloodline");
-                bp.name = "SorcererDestinedBloodline";
+            var SorcererDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("SorcererDestinedBloodline", bp => {
                 bp.SetName("Destined Bloodline");
                 bp.SetDescription("Your family is destined for greatness in some way. Your birth could have been foretold in prophecy, or perhaps "
                     + "it occurred during an especially auspicious event, such as a solar eclipse. Regardless of your bloodline’s origin, you have a great future ahead.\n"
@@ -1379,9 +1252,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
             });
-            var CrossbloodedDestinedBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("CrossbloodedDestinedBloodline");
-                bp.name = "CrossbloodedDestinedBloodline";
+            var CrossbloodedDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("CrossbloodedDestinedBloodline", bp => {
                 bp.SetName(SorcererDestinedBloodline.Name);
                 bp.SetDescription(SorcererDestinedBloodline.Description);
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
@@ -1414,9 +1285,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }}
                 };
             });
-            var SeekerDestinedBloodline = Helpers.Create<BlueprintProgression>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SeekerDestinedBloodline");
-                bp.name = "SeekerDestinedBloodline";
+            var SeekerDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("SeekerDestinedBloodline", bp => {
                 bp.SetName(SorcererDestinedBloodline.Name);
                 bp.SetDescription(SorcererDestinedBloodline.Description);
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {

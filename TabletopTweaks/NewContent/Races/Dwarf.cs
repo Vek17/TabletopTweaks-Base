@@ -17,13 +17,11 @@ namespace TabletopTweaks.NewContent.Races {
             var DwarfRace = Resources.GetBlueprint<BlueprintRace>("c4faf439f0e70bd40b5e36ee80d06be7");
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
-            var DwarfHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageDefaultFeature");
+            var DwarfHeritageDefaultFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfHeritageDefaultFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.name = "DwarfHeritageDefaultFeature";
                 bp.SetName("Dwarf");
                 bp.SetDescriptionTagged("Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -51,11 +49,9 @@ namespace TabletopTweaks.NewContent.Races {
             var RemoveDefaultHeritage = Helpers.Create<RemoveFeatureOnApply>(c => {
                 c.m_Feature = DwarfHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
-            var DwarfHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageClassicFeature");
+            var DwarfHeritageClassicFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfHeritageClassicFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "DwarfHeritageClassicFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Dwarf");
                 bp.SetDescription(DwarfHeritageDefaultFeature.Description);
@@ -81,11 +77,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var DwarfHeritageStoutheartFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageStoutheartFeature");
+            var DwarfHeritageStoutheartFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfHeritageStoutheartFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "DwarfHeritageStoutheartFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Stoutheart Dwarf");
                 bp.SetDescriptionTagged("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
@@ -113,11 +107,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var DwarfHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("DwarfHeritageSelection");
+            var DwarfHeritageSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("DwarfHeritageSelection", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "DwarfHeritageSelection";
                 bp.SetName("Dwarf Heritage");
                 bp.SetDescriptionTagged("The following alternate heritages may be selected for Dwarf {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;

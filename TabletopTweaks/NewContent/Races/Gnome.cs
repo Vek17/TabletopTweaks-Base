@@ -17,13 +17,11 @@ namespace TabletopTweaks.NewContent.Races {
             var GnomeRace = Resources.GetBlueprint<BlueprintRace>("ef35a22c9a27da345a4528f0d5889157");
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
-            var GnomeHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageDefaultFeature");
+            var GnomeHeritageDefaultFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeHeritageDefaultFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.name = "GnomeHeritageDefaultFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome");
                 bp.SetDescriptionTagged("Gnomes are physically weak but surprisingly hardy, and their attitude "
@@ -52,11 +50,9 @@ namespace TabletopTweaks.NewContent.Races {
             var RemoveDefaultHeritage = Helpers.Create<RemoveFeatureOnApply>(c => {
                 c.m_Feature = GnomeHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
-            var GnomeHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageClassicFeature");
+            var GnomeHeritageClassicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeHeritageClassicFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "GnomeHeritageClassicFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome");
                 bp.SetDescription(GnomeHeritageDefaultFeature.Description);
@@ -82,11 +78,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var GnomeHeritageArtisanFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageArtisanFeature");
+            var GnomeHeritageArtisanFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeHeritageArtisanFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "GnomeHeritageArtisanFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome Artisan");
                 bp.SetDescriptionTagged("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
@@ -114,11 +108,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var GnomeHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GnomeHeritageSelection");
+            var GnomeHeritageSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("GnomeHeritageSelection", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "GnomeHeritageSelection";
                 bp.SetName("Gnome Heritage");
                 bp.SetDescriptionTagged("The following alternate heritages may be selected for gnome {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;

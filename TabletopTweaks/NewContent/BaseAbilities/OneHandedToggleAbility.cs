@@ -19,16 +19,12 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
             var FightDefensivelyToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("09d742e8b50b0214fb71acfc99cc00b3");
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_OneHandedToggle.png");
 
-            var OneHandedBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("OneHandedBuff");
-                bp.name = "OneHandedBuff";
+            var OneHandedBuff = Helpers.CreateBuff("OneHandedBuff", bp => {
                 bp.m_Icon = icon;
                 bp.SetName("Use Weapon One Handed");
                 bp.SetDescription("");
             });
-            var OneHandedToggleAbility = Helpers.Create<BlueprintActivatableAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("OneHandedToggleAbility");
-                bp.name = "OneHandedToggleAbility";
+            var OneHandedToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("OneHandedToggleAbility", bp => {
                 bp.m_Icon = icon;
                 bp.SetName("Use Weapon One Handed");
                 bp.SetDescription("You can choose to wield your weapon in one hand instead of two if possible.");
@@ -38,13 +34,11 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 bp.DeactivateImmediately = true;
                 bp.AddComponent(Helpers.CreateCopy(FightDefensivelyToggleAbility.GetComponent<ActionPanelLogic>()));
             });
-            var OneHandedToggleFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("OneHandedToggleFeature");
+            var OneHandedToggleFeature = Helpers.CreateBlueprint<BlueprintFeature>("OneHandedToggleFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
-                bp.name = "OneHandedToggleFeature";
                 bp.m_Icon = icon;
                 bp.SetName("OneHanded Toggle Feature");
                 bp.SetDescription("You can choose to wield your weapon in one hand instead of two if possible.");

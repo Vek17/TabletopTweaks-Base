@@ -17,13 +17,11 @@ namespace TabletopTweaks.NewContent.Races {
             var Halfling = Resources.GetBlueprint<BlueprintRace>("b0c3ef2729c498f47970bb50fa1acd30");
             var DestinyBeyondBirthMythicFeat = Resources.GetBlueprint<BlueprintFeature>("325f078c584318849bfe3da9ea245b9d");
 
-            var HalflingHeritageDefaultFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageDefaultFeature");
+            var HalflingHeritageDefaultFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingHeritageDefaultFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.name = "HalflingHeritageDefaultFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling");
                 bp.SetDescriptionTagged("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
@@ -52,11 +50,9 @@ namespace TabletopTweaks.NewContent.Races {
             var RemoveDefaultHeritage = Helpers.Create<RemoveFeatureOnApply>(c => {
                 c.m_Feature = HalflingHeritageDefaultFeature.ToReference<BlueprintUnitFactReference>();
             });
-            var HalflingHeritageClassicFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageClassicFeature");
+            var HalflingHeritageClassicFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingHeritageClassicFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "HalflingHeritageClassicFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling");
                 bp.SetDescription(HalflingHeritageDefaultFeature.Description);
@@ -82,11 +78,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var HalflingHeritageBruiserFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageBruiserFeature");
+            var HalflingHeritageBruiserFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingHeritageBruiserFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "HalflingHeritageBruiserFeature";
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Bruiser");
                 bp.SetDescriptionTagged("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
@@ -114,11 +108,9 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddComponent(RemoveDefaultHeritage);
             });
-            var HalflingHeritageSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HalflingHeritageSelection");
+            var HalflingHeritageSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("HalflingHeritageSelection", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "HalflingHeritageSelection";
                 bp.SetName("Halfling Heritage");
                 bp.SetDescriptionTagged("The following alternate heritages may be selected for halfling {g|Encyclopedia:Race}race{/g}.");
                 bp.m_Icon = KitsuneHeritageSelection.Icon;

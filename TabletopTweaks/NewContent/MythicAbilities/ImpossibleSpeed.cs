@@ -14,13 +14,11 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
             var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
             var FastMovement = Resources.GetBlueprint<BlueprintFeature>("d294a5dddd0120046aae7d4eb6cbc4fc");
-            var ImpossibleSpeedFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ImpossibleSpeedFeature");
+            var ImpossibleSpeedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ImpossibleSpeedFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
-                bp.name = "ImpossibleSpeedFeature";
                 bp.m_Icon = FastMovement.Icon;
                 bp.SetName("Impossible Speed");
                 bp.SetDescriptionTagged("Your base land speed increases by 30 feet plus an additional 5 feet for every mythic rank.");

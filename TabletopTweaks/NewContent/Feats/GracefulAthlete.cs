@@ -14,16 +14,14 @@ namespace TabletopTweaks.NewContent.Feats {
     class GracefulAthlete {
         public static void AddGracefulAthlete() {
 
-            var GracefulAthlete = Helpers.Create<BlueprintFeature>(bp => {
-                bp.Ranks = 1;
-                bp.ReapplyOnLevelUp = true;
-                bp.IsClassFeature = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("GracefulAthlete");
-                bp.name = "GracefulAthlete";
+            var GracefulAthlete = Helpers.CreateBlueprint<BlueprintFeature>("GracefulAthlete", bp => {
                 bp.SetName("Graceful Athlete");
                 bp.SetDescriptionTagged("Add your Dexterity modifier instead of your Strength bonus to Athletics checks. This feat grants no benefit " +
                     "to creatures that already add their Dexterity modifier to Athletics checks (such as all Tiny or smaller creatures).");
+                bp.Ranks = 1;
+                bp.ReapplyOnLevelUp = true;
+                bp.IsClassFeature = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };    
                 bp.AddComponent(Helpers.Create<ReplaceStatBaseAttribute>(c => {
                     c.TargetStat = StatType.SkillAthletics;
                     c.BaseAttributeReplacement = StatType.Dexterity;

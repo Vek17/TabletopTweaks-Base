@@ -30,9 +30,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var DazzlingDisplayAction = Resources.GetBlueprint<BlueprintAbility>("5f3126d4120b2b244a95cb2ec23d69fb");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_MountedManiac.png");
 
-            var MountedManiacDCBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacDCBuff");
-                bp.name = "MountedManiacDCBuff";
+            var MountedManiacDCBuff = Helpers.CreateBuff("MountedManiacDCBuff", bp => {
                 bp.m_Icon = icon;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Mounted Maniac");
@@ -66,9 +64,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
                 bp.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<Demoralize>().First().DazzlingDisplay = false;
             });
-            var MountedManiacBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacBuff");
-                bp.name = "MountedManiacBuff";
+            var MountedManiacBuff = Helpers.CreateBuff("MountedManiacBuff", bp => {
+
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
                 bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
@@ -118,9 +115,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     };
                 }));
             });
-            var MountedManiacActivatableAbility = Helpers.Create<BlueprintActivatableAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacActivatableAbility");
-                bp.name = "MountedManiacActivatableAbility";
+            var MountedManiacActivatableAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("MountedManiacActivatableAbility", bp => {
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
                 bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
@@ -128,13 +123,11 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.m_Buff = MountedManiacBuff.ToReference<BlueprintBuffReference>();
                 bp.IsOnByDefault = true;
             });
-            var MountedManiacFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacFeature");
+            var MountedManiacFeature = Helpers.CreateBlueprint<BlueprintFeature>("MountedManiacFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
-                bp.name = "MountedManiacFeature";
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
                 bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +

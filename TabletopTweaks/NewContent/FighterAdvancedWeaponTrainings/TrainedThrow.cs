@@ -18,11 +18,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var AdvancedWeaponTraining3 = Resources.GetBlueprint<BlueprintFeatureSelection>("ee9ab0117ca06b84f9c66469f4428c61");
             var AdvancedWeaponTraining4 = Resources.GetBlueprint<BlueprintFeatureSelection>("0b55d725ded1ae549bb858fba1d84114");
 
-            var TrainedThrowFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("TrainedThrowFeature");
+            var TrainedThrowFeature = Helpers.CreateBlueprint<BlueprintFeature>("TrainedThrow", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.name = "TrainedThrow";
                 bp.SetName("Trained Throw");
                 bp.SetDescriptionTagged("When the fighter makes a ranged attack with a thrown weapon and applies his Dexterity modifier" +
                     " on attack rolls and his Strength modifier on damage rolls, he doubles his weapon training bonus on damage rolls.");

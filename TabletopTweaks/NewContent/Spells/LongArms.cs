@@ -19,9 +19,7 @@ namespace TabletopTweaks.NewContent.Spells {
         public static void AddLongArms() {
             //var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_LongArm.png");
-            var LongArmBuff = Helpers.CreateBuff(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("LongArmBuff");
-                bp.name = "LongArmBuff";
+            var LongArmBuff = Helpers.CreateBuff("LongArmBuff", bp => {
                 bp.SetName("Long Arm");
                 bp.SetDescriptionTagged("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.m_Icon = icon;
@@ -43,9 +41,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     DiceType = DiceType.One
                 };
             });
-            var LongArmAbility = Helpers.Create<BlueprintAbility>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("LongArmAbility");
-                bp.name = "LongArmAbility";
+            var LongArmAbility = Helpers.CreateBlueprint<BlueprintAbility>("LongArmAbility", bp => {
                 bp.SetName("Long Arm");
                 bp.SetDescriptionTagged("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.LocalizedDuration = Helpers.CreateString("LongArmAbility.Duration", "1 minute/level");

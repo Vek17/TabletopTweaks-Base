@@ -40,8 +40,8 @@ namespace TabletopTweaks.Utilities {
             return result;
         }
 
-        public static BlueprintBuff CreateBuff(Action<BlueprintBuff> init = null) {
-            var result = Helpers.Create<BlueprintBuff>(bp => {
+        public static BlueprintBuff CreateBuff(string name, Action<BlueprintBuff> init = null) {
+            var result = Helpers.CreateBlueprint<BlueprintBuff>(name, bp => {
                 bp.FxOnStart = new PrefabLink();
                 bp.FxOnRemove = new PrefabLink();
             });
