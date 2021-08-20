@@ -25,8 +25,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.Bloodlines {
     class DestinedBloodline {
 
-        static BlueprintFeatureReference BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(
-            ModSettings.Blueprints.GetGUID("BloodlineRequisiteFeature")).ToReference<BlueprintFeatureReference>();
+        static BlueprintFeatureReference BloodlineRequisiteFeature = Resources.GetModBlueprint<BlueprintFeature>("BloodlineRequisiteFeature").ToReference<BlueprintFeatureReference>();
         static BlueprintFeatureReference DestinedBloodlineRequisiteFeature = CreateBloodlineRequisiteFeature();
 
         static BlueprintFeatureReference CreateBloodlineRequisiteFeature() {
@@ -38,7 +37,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
             });
-            Resources.AddBlueprint(AberrantBloodlineRequisiteFeature);
             return AberrantBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
         }
         public static void AddBloodragerDestinedBloodline() {
@@ -322,21 +320,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     | SpellDescriptor.Staggered;
                 }));
             });
-            Resources.AddBlueprint(BloodragerDestinedStrikeResource);
-            Resources.AddBlueprint(BloodragerDestinedStrikeResourceIncrease);
-            Resources.AddBlueprint(BloodragerDestinedStrikeBuff);
-            Resources.AddBlueprint(BloodragerDestinedStrikeAbility);
-            Resources.AddBlueprint(BloodragerDestinedStrike);
-            Resources.AddBlueprint(BloodragerDestinedFatedBloodrager);
-            Resources.AddBlueprint(BloodragerDestinedFatedBloodragerBuff);
-            Resources.AddBlueprint(BloodragerDestinedCertainStrike);
-            Resources.AddBlueprint(BloodragerDestinedCertainStrikeBuff);
-            Resources.AddBlueprint(BloodragerDestinedDefyDeathResource);
-            Resources.AddBlueprint(BloodragerDestinedDefyDeath);
-            Resources.AddBlueprint(BloodragerDestinedDefyDeathBuff);
-            Resources.AddBlueprint(BloodragerDestinedUnstoppable);
-            Resources.AddBlueprint(BloodragerDestinedUnstoppableBuff);
-            Resources.AddBlueprint(BloodragerDestinedVictoryOrDeath);
             //Bloodline Feats
             var BloodragerDestinedFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BloodragerDestinedFeatSelection", bp => {
                 bp.SetName("Bonus Feats");
@@ -414,10 +397,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.SpellLevel = 4;
                 }));
             });
-            Resources.AddBlueprint(BloodragerDestinedSpell7);
-            Resources.AddBlueprint(BloodragerDestinedSpell10);
-            Resources.AddBlueprint(BloodragerDestinedSpell13);
-            Resources.AddBlueprint(BloodragerDestinedSpell16);
             //Bloodline Core
             var BloodragerDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("BloodragerDestinedBloodline", bp => {
                 bp.SetName("Destined");
@@ -460,7 +439,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             var BloodragerDestinedBaseBuff = Helpers.CreateBuff("BloodragerDestinedBaseBuff", bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("BloodragerDestinedBaseBuff");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
 
@@ -472,8 +450,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
 
             //Register Bloodrage Abilities
             BloodragerDestinedBaseBuff.ApplyBloodrageRestriction(BloodragerDestinedStrikeAbility);
-            Resources.AddBlueprint(BloodragerDestinedBloodline);
-            Resources.AddBlueprint(BloodragerDestinedBaseBuff);
             BloodragerStandardRageBuff.AddConditionalBuff(BloodragerDestinedBloodline, BloodragerDestinedBaseBuff);
 
             BloodlineTools.ApplyPrimalistException(BloodragerDestinedFatedBloodrager, 4, BloodragerDestinedBloodline);
@@ -1027,37 +1003,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.AddComponent(Helpers.Create<InitiatorSpellCritAutoconfirm>());
             });
-            Resources.AddBlueprint(SorcererDestinedClassSkill);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff1);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff2);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff3);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff4);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff5);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff6);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff7);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff8);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcanaBuff9);
-            Resources.AddBlueprint(SorcererDestinedBloodlineArcana);
-            Resources.AddBlueprint(SorcererDestinedTouchOfDestinyResource);
-            Resources.AddBlueprint(SorcererDestinedTouchOfDestinyBuff);
-            Resources.AddBlueprint(SorcererDestinedTouchOfDestinyAbility);
-            Resources.AddBlueprint(SorcererDestinedTouchOfDestiny);
-            Resources.AddBlueprint(SorcererDestinedFatedBuff);
-            Resources.AddBlueprint(SorcererDestinedFated);
-            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeResource);
-            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeResourceIncrease);
-            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeBuff);
-            Resources.AddBlueprint(SorcererDestinedItWasMeantToBeAbility);
-            Resources.AddBlueprint(SorcererDestinedItWasMeantToBe);
-            Resources.AddBlueprint(SorcererDestinedWithinReachResource);
-            Resources.AddBlueprint(SorcererDestinedWithinReach);
-            Resources.AddBlueprint(SorcererDestinedDestinyRealizedResource);
-            Resources.AddBlueprint(SorcererDestinedDestinyRealizedBuff);
-            Resources.AddBlueprint(SorcererDestinedDestinyRealizedAbility);
-            Resources.AddBlueprint(SorcererDestinedDestinyRealized);
             //Bloodline Feats
             var SorcererDestinedFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("SorcererDestinedFeatSelection", bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SorcererDestinedFeatSelection");
                 bp.name = "SorcererDestinedFeatSelection";
                 bp.SetName("Bloodline Feat Selection");
                 bp.SetDescription("At 7th level, and every six levels thereafter, a sorcerer receives one bonus feat, chosen from a list specific to each bloodline. "
@@ -1198,15 +1145,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            Resources.AddBlueprint(SorcererDestinedSpell3);
-            Resources.AddBlueprint(SorcererDestinedSpell5);
-            Resources.AddBlueprint(SorcererDestinedSpell7);
-            Resources.AddBlueprint(SorcererDestinedSpell9);
-            Resources.AddBlueprint(SorcererDestinedSpell11);
-            Resources.AddBlueprint(SorcererDestinedSpell13);
-            Resources.AddBlueprint(SorcererDestinedSpell15);
-            Resources.AddBlueprint(SorcererDestinedSpell17);
-            Resources.AddBlueprint(SorcererDestinedSpell19);
             //Bloodline Core
             var SorcererDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("SorcererDestinedBloodline", bp => {
                 bp.SetName("Destined Bloodline");
@@ -1329,10 +1267,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             BloodlineTools.RegisterSorcererFeatSelection(SorcererDestinedFeatSelection, SorcererDestinedBloodline);
-
-            Resources.AddBlueprint(SorcererDestinedBloodline);
-            Resources.AddBlueprint(CrossbloodedDestinedBloodline);
-            Resources.AddBlueprint(SeekerDestinedBloodline);
 
             if (ModSettings.AddedContent.Bloodlines.DisableAll || !ModSettings.AddedContent.Bloodlines.Enabled["DestinedBloodline"]) { return; }
             BloodlineTools.RegisterSorcererBloodline(SorcererDestinedBloodline);

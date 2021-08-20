@@ -12,7 +12,6 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System.Linq;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 
@@ -205,11 +204,11 @@ namespace TabletopTweaks.Utilities {
             });
         }
         public static class Bloodline {
-            public static BlueprintProgression BloodragerAberrantBloodline => Resources.GetBlueprint<BlueprintProgression>(ModSettings.Blueprints.GetGUID("BloodragerAberrantBloodline"));
+            public static BlueprintProgression BloodragerAberrantBloodline => Resources.GetModBlueprint<BlueprintProgression>("BloodragerAberrantBloodline");
             public static BlueprintProgression BloodragerAbyssalBloodline => Resources.GetBlueprint<BlueprintProgression>("55d5bbf4b5ae1744ab26c71be98067f9");
             public static BlueprintProgression BloodragerArcaneBloodline => Resources.GetBlueprint<BlueprintProgression>("aeff0a749e20ffe4b9e2846eae29c386");
             public static BlueprintProgression BloodragerCelestialBloodline => Resources.GetBlueprint<BlueprintProgression>("05a141717bbce594a8a763c227f4ee2f");
-            public static BlueprintProgression BloodragerDestinedBloodline => Resources.GetBlueprint<BlueprintProgression>(ModSettings.Blueprints.GetGUID("BloodragerDestinedBloodline"));
+            public static BlueprintProgression BloodragerDestinedBloodline => Resources.GetModBlueprint<BlueprintProgression>("BloodragerDestinedBloodline");
             public static BlueprintProgression BloodragerDragonBlackBloodline => Resources.GetBlueprint<BlueprintProgression>("3d030a2fed2b5cf45919fc1e40629a9e");
             public static BlueprintProgression BloodragerDragonBlueBloodline => Resources.GetBlueprint<BlueprintProgression>("17bbb6790ca500d4190b978cab5c4dfc");
             public static BlueprintProgression BloodragerDragonBrassBloodline => Resources.GetBlueprint<BlueprintProgression>("56e22cb1dde3f5a4297d45744ca19043");
@@ -250,8 +249,8 @@ namespace TabletopTweaks.Utilities {
             public static BlueprintProgression BloodlineInfernalProgression => Resources.GetBlueprint<BlueprintProgression>("e76a774cacfb092498177e6ca706064d");
             public static BlueprintProgression BloodlineSerpentineProgression => Resources.GetBlueprint<BlueprintProgression>("739c1e842bf77994baf963f4ad964379");
             public static BlueprintProgression BloodlineUndeadProgression => Resources.GetBlueprint<BlueprintProgression>("a1a8bf61cadaa4143b2d4966f2d1142e");
-            public static BlueprintProgression SorcererAberrantBloodline => Resources.GetBlueprint<BlueprintProgression>(ModSettings.Blueprints.GetGUID("SorcererAberrantBloodline"));
-            public static BlueprintProgression SorcererDestinedBloodline => Resources.GetBlueprint<BlueprintProgression>(ModSettings.Blueprints.GetGUID("SorcererDestinedBloodline"));
+            public static BlueprintProgression SorcererAberrantBloodline => Resources.GetModBlueprint<BlueprintProgression>("SorcererAberrantBloodline");
+            public static BlueprintProgression SorcererDestinedBloodline => Resources.GetModBlueprint<BlueprintProgression>("SorcererDestinedBloodline");
             //Seeker Bloodlines
             public static BlueprintProgression SeekerBloodlineAbyssalProgression => Resources.GetBlueprint<BlueprintProgression>("17b752be1e0f4a34e8914df52eebeb75");
             public static BlueprintProgression SeekerBloodlineArcaneProgression => Resources.GetBlueprint<BlueprintProgression>("562c5e4031d268244a39e01cc4b834bb");
@@ -274,8 +273,8 @@ namespace TabletopTweaks.Utilities {
             public static BlueprintProgression SeekerBloodlineInfernalProgression => Resources.GetBlueprint<BlueprintProgression>("71f9b9d63f3683b4eb57e0025771932e");
             public static BlueprintProgression SeekerBloodlineSerpentineProgression => Resources.GetBlueprint<BlueprintProgression>("59904bf6cc50a52489ebc648fb35f36f");
             public static BlueprintProgression SeekerBloodlineUndeadProgression => Resources.GetBlueprint<BlueprintProgression>("5bc63fdb68b539f4fa500cfb2d0fe0f6");
-            public static BlueprintProgression SeekerAberrantBloodline => Resources.GetBlueprint<BlueprintProgression>(ModSettings.Blueprints.GetGUID("SeekerAberrantBloodline"));
-            public static BlueprintProgression SeekerDestinedBloodline => Resources.GetBlueprint<BlueprintProgression>(ModSettings.Blueprints.GetGUID("SeekerDestinedBloodline"));
+            public static BlueprintProgression SeekerAberrantBloodline => Resources.GetModBlueprint<BlueprintProgression>("SeekerAberrantBloodline");
+            public static BlueprintProgression SeekerDestinedBloodline => Resources.GetModBlueprint<BlueprintProgression>("SeekerDestinedBloodline");
             // Mutated Bloodlines
             public static BlueprintProgression EmpyrealBloodlineProgression => Resources.GetBlueprint<BlueprintProgression>("8a95d80a3162d274896d50c2f18bb6b1");
             public static BlueprintProgression SageBloodlineProgression => Resources.GetBlueprint<BlueprintProgression>("7d990675841a7354c957689a6707c6c2");

@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
@@ -17,7 +16,6 @@ namespace TabletopTweaks.NewContent.Features {
                 }));
                 bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
             });
-            Resources.AddBlueprint(LongspearChargeBuff);
         }
     }
 }

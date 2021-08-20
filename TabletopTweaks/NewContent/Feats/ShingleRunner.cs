@@ -14,7 +14,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     "Mobility skill checks. If you have 10 or more ranks in one of these skills," +
                     " the bonus increases to +4 for that skill.");
             });
-            Resources.AddBlueprint(ShingleRunner);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["ShingleRunner"]) { return; }
             FeatTools.AddAsFeat(ShingleRunner);
         }

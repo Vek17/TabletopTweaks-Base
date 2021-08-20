@@ -25,8 +25,7 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Bloodlines {
     public static class AberrantBloodline {
-        static BlueprintFeatureReference BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(
-            ModSettings.Blueprints.GetGUID("BloodlineRequisiteFeature")).ToReference<BlueprintFeatureReference>();
+        static BlueprintFeatureReference BloodlineRequisiteFeature = Resources.GetModBlueprint<BlueprintFeature>("BloodlineRequisiteFeature").ToReference<BlueprintFeatureReference>();
         static BlueprintFeatureReference AberrantBloodlineRequisiteFeature = CreateBloodlineRequisiteFeature();
 
         static BlueprintFeatureReference CreateBloodlineRequisiteFeature() {
@@ -38,7 +37,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Aberrant Bloodline");
                 bp.SetDescription("Aberrant Bloodline Requisite Feature");
             });
-            Resources.AddBlueprint(AberrantBloodlineRequisiteFeature);
             return AberrantBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
         }
         public static void AddBloodragerAberrantBloodline() {
@@ -205,17 +203,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddImmunityToCriticalHits>());
                 bp.AddComponent(Helpers.Create<AddImmunityToPrecisionDamage>());
             });
-            Resources.AddBlueprint(BloodragerAberrantStaggeringStrike);
-            Resources.AddBlueprint(BloodragerAberrantStaggeringStrikeBuff);
-            Resources.AddBlueprint(BloodragerAberrantAbnormalReach);
-            Resources.AddBlueprint(BloodragerAberrantAbnormalReachBuff);
-            Resources.AddBlueprint(BloodragerAberrantFortitude);
-            Resources.AddBlueprint(BloodragerAberrantFortitudeBuff);
-            Resources.AddBlueprint(BloodragerAberrantUnusualAnatomy);
-            Resources.AddBlueprint(BloodragerAberrantUnusualAnatomyBuff);
-            Resources.AddBlueprint(BloodragerAberrantResistance);
-            Resources.AddBlueprint(BloodragerAberrantResistanceBuff);
-            Resources.AddBlueprint(BloodragerAberrantForm);
             //Bloodline Feats
             var BloodragerAberrantFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BloodragerAberrantFeatSelection", bp => {
                 bp.SetName("Bonus Feats");
@@ -293,10 +280,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.SpellLevel = 4;
                 }));
             });
-            Resources.AddBlueprint(BloodragerAberrantSpell7);
-            Resources.AddBlueprint(BloodragerAberrantSpell10);
-            Resources.AddBlueprint(BloodragerAberrantSpell13);
-            Resources.AddBlueprint(BloodragerAberrantSpell16);
             //Bloodline Core
             var BloodragerAberrantBloodline = Helpers.CreateBlueprint<BlueprintProgression>("BloodragerAberrantBloodline", bp => {
                 bp.SetName("Aberrant");
@@ -346,8 +329,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantFortitude, BloodragerAberrantFortitudeBuff);
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantUnusualAnatomy, BloodragerAberrantUnusualAnatomyBuff);
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantResistance, BloodragerAberrantResistanceBuff);
-            Resources.AddBlueprint(BloodragerAberrantBloodline);
-            Resources.AddBlueprint(BloodragerAberrantBaseBuff);
             BloodragerStandardRageBuff.AddConditionalBuff(BloodragerAberrantBloodline, BloodragerAberrantBaseBuff);
 
             BloodlineTools.ApplyPrimalistException(BloodragerAberrantAbnormalReach, 4, BloodragerAberrantBloodline);
@@ -572,15 +553,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent(Helpers.Create<AddImmunityToCriticalHits>());
                 bp.AddComponent(Helpers.Create<AddImmunityToPrecisionDamage>());
             });
-            Resources.AddBlueprint(SorcererAberrantClassSkill);
-            Resources.AddBlueprint(SorcererAberrantBloodlineArcana);
-            Resources.AddBlueprint(SorcererAberrantAcidicRayResource);
-            Resources.AddBlueprint(SorcererAberrantAcidicRayAbility);
-            Resources.AddBlueprint(SorcererAberrantAcidicRay);
-            Resources.AddBlueprint(SorcererAberrantLongLimbs);
-            Resources.AddBlueprint(SorcererAberrantUnusualAnatomy);
-            Resources.AddBlueprint(SorcererAberrantAlienResistance);
-            Resources.AddBlueprint(SorcererAberrantForm);
             //Bloodline Feats
             var SorcererAberrantFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("SorcererAberrantFeatSelection", bp => {
                 bp.SetName("Bloodline Feat Selection");
@@ -722,15 +694,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
                 bp.m_Icon = Spell.Get().Icon;
             });
-            Resources.AddBlueprint(SorcererAberrantSpell3);
-            Resources.AddBlueprint(SorcererAberrantSpell5);
-            Resources.AddBlueprint(SorcererAberrantSpell7);
-            Resources.AddBlueprint(SorcererAberrantSpell9);
-            Resources.AddBlueprint(SorcererAberrantSpell11);
-            Resources.AddBlueprint(SorcererAberrantSpell13);
-            Resources.AddBlueprint(SorcererAberrantSpell15);
-            Resources.AddBlueprint(SorcererAberrantSpell17);
-            Resources.AddBlueprint(SorcererAberrantSpell19);
             //Bloodline Core
             var SorcererAberrantBloodline = Helpers.CreateBlueprint<BlueprintProgression>("SorcererAberrantBloodline", bp => {
                 bp.SetName("Aberrant Bloodline");
@@ -856,10 +819,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 }));
             });
             BloodlineTools.RegisterSorcererFeatSelection(SorcererAberrantFeatSelection, SorcererAberrantBloodline);
-
-            Resources.AddBlueprint(SorcererAberrantBloodline);
-            Resources.AddBlueprint(CrossbloodedAberrantBloodline);
-            Resources.AddBlueprint(SeekerAberrantBloodline);
 
             if (ModSettings.AddedContent.Bloodlines.DisableAll || !ModSettings.AddedContent.Bloodlines.Enabled["AberrantBloodline"]) { return; }
             BloodlineTools.RegisterSorcererBloodline(SorcererAberrantBloodline);

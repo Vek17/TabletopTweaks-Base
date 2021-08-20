@@ -32,7 +32,7 @@ namespace TabletopTweaks.Bugfixes.Features {
         static void PatchBloodlineRestrictions() {
             if (!ModSettings.Fixes.Bloodlines.Enabled["BloodlineRestrictions"]) { return; }
             // Bloodline Requisite 
-            var BloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("BloodlineRequisiteFeature"));
+            var BloodlineRequisiteFeature = Resources.GetModBlueprint<BlueprintFeature>("BloodlineRequisiteFeature");
             // Requisite Features
             var AbyssalBloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>("b09b58c7f8efff244a33269489abeac6");
             var ArcaneBloodlineRequisiteFeature = Resources.GetBlueprint<BlueprintFeature>("60d8632e96739a74dbac23dd078d205d");

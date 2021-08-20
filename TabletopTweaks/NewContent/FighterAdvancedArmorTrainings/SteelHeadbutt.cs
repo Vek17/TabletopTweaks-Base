@@ -60,7 +60,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.Weapon = SteelHeadbutt1d4.ToReference<BlueprintItemWeaponReference>();
                 }));
             });
-            var SteelHeadbuttFeature = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbutt", bp => {
+            var SteelHeadbuttFeature = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttFeature", bp => {
                 bp.SetName("Steel Headbutt");
                 bp.SetDescriptionTagged("While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. " +
                     "This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals " +

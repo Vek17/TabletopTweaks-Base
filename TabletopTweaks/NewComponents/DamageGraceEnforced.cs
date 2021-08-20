@@ -1,5 +1,4 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.JsonSystem;

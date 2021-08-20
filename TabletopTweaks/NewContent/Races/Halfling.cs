@@ -125,10 +125,6 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Group = FeatureGroup.KitsuneHeritage;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
             });
-            Resources.AddBlueprint(HalflingHeritageDefaultFeature);
-            Resources.AddBlueprint(HalflingHeritageClassicFeature);
-            Resources.AddBlueprint(HalflingHeritageBruiserFeature);
-            Resources.AddBlueprint(HalflingHeritageSelection);
 
             if (ModSettings.AddedContent.Races.DisableAll || !ModSettings.AddedContent.Races.Enabled["HalflingHomebrewHeritage"]) { return; }
             Halfling.ComponentsArray = new BlueprintComponent[0];

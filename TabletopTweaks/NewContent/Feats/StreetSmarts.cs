@@ -13,7 +13,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     "Perception skill checks. If you have 10 or more ranks in one of these skills," +
                     " the bonus increases to +4 for that skill.");
             });
-            Resources.AddBlueprint(StreetSmarts);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["StreetSmarts"]) { return; }
             FeatTools.AddAsFeat(StreetSmarts);
         }

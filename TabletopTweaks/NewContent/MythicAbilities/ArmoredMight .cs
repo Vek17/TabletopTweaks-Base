@@ -22,7 +22,6 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.SetDescriptionTagged("You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.");
                 bp.AddComponent(Helpers.Create<ArmoredMightComponent>());
             });
-            Resources.AddBlueprint(ArmoredMightFeature);
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
             MythicAbilitySelection.AddFeatures(ArmoredMightFeature);

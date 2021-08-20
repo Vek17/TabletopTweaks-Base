@@ -5,7 +5,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
@@ -15,12 +14,12 @@ namespace TabletopTweaks.NewContent.Features {
             var InquistorClass = Resources.GetBlueprint<BlueprintCharacterClass>("f1a70d9e1b0b41e49874e1fa9052a1ce");
             var InquisitorBaneResource = Resources.GetBlueprint<BlueprintAbilityResource>("a708945b17c56fa4196e8d20f8af1b0d");
             var AeonBaneFeature = Resources.GetBlueprint<BlueprintFeature>("0b25e8d8b0488c84c9b5714e9ca0a204");
-            var AeonBaneIncreaseResourceFeature = Helpers.CreateCopy(AeonBaneFeature, bp => {
+            var AeonBaneIncreaseResourceFeature = Helpers.CreateBlueprint<BlueprintFeature>("AeonBaneIncreaseResourceFeature", bp => {
                 bp.HideInUI = true;
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AeonBaneIncreaseResourceFeature");
-                bp.name = "AeonBaneIncreaseResourceFeature";
                 bp.SetName("Aeon Bane Increase Resource Feature");
                 bp.SetDescription("");
+                bp.ReapplyOnLevelUp = true;
+                bp.IsClassFeature = true;
                 bp.ComponentsArray = new BlueprintComponent[0];
                 bp.AddComponent(Helpers.Create<IncreaseResourceAmountBySharedValue>(c => {
                     c.m_Resource = InquisitorBaneResource.ToReference<BlueprintAbilityResourceReference>();
@@ -44,7 +43,6 @@ namespace TabletopTweaks.NewContent.Features {
                     c.m_ExceptClasses = true;
                 }));
             });
-            Resources.AddBlueprint(AeonBaneIncreaseResourceFeature);
         }
     }
 }

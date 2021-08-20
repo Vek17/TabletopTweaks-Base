@@ -2,7 +2,6 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
@@ -26,7 +25,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     c.Level = 9;
                 }));
             });
-            Resources.AddBlueprint(AdvancedWeapontrainingSelection);
         }
         public static void AddToAdvancedWeaponTrainingSelection(params BlueprintFeature[] features) {
             var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
@@ -34,7 +32,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var AdvancedWeaponTraining3 = Resources.GetBlueprint<BlueprintFeatureSelection>("ee9ab0117ca06b84f9c66469f4428c61");
             var AdvancedWeaponTraining4 = Resources.GetBlueprint<BlueprintFeatureSelection>("0b55d725ded1ae549bb858fba1d84114");
             var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("b8cecf4e5e464ad41b79d5b42b76b399");
-            var AdvancedWeapontrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedWeaponTrainingSelection"));
+            var AdvancedWeapontrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedWeaponTrainingSelection");
 
             AdvancedWeaponTraining1.AddFeatures(features);
             AdvancedWeaponTraining2.AddFeatures(features);

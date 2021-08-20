@@ -125,10 +125,6 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Group = FeatureGroup.KitsuneHeritage;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
             });
-            Resources.AddBlueprint(GnomeHeritageDefaultFeature);
-            Resources.AddBlueprint(GnomeHeritageClassicFeature);
-            Resources.AddBlueprint(GnomeHeritageArtisanFeature);
-            Resources.AddBlueprint(GnomeHeritageSelection);
 
             if (ModSettings.AddedContent.Races.DisableAll || !ModSettings.AddedContent.Races.Enabled["GnomeHomebrewHeritage"]) { return; }
             GnomeRace.ComponentsArray = new BlueprintComponent[0];

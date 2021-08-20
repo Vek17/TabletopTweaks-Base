@@ -1,7 +1,6 @@
 ﻿using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
@@ -26,7 +25,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;
                 }));
             });
-            Resources.AddBlueprint(BloodragerAbyssalDemonicBulkEnlargeBuff);
         }
     }
 }

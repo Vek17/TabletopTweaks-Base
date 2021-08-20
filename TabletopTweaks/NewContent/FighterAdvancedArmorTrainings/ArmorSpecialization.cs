@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var ArmorFocusLight = Resources.GetBlueprint<BlueprintFeature>("3bc6e1d2b44b5bb4d92e6ba59577cf62");
 
-            var ArmorSpecializationSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ArmorSpecialization", bp => {
+            var ArmorSpecializationSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ArmorSpecializationSelection", bp => {
                 bp.SetName("Armor Specialization");
                 bp.SetDescription("The fighter selects one specific type of armor with which he is proficient, such as light or heavy. " +
                     "While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor’s " +

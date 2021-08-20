@@ -48,9 +48,6 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                     };
                 }));
             });
-            Resources.AddBlueprint(OneHandedBuff);
-            Resources.AddBlueprint(OneHandedToggleAbility);
-            Resources.AddBlueprint(OneHandedToggleFeature);
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.BaseAbilities.Enabled["OneHandedToggle"]) { return; }
             var AddFacts = FightDefensivelyFeature.GetComponent<AddFacts>();
@@ -59,7 +56,7 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
         [HarmonyPatch(typeof(ItemEntityWeapon), "HoldInTwoHands", MethodType.Getter)]
         static class ItemEntityWeapon_HoldInTwoHands_Patch {
             static void Postfix(ItemEntityWeapon __instance, ref bool __result) {
-                var OneHandedBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.GetGUID("OneHandedBuff"));
+                var OneHandedBuff = Resources.GetModBlueprint<BlueprintBuff>("OneHandedBuff");
                 if (__instance.Wielder != null && __instance.Wielder.HasFact(OneHandedBuff)) {
                     if (__instance.Blueprint.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {
                         __result = false;

@@ -4,7 +4,6 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
@@ -24,7 +23,7 @@ namespace TabletopTweaks.NewContent.Features {
                 }));
             });
 
-            var CavalierMobilityFeature = Helpers.CreateBlueprint<BlueprintFeature>("CavalierMobility", bp => {
+            var CavalierMobilityFeature = Helpers.CreateBlueprint<BlueprintFeature>("CavalierMobilityFeature", bp => {
                 bp.SetName("Cavalier Mobility");
                 bp.SetDescription("A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.IsClassFeature = true;
@@ -34,8 +33,6 @@ namespace TabletopTweaks.NewContent.Features {
                     c.m_ExtraEffectBuff = CavalierMobilityBuff.ToReference<BlueprintBuffReference>();
                 }));
             });
-            Resources.AddBlueprint(CavalierMobilityBuff);
-            Resources.AddBlueprint(CavalierMobilityFeature);
         }
     }
 }

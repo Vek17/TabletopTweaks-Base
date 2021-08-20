@@ -1,5 +1,4 @@
 ﻿using Kingmaker.Blueprints.Classes;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 

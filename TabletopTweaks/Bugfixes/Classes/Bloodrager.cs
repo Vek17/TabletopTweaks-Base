@@ -40,7 +40,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (!ModSettings.Fixes.Bloodrager.Base.Enabled["AbysalBulk"]) { return; }
                     var BloodragerAbyssalBloodlineBaseBuff = Resources.GetBlueprint<BlueprintBuff>("2ba7b4b3b87156543b43d0686404655a");
                     var BloodragerAbyssalDemonicBulkBuff = Resources.GetBlueprint<BlueprintBuff>("031a8053a7c02ab42ad53f50dd2e9437");
-                    var BloodragerAbyssalDemonicBulkEnlargeBuff = Resources.GetBlueprint<BlueprintBuff>(ModSettings.Blueprints.GetGUID("BloodragerAbyssalDemonicBulkEnlargeBuff"));
+                    var BloodragerAbyssalDemonicBulkEnlargeBuff = Resources.GetModBlueprint<BlueprintBuff>("BloodragerAbyssalDemonicBulkEnlargeBuff");
 
                     var ApplyBuff = new ContextActionApplyBuff() {
                         m_Buff = BloodragerAbyssalDemonicBulkEnlargeBuff.ToReference<BlueprintBuffReference>(),
@@ -143,7 +143,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers20, 20);
 
                     void PatchPrimalistTakeRagePowers(BlueprintProgression PrimalistTakeRagePowers, int level) {
-                        var PrimalistRagePowerSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("PrimalistRagePowerSelection"));
+                        var PrimalistRagePowerSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("PrimalistRagePowerSelection");
                         PrimalistTakeRagePowers.LevelEntries = new LevelEntry[] {
                             new LevelEntry {
                                 Level = level,

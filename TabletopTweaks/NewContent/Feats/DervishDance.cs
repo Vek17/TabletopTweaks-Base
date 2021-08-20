@@ -7,7 +7,6 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -79,7 +78,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 }));
                 bp.AddPrerequisiteFeature(WeaponFinesse);
             });
-            Resources.AddBlueprint(DervishDance);
             FixRecommendations(SlashingGrace, DervishDance);
             FixRecommendations(FencingGrace, DervishDance);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["DervishDance"]) { return; }

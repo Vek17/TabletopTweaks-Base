@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using System.Collections.Generic;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks {
     static class Resources {
@@ -15,6 +16,11 @@ namespace TabletopTweaks {
             return blueprints.Concat(ResourcesLibrary.s_LoadedBlueprints.Values).OfType<T>().Distinct();
         }
 #endif
+        public static T GetModBlueprint<T>(string name) where T : SimpleBlueprint {
+            var assetId = ModSettings.Blueprints.GetGUID(name);
+            ModBlueprints.TryGetValue(assetId, out var value);
+            return value as T;
+        }
         public static T GetBlueprint<T>(string id) where T : SimpleBlueprint {
             var assetId = new BlueprintGuid(System.Guid.Parse(id));
             return GetBlueprint<T>(assetId);

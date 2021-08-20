@@ -13,7 +13,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     "Use Magic Device skill checks. If you have 10 or more ranks in one of these skills," +
                     " the bonus increases to +4 for that skill.");
             });
-            Resources.AddBlueprint(MagicalAptitude);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["MagicalAptitude"]) { return; }
             FeatTools.AddAsFeat(MagicalAptitude);
         }

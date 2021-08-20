@@ -124,10 +124,6 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Group = FeatureGroup.KitsuneHeritage;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
             });
-            Resources.AddBlueprint(DwarfHeritageDefaultFeature);
-            Resources.AddBlueprint(DwarfHeritageClassicFeature);
-            Resources.AddBlueprint(DwarfHeritageStoutheartFeature);
-            Resources.AddBlueprint(DwarfHeritageSelection);
 
             if (ModSettings.AddedContent.Races.DisableAll || !ModSettings.AddedContent.Races.Enabled["DwarfHomebrewHeritage"]) { return; }
             DwarfRace.ComponentsArray = new BlueprintComponent[0];

@@ -87,8 +87,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 };
             });
 
-            Resources.AddBlueprint(MetaRageFeature);
-            Resources.AddBlueprint(MetamagicRagerArchetype);
             PatchBloodlines(MetamagicRagerArchetype);
             if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["MetamagicRager"]) { return; }
             BloodragerClass.m_Archetypes = BloodragerClass.m_Archetypes.AppendToArray(MetamagicRagerArchetype.ToReference<BlueprintArchetypeReference>());
@@ -287,25 +285,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.Level = level;
                 }));
             });
-            Resources.AddBlueprint(MetaRageEmpowerBuff);
-            Resources.AddBlueprint(MetaRageExtendBuff);
-            Resources.AddBlueprint(MetaRageMaximizeBuff);
-            Resources.AddBlueprint(MetaRagePersistentBuff);
-            Resources.AddBlueprint(MetaRageQuickenBuff);
-            Resources.AddBlueprint(MetaRageReachBuff);
-            Resources.AddBlueprint(MetaRageSelectiveBuff);
-            Resources.AddBlueprint(MetaRageBolsteredBuff);
-
-            Resources.AddBlueprint(MetaRageEmpowerAbility);
-            Resources.AddBlueprint(MetaRageExtendAbility);
-            Resources.AddBlueprint(MetaRageMaximizeAbility);
-            Resources.AddBlueprint(MetaRagePersistentAbility);
-            Resources.AddBlueprint(MetaRageQuickenAbility);
-            Resources.AddBlueprint(MetaRageReachAbility);
-            Resources.AddBlueprint(MetaRageSelectiveAbility);
-            Resources.AddBlueprint(MetaRageBolsteredAbility);
-
-            Resources.AddBlueprint(MetaRageBaseAbility);
 
             return MetaRageBaseAbility;
         }

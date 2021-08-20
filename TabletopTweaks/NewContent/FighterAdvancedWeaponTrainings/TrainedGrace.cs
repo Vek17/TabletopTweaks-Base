@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var AdvancedWeaponTraining3 = Resources.GetBlueprint<BlueprintFeatureSelection>("ee9ab0117ca06b84f9c66469f4428c61");
             var AdvancedWeaponTraining4 = Resources.GetBlueprint<BlueprintFeatureSelection>("0b55d725ded1ae549bb858fba1d84114");
 
-            var TrainedGraceFeature = Helpers.CreateBlueprint<BlueprintFeature>("TrainedGrace", bp => {
+            var TrainedGraceFeature = Helpers.CreateBlueprint<BlueprintFeature>("TrainedGraceFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.SetName("Trained Grace");
@@ -36,7 +36,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     c.m_Feature = WeaponFinesse.ToReference<BlueprintFeatureReference>();
                 }));
             });
-            Resources.AddBlueprint(TrainedGraceFeature);
             if (ModSettings.AddedContent.FighterAdvancedWeaponTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedWeaponTraining.Enabled["TrainedThrow"]) { return; }
             AdvancedWeapontrainingSelection.AddToAdvancedWeaponTrainingSelection(TrainedGraceFeature);
         }

@@ -166,13 +166,13 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             }
         }
         public static void AddToAdvancedArmorTrainingSelection(params BlueprintFeature[] features) {
-            var AdvancedArmorTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedArmorTrainingSelection"));
-            var AdvancedArmorTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedArmorTraining1"));
-            var AdvancedArmorTraining2 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedArmorTraining2"));
-            var AdvancedArmorTraining3 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedArmorTraining3"));
-            var AdvancedArmorTraining4 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedArmorTraining4"));
-            var AdvancedArmorTraining5 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedArmorTraining5"));
-            var AdvancedArmorTraining6 = Resources.GetBlueprint<BlueprintFeatureSelection>(ModSettings.Blueprints.GetGUID("AdvancedArmorTraining6"));
+            var AdvancedArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection");
+            var AdvancedArmorTraining1 = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTraining1");
+            var AdvancedArmorTraining2 = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTraining2");
+            var AdvancedArmorTraining3 = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTraining3");
+            var AdvancedArmorTraining4 = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTraining4");
+            var AdvancedArmorTraining5 = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTraining5");
+            var AdvancedArmorTraining6 = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTraining6");
 
             AdvancedArmorTrainingSelection.AddFeatures(features);
             AdvancedArmorTraining1.AddFeatures(features);

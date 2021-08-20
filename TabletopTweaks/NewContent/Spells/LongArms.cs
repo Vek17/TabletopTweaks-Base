@@ -68,8 +68,6 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.AOEType = CraftAOE.None;
                 }));
             });
-            Resources.AddBlueprint(LongArmBuff);
-            Resources.AddBlueprint(LongArmAbility);
             if (ModSettings.AddedContent.Spells.DisableAll || !ModSettings.AddedContent.Spells.Enabled["LongArm"]) { return; }
             LongArmAbility.AddToSpellList(SpellTools.SpellList.AlchemistSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.BloodragerSpellList, 1);

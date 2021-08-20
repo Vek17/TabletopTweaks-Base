@@ -21,7 +21,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };    
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
                 bp.AddComponent(Helpers.Create<ReplaceStatBaseAttribute>(c => {
                     c.TargetStat = StatType.SkillAthletics;
                     c.BaseAttributeReplacement = StatType.Dexterity;
@@ -42,7 +42,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.FeatureTags = FeatureTag.Skills;
                 }));
             });
-            Resources.AddBlueprint(GracefulAthlete);
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["GracefulAthlete"]) { return; }
             FeatTools.AddAsFeat(GracefulAthlete);
             FeatTools.AddAsRogueTalent(GracefulAthlete);

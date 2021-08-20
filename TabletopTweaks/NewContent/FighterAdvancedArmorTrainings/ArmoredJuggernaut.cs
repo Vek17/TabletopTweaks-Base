@@ -138,10 +138,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
 
-            Resources.AddBlueprint(ArmoredJuggernautLightEffect);
-            Resources.AddBlueprint(ArmoredJuggernautMediumEffect);
-            Resources.AddBlueprint(ArmoredJuggernautHeavyEffect);
-            Resources.AddBlueprint(ArmoredJuggernautFeature);
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["ArmoredJuggernaut"]) { return; }
             AdvancedArmorTraining.AddToAdvancedArmorTrainingSelection(ArmoredJuggernautFeature);
         }

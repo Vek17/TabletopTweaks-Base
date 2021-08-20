@@ -52,7 +52,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                             }
                             if (changed) {
                                 f.SetDescription(description);
-                                Main.LogPatch("Patched", f); 
+                                Main.LogPatch("Patched", f);
                             }
                         });
                 }

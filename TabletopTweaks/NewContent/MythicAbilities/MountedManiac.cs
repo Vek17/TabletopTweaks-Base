@@ -63,6 +63,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
                     "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
                 bp.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<Demoralize>().First().DazzlingDisplay = false;
+                Resources.AddBlueprint(bp);
             });
             var MountedManiacBuff = Helpers.CreateBuff("MountedManiacBuff", bp => {
 
@@ -138,11 +139,6 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     };
                 }));
             });
-            Resources.AddBlueprint(MountedManiacDCBuff);
-            Resources.AddBlueprint(MountedManiacAbility);
-            Resources.AddBlueprint(MountedManiacBuff);
-            Resources.AddBlueprint(MountedManiacActivatableAbility);
-            Resources.AddBlueprint(MountedManiacFeature);
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["MountedManiac"]) { return; }
             MythicAbilitySelection.AddFeatures(MountedManiacFeature);

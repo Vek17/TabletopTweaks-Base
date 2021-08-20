@@ -124,10 +124,6 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Group = FeatureGroup.KitsuneHeritage;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
             });
-            Resources.AddBlueprint(ElfHeritageDefaultFeature);
-            Resources.AddBlueprint(ElfHeritageClassicFeature);
-            Resources.AddBlueprint(ElfHeritageFieraniFeature);
-            Resources.AddBlueprint(ElfHeritageSelection);
 
             if (ModSettings.AddedContent.Races.DisableAll || !ModSettings.AddedContent.Races.Enabled["ElfHomebrewHeritage"]) { return; }
             ElfRace.ComponentsArray = new BlueprintComponent[0];

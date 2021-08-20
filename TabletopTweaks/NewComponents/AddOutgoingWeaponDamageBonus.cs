@@ -3,7 +3,6 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
-using System;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents {

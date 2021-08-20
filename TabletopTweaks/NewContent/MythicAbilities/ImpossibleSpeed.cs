@@ -40,7 +40,6 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     c.m_Min = 1;
                 }));
             });
-            Resources.AddBlueprint(ImpossibleSpeedFeature);
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ImpossibleSpeed"]) { return; }
             MythicAbilitySelection.AddFeatures(ImpossibleSpeedFeature);
             ExtraMythicAbilityMythicFeat.AddFeatures(ImpossibleSpeedFeature);
