@@ -14,11 +14,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
             var FighterFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("41c8486641f7d6d4283ca9dae4147a9f");
-            var BasicFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
 
-            var AdvancedArmorTrainingSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AdvancedArmorTrainingSelection");
-                bp.name = "AdvancedArmorTrainingSelection";
+            var AdvancedArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection", bp => {
                 bp.Ranks = 3;
                 bp.SetName("Advanced Armor Training");
                 bp.SetDescriptionTagged("Beginning at 7th level, instead of increasing the benefits provided by armor training " +
@@ -28,107 +25,96 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_AllFeatures = new BlueprintFeatureReference[0];
                 bp.m_Features = new BlueprintFeatureReference[0];
                 bp.IsClassFeature = true;
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 7;
                 }));
             });
-            var AdvancedArmorTraining1 = CreateAdvancedArmorFeat(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AdvancedArmorTraining1");
-                bp.name = "AdvancedArmorTraining1";
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+            var AdvancedArmorTraining1 = CreateAdvancedArmorFeat("AdvancedArmorTraining1", bp => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 3;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
+                    c.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
+                }));
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
             });
-            var AdvancedArmorTraining2 = CreateAdvancedArmorFeat(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AdvancedArmorTraining2");
-                bp.name = "AdvancedArmorTraining2";
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+            var AdvancedArmorTraining2 = CreateAdvancedArmorFeat("AdvancedArmorTraining2", bp => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 6;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = AdvancedArmorTraining1.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
             });
-            var AdvancedArmorTraining3 = CreateAdvancedArmorFeat(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AdvancedArmorTraining3");
-                bp.name = "AdvancedArmorTraining3";
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+            var AdvancedArmorTraining3 = CreateAdvancedArmorFeat("AdvancedArmorTraining3", bp => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 9;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = AdvancedArmorTraining2.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
             });
-            var AdvancedArmorTraining4 = CreateAdvancedArmorFeat(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AdvancedArmorTraining4");
-                bp.name = "AdvancedArmorTraining4";
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+            var AdvancedArmorTraining4 = CreateAdvancedArmorFeat("AdvancedArmorTraining4", bp => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 12;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = AdvancedArmorTraining3.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
             });
-            var AdvancedArmorTraining5 = CreateAdvancedArmorFeat(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AdvancedArmorTraining5");
-                bp.name = "AdvancedArmorTraining5";
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+            var AdvancedArmorTraining5 = CreateAdvancedArmorFeat("AdvancedArmorTraining5", bp => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 15;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = AdvancedArmorTraining4.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
             });
-            var AdvancedArmorTraining6 = CreateAdvancedArmorFeat(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("AdvancedArmorTraining6");
-                bp.name = "AdvancedArmorTraining6";
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+            var AdvancedArmorTraining6 = CreateAdvancedArmorFeat("AdvancedArmorTraining6", bp => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 18;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = AdvancedArmorTraining5.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.m_Feature = bp.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
                 }));
             });
 
-            var ArmorTrainingSelection = Helpers.Create<BlueprintFeatureSelection>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorTrainingSelection");
-                bp.name = "ArmorTrainingSelection";
+            var ArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection", bp => {
                 bp.Ranks = 4;
                 bp.m_Icon = ArmorTraining.Icon;
                 bp.SetName("Armor Training");
@@ -139,26 +125,13 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 };
                 bp.m_Features = new BlueprintFeatureReference[0];
                 bp.IsClassFeature = true;
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
-                    c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
-                    c.Level = 7;
-                }));
                 bp.AddComponent(Helpers.Create<SelectionDefaultFeature>(c => {
                     c.DefaultFeature = ArmorTraining.ToReference<BlueprintFeatureReference>();
                 }));
             });
 
-            Resources.AddBlueprint(AdvancedArmorTrainingSelection);
-            Resources.AddBlueprint(AdvancedArmorTraining1);
-            Resources.AddBlueprint(AdvancedArmorTraining2);
-            Resources.AddBlueprint(AdvancedArmorTraining3);
-            Resources.AddBlueprint(AdvancedArmorTraining4);
-            Resources.AddBlueprint(AdvancedArmorTraining5);
-            Resources.AddBlueprint(AdvancedArmorTraining6);
-            Resources.AddBlueprint(ArmorTrainingSelection);
-
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["Feats"]) { return; }
-            BasicFeatSelection.AddFeatures(
+            FeatTools.AddAsFeat(
                 AdvancedArmorTraining1,
                 AdvancedArmorTraining2,
                 AdvancedArmorTraining3,
@@ -175,8 +148,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 AdvancedArmorTraining6
             );
 
-            BlueprintFeatureSelection CreateAdvancedArmorFeat(Action<BlueprintFeatureSelection> init = null) {
-                var ArmorTrainingFeat = Helpers.Create<BlueprintFeatureSelection>(bp => {
+            BlueprintFeatureSelection CreateAdvancedArmorFeat(string name, Action<BlueprintFeatureSelection> init = null) {
+                var ArmorTrainingFeat = Helpers.CreateBlueprint<BlueprintFeatureSelection>(name, bp => {
                     bp.SetName("Advanced Armor Training");
                     bp.SetDescription("Select one advanced armor training option.");
                     bp.Groups = new FeatureGroup[] {
@@ -187,9 +160,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     bp.m_Features = new BlueprintFeatureReference[0];
                     bp.IsClassFeature = true;
                     bp.HideNotAvailibleInUI = true;
-                    bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
-                        c.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
-                    }));
                 });
                 init?.Invoke(ArmorTrainingFeat);
                 return ArmorTrainingFeat;

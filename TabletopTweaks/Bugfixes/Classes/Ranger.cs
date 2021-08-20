@@ -59,7 +59,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         Main.LogPatch("Patched", FavoriteEnemy);
                     }
                     void AddPrerequisite(BlueprintFeature FavoriteEnemy) {
-                        FavoriteEnemy.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                        FavoriteEnemy.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                             c.Group = Prerequisite.GroupType.All;
                             c.m_Feature = FavoriteEnemy.ToReference<BlueprintFeatureReference>();
                         }));

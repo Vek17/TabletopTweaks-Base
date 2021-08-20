@@ -34,7 +34,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     var BackgroundsBaseSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("f926dabeee7f8a54db8f2010b323383c");
                     BackgroundsBaseSelection.m_AllFeatures
                         .Where(f => f.Get() is BlueprintFeatureSelection)
-                        .SelectMany(f => ((BlueprintFeatureSelection)f.Get()).m_Features)
+                        .SelectMany(f => ((BlueprintFeatureSelection)f.Get()).m_AllFeatures)
                         .Select(f => f.Get())
                         .OfType<BlueprintFeature>()
                         .ForEach(f => {

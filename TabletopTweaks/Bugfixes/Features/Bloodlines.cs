@@ -401,7 +401,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                     };
                 });
                 bloodline.RemoveComponents<Prerequisite>();
-                bloodline.AddComponents(noBloodline, requisiteFeature, addFacts);
+                bloodline.AddPrerequisite(requisiteFeature);
+                bloodline.AddComponents(noBloodline, addFacts);
                 Main.LogPatch("Patched", bloodline);
                 AddSaveGamePatch(bloodline, requisite);
             }

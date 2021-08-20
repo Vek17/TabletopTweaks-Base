@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Utilities;
 using UnityEngine;
+using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 
 namespace TabletopTweaks.Extensions {
     static class ExtentionMethods {
@@ -152,6 +153,16 @@ namespace TabletopTweaks.Extensions {
             selection.m_AllFeatures = selection.m_Features = features.Select(bp => bp.ToReference<BlueprintFeatureReference>()).ToArray();
         }
 
+        public static void RemoveFeatures(this BlueprintFeatureSelection selection, params BlueprintFeature[] features) {
+            foreach (var feature in features) {
+                var featureReference = feature.ToReference<BlueprintFeatureReference>();
+                if (selection.m_AllFeatures.Contains(featureReference)) {
+                    selection.m_AllFeatures = selection.m_AllFeatures.Where(f => !f.Equals(featureReference)).ToArray();
+                }
+            }
+            selection.m_AllFeatures = selection.m_AllFeatures.OrderBy(feature => feature.Get().Name).ToArray();
+        }
+
         public static void AddFeatures(this BlueprintFeatureSelection selection, params BlueprintFeature[] features) {
             foreach (var feature in features) {
                 var featureReference = feature.ToReference<BlueprintFeatureReference>();
@@ -161,20 +172,82 @@ namespace TabletopTweaks.Extensions {
             }
             selection.m_AllFeatures = selection.m_AllFeatures.OrderBy(feature => feature.Get().Name).ToArray();
         }
-
         public static void AddPrerequisiteFeature(this BlueprintFeature obj, BlueprintFeature feature) {
+            obj.AddPrerequisiteFeature(feature, GroupType.All);
+        }
+        public static void AddPrerequisiteFeature(this BlueprintFeature obj, BlueprintFeature feature, GroupType group) {
             obj.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
                 c.m_Feature = feature.ToReference<BlueprintFeatureReference>();
+                c.Group = group;
             }));
-            feature.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>());
+            if (feature.IsPrerequisiteFor == null) { feature.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
+            if (!feature.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
+                feature.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>());
+            }
         }
-
-        public static void AddPrerequisiteFeaturesFromList(this BlueprintScriptableObject obj, int amount, params BlueprintFeature[] features) {
+        public static void AddPrerequisiteFeaturesFromList(this BlueprintFeature obj, int amount, params BlueprintFeature[] features) {
+            obj.AddPrerequisiteFeaturesFromList(amount, GroupType.All, features);
+        }
+        public static void AddPrerequisiteFeaturesFromList(this BlueprintFeature obj, int amount, GroupType group = GroupType.All, params BlueprintFeature[] features) {
             obj.AddComponent(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                 c.m_Features = features.Select(f => f.ToReference<BlueprintFeatureReference>()).ToArray();
                 c.Amount = amount;
+                c.Group = group;
             }));
-            features.ForEach(f => f.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>()));
+            features.ForEach(feature => {
+                if (feature.IsPrerequisiteFor == null) { feature.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
+                if (!feature.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
+                    feature.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>());
+                }
+            });
+        }
+
+        public static void AddPrerequisite<T>(this BlueprintFeature obj, T prerequisite) where T : Prerequisite {
+            obj.AddComponent(prerequisite);
+            switch (prerequisite) {
+                case PrerequisiteFeature p:
+                    var feature = p.Feature;
+                    if (feature.IsPrerequisiteFor == null) { feature.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
+                    if (!feature.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
+                        feature.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>());
+                    }
+                    break;
+                case PrerequisiteFeaturesFromList p:
+                    var features = p.Features;
+                    features.ForEach(f => {
+                        if (f.IsPrerequisiteFor == null) { f.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
+                        if (!f.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
+                            f.IsPrerequisiteFor.Add(obj.ToReference<BlueprintFeatureReference>());
+                        }
+                    });
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public static void RemovePrerequisite<T>(this BlueprintFeature obj, T prerequisite) where T : Prerequisite {
+            obj.RemoveComponent(prerequisite);
+            switch (prerequisite) {
+                case PrerequisiteFeature p:
+                    var feature = p.Feature;
+                    if (feature.IsPrerequisiteFor == null) { feature.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
+                    if (!feature.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
+                        feature.IsPrerequisiteFor.Remove(obj.ToReference<BlueprintFeatureReference>());
+                    }
+                    break;
+                case PrerequisiteFeaturesFromList p:
+                    var features = p.Features;
+                    features.ForEach(f => {
+                        if (f.IsPrerequisiteFor == null) { f.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
+                        if (!f.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
+                            f.IsPrerequisiteFor.Remove(obj.ToReference<BlueprintFeatureReference>());
+                        }
+                    });
+                    break;
+                default:
+                    break;
+            }
         }
 
         public static void InsertComponent(this BlueprintScriptableObject obj, int index, BlueprintComponent component) {

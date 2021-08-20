@@ -35,8 +35,21 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
             static void PatchBloodlineAscendance() {
                 if (!ModSettings.Fixes.MythicAbilities.Enabled["BloodlineAscendance"]) { return; }
-                BlueprintFeatureSelection BloodlineAscendance = Resources.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
-                var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
+                var BloodlineAscendance = Resources.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
+                var SeekerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
+
+                SeekerBloodlineSelection.m_Features.ForEach(bloodline => {
+                    var capstone = ((BlueprintProgression)bloodline.Get()).LevelEntries.Where(entry => entry.Level == 20)
+                        .SelectMany(entry => entry.Features.Select(f => f))
+                        .Where(f => f.GetComponent<Prerequisite>())
+                        .OfType<BlueprintFeature>()
+                        .First();
+                    capstone.GetComponents<Prerequisite>().ForEach(c => c.Group = Prerequisite.GroupType.Any);
+                    if (!capstone.GetComponents<PrerequisiteFeature>().Any(c => c.m_Feature.Get() == bloodline.Get())) {
+                        capstone.AddPrerequisiteFeature(bloodline, Prerequisite.GroupType.Any);
+                    }
+                });
+                BloodlineAscendance.AddPrerequisite(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
                         Resources.GetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
                         Resources.GetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
@@ -47,45 +60,26 @@ namespace TabletopTweaks.Bugfixes.Features {
                         Resources.GetBlueprint<BlueprintFeature>("7c813fb495d74246918a690ba86f9c86").ToReference<BlueprintFeatureReference>()     // NineTailedHeirBloodlineSelection
                     };
                     c.Amount = 1;
-                });
-                BloodlineAscendance.SetComponents(BloodlineAscendance.ComponentsArray
-                    .Where(c => c.GetType() != typeof(PrerequisiteFeature))
-                    .Append(newPrerequisites)
-                );
+                }));
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
             static void PatchSecondBloodline() {
                 if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondBloodline"]) { return; }
                 BlueprintFeatureSelection SecondBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
-                var SeekerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
-                SeekerBloodlineSelection.m_Features.ForEach(bloodline => {
-                    var capstone = ((BlueprintProgression)bloodline.Get()).LevelEntries.Where(entry => entry.Level == 20)
-                        .SelectMany(entry => entry.Features.Select(f => f))
-                        .Where(f => f.GetComponent<Prerequisite>())
-                        .First();
-                    capstone.GetComponents<Prerequisite>().ForEach(c => c.Group = Prerequisite.GroupType.Any);
-                    if (!capstone.GetComponents<PrerequisiteFeature>().Any(c => c.m_Feature.Get() == bloodline.Get())) {
-                        capstone.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
-                            c.m_Feature = bloodline;
-                            c.Group = Prerequisite.GroupType.Any;
-                        }));
-                    }
-                });
-
-                var newPrerequisites = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
+                SecondBloodline.RemoveComponents<PrerequisiteFeature>();
+                SecondBloodline.AddPrerequisite(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
                         Resources.GetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
                         Resources.GetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
                         Resources.GetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
                         Resources.GetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
                         Resources.GetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>(),    // EmpyrealBloodlineProgression
+                        Resources.GetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988").ToReference<BlueprintFeatureReference>(),    // BloodOfDragonsSelection - Dragon Disciple
                         Resources.GetBlueprint<BlueprintFeature>("7c813fb495d74246918a690ba86f9c86").ToReference<BlueprintFeatureReference>()     // NineTailedHeirBloodlineSelection
-                };
+                    };
                     c.Amount = 1;
-                });
-                SecondBloodline.RemoveComponents<PrerequisiteFeature>();
-                SecondBloodline.AddComponent(newPrerequisites);
+                }));
                 Main.LogPatch("Patched", SecondBloodline);
             }
             static void PatchBloodragerSecondBloodline() {
@@ -93,12 +87,13 @@ namespace TabletopTweaks.Bugfixes.Features {
                 var ReformedFiendBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("dd62cb5011f64cd38b8b08abb19ba2cc");
                 var BloodragerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 var SecondBloodragerBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
+
                 SecondBloodragerBloodline.RemoveComponents<PrerequisiteFeature>();
-                SecondBloodragerBloodline.AddComponent(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
+                SecondBloodragerBloodline.AddPrerequisite(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                     c.m_Features = new BlueprintFeatureReference[] {
-                    ReformedFiendBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                    BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>()
-                };
+                        ReformedFiendBloodlineSelection.ToReference<BlueprintFeatureReference>(),
+                        BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>()
+                    };
                     c.Amount = 1;
                 }));
             }

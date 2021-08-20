@@ -115,6 +115,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var BaseProgression = FighterClass.Progression;
 
                     BaseProgression.LevelEntries
+                        .Where(entry => entry.Level > 3)
                         .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
                         .ForEach(entry => {
                             entry.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
@@ -122,7 +123,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         });
                     Main.LogPatch("Patched", BaseProgression);
                     foreach (var Archetype in FighterClass.Archetypes) {
-                        Archetype.RemoveFeatures.Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
+                        Archetype.RemoveFeatures
+                            .Where(entry => entry.Level > 3)
+                            .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
                             .ForEach(entry => {
                                 entry.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                                 entry.m_Features.Remove(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
@@ -146,7 +149,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     void PatchPrerequisites(BlueprintFeature AdvancedWeaponTraining) {
                         AdvancedWeaponTraining.GetComponent<PrerequisiteFeature>().Group = Prerequisite.GroupType.Any;
-                        AdvancedWeaponTraining.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                        AdvancedWeaponTraining.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                             c.m_Feature = TwoHandedFighterWeaponTraining.ToReference<BlueprintFeatureReference>();
                             c.Group = Prerequisite.GroupType.Any;
                         }));

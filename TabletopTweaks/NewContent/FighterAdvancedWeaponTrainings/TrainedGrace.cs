@@ -30,11 +30,11 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.AddComponent(Helpers.Create<TrainedGraceComponent>(c => {
                     c.MeleeOnly = true;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 9;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = WeaponFinesse.ToReference<BlueprintFeatureReference>();
                 }));
             });

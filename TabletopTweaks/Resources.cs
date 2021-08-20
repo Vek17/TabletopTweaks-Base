@@ -25,7 +25,7 @@ namespace TabletopTweaks {
             if (value == null) { Main.Error($"COULD NOT LOAD: {id} - {typeof(T)}"); }
             return value;
         }
-        public static void AddBlueprint([NotNull] BlueprintScriptableObject blueprint) {
+        public static void AddBlueprint([NotNull] SimpleBlueprint blueprint) {
             AddBlueprint(blueprint, blueprint.AssetGuid);
         }
         public static void AddBlueprint([NotNull] SimpleBlueprint blueprint, string assetId) {

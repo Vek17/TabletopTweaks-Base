@@ -368,11 +368,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 18, Features = { BloodragerAberrantFeatSelection }},
                     new LevelEntry(){ Level = 20, Features = { BloodragerAberrantForm }},
                 };
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 }));
@@ -852,11 +852,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
                     new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
                 };
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 }));
@@ -933,11 +933,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
                     new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
                 };
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 }));

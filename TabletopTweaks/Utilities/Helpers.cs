@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2019 Jennifer Messerly
 // This code is licensed under MIT license (see LICENSE for details)
 
+using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.ElementsSystem;
@@ -19,11 +20,22 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
         public static T Create<T>(Action<T> init = null) where T : new() {
             var result = new T();
+            init?.Invoke(result);
+            return result;
+        }
+
+        public static T CreateBlueprint<T>([NotNull] string name, Action<T> init = null) where T : SimpleBlueprint, new() {
+            var result = new T {
+                name = name,
+                AssetGuid = ModSettings.Blueprints.GetGUID(name)
+            };
+            Resources.AddBlueprint(result);
             init?.Invoke(result);
             return result;
         }

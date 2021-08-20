@@ -12,6 +12,11 @@ using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Utilities {
     static class FeatTools {
+        public static void AddAsFeat(params BlueprintFeature[] features) {
+            foreach (var feature in features) {
+                AddAsFeat(feature);
+            }
+        }
         public static void AddAsFeat(BlueprintFeature feature) {
             var BasicFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
             var ExtraFeatMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("e10c4f18a6c8b4342afe6954bde0587b");

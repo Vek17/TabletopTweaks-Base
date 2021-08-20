@@ -498,11 +498,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 18, Features = { BloodragerDestinedFeatSelection }},
                     new LevelEntry(){ Level = 20, Features = { BloodragerDestinedVictoryOrDeath, BloodragerDestinedFatedBloodrager }},
                 };
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
@@ -1370,11 +1370,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }},
                     new LevelEntry(){ Level = 20, Features = { SorcererDestinedDestinyRealized }},
                 };
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
@@ -1450,11 +1450,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 19, Features = { SorcererDestinedSpell19 }},
                     new LevelEntry(){ Level = 20, Features = { SorcererDestinedDestinyRealized }},
                 };
-                bp.AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));

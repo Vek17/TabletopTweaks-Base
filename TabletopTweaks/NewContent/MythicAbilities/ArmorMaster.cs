@@ -16,13 +16,11 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_ArmorMaster.png");
 
-            var ArmorMasterLightFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorMasterLightFeature");
+            var ArmorMasterLightFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterLightFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
-                bp.name = "ArmorMasterLightFeature";
                 bp.m_Icon = icon;
                 bp.SetName("Armor Master (Light Armor)");
                 bp.SetDescriptionTagged("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing light armor or using any shield. " +
@@ -51,13 +49,11 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     };
                 }));
             });
-            var ArmorMasterMediumFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorMasterMediumFeature");
+            var ArmorMasterMediumFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterMediumFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
-                bp.name = "ArmorMasterMediumFeature";
                 bp.m_Icon = icon;
                 bp.SetName("Armor Master (Medium Armor)");
                 bp.SetDescriptionTagged("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing medium armor or using any shield. " +
@@ -85,17 +81,15 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                         ArmorProficiencyGroup.TowerShield
                     };
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = ArmorMasterLightFeature.ToReference<BlueprintFeatureReference>();
                 }));
             });
-            var ArmorMasterHeavyFeature = Helpers.Create<BlueprintFeature>(bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("ArmorMasterHeavyFeature");
+            var ArmorMasterHeavyFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterHeavyFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
-                bp.name = "ArmorMasterHeavyFeature";
                 bp.m_Icon = icon;
                 bp.SetName("Armor Master (Heavy Armor)");
                 bp.SetDescriptionTagged("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing heavy armor or using any shield. " +
@@ -123,13 +117,10 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                         ArmorProficiencyGroup.TowerShield
                     };
                 }));
-                bp.AddComponent(Helpers.Create<PrerequisiteFeature>(c => {
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = ArmorMasterMediumFeature.ToReference<BlueprintFeatureReference>();
                 }));
             });
-            Resources.AddBlueprint(ArmorMasterLightFeature);
-            Resources.AddBlueprint(ArmorMasterMediumFeature);
-            Resources.AddBlueprint(ArmorMasterHeavyFeature);
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
             MythicAbilitySelection.AddFeatures(ArmorMasterLightFeature, ArmorMasterMediumFeature, ArmorMasterHeavyFeature);
