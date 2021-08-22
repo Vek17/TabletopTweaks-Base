@@ -145,9 +145,9 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.SetDescriptionTagged("Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
                     "to AC against foes larger than themselves.\nThis racial trait replaces halfling luck.");
                 bp.AddComponent(Helpers.Create<ACBonusAgainstSizeDifference>(c => {
-                    c.Descriptor = ModifierDescriptor.Racial;
-                    c.Value = 2;
-                    c.Smaller = false;
+                    c.Descriptor = ModifierDescriptor.Dodge;
+                    c.Value = 1;
+                    c.Smaller = true;
                     c.Steps = 1;
                 }));
                 bp.AddTraitReplacment(HalflingLuck);
