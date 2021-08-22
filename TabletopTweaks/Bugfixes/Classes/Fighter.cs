@@ -113,7 +113,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
                     var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
                     var BaseProgression = FighterClass.Progression;
-
+                    BaseProgression.UIGroups
+                        .Where(g => g.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
+                        .First()
+                        .m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                     BaseProgression.LevelEntries
                         .Where(entry => entry.Level > 3)
                         .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
