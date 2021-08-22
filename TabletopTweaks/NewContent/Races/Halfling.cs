@@ -1,11 +1,13 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -99,6 +101,58 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddTraitReplacment(HalflingAbilityModifiers);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
             });
+            var HalflingBlessedFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBlessedFeature", bp => {
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
+                bp.SetName("Blessed");
+                bp.SetDescriptionTagged("Halflings with this trait receive a +2 racial bonus on saving throws against curse effects and hexes. " +
+                    "This bonus stacks with the bonus granted by halfling luck.\nThis racial trait replaces fearless.");
+                bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstDescriptor>(c => {
+                    c.SpellDescriptor = SpellDescriptor.Hex | SpellDescriptor.Curse;
+                    c.ModifierDescriptor = ModifierDescriptor.Racial;
+                    c.Value = 2;
+                    c.Bonus = new ContextValue();
+                }));
+                bp.AddTraitReplacment(HalflingLuck);
+                bp.AddSelectionCallback(HalflingHeritageSelection);
+            });
+            var HalflingSecretiveSurvivorFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingSecretiveSurvivorFeature", bp => {
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
+                bp.SetName("Secretive Survivor");
+                bp.SetDescriptionTagged("Halflings from poor and desperate communities, most often in big cities, must take what they need without getting caught in order to survive. " +
+                    "They gain a +2 racial bonus on Persuasion and Stealth checks.\nThis racial trait replaces sure-footed.");
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Stat = StatType.SkillPersuasion;
+                    c.Descriptor = ModifierDescriptor.Racial;
+                    c.Value = 2;
+                }));
+                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                    c.Stat = StatType.SkillStealth;
+                    c.Descriptor = ModifierDescriptor.Racial;
+                    c.Value = 2;
+                }));
+                bp.AddTraitReplacment(SureFooted);
+                bp.AddSelectionCallback(HalflingHeritageSelection);
+            });
+            var HalflingUnderfootFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingUnderfootFeature", bp => {
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
+                bp.SetName("Underfoot");
+                bp.SetDescriptionTagged("Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
+                    "to AC against foes larger than themselves.\nThis racial trait replaces halfling luck.");
+                bp.AddComponent(Helpers.Create<ACBonusAgainstSizeDifference>(c => {
+                    c.Descriptor = ModifierDescriptor.Racial;
+                    c.Value = 2;
+                    c.Smaller = false;
+                    c.Steps = 1;
+                }));
+                bp.AddTraitReplacment(HalflingLuck);
+                bp.AddSelectionCallback(HalflingHeritageSelection);
+            });
 
             CravenHalfling.RemoveComponents<RemoveFeatureOnApply>();
             CravenHalfling.AddTraitReplacment(Fearless);
@@ -121,6 +175,9 @@ namespace TabletopTweaks.NewContent.Races {
             HalflingHeritageSelection.SetFeatures(
                 HalflingNoAlternateTrait,
                 HalflingBruiserFeature,
+                HalflingBlessedFeature,
+                HalflingSecretiveSurvivorFeature,
+                HalflingUnderfootFeature,
                 CravenHalfling,
                 HastyHalfling
             );
