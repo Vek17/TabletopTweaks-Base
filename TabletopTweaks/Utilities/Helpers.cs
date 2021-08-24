@@ -102,7 +102,6 @@ namespace TabletopTweaks.Utilities {
 
         // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
         static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
-        static FastRef<LocalizedString, string> localizedString_m_Key = Helpers.CreateFieldSetter<LocalizedString, string>("m_Key");
         public static LocalizedString CreateString(string key, string value) {
             // See if we used the text previously.
             // (It's common for many features to use the same localized text.
@@ -122,7 +121,6 @@ namespace TabletopTweaks.Utilities {
             localized = new LocalizedString {
                 m_Key = key
             };
-            //localizedString_m_Key(localized) = key;
             textToLocalizedString[value] = localized;
             return localized;
         }

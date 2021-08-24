@@ -137,14 +137,6 @@ namespace TabletopTweaks.Extensions {
 
         public static string StringJoin<T>(this IEnumerable<T> array, Func<T, string> map, string separator = " ") => string.Join(separator, array.Select(map));
 
-        //static readonly FastRef<BlueprintScriptableObject, string> blueprintScriptableObject_set_AssetId = Helpers.CreateFieldSetter<BlueprintScriptableObject, string>("m_AssetGuid");
-
-#if DEBUG
-        static readonly Dictionary<String, BlueprintScriptableObject> assetsByName = new Dictionary<String, BlueprintScriptableObject>();
-
-        internal static readonly List<BlueprintScriptableObject> newAssets = new List<BlueprintScriptableObject>();
-#endif
-
         public static void SetFeatures(this BlueprintFeatureSelection selection, IEnumerable<BlueprintFeature> features) {
             SetFeatures(selection, features.ToArray());
         }
@@ -310,20 +302,6 @@ namespace TabletopTweaks.Extensions {
             SetComponents(obj, components.ToArray());
         }
 
-        /*
-        public static T CopyAndAdd<T>(this LibraryScriptableObject library, String assetId, String newName, String newAssetId, String newAssetId2 = null) where T : BlueprintScriptableObject {
-            return CopyAndAdd(library, Get<T>(library, assetId), newName, newAssetId, newAssetId2);
-        }
-        
-        public static T CopyAndAdd<T>(this LibraryScriptableObject library, T original, String newName, String newAssetId, String newAssetId2 = null) where T : BlueprintScriptableObject {
-            var clone = UnityEngine.Object.Instantiate(original);
-            clone.name = newName;
-            var id = newAssetId2 != null ? Helpers.MergeIds(newAssetId, newAssetId2) : newAssetId;
-            AddAsset(library, clone, id);
-            return clone;
-        }
-        */
-
         public static T CreateCopy<T>(this T original, Action<T> action = null) where T : UnityEngine.Object {
             var clone = UnityEngine.Object.Instantiate(original);
             if (action != null) {
@@ -332,59 +310,36 @@ namespace TabletopTweaks.Extensions {
             return clone;
         }
 
-        static readonly FastRef<BlueprintUnitFact, LocalizedString> blueprintUnitFact_set_Description = Helpers.CreateFieldSetter<BlueprintUnitFact, LocalizedString>("m_Description");
-        static readonly FastRef<BlueprintUnitFact, Sprite> blueprintUnitFact_set_Icon = Helpers.CreateFieldSetter<BlueprintUnitFact, Sprite>("m_Icon");
-        static readonly FastRef<BlueprintUnitFact, LocalizedString> blueprintUnitFact_set_DisplayName = Helpers.CreateFieldSetter<BlueprintUnitFact, LocalizedString>("m_DisplayName");
-        static readonly FastRef<BlueprintUnitFact, LocalizedString> blueprintUnitFact_get_Description = Helpers.CreateFieldGetter<BlueprintUnitFact, LocalizedString>("m_Description");
-        static readonly FastRef<BlueprintUnitFact, LocalizedString> blueprintUnitFact_get_DisplayName = Helpers.CreateFieldGetter<BlueprintUnitFact, LocalizedString>("m_DisplayName");
-
-        public static void SetNameDescriptionIcon(this BlueprintUnitFact feature, String displayName, String description, Sprite icon) {
-            SetNameDescription(feature, displayName, description);
-            feature.SetIcon(icon);
-        }
-
-        public static void SetNameDescriptionIcon(this BlueprintUnitFact feature, BlueprintUnitFact other) {
-            SetNameDescription(feature, other);
-            feature.SetIcon(other.Icon);
-        }
-
         public static void SetNameDescription(this BlueprintUnitFact feature, String displayName, String description) {
             feature.SetName(Helpers.CreateString(feature.name + ".Name", displayName));
             feature.SetDescription(description);
         }
 
         public static void SetNameDescription(this BlueprintUnitFact feature, BlueprintUnitFact other) {
-            blueprintUnitFact_set_DisplayName(feature) = other.GetName();
-            blueprintUnitFact_set_Description(feature) = other.GetDescription();
-        }
-
-        public static LocalizedString GetName(this BlueprintUnitFact fact) => (LocalizedString)blueprintUnitFact_get_DisplayName(fact);
-        public static LocalizedString GetDescription(this BlueprintUnitFact fact) => (LocalizedString)blueprintUnitFact_get_Description(fact);
-
-        public static void SetIcon(this BlueprintUnitFact feature, Sprite icon) {
-            blueprintUnitFact_set_Icon(feature) = icon;
+            feature.m_DisplayName = other.m_DisplayName;
+            feature.m_Description = other.m_Description;
         }
 
         public static void SetName(this BlueprintUnitFact feature, LocalizedString name) {
-            blueprintUnitFact_set_DisplayName(feature) = name;
+            feature.m_DisplayName = name;
         }
 
         public static void SetName(this BlueprintUnitFact feature, String name) {
-            blueprintUnitFact_set_DisplayName(feature) = Helpers.CreateString(feature.name + ".Name", name);
+            feature.m_DisplayName = Helpers.CreateString(feature.name + ".Name", name);
         }
 
         public static void SetDescription(this BlueprintUnitFact feature, String description) {
             SetDescriptionTagged(feature, description);
-            //blueprintUnitFact_set_Description(feature) = Helpers.CreateString(feature.name + ".Description", description);
         }
 
         public static void SetDescription(this BlueprintUnitFact feature, LocalizedString description) {
-            blueprintUnitFact_set_Description(feature) = description;
+            feature.m_Description = description;
+            //blueprintUnitFact_set_Description(feature) = description;
         }
 
         public static void SetDescriptionTagged(this BlueprintUnitFact feature, String description) {
             var taggedDescription = DescriptionTools.TagEncyclopediaEntries(description);
-            blueprintUnitFact_set_Description(feature) = Helpers.CreateString(feature.name + ".Description", taggedDescription);
+            SetDescriptionTagged(feature, description);
         }
 
         public static bool HasFeatureWithId(this LevelEntry level, String id) {
@@ -413,13 +368,6 @@ namespace TabletopTweaks.Extensions {
         public static bool HasAreaEffect(this BlueprintAbility spell) {
             return spell.AoERadius.Meters > 0f || spell.ProjectileType != AbilityProjectileType.Simple;
         }
-
-        public static void SetIcon(this BlueprintAbilityResource resource, Sprite icon) => setIcon(resource) = icon;
-
-        static readonly FastRef<BlueprintAbilityResource, Sprite> setIcon = Helpers.CreateFieldSetter<BlueprintAbilityResource, Sprite>("m_Icon");
-        //internal static readonly FastSetter<BlueprintAbilityResource, object> setMaxAmount = Helpers.CreateFieldSetter<BlueprintAbilityResource, object>("m_MaxAmount");
-        //internal static readonly FastGetter<BlueprintAbilityResource, object> getMaxAmount = Helpers.CreateFieldGetter<BlueprintAbilityResource, object>("m_MaxAmount");
-        //static readonly Type blueprintAbilityResource_Amount = HarmonyLib.AccessTools.Inner(typeof(BlueprintAbilityResource), "Amount");
 
         internal static IEnumerable<BlueprintComponent> WithoutSpellComponents(this IEnumerable<BlueprintComponent> components) {
             return components.Where(c => !(c is SpellComponent) && !(c is SpellListComponent));
