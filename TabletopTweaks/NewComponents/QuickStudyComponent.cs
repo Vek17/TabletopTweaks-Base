@@ -7,7 +7,6 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.QA;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.ActionBar;
@@ -66,7 +65,7 @@ namespace TabletopTweaks.NewComponents {
                     ProvokeAoO.RunAction();
                 } catch (Exception ex) {
                     ElementLogicException exception = (ex as ElementLogicException) ?? new ElementLogicException(ProvokeAoO, ex);
-                    PFLog.Actions.ExceptionWithReport(exception, null, Array.Empty<object>());
+                    PFLog.Actions.Exception(exception, null, Array.Empty<object>());
                 }
             }
         }
