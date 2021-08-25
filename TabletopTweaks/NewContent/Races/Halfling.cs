@@ -31,15 +31,15 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddHalflingHeritage() {
 
-            var HalflingAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("HalflingAbilityModifiers", bp => {
+            var HalflingAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("HalflingAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Ability Modifiers");
-                bp.SetDescriptionTagged("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
-                    + "races. They gain +2 Dexterity, +2 Charisma, and –2 Strength.");
+                ExtentionMethods.SetDescription(bp, (string)("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
+                    + "races. They gain +2 Dexterity, +2 Charisma, and –2 Strength."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;
@@ -60,24 +60,24 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            });
-            var HalflingNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("HalflingNoAlternateTrait", bp => {
+            }));
+            var HalflingNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("HalflingNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
-                bp.SetDescription("No Alternate Trait");
-            });
-            var HalflingBruiserFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBruiserFeature", bp => {
+                ExtentionMethods.SetDescription(bp, (string)"No Alternate Trait");
+            }));
+            var HalflingBruiserFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBruiserFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Bruiser");
-                bp.SetDescriptionTagged("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
+                ExtentionMethods.SetDescription(bp, (string)("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
                     + "streets, has made some halflings more adept at taking blows than dodging them. Halflings with this racial "
-                    + "trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers.");
+                    + "trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;
@@ -100,14 +100,14 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(HalflingAbilityModifiers);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            });
-            var HalflingBlessedFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBlessedFeature", bp => {
+            }));
+            var HalflingBlessedFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBlessedFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Blessed");
-                bp.SetDescriptionTagged("Halflings with this trait receive a +2 racial bonus on saving throws against curse effects and hexes. " +
-                    "This bonus stacks with the bonus granted by halfling luck.\nThis racial trait replaces fearless.");
+                ExtentionMethods.SetDescription(bp, (string)("Halflings with this trait receive a +2 racial bonus on saving throws against curse effects and hexes. " +
+                    "This bonus stacks with the bonus granted by halfling luck.\nThis racial trait replaces fearless."));
                 bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstDescriptor>(c => {
                     c.SpellDescriptor = SpellDescriptor.Hex | SpellDescriptor.Curse;
                     c.ModifierDescriptor = ModifierDescriptor.Racial;
@@ -116,14 +116,14 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(HalflingLuck);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            });
-            var HalflingSecretiveSurvivorFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingSecretiveSurvivorFeature", bp => {
+            }));
+            var HalflingSecretiveSurvivorFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingSecretiveSurvivorFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Secretive Survivor");
-                bp.SetDescriptionTagged("Halflings from poor and desperate communities, most often in big cities, must take what they need without getting caught in order to survive. " +
-                    "They gain a +2 racial bonus on Persuasion and Stealth checks.\nThis racial trait replaces sure-footed.");
+                ExtentionMethods.SetDescription(bp, (string)("Halflings from poor and desperate communities, most often in big cities, must take what they need without getting caught in order to survive. " +
+                    "They gain a +2 racial bonus on Persuasion and Stealth checks.\nThis racial trait replaces sure-footed."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.SkillPersuasion;
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -136,14 +136,14 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(SureFooted);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            });
-            var HalflingUnderfootFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingUnderfootFeature", bp => {
+            }));
+            var HalflingUnderfootFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingUnderfootFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Underfoot");
-                bp.SetDescriptionTagged("Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
-                    "to AC against foes larger than themselves.\nThis racial trait replaces halfling luck.");
+                ExtentionMethods.SetDescription(bp, (string)("Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
+                    "to AC against foes larger than themselves.\nThis racial trait replaces halfling luck."));
                 bp.AddComponent(Helpers.Create<ACBonusAgainstSizeDifference>(c => {
                     c.Descriptor = ModifierDescriptor.Dodge;
                     c.Value = 1;
@@ -152,7 +152,7 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(HalflingLuck);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            });
+            }));
 
             CravenHalfling.RemoveComponents<RemoveFeatureOnApply>();
             CravenHalfling.AddTraitReplacment(Fearless);

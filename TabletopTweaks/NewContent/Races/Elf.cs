@@ -29,14 +29,14 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddElfHeritage() {
 
-            var ElfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("ElfAbilityModifiers", bp => {
+            var ElfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("ElfAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Elf Ability Modifiers");
-                bp.SetDescriptionTagged("Elves are nimble, both in body and mind, but their form is frail. They gain +2 Dexterity, +2 Intelligence, and –2 Constitution.");
+                ExtentionMethods.SetDescription(bp, (string)"Elves are nimble, both in body and mind, but their form is frail. They gain +2 Dexterity, +2 Intelligence, and –2 Constitution.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Intelligence;
@@ -57,24 +57,24 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            });
-            var ElfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("ElfNoAlternateTrait", bp => {
+            }));
+            var ElfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("ElfNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
-                bp.SetDescription("No Alternate Trait");
-            });
-            var ElfFieraniFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfFieraniFeature", bp => {
+                ExtentionMethods.SetDescription(bp, (string)"No Alternate Trait");
+            }));
+            var ElfFieraniFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfFieraniFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Fierani Elf");
-                bp.SetDescriptionTagged("Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
+                ExtentionMethods.SetDescription(bp, (string)("Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
                     + "to nature than most of their kin. Elves with this racial trait gain +2 Dexterity, +2 Wisdom, and -2 Constitution."
-                    + "\nThis racial trait alters the elves’ ability score modifiers.");
+                    + "\nThis racial trait alters the elves’ ability score modifiers."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Wisdom;
@@ -97,27 +97,27 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(ElfAbilityModifiers);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            });
-            var ElfArcaneFocusFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfArcaneFocusFeature", bp => {
+            }));
+            var ElfArcaneFocusFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfArcaneFocusFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Arcane Focus");
-                bp.SetDescriptionTagged("Some elven families have such long traditions of producing wizards (and other arcane spellcasters) that they raise their children " +
+                ExtentionMethods.SetDescription(bp, (string)("Some elven families have such long traditions of producing wizards (and other arcane spellcasters) that they raise their children " +
                     "with the assumption each is destined to be a powerful magic-user, with little need for mundane concerns such as skill with weapons. " +
-                    "Elves with this racial trait gain a +2 racial bonus on concentration checks.\nThis racial trait replaces weapon familiarity.");
+                    "Elves with this racial trait gain a +2 racial bonus on concentration checks.\nThis racial trait replaces weapon familiarity."));
                 bp.AddComponent(Helpers.Create<ConcentrationBonus>(c => {
                     c.Value = 2;
                 }));
                 bp.AddTraitReplacment(ElvenWeaponFamiliarity);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            });
-            var ElfLongLimbedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfLongLimbedFeature", bp => {
+            }));
+            var ElfLongLimbedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfLongLimbedFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Long Limbed");
-                bp.SetDescriptionTagged("Elves with this racial trait have a base move speed of 35 feet.\nThis racial trait replaces weapon familiarity.");
+                ExtentionMethods.SetDescription(bp, (string)"Elves with this racial trait have a base move speed of 35 feet.\nThis racial trait replaces weapon familiarity.");
                 bp.AddComponent(Helpers.Create<BuffMovementSpeed>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Value = 5;
@@ -125,13 +125,13 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(ElvenWeaponFamiliarity);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            });
-            var ElfMoonkissedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfMoonkissedFeature", bp => {
+            }));
+            var ElfMoonkissedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfMoonkissedFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Moonkissed");
-                bp.SetDescriptionTagged("Elves with this alternate racial trait gain a +1 racial bonus on saving throws.\nThis replaces elven immunities and keen senses.");
+                ExtentionMethods.SetDescription(bp, (string)"Elves with this alternate racial trait gain a +1 racial bonus on saving throws.\nThis replaces elven immunities and keen senses.");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Value = 1;
@@ -139,13 +139,13 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddTraitReplacment(KeenSenses);
                 bp.AddTraitReplacment(ElvenImmunities);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            });
-            var ElfVigilanceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfVigilanceFeature", bp => {
+            }));
+            var ElfVigilanceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfVigilanceFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Vigilance ");
-                bp.SetDescriptionTagged("You gain a +2 dodge bonus to AC against attacks by chaotic creatures.\nThis trait replaces elven magic.");
+                ExtentionMethods.SetDescription(bp, (string)"You gain a +2 dodge bonus to AC against attacks by chaotic creatures.\nThis trait replaces elven magic.");
                 bp.AddComponent(Helpers.Create<ArmorClassBonusAgainstAlignment>(c => {
                     c.alignment = AlignmentComponent.Chaotic;
                     c.Descriptor = ModifierDescriptor.Dodge;
@@ -154,7 +154,7 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(ElvenMagic);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            });
+            }));
 
             BlightbornElf.RemoveComponents<RemoveFeatureOnApply>();
             BlightbornElf.AddTraitReplacment(ElvenImmunities);

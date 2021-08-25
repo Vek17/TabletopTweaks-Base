@@ -30,11 +30,11 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var DazzlingDisplayAction = Resources.GetBlueprint<BlueprintAbility>("5f3126d4120b2b244a95cb2ec23d69fb");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_MountedManiac.png");
 
-            var MountedManiacDCBuff = Helpers.CreateBuff("MountedManiacDCBuff", bp => {
+            var MountedManiacDCBuff = Helpers.CreateBuff("MountedManiacDCBuff", (System.Action<BlueprintBuff>)(bp => {
                 bp.m_Icon = icon;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Mounted Maniac");
-                bp.SetDescription("");
+                ExtentionMethods.SetDescription(bp, (string)"");
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Value = new ContextValue() {
@@ -53,24 +53,24 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     c.m_Min = 1;
                 }));
                 bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
-            });
-            var MountedManiacAbility = Helpers.CreateCopy(DazzlingDisplayAction, bp => {
+            }));
+            var MountedManiacAbility = Helpers.CreateCopy(DazzlingDisplayAction, (System.Action<BlueprintAbility>)(bp => {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacAbility");
                 bp.name = "MountedManiacAbility";
                 bp.m_Icon = icon;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
                 bp.SetName("Mounted Maniac");
-                bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
-                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
+                ExtentionMethods.SetDescription(bp, (string)("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
+                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check."));
                 bp.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<Demoralize>().First().DazzlingDisplay = false;
                 Resources.AddBlueprint(bp);
-            });
-            var MountedManiacBuff = Helpers.CreateBuff("MountedManiacBuff", bp => {
+            }));
+            var MountedManiacBuff = Helpers.CreateBuff("MountedManiacBuff", (System.Action<BlueprintBuff>)(bp => {
 
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
-                bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
-                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
+                ExtentionMethods.SetDescription(bp, (string)("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
+                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check."));
                 bp.AddComponent(Helpers.Create<AddInitiatorAttackWithWeaponTrigger>(c => {
                     c.OnlyOnFirstAttack = true;
                     c.OnCharge = true;
@@ -115,30 +115,30 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                         }
                     };
                 }));
-            });
-            var MountedManiacActivatableAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("MountedManiacActivatableAbility", bp => {
+            }));
+            var MountedManiacActivatableAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("MountedManiacActivatableAbility", (System.Action<BlueprintActivatableAbility>)(bp => {
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
-                bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
-                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
+                ExtentionMethods.SetDescription(bp, (string)("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
+                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check."));
                 bp.m_Buff = MountedManiacBuff.ToReference<BlueprintBuffReference>();
                 bp.IsOnByDefault = true;
-            });
-            var MountedManiacFeature = Helpers.CreateBlueprint<BlueprintFeature>("MountedManiacFeature", bp => {
+            }));
+            var MountedManiacFeature = Helpers.CreateBlueprint<BlueprintFeature>("MountedManiacFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
                 bp.m_Icon = icon;
                 bp.SetName("Mounted Maniac");
-                bp.SetDescriptionTagged("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
-                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
+                ExtentionMethods.SetDescription(bp, (string)("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
+                    "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check."));
                 bp.AddComponent(Helpers.Create<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         MountedManiacActivatableAbility.ToReference<BlueprintUnitFactReference>(),
                     };
                 }));
-            });
+            }));
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["MountedManiac"]) { return; }
             MythicAbilitySelection.AddFeatures(MountedManiacFeature);

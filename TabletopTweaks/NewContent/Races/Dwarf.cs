@@ -31,13 +31,13 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddDwarfHeritage() {
 
-            var DwarfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("DwarfAbilityModifiers", bp => {
+            var DwarfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("DwarfAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("Dwarf Ability Modifiers");
-                bp.SetDescriptionTagged("Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
+                ExtentionMethods.SetDescription(bp, (string)"Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -59,24 +59,24 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            });
-            var DwarfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("DwarfNoAlternateTrait", bp => {
+            }));
+            var DwarfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("DwarfNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
-                bp.SetDescription("No Alternate Trait");
-            });
-            var DwarfStoutheartFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoutheartFeature", bp => {
+                ExtentionMethods.SetDescription(bp, (string)"No Alternate Trait");
+            }));
+            var DwarfStoutheartFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoutheartFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Stoutheart Dwarf");
-                bp.SetDescriptionTagged("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
+                ExtentionMethods.SetDescription(bp, (string)("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
                     + "their kin. Dwarves with this racial trait gain +2 Constitution, +2 Charisma, and -2 Intelligence."
-                    + "\nThis racial trait alters the dwarves’ ability score modifiers.");
+                    + "\nThis racial trait alters the dwarves’ ability score modifiers."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;
@@ -99,14 +99,14 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(DwarfAbilityModifiers);
                 bp.AddSelectionCallback(DwarfHeritageSelection);
-            });
-            var DwarfStoicNegotiatorFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoicNegotiatorFeature", bp => {
+            }));
+            var DwarfStoicNegotiatorFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoicNegotiatorFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Stoic Negotiator");
-                bp.SetDescriptionTagged("Some dwarves use their unwavering stubbornness to get what they want in negotiations and other business matters. " +
-                    "They gain a +2 racial bonus on Persuasion checks and Persuasion is a class skill for them.\nThis racial trait replaces defensive training, hatred.");
+                ExtentionMethods.SetDescription(bp, (string)("Some dwarves use their unwavering stubbornness to get what they want in negotiations and other business matters. " +
+                    "They gain a +2 racial bonus on Persuasion checks and Persuasion is a class skill for them.\nThis racial trait replaces defensive training, hatred."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.SkillPersuasion;
@@ -118,7 +118,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddTraitReplacment(DwarfDefensiveTrainingGiants);
                 bp.AddTraitReplacment(HatredGoblinoidOrc);
                 bp.AddSelectionCallback(DwarfHeritageSelection);
-            });
+            }));
 
             BarrowDwarf.RemoveComponents<RemoveFeatureOnApply>();
             BarrowDwarf.AddTraitReplacment(KeenSenses);

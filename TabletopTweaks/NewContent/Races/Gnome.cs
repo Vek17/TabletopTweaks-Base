@@ -32,15 +32,15 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddGnomeHeritage() {
 
-            var GnomeAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("GnomeAbilityModifiers", bp => {
+            var GnomeAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("GnomeAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Gnome Ability Modifiers");
-                bp.SetDescriptionTagged("Gnomes are physically weak but surprisingly hardy, and their attitude "
-                    + "makes them naturally agreeable. They gain +2 Constitution, +2 Charisma, and –2 Strength.");
+                ExtentionMethods.SetDescription(bp, (string)("Gnomes are physically weak but surprisingly hardy, and their attitude "
+                    + "makes them naturally agreeable. They gain +2 Constitution, +2 Charisma, and –2 Strength."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;
@@ -61,24 +61,24 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            });
-            var GnomeNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNoAlternateTrait", bp => {
+            }));
+            var GnomeNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
-                bp.SetDescription("No Alternate Trait");
-            });
-            var GnomeArtisanFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeArtisanFeature", bp => {
+                ExtentionMethods.SetDescription(bp, (string)"No Alternate Trait");
+            }));
+            var GnomeArtisanFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeArtisanFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Artisan Gnome");
-                bp.SetDescriptionTagged("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
+                ExtentionMethods.SetDescription(bp, (string)("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
                     + "all of their time and energy to their crafts. Such gnomes gain +2 Constitution, +2 Intelligence, "
-                    + "and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.");
+                    + "and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Intelligence;
@@ -104,15 +104,15 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddPrerequisiteFeature(GnomeAbilityModifiers);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            });
-            var GnomeKeenFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeKeenFeature", bp => {
+            }));
+            var GnomeKeenFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeKeenFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Keen Gnome");
-                bp.SetDescriptionTagged("Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. "
+                ExtentionMethods.SetDescription(bp, (string)("Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. "
                     + "Such gnomes gain +2 Charisma, +2 Intelligence, "
-                    + "and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training");
+                    + "and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training"));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Intelligence;
@@ -142,13 +142,13 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddPrerequisiteFeature(GnomeAbilityModifiers);
                 bp.AddPrerequisiteFeature(DwarfDefensiveTrainingGiants);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            });
-            var GnomeFellMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeFellMagicFeature", bp => {
+            }));
+            var GnomeFellMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeFellMagicFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Fell Magic");
-                bp.SetDescriptionTagged("Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic");
+                ExtentionMethods.SetDescription(bp, (string)"Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic");
                 bp.AddComponent(Helpers.Create<IncreaseSpellSchoolDC>(c => {
                     c.School = SpellSchool.Necromancy;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -156,13 +156,13 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(GnomeMagic);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            });
-            var GnomeUtilitarianMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeUtilitarianMagicFeature", bp => {
+            }));
+            var GnomeUtilitarianMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeUtilitarianMagicFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Utilitarian Magic");
-                bp.SetDescriptionTagged("Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic");
+                ExtentionMethods.SetDescription(bp, (string)"Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic");
                 bp.AddComponent(Helpers.Create<IncreaseSpellSchoolDC>(c => {
                     c.School = SpellSchool.Transmutation;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -170,14 +170,14 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(GnomeMagic);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            });
-            var GnomeInquisitiveFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeInquisitiveFeature", bp => {
+            }));
+            var GnomeInquisitiveFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeInquisitiveFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Inquisitive");
-                bp.SetDescriptionTagged("Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery " +
-                    "and Mobility checks. \nThis racial trait replaces keen senses and obsessive.");
+                ExtentionMethods.SetDescription(bp, (string)("Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery " +
+                    "and Mobility checks. \nThis racial trait replaces keen senses and obsessive."));
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.SkillMobility;
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -191,13 +191,13 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddTraitReplacment(KeenSenses);
                 bp.AddTraitReplacment(Obsessive);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            });
-            var GnomeNosophobiaFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNosophobiaFeature", bp => {
+            }));
+            var GnomeNosophobiaFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNosophobiaFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Nosophobia");
-                bp.SetDescriptionTagged("You gain a +4 bonus on saves against disease and poison, including magical diseases.\nThis racial trait replaces obsessive.");
+                ExtentionMethods.SetDescription(bp, (string)"You gain a +4 bonus on saves against disease and poison, including magical diseases.\nThis racial trait replaces obsessive.");
                 bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstDescriptor>(c => {
                     c.SpellDescriptor = SpellDescriptor.Poison | SpellDescriptor.Disease;
                     c.ModifierDescriptor = ModifierDescriptor.Racial;
@@ -206,7 +206,7 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(Obsessive);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            });
+            }));
 
             PyromaniacGnome.RemoveComponents<RemoveFeatureOnApply>();
             PyromaniacGnome.AddTraitReplacment(GnomeMagic);

@@ -15,13 +15,13 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
             var FighterFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("41c8486641f7d6d4283ca9dae4147a9f");
 
-            var AdvancedArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection", bp => {
+            var AdvancedArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection", (Action<BlueprintFeatureSelection>)(bp => {
                 bp.Ranks = 3;
                 bp.SetName("Advanced Armor Training");
-                bp.SetDescriptionTagged("Beginning at 7th level, instead of increasing the benefits provided by armor training " +
+                ExtentionMethods.SetDescription(bp, (string)("Beginning at 7th level, instead of increasing the benefits provided by armor training " +
                     "(reducing his armor check penalty by 1 and increasing its maximum Dexterity bonus by 1), a fighter can " +
                     "choose an advanced armor training option (see Advanced Armor Training below) . If the fighter does so, " +
-                    "he still gains the ability to move at his normal speed while wearing medium armor at 3rd level, and while wearing heavy armor at 7th level.");
+                    "he still gains the ability to move at his normal speed while wearing medium armor at 3rd level, and while wearing heavy armor at 7th level."));
                 bp.m_AllFeatures = new BlueprintFeatureReference[0];
                 bp.m_Features = new BlueprintFeatureReference[0];
                 bp.IsClassFeature = true;
@@ -29,7 +29,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 7;
                 }));
-            });
+            }));
             var AdvancedArmorTraining1 = CreateAdvancedArmorFeat("AdvancedArmorTraining1", bp => {
                 bp.AddPrerequisite(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
@@ -114,11 +114,11 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
 
-            var ArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection", bp => {
+            var ArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection", (Action<BlueprintFeatureSelection>)(bp => {
                 bp.Ranks = 4;
                 bp.m_Icon = ArmorTraining.Icon;
                 bp.SetName("Armor Training");
-                bp.SetDescription(ArmorTraining.Description);
+                ExtentionMethods.SetDescription(bp, (string)ArmorTraining.Description);
                 bp.m_AllFeatures = new BlueprintFeatureReference[] {
                     ArmorTraining.ToReference<BlueprintFeatureReference>(),
                     AdvancedArmorTrainingSelection.ToReference<BlueprintFeatureReference>()
@@ -128,7 +128,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent(Helpers.Create<SelectionDefaultFeature>(c => {
                     c.DefaultFeature = ArmorTraining.ToReference<BlueprintFeatureReference>();
                 }));
-            });
+            }));
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["Feats"]) { return; }
             FeatTools.AddAsFeat(
@@ -149,9 +149,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             );
 
             BlueprintFeatureSelection CreateAdvancedArmorFeat(string name, Action<BlueprintFeatureSelection> init = null) {
-                var ArmorTrainingFeat = Helpers.CreateBlueprint<BlueprintFeatureSelection>(name, bp => {
+                var ArmorTrainingFeat = Helpers.CreateBlueprint<BlueprintFeatureSelection>(name, (Action<BlueprintFeatureSelection>)(bp => {
                     bp.SetName("Advanced Armor Training");
-                    bp.SetDescription("Select one advanced armor training option.");
+                    ExtentionMethods.SetDescription(bp, (string)"Select one advanced armor training option.");
                     bp.Groups = new FeatureGroup[] {
                         FeatureGroup.CombatFeat,
                         FeatureGroup.Feat
@@ -160,7 +160,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     bp.m_Features = new BlueprintFeatureReference[0];
                     bp.IsClassFeature = true;
                     bp.HideNotAvailibleInUI = true;
-                });
+                }));
                 init?.Invoke(ArmorTrainingFeat);
                 return ArmorTrainingFeat;
             }

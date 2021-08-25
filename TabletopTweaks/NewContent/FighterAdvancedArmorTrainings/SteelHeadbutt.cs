@@ -34,9 +34,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_OverrideDamageDice = true;
                 bp.m_DamageDice = new DiceFormula(1, DiceType.D4);
             });
-            var SteelHeadbuttMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttMediumEffect", bp => {
+            var SteelHeadbuttMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttMediumEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Steel Headbutt Effect");
-                bp.SetDescription("Steel Headbutt");
+                ExtentionMethods.SetDescription(bp, (string)"Steel Headbutt");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -46,10 +46,10 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent(Helpers.Create<ApplyArmorEnchantsToWeapon>(c => {
                     c.Weapon = SteelHeadbutt1d3.ToReference<BlueprintItemWeaponReference>();
                 }));
-            });
-            var SteelHeadbuttHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttHeavyEffect", bp => {
+            }));
+            var SteelHeadbuttHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttHeavyEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Steel Headbutt Effect");
-                bp.SetDescription("Steel Headbutt");
+                ExtentionMethods.SetDescription(bp, (string)"Steel Headbutt");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -59,14 +59,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent(Helpers.Create<ApplyArmorEnchantsToWeapon>(c => {
                     c.Weapon = SteelHeadbutt1d4.ToReference<BlueprintItemWeaponReference>();
                 }));
-            });
-            var SteelHeadbuttFeature = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttFeature", bp => {
+            }));
+            var SteelHeadbuttFeature = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Steel Headbutt");
-                bp.SetDescriptionTagged("While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. " +
+                ExtentionMethods.SetDescription(bp, (string)("While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. " +
                     "This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals " +
                     "1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, " +
                     "respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter’s Strength modifier. Treat this attack as a " +
-                    "weapon attack made using the same special material and echantment bonus (if any) as the armor.");
+                    "weapon attack made using the same special material and echantment bonus (if any) as the armor."));
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
@@ -77,7 +77,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.NewFact = SteelHeadbuttHeavyEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
                 }));
-            });
+            }));
 
             Resources.AddBlueprint(SteelHeadbutt1d3);
             Resources.AddBlueprint(SteelHeadbutt1d4);

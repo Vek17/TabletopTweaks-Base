@@ -16,9 +16,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
         public static void AddArmoredConfidence() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
-            var ArmoredConfidenceLightEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceLightEffect", bp => {
+            var ArmoredConfidenceLightEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceLightEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence Effect");
-                bp.SetDescription("Armored Confidence");
+                ExtentionMethods.SetDescription(bp, (string)"Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -46,11 +46,11 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
-            });
+            }));
 
-            var ArmoredConfidenceMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceMediumEffect", bp => {
+            var ArmoredConfidenceMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceMediumEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence Effect");
-                bp.SetDescription("Armored Confidence");
+                ExtentionMethods.SetDescription(bp, (string)"Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -78,10 +78,10 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
-            });
-            var ArmoredConfidenceHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceHeavyEffect", bp => {
+            }));
+            var ArmoredConfidenceHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceHeavyEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence Effect");
-                bp.SetDescription("Armored Confidence");
+                ExtentionMethods.SetDescription(bp, (string)"Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -109,12 +109,12 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
-            });
-            var ArmoredConfidenceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceFeature", bp => {
+            }));
+            var ArmoredConfidenceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence");
-                bp.SetDescriptionTagged("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
+                ExtentionMethods.SetDescription(bp, (string)("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
                     "+1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter " +
-                    "levels thereafter, to a maximum of +4 at 19th level.");
+                    "levels thereafter, to a maximum of +4 at 19th level."));
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
@@ -129,7 +129,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.NewFact = ArmoredConfidenceHeavyEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
                 }));
-            });
+            }));
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["ArmoredConfidence"]) { return; }
             AdvancedArmorTraining.AddToAdvancedArmorTrainingSelection(ArmoredConfidenceFeature);

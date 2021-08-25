@@ -328,8 +328,8 @@ namespace TabletopTweaks.Extensions {
             feature.m_DisplayName = Helpers.CreateString(feature.name + ".Name", name);
         }
 
-        public static void SetDescription(this BlueprintUnitFact feature, String description) {
-            SetDescriptionTagged(feature, description);
+        public static void SetDescriptionUntagged(this BlueprintUnitFact feature, String description) {
+            feature.m_Description = Helpers.CreateString(feature.name + ".Description", description);
         }
 
         public static void SetDescription(this BlueprintUnitFact feature, LocalizedString description) {
@@ -337,9 +337,9 @@ namespace TabletopTweaks.Extensions {
             //blueprintUnitFact_set_Description(feature) = description;
         }
 
-        public static void SetDescriptionTagged(this BlueprintUnitFact feature, String description) {
+        public static void SetDescription(this BlueprintUnitFact feature, String description) {
             var taggedDescription = DescriptionTools.TagEncyclopediaEntries(description);
-            SetDescriptionTagged(feature, description);
+            feature.m_Description = Helpers.CreateString(feature.name + ".Description", taggedDescription);
         }
 
         public static bool HasFeatureWithId(this LevelEntry level, String id) {
