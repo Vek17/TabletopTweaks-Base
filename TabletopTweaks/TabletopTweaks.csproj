@@ -137,6 +137,7 @@
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
+    <Compile Include="Bugfixes\Items\Weapons.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Config\Blueprints.cs" />
@@ -148,7 +149,7 @@
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
-    <Compile Include="MechanicsChanges\Metamagic.cs" />
+    <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />

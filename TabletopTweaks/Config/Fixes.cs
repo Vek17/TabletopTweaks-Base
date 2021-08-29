@@ -30,6 +30,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
+        public ItemGroup Items = new ItemGroup();
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as Fixes;
@@ -61,12 +62,14 @@ namespace TabletopTweaks.Config {
             Spells.LoadSettingGroup(loadedSettings.Spells);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
+
+            Items.LoadItemGroup(loadedSettings.Items);
         }
 
         public class ClassGroup {
             public bool DisableAll = false;
-            public SettingGroup Base = new SettingGroup();
-            public SortedDictionary<string, SettingGroup> Archetypes = new SortedDictionary<string, SettingGroup>();
+            public ClassSettingGroup Base = new ClassSettingGroup();
+            public SortedDictionary<string, ClassSettingGroup> Archetypes = new SortedDictionary<string, ClassSettingGroup>();
             public void LoadClassGroup(ClassGroup group) {
                 DisableAll = group.DisableAll;
                 Base.LoadSettingGroup(group.Base);
@@ -75,6 +78,31 @@ namespace TabletopTweaks.Config {
                         Archetypes[entry.Key].LoadSettingGroup(entry.Value);
                     }
                 });
+            }
+            public class ClassSettingGroup : SettingGroup {
+                public override bool IsEnabled(string key) {
+                    return base.IsEnabled(key) && !DisableAll;
+                }
+            }
+        }
+        public class ItemGroup {
+            public bool DisableAll = false;
+            public ItemGroupGroup Armor = new ItemGroupGroup();
+            public ItemGroupGroup Equipment = new ItemGroupGroup();
+            public ItemGroupGroup Weapons = new ItemGroupGroup();
+            public void LoadItemGroup(ItemGroup group) {
+                DisableAll = group.DisableAll;
+                Armor.LoadSettingGroup(group.Armor);
+                Equipment.LoadSettingGroup(group.Equipment);
+                Weapons.LoadSettingGroup(group.Weapons);
+            }
+            public class ItemGroupGroup : SettingGroup {
+                public override bool IsEnabled(string key) {
+                    return base.IsEnabled(key) && !DisableAll;
+                }
+                public override bool IsDisabled(string key) {
+                    return !IsEnabled(key);
+                }
             }
         }
     }

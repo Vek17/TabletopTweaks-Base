@@ -249,5 +249,22 @@
             "SecondBloodline": true,
             "SecondBloodragerBloodline": true
         }
+    },
+    "Items": {
+        "DisableAll": false,
+        "Armor": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Equipment": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Weapons": {
+            "DisableAll": false,
+            "Enabled": {
+                "BladeOfTheMerciful": true
+            }
+        }
     }
 }

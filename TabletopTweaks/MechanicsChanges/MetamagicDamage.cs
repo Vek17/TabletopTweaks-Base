@@ -8,7 +8,7 @@ using TabletopTweaks.Config;
 using UnityEngine;
 
 namespace TabletopTweaks.MechanicsChanges {
-    class Metamagic {
+    class MetamagicDamage {
         [HarmonyPatch(typeof(RuleCalculateDamage), "CalculateDamageValue", new[] { typeof(BaseDamage) })]
         static class RuleCalculateDamage_Metamagic_Patch {
 
