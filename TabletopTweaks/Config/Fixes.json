@@ -168,7 +168,8 @@
             "EldritchScoundrel": {
                 "DisableAll": false,
                 "Enabled": {
-                    "SneakAttackProgression": true
+                    "SneakAttackProgression": true,
+                    "RogueTalentProgression": true
                 }
             },
             "Rowdy": {

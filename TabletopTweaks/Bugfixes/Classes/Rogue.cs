@@ -13,6 +13,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -61,7 +62,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
             static void PatchEldritchScoundrel() {
                 if (ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].DisableAll) { return; }
                 PatchSneakAttackProgression();
-                //PatchRogueTalentProgression();
+                PatchRogueTalentProgression();
 
                 void PatchSneakAttackProgression() {
                     if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Enabled["SneakAttackProgression"]) { return; }
@@ -75,8 +76,19 @@ namespace TabletopTweaks.Bugfixes.Clases {
                     if (!ModSettings.Fixes.Rogue.Archetypes["EldritchScoundrel"].Enabled["RogueTalentProgression"]) { return; }
                     var EldritchScoundrelArchetype = Resources.GetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
                     var SneakAttack = Resources.GetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
+                    var RogueTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
+                    var UncannyDodgeChecker = Resources.GetBlueprint<BlueprintFeature>("8f800ed6ce8c42e8a01fd8f3e990c459");
 
-                    EldritchScoundrelArchetype.RemoveFeatures.Where(entry => entry.Level == 4).ForEach(entry => entry.Level = 2);
+                    EldritchScoundrelArchetype.RemoveFeatures = EldritchScoundrelArchetype.RemoveFeatures
+                        .Where(entry => entry.Level != 4)
+                        .AddItem(new LevelEntry() {
+                            m_Features = new List<BlueprintFeatureBaseReference>() { RogueTalentSelection.ToReference<BlueprintFeatureBaseReference>() },
+                            Level = 2
+                        })
+                        .AddItem(new LevelEntry() {
+                            m_Features = new List<BlueprintFeatureBaseReference>() { UncannyDodgeChecker.ToReference<BlueprintFeatureBaseReference>() },
+                            Level = 4
+                        }).ToArray();
                     Main.LogPatch("Patched", EldritchScoundrelArchetype);
                 }
             }
