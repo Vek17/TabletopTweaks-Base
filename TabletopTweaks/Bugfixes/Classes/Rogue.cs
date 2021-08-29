@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -38,6 +39,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 if (ModSettings.Fixes.Rogue.Base.DisableAll) { return; }
                 PatchTrapfinding();
                 PatchRogueTalentSelection();
+                PatchSlipperyMind();
 
                 void PatchTrapfinding() {
                     if (!ModSettings.Fixes.Rogue.Base.Enabled["Trapfinding"]) { return; }
@@ -57,6 +59,14 @@ namespace TabletopTweaks.Bugfixes.Clases {
                     var RogueTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
                     RogueTalentSelection.Mode = SelectionMode.OnlyNew;
                     Main.LogPatch("Patched", RogueTalentSelection);
+                }
+                void PatchSlipperyMind() {
+                    if (ModSettings.Fixes.Rogue.Base.IsDisabled("SlipperyMind")) { return; }
+                    var SlipperyMind = Resources.GetBlueprint<BlueprintFeature>("a14e8c1801911334f96d410f10eab7bf");
+                    SlipperyMind.AddComponent(Helpers.Create<RecalculateOnStatChange>(c => {
+                        c.Stat = StatType.Dexterity;
+                    }));
+                    Main.LogPatch("Patched", SlipperyMind);
                 }
             }
             static void PatchEldritchScoundrel() {

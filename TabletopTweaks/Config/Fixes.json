@@ -161,7 +161,8 @@
             "DisableAll": false,
             "Enabled": {
                 "Trapfinding": true,
-                "RogueTalentSelection": true
+                "RogueTalentSelection": true,
+                "SlipperyMind": true
             }
         },
         "Archetypes": {
@@ -258,7 +259,9 @@
         },
         "Equipment": {
             "DisableAll": false,
-            "Enabled": {}
+            "Enabled": {
+                "MagiciansRing": true
+            }
         },
         "Weapons": {
             "DisableAll": false,
