@@ -86,6 +86,9 @@ namespace TabletopTweaks.Config {
                 public override bool IsEnabled(string key) {
                     return base.IsEnabled(key) && !DisableAll;
                 }
+                public override bool IsDisabled(string key) {
+                    return !IsEnabled(key);
+                }
             }
         }
         public class ItemGroup {

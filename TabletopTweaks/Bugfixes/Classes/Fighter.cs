@@ -30,19 +30,18 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Rogue.DisableAll) { return; }
                 Main.LogHeader("Patching Fighter");
+
                 PatchBase();
                 PatchTwoHandedFighter();
             }
             static void PatchBase() {
-                if (ModSettings.Fixes.Fighter.Base.DisableAll) { return; }
                 PatchTwoHandedWeaponTraining();
                 PatchAdvancedWeaponTraining();
                 EnableAdvancedArmorTraining();
 
                 void PatchAdvancedWeaponTraining() {
-                    if (!ModSettings.Fixes.Fighter.Base.Enabled["AdvancedWeaponTraining"]) { return; }
+                    if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedWeaponTraining")) { return; }
                     var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("b8cecf4e5e464ad41b79d5b42b76b399");
                     var WeaponTrainingRankUpSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("5f3cc7b9a46b880448275763fe70c0b0");
                     var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
@@ -79,7 +78,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     Main.LogPatch("Patched", AdvancedWeaponTraining4);
                 }
                 void PatchTwoHandedWeaponTraining() {
-                    if (!ModSettings.Fixes.Fighter.Base.Enabled["TwoHandedWeaponTraining"]) { return; }
+                    if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return; }
                     var TwoHandedFighterWeaponTraining = Resources.GetBlueprint<BlueprintFeature>("88da2a5dfc505054f933bb81014e864f");
                     var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("b8cecf4e5e464ad41b79d5b42b76b399");
                     var AdvancedWeapontrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedWeaponTrainingSelection");
@@ -109,6 +108,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         });
                 }
                 void EnableAdvancedArmorTraining() {
+                    if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
                     var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
@@ -138,11 +138,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchTwoHandedFighter() {
-                if (ModSettings.Fixes.Fighter.Archetypes["TwoHandedFighter"].DisableAll) { return; }
                 PatchAdvancedWeaponTraining();
 
                 void PatchAdvancedWeaponTraining() {
-                    if (!ModSettings.Fixes.Fighter.Archetypes["TwoHandedFighter"].Enabled["AdvancedWeaponTraining"]) { return; }
+                    if (ModSettings.Fixes.Fighter.Archetypes["TwoHandedFighter"].IsDisabled("AdvancedWeaponTraining")) { return; }
 
                     var TwoHandedFighterWeaponTraining = Resources.GetBlueprint<BlueprintFeature>("88da2a5dfc505054f933bb81014e864f");
                     var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeature>("b8cecf4e5e464ad41b79d5b42b76b399");
@@ -168,8 +167,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
         [HarmonyPatch(typeof(UnitPartWeaponTraining), "GetWeaponRank", new Type[] { typeof(ItemEntityWeapon) })]
         static class UnitPartWeaponTraining_GetWeaponRank_Patch {
             static bool Prefix(UnitPartWeaponTraining __instance, ref int __result, ItemEntityWeapon weapon) {
-                if (ModSettings.Fixes.Fighter.Base.DisableAll) { return true; }
-                if (!ModSettings.Fixes.Fighter.Base.Enabled["TwoHandedWeaponTraining"]) { return true; }
+                if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
 
                 if (weapon == null) {
                     __result = 0;
@@ -200,8 +198,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
         [HarmonyPatch(typeof(WeaponGroupAttackBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAttackBonusWithoutTarget) })]
         static class WeaponGroupAttackBonus_OnEventAboutToTrigger_Patch {
             static bool Prefix(WeaponGroupAttackBonus __instance, RuleCalculateAttackBonusWithoutTarget evt) {
-                if (ModSettings.Fixes.Fighter.Base.DisableAll) { return true; }
-                if (!ModSettings.Fixes.Fighter.Base.Enabled["TwoHandedWeaponTraining"]) { return true; }
+                if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
 
                 if (evt.Weapon != null && evt.Weapon.Blueprint.FighterGroup == __instance.WeaponGroup) {
                     int num = __instance.multiplyByContext ? (__instance.contextMultiplier.Calculate(__instance.Context) * __instance.AttackBonus) : __instance.AttackBonus;
@@ -230,9 +227,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
         [HarmonyPatch(typeof(WeaponGroupDamageBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
         static class WeaponGroupDamageBonus_OnEventAboutToTrigger_Patch {
             static bool Prefix(WeaponGroupDamageBonus __instance, RuleCalculateWeaponStats evt) {
-                if (ModSettings.Fixes.Fighter.Base.DisableAll) { return true; }
-                if (!ModSettings.Fixes.Fighter.Base.Enabled["TwoHandedWeaponTraining"]) { return true; }
-
+                if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
+                
                 int num = __instance.AdditionalValue.Calculate(__instance.Context);
                 if (evt.Weapon.Blueprint.FighterGroup == __instance.WeaponGroup) {
                     evt.AddTemporaryModifier(evt.Initiator.Stats.AdditionalDamage.AddModifier(

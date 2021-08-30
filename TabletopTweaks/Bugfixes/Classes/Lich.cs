@@ -25,8 +25,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Lich.DisableAll) { return; }
                 Main.LogHeader("Patching Lich Resources");
+
                 PatchDeathRush();
 
                 void PatchDeathRush() {

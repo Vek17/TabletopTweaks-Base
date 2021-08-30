@@ -14,12 +14,12 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Trickster.DisableAll) { return; }
                 Main.LogHeader("Patching Trickster Resources");
+
                 PatchTricksterTricks();
             }
             static void PatchTricksterTricks() {
-                if (!ModSettings.Fixes.Trickster.Enabled["TricksterTricks"]) { return; }
+                if (ModSettings.Fixes.Trickster.IsDisabled("TricksterTricks")) { return; }
                 var TricksterTrickeryTier3Feature = Resources.GetBlueprint<BlueprintFeature>("64131f0ac1e2497a806856461bdcfe4e");
                 var TricksterStealthTier3Feature = Resources.GetBlueprint<BlueprintFeature>("74d23b6698554e36974711eacc386290");
                 var TricksterPersuasionTier3Feature = Resources.GetBlueprint<BlueprintFeature>("9f677bc314b84cc388044c3786148fd9");

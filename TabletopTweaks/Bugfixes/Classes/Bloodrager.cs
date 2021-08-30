@@ -23,21 +23,20 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Bloodrager.DisableAll) { return; }
                 Main.LogHeader("Patching Bloodrager");
+
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchSteelblood();
                 PatchReformedFiend();
             }
             static void PatchBaseClass() {
-                if (ModSettings.Fixes.Bloodrager.Base.DisableAll) { return; }
                 PatchSpellbook();
                 PatchAbysalBulk();
                 PatchLimitlessRage();
 
                 void PatchAbysalBulk() {
-                    if (!ModSettings.Fixes.Bloodrager.Base.Enabled["AbysalBulk"]) { return; }
+                    if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("AbysalBulk")) { return; }
                     var BloodragerAbyssalBloodlineBaseBuff = Resources.GetBlueprint<BlueprintBuff>("2ba7b4b3b87156543b43d0686404655a");
                     var BloodragerAbyssalDemonicBulkBuff = Resources.GetBlueprint<BlueprintBuff>("031a8053a7c02ab42ad53f50dd2e9437");
                     var BloodragerAbyssalDemonicBulkEnlargeBuff = Resources.GetModBlueprint<BlueprintBuff>("BloodragerAbyssalDemonicBulkEnlargeBuff");
@@ -57,7 +56,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(RemoveBuff);
                 }
                 void PatchSpellbook() {
-                    if (!ModSettings.Fixes.Bloodrager.Base.Enabled["Spellbook"]) { return; }
+                    if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("Spellbook")) { return; }
                     BlueprintSpellbook BloodragerSpellbook = Resources.GetBlueprint<BlueprintSpellbook>("e19484252c2f80e4a9439b3681b20f00");
                     var BloodragerSpellKnownTable = BloodragerSpellbook.SpellsKnown;
                     var BloodragerSpellPerDayTable = BloodragerSpellbook.SpellsPerDay;
@@ -116,7 +115,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     }
                 }
                 void PatchLimitlessRage() {
-                    if (!ModSettings.Fixes.Bloodrager.Base.Enabled["LimitlessRage"]) { return; }
+                    if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("LimitlessRage")) { return; }
                     var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
                     var BloodragerRageResource = Resources.GetBlueprint<BlueprintAbilityResource>("4aec9ec9d9cd5e24a95da90e56c72e37");
                     BloodragerStandartRageBuff
@@ -126,10 +125,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchPrimalist() {
-                if (ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].DisableAll) { return; }
                 PatchRagePowerFeatQualifications();
+                
                 void PatchRagePowerFeatQualifications() {
-                    if (!ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].Enabled["RagePowerFeatQualifications"]) { return; }
+                    if (ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].IsDisabled("RagePowerFeatQualifications")) { return; }
                     var PrimalistTakeRagePowers4 = Resources.GetBlueprint<BlueprintProgression>("8eb5c34bb8471a0438e7eb3994de3b92");
                     var PrimalistTakeRagePowers8 = Resources.GetBlueprint<BlueprintProgression>("db2710cd915bbcf4193fa54083e56b27");
                     var PrimalistTakeRagePowers12 = Resources.GetBlueprint<BlueprintProgression>("e43a7bfd5c90a514cab1c11b41c550b1");
@@ -158,23 +157,21 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchSteelblood() {
-                if (ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].DisableAll) { return; }
                 PatchArmoredSwiftness();
 
                 void PatchArmoredSwiftness() {
-                    if (!ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].Enabled["ArmoredSwiftness"]) { return; }
+                    if (ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].IsDisabled("ArmoredSwiftness")) { return; }
                     var ArmoredHulkArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("f95f4f3a10917114c82bcbebc4d0fd36");
                     var SteelbloodArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("bd4397ee26a3baf4cadaeb766b018cff");
                     SteelbloodArmoredSwiftness.ComponentsArray = ArmoredHulkArmoredSwiftness.ComponentsArray;
                 }
             }
             static void PatchReformedFiend() {
-                if (ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].DisableAll) { return; }
                 PatchHatredAgainstEvil();
                 PatchDamageReduction();
 
                 void PatchHatredAgainstEvil() {
-                    if (!ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].Enabled["HatredAgainstEvil"]) { return; }
+                    if (ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].IsDisabled("HatredAgainstEvil")) { return; }
                     var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
                     var ReformedFiendBloodrageBuff = Resources.GetBlueprint<BlueprintBuff>("72a679f712bd4f69a07bf03d5800900b");
                     var rankConfig = ReformedFiendBloodrageBuff.GetComponent<ContextRankConfig>();
@@ -184,7 +181,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     rankConfig.m_UseMin = true;
                 }
                 void PatchDamageReduction() {
-                    if (!ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].Enabled["DamageReduction"]) { return; }
+                    if (ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].IsDisabled("DamageReduction")) { return; }
                     var ReformedFiendDamageReductionFeature = Resources.GetBlueprint<BlueprintFeature>("2a3243ad1ccf43d5a5d69de3f9d0420e");
                     ReformedFiendDamageReductionFeature.GetComponent<AddDamageResistancePhysical>().BypassedByAlignment = true;
                 }

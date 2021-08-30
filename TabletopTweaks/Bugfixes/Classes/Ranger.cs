@@ -21,18 +21,17 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Ranger.DisableAll) { return; }
                 Main.LogHeader("Patching Ranger");
+
                 PatchBase();
                 PatchEspionageExpert();
             }
             static void PatchBase() {
-                if (ModSettings.Fixes.Slayer.Base.DisableAll) { return; }
                 PatchFavoredEnemy();
 
 
                 void PatchFavoredEnemy() {
-                    if (!ModSettings.Fixes.Ranger.Base.Enabled["FavoredEnemy"]) { return; }
+                    if (ModSettings.Fixes.Ranger.Base.IsDisabled("FavoredEnemy")) { return; }
                     var FavoriteEnemySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("16cc2c937ea8d714193017780e7d4fc6");
                     var FavoriteEnemyOutsider = Resources.GetBlueprint<BlueprintFeature>("f643b38acc23e8e42a3ed577daeb6949");
                     var FavoriteEnemyDemonOfMagic = Resources.GetBlueprint<BlueprintFeature>("21328361091fd2c44a3909fcae0dd598");
@@ -67,11 +66,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchEspionageExpert() {
-                if (ModSettings.Fixes.Ranger.Archetypes["EspionageExpert"].DisableAll) { return; }
                 PatchTrapfinding();
 
                 void PatchTrapfinding() {
-                    if (!ModSettings.Fixes.Ranger.Archetypes["EspionageExpert"].Enabled["Trapfinding"]) { return; }
+                    if (ModSettings.Fixes.Ranger.Archetypes["EspionageExpert"].IsDisabled("Trapfinding")) { return; }
                     var MasterSpyTrapfindingFeature = Resources.GetBlueprint<BlueprintFeature>("d55acf213bf709c40b2bc72b997fb345");
                     MasterSpyTrapfindingFeature.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                         c.Stat = StatType.SkillThievery;

@@ -20,12 +20,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Arcanist.DisableAll) { return; }
                 Main.LogHeader("Patching Arcanist Resources");
+
                 PatchBase();
             }
             static void PatchBase() {
-                if (ModSettings.Fixes.Arcanist.Base.DisableAll) { return; }
             }
         }
 
@@ -36,7 +35,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static readonly FieldInfo Spellbook_BlueprintSpellbook = AccessTools.Field(typeof(Spellbook), "Blueprint");
             //Add an exception to the spontantous spell UI if the spellbook is arcanist
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if (ModSettings.Fixes.Arcanist.Base.DisableAll || !ModSettings.Fixes.Arcanist.Base.Enabled["PreparedSpellUI"]) { return instructions; }
+                if (ModSettings.Fixes.Arcanist.Base.IsDisabled("PreparedSpellUI")) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
                 //Utilities.ILUtils.LogIL(codes);

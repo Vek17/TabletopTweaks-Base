@@ -11,12 +11,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Monk.DisableAll) { return; }
                 Main.LogHeader("Patching Barbarian");
+
                 PatchBase();
             }
             static void PatchBase() {
-                if (ModSettings.Fixes.Barbarian.Base.DisableAll) { return; }
             }
         }
     }

@@ -20,17 +20,16 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Slayer.DisableAll) { return; }
                 Main.LogHeader("Patching Slayer");
+
                 PatchBaseClass();
             }
             static void PatchBaseClass() {
-                if (ModSettings.Fixes.Slayer.Base.DisableAll) { return; }
                 PatchSlayerStudiedTarget();
                 PatchSlayerTrapfinding();
 
                 void PatchSlayerTrapfinding() {
-                    if (!ModSettings.Fixes.Slayer.Base.Enabled["Trapfinding"]) { return; }
+                    if (ModSettings.Fixes.Slayer.Base.IsDisabled("Trapfinding")) { return; }
                     var SlayerTrapfinding = Resources.GetBlueprint<BlueprintFeature>("e3c12938c2f93544da89824fbe0933a5");
                     SlayerTrapfinding.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                         c.Stat = StatType.SkillThievery;
@@ -42,7 +41,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     Main.LogPatch("Patched", SlayerTrapfinding);
                 }
                 void PatchSlayerStudiedTarget() {
-                    if (!ModSettings.Fixes.Slayer.Base.Enabled["StudiedTarget"]) { return; }
+                    if (ModSettings.Fixes.Slayer.Base.IsDisabled("StudiedTarget")) { return; }
                     BlueprintBuff SlayerStudiedTargetBuff = Resources.GetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
                     SlayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
                     Main.LogPatch("Patched", SlayerStudiedTargetBuff);

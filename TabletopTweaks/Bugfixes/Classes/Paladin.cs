@@ -11,7 +11,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Paladin.DisableAll) { return; }
                 Main.LogHeader("Patching Paladin");
             }
             static void PatchBase() {

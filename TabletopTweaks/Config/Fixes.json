@@ -109,6 +109,7 @@
             "DisableAll": false,
             "Enabled": {
                 "AdvancedWeaponTraining": true,
+                "AdvancedArmorTraining": true,
                 "TwoHandedWeaponTraining": true
             }
         },
