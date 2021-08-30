@@ -10,7 +10,8 @@
     "Aeon": {
         "DisableAll": false,
         "Enabled": {
-            "AeonBaneUses": true
+            "AeonBaneUses": true,
+            "AeonGreaterBane": true
         }
     },
     "Azata": {
@@ -19,6 +20,12 @@
             "AzataPerformanceResource": true,
             "FavorableMagic": true,
             "ZippyMagic": true
+        }
+    },
+    "Lich": {
+        "DisableAll": false,
+        "Enabled": {
+            "DeathRush": true
         }
     },
     "Trickster": {
@@ -247,6 +254,7 @@
         "Enabled": {
             "BloodlineAscendance": true,
             "EnduringSpells": true,
+            "MythicCharge": true,
             "SecondBloodline": true,
             "SecondBloodragerBloodline": true
         }

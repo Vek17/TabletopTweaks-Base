@@ -5,9 +5,14 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.ElementsSystem;
+using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
+using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -28,6 +33,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
+                PatchMythicCharge();
             }
             static void PatchBloodlineAscendance() {
                 if (!ModSettings.Fixes.MythicAbilities.Enabled["BloodlineAscendance"]) { return; }
@@ -92,6 +98,30 @@ namespace TabletopTweaks.Bugfixes.Features {
                     };
                     c.Amount = 1;
                 }));
+            }
+            static void PatchMythicCharge() {
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("MythicCharge")) { return; }
+
+                var MythicCharge = Resources.GetBlueprint<BlueprintFeature>("3d1a968428c9b3d4d9d4d27e656b65a8");
+                MythicCharge.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                MythicCharge.AddComponent<AdditionalDiceOnAttack>(c => {
+                    c.OnHit = true;
+                    c.OnCharge = true;
+                    c.InitiatorConditions = new ConditionsChecker();
+                    c.TargetConditions = new ConditionsChecker();
+                    c.Value = new ContextDiceValue() {
+                        DiceType = DiceType.D6,
+                        DiceCountValue = new ContextValue() {
+                            ValueType = ContextValueType.Rank
+                        },
+                        BonusValue = 0
+                    };
+                    c.DamageType = new DamageTypeDescription() {
+                        Type = DamageType.Energy,
+                        Energy = DamageEnergyType.Divine
+                    };
+                });
+                Main.LogPatch("Patched", MythicCharge);
             }
         }
         [HarmonyPatch(typeof(ItemEntity), "AddEnchantment")]

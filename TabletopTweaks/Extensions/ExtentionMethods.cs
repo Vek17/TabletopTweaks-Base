@@ -252,6 +252,10 @@ namespace TabletopTweaks.Extensions {
             obj.SetComponents(obj.ComponentsArray.AppendToArray(component));
         }
 
+        public static void AddComponent<T>(this BlueprintScriptableObject obj, Action<T> init = null) where T : BlueprintComponent, new() {
+            obj.SetComponents(obj.ComponentsArray.AppendToArray(Helpers.Create(init)));
+        }
+
         public static void RemoveComponent(this BlueprintScriptableObject obj, BlueprintComponent component) {
             obj.SetComponents(obj.ComponentsArray.RemoveFromArray(component));
         }

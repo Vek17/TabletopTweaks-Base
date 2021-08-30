@@ -5,6 +5,7 @@ namespace TabletopTweaks.Config {
     public class SettingGroup {
         public bool DisableAll = false;
         public SortedDictionary<string, bool> Enabled = new SortedDictionary<string, bool>();
+        public virtual bool this[string key] => IsEnabled(key);
 
         public void LoadSettingGroup(SettingGroup group) {
             DisableAll = group.DisableAll;

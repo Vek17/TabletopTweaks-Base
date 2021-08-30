@@ -13,6 +13,7 @@ namespace TabletopTweaks.Config {
         public bool FixShadowSpells = true;
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
+        public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
         public ClassGroup Arcanist = new ClassGroup();
         public ClassGroup Barbarian = new ClassGroup();
@@ -44,6 +45,7 @@ namespace TabletopTweaks.Config {
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon);
             Azata.LoadSettingGroup(loadedSettings.Azata);
+            Lich.LoadSettingGroup(loadedSettings.Lich);
             Trickster.LoadSettingGroup(loadedSettings.Trickster);
 
             Arcanist.LoadClassGroup(loadedSettings.Arcanist);
@@ -80,6 +82,7 @@ namespace TabletopTweaks.Config {
                 });
             }
             public class ClassSettingGroup : SettingGroup {
+                public override bool this[string key] => IsEnabled(key);
                 public override bool IsEnabled(string key) {
                     return base.IsEnabled(key) && !DisableAll;
                 }
@@ -97,6 +100,7 @@ namespace TabletopTweaks.Config {
                 Weapons.LoadSettingGroup(group.Weapons);
             }
             public class ItemGroupGroup : SettingGroup {
+                public override bool this[string key] => IsEnabled(key);
                 public override bool IsEnabled(string key) {
                     return base.IsEnabled(key) && !DisableAll;
                 }
