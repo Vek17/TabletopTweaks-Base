@@ -245,6 +245,14 @@ namespace TabletopTweaks.Extensions {
             }
         }
 
+        public static void RemovePrerequisites<T>(this BlueprintFeature obj, Predicate<T> predicate) where T : Prerequisite {
+            foreach (var prerequisite in obj.GetComponents<T>()) {
+                if (predicate(prerequisite)) {
+                    obj.RemovePrerequisite(prerequisite);
+                }
+            }
+        }
+
         public static void RemovePrerequisites<T>(this BlueprintFeature obj) where T : Prerequisite {
             foreach (var prerequisite in obj.GetComponents<T>()) {
                 obj.RemovePrerequisite(prerequisite);
