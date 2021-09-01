@@ -29,9 +29,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Initialized = true;
                 Main.LogHeader("Patching Hellknight Resources");
 
-                PatchDeathRush();
+                PatchPentamicFaith();
 
-                void PatchDeathRush() {
+                void PatchPentamicFaith() {
                     if (ModSettings.Fixes.Hellknight.IsDisabled("PentamicFaith")) { return; }
 
                     var HellKnightOrderOfTheGodclaw = Resources.GetBlueprint<BlueprintFeature>("5636564c278583342aec54eb2b409029");
