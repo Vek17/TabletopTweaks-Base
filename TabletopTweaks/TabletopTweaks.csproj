@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bugfixes\Classes\Alchemist.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />

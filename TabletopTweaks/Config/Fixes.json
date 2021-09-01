@@ -34,6 +34,22 @@
             "TricksterTricks": true
         }
     },
+    "Alchemist": {
+        "DisableAll": false,
+        "Base": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Archetypes": {
+            "Grenadier": {
+                "DisableAll": false,
+                "Enabled": {
+                    "BrewPotions": true,
+                    "PoisonResistance": true
+                }
+            }
+        }
+    },
     "Arcanist": {
         "DisableAll": false,
         "Base": {
