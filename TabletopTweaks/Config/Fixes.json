@@ -215,6 +215,12 @@
         },
         "Archetypes": {}
     },
+    "Hellknight": {
+        "DisableAll": false,
+        "Enabled": {
+            "PentamicFaith": true
+        }
+    },
     "Spells": {
         "DisableAll": false,
         "Enabled": {

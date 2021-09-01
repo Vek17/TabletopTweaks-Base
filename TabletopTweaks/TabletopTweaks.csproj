@@ -129,6 +129,7 @@
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
+    <Compile Include="Bugfixes\Classes\Hellknight.cs" />
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
     <Compile Include="Bugfixes\Classes\Lich.cs" />
     <Compile Include="Bugfixes\Classes\Monk.cs" />

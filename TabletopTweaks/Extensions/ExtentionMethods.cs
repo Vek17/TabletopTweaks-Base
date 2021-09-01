@@ -224,21 +224,30 @@ namespace TabletopTweaks.Extensions {
                 case PrerequisiteFeature p:
                     var feature = p.Feature;
                     if (feature.IsPrerequisiteFor == null) { feature.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
-                    if (!feature.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
-                        feature.IsPrerequisiteFor.Remove(obj.ToReference<BlueprintFeatureReference>());
-                    }
+                    Main.LogDebug($"Removed Prerequisites: {feature.IsPrerequisiteFor.RemoveAll(f => f.Guid == obj.AssetGuid)}");
                     break;
                 case PrerequisiteFeaturesFromList p:
                     var features = p.Features;
                     features.ForEach(f => {
                         if (f.IsPrerequisiteFor == null) { f.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
-                        if (!f.IsPrerequisiteFor.Contains(obj.ToReference<BlueprintFeatureReference>())) {
-                            f.IsPrerequisiteFor.Remove(obj.ToReference<BlueprintFeatureReference>());
-                        }
+                        f.IsPrerequisiteFor.RemoveAll(v => v.Guid == obj.AssetGuid);
                     });
                     break;
                 default:
+                    Main.LogDebug($"HIT DEFAULT: {prerequisite.GetType()}");
                     break;
+            }
+        }
+
+        public static void RemovePrerequisites<T>(this BlueprintFeature obj, params T[] prerequisites) where T : Prerequisite {
+            foreach(var prerequisite in prerequisites) {
+                obj.RemovePrerequisite(prerequisite);
+            }
+        }
+
+        public static void RemovePrerequisites<T>(this BlueprintFeature obj) where T : Prerequisite {
+            foreach (var prerequisite in obj.GetComponents<T>()) {
+                obj.RemovePrerequisite(prerequisite);
             }
         }
 
