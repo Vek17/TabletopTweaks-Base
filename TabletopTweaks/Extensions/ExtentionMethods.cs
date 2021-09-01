@@ -224,7 +224,6 @@ namespace TabletopTweaks.Extensions {
                 case PrerequisiteFeature p:
                     var feature = p.Feature;
                     if (feature.IsPrerequisiteFor == null) { feature.IsPrerequisiteFor = new List<BlueprintFeatureReference>(); }
-                    Main.LogDebug($"Removed Prerequisites: {feature.IsPrerequisiteFor.RemoveAll(f => f.Guid == obj.AssetGuid)}");
                     break;
                 case PrerequisiteFeaturesFromList p:
                     var features = p.Features;
@@ -234,7 +233,6 @@ namespace TabletopTweaks.Extensions {
                     });
                     break;
                 default:
-                    Main.LogDebug($"HIT DEFAULT: {prerequisite.GetType()}");
                     break;
             }
         }
