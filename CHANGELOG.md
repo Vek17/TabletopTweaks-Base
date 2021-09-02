@@ -1,3 +1,6 @@
+## Version 1.0.1
+* fixed arcane reservoir sometimes removing too many points on rest
+
 ## Version 1.0.0
 * updated for release
 * skill points now properly increase with permanant bonuses

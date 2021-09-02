@@ -1,15 +1,22 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Arcanist {
@@ -25,6 +32,32 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBase();
             }
             static void PatchBase() {
+                PatchArcaneReservoir();
+
+                void PatchArcaneReservoir() {
+                    if (ModSettings.Fixes.Arcanist.Base.IsDisabled("ArcaneReservoir")) { }
+
+                    var ArcanistArcaneReservoirResourceBuff = Resources.GetBlueprint<BlueprintBuff>("1dd776b7b27dcd54ab3cedbbaf440cf3");
+                    var Actions = ArcanistArcaneReservoirResourceBuff.GetComponent<AddFactContextActions>().Activated;
+                    ArcanistArcaneReservoirResourceBuff.Stacking = StackingType.Replace;
+                    ArcanistArcaneReservoirResourceBuff.m_Flags &= ~BlueprintBuff.Flags.RemoveOnRest;
+                    ArcanistArcaneReservoirResourceBuff.RemoveComponents<AddFactContextActions>();
+                    ArcanistArcaneReservoirResourceBuff.AddComponent<AddRestTrigger>(c => {
+                        c.Action = Actions;
+                    });
+                    Main.LogPatch("Patched", ArcanistArcaneReservoirResourceBuff);
+                }
+            }
+        }
+
+        [HarmonyPatch(typeof(ContextSpendResource), "RunAction")]
+        static class FeatureSelectionExtensions_CanSelectAny_Patch {
+            static bool Prefix(ref ContextSpendResource __instance) {
+                Main.LogDebug($" - {__instance.Resource.name}: {__instance?.Context?.MaybeCaster?.Resources.GetResourceAmount(__instance.Resource)}");
+                return true;
+            }
+            static void Postfix(ref ContextSpendResource __instance) {
+                Main.LogDebug($"{__instance.Owner.name} - {__instance?.Value.Calculate(__instance.Context)}");
             }
         }
 
