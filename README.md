@@ -91,7 +91,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Longspears now fill the roll of lances for mounted bonus damage
         Vital Strike no longer crits incorrectly
         Empower and Maximize no longer stack incorrectly
-        Skills points properly increase from permant bonuses
+        Skills points properly increase from permanant bonuses
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor

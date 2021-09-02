@@ -1,6 +1,6 @@
 ## Version 1.0.0
 * updated for release
-* skill points now properly increase with permant bonuses
+* skill points now properly increase with permanant bonuses
 * improved Description tagging
 * improved quick study UI
 * fixed grenadier archetype features
