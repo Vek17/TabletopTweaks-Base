@@ -1,3 +1,33 @@
+## Version 1.0.0
+* updated for release
+* skill points now properly increase with permant bonuses
+* improved Description tagging
+* improved quick study UI
+* fixed grenadier archetype features
+* fixed overtip UI rolls
+* fixed maxinimiz/empower stacking rules
+* fixed slippry mind not updating properly
+* fixed magicians ring DC bonus
+* fixed some damage stacking rules to reduce multiple damage procs
+* fixed pentamic faith prerequisities
+* reworked alternate features to allow multiple selections
+* added dervish dance feat
+* added graceful athlete feat/rogue talent
+* added dwarf stoutheart trait
+* added dwarf stoic negotiator trait
+* added elf arcane focus trait
+* added elf long limbed trait
+* added elf moon kissed trait
+* added elf vigilance trait
+* added gnome keen trait
+* added gnome fell magic trait
+* added gnome utilitarian magic trait
+* added gnome inquisitive trait
+* added gnome nosophobia trait
+* added halfling blessed trait
+* added halfling secretive survivor trait
+* added halfling underfoot trait
+
 ## Version 0.5.1
 * fixed weapon finesse being applied to all weapons with DamageGrace
 
