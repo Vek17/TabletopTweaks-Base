@@ -11,6 +11,7 @@ namespace TabletopTweaks.Config {
         public bool FixInherentSkillpoints = true;
         public bool FixBackgroundModifiers = true;
         public bool FixShadowSpells = true;
+        public bool MetamagicStacking = true;
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
@@ -44,6 +45,7 @@ namespace TabletopTweaks.Config {
 
             FixMountedLongspearModifer = loadedSettings.FixMountedLongspearModifer;
             FixShadowSpells = loadedSettings.FixShadowSpells;
+            MetamagicStacking = loadedSettings.MetamagicStacking;
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon);
             Azata.LoadSettingGroup(loadedSettings.Azata);

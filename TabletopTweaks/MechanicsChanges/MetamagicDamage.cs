@@ -13,7 +13,7 @@ namespace TabletopTweaks.MechanicsChanges {
         static class RuleCalculateDamage_Metamagic_Patch {
 
             static void Postfix(RuleCalculateDamage __instance, ref DamageValue __result, BaseDamage damage) {
-                if (!ModSettings.Fixes.DisablePolymorphStacking) { return; }
+                if (!ModSettings.Fixes.MetamagicStacking) { return; }
 
                 SettingsEntityEnum<CriticalHitPower> enemyCriticalHits = SettingsRoot.Difficulty.EnemyCriticalHits;
                 int num = damage.CriticalModifier ?? 1;

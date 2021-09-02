@@ -48,11 +48,32 @@ All fixes and added content are configurable and can be disabled by editing the 
         Metamagic Rager
 
     Adds the following feats:
+        Dervish Dance
+        Graceful Athlete
         Magical Aptitude
         Scholar
         Self-Sufficent
         Shingle Runner
         Street Smarts
+
+    Adds the following rogue talents:
+        Graceful Athlete
+
+    Adds the following racial traits:
+        added dwarf stoutheart trait
+        added dwarf stoic negotiator trait
+        added elf arcane focus trait
+        added elf long limbed trait
+        added elf moon kissed trait
+        added elf vigilance trait
+        added gnome keen trait
+        added gnome fell magic trait
+        added gnome utilitarian magic trait
+        added gnome inquisitive trait
+        added gnome nosophobia trait
+        added halfling blessed trait
+        added halfling secretive survivor trait
+        added halfling underfoot trait
 
     Enables the following data mined content:
         Cauldron Witch Archetype
@@ -69,12 +90,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Limited fixes to shadow spells
         Longspears now fill the roll of lances for mounted bonus damage
         Vital Strike no longer crits incorrectly
-    
-    Adds new racial homebrew heritages for:
-        Dwarf
-        Elf
-        Gnome
-        Halfling
+        Empower and Maximize no longer stack incorrectly
+        Skills points properly increase from permant bonuses
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor
@@ -109,6 +126,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Two Handed Weapon Training now works with all Weapon Training effects
         Two Handed Fighter
             Can now take Advanced Weapon Training feats
+    Hellknight
+        Pentamic Faith now requires the Godclaw Order instead of the Diety
     Kineticist
         Elemental Engine
             Fixes bug preventing this from being selectable
@@ -121,6 +140,7 @@ All fixes and added content are configurable and can be disabled by editing the 
     Rogue
         Fixes rogue talents being able to be picked more than once
         Trapfinding now addes 1/2 class level to trickery as well as perception
+        Slippery mind now properly updates on stat change
         Eldritch Scoundrel
             Fixes sneak attack progression
         Rowdy
