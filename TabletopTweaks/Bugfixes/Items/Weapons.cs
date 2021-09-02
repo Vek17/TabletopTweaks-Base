@@ -7,7 +7,6 @@ using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using TabletopTweaks.Config;
@@ -38,7 +37,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                                 m_Dice = DiceType.D6,
                                 m_Rolls = 2
                             },
-                            TypeDescription = new DamageTypeDescription() { 
+                            TypeDescription = new DamageTypeDescription() {
                                 Type = DamageType.Energy,
                                 Energy = DamageEnergyType.Fire
                             },

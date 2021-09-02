@@ -126,7 +126,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchPrimalist() {
                 PatchRagePowerFeatQualifications();
-                
+
                 void PatchRagePowerFeatQualifications() {
                     if (ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].IsDisabled("RagePowerFeatQualifications")) { return; }
                     var PrimalistTakeRagePowers4 = Resources.GetBlueprint<BlueprintProgression>("8eb5c34bb8471a0438e7eb3994de3b92");

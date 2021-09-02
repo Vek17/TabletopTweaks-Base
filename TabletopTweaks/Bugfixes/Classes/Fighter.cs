@@ -228,7 +228,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
         static class WeaponGroupDamageBonus_OnEventAboutToTrigger_Patch {
             static bool Prefix(WeaponGroupDamageBonus __instance, RuleCalculateWeaponStats evt) {
                 if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
-                
+
                 int num = __instance.AdditionalValue.Calculate(__instance.Context);
                 if (evt.Weapon.Blueprint.FighterGroup == __instance.WeaponGroup) {
                     evt.AddTemporaryModifier(evt.Initiator.Stats.AdditionalDamage.AddModifier(

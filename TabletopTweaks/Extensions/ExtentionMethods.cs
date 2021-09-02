@@ -238,7 +238,7 @@ namespace TabletopTweaks.Extensions {
         }
 
         public static void RemovePrerequisites<T>(this BlueprintFeature obj, params T[] prerequisites) where T : Prerequisite {
-            foreach(var prerequisite in prerequisites) {
+            foreach (var prerequisite in prerequisites) {
                 obj.RemovePrerequisite(prerequisite);
             }
         }

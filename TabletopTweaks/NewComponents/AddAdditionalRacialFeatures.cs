@@ -13,7 +13,7 @@ namespace TabletopTweaks.NewComponents {
     [TypeId("459d17478d434bbb881b99d766113cb9")]
     class AddAdditionalRacialFeatures : UnitFactComponentDelegate {
 
-		public override void OnActivate() {
+        public override void OnActivate() {
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;
             if (controller == null) { return; }
             LevelUpHelper.AddFeaturesFromProgression(controller.State, Owner, this.Features.Select(f => f.Get()).ToArray(), Owner.Progression.Race, 0);
@@ -25,7 +25,7 @@ namespace TabletopTweaks.NewComponents {
         static class Background_OrderPriority_Patch {
             static void Postfix(ref int __result, CharGenFeatureSelectorPhaseVM __instance) {
                 FeatureGroup featureGroup = UIUtilityUnit.GetFeatureGroup(__instance.FeatureSelectorStateVM?.Feature);
-                if (featureGroup == FeatureGroup.BackgroundSelection) { __result +=500; }
+                if (featureGroup == FeatureGroup.BackgroundSelection) { __result += 500; }
             }
         }
     }
