@@ -50,17 +50,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
         }
 
-        [HarmonyPatch(typeof(ContextSpendResource), "RunAction")]
-        static class FeatureSelectionExtensions_CanSelectAny_Patch {
-            static bool Prefix(ref ContextSpendResource __instance) {
-                Main.LogDebug($" - {__instance.Resource.name}: {__instance?.Context?.MaybeCaster?.Resources.GetResourceAmount(__instance.Resource)}");
-                return true;
-            }
-            static void Postfix(ref ContextSpendResource __instance) {
-                Main.LogDebug($"{__instance.Owner.name} - {__instance?.Value.Calculate(__instance.Context)}");
-            }
-        }
-
         [HarmonyPatch(typeof(ActionBarVM), "CollectSpells", new Type[] { typeof(UnitEntityData) })]
         static class Arcanist_SpellbookActionBar_Patch {
             static readonly FieldInfo BlueprintSpellbook_Spontaneous = AccessTools.Field(typeof(BlueprintSpellbook), "Spontaneous");
