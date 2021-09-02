@@ -19,7 +19,7 @@ namespace TabletopTweaks.NewComponents {
             if (Type == OutcomingAdditionalDamageAndHealingModifier.ModifyingType.OnlyHeal) {
                 return;
             }
-            evt.Modifier = new float?((ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.Modifier ?? 1));
+            evt.ModifierBonus = new float?((ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.ModifierBonus ?? 1));
         }
 
         public void OnEventDidTrigger(RuleDealDamage evt) {
@@ -29,7 +29,7 @@ namespace TabletopTweaks.NewComponents {
             if (Type == OutcomingAdditionalDamageAndHealingModifier.ModifyingType.OnlyDamage) {
                 return;
             }
-            evt.Modifier = new float?((ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.Modifier ?? 1));
+            evt.ModifierBonus = new float?((ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.ModifierBonus ?? 1));
         }
 
         public void OnEventDidTrigger(RuleHealDamage evt) {

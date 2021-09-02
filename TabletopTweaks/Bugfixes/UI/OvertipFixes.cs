@@ -41,7 +41,7 @@ namespace TabletopTweaks.Bugfixes.UI {
             }
         }
 
-        [HarmonyPatch(typeof(OvertipsVM), "HandleDamageDealt", new[] { typeof(RuleDealDamage) })]
+        //[HarmonyPatch(typeof(OvertipsVM), "HandleDamageDealt", new[] { typeof(RuleDealDamage) })]
         static class DisplayFix_OvertipsVM_AttackRollHit_Patch {
             static readonly MethodInfo RuleAttackRoll_Roll = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "Roll");
             static readonly MethodInfo RuleAttackRoll_D20 = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "D20");
@@ -69,7 +69,7 @@ namespace TabletopTweaks.Bugfixes.UI {
             }
         }
 
-        [HarmonyPatch(typeof(OvertipsVM), "HandleAttackHitRoll", new[] { typeof(RuleAttackRoll) })]
+        //[HarmonyPatch(typeof(OvertipsVM), "HandleAttackHitRoll", new[] { typeof(RuleAttackRoll) })]
         static class DisplayFix_OvertipsVM_AttackRollMiss_Patch {
             static readonly MethodInfo RuleAttackRoll_Roll = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "Roll");
             static readonly MethodInfo RuleAttackRoll_D20 = AccessTools.PropertyGetter(typeof(RuleAttackRoll), "D20");
