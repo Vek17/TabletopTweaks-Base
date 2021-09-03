@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.MVVM._VM.ActionBar;
@@ -44,6 +45,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     ArcanistArcaneReservoirResourceBuff.RemoveComponents<AddFactContextActions>();
                     ArcanistArcaneReservoirResourceBuff.AddComponent<AddRestTrigger>(c => {
                         c.Action = Actions;
+                    });
+                    ArcanistArcaneReservoirResourceBuff.AddComponent<FactSinglify>(c => {
+                        c.m_OldFacts = new BlueprintUnitFactReference[0];
+                        c.m_NewFacts = new BlueprintUnitFactReference[] { ArcanistArcaneReservoirResourceBuff.ToReference<BlueprintUnitFactReference>() };
                     });
                     Main.LogPatch("Patched", ArcanistArcaneReservoirResourceBuff);
                 }
