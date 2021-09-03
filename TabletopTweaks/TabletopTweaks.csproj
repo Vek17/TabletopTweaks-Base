@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bugfixes\Abilities\ContextRestoreResourceFixed.cs" />
     <Compile Include="Bugfixes\Classes\Alchemist.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="NewComponents\ArmorFeatureUnlock.cs" />
     <Compile Include="NewComponents\AttackStatReplacementEnforced.cs" />
     <Compile Include="NewComponents\BuffExtraEffectsRequirements.cs" />
+    <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
