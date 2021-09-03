@@ -105,7 +105,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Stoic Negotiator");
-                bp.SetDescription(("Some dwarves use their unwavering stubbornness to get what they want in negotiations and other business matters. " +
+                bp.SetDescription("Some dwarves use their unwavering stubbornness to get what they want in negotiations and other business matters. " +
                     "They gain a +2 racial bonus on Persuasion checks and Persuasion is a class skill for them.\nThis racial trait replaces defensive training, hatred.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;

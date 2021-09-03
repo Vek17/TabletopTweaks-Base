@@ -76,7 +76,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Artisan Gnome");
-                bp.SetDescription(("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
+                bp.SetDescription("Some gnomes lack their race’s iconic humor and propensity for pranks, instead devoting nearly "
                     + "all of their time and energy to their crafts. Such gnomes gain +2 Constitution, +2 Intelligence, "
                     + "and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
