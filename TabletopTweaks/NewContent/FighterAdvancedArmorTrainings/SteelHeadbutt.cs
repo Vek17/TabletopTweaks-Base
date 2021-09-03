@@ -36,7 +36,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             });
             var SteelHeadbuttMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttMediumEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Steel Headbutt Effect");
-                ExtentionMethods.SetDescription(bp, (string)"Steel Headbutt");
+                bp.SetDescription("Steel Headbutt");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -49,7 +49,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             }));
             var SteelHeadbuttHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttHeavyEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Steel Headbutt Effect");
-                ExtentionMethods.SetDescription(bp, (string)"Steel Headbutt");
+                bp.SetDescription("Steel Headbutt");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -62,11 +62,11 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             }));
             var SteelHeadbuttFeature = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Steel Headbutt");
-                ExtentionMethods.SetDescription(bp, (string)("While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. " +
+                bp.SetDescription("While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. " +
                     "This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals " +
                     "1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, " +
                     "respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter’s Strength modifier. Treat this attack as a " +
-                    "weapon attack made using the same special material and echantment bonus (if any) as the armor."));
+                    "weapon attack made using the same special material and echantment bonus (if any) as the armor.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {

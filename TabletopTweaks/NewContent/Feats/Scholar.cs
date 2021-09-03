@@ -9,10 +9,10 @@ namespace TabletopTweaks.NewContent.Feats {
             // Icon: Spell Focus? Alertness?
             var Scholar = FeatTools.CreateSkillFeat("Scholar", StatType.SkillKnowledgeArcana, StatType.SkillKnowledgeWorld, (System.Action<Kingmaker.Blueprints.Classes.BlueprintFeature>)(bp => {
                 bp.SetName("Scholar");
-                ExtentionMethods.SetDescription(bp, (string)("You have graduated from one of the many colleges, universities, and specialized schools of higher learning scattered throughout the Inner Sea region." +
+                bp.SetDescription("You have graduated from one of the many colleges, universities, and specialized schools of higher learning scattered throughout the Inner Sea region." +
                     "\nYou get a +2 bonus on Knowledge (Arcana) and " +
                     "Knowledge (World) skill checks. If you have 10 or more ranks in one of these skills," +
-                    " the bonus increases to +4 for that skill."));
+                    " the bonus increases to +4 for that skill.");
             }));
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["Scholar"]) { return; }
             FeatTools.AddAsFeat(Scholar);

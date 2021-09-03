@@ -38,8 +38,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Ability Modifiers");
-                ExtentionMethods.SetDescription(bp, (string)("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
-                    + "races. They gain +2 Dexterity, +2 Charisma, and –2 Strength."));
+                bp.SetDescription(("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
+                    + "races. They gain +2 Dexterity, +2 Charisma, and –2 Strength.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;
@@ -68,16 +68,16 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
-                ExtentionMethods.SetDescription(bp, (string)"No Alternate Trait");
+                bp.SetDescription("No Alternate Trait");
             }));
             var HalflingBruiserFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBruiserFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Halfling Bruiser");
-                ExtentionMethods.SetDescription(bp, (string)("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
+                bp.SetDescription(("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
                     + "streets, has made some halflings more adept at taking blows than dodging them. Halflings with this racial "
-                    + "trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers."));
+                    + "trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;
@@ -106,8 +106,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Blessed");
-                ExtentionMethods.SetDescription(bp, (string)("Halflings with this trait receive a +2 racial bonus on saving throws against curse effects and hexes. " +
-                    "This bonus stacks with the bonus granted by halfling luck.\nThis racial trait replaces fearless."));
+                bp.SetDescription("Halflings with this trait receive a +2 racial bonus on saving throws against curse effects and hexes. " +
+                    "This bonus stacks with the bonus granted by halfling luck.\nThis racial trait replaces fearless.");
                 bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstDescriptor>(c => {
                     c.SpellDescriptor = SpellDescriptor.Hex | SpellDescriptor.Curse;
                     c.ModifierDescriptor = ModifierDescriptor.Racial;
@@ -122,8 +122,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Secretive Survivor");
-                ExtentionMethods.SetDescription(bp, (string)("Halflings from poor and desperate communities, most often in big cities, must take what they need without getting caught in order to survive. " +
-                    "They gain a +2 racial bonus on Persuasion and Stealth checks.\nThis racial trait replaces sure-footed."));
+                bp.SetDescription("Halflings from poor and desperate communities, most often in big cities, must take what they need without getting caught in order to survive. " +
+                    "They gain a +2 racial bonus on Persuasion and Stealth checks.\nThis racial trait replaces sure-footed.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.SkillPersuasion;
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -142,8 +142,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Underfoot");
-                ExtentionMethods.SetDescription(bp, (string)("Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
-                    "to AC against foes larger than themselves.\nThis racial trait replaces halfling luck."));
+                bp.SetDescription("Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
+                    "to AC against foes larger than themselves.\nThis racial trait replaces halfling luck.");
                 bp.AddComponent(Helpers.Create<ACBonusAgainstSizeDifference>(c => {
                     c.Descriptor = ModifierDescriptor.Dodge;
                     c.Value = 1;

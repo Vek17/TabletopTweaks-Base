@@ -21,7 +21,7 @@ namespace TabletopTweaks.NewContent.Spells {
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_LongArm.png");
             var LongArmBuff = Helpers.CreateBuff("LongArmBuff", (System.Action<Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff>)(bp => {
                 bp.SetName("Long Arm");
-                ExtentionMethods.SetDescription(bp, (string)"Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
+                bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.m_Icon = icon;
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.Reach;
@@ -43,7 +43,7 @@ namespace TabletopTweaks.NewContent.Spells {
             });
             var LongArmAbility = Helpers.CreateBlueprint<BlueprintAbility>("LongArmAbility", (System.Action<BlueprintAbility>)(bp => {
                 bp.SetName("Long Arm");
-                ExtentionMethods.SetDescription(bp, (string)"Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
+                bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.LocalizedDuration = Helpers.CreateString("LongArmAbility.Duration", "1 minute/level");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken;

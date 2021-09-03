@@ -22,8 +22,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.SetName("Trained Throw");
-                ExtentionMethods.SetDescription(bp, (string)("When the fighter makes a ranged attack with a thrown weapon and applies his Dexterity modifier" +
-                    " on attack rolls and his Strength modifier on damage rolls, he doubles his weapon training bonus on damage rolls."));
+                bp.SetDescription("When the fighter makes a ranged attack with a thrown weapon and applies his Dexterity modifier" +
+                    " on attack rolls and his Strength modifier on damage rolls, he doubles his weapon training bonus on damage rolls.");
                 bp.AddComponent(Helpers.Create<TrainedGraceComponent>(c => {
                     c.EnforceGroup = true;
                     c.WeaponGroup = WeaponFighterGroup.Thrown;

@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
 
             var ArmoredConfidenceLightEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceLightEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence Effect");
-                ExtentionMethods.SetDescription(bp, (string)"Armored Confidence");
+                bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -50,7 +50,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
 
             var ArmoredConfidenceMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceMediumEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence Effect");
-                ExtentionMethods.SetDescription(bp, (string)"Armored Confidence");
+                bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -81,7 +81,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             }));
             var ArmoredConfidenceHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceHeavyEffect", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence Effect");
-                ExtentionMethods.SetDescription(bp, (string)"Armored Confidence");
+                bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -112,9 +112,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             }));
             var ArmoredConfidenceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceFeature", (System.Action<BlueprintFeature>)(bp => {
                 bp.SetName("Armored Confidence");
-                ExtentionMethods.SetDescription(bp, (string)("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
+                bp.SetDescription("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
                     "+1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter " +
-                    "levels thereafter, to a maximum of +4 at 19th level."));
+                    "levels thereafter, to a maximum of +4 at 19th level.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
