@@ -1,5 +1,6 @@
 ## Version 1.0.1
 * fixed arcane reservoir sometimes removing too many points on rest
+* fixed second breath
 
 ## Version 1.0.0
 * updated for release
