@@ -37,6 +37,13 @@ namespace TabletopTweaks.Utilities {
             };
             TalentSelections.ForEach(selection => selection.AddFeatures(feature));
         }
+        public static void AddAsArcanistExploit(BlueprintFeature feature) {
+            var TalentSelections = new BlueprintFeatureSelection[] {
+                Resources.GetBlueprint<BlueprintFeatureSelection>("2ba8a0040e0149e9ae9bfcb01a8ff01d"), //ExploiterExploitSelection
+                Resources.GetBlueprint<BlueprintFeatureSelection>("b8bf3d5023f2d8c428fdf6438cecaea7"), //ArcanistExploitSelection
+            };
+            TalentSelections.ForEach(selection => selection.AddFeatures(feature));
+        }
         public static BlueprintFeature CreateSkillFeat(string name, StatType skill1, StatType skill2, Action<BlueprintFeature> init = null) {
             var SkillFeat = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
                 bp.Ranks = 1;

@@ -1,3 +1,7 @@
+## Version 1.0.2
+* updated arcane reservoir fix to be self healing
+* fixed issue where new Arcanist exploits were not available to exploiter wizard
+
 ## Version 1.0.1
 * fixed arcane reservoir sometimes removing too many points on rest
 * fixed second breath
