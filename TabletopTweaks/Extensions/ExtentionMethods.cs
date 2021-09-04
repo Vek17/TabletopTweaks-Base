@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints;
+﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -22,31 +23,30 @@ using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 
 namespace TabletopTweaks.Extensions {
     static class ExtentionMethods {
-        public static IEnumerable<GameAction> FlattenAllActions(this BlueprintAbility Ability) {
-            return
-                Ability.GetComponents<AbilityExecuteActionOnCast>()
-                    .SelectMany(a => a.FlattenAllActions())
-                .Concat(
-                Ability.GetComponents<AbilityEffectRunAction>()
-                    .SelectMany(a => a.FlattenAllActions()));
-        }
-        public static IEnumerable<GameAction> FlattenAllActions(this AbilityExecuteActionOnCast Action) {
-            return FlattenAllActions(Action.Actions.Actions);
-        }
-        public static IEnumerable<GameAction> FlattenAllActions(this AbilityEffectRunAction Action) {
-            return FlattenAllActions(Action.Actions.Actions);
-        }
-        public static IEnumerable<GameAction> FlattenAllActions(this IEnumerable<GameAction> Actions) {
-            List<GameAction> NewActions = new List<GameAction>();
-            NewActions.AddRange(Actions.OfType<ContextActionOnRandomTargetsAround>().SelectMany(a => a.Actions.Actions));
-            NewActions.AddRange(Actions.OfType<ContextActionConditionalSaved>().SelectMany(a => a.Failed.Actions));
-            NewActions.AddRange(Actions.OfType<ContextActionConditionalSaved>().SelectMany(a => a.Succeed.Actions));
-            NewActions.AddRange(Actions.OfType<Conditional>().SelectMany(a => a.IfFalse.Actions));
-            NewActions.AddRange(Actions.OfType<Conditional>().SelectMany(a => a.IfTrue.Actions));
-            if (NewActions.Count > 0) {
-                return Actions.Concat(FlattenAllActions(NewActions));
+        public static IEnumerable<GameAction> FlattenAllActions(this BlueprintAbility ability) {
+            List<GameAction> actions = new List<GameAction>();
+            foreach (var component in ability.ComponentsArray) {
+                Type type = component.GetType();
+                var foundActions = AccessTools.GetDeclaredFields(type)
+                    .Where(f => f.FieldType == typeof(ActionList))
+                    .SelectMany(field => ((ActionList)field.GetValue(component)).Actions);
+                actions.AddRange(FlattenAllActions(foundActions));
             }
-            return Actions;
+            return actions;
+        }
+        public static IEnumerable<GameAction> FlattenAllActions(this IEnumerable<GameAction> actions) {
+            List<GameAction> newActions = new List<GameAction>();
+            foreach (var action in actions) {
+                Type type = action?.GetType();
+                var foundActions = AccessTools.GetDeclaredFields(type)?
+                    .Where(f => f?.FieldType == typeof(ActionList))
+                    .SelectMany(field => ((ActionList)field.GetValue(action)).Actions);
+                if (foundActions != null) { newActions.AddRange(foundActions); }
+            }
+            if (newActions.Count > 0) {
+                return actions.Concat(FlattenAllActions(newActions));
+            }
+            return actions;
         }
         public static V PutIfAbsent<K, V>(this IDictionary<K, V> self, K key, V value) where V : class {
             V oldValue;

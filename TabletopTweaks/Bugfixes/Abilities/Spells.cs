@@ -124,16 +124,18 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     var MagicalVestmentShield = Resources.GetBlueprint<BlueprintAbility>("adcda176d1756eb45bd5ec9592073b09");
                     var MagicalVestmentShieldBuff = Resources.GetBlueprint<BlueprintBuff>("2e8446f820936a44f951b50d70a82b16");
                     MagicalVestmentShield.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceSheild>(a => {
-                        a.EnchantLevel = new ContextValue();
-                        a.EnchantLevel.ValueType = ContextValueType.Rank;
-                        a.EnchantLevel.Value = 1;
-                        a.EnchantLevel.ValueRank = AbilityRankType.ProjectilesCount;
+                        a.EnchantLevel = new ContextValue {
+                            ValueType = ContextValueType.Rank,
+                            Value = 1,
+                            ValueRank = AbilityRankType.ProjectilesCount
+                        };
 
-                        a.DurationValue = new ContextDurationValue();
-                        a.DurationValue.m_IsExtendable = true;
-                        a.DurationValue.Rate = DurationRate.Hours;
-                        a.DurationValue.DiceCountValue = new ContextValue();
-                        a.DurationValue.BonusValue = new ContextValue();
+                        a.DurationValue = new ContextDurationValue {
+                            m_IsExtendable = true,
+                            Rate = DurationRate.Hours,
+                            DiceCountValue = new ContextValue(),
+                            BonusValue = new ContextValue()
+                        };
                         a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
 
                         a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
@@ -163,16 +165,18 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     var MagicalVestmentArmor = Resources.GetBlueprint<BlueprintAbility>("956309af83352714aa7ee89fb4ecf201");
                     var MagicalVestmentArmorBuff = Resources.GetBlueprint<BlueprintBuff>("9e265139cf6c07c4fb8298cb8b646de9");
                     MagicalVestmentArmor.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceArmor>(a => {
-                        a.EnchantLevel = new ContextValue();
-                        a.EnchantLevel.ValueType = ContextValueType.Rank;
-                        a.EnchantLevel.Value = 1;
-                        a.EnchantLevel.ValueRank = AbilityRankType.ProjectilesCount;
+                        a.EnchantLevel = new ContextValue {
+                            ValueType = ContextValueType.Rank,
+                            Value = 1,
+                            ValueRank = AbilityRankType.ProjectilesCount
+                        };
 
-                        a.DurationValue = new ContextDurationValue();
-                        a.DurationValue.m_IsExtendable = true;
-                        a.DurationValue.Rate = DurationRate.Hours;
-                        a.DurationValue.DiceCountValue = new ContextValue();
-                        a.DurationValue.BonusValue = new ContextValue();
+                        a.DurationValue = new ContextDurationValue {
+                            m_IsExtendable = true,
+                            Rate = DurationRate.Hours,
+                            DiceCountValue = new ContextValue(),
+                            BonusValue = new ContextValue()
+                        };
                         a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
 
                         a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
