@@ -173,7 +173,7 @@ namespace TabletopTweaks.Utilities {
             public static BlueprintSpellList WizardSpellList => Resources.GetBlueprint<BlueprintSpellList>("ba0401fdeb4062f40a7aa95b6f07fe89");
             public static BlueprintSpellList WizardTransmutationSpellList => Resources.GetBlueprint<BlueprintSpellList>("becbcfeca9624b6469319209c2a6b7f1");
 
-            public static BlueprintSpellList[] AllSpellLists = new BlueprintSpellList[] {
+            public static BlueprintSpellList[] AllSpellLists => new BlueprintSpellList[] {
                 AeonSpellList,
                 AeonSpellMythicList,
                 AirDomainSpellList,
