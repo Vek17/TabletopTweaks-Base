@@ -101,6 +101,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Enables favorable magic on reoccurring saves
     Arcansit
         Fixed consume spells minimum resources
+        Fixed arcane reservior refill amount
     Barbarian
         Instinctual Warrior
             Fixed AC bonus applying even when wearing armor
@@ -171,6 +172,7 @@ All fixes and added content are configurable and can be disabled by editing the 
             Bestow Curse Greater
             Ode to Miraculous Magic
             Crusader's Edge
+            Second Breath
     Bloodlines
         Fixes bloodline prerequisites to prevent impossible stacking
         Fixed dragon disciple bloodline rules to prevent impossible stacking
@@ -182,6 +184,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Mounted Combat now works properly
         Indomitable Mount now works properly
         Spirited Charage now works properly
+        Persistant metatmagic can now be applied to spells
     Mythic Abilities
         Bloodline Ascendance now works with mutated bloodlines
         Domain zealot now works properly

@@ -269,6 +269,7 @@
             "FencingGrace": true,
             "IndomitableMount": true,
             "MountedCombat": true,
+            "PersistantMetamagic": true,
             "SlashingGrace": true,
             "SpiritedCharge": true,
             "VitalStrike": true,

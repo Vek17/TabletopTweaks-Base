@@ -1,3 +1,6 @@
+## Version 1.0.3
+* enabled persistant metamagic on spells
+
 ## Version 1.0.2
 * updated arcane reservoir fix to be self healing
 * fixed issue where new Arcanist exploits were not available to exploiter wizard

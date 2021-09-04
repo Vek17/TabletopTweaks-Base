@@ -7,6 +7,8 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -34,6 +36,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchFencingGrace();
                 PatchIndomitableMount();
                 PatchMountedCombat();
+                PatchPersistantMetamagic();
                 PatchSlashingGrace();
                 PatchSpiritedCharge();
                 PatchWeaponFinesse();
@@ -123,6 +126,23 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.m_CooldownBuff = IndomitableMountCooldownBuff.ToReference<BlueprintBuffReference>();
                 }));
                 Main.LogPatch("Patched", IndomitableMount);
+            }
+            static void PatchPersistantMetamagic() {
+                if (!ModSettings.Fixes.Feats.Enabled["PersistantMetamagic"]) { return; }
+
+                var PersistentSpellFeat = Resources.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
+                var spells = SpellTools.SpellList.AllSpellLists
+                    .SelectMany(list => list.SpellsByLevel.SelectMany(level => level.Spells))
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .ToArray();
+                Main.LogPatch("Enabling", PersistentSpellFeat);
+                foreach (var spell in spells) {
+                    if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown) {
+                        spell.AvailableMetamagic |= Metamagic.Persistent;
+                        Main.LogPatch("Enabled Persistant Metamagic", spell);
+                    };
+                }
             }
             static void PatchSpiritedCharge() {
                 if (!ModSettings.Fixes.Feats.Enabled["SpiritedCharge"]) { return; }
