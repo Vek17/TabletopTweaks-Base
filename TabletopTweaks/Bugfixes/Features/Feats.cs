@@ -12,6 +12,7 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -138,7 +139,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                     .ToArray();
                 Main.LogPatch("Enabling", PersistentSpellFeat);
                 foreach (var spell in spells) {
-                    if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown) {
+                    bool HasSavingThrow = spell.FlattenAllActions().OfType<ContextActionSavingThrow>().Any();
+                    if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown || HasSavingThrow) {
                         spell.AvailableMetamagic |= Metamagic.Persistent;
                         Main.LogPatch("Enabled Persistant Metamagic", spell);
                     };
