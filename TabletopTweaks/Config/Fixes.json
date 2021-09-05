@@ -19,6 +19,7 @@
         "DisableAll": false,
         "Enabled": {
             "AzataPerformanceResource": true,
+            "AzataSongToggles": true,
             "FavorableMagic": true,
             "ZippyMagic": true
         }
@@ -301,7 +302,8 @@
         "Weapons": {
             "DisableAll": false,
             "Enabled": {
-                "BladeOfTheMerciful": true
+                "BladeOfTheMerciful": true,
+                "HonorableJudgement": true
             }
         }
     }

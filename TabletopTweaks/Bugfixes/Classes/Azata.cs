@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
@@ -23,6 +24,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Main.LogHeader("Patching Azata");
 
                 PatchAzataPerformanceResource();
+                PatchAzataSongToggles();
                 PatchFavorableMagic();
                 PatchZippyMagicFeature();
             }
@@ -40,6 +42,25 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     .ToArray();
                 AzataPerformanceResource.m_MaxAmount.m_Class = characterClasses;
                 Main.LogPatch("Patched", AzataPerformanceResource);
+            }
+
+            static void PatchAzataSongToggles() {
+                if (ModSettings.Fixes.Azata.IsDisabled("AzataSongToggles")) { return; }
+
+                var SongOfHeroicResolveToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("a95449d0ea0714a4ea5cffc83fc7624f");
+                var SongOfBrokenChainsToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("ac08e4d23e2928148a7b4109e9485e6a");
+                var SongOfDefianceToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("661ad9ab9c8af2e4c86a7cfa4c2be3f2");
+                var SongOfCourageousDefenderToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("66864464f529c264f8c08ec2f4bf1cb5");
+
+                SongOfHeroicResolveToggleAbility.DeactivateImmediately = false;
+                SongOfBrokenChainsToggleAbility.DeactivateImmediately = false;
+                SongOfDefianceToggleAbility.DeactivateImmediately = false;
+                SongOfCourageousDefenderToggleAbility.DeactivateImmediately = false;
+
+                Main.LogPatch("Patched", SongOfHeroicResolveToggleAbility);
+                Main.LogPatch("Patched", SongOfBrokenChainsToggleAbility);
+                Main.LogPatch("Patched", SongOfDefianceToggleAbility);
+                Main.LogPatch("Patched", SongOfCourageousDefenderToggleAbility);
             }
 
             static void PatchFavorableMagic() {

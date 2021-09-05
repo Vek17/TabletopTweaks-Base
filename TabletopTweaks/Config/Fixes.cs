@@ -69,6 +69,7 @@ namespace TabletopTweaks.Config {
 
             Spells.LoadSettingGroup(loadedSettings.Spells);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);
+            Feats.LoadSettingGroup(loadedSettings.Feats);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
 
             Items.LoadItemGroup(loadedSettings.Items);
