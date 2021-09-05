@@ -21,6 +21,7 @@ namespace TabletopTweaks.Config {
             Feats.LoadSettingGroup(loadedSettings.Feats);
             FighterAdvancedArmorTraining.LoadSettingGroup(loadedSettings.FighterAdvancedArmorTraining);
             FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining);
+            Races.LoadSettingGroup(loadedSettings.Races);
             Spells.LoadSettingGroup(loadedSettings.Spells);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
         }

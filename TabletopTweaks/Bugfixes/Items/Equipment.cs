@@ -25,6 +25,14 @@ namespace TabletopTweaks.Bugfixes.Items {
                     RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
                     Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
                 }
+
+                void PatchHolySymbolofIomedae() {
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("HolySymbolofIomedae")) { return; }
+
+                    var RingOfTheSneakyWizardFeature = Resources.GetBlueprint<BlueprintFeature>("d848f1f1b31b3e143ba4aeeecddb17f4");
+                    RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
+                    Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
+                }
             }
         }
     }
