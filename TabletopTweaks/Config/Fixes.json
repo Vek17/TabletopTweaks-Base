@@ -296,7 +296,8 @@
         "Equipment": {
             "DisableAll": false,
             "Enabled": {
-                "MagiciansRing": true
+                "MagiciansRing": true,
+                "MetamagicRods": true
             }
         },
         "Weapons": {

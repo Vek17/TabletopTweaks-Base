@@ -3,6 +3,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.Utility;
 using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Items {
@@ -17,6 +19,7 @@ namespace TabletopTweaks.Bugfixes.Items {
 
                 Main.LogHeader("Patching Equipment");
                 PatchMagiciansRing();
+                PatchMetamagicRods();
 
                 void PatchMagiciansRing() {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("MagiciansRing")) { return; }
@@ -26,12 +29,41 @@ namespace TabletopTweaks.Bugfixes.Items {
                     Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
                 }
 
-                void PatchHolySymbolofIomedae() {
-                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("HolySymbolofIomedae")) { return; }
+                void PatchMetamagicRods() {
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("MetamagicRods")) { return; }
 
-                    var RingOfTheSneakyWizardFeature = Resources.GetBlueprint<BlueprintFeature>("d848f1f1b31b3e143ba4aeeecddb17f4");
-                    RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
-                    Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
+                    BlueprintActivatableAbility[] MetamagicRodAbilities = new BlueprintActivatableAbility[] {
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("ccffef1193d04ad1a9430a8009365e81"), //MetamagicRodGreaterBolsterToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("cc266cfb106a5a3449b383a25ab364f0"), //MetamagicRodGreaterEmpowerToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("c137a17a798334c4280e1eb811a14a70"), //MetamagicRodGreaterExtendToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("78b5971c7a0b7f94db5b4d22c2224189"), //MetamagicRodGreaterMaximizeToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("5016f110e5c742768afa08224d6cde56"), //MetamagicRodGreaterPersistentToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("fca35196b3b23c346a7d1b1ce20c6f1c"), //MetamagicRodGreaterQuickenToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("cc116b4dbb96375429107ed2d88943a1"), //MetamagicRodGreaterReachToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("f0d798f5139440a8b2e72fe445678d29"), //MetamagicRodGreaterSelectiveToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("056b9f1aa5c54a7996ca8c4a00a88f88"), //MetamagicRodLesserBolsterToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("ed10ddd385a528944bccbdc4254f8392"), //MetamagicRodLesserEmpowerToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("605e64c0b4586a34494fc3471525a2e5"), //MetamagicRodLesserExtendToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("868673cd023f96945a2ee61355740a96"), //MetamagicRodLesserKineticToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("485ffd3bd7877fb4d81409b120a41076"), //MetamagicRodLesserMaximizeToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("5a87350fcc6b46328a2b345f23bbda44"), //MetamagicRodLesserPersistentToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("b8b79d4c37981194fa91771fc5376c5e"), //MetamagicRodLesserQuickenToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("7dc276169f3edd54093bf63cec5701ff"), //MetamagicRodLesserReachToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("66e68fd0b661413790e3000ede141f16"), //MetamagicRodLesserSelectiveToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("afb2e1f96933c22469168222f7dab8fb"), //MetamagicRodMasterpieceToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("6cc31148ae2d48359c02712308cb4167"), //MetamagicRodNormalBolsterToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("077ec9f9394b8b347ba2b9ec45c74739"), //MetamagicRodNormalEmpowerToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("69de70b88ca056440b44acb029a76cd7"), //MetamagicRodNormalExtendToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("3b5184a55f98f264f8b39bddd3fe0e88"), //MetamagicRodNormalMaximizeToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("9ae2e56b24404144bd911378fe541597"), //MetamagicRodNormalPersistentToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("1f390e6f38d3d5247aacb25ab3a2a6d2"), //MetamagicRodNormalQuickenToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("f0b05e39b82c3be408009e26be40bc91"), //MetamagicRodNormalReachToggleAbility
+                        Resources.GetBlueprint<BlueprintActivatableAbility>("04f768c59bb947e3948ce2e7e72feecb"), //MetamagicRodNormalSelectiveToggleAbility
+                    };
+                    MetamagicRodAbilities.ForEach(ability => {
+                        ability.IsOnByDefault = false;
+                        Main.LogPatch("Patched", ability);
+                    });
                 }
             }
         }

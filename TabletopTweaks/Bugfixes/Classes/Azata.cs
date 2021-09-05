@@ -64,7 +64,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchFavorableMagic() {
-                if (!ModSettings.Fixes.Azata.IsDisabled("FavorableMagic")) { return; }
+                if (ModSettings.Fixes.Azata.IsDisabled("FavorableMagic")) { return; }
                 var FavorableMagicFeature = Resources.GetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
                 var fixedComponent = new NewComponents.AzataFavorableMagicComponent();
 

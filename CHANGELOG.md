@@ -1,3 +1,6 @@
+## Version 1.0.6
+* fixed metamagic rods no longer are on by default
+
 ## Version 1.0.5
 * fixed race config not presisting on mod load
 
