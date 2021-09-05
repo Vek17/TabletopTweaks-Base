@@ -1,3 +1,6 @@
+## Version 1.0.5
+* fixed race config not presisting on mod load
+
 ## Version 1.0.4
 * azata songs can now be activated outside of combat
 * fixed feats config not presisting on mod load
