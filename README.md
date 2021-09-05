@@ -99,6 +99,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Allows song uses to scale with all classes instead of just Bard
         Adds the damage component of zippy magic
         Enables favorable magic on reoccurring saves
+        Enables azata songs to be started outside of combat
     Arcansit
         Fixed consume spells minimum resources
         Fixed arcane reservior refill amount
