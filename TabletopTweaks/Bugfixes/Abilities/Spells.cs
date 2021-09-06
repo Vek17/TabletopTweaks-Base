@@ -37,6 +37,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchBestowCurseGreater();
                 PatchCrusadersEdge();
                 PatchMagicalVestment();
+                PatchMagicWeaponGreater();
                 PatchOdeToMiraculousMagicBuff();
                 PatchRemoveFear();
                 PatchSecondBreath();
@@ -45,6 +46,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchShadowEvocationGreater();
                 PatchWrachingRay();
             }
+
             static void PatchBelieveInYourself() {
                 if (!ModSettings.Fixes.Spells.Enabled["BelieveInYourself"]) { return; }
                 BlueprintAbility BelieveInYourself = Resources.GetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
@@ -63,6 +65,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         });
                 }
             }
+
             static void PatchBestowCurseGreater() {
                 if (!ModSettings.Fixes.Spells.Enabled["BestowCurseGreater"]) { return; }
                 var BestowCurseGreaterDeterioration = Resources.GetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
@@ -109,12 +112,14 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     Main.LogPatch("Patched", curseBuff);
                 }
             }
+
             static void PatchCrusadersEdge() {
                 if (!ModSettings.Fixes.Spells.Enabled["CrusadersEdge"]) { return; }
                 BlueprintBuff CrusadersEdgeBuff = Resources.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 Main.LogPatch("Patched", CrusadersEdgeBuff);
             }
+
             static void PatchMagicalVestment() {
                 if (!ModSettings.Fixes.Spells.Enabled["MagicalVestment"]) { return; }
                 PatchMagicalVestmentArmor();
@@ -201,6 +206,27 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     Main.LogPatch("Patched", MagicalVestmentArmorBuff);
                 }
             }
+
+            static void PatchMagicWeaponGreater() {
+                if (ModSettings.Fixes.Spells.IsDisabled("GreaterMagicWeapon")) { return; }
+
+                var MagicWeaponGreaterPrimary = Resources.GetBlueprint<BlueprintAbility>("a3fe23711486ee9489af1dadd6906149");
+                var MagicWeaponGreaterSecondary = Resources.GetBlueprint<BlueprintAbility>("89c13df989e5e624692134d55195121a");
+                var newEnhancements = new BlueprintItemEnchantmentReference[] {
+                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement1NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement2NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement3NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement4NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement5NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+            };
+
+                MagicWeaponGreaterPrimary.FlattenAllActions().OfType<EnhanceWeapon>().ForEach(c => c.m_Enchantment = newEnhancements);
+                MagicWeaponGreaterSecondary.FlattenAllActions().OfType<EnhanceWeapon>().ForEach(c => c.m_Enchantment = newEnhancements);
+
+                Main.LogPatch("Patched", MagicWeaponGreaterPrimary);
+                Main.LogPatch("Patched", MagicWeaponGreaterSecondary);
+            }
+
             static void PatchOdeToMiraculousMagicBuff() {
                 if (!ModSettings.Fixes.Spells.Enabled["OdeToMiraculousMagic"]) { return; }
                 BlueprintBuff OdeToMiraculousMagicBuff = Resources.GetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
@@ -211,6 +237,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 OdeToMiraculousMagicBuff.AddComponent(bonusSaveDC);
                 Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
             }
+
             static void PatchRemoveFear() {
                 if (!ModSettings.Fixes.Spells.Enabled["RemoveFear"]) { return; }
                 var RemoveFear = Resources.GetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
@@ -222,6 +249,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 RemoveFearBuff.AddComponent(suppressFear);
                 Main.LogPatch("Patched", RemoveFearBuff);
             }
+
             static void PatchSecondBreath() {
                 if (ModSettings.Fixes.Spells.IsDisabled("SecondBreath")) { return; }
                 var SecondBreath = Resources.GetBlueprint<BlueprintAbility>("d7e6f8a0369530341b50987d3ebdfe57");
@@ -233,12 +261,14 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     }));
                 Main.LogPatch("Patched", SecondBreath);
             }
+
             static void PatchShadowConjuration() {
                 if (!ModSettings.Fixes.Spells.Enabled["ShadowConjuration"]) { return; }
                 var ShadowConjuration = Resources.GetBlueprint<BlueprintAbility>("caac251ca7601324bbe000372a0a1005");
                 ShadowConjuration.AddToSpellList(SpellTools.SpellList.WizardSpellList, 4);
                 Main.LogPatch("Patched", ShadowConjuration);
             }
+
             static void PatchShadowEvocation() {
                 if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocation"]) { return; }
                 var ShadowEvocation = Resources.GetBlueprint<BlueprintAbility>("237427308e48c3341b3d532b9d3a001f");
@@ -253,6 +283,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     | Metamagic.Bolstered;
                 Main.LogPatch("Patched", ShadowEvocation);
             }
+
             static void PatchShadowEvocationGreater() {
                 if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocationGreater"]) { return; }
                 var ShadowEvocationGreater = Resources.GetBlueprint<BlueprintAbility>("3c4a2d4181482e84d9cd752ef8edc3b6");
@@ -267,6 +298,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     | Metamagic.Bolstered;
                 Main.LogPatch("Patched", ShadowEvocationGreater);
             }
+
             static void PatchWrachingRay() {
                 if (!ModSettings.Fixes.Spells.Enabled["WrackingRay"]) { return; }
                 var WrackingRay = Resources.GetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");

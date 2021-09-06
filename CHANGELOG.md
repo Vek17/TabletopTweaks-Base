@@ -1,5 +1,6 @@
 ## Version 1.0.6
 * fixed metamagic rods no longer are on by default
+* greater magic weapon no longer applies a stacking bonus
 
 ## Version 1.0.5
 * fixed race config not presisting on mod load

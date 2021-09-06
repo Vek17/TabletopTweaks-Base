@@ -14,6 +14,8 @@ namespace TabletopTweaks.NewContent {
                 Main.LogHeader("Loading New Content");
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
+                WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
+
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();
                 Races.Gnome.AddGnomeHeritage();

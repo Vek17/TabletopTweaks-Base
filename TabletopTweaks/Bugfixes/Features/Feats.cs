@@ -133,7 +133,10 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 var PersistentSpellFeat = Resources.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
                 var spells = SpellTools.SpellList.AllSpellLists
-                    .SelectMany(list => list.SpellsByLevel.SelectMany(level => level.Spells))
+                    .Where(list => list.IsMythic == false)
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
                     .Distinct()
                     .OrderBy(spell => spell.Name)
                     .ToArray();
@@ -141,8 +144,10 @@ namespace TabletopTweaks.Bugfixes.Features {
                 foreach (var spell in spells) {
                     bool HasSavingThrow = spell.FlattenAllActions().OfType<ContextActionSavingThrow>().Any();
                     if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown || HasSavingThrow) {
-                        spell.AvailableMetamagic |= Metamagic.Persistent;
-                        Main.LogPatch("Enabled Persistant Metamagic", spell);
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Persistent)) {
+                            spell.AvailableMetamagic |= Metamagic.Persistent;
+                            Main.LogPatch("Enabled Persistant Metamagic", spell);
+                        }
                     };
                 }
             }

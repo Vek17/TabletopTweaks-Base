@@ -255,6 +255,7 @@
     <Compile Include="NewContent\Races\Halfling.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
+    <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
     <Compile Include="Resources.cs" />
