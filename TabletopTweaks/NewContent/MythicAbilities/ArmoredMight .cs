@@ -12,7 +12,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_ArmoredMight.png");
 
-            var ArmoredMightFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredMightFeature", (System.Action<BlueprintFeature>)(bp => {
+            var ArmoredMightFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredMightFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
@@ -21,7 +21,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.SetName("Armored Might");
                 bp.SetDescription("You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.");
                 bp.AddComponent(Helpers.Create<ArmoredMightComponent>());
-            }));
+            });
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
             MythicAbilitySelection.AddFeatures(ArmoredMightFeature);

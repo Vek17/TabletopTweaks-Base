@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
@@ -9,7 +8,6 @@ using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using TabletopTweaks.Config;

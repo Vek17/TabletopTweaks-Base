@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.Spells {
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_ShadowEnchantment.png");
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
 
-            var ShadowEnchantment = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantment", (System.Action<BlueprintAbility>)(bp => {
+            var ShadowEnchantment = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantment", bp => {
                 bp.SetName("Shadow Enchantment");
                 bp.SetDescription("You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level "
                     + "or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment "
@@ -84,7 +84,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.m_Class = new BlueprintCharacterClassReference[0];
                     c.m_CustomPropertyList = new BlueprintUnitPropertyReference[0];
                 }));
-            }));
+            });
             if (ModSettings.AddedContent.Spells.DisableAll || !ModSettings.AddedContent.Spells.Enabled["ShadowEnchantment"]) { return; }
             ShadowEnchantment.AddToSpellList(SpellTools.SpellList.BardSpellList, 3);
             ShadowEnchantment.AddToSpellList(SpellTools.SpellList.TricksterSpelllist, 3);
@@ -95,7 +95,7 @@ namespace TabletopTweaks.NewContent.Spells {
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_ShadowEnchantmentGreater.png");
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
 
-            var ShadowEnchantmentGreater = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantmentGreater", (System.Action<BlueprintAbility>)(bp => {
+            var ShadowEnchantmentGreater = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantmentGreater", bp => {
                 bp.SetName("Shadow Enchantment, Greater");
                 bp.SetDescription("This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, "
                     + "or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it’s only three-fifths (60%) as effective.");
@@ -155,7 +155,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.m_Class = new BlueprintCharacterClassReference[0];
                     c.m_CustomPropertyList = new BlueprintUnitPropertyReference[0];
                 }));
-            }));
+            });
             if (ModSettings.AddedContent.Spells.DisableAll || !ModSettings.AddedContent.Spells.Enabled["ShadowEnchantmentGreater"]) { return; }
             ShadowEnchantmentGreater.AddToSpellList(SpellTools.SpellList.BardSpellList, 6);
             ShadowEnchantmentGreater.AddToSpellList(SpellTools.SpellList.TricksterSpelllist, 6);

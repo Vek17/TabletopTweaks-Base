@@ -14,7 +14,7 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
             CreateNonStackingEnhancement(6);
         }
 
-        private static BlueprintWeaponEnchantment CreateNonStackingEnhancement(int enhancmentBonus) { 
+        private static BlueprintWeaponEnchantment CreateNonStackingEnhancement(int enhancmentBonus) {
             return Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"TemporaryEnhancement{enhancmentBonus}NonStacking", bp => {
                 bp.m_Description = Helpers.CreateString($"{bp.name}.description", $"{{g|Encyclopedia:Attack}}Attacks{{/g}} with this weapon get +{enhancmentBonus} " +
                     $"enhancement {{g|Encyclopedia:Bonus}}bonus{{/g}} on both attack and {{g|Encyclopedia:Damage}}damage rolls.");

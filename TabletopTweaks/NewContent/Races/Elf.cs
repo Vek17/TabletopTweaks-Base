@@ -29,7 +29,7 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddElfHeritage() {
 
-            var ElfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("ElfAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
+            var ElfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("ElfAbilityModifiers", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -57,8 +57,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            }));
-            var ElfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("ElfNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ElfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("ElfNoAlternateTrait", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -66,8 +66,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
                 bp.SetDescription("No Alternate Trait");
-            }));
-            var ElfFieraniFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfFieraniFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ElfFieraniFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfFieraniFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -97,8 +97,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(ElfAbilityModifiers);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            }));
-            var ElfArcaneFocusFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfArcaneFocusFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ElfArcaneFocusFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfArcaneFocusFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -111,8 +111,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(ElvenWeaponFamiliarity);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            }));
-            var ElfLongLimbedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfLongLimbedFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ElfLongLimbedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfLongLimbedFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -125,8 +125,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(ElvenWeaponFamiliarity);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            }));
-            var ElfMoonkissedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfMoonkissedFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ElfMoonkissedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfMoonkissedFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -139,8 +139,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddTraitReplacment(KeenSenses);
                 bp.AddTraitReplacment(ElvenImmunities);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            }));
-            var ElfVigilanceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfVigilanceFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ElfVigilanceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfVigilanceFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -154,7 +154,7 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(ElvenMagic);
                 bp.AddSelectionCallback(ElvenHeritageSelection);
-            }));
+            });
 
             BlightbornElf.RemoveComponents<RemoveFeatureOnApply>();
             BlightbornElf.AddTraitReplacment(ElvenImmunities);

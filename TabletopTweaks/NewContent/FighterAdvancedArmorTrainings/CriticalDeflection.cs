@@ -15,7 +15,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
         public static void AddCriticalDeflection() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
-            var CriticalDeflectionEffect = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionEffect", (System.Action<BlueprintFeature>)(bp => {
+            var CriticalDeflectionEffect = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionEffect", bp => {
                 bp.SetName("Critical Deflection");
                 bp.SetDescription("Critical Deflection");
                 bp.IsClassFeature = true;
@@ -39,8 +39,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
-            }));
-            var CriticalDeflectionFeature = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var CriticalDeflectionFeature = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionFeature", bp => {
                 bp.SetName("Critical Deflection");
                 bp.SetDescription("While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to " +
                     "confirm a critical hit. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +6 at 19th level.");
@@ -58,7 +58,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         ArmorProficiencyGroup.TowerShield
                     };
                 }));
-            }));
+            });
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["CriticalDeflection"]) { return; }
             AdvancedArmorTraining.AddToAdvancedArmorTrainingSelection(CriticalDeflectionFeature);

@@ -32,7 +32,7 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddGnomeHeritage() {
 
-            var GnomeAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("GnomeAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
+            var GnomeAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("GnomeAbilityModifiers", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -61,8 +61,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            }));
-            var GnomeNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var GnomeNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNoAlternateTrait", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -70,8 +70,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
                 bp.SetDescription("No Alternate Trait");
-            }));
-            var GnomeArtisanFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeArtisanFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var GnomeArtisanFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeArtisanFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -104,8 +104,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddPrerequisiteFeature(GnomeAbilityModifiers);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            }));
-            var GnomeKeenFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeKeenFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var GnomeKeenFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeKeenFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -142,8 +142,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddPrerequisiteFeature(GnomeAbilityModifiers);
                 bp.AddPrerequisiteFeature(DwarfDefensiveTrainingGiants);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            }));
-            var GnomeFellMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeFellMagicFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var GnomeFellMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeFellMagicFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -156,8 +156,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(GnomeMagic);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            }));
-            var GnomeUtilitarianMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeUtilitarianMagicFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var GnomeUtilitarianMagicFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeUtilitarianMagicFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -170,8 +170,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(GnomeMagic);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            }));
-            var GnomeInquisitiveFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeInquisitiveFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var GnomeInquisitiveFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeInquisitiveFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -191,8 +191,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddTraitReplacment(KeenSenses);
                 bp.AddTraitReplacment(Obsessive);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            }));
-            var GnomeNosophobiaFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNosophobiaFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var GnomeNosophobiaFeature = Helpers.CreateBlueprint<BlueprintFeature>("GnomeNosophobiaFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -206,7 +206,7 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(Obsessive);
                 bp.AddSelectionCallback(GnomeHeritageSelection);
-            }));
+            });
 
             PyromaniacGnome.RemoveComponents<RemoveFeatureOnApply>();
             PyromaniacGnome.AddTraitReplacment(GnomeMagic);

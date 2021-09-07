@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.RuleSystem.Rules.Abilities;
@@ -67,7 +66,7 @@ namespace TabletopTweaks.Bugfixes.General {
                 //SpellSchool school = nullable.HasValue ? nullable.GetValueOrDefault() : SpellSchool.None;
                 int num1 = school == __instance.Param ? 1 : 0;
                 int num2;
-                if (!__instance.Owner.Progression.Features.Enumerable.Any(p => p.Blueprint == __instance.Fact.Blueprint && p.Param == (FeatureParam)school)) {
+                if (!__instance.Owner.Progression.Features.Enumerable.Any(p => p.Blueprint == __instance.Fact.Blueprint && p.Param == school)) {
                     UnitPartExpandedArsenal partExpandedArsenal = __instance.Owner.Get<UnitPartExpandedArsenal>();
                     num2 = partExpandedArsenal != null ? (partExpandedArsenal.HasSpellSchoolEntry(school) ? 1 : 0) : 0;
                 } else

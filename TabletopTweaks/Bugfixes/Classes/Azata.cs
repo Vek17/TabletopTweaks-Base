@@ -2,7 +2,6 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.FactLogic;
@@ -72,7 +71,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                 FavorableMagicFeature.SetComponents(
                     Helpers.Create<AzataFavorableMagicComponent>()
-                    //Helpers.Create<AzataFavorableMagic>()
+                //Helpers.Create<AzataFavorableMagic>()
                 );
                 Main.LogPatch("Patched", FavorableMagicFeature);
             }

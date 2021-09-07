@@ -1,23 +1,15 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
-using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Arcanist {
@@ -32,7 +24,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                 PatchBase();
             }
-            static void PatchBase() { 
+            static void PatchBase() {
             }
         }
 

@@ -19,7 +19,7 @@ namespace TabletopTweaks.NewContent.Spells {
         public static void AddLongArms() {
             //var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_LongArm.png");
-            var LongArmBuff = Helpers.CreateBuff("LongArmBuff", (System.Action<Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff>)(bp => {
+            var LongArmBuff = Helpers.CreateBuff("LongArmBuff", bp => {
                 bp.SetName("Long Arm");
                 bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.m_Icon = icon;
@@ -28,7 +28,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.Descriptor = ModifierDescriptor.Enhancement;
                     c.Value = 5;
                 }));
-            }));
+            });
             var applyBuff = Helpers.Create<Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff>(bp => {
                 bp.IsFromSpell = true;
                 bp.m_Buff = LongArmBuff.ToReference<BlueprintBuffReference>();
@@ -41,7 +41,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     DiceType = DiceType.One
                 };
             });
-            var LongArmAbility = Helpers.CreateBlueprint<BlueprintAbility>("LongArmAbility", (System.Action<BlueprintAbility>)(bp => {
+            var LongArmAbility = Helpers.CreateBlueprint<BlueprintAbility>("LongArmAbility", bp => {
                 bp.SetName("Long Arm");
                 bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.LocalizedDuration = Helpers.CreateString("LongArmAbility.Duration", "1 minute/level");
@@ -67,7 +67,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.SavingThrow = CraftSavingThrow.None;
                     c.AOEType = CraftAOE.None;
                 }));
-            }));
+            });
             if (ModSettings.AddedContent.Spells.DisableAll || !ModSettings.AddedContent.Spells.Enabled["LongArm"]) { return; }
             LongArmAbility.AddToSpellList(SpellTools.SpellList.AlchemistSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.BloodragerSpellList, 1);

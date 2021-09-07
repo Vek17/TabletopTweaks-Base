@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
             var icon = AssetLoader.LoadInternal("Feats", "Icon_ArmorMaster.png");
 
-            var ArmorMasterLightFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterLightFeature", (System.Action<BlueprintFeature>)(bp => {
+            var ArmorMasterLightFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterLightFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
@@ -48,8 +48,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                         ArmorProficiencyGroup.TowerShield
                     };
                 }));
-            }));
-            var ArmorMasterMediumFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterMediumFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ArmorMasterMediumFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterMediumFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
@@ -84,8 +84,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = ArmorMasterLightFeature.ToReference<BlueprintFeatureReference>();
                 }));
-            }));
-            var ArmorMasterHeavyFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterHeavyFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var ArmorMasterHeavyFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorMasterHeavyFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
@@ -120,7 +120,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
                     c.m_Feature = ArmorMasterMediumFeature.ToReference<BlueprintFeatureReference>();
                 }));
-            }));
+            });
 
             if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
             MythicAbilitySelection.AddFeatures(ArmorMasterLightFeature, ArmorMasterMediumFeature, ArmorMasterHeavyFeature);

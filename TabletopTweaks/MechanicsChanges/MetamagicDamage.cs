@@ -28,7 +28,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 float empowerBonus = damage.EmpowerBonus;
                 float num3;
                 if (damage.PreRolledValue != null) {
-                    num3 = (float)damage.PreRolledValue.Value;
+                    num3 = damage.PreRolledValue.Value;
                 } else {
                     int num4;
                     if (__instance.RerollAndTakeBest) {
@@ -53,7 +53,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     num3 = ((num4 + empowerExtraDamage) + (damage.Bonus * __instance.UnitsCount) * empowerBonus * num2) * damage.TacticalCriticalModifier;
                 }
                 int rolledValue = (int)num3;
-                num3 += (float)(damage.BonusTargetRelated * __instance.UnitsCount) * empowerBonus * (float)num2;
+                num3 += damage.BonusTargetRelated * __instance.UnitsCount * empowerBonus * num2;
                 if (damage.Half && !damage.AlreadyHalved) {
                     num3 /= 2f;
                 }
@@ -70,9 +70,9 @@ namespace TabletopTweaks.MechanicsChanges {
                     num3 *= 0.75f;
                 }
                 num3 = Math.Max(1f, num3);
-                float num6 = num3 * (1f + (float)damage.BonusPercent / 100f) * damage.Vulnerability * damage.Durability * __instance.TacticalCombatFactor;
+                float num6 = num3 * (1f + damage.BonusPercent / 100f) * damage.Vulnerability * damage.Durability * __instance.TacticalCombatFactor;
                 float num7 = __instance.ParentRule.ModifierBonus ?? 1f;
-                int num8 = Math.Max(1, (int)Math.Floor((double)(num6 * num7)));
+                int num8 = Math.Max(1, (int)Math.Floor(num6 * num7));
                 num8 = __instance.TryApplyShadowDamageFactor(__instance.Target, num8);
                 num8 = (damage.Immune ? 0 : num8);
                 __result = new DamageValue(damage, num8, rolledValue, __instance.TacticalCombatDRModifier);

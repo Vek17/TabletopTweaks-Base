@@ -31,7 +31,7 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddDwarfHeritage() {
 
-            var DwarfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("DwarfAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
+            var DwarfAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("DwarfAbilityModifiers", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -59,17 +59,17 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            }));
-            var DwarfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("DwarfNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var DwarfNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("DwarfNoAlternateTrait", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
-                ExtentionMethods.SetDescription(bp, (string)"No Alternate Trait");
-            }));
-            var DwarfStoutheartFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoutheartFeature", (System.Action<BlueprintFeature>)(bp => {
+                ExtentionMethods.SetDescription(bp, "No Alternate Trait");
+            });
+            var DwarfStoutheartFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoutheartFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -99,8 +99,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(DwarfAbilityModifiers);
                 bp.AddSelectionCallback(DwarfHeritageSelection);
-            }));
-            var DwarfStoicNegotiatorFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoicNegotiatorFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var DwarfStoicNegotiatorFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoicNegotiatorFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -118,7 +118,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddTraitReplacment(DwarfDefensiveTrainingGiants);
                 bp.AddTraitReplacment(HatredGoblinoidOrc);
                 bp.AddSelectionCallback(DwarfHeritageSelection);
-            }));
+            });
 
             BarrowDwarf.RemoveComponents<RemoveFeatureOnApply>();
             BarrowDwarf.AddTraitReplacment(KeenSenses);

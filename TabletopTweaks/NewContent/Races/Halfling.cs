@@ -31,7 +31,7 @@ namespace TabletopTweaks.NewContent.Races {
 
         public static void AddHalflingHeritage() {
 
-            var HalflingAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("HalflingAbilityModifiers", (System.Action<BlueprintFeature>)(bp => {
+            var HalflingAbilityModifiers = Helpers.CreateBlueprint<BlueprintFeature>("HalflingAbilityModifiers", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 1;
@@ -60,8 +60,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { DestinyBeyondBirthMythicFeat.ToReference<BlueprintUnitFactReference>() };
                 }));
-            }));
-            var HalflingNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("HalflingNoAlternateTrait", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var HalflingNoAlternateTrait = Helpers.CreateBlueprint<BlueprintFeature>("HalflingNoAlternateTrait", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -69,8 +69,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName("None");
                 bp.SetDescription("No Alternate Trait");
-            }));
-            var HalflingBruiserFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBruiserFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var HalflingBruiserFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBruiserFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -100,8 +100,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(HalflingAbilityModifiers);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            }));
-            var HalflingBlessedFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBlessedFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var HalflingBlessedFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBlessedFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -116,8 +116,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(HalflingLuck);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            }));
-            var HalflingSecretiveSurvivorFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingSecretiveSurvivorFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var HalflingSecretiveSurvivorFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingSecretiveSurvivorFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -136,8 +136,8 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(SureFooted);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            }));
-            var HalflingUnderfootFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingUnderfootFeature", (System.Action<BlueprintFeature>)(bp => {
+            });
+            var HalflingUnderfootFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingUnderfootFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
@@ -152,7 +152,7 @@ namespace TabletopTweaks.NewContent.Races {
                 }));
                 bp.AddTraitReplacment(HalflingLuck);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
-            }));
+            });
 
             CravenHalfling.RemoveComponents<RemoveFeatureOnApply>();
             CravenHalfling.AddTraitReplacment(Fearless);

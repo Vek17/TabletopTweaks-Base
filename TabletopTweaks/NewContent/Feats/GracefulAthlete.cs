@@ -14,7 +14,7 @@ namespace TabletopTweaks.NewContent.Feats {
     class GracefulAthlete {
         public static void AddGracefulAthlete() {
 
-            var GracefulAthlete = Helpers.CreateBlueprint<BlueprintFeature>("GracefulAthlete", (System.Action<BlueprintFeature>)(bp => {
+            var GracefulAthlete = Helpers.CreateBlueprint<BlueprintFeature>("GracefulAthlete", bp => {
                 bp.SetName("Graceful Athlete");
                 bp.SetDescription("Add your Dexterity modifier instead of your Strength bonus to Athletics checks. This feat grants no benefit " +
                     "to creatures that already add their Dexterity modifier to Athletics checks (such as all Tiny or smaller creatures).");
@@ -41,7 +41,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Skills;
                 }));
-            }));
+            });
             if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["GracefulAthlete"]) { return; }
             FeatTools.AddAsFeat(GracefulAthlete);
             FeatTools.AddAsRogueTalent(GracefulAthlete);
