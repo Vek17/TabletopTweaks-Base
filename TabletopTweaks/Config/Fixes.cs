@@ -34,6 +34,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
+        public CrusadeGroup Crusade = new CrusadeGroup();
         public ItemGroup Items = new ItemGroup();
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
@@ -72,13 +73,21 @@ namespace TabletopTweaks.Config {
             Feats.LoadSettingGroup(loadedSettings.Feats);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
 
+            Crusade.LoadCrusadeGroup(loadedSettings.Crusade);
+
             Items.LoadItemGroup(loadedSettings.Items);
         }
 
-        public class ClassGroup {
+        public class ClassGroup : IDisableableGroup {
             public bool DisableAll = false;
-            public ClassSettingGroup Base = new ClassSettingGroup();
-            public SortedDictionary<string, ClassSettingGroup> Archetypes = new SortedDictionary<string, ClassSettingGroup>();
+            public bool GroupIsDisabled() => DisableAll;
+            public NestedSettingGroup Base;
+            public SortedDictionary<string, NestedSettingGroup> Archetypes = new SortedDictionary<string, NestedSettingGroup>();
+
+            public ClassGroup() {
+                Base = new NestedSettingGroup(this);
+            }
+
             public void LoadClassGroup(ClassGroup group) {
                 DisableAll = group.DisableAll;
                 Base.LoadSettingGroup(group.Base);
@@ -87,36 +96,43 @@ namespace TabletopTweaks.Config {
                         Archetypes[entry.Key].LoadSettingGroup(entry.Value);
                     }
                 });
-            }
-            public class ClassSettingGroup : SettingGroup {
-                public override bool this[string key] => IsEnabled(key);
-                public override bool IsEnabled(string key) {
-                    return base.IsEnabled(key) && !DisableAll;
-                }
-                public override bool IsDisabled(string key) {
-                    return !IsEnabled(key);
-                }
+                Archetypes.ForEach(entry => entry.Value.Parent = this);
             }
         }
-        public class ItemGroup {
+
+        public class CrusadeGroup : IDisableableGroup {
             public bool DisableAll = false;
-            public ItemGroupGroup Armor = new ItemGroupGroup();
-            public ItemGroupGroup Equipment = new ItemGroupGroup();
-            public ItemGroupGroup Weapons = new ItemGroupGroup();
+            public bool GroupIsDisabled() => DisableAll;
+            public NestedSettingGroup Buildings;
+
+            public CrusadeGroup() {
+                Buildings = new NestedSettingGroup(this);
+            }
+
+            public void LoadCrusadeGroup(CrusadeGroup group) {
+                DisableAll = group.DisableAll;
+                Buildings.LoadSettingGroup(group.Buildings);
+            }
+        }
+
+        public class ItemGroup : IDisableableGroup {
+            public bool DisableAll = false;
+            public bool GroupIsDisabled() => DisableAll;
+            public NestedSettingGroup Armor;
+            public NestedSettingGroup Equipment;
+            public NestedSettingGroup Weapons;
+
+            public ItemGroup() {
+                Armor = new NestedSettingGroup(this);
+                Equipment = new NestedSettingGroup(this);
+                Weapons = new NestedSettingGroup(this);
+            }
+
             public void LoadItemGroup(ItemGroup group) {
                 DisableAll = group.DisableAll;
                 Armor.LoadSettingGroup(group.Armor);
                 Equipment.LoadSettingGroup(group.Equipment);
                 Weapons.LoadSettingGroup(group.Weapons);
-            }
-            public class ItemGroupGroup : SettingGroup {
-                public override bool this[string key] => IsEnabled(key);
-                public override bool IsEnabled(string key) {
-                    return base.IsEnabled(key) && !DisableAll;
-                }
-                public override bool IsDisabled(string key) {
-                    return !IsEnabled(key);
-                }
             }
         }
     }

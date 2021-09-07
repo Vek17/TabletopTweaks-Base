@@ -307,5 +307,14 @@
                 "HonorableJudgement": true
             }
         }
+    },
+    "Crusade": {
+        "DisableAll": false,
+        "Buildings": {
+            "DisableAll": false,
+            "Enabled": {
+                "TrainingGrounds": true
+            }
+        }
     }
 }

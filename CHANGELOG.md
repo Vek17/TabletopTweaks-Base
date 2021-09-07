@@ -1,3 +1,6 @@
+## Version 1.0.7
+* added config options for crusade fixes
+
 ## Version 1.0.6
 * metamagic rods no longer are on by default
 * greater magic weapon no longer applies a stacking bonus

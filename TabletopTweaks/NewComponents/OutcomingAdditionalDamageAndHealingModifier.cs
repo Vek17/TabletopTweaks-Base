@@ -10,26 +10,26 @@ namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("f9bd6635909c40e09c3f4a22b711945b")]
     class OutcomingAdditionalDamageAndHealingModifier : UnitFactComponentDelegate,
-        IInitiatorRulebookHandler<RuleDealDamage>,
-        IRulebookHandler<RuleDealDamage>, ISubscriber,
+        IInitiatorRulebookHandler<RuleCalculateDamage>,
+        IRulebookHandler<RuleCalculateDamage>, ISubscriber,
         IInitiatorRulebookSubscriber,
         IInitiatorRulebookHandler<RuleHealDamage>,
         IRulebookHandler<RuleHealDamage> {
-        public void OnEventAboutToTrigger(RuleDealDamage evt) {
+        public void OnEventAboutToTrigger(RuleCalculateDamage evt) {
             if (Type == OutcomingAdditionalDamageAndHealingModifier.ModifyingType.OnlyHeal) {
                 return;
             }
-            evt.ModifierBonus = new float?((ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.ModifierBonus ?? 1));
+            evt.ParentRule.ModifierBonus = (ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.ParentRule.ModifierBonus ?? 1f);
         }
 
-        public void OnEventDidTrigger(RuleDealDamage evt) {
+        public void OnEventDidTrigger(RuleCalculateDamage evt) {
         }
 
         public void OnEventAboutToTrigger(RuleHealDamage evt) {
             if (Type == OutcomingAdditionalDamageAndHealingModifier.ModifyingType.OnlyDamage) {
                 return;
             }
-            evt.ModifierBonus = new float?((ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.ModifierBonus ?? 1));
+            evt.ModifierBonus = (ModifierPercents.Calculate(base.Fact.MaybeContext) / 100f) + (evt.ModifierBonus ?? 1f);
         }
 
         public void OnEventDidTrigger(RuleHealDamage evt) {

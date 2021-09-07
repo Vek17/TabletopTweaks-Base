@@ -147,7 +147,9 @@
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Config\Blueprints.cs" />
+    <Compile Include="Config\IDisableableGroup.cs" />
     <Compile Include="Config\IUpdatableSettings.cs" />
+    <Compile Include="Config\NestedSettingGroup.cs" />
     <Compile Include="Config\SettingGroup.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />

@@ -217,6 +217,11 @@ namespace TabletopTweaks.Utilities {
 #endif
             return config;
         }
+        public static ContextRankConfig CreateContextRankConfig(Action<ContextRankConfig> init) {
+            var config = CreateContextRankConfig();
+            init?.Invoke(config);
+            return config;
+        }
         private class ObjectDeepCopier {
             private class ArrayTraverse {
                 public int[] Position;
