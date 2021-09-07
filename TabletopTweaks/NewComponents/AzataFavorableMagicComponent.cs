@@ -12,11 +12,13 @@ namespace TabletopTweaks.NewComponents {
         IGlobalSubscriber,
         ISubscriber {
 
-        public override void OnActivate() {
+        public override void OnTurnOn() {
+            Main.Log("FAVORABLEMAGIC - ON");
             base.Owner.State.Features.AzataFavorableMagic.Retain();
         }
 
-        public override void OnDeactivate() {
+        public override void OnTurnOff() {
+            Main.Log("FAVORABLEMAGIC - OFF");
             base.Owner.State.Features.AzataFavorableMagic.Release();
         }
 

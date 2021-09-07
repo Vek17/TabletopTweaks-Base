@@ -32,26 +32,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                 PatchBase();
             }
-            static void PatchBase() {
-                PatchArcaneReservoir();
-
-                void PatchArcaneReservoir() {
-                    if (ModSettings.Fixes.Arcanist.Base.IsDisabled("ArcaneReservoir")) { }
-
-                    var ArcanistArcaneReservoirResourceBuff = Resources.GetBlueprint<BlueprintBuff>("1dd776b7b27dcd54ab3cedbbaf440cf3");
-                    var Actions = ArcanistArcaneReservoirResourceBuff.GetComponent<AddFactContextActions>().Activated;
-                    ArcanistArcaneReservoirResourceBuff.Stacking = StackingType.Replace;
-                    ArcanistArcaneReservoirResourceBuff.m_Flags &= ~BlueprintBuff.Flags.RemoveOnRest;
-                    ArcanistArcaneReservoirResourceBuff.RemoveComponents<AddFactContextActions>();
-                    ArcanistArcaneReservoirResourceBuff.AddComponent<AddRestTrigger>(c => {
-                        c.Action = Actions;
-                    });
-                    ArcanistArcaneReservoirResourceBuff.AddComponent<FactSinglify>(c => {
-                        c.m_OldFacts = new BlueprintUnitFactReference[0];
-                        c.m_NewFacts = new BlueprintUnitFactReference[] { ArcanistArcaneReservoirResourceBuff.ToReference<BlueprintUnitFactReference>() };
-                    });
-                    Main.LogPatch("Patched", ArcanistArcaneReservoirResourceBuff);
-                }
+            static void PatchBase() { 
             }
         }
 

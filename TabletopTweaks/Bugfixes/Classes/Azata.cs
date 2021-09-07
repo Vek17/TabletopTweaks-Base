@@ -11,6 +11,8 @@ using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Azata {
@@ -68,7 +70,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 var FavorableMagicFeature = Resources.GetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
                 var fixedComponent = new NewComponents.AzataFavorableMagicComponent();
 
-                FavorableMagicFeature.ReplaceComponents<AzataFavorableMagic>(fixedComponent);
+                FavorableMagicFeature.SetComponents(
+                    Helpers.Create<AzataFavorableMagicComponent>()
+                    //Helpers.Create<AzataFavorableMagic>()
+                );
                 Main.LogPatch("Patched", FavorableMagicFeature);
             }
 

@@ -27,8 +27,8 @@ namespace TabletopTweaks.Bugfixes.Items {
                 Initialized = true;
 
                 Main.LogHeader("Patching Weapons");
-                //PatchBladeOfTheMerciful();
-                //PatchHonorableJudgement();
+                PatchBladeOfTheMerciful();
+                PatchHonorableJudgement();
 
                 void PatchBladeOfTheMerciful() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }

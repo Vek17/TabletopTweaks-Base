@@ -1,6 +1,9 @@
 ## Version 1.0.6
-* fixed metamagic rods no longer are on by default
+* metamagic rods no longer are on by default
 * greater magic weapon no longer applies a stacking bonus
+* fixed a bug where favorable magic would sometimes not deal 75% damage instead of 50%
+* removed arcanist fix
+* training grounds no longer sets your crusade units damage to 10% instead of 110%
 
 ## Version 1.0.5
 * fixed race config not presisting on mod load
