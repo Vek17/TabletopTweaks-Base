@@ -110,15 +110,12 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 AttachRowdyFeature(VitalStrikeAbilityImproved);
                 AttachRowdyFeature(VitalStrikeAbilityGreater);
 
-                void AttachRowdyFeature(BlueprintAbility VitalStrike) {
+                static void AttachRowdyFeature(BlueprintAbility VitalStrike) {
                     var RowdyVitalDamage = Resources.GetBlueprint<BlueprintFeature>("6ce0dd0cd1ef43eda9e62cdf483e05c3");
 
                     VitalStrike.GetComponent<AbilityCustomMeleeAttack>().m_RowdyFeature = RowdyVitalDamage.ToReference<BlueprintFeatureReference>();
                     Main.LogPatch("Patched", VitalStrike);
                 }
-
-                var EldritchScoundrelArchetype = Resources.GetBlueprint<BlueprintArchetype>("57f93dd8423c97c49989501281296c4a");
-                Main.LogPatch("Patched", EldritchScoundrelArchetype);
             }
         }
         [HarmonyPatch(typeof(AbilityCustomMeleeAttack.VitalStrike), "OnEventDidTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
