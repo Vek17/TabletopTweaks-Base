@@ -12,6 +12,7 @@
     <AssemblyName>TabletopTweaks</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <LangVersion>8</LangVersion>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -170,6 +171,7 @@
     <Compile Include="NewComponents\BuffExtraEffectsRequirements.cs" />
     <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
+    <Compile Include="NewComponents\DefensiveWeaponTrainingComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
     <Compile Include="NewComponents\IndomitableMountFixed.cs" />
@@ -246,6 +248,7 @@
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\CriticalDeflection.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\SteelHeadbutt.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\AdvancedWeapontrainingSelection.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\DefensiveWeaponTraining.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />

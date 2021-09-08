@@ -27,6 +27,7 @@ namespace TabletopTweaks.NewContent {
                 ArcanistExploits.Familiar.AddFamiliar();
 
                 FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
+                FighterAdvancedWeaponTrainings.DefensiveWeaponTraining.AddDefensiveWeaponTraining();
                 FighterAdvancedWeaponTrainings.TrainedThrow.AddTrainedThrow();
                 FighterAdvancedWeaponTrainings.TrainedGrace.AddTrainedGrace();
 

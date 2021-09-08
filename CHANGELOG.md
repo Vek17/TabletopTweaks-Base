@@ -1,4 +1,7 @@
 ## Version 1.0.7
+* added defensive weapon training
+
+## Version 1.0.7
 * added config options for crusade fixes
 
 ## Version 1.0.6

@@ -44,6 +44,7 @@
     "FighterAdvancedWeaponTraining": {
         "DisableAll": false,
         "Enabled": {
+            "DefensiveWeaponTraining": true,
             "TrainedGrace": true,
             "TrainedThrow": true
         }
