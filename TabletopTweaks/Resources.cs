@@ -35,7 +35,7 @@ namespace TabletopTweaks {
             AddBlueprint(blueprint, blueprint.AssetGuid);
         }
         public static void AddBlueprint([NotNull] SimpleBlueprint blueprint, string assetId) {
-            var Id = new BlueprintGuid(System.Guid.Parse(assetId));
+            var Id = BlueprintGuid.Parse(assetId);
             AddBlueprint(blueprint, Id);
         }
         public static void AddBlueprint([NotNull] SimpleBlueprint blueprint, BlueprintGuid assetId) {
