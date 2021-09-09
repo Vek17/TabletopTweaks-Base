@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities;
@@ -256,8 +257,14 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 SecondBreath.Range = AbilityRange.Personal;
                 SecondBreath.CanTargetFriends = true;
                 SecondBreath.GetComponent<AbilityEffectRunAction>()
-                    .AddAction(Helpers.Create<ContextRestoreResourcesFixed>(a => {
-                        a.m_IsFullRestoreAllResources = true;
+                    .AddAction(Helpers.Create<ContextActionPartyMembers>(a => {
+                        a.Action = new ActionList() {
+                            Actions = new GameAction[] {
+                                Helpers.Create<ContextRestoreResourcesFixed>(a => {
+                                    a.m_IsFullRestoreAllResources = true;
+                                })
+                            }
+                        };
                     }));
                 Main.LogPatch("Patched", SecondBreath);
             }
