@@ -256,6 +256,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var SecondBreath = Resources.GetBlueprint<BlueprintAbility>("d7e6f8a0369530341b50987d3ebdfe57");
                 SecondBreath.Range = AbilityRange.Personal;
                 SecondBreath.CanTargetFriends = true;
+                SecondBreath.GetComponent<AbilityEffectRunAction>().Actions = new ActionList();
                 SecondBreath.GetComponent<AbilityEffectRunAction>()
                     .AddAction(Helpers.Create<ContextActionPartyMembers>(a => {
                         a.Action = new ActionList() {
