@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewContent.Custom;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Clases {
@@ -113,7 +114,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 static void AttachRowdyFeature(BlueprintAbility VitalStrike) {
                     var RowdyVitalDamage = Resources.GetBlueprint<BlueprintFeature>("6ce0dd0cd1ef43eda9e62cdf483e05c3");
 
-                    VitalStrike.GetComponent<AbilityCustomMeleeAttack>().m_RowdyFeature = RowdyVitalDamage.ToReference<BlueprintFeatureReference>();
+                    VitalStrike.GetComponent<AbilityDeliverVitalStrikeWithWeapon>().m_RowdyFeature = RowdyVitalDamage.ToReference<BlueprintFeatureReference>();
                     Main.LogPatch("Patched", VitalStrike);
                 }
             }

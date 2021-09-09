@@ -73,6 +73,9 @@ namespace TabletopTweaks.NewContent {
                 Feats.DervishDance.AddDervishDance();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
+
+                //custom
+                Custom.VitalStrikeFix.FixVitalStrike();
             }
         }
     }
