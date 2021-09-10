@@ -1,8 +1,7 @@
 ## Version 1.0.7
-* added defensive weapon training
-
-## Version 1.0.7
 * added config options for crusade fixes
+* added defensive weapon training
+* fixed lich spellbook merging
 
 ## Version 1.0.6
 * metamagic rods no longer are on by default

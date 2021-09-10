@@ -27,7 +27,8 @@
     "Lich": {
         "DisableAll": false,
         "Enabled": {
-            "DeathRush": true
+            "DeathRush": true,
+            "SpellbookMerging": true
         }
     },
     "Trickster": {
