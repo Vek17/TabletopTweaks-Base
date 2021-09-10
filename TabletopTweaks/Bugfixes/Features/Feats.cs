@@ -7,6 +7,9 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -14,6 +17,8 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Utility;
+using System;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -184,6 +189,37 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.SubCategory = WeaponSubCategory.Finessable;
                 }));
                 Main.LogPatch("Patched", WeaponFinesse);
+            }
+        }
+
+        [HarmonyPatch(typeof(AbilityCustomVitalStrike.VitalStrike), "OnEventDidTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
+        static class VitalStrike_OnEventDidTrigger_Rowdy_Patch {
+
+            static bool Prefix(AbilityCustomMeleeAttack.VitalStrike __instance, RuleCalculateWeaponStats evt) {
+                if (ModSettings.Fixes.Feats.IsDisabled("VitalStrike")) { return true; }
+
+                DamageDescription damageDescription = evt.DamageDescription.FirstItem();
+                if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
+                    var vitalDamage = new DamageDescription() {
+                        Dice = new DiceFormula(damageDescription.Dice.Rolls * Math.Max(1, __instance.m_DamageMod - 1), damageDescription.Dice.Dice),
+                        Bonus = __instance.m_Mythic ? damageDescription.Bonus * Math.Max(1, __instance.m_DamageMod - 1) : 0,
+                        TypeDescription = damageDescription.TypeDescription,
+                        IgnoreReduction = damageDescription.IgnoreReduction,
+                        IgnoreImmunities = damageDescription.IgnoreImmunities,
+                        SourceFact = damageDescription.SourceFact,
+                        CausedByCheckFail = damageDescription.CausedByCheckFail,
+                        m_BonusWithSource = 0
+                    };
+                    evt.DamageDescription.Insert(1, vitalDamage);
+                    if (__instance.m_Rowdy && evt.Initiator.Descriptor.Stats.SneakAttack.ModifiedValue > 0) {
+                        DamageDescription damageDescription2 = new DamageDescription {
+                            TypeDescription = evt.DamageDescription.FirstItem().TypeDescription,
+                            Dice = new DiceFormula(evt.Initiator.Descriptor.Stats.SneakAttack * 2, DiceType.D6),
+                        };
+                        evt.DamageDescription.Add(damageDescription2);
+                    }
+                }
+                return false;
             }
         }
     }

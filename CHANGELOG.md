@@ -2,6 +2,7 @@
 * added config options for crusade fixes
 * added defensive weapon training
 * fixed lich spellbook merging
+* fixed mod not loading due to vital strike changes
 
 ## Version 1.0.6
 * metamagic rods no longer are on by default

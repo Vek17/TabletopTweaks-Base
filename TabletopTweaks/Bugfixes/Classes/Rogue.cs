@@ -33,7 +33,6 @@ namespace TabletopTweaks.Bugfixes.Clases {
 
                 PatchBase();
                 PatchEldritchScoundrel();
-                PatchRowdy();
             }
             static void PatchBase() {
                 PatchTrapfinding();
@@ -99,61 +98,6 @@ namespace TabletopTweaks.Bugfixes.Clases {
                         }).ToArray();
                     Main.LogPatch("Patched", EldritchScoundrelArchetype);
                 }
-            }
-            static void PatchRowdy() {
-                if (ModSettings.Fixes.Rogue.Archetypes["Rowdy"].IsDisabled("VitalForce")) { return; }
-                var VitalStrikeAbility = Resources.GetBlueprint<BlueprintAbility>("efc60c91b8e64f244b95c66b270dbd7c");
-                var VitalStrikeAbilityImproved = Resources.GetBlueprint<BlueprintAbility>("c714cd636700ac24a91ca3df43326b00");
-                var VitalStrikeAbilityGreater = Resources.GetBlueprint<BlueprintAbility>("11f971b6453f74d4594c538e3c88d499");
-
-                AttachRowdyFeature(VitalStrikeAbility);
-                AttachRowdyFeature(VitalStrikeAbilityImproved);
-                AttachRowdyFeature(VitalStrikeAbilityGreater);
-
-                static void AttachRowdyFeature(BlueprintAbility VitalStrike) {
-                    var RowdyVitalDamage = Resources.GetBlueprint<BlueprintFeature>("6ce0dd0cd1ef43eda9e62cdf483e05c3");
-
-                    VitalStrike.GetComponent<AbilityCustomMeleeAttack>().m_RowdyFeature = RowdyVitalDamage.ToReference<BlueprintFeatureReference>();
-                    Main.LogPatch("Patched", VitalStrike);
-                }
-            }
-        }
-        [HarmonyPatch(typeof(AbilityCustomMeleeAttack.VitalStrike), "OnEventDidTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
-        static class VitalStrike_OnEventDidTrigger_Rowdy_Patch {
-
-            static bool Prefix(AbilityCustomMeleeAttack.VitalStrike __instance, RuleCalculateWeaponStats evt) {
-                if (ModSettings.Fixes.Rogue.Archetypes["Rowdy"].IsDisabled("VitalForce")) { return true; }
-
-                DamageDescription damageDescription = evt.DamageDescription.FirstItem();
-                if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
-                    if (ModSettings.Fixes.Feats.Enabled["VitalStrike"] && !ModSettings.Fixes.Feats.DisableAll) {
-                        var vitalDamage = new DamageDescription() {
-                            Dice = new DiceFormula(damageDescription.Dice.Rolls * Math.Max(1, __instance.m_DamageMod - 1), damageDescription.Dice.Dice),
-                            Bonus = __instance.m_Mythic ? damageDescription.Bonus * Math.Max(1, __instance.m_DamageMod - 1) : 0,
-                            TypeDescription = damageDescription.TypeDescription,
-                            IgnoreReduction = damageDescription.IgnoreReduction,
-                            IgnoreImmunities = damageDescription.IgnoreImmunities,
-                            SourceFact = damageDescription.SourceFact,
-                            CausedByCheckFail = damageDescription.CausedByCheckFail,
-                            m_BonusWithSource = 0
-                        };
-                        evt.DamageDescription.Insert(1, vitalDamage);
-                    } else {
-                        damageDescription.Dice = new DiceFormula(damageDescription.Dice.Rolls * __instance.m_DamageMod, damageDescription.Dice.Dice);
-                        if (__instance.m_Mythic) {
-                            damageDescription.Bonus *= __instance.m_DamageMod;
-                        }
-                    }
-                    if (__instance.m_Rowdy) {
-                        DamageDescription damageDescription2 = new DamageDescription {
-                            TypeDescription = evt.DamageDescription.FirstItem().TypeDescription,
-                            Dice = new DiceFormula(evt.Initiator.Descriptor.Stats.SneakAttack * 2, DiceType.D6),
-
-                        };
-                        evt.DamageDescription.Add(damageDescription2);
-                    }
-                }
-                return false;
             }
         }
     }

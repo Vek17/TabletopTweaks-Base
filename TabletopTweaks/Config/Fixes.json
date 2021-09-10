@@ -199,12 +199,6 @@
                     "SneakAttackProgression": true,
                     "RogueTalentProgression": true
                 }
-            },
-            "Rowdy": {
-                "DisableAll": false,
-                "Enabled": {
-                    "VitalForce": true
-                }
             }
         }
     },
