@@ -43,6 +43,7 @@ All fixes and added content are configurable and can be disabled by editing the 
     Adds the following advanced weapon trainings:
         Trained Grace
         Trained Throw
+        Defensive Weapon Training
         
     Adds the following archetypes:
         Metamagic Rager
@@ -133,6 +134,8 @@ All fixes and added content are configurable and can be disabled by editing the 
     Kineticist
         Elemental Engine
             Fixes bug preventing this from being selectable
+    Lich
+        Enabled merging for exploiter wizard and nature mage
     Paladin
         Fixes divine mount selection
     Ranger
@@ -145,8 +148,6 @@ All fixes and added content are configurable and can be disabled by editing the 
         Slippery mind now properly updates on stat change
         Eldritch Scoundrel
             Fixes sneak attack progression
-        Rowdy
-            Fixes vital force
     Slayer
         Fixes studied target bonus
         Trapfinding now addes 1/2 class level to trickery as well as perception
