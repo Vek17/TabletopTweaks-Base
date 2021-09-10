@@ -43,6 +43,7 @@ namespace TabletopTweaks.NewContent {
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.LongspearChargeBuff.AddLongspearChargeBuff();
                 Features.CavalierMobilityFeature.AddCavalierMobilityFeature();
+                Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();

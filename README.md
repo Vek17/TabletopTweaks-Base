@@ -136,6 +136,9 @@ All fixes and added content are configurable and can be disabled by editing the 
             Fixes bug preventing this from being selectable
     Lich
         Enabled merging for exploiter wizard and nature mage
+    Monk
+        Zen Archer
+            Perfect Strike now upgrades at level 10
     Paladin
         Fixes divine mount selection
     Ranger

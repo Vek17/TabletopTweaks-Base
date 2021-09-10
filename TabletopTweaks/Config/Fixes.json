@@ -147,7 +147,14 @@
             "DisableAll": false,
             "Enabled": {}
         },
-        "Archetypes": {}
+        "Archetypes": {
+            "ZenArcher": {
+                "DisableAll": false,
+                "Enabled": {
+                    "PerfectStrike": true
+                }
+            }
+        }
     },
     "Kineticist": {
         "DisableAll": false,

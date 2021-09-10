@@ -1,3 +1,6 @@
+## Version 1.0.8
+* added zen archer perfect strike upgrade
+
 ## Version 1.0.7
 * added config options for crusade fixes
 * added defensive weapon training
