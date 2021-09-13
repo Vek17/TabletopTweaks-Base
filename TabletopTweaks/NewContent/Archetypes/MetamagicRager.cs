@@ -427,7 +427,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
         [HarmonyPatch(typeof(MechanicActionBarSlotActivableAbility), "GetResource")]
         static class MechanicActionBarSlotActivableAbility_Limitless_Patch {
             static void Postfix(ref int __result, MechanicActionBarSlotActivableAbility __instance) {
-                if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["MetamagicRager"]) { return; }
+                if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return; }
                 var resourceLogic = __instance.ActivatableAbility.Blueprint.GetComponent<ActivatableAbilityResourceLogic>();
                 if (resourceLogic != null && __result == 0) {
                     if (__instance.ActivatableAbility.Owner.HasFact(resourceLogic.FreeBlueprint)) {
@@ -439,7 +439,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
         [HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
         static class AutoMetamagic_MetamagicRager_Patch {
             static bool Prefix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
-                if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["MetamagicRager"]) { return true; }
+                if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return true; }
                 BlueprintAbility parentAbility = data?.ConvertedFrom?.Blueprint ?? ability?.Parent ?? ability;
 
                 var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, data?.ConvertedFrom))

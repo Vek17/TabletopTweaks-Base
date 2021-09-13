@@ -45,6 +45,7 @@
         "DisableAll": false,
         "Enabled": {
             "DefensiveWeaponTraining": true,
+            "FocusedWeapon": true,
             "TrainedGrace": true,
             "TrainedThrow": true
         }

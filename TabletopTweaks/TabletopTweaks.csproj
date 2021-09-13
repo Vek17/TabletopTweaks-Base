@@ -12,7 +12,7 @@
     <AssemblyName>TabletopTweaks</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>8</LangVersion>
+    <LangVersion>9</LangVersion>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -172,6 +172,7 @@
     <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\DefensiveWeaponTrainingComponent.cs" />
+    <Compile Include="NewComponents\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
     <Compile Include="NewComponents\IndomitableMountFixed.cs" />
@@ -250,6 +251,7 @@
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\SteelHeadbutt.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\AdvancedWeapontrainingSelection.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\DefensiveWeaponTraining.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\FocusedWeapon.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
@@ -263,6 +265,7 @@
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
+    <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
     <Compile Include="Resources.cs" />

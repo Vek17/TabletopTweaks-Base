@@ -28,6 +28,7 @@ namespace TabletopTweaks.NewContent {
 
                 FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
                 FighterAdvancedWeaponTrainings.DefensiveWeaponTraining.AddDefensiveWeaponTraining();
+                FighterAdvancedWeaponTrainings.FocusedWeapon.AddFocusedWeapon();
                 FighterAdvancedWeaponTrainings.TrainedThrow.AddTrainedThrow();
                 FighterAdvancedWeaponTrainings.TrainedGrace.AddTrainedGrace();
 
