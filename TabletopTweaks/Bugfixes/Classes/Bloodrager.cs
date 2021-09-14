@@ -27,7 +27,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                 PatchBaseClass();
                 PatchPrimalist();
-                PatchSteelblood();
                 PatchReformedFiend();
             }
             static void PatchBaseClass() {
@@ -154,16 +153,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         };
                         Main.LogPatch("Patched", PrimalistTakeRagePowers);
                     }
-                }
-            }
-            static void PatchSteelblood() {
-                PatchArmoredSwiftness();
-
-                void PatchArmoredSwiftness() {
-                    if (ModSettings.Fixes.Bloodrager.Archetypes["Steelblood"].IsDisabled("ArmoredSwiftness")) { return; }
-                    var ArmoredHulkArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("f95f4f3a10917114c82bcbebc4d0fd36");
-                    var SteelbloodArmoredSwiftness = Resources.GetBlueprint<BlueprintFeature>("bd4397ee26a3baf4cadaeb766b018cff");
-                    SteelbloodArmoredSwiftness.ComponentsArray = ArmoredHulkArmoredSwiftness.ComponentsArray;
                 }
             }
             static void PatchReformedFiend() {

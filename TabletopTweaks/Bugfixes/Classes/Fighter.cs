@@ -162,8 +162,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
         }
 
         private enum AdditionalWeaponFighterGroups : int {
-            TwoHanded = 1717
-        }
+            TwoHanded = 1073741824
+	    }
         [HarmonyPatch(typeof(UnitPartWeaponTraining), "GetWeaponRank", new Type[] { typeof(ItemEntityWeapon) })]
         static class UnitPartWeaponTraining_GetWeaponRank_Patch {
             static bool Prefix(UnitPartWeaponTraining __instance, ref int __result, ItemEntityWeapon weapon) {
@@ -178,14 +178,14 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     foreach (EntityFactComponent entityFactComponent in entityFact.Components) {
                         WeaponGroupAttackBonus weaponGroupAttackBonus = entityFactComponent.SourceBlueprintComponent as WeaponGroupAttackBonus;
                         WeaponFighterGroup? weaponFighterGroup = (weaponGroupAttackBonus != null) ? new WeaponFighterGroup?(weaponGroupAttackBonus.WeaponGroup) : null;
-                        WeaponFighterGroup fighterGroup = weapon.Blueprint.Type.FighterGroup;
+                        WeaponFighterGroupFlags fighterGroup = weapon.Blueprint.Type.FighterGroup;
                         if (weaponFighterGroup == null) {
                             continue;
                         }
-                        if (weaponFighterGroup.GetValueOrDefault() == fighterGroup) {
+                        if (fighterGroup.Contains(weaponFighterGroup.GetValueOrDefault())) {
                             num = Math.Max(num, entityFact.GetRank());
                         }
-                        if (weaponFighterGroup.GetValueOrDefault() == (WeaponFighterGroup)AdditionalWeaponFighterGroups.TwoHanded && weapon.Blueprint.IsTwoHanded) {
+                        if (weaponFighterGroup == ((WeaponFighterGroup)AdditionalWeaponFighterGroups.TwoHanded) && weapon.Blueprint.IsTwoHanded) {
                             num = Math.Max(num, entityFact.GetRank());
                         }
                     }
@@ -200,7 +200,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static bool Prefix(WeaponGroupAttackBonus __instance, RuleCalculateAttackBonusWithoutTarget evt) {
                 if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
 
-                if (evt.Weapon != null && evt.Weapon.Blueprint.FighterGroup == __instance.WeaponGroup) {
+                if (evt.Weapon != null && evt.Weapon.Blueprint.FighterGroup.HasFlag(__instance.WeaponGroup.ToFlags())) {
                     int num = __instance.multiplyByContext ? (__instance.contextMultiplier.Calculate(__instance.Context) * __instance.AttackBonus) : __instance.AttackBonus;
                     evt.AddModifier(
                         bonus: num * __instance.Fact.GetRank(),
@@ -230,7 +230,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
 
                 int num = __instance.AdditionalValue.Calculate(__instance.Context);
-                if (evt.Weapon.Blueprint.FighterGroup == __instance.WeaponGroup) {
+                if (evt.Weapon.Blueprint.FighterGroup.HasFlag(__instance.WeaponGroup.ToFlags())) {
                     evt.AddTemporaryModifier(evt.Initiator.Stats.AdditionalDamage.AddModifier(
                         value: __instance.DamageBonus * __instance.Fact.GetRank() + num,
                         source: __instance.Runtime,

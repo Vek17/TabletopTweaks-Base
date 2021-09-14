@@ -33,6 +33,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Impossible Speed
         Armor Master
         Armored Might
+        Mounted Maniac
     
     Adds the following arcanist exploits:
         Quick Study
@@ -44,6 +45,14 @@ All fixes and added content are configurable and can be disabled by editing the 
         Trained Grace
         Trained Throw
         Defensive Weapon Training
+        Focused Weapon
+
+    Adds the following advanced armor trainings:
+        Armored Confidence
+        Armored Juggernaut
+        Armor Specialization
+        Critical Deflection
+        Steel Headbut
         
     Adds the following archetypes:
         Metamagic Rager
@@ -103,18 +112,12 @@ All fixes and added content are configurable and can be disabled by editing the 
         Enables azata songs to be started outside of combat
     Arcansit
         Fixed consume spells minimum resources
-        Fixed arcane reservior refill amount
-    Barbarian
-        Instinctual Warrior
-            Fixed AC bonus applying even when wearing armor
     Bloodrager
         Fixes abyssal bulk blood rage feature
         Fixes spells per day to prevent premature qualification of prerequisites
         Fixed limitless rage not granting extra temp hp
         Primalist
             Prevents qualification of Extra Rage power feat
-        Steel blood
-            Fixes Armored Swiftness
         Reformed Fiend
             Fixes Hatred Against Evil
     Cavalier
@@ -123,7 +126,6 @@ All fixes and added content are configurable and can be disabled by editing the 
         Fixes supreme charge
         Gendarme
             Fixes transfixing charge
-
     Fighter
         Advanced Weapon Training Feat now properly repects prerequisites
         Two Handed Weapon Training now works with all Weapon Training effects
