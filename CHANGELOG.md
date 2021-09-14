@@ -1,3 +1,7 @@
+## Version 1.0.9
+* added focused weapon advanced weapon training
+* eldritch scion can now properly take a second bloodline
+
 ## Version 1.0.8
 * added zen archer perfect strike upgrade
 

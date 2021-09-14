@@ -143,6 +143,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             var SorcererBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("24bef8d1bee12274686f6da6ccbc8914");
             var SeekerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
             var NineTailedHeirBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7c813fb495d74246918a690ba86f9c86");
+            var EldritchScionBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("94c29f69cdc34594a6a4677441ed7375");
 
             // Fix Names
             BloodOfDragonsSelection.SetName("Dragon Disciple Bloodline");
@@ -152,6 +153,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             SeekerBloodlineSelection.SetName("Seeker Bloodline");
             SageBloodlineProgression.SetName("Sage Bloodline");
             NineTailedHeirBloodlineSelection.SetName("Nine Tailed Heir Bloodline");
+            EldritchScionBloodlineSelection.SetName("Eldritch Scion Bloodline");
             FixRequisiteName(1, AbyssalBloodlineRequisiteFeature);
             FixRequisiteName(1, ArcaneBloodlineRequisiteFeature);
             FixRequisiteName(1, CelestialBloodlineRequisiteFeature);
