@@ -88,7 +88,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             PatchBloodlines(MetamagicRagerArchetype);
-            if (ModSettings.AddedContent.Archetypes.DisableAll || !ModSettings.AddedContent.Archetypes.Enabled["MetamagicRager"]) { return; }
+            if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return; }
             BloodragerClass.m_Archetypes = BloodragerClass.m_Archetypes.AppendToArray(MetamagicRagerArchetype.ToReference<BlueprintArchetypeReference>());
             Main.LogPatch("Added", MetamagicRagerArchetype);
         }

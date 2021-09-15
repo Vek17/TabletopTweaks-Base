@@ -130,7 +130,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
 
-            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["Feats"]) { return; }
+            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("Feats")) { return; }
             FeatTools.AddAsFeat(
                 AdvancedArmorTraining1,
                 AdvancedArmorTraining2,

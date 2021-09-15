@@ -23,7 +23,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.AddComponent(Helpers.Create<ArmoredMightComponent>());
             });
 
-            if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
+            if (ModSettings.AddedContent.MythicAbilities.IsDisabled("ArmoredMight")) { return; }
             MythicAbilitySelection.AddFeatures(ArmoredMightFeature);
             ExtraMythicAbilityMythicFeat.AddFeatures(ArmoredMightFeature);
         }

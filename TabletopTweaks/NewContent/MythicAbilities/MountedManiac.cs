@@ -140,7 +140,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
             });
 
-            if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["MountedManiac"]) { return; }
+            if (ModSettings.AddedContent.MythicAbilities.IsDisabled("MountedManiac")) { return; }
             MythicAbilitySelection.AddFeatures(MountedManiacFeature);
             ExtraMythicAbilityMythicFeat.AddFeatures(MountedManiacFeature);
         }

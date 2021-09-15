@@ -30,7 +30,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
         }
         static void PatchBloodlineRestrictions() {
-            if (!ModSettings.Fixes.Bloodlines.Enabled["BloodlineRestrictions"]) { return; }
+            if (ModSettings.Fixes.Bloodlines.IsDisabled("BloodlineRestrictions")) { return; }
             // Bloodline Requisite 
             var BloodlineRequisiteFeature = Resources.GetModBlueprint<BlueprintFeature>("BloodlineRequisiteFeature");
             // Requisite Features

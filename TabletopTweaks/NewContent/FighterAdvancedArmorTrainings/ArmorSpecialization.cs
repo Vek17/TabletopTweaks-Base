@@ -149,7 +149,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             });
 
             ArmorSpecializationSelection.AddFeatures(ArmorSpecializationLightFeature, ArmorSpecializationMediumFeature, ArmorSpecializationHeavyFeature);
-            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["ArmorSpecialization"]) { return; }
+            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("ArmorSpecialization")) { return; }
             AdvancedArmorTraining.AddToAdvancedArmorTrainingSelection(ArmorSpecializationSelection);
         }
     }

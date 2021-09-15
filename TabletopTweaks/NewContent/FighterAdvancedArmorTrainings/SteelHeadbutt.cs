@@ -81,7 +81,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
 
             Resources.AddBlueprint(SteelHeadbutt1d3);
             Resources.AddBlueprint(SteelHeadbutt1d4);
-            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.DisableAll || !ModSettings.AddedContent.FighterAdvancedArmorTraining.Enabled["SteelHeadbutt"]) { return; }
+            if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("SteelHeadbutt")) { return; }
             AdvancedArmorTraining.AddToAdvancedArmorTrainingSelection(SteelHeadbuttFeature);
         }
     }

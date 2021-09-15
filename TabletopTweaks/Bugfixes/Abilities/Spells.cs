@@ -32,7 +32,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Spells.DisableAll) { return; }
                 Main.LogHeader("Patching Spells");
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
@@ -49,7 +48,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchBelieveInYourself() {
-                if (!ModSettings.Fixes.Spells.Enabled["BelieveInYourself"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("BelieveInYourself")) { return; }
                 BlueprintAbility BelieveInYourself = Resources.GetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
                 BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
                     .GetComponent<AbilityVariants>()
@@ -68,7 +67,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchBestowCurseGreater() {
-                if (!ModSettings.Fixes.Spells.Enabled["BestowCurseGreater"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("BestowCurseGreater")) { return; }
                 var BestowCurseGreaterDeterioration = Resources.GetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
                 var BestowCurseGreaterFeebleBody = Resources.GetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
                 var BestowCurseGreaterIdiocy = Resources.GetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
@@ -115,14 +114,14 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchCrusadersEdge() {
-                if (!ModSettings.Fixes.Spells.Enabled["CrusadersEdge"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("CrusadersEdge")) { return; }
                 BlueprintBuff CrusadersEdgeBuff = Resources.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 Main.LogPatch("Patched", CrusadersEdgeBuff);
             }
 
             static void PatchMagicalVestment() {
-                if (!ModSettings.Fixes.Spells.Enabled["MagicalVestment"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("MagicalVestment")) { return; }
                 PatchMagicalVestmentArmor();
                 PatchMagicalVestmentShield();
 
@@ -229,7 +228,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchOdeToMiraculousMagicBuff() {
-                if (!ModSettings.Fixes.Spells.Enabled["OdeToMiraculousMagic"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("OdeToMiraculousMagic")) { return; }
                 BlueprintBuff OdeToMiraculousMagicBuff = Resources.GetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
                 IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
                     c.Type = SavingThrowType.Will;
@@ -240,7 +239,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchRemoveFear() {
-                if (!ModSettings.Fixes.Spells.Enabled["RemoveFear"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("RemoveFear")) { return; }
                 var RemoveFear = Resources.GetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
                 var RemoveFearBuff = Resources.GetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
                 var suppressFear = Helpers.Create<SuppressBuffsPersistant>(c => {
@@ -271,14 +270,14 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchShadowConjuration() {
-                if (!ModSettings.Fixes.Spells.Enabled["ShadowConjuration"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("ShadowConjuration")) { return; }
                 var ShadowConjuration = Resources.GetBlueprint<BlueprintAbility>("caac251ca7601324bbe000372a0a1005");
                 ShadowConjuration.AddToSpellList(SpellTools.SpellList.WizardSpellList, 4);
                 Main.LogPatch("Patched", ShadowConjuration);
             }
 
             static void PatchShadowEvocation() {
-                if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocation"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("ShadowEvocation")) { return; }
                 var ShadowEvocation = Resources.GetBlueprint<BlueprintAbility>("237427308e48c3341b3d532b9d3a001f");
                 ShadowEvocation.AvailableMetamagic |= Metamagic.Empower
                     | Metamagic.Maximize
@@ -293,7 +292,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchShadowEvocationGreater() {
-                if (!ModSettings.Fixes.Spells.Enabled["ShadowEvocationGreater"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("ShadowEvocationGreater")) { return; }
                 var ShadowEvocationGreater = Resources.GetBlueprint<BlueprintAbility>("3c4a2d4181482e84d9cd752ef8edc3b6");
                 ShadowEvocationGreater.AvailableMetamagic |= Metamagic.Empower
                     | Metamagic.Maximize
@@ -308,7 +307,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             }
 
             static void PatchWrachingRay() {
-                if (!ModSettings.Fixes.Spells.Enabled["WrackingRay"]) { return; }
+                if (ModSettings.Fixes.Spells.IsDisabled("WrackingRay")) { return; }
                 var WrackingRay = Resources.GetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
                 foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
                     foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {

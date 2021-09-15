@@ -14,7 +14,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     "Knowledge (World) skill checks. If you have 10 or more ranks in one of these skills," +
                     " the bonus increases to +4 for that skill.");
             });
-            if (ModSettings.AddedContent.Feats.DisableAll || !ModSettings.AddedContent.Feats.Enabled["Scholar"]) { return; }
+            if (ModSettings.AddedContent.Feats.IsDisabled("Scholar")) { return; }
             FeatTools.AddAsFeat(Scholar);
         }
     }

@@ -36,7 +36,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchMythicCharge();
             }
             static void PatchBloodlineAscendance() {
-                if (!ModSettings.Fixes.MythicAbilities.Enabled["BloodlineAscendance"]) { return; }
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("BloodlineAscendance")) { return; }
                 var BloodlineAscendance = Resources.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var SeekerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
 
@@ -66,7 +66,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", BloodlineAscendance);
             }
             static void PatchSecondBloodline() {
-                if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondBloodline"]) { return; }
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("SecondBloodline")) { return; }
                 BlueprintFeatureSelection SecondBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
                 SecondBloodline.RemoveComponents<PrerequisiteFeature>();
@@ -86,7 +86,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", SecondBloodline);
             }
             static void PatchBloodragerSecondBloodline() {
-                if (!ModSettings.Fixes.MythicAbilities.Enabled["SecondBloodragerBloodline"]) { return; }
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("SecondBloodragerBloodline")) { return; }
                 var ReformedFiendBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("dd62cb5011f64cd38b8b08abb19ba2cc");
                 var BloodragerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 var SecondBloodragerBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
@@ -131,7 +131,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             private static readonly BlueprintFeature EnduringSpellsGreater = Resources.GetBlueprint<BlueprintFeature>("13f9269b3b48ae94c896f0371ce5e23c");
 
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
-                if (ModSettings.Fixes.MythicAbilities.DisableAll || !ModSettings.Fixes.MythicAbilities.Enabled["EnduringSpells"]) { return true; }
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("EnduringSpells")) { return true; }
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
 
                     var owner = parentContext.MaybeOwner;

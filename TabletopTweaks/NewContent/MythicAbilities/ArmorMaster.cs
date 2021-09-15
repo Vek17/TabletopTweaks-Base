@@ -122,7 +122,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
             });
 
-            if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.MythicAbilities.Enabled["ArmorMaster"]) { return; }
+            if (ModSettings.AddedContent.MythicAbilities.IsDisabled("ArmorMaster")) { return; }
             MythicAbilitySelection.AddFeatures(ArmorMasterLightFeature, ArmorMasterMediumFeature, ArmorMasterHeavyFeature);
             ExtraMythicAbilityMythicFeat.AddFeatures(ArmorMasterLightFeature, ArmorMasterMediumFeature, ArmorMasterHeavyFeature);
         }

@@ -49,7 +49,7 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 }));
             });
 
-            if (ModSettings.AddedContent.MythicAbilities.DisableAll || !ModSettings.AddedContent.BaseAbilities.Enabled["OneHandedToggle"]) { return; }
+            if (ModSettings.AddedContent.BaseAbilities.IsDisabled("OneHandedToggle")) { return; }
             var AddFacts = FightDefensivelyFeature.GetComponent<AddFacts>();
             AddFacts.m_Facts = AddFacts.m_Facts.AppendToArray(OneHandedToggleFeature.ToReference<BlueprintUnitFactReference>());
         }

@@ -49,7 +49,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
 
             static void PatchCraneWing() {
-                if (!ModSettings.Fixes.Feats.Enabled["CraneWing"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("CraneWing")) { return; }
 
                 BlueprintBuff CraneStyleBuff = Resources.GetBlueprint<BlueprintBuff>("e8ea7bd10136195478d8a5fc5a44c7da");
                 var FightingDefensivlyTrigger = CraneStyleBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
@@ -61,21 +61,21 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", CraneStyleBuff);
             }
             static void PatchFencingGrace() {
-                if (!ModSettings.Fixes.Feats.Enabled["FencingGrace"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("FencingGrace")) { return; }
 
                 var FencingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("47b352ea0f73c354aba777945760b441");
                 FencingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
                 Main.LogPatch("Patched", FencingGrace);
             }
             static void PatchSlashingGrace() {
-                if (!ModSettings.Fixes.Feats.Enabled["SlashingGrace"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("SlashingGrace")) { return; }
 
                 var SlashingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("697d64669eb2c0543abb9c9b07998a38");
                 SlashingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
                 Main.LogPatch("Patched", SlashingGrace);
             }
             static void PatchEndurance() {
-                if (!ModSettings.Fixes.Feats.Enabled["Endurance"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("Endurance")) { return; }
                 var Endurance = Resources.GetBlueprint<BlueprintFeature>("54ee847996c25cd4ba8773d7b8555174");
                 Endurance.SetDescription("Harsh conditions or long exertions do not easily tire you.\nBenefit: You gain +4 bonus on Fortitude " +
                     "{g|Encyclopedia:Saving_Throw}saves{/g} against fatigue and exhaustion and +2 " +
@@ -114,7 +114,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", Endurance);
             }
             static void PatchMountedCombat() {
-                if (!ModSettings.Fixes.Feats.Enabled["MountedCombat"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("MountedCombat")) { return; }
 
                 var MountedCombat = Resources.GetBlueprint<BlueprintFeature>("f308a03bea0d69843a8ed0af003d47a9");
                 var MountedCombatCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
@@ -124,7 +124,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", MountedCombat);
             }
             static void PatchIndomitableMount() {
-                if (!ModSettings.Fixes.Feats.Enabled["IndomitableMount"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("IndomitableMount")) { return; }
 
                 var IndomitableMount = Resources.GetBlueprint<BlueprintFeature>("68e814f1f3ce55942a52c1dd536eaa5b");
                 var IndomitableMountCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("34762bab68ec86c45a15884b9a9929fc");
@@ -134,7 +134,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", IndomitableMount);
             }
             static void PatchPersistantMetamagic() {
-                if (!ModSettings.Fixes.Feats.Enabled["PersistantMetamagic"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("PersistantMetamagic")) { return; }
 
                 var PersistentSpellFeat = Resources.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
                 var spells = SpellTools.SpellList.AllSpellLists
@@ -157,7 +157,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 }
             }
             static void PatchSpiritedCharge() {
-                if (!ModSettings.Fixes.Feats.Enabled["SpiritedCharge"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("SpiritedCharge")) { return; }
 
                 var ChargeBuff = Resources.GetBlueprint<BlueprintBuff>("f36da144a379d534cad8e21667079066");
                 var MountedBuff = Resources.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
@@ -180,7 +180,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Patched", SpiritedChargeBuff);
             }
             static void PatchWeaponFinesse() {
-                if (!ModSettings.Fixes.Feats.Enabled["WeaponFinesse"]) { return; }
+                if (ModSettings.Fixes.Feats.IsDisabled("WeaponFinesse")) { return; }
 
                 var WeaponFinesse = Resources.GetBlueprint<BlueprintFeature>("90e54424d682d104ab36436bd527af09");
 
