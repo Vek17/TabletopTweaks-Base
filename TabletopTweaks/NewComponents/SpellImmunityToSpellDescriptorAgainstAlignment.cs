@@ -83,7 +83,6 @@ namespace TabletopTweaks.NewComponents {
         public void OnEventDidTrigger(RuleSavingThrow evt) {
         }
 
-#pragma warning disable 0649
         public AlignmentComponent Alignment;
         public SpellDescriptorWrapper Descriptor;
         [SerializeField]
@@ -96,6 +95,5 @@ namespace TabletopTweaks.NewComponents {
         [FormerlySerializedAs("FactToCheck")]
 
         private BlueprintUnitFactReference m_FactToCheck = null;
-#pragma warning restore 0649
     }
 }

@@ -30,9 +30,8 @@ namespace TabletopTweaks.NewComponents {
         public void OnEventDidTrigger(RuleCastSpell evt) {
 
         }
-#pragma warning disable 0649
+
         [SerializeField]
         public BlueprintBuffReference[] Buffs;
-#pragma warning restore 0649
     }
 }

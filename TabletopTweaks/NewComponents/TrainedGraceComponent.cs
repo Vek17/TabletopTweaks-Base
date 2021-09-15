@@ -43,11 +43,10 @@ namespace TabletopTweaks.NewComponents {
                 && (evt.DamageBonusStat == StatType.Strength)
                 && ruleCalculateAttackBonus.AttackBonusStat == StatType.Dexterity;
         }
-#pragma warning disable 0649
+
         public bool EnforceGroup;
         public WeaponFighterGroup WeaponGroup;
         public bool MeleeOnly;
         public ModifierDescriptor Descriptor = ModifierDescriptor.UntypedStackable;
-#pragma warning restore 0649
     }
 }

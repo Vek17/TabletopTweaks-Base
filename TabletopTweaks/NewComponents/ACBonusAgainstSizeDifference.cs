@@ -20,12 +20,11 @@ namespace TabletopTweaks.NewComponents {
 
         public void OnEventDidTrigger(RuleAttackRoll evt) {
         }
-#pragma warning disable 0649
+
         public ModifierDescriptor Descriptor;
         public ContextValue Value;
         public Size Size;
         public bool Smaller;
         public int Steps = 1;
-#pragma warning restore 0649
     }
 }

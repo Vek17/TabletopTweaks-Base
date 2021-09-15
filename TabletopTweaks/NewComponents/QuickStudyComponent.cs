@@ -136,9 +136,7 @@ namespace TabletopTweaks.NewComponents {
         public bool AnySpellLevel;
 
         [HideIf("AnySpellLevel")]
-#pragma warning disable 0649
         public int SpellLevel;
-#pragma warning restore 0649
         public BlueprintCharacterClassReference[] CharacterClass;
         public BlueprintArchetypeReference[] Archetypes;
         private ContextActionProvokeAttackOfOpportunity ProvokeAoO = Helpers.Create<ContextActionProvokeAttackOfOpportunity>(a => {

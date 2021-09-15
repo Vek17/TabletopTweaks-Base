@@ -23,9 +23,8 @@ namespace TabletopTweaks.NewComponents {
 
         public void OnEventDidTrigger(RuleSavingThrow evt) {
         }
-#pragma warning disable 0649
+
         public ModifierDescriptor Descriptor;
         public int Value;
-#pragma warning restore 0649
     }
 }
