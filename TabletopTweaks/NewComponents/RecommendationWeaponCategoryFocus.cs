@@ -30,8 +30,10 @@ namespace TabletopTweaks.NewComponents {
             return recommendationPriority;
         }
 
+#pragma warning disable 0649
         public WeaponCategory Catagory;
         public bool HasFocus;
         public bool BadIfNoFocus;
+#pragma warning restore 0649
     }
 }

@@ -60,8 +60,10 @@ namespace TabletopTweaks.NewComponents {
         public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
         }
 
+#pragma warning disable 0649
         public BlueprintBuffReference ToggleBuff;
         public BlueprintCharacterClassReference CheckedClass;
         public WeaponCategory? Category;
+#pragma warning restore 0649
     }
 }

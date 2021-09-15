@@ -43,7 +43,7 @@ namespace TabletopTweaks.NewComponents {
             }
             unitEntityData.Descriptor.Resources.Restore(Resource, Value.Calculate(base.Context));
         }
-
+#pragma warning disable 0649
         public bool m_IsFullRestoreAllResources;
 
         [SerializeField]
@@ -56,5 +56,6 @@ namespace TabletopTweaks.NewComponents {
 
         [ShowIf("ContextValueRestoration")]
         public ContextValue Value;
+#pragma warning restore 0649
     }
 }
