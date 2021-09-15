@@ -12,7 +12,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Kineticist.DisableAll) { return; }
                 Main.LogHeader("Patching Kineticist");
                 PatchBase();
             }

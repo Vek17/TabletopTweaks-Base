@@ -11,7 +11,6 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                //if (ModSettings.Fixes.Feats.DisableAll) { return; }
                 Main.LogHeader("Patching Abilities");
                 PatchMobilityUseAbility();
 

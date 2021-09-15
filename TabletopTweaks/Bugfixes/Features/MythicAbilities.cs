@@ -28,7 +28,6 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.MythicAbilities.DisableAll) { return; }
                 Main.LogHeader("Patching Mythic Abilities");
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();

@@ -24,7 +24,6 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (ModSettings.Fixes.Bloodlines.DisableAll) { return; }
                 Main.LogHeader("Patching Bloodlines");
                 PatchBloodlineRestrictions();
             }

@@ -85,7 +85,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
             static void PatchGendarme() {
-                if (ModSettings.Fixes.Cavalier.Archetypes["Gendarme"].DisableAll) { return; }
                 PatchTransfixingCharge();
 
                 void PatchTransfixingCharge() {
