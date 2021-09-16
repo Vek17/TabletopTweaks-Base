@@ -36,6 +36,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var FocusedWeaponFeature = Helpers.CreateBlueprint<BlueprintParametrizedFeature>("FocusedWeaponFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.WeaponTraining };
                 bp.SetName("Focused Weapon");
                 bp.SetDescription(FocusedWeaponBuff.Description);
                 bp.ParameterType = FeatureParameterType.WeaponCategory;
