@@ -24,6 +24,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Fighter = new ClassGroup();
         public ClassGroup Kineticist = new ClassGroup();
         public ClassGroup Monk = new ClassGroup();
+        public ClassGroup Oracle = new ClassGroup();
         public ClassGroup Paladin = new ClassGroup();
         public ClassGroup Ranger = new ClassGroup();
         public ClassGroup Rogue = new ClassGroup();
@@ -61,6 +62,7 @@ namespace TabletopTweaks.Config {
             Fighter.LoadClassGroup(loadedSettings.Fighter);
             Kineticist.LoadClassGroup(loadedSettings.Kineticist);
             Monk.LoadClassGroup(loadedSettings.Monk);
+            Oracle.LoadClassGroup(loadedSettings.Oracle);
             Paladin.LoadClassGroup(loadedSettings.Paladin);
             Ranger.LoadClassGroup(loadedSettings.Ranger);
             Rogue.LoadClassGroup(loadedSettings.Rogue);
