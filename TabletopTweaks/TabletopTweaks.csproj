@@ -43,7 +43,7 @@
 0649</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
-    <WrathInstallDir Condition=" '$(WrathInstallDir)' == '' ">$(WrathPath)</WrathInstallDir>
+    <WrathInstallDir Condition=" '$(WrathInstallDir)' == '' ">C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure</WrathInstallDir>
   </PropertyGroup>
   <Target Name="RemoveLib" BeforeTargets="Clean" Condition="Exists('$(SolutionDir)lib')">
     <RemoveDir Directories="$(SolutionDir)lib" />
@@ -304,47 +304,11 @@
     <EmbeddedResource Include="Config\Fixes.json" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Assets\Abilities\Icon_LongArm.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_MetaRage.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_MetaRage1.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_MetaRage2.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_MetaRage3.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_MetaRage4.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_OneHandedToggle.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_QuickStudy.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_ShadowEnchantment.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_ShadowEnchantmentGreater.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Feats\Icon_ArmoredMight.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Feats\Icon_ArmorMaster.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Feats\Icon_MountedManiac.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="Assets\Abilities\" />
+    <Folder Include="Assets\Feats\" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="MechanicsChanges\MountedCombatModifiers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

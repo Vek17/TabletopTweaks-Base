@@ -150,14 +150,29 @@
             }
         }
     },
-    "Kineticist": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Enabled": {}
-        },
-        "Archetypes": {}
+  "Kineticist": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Enabled": {}
     },
+    "Archetypes": {}
+  },
+  "Oracle": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Enabled": {}
+    },
+    "Archetypes": {
+      "Purifier": {
+        "DisableAll": false,
+        "Enabled": {
+          "Level3Revelation": true
+        }
+      }
+    }
+  },
     "Paladin": {
         "DisableAll": false,
         "Base": {
