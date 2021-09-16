@@ -33,6 +33,7 @@
         "DisableAll": false,
         "Enabled": {
             "DervishDance": true,
+            "ExtraReservoir": true,
             "GracefulAthlete": true,
             "MagicalAptitude": true,
             "Scholar": true,

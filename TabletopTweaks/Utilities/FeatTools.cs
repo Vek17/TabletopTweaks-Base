@@ -116,9 +116,9 @@ namespace TabletopTweaks.Utilities {
             return SkillFeat;
         }
 
-        public static BlueprintFeature CreateExtraResourceFeat(string name, BlueprintAbilityResource resource, int amount, int ranks = 10, Action<BlueprintFeature> init = null) {
+        public static BlueprintFeature CreateExtraResourceFeat(string name, BlueprintAbilityResource resource, int amount, Action<BlueprintFeature> init = null) {
             var extraResourceFeat = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
-                bp.Ranks = ranks;
+                bp.Ranks = 10;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };

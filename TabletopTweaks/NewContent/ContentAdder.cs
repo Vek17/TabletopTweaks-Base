@@ -16,6 +16,8 @@ namespace TabletopTweaks.NewContent {
 
                 WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
 
+                Feats.ExtraReservoir.AddExtraReservoir();
+
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();
                 Races.Gnome.AddGnomeHeritage();
