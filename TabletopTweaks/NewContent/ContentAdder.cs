@@ -82,6 +82,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraRogueTalent.AddExtraRogueTalent();
                 Feats.ExtraSlayerTalent.AddExtraSlayerTalent();
                 Feats.ExtraRevelation.AddExtraRevelation();
+                Feats.ExtraDiscovery.AddExtraDiscovery();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }
