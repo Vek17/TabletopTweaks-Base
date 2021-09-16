@@ -8,6 +8,7 @@
 * added extra slayer talent
 * added extra revelation
 * added extra discovery
+* added extra mercy
 
 ## Version 1.0.9
 * added focused weapon advanced weapon training

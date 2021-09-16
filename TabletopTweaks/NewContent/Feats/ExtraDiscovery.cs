@@ -16,10 +16,10 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.SetDescription("You gain one additional discovery. You must meet all of the prerequisites for this discovery." +
                     "\nYou can gain Extra Discovery multiple times.");
             });
-            var ExtraDiscoveryVivsectionist = FeatTools.CreateExtraSelectionFeat("ExtraDiscovery", VivsectionistDiscoverySelection, bp => {
+            var ExtraDiscoveryVivsectionist = FeatTools.CreateExtraSelectionFeat("ExtraDiscoveryVivsectionist", VivsectionistDiscoverySelection, bp => {
                 bp.SetName("Extra Medical Discovery");
-                bp.SetDescription("You gain one additional discovery. You must meet all of the prerequisites for this discovery." +
-                    "\nYou can gain Extra Discovery multiple times.");
+                bp.SetDescription("You gain one additional medical discovery. You must meet all of the prerequisites for this discovery." +
+                    "\nYou can gain Extra Medical Discovery multiple times.");
             });
             if (ModSettings.AddedContent.Feats.IsDisabled("ExtraDiscovery")) { return; }
             FeatTools.AddAsFeat(ExtraDiscovery);

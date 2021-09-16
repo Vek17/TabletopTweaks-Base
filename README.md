@@ -65,6 +65,16 @@ All fixes and added content are configurable and can be disabled by editing the 
         Self-Sufficent
         Shingle Runner
         Street Smarts
+        Extra Reservoir
+        Extra Ki
+        Extra Hex
+        Extra Arcanist Exploit
+        Extra Arcana
+        Extra Rogue Talent
+        Extra Slayer Talent
+        Extra Revelation
+        Extra Discovery
+        Extra Mercy
 
     Adds the following rogue talents:
         Graceful Athlete

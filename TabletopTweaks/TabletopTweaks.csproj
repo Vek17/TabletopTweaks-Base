@@ -241,6 +241,7 @@
     <Compile Include="NewContent\Feats\ExtraDiscovery.cs" />
     <Compile Include="NewContent\Feats\ExtraHex.cs" />
     <Compile Include="NewContent\Feats\ExtraKi.cs" />
+    <Compile Include="NewContent\Feats\ExtraMercy.cs" />
     <Compile Include="NewContent\Feats\ExtraReservoir.cs" />
     <Compile Include="NewContent\Feats\ExtraRevelation.cs" />
     <Compile Include="NewContent\Feats\ExtraRogueTalent.cs" />
