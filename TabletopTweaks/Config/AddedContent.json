@@ -33,7 +33,10 @@
         "DisableAll": false,
         "Enabled": {
             "DervishDance": true,
+            "ExtraArcanistExploit": true,
+            "ExtraArcana": true,
             "ExtraHex": true,
+            "ExtraKi": true,
             "ExtraReservoir": true,
             "GracefulAthlete": true,
             "MagicalAptitude": true,

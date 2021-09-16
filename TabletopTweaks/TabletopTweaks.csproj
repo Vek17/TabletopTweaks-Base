@@ -236,7 +236,10 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
+    <Compile Include="NewContent\Feats\ExtraArcana.cs" />
+    <Compile Include="NewContent\Feats\ExtraArcanistExploit.cs" />
     <Compile Include="NewContent\Feats\ExtraHex.cs" />
+    <Compile Include="NewContent\Feats\ExtraKi.cs" />
     <Compile Include="NewContent\Feats\ExtraReservoir.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />

@@ -16,9 +16,6 @@ namespace TabletopTweaks.NewContent {
 
                 WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
 
-                Feats.ExtraReservoir.AddExtraReservoir();
-                Feats.ExtraHex.AddExtraHex();
-
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();
                 Races.Gnome.AddGnomeHeritage();
@@ -76,6 +73,12 @@ namespace TabletopTweaks.NewContent {
                 Feats.StreetSmarts.AddStreetSmarts();
                 Feats.GracefulAthlete.AddGracefulAthlete();
                 Feats.DervishDance.AddDervishDance();
+
+                Feats.ExtraReservoir.AddExtraReservoir();
+                Feats.ExtraHex.AddExtraHex();
+                Feats.ExtraArcanistExploit.AddExtraArcanistExploit();
+                Feats.ExtraArcana.AddExtraArcana();
+                Feats.ExtraKi.AddExtraKi();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }
