@@ -68,7 +68,7 @@ namespace TabletopTweaks.NewContent {
 
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();
-                Feats.SelfSufficent.AddSelfSufficent();
+                Feats.SelfSufficient.AddSelfSufficient();
                 Feats.ShingleRunner.AddShingleRunner();
                 Feats.StreetSmarts.AddStreetSmarts();
                 Feats.GracefulAthlete.AddGracefulAthlete();

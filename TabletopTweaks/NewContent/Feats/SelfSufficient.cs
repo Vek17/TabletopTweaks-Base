@@ -4,8 +4,8 @@ using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {
-    static class SelfSufficent {
-        public static void AddSelfSufficent() {
+    static class SelfSufficient {
+        public static void AddSelfSufficient() {
             // Icon: Spell Focus? Alertness?
             var SelfSufficent = FeatTools.CreateSkillFeat("Self-Sufficient", StatType.SkillLoreNature, StatType.SkillLoreReligion, bp => {
                 bp.SetName("Self-Sufficient");
