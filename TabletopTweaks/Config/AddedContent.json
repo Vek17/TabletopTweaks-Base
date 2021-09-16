@@ -39,6 +39,8 @@
             "ExtraKi": true,
             "ExtraReservoir": true,
             "ExtraRogueTalent": true,
+            "ExtraSlayerTalent": true,
+            "ExtraRevelation": true,
             "GracefulAthlete": true,
             "MagicalAptitude": true,
             "Scholar": true,
