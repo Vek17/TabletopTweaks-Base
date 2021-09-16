@@ -134,7 +134,7 @@ namespace TabletopTweaks.Utilities {
             return extraResourceFeat;
         }
 
-        public static BlueprintFeature CreateExtraSelectionFeat(string name, BlueprintFeatureSelection selection, Action<BlueprintFeature> init = null) {
+        public static BlueprintFeatureSelection CreateExtraSelectionFeat(string name, BlueprintFeatureSelection selection, Action<BlueprintFeatureSelection> init = null) {
             var extraResourceFeat = Helpers.CreateBlueprint<BlueprintFeatureSelection>(name, bp => {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;

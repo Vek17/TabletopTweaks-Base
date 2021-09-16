@@ -80,6 +80,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraArcana.AddExtraArcana();
                 Feats.ExtraKi.AddExtraKi();
                 Feats.ExtraRogueTalent.AddExtraRogueTalent();
+                Feats.ExtraSlayerTalent.AddExtraSlayerTalent();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }
