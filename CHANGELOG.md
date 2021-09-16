@@ -1,11 +1,13 @@
 ## Version 1.1.0
 * added extra reservoir
+* added extra ki
 * added extra hex
 * added extra arcanist exploit
 * added extra arcana
 
 * added extra rogue talent
 * added extra slayer talent
+* added extra revelation
 
 ## Version 1.0.9
 * added focused weapon advanced weapon training
