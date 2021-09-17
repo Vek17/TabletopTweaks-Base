@@ -1,3 +1,6 @@
+## Version 1.1.1
+* added spell blending (magus arcana)
+
 ## Version 1.1.0
 * added extra reservoir
 * added extra ki

@@ -41,6 +41,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         Metamagic Knowledge
         Item Crafting
     
+    Adds the following magus arcana:
+        Spell Blending
+
     Adds the following advanced weapon trainings:
         Trained Grace
         Trained Throw
