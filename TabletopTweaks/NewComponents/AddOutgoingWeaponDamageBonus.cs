@@ -43,13 +43,13 @@ namespace TabletopTweaks.NewComponents {
 
             switch (WeaponDamage.Type) {
                 case DamageType.Physical: {
-                    var physical = WeaponDamage as PhysicalDamage;
-                    description.Physical.Enhancement = physical.Enchantment;
-                    description.Physical.EnhancementTotal = physical.EnchantmentTotal;
-                    description.Physical.Form = physical.Form;
-                    description.Physical.Material = physical.MaterialsMask;
-                    return description;
-                }
+                        var physical = WeaponDamage as PhysicalDamage;
+                        description.Physical.Enhancement = physical.Enchantment;
+                        description.Physical.EnhancementTotal = physical.EnchantmentTotal;
+                        description.Physical.Form = physical.Form;
+                        description.Physical.Material = physical.MaterialsMask;
+                        return description;
+                    }
                 case DamageType.Energy:
                     var energy = WeaponDamage as EnergyDamage;
                     description.Energy = energy.EnergyType;

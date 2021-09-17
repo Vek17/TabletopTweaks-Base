@@ -1,24 +1,17 @@
-﻿using HarmonyLib;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.UI.Common;
-using Kingmaker.UI.MVVM._VM.CharGen.Phases.FeatureSelector;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
-using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using System;
-using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
     class AddAdditionalSpellSelection : UnitFactComponentDelegate {
 
         private Spellbook spellbook { get => Owner.DemandSpellbook(SpellCastingClass); }
-        private int adjustedMaxLevel { 
+        private int adjustedMaxLevel {
             get {
                 if (!UseOffset) { return MaxSpellLevel; }
                 return Math.Max((spellbook?.MaxSpellLevel ?? 0) - SpellLevelOffset, 1);
-            } 
+            }
         }
 
         public override void OnActivate() {
@@ -42,6 +35,6 @@ namespace TabletopTweaks.NewComponents {
         public int MaxSpellLevel;
         public bool UseOffset;
         public int SpellLevelOffset;
-		public int Count;
-	}
+        public int Count;
+    }
 }

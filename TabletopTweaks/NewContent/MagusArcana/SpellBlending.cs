@@ -1,12 +1,7 @@
-﻿using HarmonyLib;
-using Kingmaker;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.FactLogic;
-using System.Collections.Generic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -39,7 +34,7 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                 bp.SetDescription("When a magus selects this arcana, he must select one spell from the wizard spell " +
                     "list that is of a magus spell level he can cast. He adds this spell to his spellbook and list of " +
                     "magus spells known as a magus spell of its wizard spell level.");
-                bp.AddComponent<AddAdditionalSpellSelection>(c => { 
+                bp.AddComponent<AddAdditionalSpellSelection>(c => {
                     c.SpellCastingClass = MagusClass.ToReference<BlueprintCharacterClassReference>();
                     c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
                     c.UseOffset = true;
@@ -63,7 +58,7 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                     c.SpellLevelOffset = 1;
                     c.Count = 2;
                 });
-                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassSpellLevel>(c => { 
+                bp.AddPrerequisite(Helpers.Create<PrerequisiteClassSpellLevel>(c => {
                     c.m_CharacterClass = MagusClass.ToReference<BlueprintCharacterClassReference>();
                     c.RequiredSpellLevel = 2;
                 }));
