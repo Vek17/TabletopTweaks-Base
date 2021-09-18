@@ -1,66 +1,73 @@
 {
-    "BaseAbilities": {
-        "DisableAll": false,
-        "Enabled": {
-            "OneHandedToggle": true
-        }
-    },
-    "Bloodlines": {
-        "DisableAll": false,
-        "Enabled": {
-            "AberrantBloodline": true,
-            "DestinedBloodline": true
-        }
-    },
-    "Archetypes": {
-        "DisableAll": false,
-        "Enabled": {
-            "CauldronWitchArchetype": true,
-            "ElementalMasterArchetype": true,
-            "MetamagicRager": true
-        }
-    },
-    "ArcanistExploits": {
-        "DisableAll": false,
-        "Enabled": {
-            "QuickStudy": true,
-            "ItemCrafting": true,
-            "MetamagicKnowledge": true,
-            "Familiar": true
-        }
-    },
-    "Feats": {
-        "DisableAll": false,
-        "Enabled": {
-            "DervishDance": true,
-            "GracefulAthlete": true,
-            "MagicalAptitude": true,
-            "Scholar": true,
-            "Self-Sufficent": true,
-            "ShingleRunner": true,
-            "StreetSmarts": true
-        }
-    },
-    "FighterAdvancedWeaponTraining": {
-        "DisableAll": false,
-        "Enabled": {
-            "DefensiveWeaponTraining": true,
-            "FocusedWeapon": true,
-            "TrainedGrace": true,
-            "TrainedThrow": true
-        }
-    },
-    "FighterAdvancedArmorTraining": {
-        "DisableAll": false,
-        "Enabled": {
-            "Feats": true,
-            "ArmoredConfidence": true,
-            "ArmoredJuggernaut": true,
-            "ArmorSpecialization": true,
-            "CriticalDeflection": true,
-            "SteelHeadbutt": true
-        }
-    },
+  "BaseAbilities": {
+    "DisableAll": false,
+    "Enabled": {
+      "OneHandedToggle": true
+    }
+  },
+  "Bloodlines": {
+    "DisableAll": false,
+    "Enabled": {
+      "AberrantBloodline": true,
+      "DestinedBloodline": true
+    }
+  },
+  "Archetypes": {
+    "DisableAll": false,
+    "Enabled": {
+      "CauldronWitchArchetype": true,
+      "ElementalMasterArchetype": true,
+      "MetamagicRager": true
+    }
+  },
+  "ArcanistExploits": {
+    "DisableAll": false,
+    "Enabled": {
+      "QuickStudy": true,
+      "ItemCrafting": true,
+      "MetamagicKnowledge": true,
+      "Familiar": true
+    }
+  },
+  "Feats": {
+    "DisableAll": false,
+    "Enabled": {
+      "DervishDance": true,
+      "GracefulAthlete": true,
+      "MagicalAptitude": true,
+      "Scholar": true,
+      "Self-Sufficent": true,
+      "ShingleRunner": true,
+      "StreetSmarts": true
+    }
+  },
+  "FighterAdvancedWeaponTraining": {
+    "DisableAll": false,
+    "Enabled": {
+      "DefensiveWeaponTraining": true,
+      "FocusedWeapon": true,
+      "TrainedGrace": true,
+      "TrainedThrow": true
+    }
+  },
+  "FighterAdvancedArmorTraining": {
+    "DisableAll": false,
+    "Enabled": {
+      "Feats": true,
+      "ArmoredConfidence": true,
+      "ArmoredJuggernaut": true,
+      "ArmorSpecialization": true,
+      "CriticalDeflection": true,
+      "SteelHeadbutt": true
+    }
+  },
+  "PurifierCelestialArmor": {
+    "DisableAll": false,
+    "Enabled": {
+      "UnlockFeats": true,
+      "SelectWithTrainingSlots": false
+    }
+  },
     "Races": {
         "DisableAll": false,
         "Enabled": {

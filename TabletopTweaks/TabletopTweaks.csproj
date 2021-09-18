@@ -138,6 +138,7 @@
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
     <Compile Include="Bugfixes\Classes\Lich.cs" />
     <Compile Include="Bugfixes\Classes\Monk.cs" />
+    <Compile Include="Bugfixes\Classes\Oracle.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
+    <Compile Include="MechanicsChanges\FeatureSpecificEffectiveClassLevel.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
@@ -175,6 +177,7 @@
     <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\DefensiveWeaponTrainingComponent.cs" />
+    <Compile Include="NewComponents\FeatureSpecificClassLevelForPrerequisites.cs" />
     <Compile Include="NewComponents\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />

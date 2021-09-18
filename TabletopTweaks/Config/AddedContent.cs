@@ -8,6 +8,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup FighterAdvancedArmorTraining = new SettingGroup();
         public SettingGroup FighterAdvancedWeaponTraining = new SettingGroup();
+        public SettingGroup PurifierCelestialArmor = new SettingGroup();
         public SettingGroup Races = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
@@ -21,6 +22,7 @@ namespace TabletopTweaks.Config {
             Feats.LoadSettingGroup(loadedSettings.Feats);
             FighterAdvancedArmorTraining.LoadSettingGroup(loadedSettings.FighterAdvancedArmorTraining);
             FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining);
+            PurifierCelestialArmor.LoadSettingGroup(loadedSettings.PurifierCelestialArmor);
             Races.LoadSettingGroup(loadedSettings.Races);
             Spells.LoadSettingGroup(loadedSettings.Spells);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
