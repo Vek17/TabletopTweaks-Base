@@ -1,107 +1,114 @@
 {
-    "BaseAbilities": {
-        "DisableAll": false,
-        "Enabled": {
-            "OneHandedToggle": true
-        }
-    },
-    "Bloodlines": {
-        "DisableAll": false,
-        "Enabled": {
-            "AberrantBloodline": true,
-            "DestinedBloodline": true
-        }
-    },
-    "Archetypes": {
-        "DisableAll": false,
-        "Enabled": {
-            "CauldronWitchArchetype": true,
-            "ElementalMasterArchetype": true,
-            "MetamagicRager": true
-        }
-    },
-    "ArcanistExploits": {
-        "DisableAll": false,
-        "Enabled": {
-            "QuickStudy": true,
-            "ItemCrafting": true,
-            "MetamagicKnowledge": true,
-            "Familiar": true
-        }
-    },
-    "Feats": {
-        "DisableAll": false,
-        "Enabled": {
-            "DervishDance": true,
-            "ExtraArcanistExploit": true,
-            "ExtraArcana": true,
-            "ExtraDiscovery": true,
-            "ExtraHex": true,
-            "ExtraKi": true,
-            "ExtraMercy": true,
-            "ExtraReservoir": true,
-            "ExtraRogueTalent": true,
-            "ExtraSlayerTalent": true,
-            "ExtraRevelation": true,
-            "GracefulAthlete": true,
-            "MagicalAptitude": true,
-            "Scholar": true,
-            "Self-Sufficent": true,
-            "ShingleRunner": true,
-            "StreetSmarts": true
-        }
-    },
-    "FighterAdvancedWeaponTraining": {
-        "DisableAll": false,
-        "Enabled": {
-            "DefensiveWeaponTraining": true,
-            "FocusedWeapon": true,
-            "TrainedGrace": true,
-            "TrainedThrow": true
-        }
-    },
-    "FighterAdvancedArmorTraining": {
-        "DisableAll": false,
-        "Enabled": {
-            "Feats": true,
-            "ArmoredConfidence": true,
-            "ArmoredJuggernaut": true,
-            "ArmorSpecialization": true,
-            "CriticalDeflection": true,
-            "SteelHeadbutt": true
-        }
-    },
-    "MagusArcana": {
-        "DisableAll": false,
-        "Enabled": {
-            "SpellBlending": true
-        }
-    },
-    "Races": {
-        "DisableAll": false,
-        "Enabled": {
-            "GnomeAlternateTraits": true,
-            "HalflingAlternateTraits": true,
-            "ElfAlternateTraits": true,
-            "DwarfAlternateTraits": true
-        }
-    },
-    "Spells": {
-        "DisableAll": false,
-        "Enabled": {
-            "LongArm": true,
-            "ShadowEnchantment": true,
-            "ShadowEnchantmentGreater": true
-
-        }
-    },
-    "MythicAbilities": {
-        "DisableAll": false,
-        "Enabled": {
-            "ImpossibleSpeed": true,
-            "ArmorMaster": true,
-            "ArmoredMight": true,
-            "MountedManiac": true
-        }
+  "BaseAbilities": {
+    "DisableAll": false,
+    "Enabled": {
+      "OneHandedToggle": true
     }
+  },
+  "Bloodlines": {
+    "DisableAll": false,
+    "Enabled": {
+      "AberrantBloodline": true,
+      "DestinedBloodline": true
+    }
+  },
+  "Archetypes": {
+    "DisableAll": false,
+    "Enabled": {
+      "CauldronWitchArchetype": true,
+      "ElementalMasterArchetype": true,
+      "MetamagicRager": true
+    }
+  },
+  "ArcanistExploits": {
+    "DisableAll": false,
+    "Enabled": {
+      "QuickStudy": true,
+      "ItemCrafting": true,
+      "MetamagicKnowledge": true,
+      "Familiar": true
+    }
+  },
+  "Feats": {
+    "DisableAll": false,
+    "Enabled": {
+      "DervishDance": true,
+      "ExtraArcanistExploit": true,
+      "ExtraArcana": true,
+      "ExtraDiscovery": true,
+      "ExtraHex": true,
+      "ExtraKi": true,
+      "ExtraMercy": true,
+      "ExtraReservoir": true,
+      "ExtraRogueTalent": true,
+      "ExtraSlayerTalent": true,
+      "ExtraRevelation": true,
+      "GracefulAthlete": true,
+      "MagicalAptitude": true,
+      "Scholar": true,
+      "Self-Sufficent": true,
+      "ShingleRunner": true,
+      "StreetSmarts": true
+    }
+  },
+  "FighterAdvancedWeaponTraining": {
+    "DisableAll": false,
+    "Enabled": {
+      "DefensiveWeaponTraining": true,
+      "FocusedWeapon": true,
+      "TrainedGrace": true,
+      "TrainedThrow": true
+    }
+  },
+  "FighterAdvancedArmorTraining": {
+    "DisableAll": false,
+    "Enabled": {
+      "Feats": true,
+      "ArmoredConfidence": true,
+      "ArmoredJuggernaut": true,
+      "ArmorSpecialization": true,
+      "CriticalDeflection": true,
+      "SteelHeadbutt": true
+    }
+  },
+  "MagusArcana": {
+    "DisableAll": false,
+    "Enabled": {
+      "SpellBlending": true
+    }
+  },
+  "PurifierCelestialArmor": {
+    "DisableAll": false,
+    "Enabled": {
+      "UnlockFeats": true,
+      "SelectWithTrainingSlots": false
+    }
+  },
+  "Races": {
+    "DisableAll": false,
+    "Enabled": {
+      "GnomeAlternateTraits": true,
+      "HalflingAlternateTraits": true,
+      "ElfAlternateTraits": true,
+      "DwarfAlternateTraits": true
+    }
+  },
+  "Spells": {
+    "DisableAll": false,
+    "Enabled": {
+      "LongArm": true,
+      "ShadowEnchantment": true,
+      "ShadowEnchantmentGreater": true
+
+    }
+  },
+  "MythicAbilities": {
+    "DisableAll": false,
+    "Enabled": {
+      "ImpossibleSpeed": true,
+      "ArmorMaster": true,
+      "ArmoredMight": true,
+      "MountedManiac": true
+    }
+  }
 }
