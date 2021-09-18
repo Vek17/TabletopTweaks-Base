@@ -16,10 +16,10 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     "and applications of the weapon training class feature that give them special benefits in exchange for specializing " +
                     "in a smaller number of fighter weapon groups.\nBeginning at 9th level, instead of selecting an additional fighter weapon" +
                     " group, a fighter can choose an advanced weapon training option for one fighter weapon group that he previously selected with the weapon training class feature.");
-
                 bp.m_AllFeatures = AdvancedWeaponTraining1.m_AllFeatures;
                 bp.IsClassFeature = true;
                 bp.HideNotAvailibleInUI = true;
+                bp.Group = FeatureGroup.WeaponTraining;
                 bp.AddComponent(Helpers.Create<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = 9;

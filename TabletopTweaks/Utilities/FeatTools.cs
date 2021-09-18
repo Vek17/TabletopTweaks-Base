@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
@@ -8,6 +9,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System;
+using System.Linq;
 using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Utilities {
@@ -112,6 +114,42 @@ namespace TabletopTweaks.Utilities {
             });
             init?.Invoke(SkillFeat);
             return SkillFeat;
+        }
+
+        public static BlueprintFeature CreateExtraResourceFeat(string name, BlueprintAbilityResource resource, int amount, Action<BlueprintFeature> init = null) {
+            var extraResourceFeat = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
+                bp.Ranks = 10;
+                bp.ReapplyOnLevelUp = true;
+                bp.IsClassFeature = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+                bp.AddComponent<IncreaseResourceAmount>(c => {
+                    c.m_Resource = resource.ToReference<BlueprintAbilityResourceReference>();
+                    c.Value = amount;
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.ClassSpecific;
+                });
+            });
+            init?.Invoke(extraResourceFeat);
+            return extraResourceFeat;
+        }
+
+        public static BlueprintFeatureSelection CreateExtraSelectionFeat(string name, BlueprintFeatureSelection selection, Action<BlueprintFeatureSelection> init = null) {
+            var extraResourceFeat = Helpers.CreateBlueprint<BlueprintFeatureSelection>(name, bp => {
+                bp.ReapplyOnLevelUp = true;
+                bp.IsClassFeature = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+                bp.m_Features = selection.m_Features.ToArray();
+                bp.m_AllFeatures = selection.m_AllFeatures.ToArray();
+                bp.Mode = selection.Mode;
+                bp.IgnorePrerequisites = selection.IgnorePrerequisites;
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.ClassSpecific;
+                });
+                bp.AddPrerequisiteFeature(selection);
+            });
+            init?.Invoke(extraResourceFeat);
+            return extraResourceFeat;
         }
     }
 }

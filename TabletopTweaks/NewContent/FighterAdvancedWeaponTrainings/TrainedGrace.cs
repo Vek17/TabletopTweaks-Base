@@ -21,6 +21,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var TrainedGraceFeature = Helpers.CreateBlueprint<BlueprintFeature>("TrainedGraceFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.WeaponTraining };
                 bp.SetName("Trained Grace");
                 bp.SetDescription("When the fighter uses Weapon Finesse to make a melee attack with a weapon, using his Dexterity modifier on " +
                     "attack rolls and his Strength modifier on damage rolls, he doubles his weapon training bonus on damage rolls. The fighter " +

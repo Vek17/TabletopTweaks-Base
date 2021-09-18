@@ -33,6 +33,16 @@
     "DisableAll": false,
     "Enabled": {
       "DervishDance": true,
+      "ExtraArcanistExploit": true,
+      "ExtraArcana": true,
+      "ExtraDiscovery": true,
+      "ExtraHex": true,
+      "ExtraKi": true,
+      "ExtraMercy": true,
+      "ExtraReservoir": true,
+      "ExtraRogueTalent": true,
+      "ExtraSlayerTalent": true,
+      "ExtraRevelation": true,
       "GracefulAthlete": true,
       "MagicalAptitude": true,
       "Scholar": true,
@@ -68,31 +78,31 @@
       "SelectWithTrainingSlots": false
     }
   },
-    "Races": {
-        "DisableAll": false,
-        "Enabled": {
-            "GnomeAlternateTraits": true,
-            "HalflingAlternateTraits": true,
-            "ElfAlternateTraits": true,
-            "DwarfAlternateTraits": true
-        }
-    },
-    "Spells": {
-        "DisableAll": false,
-        "Enabled": {
-            "LongArm": true,
-            "ShadowEnchantment": true,
-            "ShadowEnchantmentGreater": true
-
-        }
-    },
-    "MythicAbilities": {
-        "DisableAll": false,
-        "Enabled": {
-            "ImpossibleSpeed": true,
-            "ArmorMaster": true,
-            "ArmoredMight": true,
-            "MountedManiac": true
-        }
+  "Races": {
+    "DisableAll": false,
+    "Enabled": {
+      "GnomeAlternateTraits": true,
+      "HalflingAlternateTraits": true,
+      "ElfAlternateTraits": true,
+      "DwarfAlternateTraits": true
     }
+  },
+  "Spells": {
+    "DisableAll": false,
+    "Enabled": {
+      "LongArm": true,
+      "ShadowEnchantment": true,
+      "ShadowEnchantmentGreater": true
+
+    }
+  },
+  "MythicAbilities": {
+    "DisableAll": false,
+    "Enabled": {
+      "ImpossibleSpeed": true,
+      "ArmorMaster": true,
+      "ArmoredMight": true,
+      "MountedManiac": true
+    }
+  }
 }

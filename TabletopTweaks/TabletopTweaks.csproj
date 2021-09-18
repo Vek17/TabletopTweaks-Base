@@ -28,6 +28,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>
+
+0649</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -236,6 +239,16 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
+    <Compile Include="NewContent\Feats\ExtraArcana.cs" />
+    <Compile Include="NewContent\Feats\ExtraArcanistExploit.cs" />
+    <Compile Include="NewContent\Feats\ExtraDiscovery.cs" />
+    <Compile Include="NewContent\Feats\ExtraHex.cs" />
+    <Compile Include="NewContent\Feats\ExtraKi.cs" />
+    <Compile Include="NewContent\Feats\ExtraMercy.cs" />
+    <Compile Include="NewContent\Feats\ExtraReservoir.cs" />
+    <Compile Include="NewContent\Feats\ExtraRevelation.cs" />
+    <Compile Include="NewContent\Feats\ExtraRogueTalent.cs" />
+    <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
     <Compile Include="NewContent\Feats\Scholar.cs" />

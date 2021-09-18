@@ -68,11 +68,22 @@ namespace TabletopTweaks.NewContent {
 
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();
-                Feats.SelfSufficent.AddSelfSufficent();
+                Feats.SelfSufficient.AddSelfSufficient();
                 Feats.ShingleRunner.AddShingleRunner();
                 Feats.StreetSmarts.AddStreetSmarts();
                 Feats.GracefulAthlete.AddGracefulAthlete();
                 Feats.DervishDance.AddDervishDance();
+
+                Feats.ExtraReservoir.AddExtraReservoir();
+                Feats.ExtraHex.AddExtraHex();
+                Feats.ExtraArcanistExploit.AddExtraArcanistExploit();
+                Feats.ExtraArcana.AddExtraArcana();
+                Feats.ExtraKi.AddExtraKi();
+                Feats.ExtraRogueTalent.AddExtraRogueTalent();
+                Feats.ExtraSlayerTalent.AddExtraSlayerTalent();
+                Feats.ExtraRevelation.AddExtraRevelation();
+                Feats.ExtraDiscovery.AddExtraDiscovery();
+                Feats.ExtraMercy.AddExtraMercy();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }
