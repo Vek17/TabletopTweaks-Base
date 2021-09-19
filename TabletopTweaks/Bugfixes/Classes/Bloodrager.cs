@@ -28,6 +28,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchReformedFiend();
+                PatchSteelblood();
             }
             static void PatchBaseClass() {
                 PatchSpellbook();
@@ -193,8 +194,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     {
                         i.Features.Remove(ArmorTraining);
                         i.Features.Add(ArmorTrainingSelection);
+                        
                     }
-
+                    
                 }
 
             }
