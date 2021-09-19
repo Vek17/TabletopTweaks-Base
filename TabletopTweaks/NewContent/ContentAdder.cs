@@ -47,6 +47,7 @@ namespace TabletopTweaks.NewContent {
                 Features.LongspearChargeBuff.AddLongspearChargeBuff();
                 Features.CavalierMobilityFeature.AddCavalierMobilityFeature();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
+                Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
                 Features.PurifierLimitedCures.AddPurifierLimitedCures();
 
 

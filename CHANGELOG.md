@@ -1,3 +1,11 @@
+## Version 1.1.2
+* dragon disciple can now progress with:
+    * stigmitized Witch
+    * sage sorcerer
+    * empyreal sorcerer
+    * unlettered arcansist
+    * nature mage
+
 ## Version 1.1.1
 * added spell blending (magus arcana)
 

@@ -192,6 +192,10 @@ namespace TabletopTweaks.Extensions {
             });
         }
 
+        public static void AddPrerequisite<T>(this BlueprintFeature obj, Action<T> init = null) where T : Prerequisite, new() {
+            obj.AddPrerequisite(Helpers.Create(init));
+        }
+
         public static void AddPrerequisite<T>(this BlueprintFeature obj, T prerequisite) where T : Prerequisite {
             obj.AddComponent(prerequisite);
             switch (prerequisite) {

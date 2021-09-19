@@ -139,6 +139,13 @@ All fixes and added content are configurable and can be disabled by editing the 
         Fixes supreme charge
         Gendarme
             Fixes transfixing charge
+    Dragon Disciple
+        Spellbooks now work:
+            Stigmitized Witch
+            Sage Sorcerer
+            Empyreal Sorcerer
+            Unlettered Arcansist
+            Bature Mage
     Fighter
         Advanced Weapon Training Feat now properly repects prerequisites
         Two Handed Weapon Training now works with all Weapon Training effects
