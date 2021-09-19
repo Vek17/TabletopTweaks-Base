@@ -71,13 +71,6 @@
       "SteelHeadbutt": true
     }
   },
-  "PurifierCelestialArmor": {
-    "DisableAll": false,
-    "Enabled": {
-      "UnlockFeats": true,
-      "SelectWithTrainingSlots": false
-    }
-  },
   "Races": {
     "DisableAll": false,
     "Enabled": {

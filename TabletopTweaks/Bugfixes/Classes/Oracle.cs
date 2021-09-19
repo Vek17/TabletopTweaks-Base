@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.FactLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,32 +43,33 @@ namespace TabletopTweaks.Bugfixes.Classes
             static void PatchPurifier()
             {
                 var PuriferArchetype = Resources.GetBlueprint<BlueprintArchetype>("c9df67160a77ecd4a97928f2455545d7");
-                var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+                //var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
                 var CelestialArmor = Resources.GetBlueprint<BlueprintFeature>("7dc8d7dede2704640956f7bc4102760a");
-                var FighterRef = FighterClass.ToReference<BlueprintCharacterClassReference>();
+                //var FighterRef = FighterClass.ToReference<BlueprintCharacterClassReference>();
                 
                 var CelestialArmorMastery = Helpers.CreateBlueprint<BlueprintFeature>("CelestialArmorMastery", c =>
                 {
-                    c.SetName("Celestial Armor Mastery");
-                    c.SetDescription("Celestial Armor Mastery Effect");
+                    c.SetName("Celestial Armor Training Progression");
+                    c.SetDescription("Increases your armor training rank by your oracle level minus four, progressing Advanced Armor Training abilities.");
                     c.IsClassFeature = true;
                     c.HideInCharacterSheetAndLevelUp = true;
                     c.Ranks = 1;
                     c.m_Icon = CelestialArmor.Icon;
                     
                     
-                    FeatureSpecificClassLevelsForPrerequisites FighterSplice = Helpers.Create<FeatureSpecificClassLevelsForPrerequisites>(
-                        
-                        b =>{
-                            b.Modifier = 1;
-                            b.Summand = -4;
-                            b.m_ActualClass = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
-                            b.m_FakeClass = FighterRef;
-                            b._Applicable = (x => x.Name.Contains("Armor")&& x.Name.Contains("Advanced") && x.name.Contains("Training"));
-                        }
-                        );
                     
-                    c.AddComponent(FighterSplice);
+                    PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
+                    x =>
+                    {
+
+                        x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+                        x.m_ActualClass = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
+                        x.scalar = -4;
+                    });
+
+                   
+                    c.AddComponent(progression);
+                    
                 });
                 
 
@@ -89,6 +91,7 @@ namespace TabletopTweaks.Bugfixes.Classes
                     var PuriferArchetype = Resources.GetBlueprint<BlueprintArchetype>("c9df67160a77ecd4a97928f2455545d7");
 
                     LevelEntry target = PuriferArchetype.RemoveFeatures.FirstOrDefault(x => x.Level == 3);
+                    PuriferArchetype.RemoveFeatures = PuriferArchetype.RemoveFeatures.RemoveFromArray(target);
                     Main.LogPatch("Patched", PuriferArchetype);
 
 
@@ -98,19 +101,64 @@ namespace TabletopTweaks.Bugfixes.Classes
 
                 void PatchCelestialArmor()
                 {
-                    if (ModSettings.AddedContent.PurifierCelestialArmor.IsDisabled("UnlockFeats")) { return; }
+                    //if (ModSettings.AddedContent.PurifierCelestialArmor.IsDisabled("UnlockFeats")) { return; }
+                    if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
 
 
 
+
+                    var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
+                    var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
+                    CelestialArmor.RemoveComponents<AddFacts>(x => true);//This is ugly but I can't get a conditonal to work here
+                    
                     CelestialArmor.AddComponent<AddFeatureOnClassLevel>(x =>
                     {
                         x.Level = 7;
                         x.m_Class = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
                         x.m_Feature = CelestialArmorMastery.ToReference<BlueprintFeatureReference>();
+                        
 
 
 
                     });
+                    CelestialArmor.AddComponent<AddFeatureOnClassLevel>(x =>
+                    {
+                        x.Level = 7;
+                        x.m_Class = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
+                        x.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
+
+
+
+
+                    });
+                    //TODO get better syntax
+                    void AddSelectionToLevel(int level)
+                    {
+                        LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == level);
+                        if (l == null)
+                        {
+                            l = new LevelEntry
+                            {
+                                Level = level
+
+
+
+                            };
+                            l.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
+                            PuriferArchetype.AddFeatures.AddItem(l);
+
+                        }
+                        else
+                        {
+                            l.Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
+                        }
+                    }
+
+
+                    AddSelectionToLevel(11);
+                    AddSelectionToLevel(15);
+                    AddSelectionToLevel(19);
+                    
                     Main.LogPatch("Patched", CelestialArmor);
                 }
 
