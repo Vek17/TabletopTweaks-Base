@@ -290,6 +290,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
             void FixDragonDisciple() {
                 var DragonDiscipleClass = Resources.GetBlueprint<BlueprintCharacterClass>("72051275b1dbb2d42ba9118237794f7c");
+                var DragonDiscipleSpellbookSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("8c1ba14c0b6dcdb439c56341385ee474");
                 var noBloodline = Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
@@ -299,8 +300,17 @@ namespace TabletopTweaks.Bugfixes.Features {
                     .Where(c => !(c is PrerequisiteNoFeature)) // Remove old Bloodline Feature
                     .Where(c => !(c is PrerequisiteNoArchetype)) // Remove Sorcerer Archetype Restrictions
                     .Append(noBloodline));
-                BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>().m_Features = new BlueprintFeatureReference[] { BloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>() };
+                BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>()
+                    .m_Features = new BlueprintFeatureReference[] { BloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>() };
+                DragonDiscipleSpellbookSelection.AddFeatures(
+                    Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleSageSorcerer"),
+                    Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleEmpyrealSorcerer"),
+                    Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleUnletteredArcanist"),
+                    Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleNatureMage"),
+                    Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleAccursedWitch")
+                );;
                 Main.LogPatch("Patched", BloodOfDragonsSelection);
+                Main.LogPatch("Patched", DragonDiscipleSpellbookSelection);
                 Main.LogPatch("Patched", DragonDiscipleClass);
             }
             void FixDragonheirScion() {

@@ -257,6 +257,7 @@
     <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Features\CavalierMobilityFeature.cs" />
     <Compile Include="NewContent\Features\CavalierMounts.cs" />
+    <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
     <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
     <Compile Include="NewContent\Features\PerfectStrikeZenArcherBuff.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />

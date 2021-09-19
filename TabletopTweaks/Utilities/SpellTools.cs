@@ -82,6 +82,121 @@ namespace TabletopTweaks.Utilities {
             result[(int)SpellSchool.Transmutation] = new SpellSchool[] { SpellSchool.Enchantment, SpellSchool.Illusion };
             return result;
         });
+        public static class Spellbook {
+            public static BlueprintSpellbook AccursedWitchSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("b897fe0947e4b804082b1a687c21e6e2");
+            public static BlueprintSpellbook AeonSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("6091d66a2a9876b4891b989804cfbcb6");
+            public static BlueprintSpellbook AlchemistSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("027d37761f3804042afa96fe3e9086cc");
+            public static BlueprintSpellbook AngelfireApostleSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("d0313b3110357b14ebd3102c2d4cde20");
+            public static BlueprintSpellbook AngelSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("015658ac45811b843b036e4ccc96c772");
+            public static BlueprintSpellbook ArcanistSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("33903fe5c4abeaa45bc249adb9d98848");
+            public static BlueprintSpellbook ArmagsBladeSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("2b3065f56d77f4845891bfa5b78436da");
+            public static BlueprintSpellbook AzataSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("b21b9f5e2831c2549a782d8128fb905b");
+            public static BlueprintSpellbook BardSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("bc04fc157a8801d41b877ad0d9af03dd");
+            public static BlueprintSpellbook BloodragerSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("e19484252c2f80e4a9439b3681b20f00");
+            public static BlueprintSpellbook ClericSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("4673d19a0cf2fab4f885cc4d1353da33");
+            public static BlueprintSpellbook CrossbloodedSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("cb0be5988031ebe4c947086a1170eacc");
+            public static BlueprintSpellbook CrusaderSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("673d39f7da699aa408cdda6282e7dcc0");
+            public static BlueprintSpellbook DemonSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("e3daa889c72982e45a026f62cc84937d");
+            public static BlueprintSpellbook DragonAzataSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("778f544f8ed404649a261dce9d514655");
+            public static BlueprintSpellbook DruidSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("fc78193f68150454483a7eea8b605b71");
+            public static BlueprintSpellbook EldritchFontSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("67b574abd845f3e42983ea6eb53a6f90");
+            public static BlueprintSpellbook EldritchScionSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("e2763fbfdb91920458c4686c3e7ed085");
+            public static BlueprintSpellbook EldritchScoundrelSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("4f96fb20f06b7494a8b2bd731a70af6c");
+            public static BlueprintSpellbook EmpyrealSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("cb9d75e5cb08572439a6b5cd562297a5");
+            public static BlueprintSpellbook ExploiterWizardSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("d09794fb6f93e4a40929a965b434070d");
+            public static BlueprintSpellbook FeyspeakerSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("c8c471f1f9889e1408347d3c7987b4f1");
+            public static BlueprintSpellbook HunterSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("885cd422aa357e2409146b38bb1fec51");
+            public static BlueprintSpellbook InquisitorSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("57fab75111f377248810ece84193a5a5");
+            public static BlueprintSpellbook LeyLineGuardianWitchSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("fb4e216b322d3924e9c7041016b46999");
+            public static BlueprintSpellbook LichSkeletalBardMinorSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("d731dfb39ea26754c89b58d0969ea9e0");
+            public static BlueprintSpellbook LichSkeletalClericSpellbookFeature => Resources.GetBlueprint<BlueprintSpellbook>("9043af050a2fee641825e23d9c9a251a");
+            public static BlueprintSpellbook LichSkeletalInquisitorMinorSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("d71cb34f8a66a2c479ba8289a1683112");
+            public static BlueprintSpellbook LichSkeletalMagusSpellbookMinor => Resources.GetBlueprint<BlueprintSpellbook>("c9ff1f4b3b26dcb47ba75b218ccadd23");
+            public static BlueprintSpellbook LichSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("08a80074263809c4b9616aac05af90ae");
+            public static BlueprintSpellbook MagusSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("5d8d04e76dff6c5439de99af0d57be63");
+            public static BlueprintSpellbook MasterSpySpellbook => Resources.GetBlueprint<BlueprintSpellbook>("12bfcf91d5416b047a2a9110ff8968c5");
+            public static BlueprintSpellbook MonsterMythicSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("7425972fc2e2f294a8f8b56568337d00");
+            public static BlueprintSpellbook NatureMageSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("3ed7e38dc8134af28e1a2b105f74fb7b");
+            public static BlueprintSpellbook OracleSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("6c03364712b415941a98f74522a81273");
+            public static BlueprintSpellbook PaladinSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("bce4989b070ce924b986bf346f59e885");
+            public static BlueprintSpellbook RangerSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("762858a4a28eaaf43aa00f50441d7027");
+            public static BlueprintSpellbook SageSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("cc2052732997b654e93eac268a39a0a9");
+            public static BlueprintSpellbook ShamanSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("44f16931dabdff643bfe2a48138e769f");
+            public static BlueprintSpellbook SkaldSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("8f159d2f22ced074ea32995eb5a446a0");
+            public static BlueprintSpellbook SorcererSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("b3db3766a4b605040b366265e2af0e50");
+            public static BlueprintSpellbook SwordSaintSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("682545e11e5306c45b14ca78bcbe3e62");
+            public static BlueprintSpellbook ThassilonianAbjurationSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("58b15cc36ceda8942a7a29aafa755452");
+            public static BlueprintSpellbook ThassilonianConjurationSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("cbc30bcc7b8adec48a53a6540f5596ae");
+            public static BlueprintSpellbook ThassilonianEnchantmentSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("9e4b96d7b02f8c8498964aeee6eaef9b");
+            public static BlueprintSpellbook ThassilonianEvocationSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("05b105ddee654db4fb1547ba48ffa160");
+            public static BlueprintSpellbook ThassilonianIllusionSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("74b87962a97d56c4583979216631eb4c");
+            public static BlueprintSpellbook ThassilonianNecromancySpellbook => Resources.GetBlueprint<BlueprintSpellbook>("97cd3941ce333ce46ae09436287ed699");
+            public static BlueprintSpellbook ThassilonianTransmutationSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("5785f40e7b1bfc94ea078e7156aa9711");
+            public static BlueprintSpellbook TricksterSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("2ff51e0531ed8e545ab4cb35c32d40f4");
+            public static BlueprintSpellbook TricksterWizardSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("bbe483b903854104a11606412803f214");
+            public static BlueprintSpellbook UnletteredArcanistSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("b242f991107095d41ae129f46ed5d97a");
+            public static BlueprintSpellbook WarpriestSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("7d7d51be2948d2544b3c2e1596fd7603");
+            public static BlueprintSpellbook WitchSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("dd04f9239f655ea438976742728e4909");
+            public static BlueprintSpellbook WizardSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("5a38c9ac8607890409fcb8f6342da6f4");
+
+            public static BlueprintSpellbook[] MetamagicRodAbilities = new BlueprintSpellbook[] {
+                AccursedWitchSpellbook,
+                AeonSpellbook,
+                AlchemistSpellbook,
+                AngelfireApostleSpellbook,
+                AngelSpellbook,
+                ArcanistSpellbook,
+                ArmagsBladeSpellbook,
+                AzataSpellbook,
+                BardSpellbook,
+                BloodragerSpellbook,
+                ClericSpellbook,
+                CrossbloodedSpellbook,
+                CrusaderSpellbook,
+                DemonSpellbook,
+                DragonAzataSpellbook,
+                DruidSpellbook,
+                EldritchFontSpellbook,
+                EldritchScionSpellbook,
+                EldritchScoundrelSpellbook,
+                EmpyrealSpellbook,
+                ExploiterWizardSpellbook,
+                FeyspeakerSpellbook,
+                HunterSpellbook,
+                InquisitorSpellbook,
+                LeyLineGuardianWitchSpellbook,
+                LichSkeletalBardMinorSpellbook,
+                LichSkeletalClericSpellbookFeature,
+                LichSkeletalInquisitorMinorSpellbook,
+                LichSkeletalMagusSpellbookMinor,
+                LichSpellbook,
+                MagusSpellbook,
+                MasterSpySpellbook,
+                MonsterMythicSpellbook,
+                NatureMageSpellbook,
+                OracleSpellbook,
+                PaladinSpellbook,
+                RangerSpellbook,
+                SageSpellbook,
+                ShamanSpellbook,
+                SkaldSpellbook,
+                SorcererSpellbook,
+                SwordSaintSpellbook,
+                ThassilonianAbjurationSpellbook,
+                ThassilonianConjurationSpellbook,
+                ThassilonianEnchantmentSpellbook,
+                ThassilonianEvocationSpellbook,
+                ThassilonianIllusionSpellbook,
+                ThassilonianNecromancySpellbook,
+                ThassilonianTransmutationSpellbook,
+                TricksterSpellbook,
+                TricksterWizardSpellbook,
+                UnletteredArcanistSpellbook,
+                WarpriestSpellbook,
+                WitchSpellbook,
+                WizardSpellbook,
+            };
+        }
         public static class SpellList {
             public static BlueprintSpellList AeonSpellList => Resources.GetBlueprint<BlueprintSpellList>("24b0c796f723a144e9891b6c4794c595");
             public static BlueprintSpellList AeonSpellMythicList => Resources.GetBlueprint<BlueprintSpellList>("ca8c6024bd2519f4b97162a3ad286920");
