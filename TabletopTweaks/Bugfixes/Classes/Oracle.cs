@@ -143,10 +143,11 @@ namespace TabletopTweaks.Bugfixes.Classes
                             };
                             
                             l.Features.Add(earlycure);
+                            PuriferArchetype.AddFeatures = PuriferArchetype.AddFeatures.AddToArray(l);
                             //This works.
-                            List<LevelEntry> addfetures = PuriferArchetype.AddFeatures.ToList();
-                            addfetures.Add(l);
-                            PuriferArchetype.AddFeatures = addfetures.ToArray();
+                            //List<LevelEntry> addfetures = PuriferArchetype.AddFeatures.ToList();
+                            //addfetures.Add(l);
+                            //PuriferArchetype.AddFeatures = addfetures.ToArray();
 
                             //This doesn't work, but should work.
                             //PuriferArchetype.AddFeatures.AddItem(l);
