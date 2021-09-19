@@ -20,18 +20,16 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
             var FighterFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("41c8486641f7d6d4283ca9dae4147a9f");
-
-
-            var ArmorProgression = Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingFlag", bp =>
-            {
-                bp.Ranks = 1;
-                bp.SetName("Armor Training");
-                bp.HideInCharacterSheetAndLevelUp = true;
-
-
-            });
-
+            ArmorTrainingProgression();
+            //Creating class progression feats
+            
+            var ArmorProgression= Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag");
            
+
+
+
+
+
 
             var AdvancedArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection", bp =>
             {
@@ -304,5 +302,158 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
             AdvancedArmorTraining5.AddFeatures(features);
             AdvancedArmorTraining6.AddFeatures(features);
         }
+
+
+        static void ArmorTrainingProgression()
+        {
+            Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingFlag", bp =>
+            {
+                bp.Ranks = 1;
+                bp.SetName("Armor Training");
+                bp.HideInCharacterSheetAndLevelUp = true;
+
+
+            });
+            FighterArmorTrainingProgression();
+            HellknightArmorTrainingProgress();
+            PurifierArmorTrainingProgression();
+            ArmoredBattlemageArmorTrainingProgression();
+
+            
+
+            
+
+            
+        }
+
+        static void SteelbloodArmorTrainingProgression()
+        {
+            Helpers.CreateBlueprint<BlueprintFeature>("SteelbloodArmorTrainingProgression", x =>
+            {
+                var Steelblood = Resources.GetBlueprint<BlueprintArchetype>("32a5dff92373a9641b43e97d453b9369");
+                PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
+                x =>
+                {
+
+                    x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+                    x.m_ActualClass = Steelblood.GetParentClass().ToReference<BlueprintCharacterClassReference>();
+                    x.scalar = -1; //Steelblood progression starts two levels late
+                });
+                x.IsClassFeature = true;
+                x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
+                x.SetName("Steelblood Armor Training Progression");
+                x.SetDescription("Increases your armor training rank by your Steeblood level, progressing Advanced Armor Training abilities.");
+                x.Ranks = 1;
+                x.AddComponent(progression);
+
+            });
+        }
+
+        static void PurifierArmorTrainingProgression()
+        {
+            Helpers.CreateBlueprint<BlueprintFeature>("CelestialArmorMastery", c =>
+            {
+                var PuriferArchetype = Resources.GetBlueprint<BlueprintArchetype>("c9df67160a77ecd4a97928f2455545d7");
+                var CelestialArmor = Resources.GetBlueprint<BlueprintFeature>("7dc8d7dede2704640956f7bc4102760a");
+                c.SetName("Celestial Armor Training Progression");
+                c.SetDescription("Increases your armor training rank by your oracle level minus four, progressing Advanced Armor Training abilities.");
+                c.IsClassFeature = true;
+                c.HideInCharacterSheetAndLevelUp = true;
+                c.Ranks = 1;
+                c.m_Icon = CelestialArmor.Icon;
+
+
+
+                PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
+                x =>
+                {
+
+                    x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+                    x.m_ActualClass = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
+                    x.scalar = -4;
+                });
+
+
+                c.AddComponent(progression);
+
+            });
+        }
+
+        static void ArmoredBattlemageArmorTrainingProgression()
+        {
+            Helpers.CreateBlueprint<BlueprintFeature>("ArmoredBattlemageArmorTrainingProgression", x =>
+            {
+                var ArmoredBattlemageArchetype = Resources.GetBlueprint<BlueprintArchetype>("67ec8dcae6fb3d3439e5ae874ddc7b9b");
+                PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
+                x =>
+                {
+
+                    x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+                    x.m_ActualClass = ArmoredBattlemageArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
+                    x.multiplier = 0.8;//Armored battlemage tiers up every five levels, not every four
+                });
+                x.IsClassFeature = true;
+                x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
+                x.SetName("Armored Battlemage Armor Training Progression");
+                x.SetDescription("Increases your armor training rank by your Armored Battlemage level, progressing Advanced Armor Training abilities.");
+                x.Ranks = 1;
+                x.AddComponent(progression);
+
+            });
+        }
+
+        static void HellknightArmorTrainingProgress()
+        {
+            Helpers.CreateBlueprint<BlueprintFeature>("HellknightArmorTrainingProgression", x =>
+            {
+                BlueprintCharacterClass Hellknight = Resources.GetBlueprint<BlueprintCharacterClass>("ed246f1680e667b47b7427d51e651059");
+
+                PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
+                x =>
+                {
+
+                    x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+                    x.m_ActualClass = Hellknight.ToReference<BlueprintCharacterClassReference>();
+                    //Leaving standard progression/scaling because not giving faster-than-fighter
+                });
+                x.IsClassFeature = true;
+                x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
+                x.SetName("Hellknight Armor Training Progression");
+                x.SetDescription("Increases your armor training rank by your Hellknight level, progressing Advanced Armor Training abilities.");
+                x.Ranks = 1;
+                x.AddComponent(progression);
+
+            });
+        }
+
+        static void FighterArmorTrainingProgression()
+        {
+
+
+
+            Helpers.CreateBlueprint<BlueprintFeature>("FighterArmorTrainingProgression", x =>
+            {
+
+                PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
+                x =>
+                {
+
+                    x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+                    x.m_ActualClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd").ToReference<BlueprintCharacterClassReference>();
+                });
+                x.IsClassFeature = true;
+                x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
+                x.SetName("Armor Training Progression");
+                x.SetDescription("Increases your armor training rank by your fighter level, progressing Advanced Armor Training abilities.");
+                x.Ranks = 1;
+                x.AddComponent(progression);
+
+            });
+
+
+
+        }
+
+
     }
 }

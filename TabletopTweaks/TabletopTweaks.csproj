@@ -299,6 +299,7 @@
     <Compile Include="Utilities\AssetLoader.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\BloodlineTools.cs" />
+    <Compile Include="Utilities\ClassTools.cs" />
     <Compile Include="Utilities\DescriptionTools.cs" />
     <Compile Include="Utilities\FeatTools.cs" />
     <Compile Include="Utilities\Helpers.cs" />

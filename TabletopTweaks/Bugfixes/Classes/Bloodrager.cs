@@ -175,6 +175,29 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     ReformedFiendDamageReductionFeature.GetComponent<AddDamageResistancePhysical>().BypassedByAlignment = true;
                 }
             }
+
+            static void PatchSteelblood()
+            {
+                PatchArmorTraining();
+
+                void PatchArmorTraining()
+                {
+                    var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
+                    if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
+                    var Steelblood = Resources.GetBlueprint<BlueprintArchetype>("32a5dff92373a9641b43e97d453b9369");
+                    Steelblood.AddFeatures.CreateOrEditLevel(1, x => { 
+                        x.m_Features.Add(Resources.GetModBlueprint<BlueprintFeature>("SteelbloodArmorTrainingProgression").ToReference<BlueprintFeatureBaseReference>());
+                    });
+                    var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
+                    foreach (LevelEntry i in Steelblood.AddFeatures.Where(x => x.Features.Contains(ArmorTraining) && x.Level > 5))
+                    {
+                        i.Features.Remove(ArmorTraining);
+                        i.Features.Add(ArmorTrainingSelection);
+                    }
+
+                }
+
+            }
         }
     }
 }

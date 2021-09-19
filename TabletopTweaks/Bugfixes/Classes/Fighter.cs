@@ -43,33 +43,7 @@ namespace TabletopTweaks.Bugfixes.Classes
                 PatchTwoHandedFighter();
             }
 
-            static void FighterArmorTrainingProgression()
-            {
-
-
-
-                Helpers.CreateBlueprint<BlueprintFeature>("FighterArmorTrainingProgression", x =>
-                {
-
-                    PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
-                    x =>
-                    {
-
-                        x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
-                        x.m_ActualClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd").ToReference<BlueprintCharacterClassReference>();
-                    });
-                    x.IsClassFeature = true;
-                    x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
-                    x.SetName("Armor Training Progression");
-                    x.SetDescription("Increases your armor training rank by your fighter level, progressing Advanced Armor Training abilities.");
-                    x.Ranks = 1;
-                    x.AddComponent(progression);
-
-                });
-
-
-
-            }
+            
 
             static void PatchBase()
             {
@@ -157,8 +131,7 @@ namespace TabletopTweaks.Bugfixes.Classes
                 {
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
 
-                    FighterArmorTrainingProgression();
-
+                    
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
                     var FighterArmorProgression = Resources.GetModBlueprint<BlueprintFeature>("FighterArmorTrainingProgression");

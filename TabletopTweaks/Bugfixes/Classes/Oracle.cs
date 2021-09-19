@@ -46,31 +46,10 @@ namespace TabletopTweaks.Bugfixes.Classes
                 //var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
                 var CelestialArmor = Resources.GetBlueprint<BlueprintFeature>("7dc8d7dede2704640956f7bc4102760a");
                 //var FighterRef = FighterClass.ToReference<BlueprintCharacterClassReference>();
-                
-                var CelestialArmorMastery = Helpers.CreateBlueprint<BlueprintFeature>("CelestialArmorMastery", c =>
-                {
-                    c.SetName("Celestial Armor Training Progression");
-                    c.SetDescription("Increases your armor training rank by your oracle level minus four, progressing Advanced Armor Training abilities.");
-                    c.IsClassFeature = true;
-                    c.HideInCharacterSheetAndLevelUp = true;
-                    c.Ranks = 1;
-                    c.m_Icon = CelestialArmor.Icon;
-                    
-                    
-                    
-                    PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
-                    x =>
-                    {
 
-                        x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
-                        x.m_ActualClass = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
-                        x.scalar = -4;
-                    });
+                var CelestialArmorMastery = Resources.GetModBlueprint<BlueprintFeature>("CelestialArmorMastery");
 
-                   
-                    c.AddComponent(progression);
-                    
-                });
+              
                 
 
 

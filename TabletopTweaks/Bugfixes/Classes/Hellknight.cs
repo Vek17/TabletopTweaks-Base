@@ -43,24 +43,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     void HellknightArmorTrainingProgression()
                     {
 
-                        Helpers.CreateBlueprint<BlueprintFeature>("HellknightArmorTrainingProgression", x =>
-                        {
-
-                            PseudoProgressionRankClassModifier progression = Helpers.Create<PseudoProgressionRankClassModifier>(
-                            x =>
-                            {
-
-                                x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
-                                x.m_ActualClass = Hellknight.ToReference<BlueprintCharacterClassReference>();
-                            });
-                            x.IsClassFeature = true;
-                            x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
-                            x.SetName("Hellknight Armor Training Progression");
-                            x.SetDescription("Increases your armor training rank by your Hellknight level, progressing Advanced Armor Training abilities.");
-                            x.Ranks = 1;
-                            x.AddComponent(progression);
-
-                        });
+                       
 
                     }
                     HellknightArmorTrainingProgression();
