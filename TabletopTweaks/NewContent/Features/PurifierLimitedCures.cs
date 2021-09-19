@@ -22,6 +22,9 @@ namespace TabletopTweaks.NewContent.Features
                 bp.IsClassFeature = true;
                 bp.SetName("Basic Cure Spells");
                 bp.SetDescription("Purifers still can cast the most basic cure spells");
+                bp.Ranks = 1;
+                bp.HideInCharacterSheetAndLevelUp = false;
+                
                 bp.AddComponent<AddKnownSpell>(ks =>
                 {
                     ks.m_CharacterClass = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();

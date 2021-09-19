@@ -125,7 +125,58 @@ namespace TabletopTweaks.Bugfixes.Classes
                 {
 
                     if (ModSettings.Fixes.Oracle.Archetypes["Purifier"].IsDisabled("RestoreEarlyCure")) { return; }
-                    PuriferArchetype.AddFeatures.CreateOrEditLevel(1, x => x.m_Features.Add(Resources.GetModBlueprint<BlueprintFeature>("PurifierLimitedCures").ToReference<BlueprintFeatureBaseReference>()));
+
+                    var earlycure = Resources.GetModBlueprint<BlueprintFeature>("PurifierLimitedCures");
+                    
+                    AddSelectionToLevel(1, earlycure.ToReference<BlueprintFeatureBaseReference>());
+                    void AddSelectionToLevel(int level, BlueprintFeatureBaseReference feature)
+                    {
+                        LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == level);
+                        if (l == null)
+                        {
+                            l = new LevelEntry
+                            {
+                                Level = level
+
+
+
+                            };
+                            
+                            l.Features.Add(earlycure);
+                            //This works.
+                            List<LevelEntry> addfetures = PuriferArchetype.AddFeatures.ToList();
+                            addfetures.Add(l);
+                            PuriferArchetype.AddFeatures = addfetures.ToArray();
+
+                            //This doesn't work, but should work.
+                            //PuriferArchetype.AddFeatures.AddItem(l);
+                            
+                            
+                        }
+                        else
+                        {
+                            l.Features.Add(earlycure);
+                        }
+                        if (l == null)
+                        {
+                            Main.Log("Failing to build earlycures level");
+                        }
+                        else
+                        {
+                             if (!l.Features.Contains(earlycure))
+                            {
+                                Main.Log("Failing to add earlycures to levle");
+                            }
+                             if (!PuriferArchetype.AddFeatures.Contains(l))
+                            {
+                                Main.Log("Failing to add earlycures to purifier");
+                            }
+                             
+                        }
+                    }
+                   
+
+                    Main.LogPatch("Patched", earlycure);
                 }
             }
         }
