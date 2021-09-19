@@ -62,6 +62,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                     };
                     MetamagicRodAbilities.ForEach(ability => {
                         ability.IsOnByDefault = false;
+                        ability.DoNotTurnOffOnRest = false;
                         Main.LogPatch("Patched", ability);
                     });
                 }
