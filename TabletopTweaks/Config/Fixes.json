@@ -168,7 +168,8 @@
       "Purifier": {
         "DisableAll": false,
         "Enabled": {
-          "Level3Revelation": true
+          "Level3Revelation": true,
+          "RestoreEarlyCure": true
         }
       }
     }

@@ -47,6 +47,8 @@ namespace TabletopTweaks.NewContent {
                 Features.LongspearChargeBuff.AddLongspearChargeBuff();
                 Features.CavalierMobilityFeature.AddCavalierMobilityFeature();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
+                Features.PurifierLimitedCures.AddPurifierLimitedCures();
+
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();

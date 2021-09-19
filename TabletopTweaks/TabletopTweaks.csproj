@@ -268,6 +268,7 @@
     <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
     <Compile Include="NewContent\Features\PerfectStrikeZenArcherBuff.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\Features\PurifierLimitedCures.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\AdvancedArmorTraining.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredConfidence.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredJuggernaut.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="Utilities\AssetLoader.cs" />
     <Compile Include="Utilities\Attributes.cs" />
     <Compile Include="Utilities\BloodlineTools.cs" />
+    <Compile Include="Utilities\ClassTools.cs" />
     <Compile Include="Utilities\DescriptionTools.cs" />
     <Compile Include="Utilities\FeatTools.cs" />
     <Compile Include="Utilities\Helpers.cs" />

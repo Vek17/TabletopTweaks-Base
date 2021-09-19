@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,7 @@ namespace TabletopTweaks.Bugfixes.Classes
 
                 PatchLevel3Revelation();
                 PatchCelestialArmor();
+                PatchRestoreCure();
 
 
                 void PatchLevel3Revelation()
@@ -58,11 +60,9 @@ namespace TabletopTweaks.Bugfixes.Classes
                     if (ModSettings.Fixes.Oracle.Archetypes["Purifier"].IsDisabled("Level3Revelation")) { return; }
 
                     var PuriferArchetype = Resources.GetBlueprint<BlueprintArchetype>("c9df67160a77ecd4a97928f2455545d7");
-
                     LevelEntry target = PuriferArchetype.RemoveFeatures.FirstOrDefault(x => x.Level == 3);
                     PuriferArchetype.RemoveFeatures = PuriferArchetype.RemoveFeatures.RemoveFromArray(target);
                     Main.LogPatch("Patched", PuriferArchetype);
-
                 }
 
 
@@ -121,13 +121,13 @@ namespace TabletopTweaks.Bugfixes.Classes
                 }
 
 
+                void PatchRestoreCure()
+                {
 
-
-
-
+                    if (ModSettings.Fixes.Oracle.Archetypes["Purifier"].IsDisabled("RestoreEarlyCure")) { return; }
+                    PuriferArchetype.AddFeatures.CreateOrEditLevel(1, x => x.m_Features.Add(Resources.GetModBlueprint<BlueprintFeature>("PurifierLimitedCures").ToReference<BlueprintFeatureBaseReference>()));
+                }
             }
-
-
         }
     }
 }
