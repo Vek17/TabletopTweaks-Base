@@ -32,7 +32,8 @@ namespace TabletopTweaks.MechanicsChanges {
             Intelligence = 3124,
             Wisdom = 3125,
             Charisma = 3126,
-            WeaponTraining = 3127
+            WeaponTraining = 3127,
+            WeaponFocus = 3128
         }
 
         private static class FilterAdjustments {
@@ -88,6 +89,7 @@ namespace TabletopTweaks.MechanicsChanges {
             InsertAfter((ModifierDescriptor)Untyped.Wisdom, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.Charisma, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.WeaponTraining, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.WeaponFocus, ModifierDescriptor.UntypedStackable);
 
             void InsertBefore(ModifierDescriptor value, ModifierDescriptor before) {
                 ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
@@ -128,7 +130,7 @@ namespace TabletopTweaks.MechanicsChanges {
                         __result = "Natural armor size";
                         break;
                     case (ModifierDescriptor)NaturalArmor.Stackable:
-                        __result = "Natural armor";
+                        __result = "Natural armor stackable";
                         break;
                     case (ModifierDescriptor)Dodge.Strength:
                     case (ModifierDescriptor)Dodge.Dexterity:
@@ -145,6 +147,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Untyped.Wisdom:
                     case (ModifierDescriptor)Untyped.Charisma:
                     case (ModifierDescriptor)Untyped.WeaponTraining:
+                    case (ModifierDescriptor)Untyped.WeaponFocus:
                         __result = "Other";
                         break;
                 }

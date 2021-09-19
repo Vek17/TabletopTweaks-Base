@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
-using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Kineticist {

@@ -163,7 +163,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
         private enum AdditionalWeaponFighterGroups : int {
             TwoHanded = 1073741824
-	    }
+        }
         [HarmonyPatch(typeof(UnitPartWeaponTraining), "GetWeaponRank", new Type[] { typeof(ItemEntityWeapon) })]
         static class UnitPartWeaponTraining_GetWeaponRank_Patch {
             static bool Prefix(UnitPartWeaponTraining __instance, ref int __result, ItemEntityWeapon weapon) {

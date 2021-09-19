@@ -99,7 +99,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     ZenArcherArchetype.AddFeatures
                         .Where(entry => entry.Level == 10)
                         .First().m_Features.Add(PerfectStrikeZenArcherUpgrade.ToReference<BlueprintFeatureBaseReference>());
-                    MonkProgression.UIGroups = MonkProgression.UIGroups.AppendToArray(new UIGroup { 
+                    MonkProgression.UIGroups = MonkProgression.UIGroups.AppendToArray(new UIGroup {
                         m_Features = new List<BlueprintFeatureBaseReference> {
                             PerfectStrikeFeature.ToReference<BlueprintFeatureBaseReference>(),
                             PerfectStrikeZenArcherUpgrade.ToReference<BlueprintFeatureBaseReference>()

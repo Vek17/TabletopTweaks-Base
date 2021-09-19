@@ -26,6 +26,8 @@ namespace TabletopTweaks.NewContent {
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();
                 ArcanistExploits.Familiar.AddFamiliar();
 
+                MagusArcana.SpellBlending.AddSpellBlending();
+
                 FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
                 FighterAdvancedWeaponTrainings.DefensiveWeaponTraining.AddDefensiveWeaponTraining();
                 FighterAdvancedWeaponTrainings.FocusedWeapon.AddFocusedWeapon();

@@ -71,6 +71,12 @@
       "SteelHeadbutt": true
     }
   },
+  "MagusArcana": {
+    "DisableAll": false,
+    "Enabled": {
+      "SpellBlending": true
+    }
+  },
   "PurifierCelestialArmor": {
     "DisableAll": false,
     "Enabled": {
