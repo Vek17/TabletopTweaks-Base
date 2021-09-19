@@ -318,12 +318,13 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
             HellknightArmorTrainingProgress();
             PurifierArmorTrainingProgression();
             ArmoredBattlemageArmorTrainingProgression();
+            SteelbloodArmorTrainingProgression();
 
-            
 
-            
 
-            
+
+
+
         }
 
         static void SteelbloodArmorTrainingProgression()
@@ -342,7 +343,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
                 x.IsClassFeature = true;
                 x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
                 x.SetName("Steelblood Armor Training Progression");
-                x.SetDescription("Increases your armor training rank by your Steeblood level, progressing Advanced Armor Training abilities.");
+                x.SetDescription("Increases your armor training rank by your Steeblood level minus two, progressing Advanced Armor Training abilities.");
                 x.Ranks = 1;
                 x.AddComponent(progression);
 
@@ -390,12 +391,12 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
 
                     x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
                     x.m_ActualClass = ArmoredBattlemageArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
-                    x.multiplier = 0.8;//Armored battlemage tiers up every five levels, not every four
+                    x.multiplier = 0.8;//Armored battlemage tiers up every five levels, not every four like fighter
                 });
                 x.IsClassFeature = true;
                 x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;
                 x.SetName("Armored Battlemage Armor Training Progression");
-                x.SetDescription("Increases your armor training rank by your Armored Battlemage level, progressing Advanced Armor Training abilities.");
+                x.SetDescription("Increases your armor training rank by four-fiifths of your Armored Battlemage level, progressing Advanced Armor Training abilities.");
                 x.Ranks = 1;
                 x.AddComponent(progression);
 
@@ -414,7 +415,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
 
                     x.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
                     x.m_ActualClass = Hellknight.ToReference<BlueprintCharacterClassReference>();
-                    //Leaving standard progression/scaling because not giving faster-than-fighter
+                    //Leaving standard progression/scaling because not giving faster-than-fighter like scaling based on their progession would dictate
                 });
                 x.IsClassFeature = true;
                 x.m_Icon = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3").Icon;

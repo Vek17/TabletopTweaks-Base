@@ -43,20 +43,10 @@ namespace TabletopTweaks.Bugfixes.Classes
             static void PatchPurifier()
             {
                 var PuriferArchetype = Resources.GetBlueprint<BlueprintArchetype>("c9df67160a77ecd4a97928f2455545d7");
-                //var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+             
                 var CelestialArmor = Resources.GetBlueprint<BlueprintFeature>("7dc8d7dede2704640956f7bc4102760a");
-                //var FighterRef = FighterClass.ToReference<BlueprintCharacterClassReference>();
-
+             
                 var CelestialArmorMastery = Resources.GetModBlueprint<BlueprintFeature>("CelestialArmorMastery");
-
-              
-                
-
-
-
-
-
-
 
                 PatchLevel3Revelation();
                 PatchCelestialArmor();
@@ -73,18 +63,14 @@ namespace TabletopTweaks.Bugfixes.Classes
                     PuriferArchetype.RemoveFeatures = PuriferArchetype.RemoveFeatures.RemoveFromArray(target);
                     Main.LogPatch("Patched", PuriferArchetype);
 
-
                 }
 
 
 
                 void PatchCelestialArmor()
                 {
-                    //if (ModSettings.AddedContent.PurifierCelestialArmor.IsDisabled("UnlockFeats")) { return; }
+                   
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
-
-
-
 
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
@@ -96,9 +82,6 @@ namespace TabletopTweaks.Bugfixes.Classes
                         x.m_Class = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
                         x.m_Feature = CelestialArmorMastery.ToReference<BlueprintFeatureReference>();
                         
-
-
-
                     });
                     CelestialArmor.AddComponent<AddFeatureOnClassLevel>(x =>
                     {
@@ -106,11 +89,8 @@ namespace TabletopTweaks.Bugfixes.Classes
                         x.m_Class = PuriferArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
                         x.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
 
-
-
-
                     });
-                    //TODO get better syntax
+                    
                     void AddSelectionToLevel(int level)
                     {
                         LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == level);
@@ -132,7 +112,6 @@ namespace TabletopTweaks.Bugfixes.Classes
                             l.Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                         }
                     }
-
 
                     AddSelectionToLevel(11);
                     AddSelectionToLevel(15);
