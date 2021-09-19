@@ -21,24 +21,24 @@ namespace TabletopTweaks.MechanicsChanges
             static void Postfix(ref int __result, PrerequisiteClassLevel __instance, UnitDescriptor unit)
             {
 
-                BlueprintFeature feature = null;
+              
                 
 
                 if (__instance.OwnerBlueprint is BlueprintFeature blueprintFeature)
                 {
-                    feature = blueprintFeature;
+                 
 
                     foreach (FeatureSpecificClassLevelsForPrerequisites featureFake in unit.Progression.Features.SelectFactComponents<FeatureSpecificClassLevelsForPrerequisites>())
                     {
 
                         if (featureFake.FakeClass == __instance.CharacterClass)
                         {
-                            if (feature != null)
+                            if (blueprintFeature != null)
                             {
-                                if (featureFake.IsApplicable(feature))
-                                {
+                                if (featureFake.IsApplicable(blueprintFeature))
+                                { int prev = __result;
                                     __result += (int)(featureFake.Modifier * (double)unit.Progression.GetClassLevel(featureFake.ActualClass) + (double)featureFake.Summand);
-
+                                    Main.Log($"Cross class feature boost called on: {blueprintFeature.Name} by {unit.CharacterName} boosting level from {prev} to {__result}");
 
                                 }
 
