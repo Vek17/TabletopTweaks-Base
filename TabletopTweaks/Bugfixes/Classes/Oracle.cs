@@ -128,56 +128,38 @@ namespace TabletopTweaks.Bugfixes.Classes
 
                     var earlycure = Resources.GetModBlueprint<BlueprintFeature>("PurifierLimitedCures");
                     
-                    AddSelectionToLevel(1, earlycure.ToReference<BlueprintFeatureBaseReference>());
-                    void AddSelectionToLevel(int level, BlueprintFeatureBaseReference feature)
-                    {
-                        LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == level);
+                   
+                    
+                        LevelEntry l = PuriferArchetype.AddFeatures.FirstOrDefault(x => x.Level == 1);
                         if (l == null)
                         {
                             l = new LevelEntry
                             {
-                                Level = level
+                                Level = 1,
+                                Features= {earlycure}
 
 
 
                             };
-                            
-                            l.Features.Add(earlycure);
+                         
+                            //l.Features.Add(earlycure);
                             PuriferArchetype.AddFeatures = PuriferArchetype.AddFeatures.AddToArray(l);
-                            //This works.
-                            //List<LevelEntry> addfetures = PuriferArchetype.AddFeatures.ToList();
-                            //addfetures.Add(l);
-                            //PuriferArchetype.AddFeatures = addfetures.ToArray();
-
-                            //This doesn't work, but should work.
-                            //PuriferArchetype.AddFeatures.AddItem(l);
-                            
+                           
                             
                         }
                         else
                         {
+                        
                             l.Features.Add(earlycure);
                         }
-                        if (l == null)
-                        {
-                            Main.Log("Failing to build earlycures level");
-                        }
-                        else
-                        {
-                             if (!l.Features.Contains(earlycure))
-                            {
-                                Main.Log("Failing to add earlycures to levle");
-                            }
-                             if (!PuriferArchetype.AddFeatures.Contains(l))
-                            {
-                                Main.Log("Failing to add earlycures to purifier");
-                            }
-                             
-                        }
-                    }
+                    Main.LogPatch("Patched", earlycure);
                    
 
-                    Main.LogPatch("Patched", earlycure);
+
+
+
+
+                    
                 }
             }
         }
