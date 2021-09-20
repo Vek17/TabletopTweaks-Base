@@ -12,10 +12,8 @@ namespace TabletopTweaks.Utilities {
             AddToListIfMissing(spellList);
             if (spellList == SpellList.WizardSpellList) {
                 var school = spell.School;
-                var specialistList = specialistSchoolList.Value[(int)school];
-                specialistList?.SpellsByLevel[level].Spells.Add(spell);
-                AddComponentIfMissing(spellList);
-                AddToListIfMissing(spellList);
+                AddComponentIfMissing(specialistSchoolList.Value[(int)school]);
+                AddToListIfMissing(specialistSchoolList.Value[(int)school]);
 
                 for (int i = 0; i < thassilonianSchoolList.Value.Length; i++) {
                     if (thassilonianOpposedSchools.Value[i] != null && !thassilonianOpposedSchools.Value[i].Contains(school)) {
