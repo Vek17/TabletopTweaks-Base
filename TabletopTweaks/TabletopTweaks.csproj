@@ -166,7 +166,6 @@
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\PseudoProgressionRankGetter.cs" />
-    <Compile Include="MechanicsChanges\FeatureSpecificEffectiveClassLevel.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
@@ -183,7 +182,6 @@
     <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\DefensiveWeaponTrainingComponent.cs" />
-    <Compile Include="NewComponents\FeatureSpecificClassLevelForPrerequisites.cs" />
     <Compile Include="NewComponents\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
@@ -315,7 +313,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Config\Fixes.cs" />
     <Compile Include="Utilities\ILUtils.cs" />
-    <Compile Include="Utilities\PseudoProgressionTools.cs" />
     <Compile Include="Utilities\SpellTools.cs" />
   </ItemGroup>
   <ItemGroup>

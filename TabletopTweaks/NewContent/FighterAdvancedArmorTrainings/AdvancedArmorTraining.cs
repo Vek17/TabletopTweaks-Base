@@ -25,12 +25,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings
             
             var ArmorProgression= Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag");
            
-
-
-
-
-
-
             var AdvancedArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection", bp =>
             {
                 bp.Ranks = 3;
