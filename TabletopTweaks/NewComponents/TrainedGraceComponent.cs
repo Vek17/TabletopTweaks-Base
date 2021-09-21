@@ -39,7 +39,7 @@ namespace TabletopTweaks.NewComponents {
 
             return unitPartWeaponTraining.IsSuitableWeapon(weapon)
                 && (!MeleeOnly || !weapon.Blueprint.IsRanged)
-                && (!EnforceGroup || weapon.Blueprint.FighterGroup.HasFlag(WeaponGroup))
+                && (!EnforceGroup || weapon.Blueprint.FighterGroup.Contains(WeaponGroup))
                 && (evt.DamageBonusStat == StatType.Strength)
                 && ruleCalculateAttackBonus.AttackBonusStat == StatType.Dexterity;
         }
