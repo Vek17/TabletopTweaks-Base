@@ -13,8 +13,7 @@ namespace TabletopTweaks.NewComponents {
                 return Math.Max((spellbook?.MaxSpellLevel ?? 0) - SpellLevelOffset, 1);
             }
         }
-
-        public override void OnActivate() {
+        public override void OnFactAttached() {
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;
             if (controller == null) { return; }
             if (spellbook == null) { return; }
