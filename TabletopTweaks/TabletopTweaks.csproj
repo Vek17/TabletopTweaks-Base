@@ -45,9 +45,6 @@
 
 0649</NoWarn>
   </PropertyGroup>
-  <PropertyGroup>
-    <WrathInstallDir Condition=" '$(WrathInstallDir)' == '' ">$(WrathPath)</WrathInstallDir>
-  </PropertyGroup>
   <Target Name="RemoveLib" BeforeTargets="Clean" Condition="Exists('$(SolutionDir)lib')">
     <RemoveDir Directories="$(SolutionDir)lib" />
   </Target>
@@ -56,8 +53,8 @@
   </Target>
   <Target Name="Publicise" AfterTargets="CreateLib">
     <ItemGroup>
-      <PubliciseAssemblyCSharp Include="$(WrathInstallDir)\Wrath_Data\Managed\Assembly-CSharp.dll" />
-      <PubliciseUniRx Include="$(WrathInstallDir)\Wrath_Data\Managed\UniRx.dll" />
+      <PubliciseAssemblyCSharp Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
+      <PubliciseUniRx Include="$(WrathPath)\Wrath_Data\Managed\UniRx.dll" />
     </ItemGroup>
     <Publicise InputAssemblies="@(PubliciseAssemblyCSharp)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
     <Publicise InputAssemblies="@(PubliciseUniRx)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
