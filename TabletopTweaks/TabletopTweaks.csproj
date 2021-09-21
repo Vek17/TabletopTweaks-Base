@@ -166,7 +166,7 @@
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
-    <Compile Include="NewComponents\AddAdditionalSpellSelection.cs" />
+    <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
     <Compile Include="NewComponents\AddOutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewComponents\ApplyArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />

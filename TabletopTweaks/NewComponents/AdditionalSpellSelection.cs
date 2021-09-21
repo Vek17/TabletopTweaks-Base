@@ -6,7 +6,7 @@ using System;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("070fd2a4a2cb4f198a44ae036082818c")]
-    class AddAdditionalSpellSelection : UnitFactComponentDelegate {
+    class AdditionalSpellSelection : UnitFactComponentDelegate {
 
         private Spellbook spellbook { get => Owner.DemandSpellbook(SpellCastingClass); }
         private int adjustedMaxLevel {
