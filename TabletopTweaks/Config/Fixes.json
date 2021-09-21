@@ -1,4 +1,5 @@
 {
+    "DisableDRStacking": true,
     "DisableNaturalArmorStacking": true,
     "DisablePolymorphStacking": true,
     "DisableCannyDefenseStacking": true,

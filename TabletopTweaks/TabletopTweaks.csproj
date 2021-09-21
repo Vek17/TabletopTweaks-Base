@@ -45,6 +45,9 @@
 
 0649</NoWarn>
   </PropertyGroup>
+  <PropertyGroup>
+    <WrathInstallDir Condition=" '$(WrathInstallDir)' == '' ">$(WrathPath)</WrathInstallDir>
+  </PropertyGroup>
   <Target Name="RemoveLib" BeforeTargets="Clean" Condition="Exists('$(SolutionDir)lib')">
     <RemoveDir Directories="$(SolutionDir)lib" />
   </Target>
@@ -53,8 +56,8 @@
   </Target>
   <Target Name="Publicise" AfterTargets="CreateLib">
     <ItemGroup>
-      <PubliciseAssemblyCSharp Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
-      <PubliciseUniRx Include="$(WrathPath)\Wrath_Data\Managed\UniRx.dll" />
+      <PubliciseAssemblyCSharp Include="$(WrathInstallDir)\Wrath_Data\Managed\Assembly-CSharp.dll" />
+      <PubliciseUniRx Include="$(WrathInstallDir)\Wrath_Data\Managed\UniRx.dll" />
     </ItemGroup>
     <Publicise InputAssemblies="@(PubliciseAssemblyCSharp)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
     <Publicise InputAssemblies="@(PubliciseUniRx)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
@@ -160,6 +163,7 @@
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
+    <Compile Include="MechanicsChanges\DRStacking.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
@@ -167,6 +171,8 @@
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
+    <Compile Include="NewComponents\TTAddDamageResistanceEnergy.cs" />
+    <Compile Include="NewComponents\TTAddDamageResistanceBase.cs" />
     <Compile Include="NewComponents\AddOutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewComponents\ApplyArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ArmoredMightComponent.cs" />
@@ -199,6 +205,13 @@
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
+    <Compile Include="NewComponents\TTAddDamageResistanceForce.cs" />
+    <Compile Include="NewComponents\TTAddDamageResistancePhysical.cs" />
+    <Compile Include="NewComponents\TTProtectionFromEnergy.cs" />
+    <Compile Include="NewComponents\TTResistEnergy.cs" />
+    <Compile Include="NewComponents\TTResistEnergyContext.cs" />
+    <Compile Include="NewComponents\TTWizardAbjurationResistance.cs" />
+    <Compile Include="NewComponents\TTWizardEnergyAbsorption.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
@@ -281,6 +294,7 @@
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
+    <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
