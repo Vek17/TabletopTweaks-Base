@@ -1,3 +1,10 @@
+## Version 1.2.0
+* loremaster spell secrets now work
+* loremaster prerequisites have been updated
+* loremaster no longer allows you to take trickster feats
+* loremaster no longer causes you to lose a caster level
+* fixed bug where trained throw was not granting damage
+
 ## Version 1.1.2
 * dragon disciple can now progress with:
     * stigmitized Witch

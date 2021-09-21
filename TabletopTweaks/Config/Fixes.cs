@@ -30,6 +30,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
         public SettingGroup Hellknight = new SettingGroup();
+        public SettingGroup Loremaster = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
@@ -66,7 +67,9 @@ namespace TabletopTweaks.Config {
             Rogue.LoadClassGroup(loadedSettings.Rogue);
             Slayer.LoadClassGroup(loadedSettings.Slayer);
             Witch.LoadClassGroup(loadedSettings.Witch);
+
             Hellknight.LoadSettingGroup(loadedSettings.Hellknight);
+            Loremaster.LoadSettingGroup(loadedSettings.Loremaster);
 
             Spells.LoadSettingGroup(loadedSettings.Spells);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);

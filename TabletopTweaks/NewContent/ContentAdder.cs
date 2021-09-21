@@ -56,6 +56,8 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
 
+                Classes.Loremaster.AddLoremasterFeatures();
+
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
                 Archetypes.MetamagicRager.AddMetamagicRager();

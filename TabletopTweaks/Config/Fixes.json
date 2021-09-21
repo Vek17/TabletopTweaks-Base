@@ -235,6 +235,15 @@
             "PentamicFaith": true
         }
     },
+    "Loremaster": {
+        "DisableAll": false,
+        "Enabled": {
+            "Prerequisites": true,
+            "SpellProgression": true,
+            "SpellSecrets": true,
+            "TricksterTricks": true
+        }
+    },
     "Spells": {
         "DisableAll": false,
         "Enabled": {

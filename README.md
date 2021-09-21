@@ -158,6 +158,11 @@ All fixes and added content are configurable and can be disabled by editing the 
             Fixes bug preventing this from being selectable
     Lich
         Enabled merging for exploiter wizard and nature mage
+    Loremaster
+        Spell Secrets now work
+        Prerequisites have been fixed
+        Trickster feats removed from selection
+        No longer causes you to lose a caster level
     Monk
         Zen Archer
             Perfect Strike now upgrades at level 10
