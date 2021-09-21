@@ -24,31 +24,21 @@ namespace TabletopTweaks.Bugfixes.Classes
         {
             static bool Initialized;
 
-
-
             static void Postfix()
             {
                 if (Initialized) return;
                 Initialized = true;
                 Main.LogHeader("Patching Magus");
-               
+
                 PatchArmoredBattlemage();
             }
 
-            
 
             static void PatchArmoredBattlemage()
             {
                 var ArmoredBattlemageArchetype = Resources.GetBlueprint<BlueprintArchetype>("67ec8dcae6fb3d3439e5ae874ddc7b9b");
                 if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
-              
 
-
-
-
-                
-                
-               
                 ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 1).m_Features.Add(Resources.GetModBlueprint<BlueprintFeature>("ArmoredBattlemageArmorTrainingProgression").ToReference<BlueprintFeatureBaseReference>());
                 var ArmoredBattlemageArmorTraining = Resources.GetBlueprint<BlueprintFeature>("7be523d531bb17449bdba98df0e197ff");
 
@@ -57,57 +47,17 @@ namespace TabletopTweaks.Bugfixes.Classes
 
                 ArmoredBattlemageArmorTraining.RemoveComponents<AddFacts>(x => true);//wipes all the armor trainings - couldn't find a syntax that's more specific that would boot, sorry
 
-                //3c380607706f209499d951b29d3c44f3
-
-                //3c380607706f209499d951b29d3c44f3
-
-                // 354f1a4426d24ea38718905108f48e72
-
                 ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 8).Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                 ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 13).Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                 ArmoredBattlemageArchetype.AddFeatures.First(x => x.Level == 18).Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
-                
+
                 ArmoredBattlemageArmorTraining.AddComponent<AddFeatureOnClassLevel>(x =>
                 {
                     x.Level = 3;
                     x.m_Class = ArmoredBattlemageArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
                     x.m_Feature = ArmorTraining.ToReference<BlueprintFeatureReference>();
-                    //x.m_Feature = ArmorTrainingSelection.ToReference<BlueprintFeatureReference>();
-
-
-
-                });
-                /*
-                ArmoredBattlemageArmorTraining.AddComponent<AddFeatureOnClassLevel>(x =>
-                {
-                    x.Level = 8;
-                    x.m_Class = ArmoredBattlemageArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
-                    x.m_Feature = ArmorTrainingSelection.ToReference<BlueprintFeatureReference>();
-
-
-
-                });
-                ArmoredBattlemageArmorTraining.AddComponent<AddFeatureOnClassLevel>(x =>
-                {
-                    x.Level = 13;
-                    
-                    x.m_Class = ArmoredBattlemageArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
-                    x.m_Feature = ArmorTrainingSelection.ToReference<BlueprintFeatureReference>();
-
-
-
-                });
-                ArmoredBattlemageArmorTraining.AddComponent<AddFeatureOnClassLevel>(x =>
-                {
-                    x.Level = 18;
-                    x.m_Class = ArmoredBattlemageArchetype.GetParentClass().ToReference<BlueprintCharacterClassReference>();
-                    x.m_Feature = ArmorTrainingSelection.ToReference<BlueprintFeatureReference>();
-
-
-
                 });
 
-                */
                 Main.LogPatch("Patched", ArmoredBattlemageArmorTraining);
             }
         }
