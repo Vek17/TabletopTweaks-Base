@@ -1,5 +1,6 @@
 ## Version 1.2.1
 * disabled selective metamagic on non instantaneous effects
+* added broad study magus arcana
 
 ## Version 1.2.0
 * loremaster spell secrets now work
