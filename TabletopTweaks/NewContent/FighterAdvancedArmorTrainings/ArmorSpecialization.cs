@@ -49,7 +49,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    //c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    AdvancedArmorTraining.SetArmorTrainingProgressionConfig(c);
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 4;
@@ -57,7 +58,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Min = 1;
                     c.m_UseMin = true;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                    //c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
             var ArmorSpecializationLightFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorSpecializationLightFeature", bp => {
@@ -87,7 +88,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    //c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    AdvancedArmorTraining.SetArmorTrainingProgressionConfig(c);
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 4;
@@ -95,7 +97,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Min = 1;
                     c.m_UseMin = true;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                    //c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
             var ArmorSpecializationMediumFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorSpecializationMediumFeature", bp => {
@@ -125,7 +127,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    //c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    AdvancedArmorTraining.SetArmorTrainingProgressionConfig(c);
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 4;
@@ -133,7 +136,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Min = 1;
                     c.m_UseMin = true;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                    //c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
             var ArmorSpecializationHeavyFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorSpecializationHeavyFeature", bp => {

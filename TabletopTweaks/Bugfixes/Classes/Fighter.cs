@@ -111,6 +111,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
+                    var FighterArmorProgression = Resources.GetModBlueprint<BlueprintFeature>("FighterArmorTrainingProgression");
                     var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
                     var BaseProgression = FighterClass.Progression;
                     BaseProgression.UIGroups
@@ -124,6 +125,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             entry.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                             entry.m_Features.Remove(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
                         });
+                    BaseProgression.LevelEntries.First(x => x.Level == 1).m_Features.Add(FighterArmorProgression.ToReference<BlueprintFeatureBaseReference>());
                     Main.LogPatch("Patched", BaseProgression);
                     foreach (var Archetype in FighterClass.Archetypes) {
                         Archetype.RemoveFeatures
@@ -134,7 +136,29 @@ namespace TabletopTweaks.Bugfixes.Classes {
                                 entry.m_Features.Remove(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
                             });
                         Main.LogPatch("Patched", Archetype);
+                        if (Archetype.RemoveFeatures.Any(x => x.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>())))
+                        {
+                            LevelEntry first = Archetype.RemoveFeatures.FirstOrDefault(x => x.Level == 1);
+                            if (first == null)
+                            {
+                                Archetype.RemoveFeatures.AddItem(new LevelEntry
+                                {
+                                    Level = 1,
+                                    m_Features = new System.Collections.Generic.List<BlueprintFeatureBaseReference>
+                                    {
+                                        FighterArmorProgression.ToReference<BlueprintFeatureBaseReference>(),
+
+
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                first.m_Features.Add(FighterArmorProgression.ToReference<BlueprintFeatureBaseReference>());
+                            }
+                        }
                     }
+
                 }
             }
             static void PatchTwoHandedFighter() {

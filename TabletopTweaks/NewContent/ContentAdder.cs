@@ -49,6 +49,7 @@ namespace TabletopTweaks.NewContent {
                 Features.CavalierMobilityFeature.AddCavalierMobilityFeature();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
                 Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
+                Features.PurifierLimitedCures.AddPurifierLimitedCures();
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();

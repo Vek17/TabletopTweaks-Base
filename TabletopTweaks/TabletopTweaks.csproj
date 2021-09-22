@@ -138,11 +138,13 @@
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
+    <Compile Include="Bugfixes\Classes\HellknightSignifier.cs" />
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
     <Compile Include="Bugfixes\Classes\Lich.cs" />
     <Compile Include="Bugfixes\Classes\Loremaster.cs" />
     <Compile Include="Bugfixes\Classes\Magus.cs" />
     <Compile Include="Bugfixes\Classes\Monk.cs" />
+    <Compile Include="Bugfixes\Classes\Oracle.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
@@ -168,6 +170,7 @@
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
+    <Compile Include="MechanicsChanges\PseudoProgressionRankGetter.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
@@ -191,8 +194,11 @@
     <Compile Include="NewComponents\MountedCombatFixed.cs" />
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
+    <Compile Include="NewComponents\PrerequisitePsuedoProgressionRank.cs" />
     <Compile Include="NewComponents\PrerequisiteStatBonus.cs" />
     <Compile Include="NewComponents\PrerequisiteStatValues.cs" />
+    <Compile Include="NewComponents\PseudoProgressionRankClassModifier.cs" />
+    <Compile Include="NewComponents\PseudoProgressionRankModifier.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\DestinedArcanaComponent.cs" />
@@ -269,6 +275,7 @@
     <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
     <Compile Include="NewContent\Features\PerfectStrikeZenArcherBuff.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\Features\PurifierLimitedCures.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\AdvancedArmorTraining.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredConfidence.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredJuggernaut.cs" />

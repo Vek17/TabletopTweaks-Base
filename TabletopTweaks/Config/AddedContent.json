@@ -78,6 +78,12 @@
             "BroadStudy": true
         }
     },
+    "PurifierCelestialArmor": {
+        "DisableAll": false,
+        "Enabled": {
+            "UnlockFeats": true
+        }
+    },
     "Races": {
         "DisableAll": false,
         "Enabled": {

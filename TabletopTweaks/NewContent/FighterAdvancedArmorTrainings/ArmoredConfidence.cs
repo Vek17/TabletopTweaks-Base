@@ -37,14 +37,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    //c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    AdvancedArmorTraining.SetArmorTrainingProgressionConfig(c);
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 7;
                     c.m_StepLevel = 4;
                     c.m_Max = 4;
                     c.m_Min = 1;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                    //c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
 
@@ -69,14 +70,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    //c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    AdvancedArmorTraining.SetArmorTrainingProgressionConfig(c);
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 7;
                     c.m_StepLevel = 4;
                     c.m_Max = 4;
                     c.m_Min = 1;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                    //c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
             var ArmoredConfidenceHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceHeavyEffect", bp => {
@@ -100,14 +102,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
                 bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    //c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    AdvancedArmorTraining.SetArmorTrainingProgressionConfig(c);
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 7;
                     c.m_StepLevel = 4;
                     c.m_Max = 4;
                     c.m_Min = 1;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                    //c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
             var ArmoredConfidenceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceFeature", bp => {
