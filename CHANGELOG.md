@@ -1,3 +1,6 @@
+## Version 1.2.2
+* fixed issue where broad study's settings were inverted
+
 ## Version 1.2.1
 * disabled selective metamagic on non instantaneous effects
 * added broad study magus arcana

@@ -27,7 +27,8 @@ namespace TabletopTweaks.NewUnitParts {
         public bool IsBroadStudy(AbilityData spell) {
             var Spellbook = spell?.Spellbook.Blueprint;
             return Classes.Any(c => {
-                return Owner?.DemandSpellbook(c.CharacterClass)?.Blueprint?.AssetGuid == Spellbook.AssetGuid;
+                Spellbook book = Owner?.DemandSpellbook(c.CharacterClass);
+                return book?.Blueprint?.AssetGuid == Spellbook.AssetGuid || spell.IsInSpellList(book.Blueprint.SpellList);
             });
         }
 
@@ -41,10 +42,8 @@ namespace TabletopTweaks.NewUnitParts {
         [HarmonyPatch(typeof(UnitPartMagus), "IsSpellFromMagusSpellList", new Type[] { typeof(AbilityData) })]
         class UnitDescriptor_FixSizeModifiers_Patch {
             static void Postfix(UnitPartMagus __instance, ref bool __result, AbilityData spell) {
-                if (!ModSettings.AddedContent.MagusArcana.IsDisabled("BroadStudy")) { return; }
-                if (!__result) {
-                    __result = spell.Caster?.Get<UnitPartBroadStudy>()?.IsBroadStudy(spell) ?? false;
-                }
+                if (ModSettings.AddedContent.MagusArcana.IsDisabled("BroadStudy")) { return; }
+                __result |= spell.Caster?.Get<UnitPartBroadStudy>()?.IsBroadStudy(spell) ?? false;
             }
         }
     }
