@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System;
@@ -137,7 +138,7 @@ namespace TabletopTweaks.Utilities {
             public static BlueprintSpellbook WitchSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("dd04f9239f655ea438976742728e4909");
             public static BlueprintSpellbook WizardSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("5a38c9ac8607890409fcb8f6342da6f4");
 
-            public static BlueprintSpellbook[] MetamagicRodAbilities = new BlueprintSpellbook[] {
+            public static BlueprintSpellbook[] AllSpellbooks = new BlueprintSpellbook[] {
                 AccursedWitchSpellbook,
                 AeonSpellbook,
                 AlchemistSpellbook,
@@ -376,6 +377,47 @@ namespace TabletopTweaks.Utilities {
                 WizardNecromancySpellList,
                 WizardSpellList,
                 WizardTransmutationSpellList,
+            };
+        }
+        public static class SpellCastingClasses {
+            public static BlueprintCharacterClass ArcanistClass => Resources.GetBlueprint<BlueprintCharacterClass>("52dbfd8505e22f84fad8d702611f60b7");
+            public static BlueprintCharacterClass BardClass => Resources.GetBlueprint<BlueprintCharacterClass>("772c83a25e2268e448e841dcd548235f");
+            public static BlueprintCharacterClass BloodragerClass => Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
+            public static BlueprintCharacterClass ClericClass => Resources.GetBlueprint<BlueprintCharacterClass>("67819271767a9dd4fbfd4ae700befea0");
+            public static BlueprintCharacterClass DruidClass => Resources.GetBlueprint<BlueprintCharacterClass>("610d836f3a3a9ed42a4349b62f002e96");
+            public static BlueprintCharacterClass HunterClass => Resources.GetBlueprint<BlueprintCharacterClass>("34ecd1b5e1b90b9498795791b0855239");
+            public static BlueprintCharacterClass InquisitorClass => Resources.GetBlueprint<BlueprintCharacterClass>("f1a70d9e1b0b41e49874e1fa9052a1ce");
+            public static BlueprintCharacterClass MagusClass => Resources.GetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
+            public static BlueprintCharacterClass OracleClass => Resources.GetBlueprint<BlueprintCharacterClass>("20ce9bf8af32bee4c8557a045ab499b1");
+            public static BlueprintCharacterClass PaladinClass => Resources.GetBlueprint<BlueprintCharacterClass>("bfa11238e7ae3544bbeb4d0b92e897ec");
+            public static BlueprintCharacterClass RangerClass => Resources.GetBlueprint<BlueprintCharacterClass>("cda0615668a6df14eb36ba19ee881af6");
+            public static BlueprintCharacterClass RogueClass => Resources.GetBlueprint<BlueprintCharacterClass>("299aa766dee3cbf4790da4efb8c72484");
+            public static BlueprintCharacterClass ShamanClass => Resources.GetBlueprint<BlueprintCharacterClass>("145f1d3d360a7ad48bd95d392c81b38e");
+            public static BlueprintCharacterClass SkaldClass => Resources.GetBlueprint<BlueprintCharacterClass>("6afa347d804838b48bda16acb0573dc0");
+            public static BlueprintCharacterClass SorcererClass => Resources.GetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf");
+            public static BlueprintCharacterClass WarpriestClass => Resources.GetBlueprint<BlueprintCharacterClass>("30b5e47d47a0e37438cc5a80c96cfb99");
+            public static BlueprintCharacterClass WitchClass => Resources.GetBlueprint<BlueprintCharacterClass>("1b9873f1e7bfe5449bc84d03e9c8e3cc");
+            public static BlueprintCharacterClass WizardClass => Resources.GetBlueprint<BlueprintCharacterClass>("ba34257984f4c41408ce1dc2004e342e");
+
+            public static BlueprintCharacterClass[] AllClasses => new BlueprintCharacterClass[] {
+                ArcanistClass,
+                BardClass,
+                BloodragerClass,
+                ClericClass,
+                DruidClass,
+                HunterClass,
+                InquisitorClass,
+                MagusClass,
+                OracleClass,
+                PaladinClass,
+                RangerClass,
+                RogueClass,
+                ShamanClass,
+                SkaldClass,
+                SorcererClass,
+                WarpriestClass,
+                WitchClass,
+                WizardClass,
             };
         }
     }

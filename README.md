@@ -42,6 +42,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Item Crafting
     
     Adds the following magus arcana:
+        Broad Study
         Spell Blending
 
     Adds the following advanced weapon trainings:
@@ -115,6 +116,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Vital Strike no longer crits incorrectly
         Empower and Maximize no longer stack incorrectly
         Skills points properly increase from permanant bonuses
+        Selective now only works on instaneous effects
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor
@@ -158,6 +160,11 @@ All fixes and added content are configurable and can be disabled by editing the 
             Fixes bug preventing this from being selectable
     Lich
         Enabled merging for exploiter wizard and nature mage
+    Loremaster
+        Spell Secrets now work
+        Prerequisites have been fixed
+        Trickster feats removed from selection
+        No longer causes you to lose a caster level
     Monk
         Zen Archer
             Perfect Strike now upgrades at level 10

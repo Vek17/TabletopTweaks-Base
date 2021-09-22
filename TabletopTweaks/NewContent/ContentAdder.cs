@@ -27,6 +27,7 @@ namespace TabletopTweaks.NewContent {
                 ArcanistExploits.Familiar.AddFamiliar();
 
                 MagusArcana.SpellBlending.AddSpellBlending();
+                MagusArcana.BroadStudy.AddBroadStudy();
 
                 FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
                 FighterAdvancedWeaponTrainings.DefensiveWeaponTraining.AddDefensiveWeaponTraining();
@@ -55,6 +56,8 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
+
+                Classes.Loremaster.AddLoremasterFeatures();
 
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();

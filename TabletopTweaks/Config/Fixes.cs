@@ -13,6 +13,7 @@ namespace TabletopTweaks.Config {
         public bool FixBackgroundModifiers = true;
         public bool FixShadowSpells = true;
         public bool MetamagicStacking = true;
+        public bool SelectiveMetamagicNonInstantaneous = true;
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
@@ -31,6 +32,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
         public SettingGroup Hellknight = new SettingGroup();
+        public SettingGroup Loremaster = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
@@ -49,6 +51,7 @@ namespace TabletopTweaks.Config {
             FixMountedLongspearModifer = loadedSettings.FixMountedLongspearModifer;
             FixShadowSpells = loadedSettings.FixShadowSpells;
             MetamagicStacking = loadedSettings.MetamagicStacking;
+            SelectiveMetamagicNonInstantaneous = loadedSettings.SelectiveMetamagicNonInstantaneous;
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon);
             Azata.LoadSettingGroup(loadedSettings.Azata);
@@ -68,7 +71,9 @@ namespace TabletopTweaks.Config {
             Rogue.LoadClassGroup(loadedSettings.Rogue);
             Slayer.LoadClassGroup(loadedSettings.Slayer);
             Witch.LoadClassGroup(loadedSettings.Witch);
+
             Hellknight.LoadSettingGroup(loadedSettings.Hellknight);
+            Loremaster.LoadSettingGroup(loadedSettings.Loremaster);
 
             Spells.LoadSettingGroup(loadedSettings.Spells);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);

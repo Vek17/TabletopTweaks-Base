@@ -9,6 +9,7 @@
     "FixBackgroundModifiers": true,
     "FixShadowSpells": true,
     "MetamagicStacking": true,
+    "SelectiveMetamagicNonInstantaneous": true,
     "Aeon": {
         "DisableAll": false,
         "Enabled": {
@@ -234,6 +235,15 @@
         "DisableAll": false,
         "Enabled": {
             "PentamicFaith": true
+        }
+    },
+    "Loremaster": {
+        "DisableAll": false,
+        "Enabled": {
+            "Prerequisites": true,
+            "SpellProgression": true,
+            "SpellSecrets": true,
+            "TricksterTricks": true
         }
     },
     "Spells": {
