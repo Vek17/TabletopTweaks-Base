@@ -40,15 +40,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 void PatchArmorTraining()
                 {
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
-                    void HellknightArmorTrainingProgression()
-                    {
-
-                       
-
-                    }
-                    HellknightArmorTrainingProgression();
-
-                   
+                                       
                     var BaseProgression = Hellknight.Progression;
                     LevelEntry level1 = BaseProgression.LevelEntries.FirstOrDefault(x => x.Level == 1);
                     level1.m_Features.Add(Resources.GetModBlueprint<BlueprintFeature>("HellknightArmorTrainingProgression").ToReference<BlueprintFeatureBaseReference>());
