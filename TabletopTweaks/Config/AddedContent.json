@@ -102,7 +102,8 @@
             "ImpossibleSpeed": true,
             "ArmorMaster": true,
             "ArmoredMight": true,
-            "MountedManiac": true
+            "MountedManiac": true,
+            "MythicSpellCombat": true
         }
     }
 }

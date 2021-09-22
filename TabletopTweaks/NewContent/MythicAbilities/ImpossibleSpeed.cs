@@ -41,8 +41,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 }));
             });
             if (ModSettings.AddedContent.MythicAbilities.IsDisabled("ImpossibleSpeed")) { return; }
-            MythicAbilitySelection.AddFeatures(ImpossibleSpeedFeature);
-            ExtraMythicAbilityMythicFeat.AddFeatures(ImpossibleSpeedFeature);
+            FeatTools.AddAsMythicAbility(ImpossibleSpeedFeature);
         }
     }
 }

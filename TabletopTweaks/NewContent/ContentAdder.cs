@@ -71,6 +71,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.ArmorMaster.AddArmorMaster();
                 MythicAbilities.ArmoredMight.AddArmoredMight();
                 MythicAbilities.MountedManiac.AddMountedManiac();
+                MythicAbilities.MythicSpellCombat.AddMythicSpellCombat();
 
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();

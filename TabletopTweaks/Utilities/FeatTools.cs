@@ -22,6 +22,7 @@ namespace TabletopTweaks.Utilities {
         public static void AddAsFeat(BlueprintFeature feature) {
             var BasicFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("247a4068296e8be42890143f451b4b45");
             var ExtraFeatMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("e10c4f18a6c8b4342afe6954bde0587b");
+
             BasicFeatSelection.AddFeatures(feature);
             ExtraFeatMythicFeat.AddFeatures(feature);
         }
@@ -53,6 +54,13 @@ namespace TabletopTweaks.Utilities {
                 Resources.GetBlueprint<BlueprintFeatureSelection>("d4b54d9db4932454ab2899f931c2042c")  //EldritchMagusArcanaSelection;
             };
             ArcanaSelections.Where(selection => !ignore?.Contains(selection) ?? true).ForEach(selection => selection.AddFeatures(feature));
+        }
+        public static void AddAsMythicAbility(BlueprintFeature feature) {
+            var MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
+            var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
+
+            MythicAbilitySelection.AddFeatures(feature);
+            ExtraMythicAbilityMythicFeat.AddFeatures(feature);
         }
         public static BlueprintFeature CreateSkillFeat(string name, StatType skill1, StatType skill2, Action<BlueprintFeature> init = null) {
             var SkillFeat = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
