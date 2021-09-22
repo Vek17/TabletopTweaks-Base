@@ -269,6 +269,15 @@ namespace TabletopTweaks.NewUnitParts
             // Immunities, whether pool-based or not, never stacks. It would lead to very confusing results and I am not aware of any rule that does this anyway.
             foreach (Chunk chunk in m_Chunks.Where(c => !c.IsImmunity && !c.IsImmunityPool))
             {
+                if (chunk.DR.Settings.AddToAllStacks)
+                {
+                    result
+                        .Where(cs => !cs.IsImmunity && !cs.IsImmunityPool && cs.BaseChunk != chunk && chunk.DR.Settings.IsSameDRTypeAs(cs.BaseChunk.DR.Settings))
+                        .ForEach(cs => cs.StackingChunks.Add(chunk));
+                    // We don't need to check for armor, class features or specific facts if a chunk of resistance was already added to all eligible stacks
+                    continue;
+                }
+
                 if (chunk.DR.Settings.SourceIsArmor)
                 {
                     result
@@ -287,7 +296,7 @@ namespace TabletopTweaks.NewUnitParts
                 if (unitFactsThatCanStack.Contains(sourceFactReference))
                 {
                     result
-                        .Where(cs => !cs.IsImmunity && !cs.IsImmunityPool && cs.IsStacksWithUnitFacts && cs.BaseChunk != chunk && chunk.DR.Settings.StacksWithFacts.Contains(sourceFactReference) && chunk.DR.Settings.IsSameDRTypeAs(cs.BaseChunk.DR.Settings))
+                        .Where(cs => !cs.IsImmunity && !cs.IsImmunityPool && cs.IsStacksWithUnitFacts && cs.BaseChunk != chunk && cs.BaseChunk.DR.Settings.StacksWithFacts.Contains(sourceFactReference) && chunk.DR.Settings.IsSameDRTypeAs(cs.BaseChunk.DR.Settings))
                         .ForEach(cs => cs.StackingChunks.Add(chunk));
                 }
             }
@@ -390,7 +399,7 @@ namespace TabletopTweaks.NewUnitParts
 
             public BlueprintUnitFactReference[] StacksWithFacts => BaseChunk.DR.Settings.StacksWithFacts;
 
-            public List<Chunk> StackingChunks { get; set; } = new List<Chunk>();
+            public HashSet<Chunk> StackingChunks { get; set; } = new HashSet<Chunk>();
 
             // The applied reduction of the stack is the sum of all the chunks' applied reduction in this stack.
             public int AppliedReduction => BaseChunk.AppliedReduction + StackingChunks.Sum(c => c.AppliedReduction);

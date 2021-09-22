@@ -67,6 +67,10 @@ namespace TabletopTweaks.NewComponents
         // Is the source of this DR a class feature
         public bool SourceIsClassFeature = false;
 
+        // So remember how we did a super complex rework of DR mechanics to make sure they don't stack with everything anymore. Well setting this to true will cause
+        // this DR to stack with everything. It will get added to the list of stacking resistances for every resistance that is of the same type, as per IsSameDRTypeAs
+        public bool AddToAllStacks = false;
+
         // This isn't really useful anymore, but I've overridden it with something that kinda sorta makes sense, as I haven't gotten around to properly updating
         // the character info screens that still make use of this
         public virtual bool IsStackable => StacksWithArmor || StacksWithClassFeatures || (StacksWithFacts != null && StacksWithFacts.Length > 0);
