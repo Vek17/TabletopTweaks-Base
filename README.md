@@ -170,8 +170,6 @@ All fixes and added content are configurable and can be disabled by editing the 
     Monk
         Zen Archer
             Perfect Strike now upgrades at level 10
-    Paladin
-        Fixes divine mount selection
     Ranger
         Reverts favorable enemy outsider to work on all outsiders
         Espionage Expert
