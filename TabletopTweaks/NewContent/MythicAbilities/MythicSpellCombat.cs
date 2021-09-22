@@ -25,7 +25,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.AddComponent<BroadStudyMythicComponent>();
                 bp.AddPrerequisite<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = SpellTools.SpellCastingClasses.MagusClass.ToReference<BlueprintCharacterClassReference>();
-                    c.Level = 1;
+                    c.Level = 6;
                 });
                 bp.AddPrerequisite<PrerequisiteMythicSpellbook>();
             });
