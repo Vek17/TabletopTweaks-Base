@@ -1,3 +1,14 @@
+## Version 1.2.3
+* spell combat now works with spells that have variants
+
+## Version 1.2.2
+* fixed issue where broad study's settings were inverted
+
+## Version 1.2.1
+* disabled selective metamagic on non instantaneous effects
+* added broad study magus arcana
+* eldritch scion can now take bloodline ascendancy 
+
 ## Version 1.2.0
 * loremaster spell secrets now work
 * loremaster prerequisites have been updated

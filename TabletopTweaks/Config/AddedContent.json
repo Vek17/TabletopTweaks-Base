@@ -74,7 +74,8 @@
     "MagusArcana": {
         "DisableAll": false,
         "Enabled": {
-            "SpellBlending": true
+            "SpellBlending": true,
+            "BroadStudy": true
         }
     },
     "Races": {

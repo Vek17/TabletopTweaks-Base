@@ -99,6 +99,7 @@ namespace TabletopTweaks.NewComponents {
         public ArmorProficiencyGroup[] RequiredArmor = new ArmorProficiencyGroup[0];
         public bool Invert = false;
 
+        [TypeId("ba0c9c406dd448d89e8ec941f8c5ff56")]
         public class ArmorFeatureUnlockData {
             [JsonProperty]
             public EntityFact AppliedFact;

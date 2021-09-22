@@ -13,12 +13,10 @@ namespace TabletopTweaks.NewComponents {
         ISubscriber {
 
         public override void OnTurnOn() {
-            Main.Log("FAVORABLEMAGIC - ON");
             base.Owner.State.Features.AzataFavorableMagic.Retain();
         }
 
         public override void OnTurnOff() {
-            Main.Log("FAVORABLEMAGIC - OFF");
             base.Owner.State.Features.AzataFavorableMagic.Release();
         }
 

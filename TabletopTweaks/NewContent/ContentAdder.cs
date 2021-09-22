@@ -27,6 +27,7 @@ namespace TabletopTweaks.NewContent {
                 ArcanistExploits.Familiar.AddFamiliar();
 
                 MagusArcana.SpellBlending.AddSpellBlending();
+                MagusArcana.BroadStudy.AddBroadStudy();
 
                 FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
                 FighterAdvancedWeaponTrainings.DefensiveWeaponTraining.AddDefensiveWeaponTraining();
