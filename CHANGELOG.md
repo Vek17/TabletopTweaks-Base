@@ -1,6 +1,7 @@
 ## Version 1.2.1
 * disabled selective metamagic on non instantaneous effects
 * added broad study magus arcana
+* eldritch scion can now take bloodline ascendancy 
 
 ## Version 1.2.0
 * loremaster spell secrets now work
