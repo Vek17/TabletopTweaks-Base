@@ -32,27 +32,54 @@ namespace TabletopTweaks.NewComponents
 
         public bool Immunity = false;
 
+        // Is this absolute immunity, without using a pool
         public virtual bool IsImmunity => Immunity && !UsePool;
 
+        // Is this immunity using a pool, such as Protection From Energy
         public bool IsImmunityPool => Immunity && UsePool;
 
+        /*
+         * The StacksWithX properties below refer to how a "parent" or "base" DR stacks with other DR.
+         * For example, Stalwart Defender's DR is a class feature DR that stacks with armor. 
+         * This means that any DR that has SourceIsArmor == true will be added to the DR stack that has 
+         * the Stalwart Defender feature as the base DR
+         * 
+         * This relationship is not transitive, however. If a DR fact has StacksWithClassFeatures == true,
+         * for example, then the Stalwart Defender class feature DR would be added to that fact's stack, but
+         * any armor DR would not. You would then have two stacks that have the Stalwart Defender's DR in them,
+         * one stack with Stalwart Defender's DR as base, and any armor DR as "children", and one stack with
+         * our StacksWithClassFeatures DR as base and Stalwart Defender's DR as a child, but *not* any armor DR.
+         * One of these would then be the highest total DR, which would end up being the one that is applied.
+         */
+
+        // Does this DR stack with DRs that have SourceIsArmor == true (e.g. the Stalwart Defender's Damage Reduction feature)
         public bool StacksWithArmor = false;
 
+        // Does this DR stack with DRs that have SourceIsClassFeature == true (e.g. the Stalwart and Improved Stalwart feats)
         public bool StacksWithClassFeatures = false;
 
+        // Does this DR stack with DRs provided by specific facts  (e.g. Armored Juggernaut, which specifically only stacks with DR provided by adamantine armor)
         public BlueprintUnitFactReference[] StacksWithFacts = null;
 
+        // Is the source of this DR armor based
         public bool SourceIsArmor = false;
 
+        // Is the source of this DR a class feature
         public bool SourceIsClassFeature = false;
 
+        // This isn't really useful anymore, but I've overridden it with something that kinda sorta makes sense, as I haven't gotten around to properly updating
+        // the character info screens that still make use of this
         public virtual bool IsStackable => StacksWithArmor || StacksWithClassFeatures || (StacksWithFacts != null && StacksWithFacts.Length > 0);
 
+        // The priority of this resistance. This is used for cases where damage might "spill over" from one (usually pool-based) resistance to another resistance
+        // The *vast* majority of resistances should have a priority of Normal. Currently, only Protection From Energy has a High priority, and only the Abjuration
+        // school's Energy Absorption feature has a Low priority.
         public DRPriority Priority = DRPriority.Normal;
 
+        // This should check if a given other resistance is of the same type as this resistance. For energy resistance, this probably means protecting against the same
+        // energy type. For DR, it should mean having the same thing "after the slash". Regardless of other settings, resistances can only stack with each other if
+        // this method returns true.
         public abstract bool IsSameDRTypeAs(TTAddDamageResistanceBase other);
-
-        protected virtual int DRTypeFlags => 0;
 
         protected virtual bool ShouldBeRemoved(TTAddDamageResistanceBase.ComponentRuntime runtime) => this.UsePool && this.CalculateRemainingPool(runtime) < 1;
 
@@ -74,6 +101,7 @@ namespace TabletopTweaks.NewComponents
 
         public virtual EntityFactComponent CreateRuntimeFactComponent() => (EntityFactComponent)new TTAddDamageResistanceBase.ComponentRuntime();
 
+        // This creates a TTAddDamageResistanceBase from a vanilla AddDamageResistanceBase component.
         public void InitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance)
         {
             // BlueprintComponent
@@ -90,6 +118,8 @@ namespace TabletopTweaks.NewComponents
 
             this.AdditionalInitFromVanillaDamageResistance(vanillaResistance);
         }
+        // Additional initialization specific to the implementation of this base class, that should be done when such an implementation is created from its
+        // vanilla counterpart.
         protected abstract void AdditionalInitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance);
 
         private interface IDamageResistanceRuntimeInternal
@@ -136,6 +166,7 @@ namespace TabletopTweaks.NewComponents
             }
         }
 
+        // The possible priorities that a resistance can have. See TTAddDamageResistanceBase.Priority
         public enum DRPriority
         {
             Low = 0,
