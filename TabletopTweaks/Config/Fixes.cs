@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TabletopTweaks.Config {
     public class Fixes : IUpdatableSettings {
-        public bool DisableDRStacking = true;
+        public bool DRRework = true;
         public bool DisableNaturalArmorStacking = true;
         public bool DisablePolymorphStacking = true;
         public bool DisableCannyDefenseStacking = true;
@@ -42,7 +42,7 @@ namespace TabletopTweaks.Config {
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as Fixes;
-            DisableDRStacking = loadedSettings.DisableDRStacking;
+            DRRework = loadedSettings.DRRework;
             DisableNaturalArmorStacking = loadedSettings.DisableNaturalArmorStacking;
             DisablePolymorphStacking = loadedSettings.DisablePolymorphStacking;
             DisableCannyDefenseStacking = loadedSettings.DisableCannyDefenseStacking;

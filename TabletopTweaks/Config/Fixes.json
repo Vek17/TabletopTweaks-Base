@@ -1,5 +1,5 @@
 {
-    "DisableDRStacking": true,
+    "DRRework": true,
     "DisableNaturalArmorStacking": true,
     "DisablePolymorphStacking": true,
     "DisableCannyDefenseStacking": true,

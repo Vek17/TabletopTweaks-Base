@@ -38,13 +38,13 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.MechanicsChanges
 {
-    class DRStacking {
+    class DRRework {
 
         [HarmonyPatch(typeof(AddDamageResistancePhysical), nameof(AddDamageResistancePhysical.IsStackable), MethodType.Getter)]
         static class AddDamageResistancePhysical_IsStackable_Patch {
 
             static void Postfix(ref bool __result) {
-                if (ModSettings.Fixes.DisableDRStacking) {
+                if (ModSettings.Fixes.DRRework) {
                     __result = false;
                 }
             }
