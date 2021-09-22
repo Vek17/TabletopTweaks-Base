@@ -8,6 +8,7 @@
     "FixBackgroundModifiers": true,
     "FixShadowSpells": true,
     "MetamagicStacking": true,
+    "SelectiveMetamagicNonInstantaneous": true,
     "Aeon": {
         "DisableAll": false,
         "Enabled": {

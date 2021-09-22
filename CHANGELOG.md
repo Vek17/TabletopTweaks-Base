@@ -1,3 +1,6 @@
+## Version 1.2.1
+* disabled selective metamagic on non instantaneous effects
+
 ## Version 1.2.0
 * loremaster spell secrets now work
 * loremaster prerequisites have been updated

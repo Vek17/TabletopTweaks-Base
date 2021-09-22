@@ -164,6 +164,7 @@
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
+    <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
