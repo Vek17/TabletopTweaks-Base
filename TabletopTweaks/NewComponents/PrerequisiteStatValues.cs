@@ -2,7 +2,6 @@
 using System.Text;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Root;
-using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
@@ -11,7 +10,7 @@ using Kingmaker.UnitLogic.Class.LevelUp;
 namespace TabletopTweaks.NewComponents {
     class PrerequisiteStatValues : Prerequisite {
 		public override bool CheckInternal(FeatureSelectionState selectionState, UnitDescriptor unit, LevelUpState state) {
-			return this.CheckUnit(unit);
+			return CheckUnit(unit);
 		}
 
 		public bool CheckUnit(UnitDescriptor unit) {
@@ -23,13 +22,7 @@ namespace TabletopTweaks.NewComponents {
 			stringBuilder.Append($"Has {Value} {(Value > 1 ? "Ranks" : "Rank")} in {GetWord(Amount)} of the following skills:");
 			stringBuilder.Append("\n");
 			foreach (var stat in Stats) {
-				string text = LocalizedTexts.Instance.Stats.GetText(stat);
-				stringBuilder.Append(text);
-				if (unit != null) {
-					stringBuilder.Append(": ");
-					stringBuilder.Append(string.Format(UIStrings.Instance.Tooltips.CurrentValue, this.GetStatValue(unit, stat)));
-					stringBuilder.Append("\n");
-				}
+				stringBuilder.Append(GetStatString(unit, stat));
 			}
 			return stringBuilder.ToString();
 		}
@@ -42,6 +35,21 @@ namespace TabletopTweaks.NewComponents {
 				}
 			}
 			return num;
+		}
+
+		private string GetStatString(UnitDescriptor unit, StatType stat) {
+			StringBuilder stringBuilder = new StringBuilder();
+			string statString = LocalizedTexts.Instance.Stats.GetText(stat);
+			stringBuilder.Append(statString);
+			if (unit != null) {
+				stringBuilder.Append(": ");
+				stringBuilder.Append($"Current value: {GetStatValue(unit, stat)}");
+				stringBuilder.Append("\n");
+			}
+			if (GetStatValue(unit, stat) >= Value) {
+				return $"<color=#323545>{stringBuilder}</color>";
+			}
+			return stringBuilder.ToString();
 		}
 
 		private string GetWord(int i) {

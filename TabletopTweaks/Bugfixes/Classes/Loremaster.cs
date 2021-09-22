@@ -72,7 +72,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         };
                     });
                     
-                    LoremasterClass.AddComponent<PrerequisiteFeaturesFromList>(c => {
+                    LoremasterClass.AddComponent<PrerequisiteFeaturesFromListFormatted>(c => {
                         c.m_Features = new BlueprintFeatureReference[] {
                             SkillFocusKnowledgeArcana.ToReference<BlueprintFeatureReference>(),
                             SkillFocusKnowledgeWorld.ToReference<BlueprintFeatureReference>(),
@@ -81,7 +81,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         };
                         c.Amount = 1;
                     });
-                    LoremasterClass.AddComponent<PrerequisiteFeaturesFromList>(c => {
+                    LoremasterClass.AddComponent<PrerequisiteFeaturesFromListFormatted>(c => {
                         c.m_Features = new BlueprintFeatureReference[] {
                             ScribingScrolls.ToReference<BlueprintFeatureReference>(),
                             BrewPotions.ToReference<BlueprintFeatureReference>(),

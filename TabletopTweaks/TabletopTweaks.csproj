@@ -202,6 +202,7 @@
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
+    <Compile Include="NewComponents\PrerequisiteFeaturesFromListFormatted.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
