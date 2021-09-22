@@ -188,7 +188,7 @@ namespace TabletopTweaks.NewUnitParts
             ChunkStack DR,
             ref int remainingDamage)
         {
-            if (DR == null)
+            if (DR == null || remainingDamage <= 0)
             {
                 return 0;
             }
@@ -203,7 +203,6 @@ namespace TabletopTweaks.NewUnitParts
             int reduction = Math.Min(reductionWithPenalties, remainingDamage);
             if (reduction > 0)
             {
-                DR.SpendPool(reduction, damage.Source, damageEventWeapon);
                 DR.ApplyReduction(reduction, damage.Source, damageEventWeapon);
                 remainingDamage -= reduction;
             }
@@ -361,15 +360,17 @@ namespace TabletopTweaks.NewUnitParts
 
             public BlueprintUnitFactReference[] StacksWithFacts => BaseChunk.DR.Settings.StacksWithFacts;
 
-            public HashSet<Chunk> StackingChunks { get; set; } = new HashSet<Chunk>();
+            public List<Chunk> StackingChunks { get; set; } = new List<Chunk>();
 
             public int AppliedReduction => BaseChunk.AppliedReduction + StackingChunks.Sum(c => c.AppliedReduction);
+
             public void ApplyReduction(int reduction, BaseDamage damageSource, [CanBeNull] ItemEntityWeapon damageEventWeapon)
             {
                 int remaining = reduction;
                 if (BaseChunk.RemainReduction > 0 && !BaseChunk.Bypassed(damageSource, damageEventWeapon))
                 {
                     int reduceBy = Math.Min(remaining, BaseChunk.RemainReduction);
+                    BaseChunk.DR.SpendPool(reduceBy);
                     BaseChunk.AppliedReduction += reduceBy;
                     remaining -= reduceBy;
                 }
@@ -378,6 +379,7 @@ namespace TabletopTweaks.NewUnitParts
                     foreach (Chunk chunk in StackingChunks.Where(c => !c.Bypassed(damageSource, damageEventWeapon)))
                     {
                         int reduceBy = Math.Min(remaining, chunk.RemainReduction);
+                        chunk.DR.SpendPool(reduceBy);
                         chunk.AppliedReduction += reduceBy;
                         remaining -= reduceBy;
                         if (remaining <= 0) break;
@@ -419,31 +421,6 @@ namespace TabletopTweaks.NewUnitParts
 
                 Reduction = reduction;
                 return reduction;
-            }
-
-            public void SpendPool(
-                int amount,
-                BaseDamage damageSource,
-                [CanBeNull] ItemEntityWeapon damageEventWeapon)
-            {
-                int remaining = amount;
-                if (BaseChunk.DR.Settings.UsePool && !BaseChunk.Bypassed(damageSource, damageEventWeapon))
-                {
-                    int spendAmount = Math.Min(BaseChunk.DR.RemainPool, remaining);
-                    BaseChunk.DR.SpendPool(spendAmount);
-                    remaining -= spendAmount;
-                }
-
-                if (remaining > 0)
-                {
-                    foreach(Chunk chunk in StackingChunks.Where(c => !c.Bypassed(damageSource, damageEventWeapon)))
-                    {
-                        int spendAmount = Math.Min(chunk.DR.RemainPool, remaining);
-                        chunk.DR.SpendPool(spendAmount);
-                        remaining -= spendAmount;
-                        if (remaining <= 0) break;
-                    }
-                }
             }
         }
 

@@ -17,6 +17,13 @@ namespace TabletopTweaks.NewComponents
     [TypeId("0820cc56c9fa41e2a98cdb49256df47c")]
     public class TTProtectionFromEnergy : TTAddDamageResistanceEnergy
     {
+        protected override int CalculateValue(TTAddDamageResistanceBase.ComponentRuntime runtime) => this.CalculateRemainingPool(runtime);
+
+        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
+        {
+            return other is TTProtectionFromEnergy && base.IsSameDRTypeAs(other);
+        }
+
         protected override void AdditionalInitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance)
         {
             base.AdditionalInitFromVanillaDamageResistance(vanillaResistance);
@@ -25,11 +32,6 @@ namespace TabletopTweaks.NewComponents
                 this.Immunity = true;
                 this.Priority = DRPriority.High;
             }
-        }
-
-        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
-        {
-            return other is TTProtectionFromEnergy && base.IsSameDRTypeAs(other);
         }
     }
 }
