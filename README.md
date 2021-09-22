@@ -165,6 +165,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Prerequisites have been fixed
         Trickster feats removed from selection
         No longer causes you to lose a caster level
+    Magus
+        Spell combat now works with abilities that have variants
     Monk
         Zen Archer
             Perfect Strike now upgrades at level 10

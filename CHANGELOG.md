@@ -1,3 +1,6 @@
+## Version 1.2.3
+* spell combat now works with spells that have variants
+
 ## Version 1.2.2
 * fixed issue where broad study's settings were inverted
 

@@ -40,7 +40,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         [HarmonyPatch(typeof(UnitPartMagus), "IsSpellFromMagusSpellList", new Type[] { typeof(AbilityData) })]
-        class UnitDescriptor_FixSizeModifiers_Patch {
+        class UnitDescriptor_IsSpellFromMagusSpellList_BroadStudy_Patch {
             static void Postfix(UnitPartMagus __instance, ref bool __result, AbilityData spell) {
                 if (ModSettings.AddedContent.MagusArcana.IsDisabled("BroadStudy")) { return; }
                 __result |= spell.Caster?.Get<UnitPartBroadStudy>()?.IsBroadStudy(spell) ?? false;

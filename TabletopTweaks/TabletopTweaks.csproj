@@ -138,6 +138,7 @@
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
     <Compile Include="Bugfixes\Classes\Lich.cs" />
     <Compile Include="Bugfixes\Classes\Loremaster.cs" />
+    <Compile Include="Bugfixes\Classes\Magus.cs" />
     <Compile Include="Bugfixes\Classes\Monk.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />

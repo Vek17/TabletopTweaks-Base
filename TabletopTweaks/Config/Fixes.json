@@ -136,6 +136,16 @@
             }
         }
     },
+    "Magus": {
+        "DisableAll": false,
+        "Base": {
+            "DisableAll": false,
+            "Enabled": {
+                "SpellCombatAbilityVariants": true
+            }
+        },
+        "Archetypes": {}
+    },
     "Monk": {
         "DisableAll": false,
         "Base": {
