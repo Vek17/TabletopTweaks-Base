@@ -26,5 +26,10 @@ namespace TabletopTweaks.NewComponents
                 this.Priority = DRPriority.High;
             }
         }
+
+        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
+        {
+            return other is TTProtectionFromEnergy && base.IsSameDRTypeAs(other);
+        }
     }
 }

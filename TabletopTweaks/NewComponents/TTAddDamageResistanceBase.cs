@@ -50,10 +50,7 @@ namespace TabletopTweaks.NewComponents
 
         public DRPriority Priority = DRPriority.Normal;
 
-        public bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
-        {
-            return this.GetType() == other.GetType() && this.DRTypeFlags == other.DRTypeFlags;
-        }
+        public abstract bool IsSameDRTypeAs(TTAddDamageResistanceBase other);
 
         protected virtual int DRTypeFlags => 0;
 

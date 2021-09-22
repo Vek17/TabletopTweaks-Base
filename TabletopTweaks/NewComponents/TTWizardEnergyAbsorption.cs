@@ -34,6 +34,11 @@ namespace TabletopTweaks.NewComponents
 
         protected override int CalculateRemainingPool(TTAddDamageResistanceBase.ComponentRuntime runtime) => runtime.Owner.Resources.GetResourceAmount((BlueprintScriptableObject)this.Resource);
 
+        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
+        {
+            return other is TTWizardEnergyAbsorption otherWizardAbsorb && this.m_Resource == otherWizardAbsorb.m_Resource && base.IsSameDRTypeAs(other);
+        }
+
         protected override void AdditionalInitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance)
         {
             base.AdditionalInitFromVanillaDamageResistance(vanillaResistance);

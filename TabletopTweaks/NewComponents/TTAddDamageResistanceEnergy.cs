@@ -38,7 +38,10 @@ namespace TabletopTweaks.NewComponents
             return !(damage is EnergyDamage energyDamage) || energyDamage.EnergyType != this.Type || (Immunity && runtime.Owner.State.HasCondition(UnitCondition.SuppressedEnergyImmunity)) || (!Immunity && runtime.Owner.State.HasCondition(UnitCondition.SuppressedEnergyResistance));
         }
 
-        protected override int DRTypeFlags => (int)Type;
+        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
+        {
+            return other is TTAddDamageResistanceEnergy otherEnergyResist && this.Type == otherEnergyResist.Type;
+        }
 
         protected override void AdditionalInitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance)
         {

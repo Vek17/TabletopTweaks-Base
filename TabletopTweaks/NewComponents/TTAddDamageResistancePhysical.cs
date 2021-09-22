@@ -87,6 +87,27 @@ namespace TabletopTweaks.NewComponents
 
         private bool CheckBypassedByEpic(ItemEntityWeapon weapon) => weapon.IsEpic || weapon.Owner.HasFact((BlueprintFact)this.CheckedFactMythic);
 
+        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
+        {
+            return other is TTAddDamageResistancePhysical otherDR
+                && this.Or == otherDR.Or
+                && this.BypassedByMaterial == otherDR.BypassedByMaterial
+                && (!this.BypassedByMaterial || this.Material == otherDR.Material)
+                && this.BypassedByForm == otherDR.BypassedByForm
+                && (!this.BypassedByForm || this.Form == otherDR.Form)
+                && this.BypassedByMagic == otherDR.BypassedByMagic
+                && (!this.BypassedByMagic || this.MinEnhancementBonus == otherDR.MinEnhancementBonus)
+                && this.BypassedByAlignment == otherDR.BypassedByAlignment
+                && (!this.BypassedByAlignment || this.Alignment == otherDR.Alignment)
+                && this.BypassedByReality == otherDR.BypassedByReality
+                && (!this.BypassedByReality || this.Reality == otherDR.Reality)
+                && this.BypassedByWeaponType == otherDR.BypassedByWeaponType
+                && (!this.BypassedByWeaponType || this.m_WeaponType == otherDR.m_WeaponType)
+                && this.BypassedByMeleeWeapon == otherDR.BypassedByMeleeWeapon
+                && this.BypassedByEpic == otherDR.BypassedByEpic
+                && this.m_CheckedFactMythic == otherDR.m_CheckedFactMythic;
+        }
+
         public override void ApplyValidation(ValidationContext context)
         {
             base.ApplyValidation(context);

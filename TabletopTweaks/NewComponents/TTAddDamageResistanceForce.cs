@@ -36,6 +36,11 @@ namespace TabletopTweaks.NewComponents
             return !(damage is ForceDamage);
         }
 
+        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
+        {
+            return other is TTAddDamageResistanceForce otherForceResist && this.Type == otherForceResist.Type;
+        }
+
         protected override void AdditionalInitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance)
         {
             if (vanillaResistance is Kingmaker.UnitLogic.FactLogic.AddDamageResistanceForce vanillaForceResist)

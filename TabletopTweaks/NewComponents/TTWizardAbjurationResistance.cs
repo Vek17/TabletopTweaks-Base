@@ -27,6 +27,11 @@ namespace TabletopTweaks.NewComponents
 
         public BlueprintCharacterClass Wizard => this.m_Wizard?.Get();
 
+        public override bool IsSameDRTypeAs(TTAddDamageResistanceBase other)
+        {
+            return other is TTWizardAbjurationResistance otherWizardResist && this.m_Wizard == otherWizardResist.m_Wizard && base.IsSameDRTypeAs(other);
+        }
+
         protected override void AdditionalInitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance)
         {
             base.AdditionalInitFromVanillaDamageResistance(vanillaResistance);
