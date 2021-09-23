@@ -180,6 +180,7 @@
     <Compile Include="NewComponents\ArmorFeatureUnlock.cs" />
     <Compile Include="NewComponents\AttackStatReplacementEnforced.cs" />
     <Compile Include="NewComponents\BroadStudyComponent.cs" />
+    <Compile Include="NewComponents\BroadStudyMythicComponent.cs" />
     <Compile Include="NewComponents\BuffExtraEffectsRequirements.cs" />
     <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="NewComponents\MountedCombatFixed.cs" />
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
+    <Compile Include="NewComponents\PrerequisiteMythicSpellbook.cs" />
     <Compile Include="NewComponents\PrerequisiteStatBonus.cs" />
     <Compile Include="NewComponents\PrerequisiteStatValues.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
@@ -286,6 +288,7 @@
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
+    <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
     <Compile Include="NewContent\Races\Elf.cs" />
     <Compile Include="NewContent\Races\Dwarf.cs" />
     <Compile Include="NewContent\Races\Gnome.cs" />

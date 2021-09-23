@@ -1,3 +1,7 @@
+## Version 1.2.4
+* fixed issue with broken cantrips with spell combat
+* added mythic spell combat
+
 ## Version 1.2.3
 * spell combat now works with spells that have variants
 
