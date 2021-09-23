@@ -21,6 +21,11 @@ namespace TabletopTweaks {
             Enabled = value;
             return true;
         }
+
+        internal static void LogPatch(string v, object coupDeGraceAbility) {
+            throw new NotImplementedException();
+        }
+
         public static void Log(string msg) {
             ModSettings.ModEntry.Logger.Log(msg);
         }
