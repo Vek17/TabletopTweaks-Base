@@ -184,21 +184,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
         public static void SetArmorTrainingProgressionConfig(ContextRankConfig config)
         {
             config.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
-            config.m_CustomProperty = MakeArmorProgressionProperty().ToReference<BlueprintUnitPropertyReference>();
+            config.m_CustomProperty = Resources.GetModBlueprint<BlueprintUnitProperty>("ArmorTrainingProgressionProperty").ToReference<BlueprintUnitPropertyReference>();
         }
-
-        public static BlueprintUnitProperty MakeArmorProgressionProperty()
-        {
-            BlueprintUnitProperty armorprop = Helpers.CreateBlueprint<BlueprintUnitProperty>("ArmorTrainingProgressionProperty", x =>
-            {
-                x.AddComponent(Helpers.Create<PseudoProgressionRankGetter>(y =>
-                {
-                    y.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
-
-                }));
-            });
-            return armorprop;
-        }
+       
         public static void AddToAdvancedArmorTrainingSelection(params BlueprintFeature[] features) {
             var AdvancedArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection");
             var AdvancedArmorTraining1 = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedArmorTraining1");
@@ -219,6 +207,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
 
         static void ArmorTrainingProgression()
         {
+            BlueprintUnitProperty armorprop = Helpers.CreateBlueprint<BlueprintUnitProperty>("ArmorTrainingProgressionProperty", x =>
+            {
+                x.AddComponent(Helpers.Create<PseudoProgressionRankGetter>(y =>
+                {
+                    y.Key = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingFlag").ToReference<BlueprintFeatureReference>();
+
+                }));
+            });
             Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingFlag", bp =>
             {
                 bp.Ranks = 1;
