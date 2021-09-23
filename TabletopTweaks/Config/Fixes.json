@@ -9,6 +9,13 @@
     "FixShadowSpells": true,
     "MetamagicStacking": true,
     "SelectiveMetamagicNonInstantaneous": true,
+    "BaseFixes": {
+        "DisableAll": false,
+        "Enabled": {
+            "FeatSelections": true,
+            "CoupDeGrace": true
+        }
+    },
     "Aeon": {
         "DisableAll": false,
         "Enabled": {

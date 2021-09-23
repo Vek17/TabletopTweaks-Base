@@ -26,31 +26,23 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void OnEventDidTrigger(RuleSavingThrow evt) {
-            Main.LogDebug("IndomitableMount - Saving Throw Check");
             if (base.Fact?.Owner == null) {
-                Main.LogDebug("IndomitableMount - Owner == null");
                 return;
             }
             if (evt.Initiator != Owner.GetSaddledUnit()) {
-                Main.LogDebug("IndomitableMount - Target != Owner.GetSaddledUnit()");
                 return;
             }
             if (evt.IsPassed) {
-                Main.LogDebug($"IndomitableMount - evt.IsPassed - {evt.IsPassed}");
                 return;
             }
             if (Owner.HasFact(CooldownBuff)) {
-                Main.LogDebug($"IndomitableMount - hasFact - CooldownBuff");
                 return;
             }
-            Main.LogDebug("IndomitableMount - Triggered");
             int difficultyClass = evt.DifficultyClass;
             bool success = GameHelper.TriggerSkillCheck(new RuleSkillCheck(Owner, StatType.SkillMobility, difficultyClass), null, false).Success;
             GameHelper.ApplyBuff(Owner, CooldownBuff, new Rounds?(1.Rounds()));
             if (success) {
                 evt.IsAlternativePassed = new bool?(true);
-                Main.LogDebug("IndomitableMount - Result");
-                Main.LogDebug($"IsAlternativePassed: {evt.IsAlternativePassed}");
             }
         }
 
