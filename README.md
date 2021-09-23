@@ -34,6 +34,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Armor Master
         Armored Might
         Mounted Maniac
+        Mythic Spell Combat
     
     Adds the following arcanist exploits:
         Quick Study

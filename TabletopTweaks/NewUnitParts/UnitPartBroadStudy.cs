@@ -20,20 +20,40 @@ namespace TabletopTweaks.NewUnitParts {
             Classes.Add(item);
         }
 
+        public void AddMythicSource(EntityFact source) {
+            Mythic.Add(source);
+        }
+
         public void RemoveEntry(EntityFact source) {
             Classes.RemoveAll((BroadStudyEntry p) => p.Source == source);
+            TryRemove();
+        }
+
+        public void RemoveMythicSource(EntityFact source) {
+            Mythic.RemoveAll(s => s == source);
+            TryRemove();
+        }
+
+        private void TryRemove() {
+            if (!Mythic.Any() && !Classes.Any()) { this.RemoveSelf(); }
         }
 
         public bool IsBroadStudy(AbilityData spell) {
-            var Spellbook = spell?.Spellbook.Blueprint;
+            var Spellbook = spell?.Spellbook?.Blueprint;
+            if (Spellbook == null) { return false; }
             return Classes.Any(c => {
                 Spellbook book = Owner?.DemandSpellbook(c.CharacterClass);
-                return book?.Blueprint?.AssetGuid == Spellbook.AssetGuid || spell.IsInSpellList(book.Blueprint.SpellList);
+                return book?.Blueprint?.AssetGuid == Spellbook.AssetGuid
+                || spell.IsInSpellList(book.Blueprint.SpellList);
             });
         }
 
-        public List<BroadStudyEntry> Classes = new List<BroadStudyEntry>();
+        public bool IsMythicBroadStudy(AbilityData spell) {
+            return Mythic.Any() && (spell?.Spellbook?.IsMythic ?? false);
+        }
 
+        public List<EntityFact> Mythic = new List<EntityFact>();
+        public List<BroadStudyEntry> Classes = new List<BroadStudyEntry>();
         public class BroadStudyEntry {
             public BlueprintCharacterClassReference CharacterClass;
             public EntityFact Source;
@@ -44,6 +64,14 @@ namespace TabletopTweaks.NewUnitParts {
             static void Postfix(UnitPartMagus __instance, ref bool __result, AbilityData spell) {
                 if (ModSettings.AddedContent.MagusArcana.IsDisabled("BroadStudy")) { return; }
                 __result |= spell.Caster?.Get<UnitPartBroadStudy>()?.IsBroadStudy(spell) ?? false;
+            }
+        }
+
+        [HarmonyPatch(typeof(UnitPartMagus), "IsSpellFromMagusSpellList", new Type[] { typeof(AbilityData) })]
+        class UnitDescriptor_IsSpellFromMagusSpellList_MythicBroadStudy_Patch {
+            static void Postfix(UnitPartMagus __instance, ref bool __result, AbilityData spell) {
+                if (ModSettings.AddedContent.MythicAbilities.IsDisabled("MythicSpellCombat")) { return; }
+                __result |= spell.Caster?.Get<UnitPartBroadStudy>()?.IsMythicBroadStudy(spell) ?? false;
             }
         }
     }
