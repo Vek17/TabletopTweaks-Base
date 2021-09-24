@@ -32,7 +32,7 @@ namespace TabletopTweaks.Config {
                     try {
                         T userSettings = JsonConvert.DeserializeObject<T>(reader.ReadToEnd());
                         setting.OverrideSettings(userSettings);
-                    } catch (Exception e) {
+                    } catch {
                         Main.Error("Failed to load user settings. Settings will be rebuilt.");
                         try { File.Copy(userPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_{fileName}", true); } catch { Main.Error("Failed to archive broken settings."); }
                     }
