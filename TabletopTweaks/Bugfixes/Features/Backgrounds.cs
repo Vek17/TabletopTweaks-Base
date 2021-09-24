@@ -26,7 +26,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (!ModSettings.Fixes.FixBackgroundModifiers) { return; }
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("FixBackgroundModifiers")) { return; }
                 Main.LogHeader("Patching Backgrounds");
                 PatchBackgrounds();
 
@@ -68,7 +68,7 @@ namespace TabletopTweaks.Bugfixes.Features {
             });
             //Change bonus descriptor to Trait instead of Competence
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if (!ModSettings.Fixes.FixBackgroundModifiers) { return instructions; }
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("FixBackgroundModifiers")) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
                 //Utilities.ILUtils.LogIL(codes);
@@ -83,7 +83,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                         return i - 1;
                     }
                 }
-                Main.Error("BACKGROUND PATCH: COULD NOT FIND TARGET");
+                Main.Log("BACKGROUND PATCH: COULD NOT FIND TARGET");
                 return -1;
             }
         }

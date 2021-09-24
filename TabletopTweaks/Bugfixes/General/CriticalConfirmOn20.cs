@@ -41,7 +41,7 @@ namespace TabletopTweaks.Bugfixes.General {
                         break;
                     }
                 }
-                Main.Error("CRITICAL CONFIRM PATCH: COULD NOT FIND TARGET");
+                Main.Log("CRITICAL CONFIRM PATCH: COULD NOT FIND TARGET");
                 return -1;
             }
         }

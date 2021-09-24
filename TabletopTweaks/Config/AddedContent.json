@@ -1,8 +1,10 @@
 {
+    "NewSettingsOffByDefault": false,
     "BaseAbilities": {
         "DisableAll": false,
         "Enabled": {
-            "OneHandedToggle": true
+            "OneHandedToggle": true,
+            "DummyToggle": true
         }
     },
     "Bloodlines": {
