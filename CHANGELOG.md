@@ -1,4 +1,4 @@
-## Version 1.2.5
+## Version 1.3.0
 * mythic spell combat now works with UMD3s spellbook
 * fixed feat selections missing relevent feats
 * fix coup de grace DC scaling (HUGE thanks to @Perunq)
