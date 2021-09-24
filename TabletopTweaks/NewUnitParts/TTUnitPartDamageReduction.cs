@@ -2,6 +2,7 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
@@ -14,6 +15,7 @@ using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +36,8 @@ namespace TabletopTweaks.NewUnitParts
         private readonly List<EntityFact> m_SourceFacts = new List<EntityFact>();
         private bool m_Initialized;
         private readonly List<TTUnitPartDamageReduction.Chunk> m_Chunks = new List<TTUnitPartDamageReduction.Chunk>();
+        private ChunkStack[] m_ChunkStacks;
+        private List<ReductionDisplay> m_ReductionDisplays = new List<ReductionDisplay>();
         private readonly List<TTUnitPartDamageReduction.Immunity> m_Immunities = new List<TTUnitPartDamageReduction.Immunity>();
 
         public void AddPenaltyEntry(int penalty, EntityFact source) => this.PenaltyEntries.Add(new TTUnitPartDamageReduction.ReductionPenalty()
@@ -60,12 +64,12 @@ namespace TabletopTweaks.NewUnitParts
             return num;
         }
 
-        public IEnumerable<TTAddDamageResistanceBase.ComponentRuntime> AllSources
+        public IEnumerable<ReductionDisplay> AllSources
         {
             get
             {
                 this.TryInitialize();
-                return this.m_Chunks.Select<TTUnitPartDamageReduction.Chunk, TTAddDamageResistanceBase.ComponentRuntime>((Func<TTUnitPartDamageReduction.Chunk, TTAddDamageResistanceBase.ComponentRuntime>)(c => c.DR));
+                return this.m_ReductionDisplays;
             }
         }
 
@@ -91,20 +95,26 @@ namespace TabletopTweaks.NewUnitParts
 
         public void Add(EntityFact fact)
         {
+            Main.LogDebug("TTUnitPartDamageReduction.Add(" + fact.Blueprint.name + ":" + fact.Blueprint.AssetGuid.ToString() + ")");
             this.TryInitialize();
+            Main.LogDebug("TTUnitPartDamageReduction.Add: fact is " + (!this.m_SourceFacts.HasItem<EntityFact>(fact) ? "not " : "") + "present");
             if (this.m_SourceFacts.HasItem<EntityFact>(fact))
                 return;
             this.m_SourceFacts.Add(fact);
+            Main.LogDebug("TTUnitPartDamageReduction.Add: adding componentruntimes of fact <" + fact.Blueprint.name + ":" + fact.Blueprint.AssetGuid.ToString() + "> to chunks"); 
             foreach (BlueprintComponentAndRuntime<TTAddDamageResistanceBase> componentAndRuntime in fact.SelectComponentsWithRuntime<TTAddDamageResistanceBase>())
             {
                 this.m_Chunks.Add(new TTUnitPartDamageReduction.Chunk(fact, (TTAddDamageResistanceBase.ComponentRuntime)componentAndRuntime.Runtime));
             }
+            Main.LogDebug("TTUnitPartDamageReduction.Add: recalculating chunk stacks...");
+            this.RecalculateChunkStacks();
         }
 
         public void Remove(EntityFact fact)
         {
             this.m_SourceFacts.Remove(fact);
             this.m_Chunks.RemoveAll((Predicate<TTUnitPartDamageReduction.Chunk>)(c => c.Source == fact));
+            this.RecalculateChunkStacks();
             this.RemovePartIfNecessary();
         }
 
@@ -127,8 +137,6 @@ namespace TabletopTweaks.NewUnitParts
             this.TryInitialize();
             UnitPartClusteredAttack partClusteredAttack = evt.Initiator.Get<UnitPartClusteredAttack>();
             UnitPartClusteredAttack clusteredAttack = partClusteredAttack == null || !partClusteredAttack.IsSuitableForEvent((RulebookTargetEvent)evt) ? (UnitPartClusteredAttack)null : partClusteredAttack;
-            // Calculate all possible stacking configurations of resistances. If nothing can stack, then the resulting array will be isomorphic with m_chunks.
-            ChunkStack[] chunkStacks = CreateDRStackingGroups();
             foreach (DamageValue damage in evt.CalculatedDamage)
             {
                 if (damage.FinalValue >= 1)
@@ -137,9 +145,9 @@ namespace TabletopTweaks.NewUnitParts
                     // priority ones, and then the best of the low priority ones.
                     // This is used for "spill-over" immunities and resistances. By default, only Protection From Energy has a High priority and only the Abjuration
                     // school's Energy Absorption feature has a Low priority. Everything else should have a Normal priority.
-                    ChunkStack bestDRHigh = FindBestDRWithPriority(chunkStacks, damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.High);
-                    ChunkStack bestDRNormal = FindBestDRWithPriority(chunkStacks, damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Normal);
-                    ChunkStack bestDRLow = FindBestDRWithPriority(chunkStacks, damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Low);
+                    ChunkStack bestDRHigh = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.High);
+                    ChunkStack bestDRNormal = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Normal);
+                    ChunkStack bestDRLow = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Low);
                     this.ApplyReduction(damage, evt.DamageBundle.Weapon, clusteredAttack, bestDRHigh, bestDRNormal, bestDRLow);
                 }
             }
@@ -147,18 +155,16 @@ namespace TabletopTweaks.NewUnitParts
         }
 
         private ChunkStack FindBestDRWithPriority(
-            ChunkStack[] chunkStacks, 
             DamageValue damage,
             ItemEntityWeapon damageEventWeapon,
             TTAddDamageResistanceBase.DRPriority priority)
         {
             ChunkStack bestDR = null;
-            foreach (ChunkStack chunkStack in chunkStacks.Where(cs => cs.Priority == priority))
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => cs.Priority == priority))
             {
                 // CalculateReduction still returns the remainig pool size in the case of e.g. Protection From Energy. However, the "best" DR is now calculated
                 // such that full immunity is always considered better than pool-based immunity, which is always considered better than "normal" resistance.
                 // If there are no valid (pool-based) immunities, then Reduction is used to determine best resistance (as it is in vanilla)
-                chunkStack.CalculateReduction(damage, damageEventWeapon);
                 if (
                     (bestDR == null && (chunkStack.IsImmunity || chunkStack.IsImmunityPool || chunkStack.Reduction > 0))
                     || (bestDR != null && (!bestDR.IsImmunity && chunkStack.IsImmunity))
@@ -213,7 +219,7 @@ namespace TabletopTweaks.NewUnitParts
             // Bugfix: in the base game, penalties to DR would apply to all resistances. This *probably* caused things like the Aeon's Enforcing Gaze DR option
             // to also lower enemies' energy resistances, which was not the intent. It has been fixed to apply under the same conditions as clustered shots, 
             // i.e. only to DR.
-            if (!DR.IsImmunity && !DR.IsImmunityPool && DR.BaseChunk.DR.Settings is TTAddDamageResistancePhysical)
+            if (!DR.IsImmunity && !DR.IsImmunityPool && DR.ReferenceChunk.DR.Settings is TTAddDamageResistancePhysical)
             {
                 reductionWithPenalties -= clusteredAttackPenalty + this.CalculatePenalty();
             }
@@ -255,56 +261,139 @@ namespace TabletopTweaks.NewUnitParts
             TTUnitPartDamageReduction.ChunksForRemove.Clear();
         }
 
-        /// <summary>
-        /// Creates the possible stacking DR configurations. It first creates a ChunkStack for every Chunk in m_Chunks, with those Chunk's as the ChunkStacks'
-        /// BaseChunk
-        /// It then loops over all the Chunks in m_Chunks again, and adds them to any of the ChunkStacks' StackingChunks set on the basis of the BaseChunk's 
-        /// StacksWithX properties, and the looped over Chunk's SourceIsX properties.
-        /// </summary>
-        /// <returns></returns>
-        private ChunkStack[] CreateDRStackingGroups()
+        private void RecalculateChunkStacks()
         {
-            ChunkStack[] result = m_Chunks.Select(c => new ChunkStack(c)).ToArray();
-            BlueprintUnitFactReference[] unitFactsThatCanStack = result.Where(cs => cs.IsStacksWithUnitFacts).SelectMany(cs => cs.StacksWithFacts).ToArray();
-            // Immunities, whether pool-based or not, never stacks. It would lead to very confusing results and I am not aware of any rule that does this anyway.
-            foreach (Chunk chunk in m_Chunks.Where(c => !c.IsImmunity && !c.IsImmunityPool))
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Begin");
+            //var watch = new System.Diagnostics.Stopwatch();
+            //watch.Start();
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: build chunk stack array from chunks");
+            m_ChunkStacks = m_Chunks.Select((c, i) => new ChunkStack(m_Chunks, i)).ToArray();
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: # chunk stacks: " + m_ChunkStacks.Length.ToString());
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: build list of facts present in chunks");
+            BlueprintUnitFactReference[] factsPresentInChunks = m_Chunks.Select(c => c.DR.Fact.Blueprint.ToReference<BlueprintUnitFactReference>()).ToArray();
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: # of facts present in chunks: " + factsPresentInChunks.Length.ToString());
+
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Starting increases pass..");
+            // Increases pass
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
             {
-                if (chunk.DR.Settings.AddToAllStacks)
+                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Processing possible increases for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());
+                if (chunkStack.IsIncreasedByArmor)
                 {
-                    result
-                        .Where(cs => !cs.IsImmunity && !cs.IsImmunityPool && cs.BaseChunk != chunk && chunk.DR.Settings.IsSameDRTypeAs(cs.BaseChunk.DR.Settings))
-                        .ForEach(cs => cs.StackingChunks.Add(chunk));
-                    // We don't need to check for armor, class features or specific facts if a chunk of resistance was already added to all eligible stacks
-                    continue;
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsArmor)
+                        .ForEach(other => chunkStack.AddAsIncrease(other));
                 }
 
-                if (chunk.DR.Settings.SourceIsArmor)
+                if (chunkStack.IsIncreasedByClassFeatures)
                 {
-                    result
-                        .Where(cs => !cs.IsImmunity && !cs.IsImmunityPool && cs.IsStacksWithArmor && cs.BaseChunk != chunk && chunk.DR.Settings.IsSameDRTypeAs(cs.BaseChunk.DR.Settings))
-                        .ForEach(cs => cs.StackingChunks.Add(chunk));
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsClassFeature)
+                        .ForEach(other => chunkStack.AddAsIncrease(other));
                 }
 
-                if (chunk.DR.Settings.SourceIsClassFeature)
+                if (chunkStack.IsIncreasedByFacts && factsPresentInChunks.Intersect(chunkStack.IncreasedByFacts).Any())
                 {
-                    result
-                        .Where(cs => !cs.IsImmunity && !cs.IsImmunityPool && cs.IsStacksWithClassFeatures && cs.BaseChunk != chunk && chunk.DR.Settings.IsSameDRTypeAs(cs.BaseChunk.DR.Settings))
-                        .ForEach(cs => cs.StackingChunks.Add(chunk));
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.IncreasedByFacts.Contains(other.ReferenceFact))
+                        .ForEach(other => chunkStack.AddAsIncrease(other));
                 }
 
-                BlueprintUnitFactReference sourceFactReference = chunk.DR.Fact.Blueprint.ToReference<BlueprintUnitFactReference>();
-                if (unitFactsThatCanStack.Contains(sourceFactReference))
+                if (chunkStack.IsIncreasesFacts && factsPresentInChunks.Intersect(chunkStack.IncreasesFacts).Any())
                 {
-                    result
-                        .Where(cs => !cs.IsImmunity && !cs.IsImmunityPool && cs.IsStacksWithUnitFacts && cs.BaseChunk != chunk && cs.BaseChunk.DR.Settings.StacksWithFacts.Contains(sourceFactReference) && chunk.DR.Settings.IsSameDRTypeAs(cs.BaseChunk.DR.Settings))
-                        .ForEach(cs => cs.StackingChunks.Add(chunk));
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.IncreasesFacts.Contains(other.ReferenceFact))
+                        .ForEach(other => other.AddAsIncrease(chunkStack));
+                }
+                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Done Processing possible increases for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());
+            }
+
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Starting stacking pass...");
+            // Stacking pass
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
+            {
+                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Processing possible stacking for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());
+                if (chunkStack.IsStacksWithArmor)
+                {
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsArmor)
+                        .ForEach(other => chunkStack.AddToStack(other));
+                }
+
+                if (chunkStack.IsStacksWithClassFeatures)
+                {
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsClassFeature)
+                        .ForEach(other => chunkStack.AddToStack(other));
+                }
+
+                if (chunkStack.IsStacksWithUnitFacts && factsPresentInChunks.Intersect(chunkStack.StacksWithFacts).Any())
+                {
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.StacksWithFacts.Contains(other.ReferenceFact))
+                        .ForEach(other => chunkStack.AddToStack(other));
+                }
+                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Done processing possible stacking for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());            
+            }
+
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Starting display pass...");
+            // Populate sources display list
+            List<ChunkStack> chunkStacksForDisplay = new List<ChunkStack>();
+            for (int i = 0; i < m_ChunkStacks.Length; i++)
+            {
+                ChunkStack chunkStack = m_ChunkStacks[i];
+                if (!chunkStacksForDisplay.Contains(cd => 
+                    cd.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
+                    && cd.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority))
+                {
+                    chunkStacksForDisplay.Add(
+                        m_ChunkStacks
+                            .Where(cs => cs.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
+                                && cs.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)
+                            .MaxBy(cs => cs.Reduction));
                 }
             }
-            return result;
+
+            m_ReductionDisplays = chunkStacksForDisplay.Select(cs => new ReductionDisplay(cs.ReferenceChunk.DR, cs.Reduction)).ToList();
+            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: done with display pass. # of reduction displays = " + m_ReductionDisplays.Count.ToString());
+            //watch.Stop();
+            DebugLogChunkStacks();
+            DebugLogReductionDisplays();
+            //Main.LogDebug($"Calculated DR stacking groups in {watch.ElapsedMilliseconds} ms");
+        }
+
+        private void DebugLogChunkStacks()
+        {
+            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks");
+            StringBuilder builder = new StringBuilder("ChunkStacks: \n");
+            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: created string builder");
+            int indent = 1;
+            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: indent is 1");
+            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: #m_ChunkStacks = " + m_ChunkStacks.Length.ToString());
+            for (int i = 0; i < m_ChunkStacks.Length; i++)
+            {
+                Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: append debug log chunkstack # " + i.ToString());
+                builder.Append(m_ChunkStacks[i].ToDebugString(indent));
+            }
+            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: logging builder.ToString() ");
+            Main.LogDebug(builder.ToString());
+        }
+
+        private void DebugLogReductionDisplays()
+        {
+            Main.LogDebug("TTUnitPartDamageReduction.DebugLogReductionDisplays");
+            StringBuilder builder = new StringBuilder("Reduction Display Values: \n");
+            int indent = 1;
+            foreach (ReductionDisplay rd in m_ReductionDisplays)
+            {
+                builder.Append(new string(' ', indent * 2) + "- " + rd.ToDebugString() + "\n");
+            }
+            Main.LogDebug(builder.ToString());
         }
 
         public void TryInitialize()
         {
+            Main.LogDebug("TTUnitPartDamageReduction.TryInitialize: m_Initialized = " + this.m_Initialized.ToString());
             if (this.m_Initialized)
                 return;
             this.m_Initialized = true;
@@ -313,6 +402,8 @@ namespace TabletopTweaks.NewUnitParts
                 foreach (BlueprintComponentAndRuntime<TTAddDamageResistanceBase> componentAndRuntime in sourceFact.SelectComponentsWithRuntime<TTAddDamageResistanceBase>())
                     this.m_Chunks.Add(new TTUnitPartDamageReduction.Chunk(sourceFact, (TTAddDamageResistanceBase.ComponentRuntime)componentAndRuntime.Runtime));
             }
+            Main.LogDebug("TTUnitPartDamageReduction.TryInitialize: recalculating chunk stacks...");
+            this.RecalculateChunkStacks();
         }
 
         public override void OnPreSave()
@@ -346,6 +437,77 @@ namespace TabletopTweaks.NewUnitParts
             return true;
         }
 
+        public class ReductionDisplay
+        {
+            public ReductionDisplay(TTAddDamageResistanceBase.ComponentRuntime referenceRuntime, int totalReduction)
+            {
+                ReferenceRuntime = referenceRuntime;
+                TotalReduction = totalReduction;
+            }
+
+            public TTAddDamageResistanceBase.ComponentRuntime ReferenceRuntime { get; }
+            public int TotalReduction { get; }
+
+            public string ToDebugString()
+            {
+                string result = "";
+                LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
+                if (this.ReferenceRuntime.Settings is TTAddDamageResistancePhysical settings1)
+                {
+                    List<string> exceptions = new List<string>();
+                    int value = this.TotalReduction;
+                    if (settings1.BypassedByAlignment)
+                        exceptions.Add(ls.DamageAlignment.GetTextFlags(settings1.Alignment));
+                    if (settings1.BypassedByForm)
+                        exceptions.AddRange(settings1.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
+                    if (settings1.BypassedByMagic)
+                        exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
+                    if (settings1.BypassedByMaterial)
+                        exceptions.Add(ls.DamageMaterial.GetTextFlags(settings1.Material));
+                    if (settings1.BypassedByReality)
+                        exceptions.Add(ls.DamageReality.GetText(settings1.Reality));
+                    if (settings1.BypassedByMeleeWeapon)
+                        exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
+                    if (settings1.BypassedByWeaponType)
+                        exceptions.Add((string)settings1.WeaponType.TypeName);
+                    if (exceptions.Count == 0)
+                        exceptions.Add("-");
+
+                    if (settings1.Or)
+                    {
+                        result = "DR " + value.ToString() + "/" + string.Join(" or ", exceptions);
+                    }
+                    else
+                    {
+                        result = "DR " + value.ToString() + "/" + string.Join(" and ", exceptions);
+                    }
+                }
+                else if (this.ReferenceRuntime.Settings is TTProtectionFromEnergy settings2)
+                {
+                    result = "protection from " + ls.DamageEnergy.GetText(settings2.Type) + " (" + this.ReferenceRuntime.RemainPool + ")";
+                }
+                else if (this.ReferenceRuntime.Settings is TTWizardAbjurationResistance settings3)
+                {
+                    result = "resist " + ls.DamageEnergy.GetText(settings3.Type) + " " + this.TotalReduction + " (abjuration)";
+                }
+                else if (this.ReferenceRuntime.Settings is TTWizardEnergyAbsorption settings4)
+                {
+                    result = "(abjuration) " + ls.DamageEnergy.GetText(settings4.Type) + " absorption (" + this.ReferenceRuntime.RemainPool + ")";
+                }
+                else if (this.ReferenceRuntime.Settings is TTAddDamageResistanceEnergy settings5)
+                {
+                    result = "resist " + ls.DamageEnergy.GetText(settings5.Type) + " " + this.TotalReduction;
+                }
+                else if (this.ReferenceRuntime.Settings is TTAddDamageResistanceForce settings6)
+                {
+                    result = "resist force " + this.TotalReduction;
+                }
+
+                result += " <" + this.ReferenceRuntime.Fact.Blueprint.name + ":" + this.ReferenceRuntime.Fact.Blueprint.AssetGuid.ToString() + "> ";
+                return result;
+            }
+        }
+
         private class Chunk
         {
             [CanBeNull]
@@ -376,6 +538,65 @@ namespace TabletopTweaks.NewUnitParts
             }
 
             public bool Bypassed(BaseDamage damage, ItemEntityWeapon weapon) => this.DR.Bypassed(damage, weapon);
+
+            public string ToDebugString()
+            {
+                string result = "";
+                LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
+                if (this.DR.Settings is TTAddDamageResistancePhysical settings1)
+                {
+                    List<string> exceptions = new List<string>();
+                    int value = this.Reduction;
+                    if (settings1.BypassedByAlignment)
+                        exceptions.Add(ls.DamageAlignment.GetTextFlags(settings1.Alignment));
+                    if (settings1.BypassedByForm)
+                        exceptions.AddRange(settings1.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
+                    if (settings1.BypassedByMagic)
+                        exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
+                    if (settings1.BypassedByMaterial)
+                        exceptions.Add(ls.DamageMaterial.GetTextFlags(settings1.Material));
+                    if (settings1.BypassedByReality)
+                        exceptions.Add(ls.DamageReality.GetText(settings1.Reality));
+                    if (settings1.BypassedByMeleeWeapon)
+                        exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
+                    if (settings1.BypassedByWeaponType)
+                        exceptions.Add((string)settings1.WeaponType.TypeName);
+                    if (exceptions.Count == 0)
+                        exceptions.Add("-");
+                    
+                    if (settings1.Or)
+                    {
+                        result = "DR " + value.ToString() + "/" + string.Join(" or ", exceptions);
+                    }
+                    else
+                    {
+                        result = "DR " + value.ToString() + "/" + string.Join(" and ", exceptions);
+                    }
+                }
+                else if (this.DR.Settings is TTProtectionFromEnergy settings2)
+                {
+                    result = "protection from " + ls.DamageEnergy.GetText(settings2.Type) + " (" + this.DR.RemainPool + ")";
+                }
+                else if (this.DR.Settings is TTWizardAbjurationResistance settings3)
+                {
+                    result = "resist " + ls.DamageEnergy.GetText(settings3.Type) + " " + this.Reduction + " (abjuration)";
+                }
+                else if (this.DR.Settings is TTWizardEnergyAbsorption settings4)
+                {
+                    result = "(abjuration) " + ls.DamageEnergy.GetText(settings4.Type) + " absorption (" + this.DR.RemainPool + ")"; 
+                }
+                else if (this.DR.Settings is TTAddDamageResistanceEnergy settings5)
+                {
+                    result = "resist " + ls.DamageEnergy.GetText(settings5.Type) + " " + this.Reduction;
+                }
+                else if (this.DR.Settings is TTAddDamageResistanceForce settings6)
+                {
+                    result = "resist force " + this.Reduction;
+                }
+
+                result += " <" + this.Source.Blueprint.name + ":" + this.Source.Blueprint.AssetGuid.ToString() + "> ";
+                return result;
+            }
         }
 
         /// <summary>
@@ -383,92 +604,285 @@ namespace TabletopTweaks.NewUnitParts
         /// </summary>
         private class ChunkStack
         {
-            public ChunkStack(Chunk baseChunk)
+
+            public ChunkStack(List<Chunk> chunks, int indexOfReferenceChunk)
             {
-                BaseChunk = baseChunk;
-                IsStacksWithArmor = baseChunk.DR.Settings.StacksWithArmor;
-                IsStacksWithClassFeatures = baseChunk.DR.Settings.StacksWithClassFeatures;
-                IsStacksWithUnitFacts = baseChunk.DR.Settings.StacksWithFacts != null && baseChunk.DR.Settings.StacksWithFacts.Length > 0;
+                m_chunkListReference = chunks;
+                m_baseChunkIndices = new BitArray(chunks.Count);
+                m_baseChunkIndices[indexOfReferenceChunk] = true;
+                m_stackingChunkIndices = new BitArray(chunks.Count);
+                m_referenceChunkIndex = indexOfReferenceChunk;
+                ReferenceChunk = chunks[m_referenceChunkIndex];
+                ReferenceFact = ReferenceChunk.DR.Fact.Blueprint.ToReference<BlueprintUnitFactReference>();
             }
 
-            public Chunk BaseChunk { get; set; }
+            private readonly List<Chunk> m_chunkListReference;
+            private BitArray m_baseChunkIndices;
+            private BitArray m_stackingChunkIndices;
 
-            public bool IsStacksWithArmor = false;
-            public bool IsStacksWithClassFeatures = false;
-            public bool IsStacksWithUnitFacts = false;
+            private readonly int m_referenceChunkIndex;
+            public Chunk ReferenceChunk { get; }
+            public BlueprintUnitFactReference ReferenceFact { get; }
+            public bool IsCompatibleWith(ChunkStack other)
+            {
+                return !this.IsImmunity && !other.IsImmunity
+                    && !this.IsImmunityPool && !other.IsImmunityPool
+                    && this.ReferenceChunk != other.ReferenceChunk
+                    && this.ReferenceChunk.DR.Settings.IsSameDRTypeAs(other.ReferenceChunk.DR.Settings)
+                    && this.ReferenceChunk.DR.Settings.Priority == other.ReferenceChunk.DR.Settings.Priority;
+            }
 
-            public BlueprintUnitFactReference[] StacksWithFacts => BaseChunk.DR.Settings.StacksWithFacts;
+            public bool IsCompatibleWith(Chunk chunk)
+            {
+                return !this.IsImmunity && !chunk.IsImmunity
+                    && !this.IsImmunityPool && !chunk.IsImmunityPool
+                    && this.ReferenceChunk != chunk
+                    && this.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunk.DR.Settings)
+                    && this.ReferenceChunk.DR.Settings.Priority == chunk.DR.Settings.Priority;
+            }
+
+            public bool SourceIsArmor => ReferenceChunk.DR.Settings.SourceIsArmor;
+
+            public bool SourceIsClassFeature => ReferenceChunk.DR.Settings.SourceIsClassFeature;
+
+            public void AddAsIncrease(ChunkStack other)
+            {
+                m_baseChunkIndices.Or(other.m_baseChunkIndices);
+                other.m_baseChunkIndices.Or(m_baseChunkIndices);
+            }
+
+            public void AddToStack(ChunkStack other)
+            {
+                // Don't add a chunk as stacking if it is already included in the "base" increases package.
+                if (m_baseChunkIndices[other.m_referenceChunkIndex]) { return; }
+                m_stackingChunkIndices[other.m_referenceChunkIndex] = true;
+            }
+
+            public bool IsStacksWithArmor
+            {
+                get
+                {
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsStacksWithArmor)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+            public bool IsStacksWithClassFeatures
+            {
+                get
+                {
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsStacksWithClassFeatures)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+            public bool IsStacksWithUnitFacts
+            {
+                get
+                {
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i]
+                            && m_chunkListReference[i].DR.Settings.StacksWithFacts != null
+                            && m_chunkListReference[i].DR.Settings.StacksWithFacts.Length > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+
+            public IEnumerable<BlueprintUnitFactReference> StacksWithFacts =>
+                m_chunkListReference.Where((c, i) => m_baseChunkIndices[i]).SelectMany(c => c.DR.Settings.StacksWithFacts.EmptyIfNull());
+
+
+            public bool IsIncreasedByArmor
+            {
+                get
+                {
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsIncreasedByArmor)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+
+            public bool IsIncreasedByClassFeatures
+            {
+                get
+                {
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsIncreasedByClassFeatures)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+
+            public bool IsIncreasesFacts
+            {
+                get
+                {
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsIncreasesFacts)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+
+            public IEnumerable<BlueprintUnitFactReference> IncreasesFacts =>
+                m_chunkListReference.Where((c, i) => m_baseChunkIndices[i]).SelectMany(c => c.DR.Settings.IncreasesFacts.EmptyIfNull());
+
+
+            public bool IsIncreasedByFacts
+            {
+                get
+                {
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsIncreasedByFacts)
+                        {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            }
+            public IEnumerable<BlueprintUnitFactReference> IncreasedByFacts =>
+                m_chunkListReference.Where((c, i) => m_baseChunkIndices[i]).SelectMany(c => c.DR.Settings.IncreasedByFacts.EmptyIfNull());
+
+
 
             public HashSet<Chunk> StackingChunks { get; set; } = new HashSet<Chunk>();
 
             // The applied reduction of the stack is the sum of all the chunks' applied reduction in this stack.
-            public int AppliedReduction => BaseChunk.AppliedReduction + StackingChunks.Sum(c => c.AppliedReduction);
+            public int AppliedReduction
+            {
+                get
+                {
+                    int sumReduction = 0;
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] || m_stackingChunkIndices[i])
+                        {
+                            sumReduction += m_chunkListReference[i].AppliedReduction;
+                        }
+                    }
+                    return sumReduction;
+                }
+            }
 
-            // This applies a reduction to all the chunks in this stack (starting with the BaseChunk), and spends points from
-            // the pool if necessary. 
+            // This applies a reduction to all the chunks in this stack, and spends points from the pool if necessary. 
             public void ApplyReduction(int reduction, BaseDamage damageSource, [CanBeNull] ItemEntityWeapon damageEventWeapon)
             {
                 int remaining = reduction;
-                if (BaseChunk.RemainReduction > 0 && !BaseChunk.Bypassed(damageSource, damageEventWeapon))
+
+                if (!ReferenceChunk.Bypassed(damageSource, damageEventWeapon))
                 {
-                    // Note that RemainReduction will return the remaining size of the pool in the case of pool-based immunities.
-                    int reduceBy = Math.Min(remaining, BaseChunk.RemainReduction);
-                    BaseChunk.DR.SpendPool(reduceBy);
-                    BaseChunk.AppliedReduction += reduceBy;
-                    remaining -= reduceBy;
-                }
-                if (remaining > 0)
-                {
-                    foreach (Chunk chunk in StackingChunks.Where(c => !c.Bypassed(damageSource, damageEventWeapon)))
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
                     {
-                        int reduceBy = Math.Min(remaining, chunk.RemainReduction);
-                        // This is technically not needed, since pool-based immunities can never stack, but it causes no harm (this is a no-op if DR.UsePool is false)
-                        // so I'm leaving it for consistency.
-                        chunk.DR.SpendPool(reduceBy);
-                        chunk.AppliedReduction += reduceBy;
-                        remaining -= reduceBy;
-                        if (remaining <= 0) break;
+                        if (m_baseChunkIndices[i] || m_stackingChunkIndices[i])
+                        {
+                            Chunk chunk = m_chunkListReference[i];
+                            int reduceBy = Math.Min(remaining, chunk.RemainReduction);
+                            chunk.DR.SpendPool(reduceBy);
+                            chunk.AppliedReduction += reduceBy;
+                            remaining -= reduceBy;
+                            if (remaining <= 0) break;
+                        }
                     }
                 }
             }
 
-            public int Reduction { get; set; } = 0;
+            private int m_cachedReduction = -1;
+            public int Reduction
+            {
+                get
+                {
+                    if (m_cachedReduction >= 0)
+                    {
+                        return m_cachedReduction;
+                    }
 
-            public bool IsImmunity { get; set; } = false;
+                    int reduction = 0;
+                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
+                    {
+                        if (m_baseChunkIndices[i] || m_stackingChunkIndices[i])
+                        {
+                            reduction += m_chunkListReference[i].Reduction;
+                        }
+                    }
+                    m_cachedReduction = reduction;
+                    return reduction;
+                }
+            }
 
-            public bool IsImmunityPool { get; set; } = false;
+            public bool IsImmunity => ReferenceChunk.IsImmunity;
 
-            public TTAddDamageResistanceBase.DRPriority Priority => BaseChunk.Priority;
+            public bool IsImmunityPool => ReferenceChunk.IsImmunityPool;
+
+            public TTAddDamageResistanceBase.DRPriority Priority => ReferenceChunk.Priority;
 
             public int RemainReduction => Reduction - AppliedReduction;
 
-            // This calculates the total reduction for this stack based on the reduction values of the individual components.
-            // It also sets whether or not this "stack" is a (pool-based) immunity.
-            public int CalculateReduction(
-                DamageValue damage, 
-                [CanBeNull] ItemEntityWeapon damageEventWeapon)
+            public string ToDebugString(int indent)
             {
-                if (BaseChunk.Bypassed(damage.Source, damageEventWeapon))
+                StringBuilder builder = new StringBuilder();
+                int ind = indent;
+                builder.Append(new string(' ', ind * 2) + "ChunkStack: \n");
+                ind++;
+                builder.Append(new string(' ', ind * 2) + "- Reference Chunk: ");
+                builder.Append(this.ReferenceChunk.ToDebugString());
+                builder.Append("\n");
+                builder.Append(new string(' ', ind * 2) + "- Base Chunks: \n");
+                builder.Append(new string(' ', ind * 2) + "[\n");
+                ind++;
+                for (int i = 0; i < m_baseChunkIndices.Length; i++)
                 {
-                    Reduction = 0;
-                    return 0;
-                }
-
-                IsImmunity = BaseChunk.IsImmunity;
-                IsImmunityPool = BaseChunk.IsImmunityPool;
-
-                int reduction = BaseChunk.Reduction;
-                foreach (Chunk chunk in StackingChunks)
-                {
-                    if (!chunk.Bypassed(damage.Source, damageEventWeapon))
+                    if (m_baseChunkIndices[i])
                     {
-                        reduction += chunk.Reduction;
+                        builder.Append(new string(' ', ind * 2) + "- " + m_chunkListReference[i].ToDebugString() + "\n");
                     }
                 }
-
-                Reduction = reduction;
-                return reduction;
+                ind--;
+                builder.Append(new string(' ', ind * 2) + "]\n");
+                builder.Append(new string(' ', ind * 2) + "- Stack Chunks: \n");
+                builder.Append(new string(' ', ind * 2) + "[\n");
+                ind++;
+                for (int i = 0; i < m_stackingChunkIndices.Length; i++)
+                {
+                    if (m_stackingChunkIndices[i])
+                    {
+                        builder.Append(new string(' ', ind * 2) + "- " + m_chunkListReference[i].ToDebugString() + "\n");
+                    }
+                }
+                ind--;
+                builder.Append(new string(' ', ind * 2) + "]\n");
+                return builder.ToString();
             }
+        
         }
 
         public class ReductionPenalty

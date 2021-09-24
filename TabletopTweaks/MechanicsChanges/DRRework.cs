@@ -139,51 +139,34 @@ namespace TabletopTweaks.MechanicsChanges
             {
                 if (!ModSettings.Fixes.DRRework) { return; }
                 List<CharInfoDamageReductionEntryVM> reductionEntryVmList = new List<CharInfoDamageReductionEntryVM>();
-                IEnumerable<TTAddDamageResistanceBase.ComponentRuntime> allSources = unit.Get<TTUnitPartDamageReduction>()?.AllSources;
+                IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> allSources = unit.Get<TTUnitPartDamageReduction>()?.AllSources;
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
-                int num = 0;
-                foreach(TTAddDamageResistanceBase.ComponentRuntime componentRuntime in allSources.EmptyIfNull())
+                foreach(TTUnitPartDamageReduction.ReductionDisplay reduction in allSources.EmptyIfNull())
                 {
-                    if (componentRuntime.Settings is TTAddDamageResistancePhysical settings1)
+                    if (reduction.ReferenceRuntime.Settings is TTAddDamageResistancePhysical settings1)
                     {
-                        if (settings1.IsStackable)
+                        CharInfoDamageReductionEntryVM reductionEntryVm = new CharInfoDamageReductionEntryVM()
                         {
-                            num += componentRuntime.GetValue();
-                        }
-                        else
-                        {
-                            CharInfoDamageReductionEntryVM reductionEntryVm = new CharInfoDamageReductionEntryVM()
-                            {
-                                Value = componentRuntime.GetValue().ToString()
-                            };
-                            if (settings1.BypassedByAlignment)
-                                reductionEntryVm.Exceptions.Add(ls.DamageAlignment.GetTextFlags(settings1.Alignment));
-                            if (settings1.BypassedByForm)
-                                reductionEntryVm.Exceptions.AddRange(settings1.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
-                            if (settings1.BypassedByMagic)
-                                reductionEntryVm.Exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
-                            if (settings1.BypassedByMaterial)
-                                reductionEntryVm.Exceptions.Add(ls.DamageMaterial.GetTextFlags(settings1.Material));
-                            if (settings1.BypassedByReality)
-                                reductionEntryVm.Exceptions.Add(ls.DamageReality.GetText(settings1.Reality));
-                            if (settings1.BypassedByMeleeWeapon)
-                                reductionEntryVm.Exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
-                            if (settings1.BypassedByWeaponType)
-                                reductionEntryVm.Exceptions.Add((string)settings1.WeaponType.TypeName);
-                            if (reductionEntryVm.Exceptions.Count == 0)
-                                reductionEntryVm.Exceptions.Add("-");
-                            reductionEntryVmList.Add(reductionEntryVm);
-                        }
+                            Value = reduction.TotalReduction.ToString()
+                        };
+                        if (settings1.BypassedByAlignment)
+                            reductionEntryVm.Exceptions.Add(ls.DamageAlignment.GetTextFlags(settings1.Alignment));
+                        if (settings1.BypassedByForm)
+                            reductionEntryVm.Exceptions.AddRange(settings1.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
+                        if (settings1.BypassedByMagic)
+                            reductionEntryVm.Exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
+                        if (settings1.BypassedByMaterial)
+                            reductionEntryVm.Exceptions.Add(ls.DamageMaterial.GetTextFlags(settings1.Material));
+                        if (settings1.BypassedByReality)
+                            reductionEntryVm.Exceptions.Add(ls.DamageReality.GetText(settings1.Reality));
+                        if (settings1.BypassedByMeleeWeapon)
+                            reductionEntryVm.Exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
+                        if (settings1.BypassedByWeaponType)
+                            reductionEntryVm.Exceptions.Add((string)settings1.WeaponType.TypeName);
+                        if (reductionEntryVm.Exceptions.Count == 0)
+                            reductionEntryVm.Exceptions.Add("-");
+                        reductionEntryVmList.Add(reductionEntryVm);
                     }
-                }
-                if (num > 0)
-                {
-                    CharInfoDamageReductionEntryVM reductionEntryVm = new CharInfoDamageReductionEntryVM()
-                    {
-                        Value = num.ToString()
-                    };
-                    reductionEntryVm.Exceptions.Add("-");
-                    reductionEntryVmList.Add(reductionEntryVm);
                 }
                 __result = reductionEntryVmList;
             }
@@ -197,46 +180,30 @@ namespace TabletopTweaks.MechanicsChanges
                 if (!ModSettings.Fixes.DRRework) { return; }
                 List<CharSMartial.DRdata> drdataList = new List<CharSMartial.DRdata>();
                 TTUnitPartDamageReduction partDamageReduction = unit.Get<TTUnitPartDamageReduction>();
-                IEnumerable<TTAddDamageResistanceBase.ComponentRuntime> list = partDamageReduction != null ? partDamageReduction.AllSources.Where(c => c.Settings is TTAddDamageResistancePhysical) : null;
+                IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> list = partDamageReduction != null ? partDamageReduction.AllSources.Where(c => c.ReferenceRuntime.Settings is TTAddDamageResistancePhysical) : null;
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
-                int num = 0;
-                foreach (TTAddDamageResistanceBase.ComponentRuntime componentRuntime in list.EmptyIfNull())
+                foreach (TTUnitPartDamageReduction.ReductionDisplay reduction in list.EmptyIfNull())
                 {
-                    TTAddDamageResistancePhysical settings = (TTAddDamageResistancePhysical)componentRuntime.Settings;
-                    if (settings.IsStackable)
-                    {
-                        num += componentRuntime.GetCurrentValue();
-                    }
-                    else
-                    {
-                        CharSMartial.DRdata drdata = new CharSMartial.DRdata();
-                        drdata.value = componentRuntime.GetCurrentValue().ToString();
-                        if (settings.BypassedByAlignment)
-                            drdata.exceptions.Add(ls.DamageAlignment.GetTextFlags(settings.Alignment));
-                        if (settings.BypassedByForm)
-                            drdata.exceptions.AddRange(settings.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
-                        if (settings.BypassedByMagic)
-                            drdata.exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
-                        if (settings.BypassedByMaterial)
-                            drdata.exceptions.Add(ls.DamageMaterial.GetTextFlags(settings.Material));
-                        if (settings.BypassedByReality)
-                            drdata.exceptions.Add(ls.DamageReality.GetText(settings.Reality));
-                        if (settings.BypassedByMeleeWeapon)
-                            drdata.exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
-                        if (settings.BypassedByWeaponType)
-                            drdata.exceptions.Add((string)settings.WeaponType.TypeName);
-                        if (drdata.exceptions.Count == 0)
-                            drdata.exceptions.Add("-");
-                        drdataList.Add(drdata);
-                    }
-                }
-                if (num > 0)
-                {
-                    CharSMartial.DRdata drdata = new CharSMartial.DRdata()
-                    {
-                        value = num.ToString()
-                    };
-                    drdata.exceptions.Add("-");
+                    TTAddDamageResistancePhysical settings = (TTAddDamageResistancePhysical)reduction.ReferenceRuntime.Settings;
+
+                    CharSMartial.DRdata drdata = new CharSMartial.DRdata();
+                    drdata.value = reduction.TotalReduction.ToString();
+                    if (settings.BypassedByAlignment)
+                        drdata.exceptions.Add(ls.DamageAlignment.GetTextFlags(settings.Alignment));
+                    if (settings.BypassedByForm)
+                        drdata.exceptions.AddRange(settings.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
+                    if (settings.BypassedByMagic)
+                        drdata.exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
+                    if (settings.BypassedByMaterial)
+                        drdata.exceptions.Add(ls.DamageMaterial.GetTextFlags(settings.Material));
+                    if (settings.BypassedByReality)
+                        drdata.exceptions.Add(ls.DamageReality.GetText(settings.Reality));
+                    if (settings.BypassedByMeleeWeapon)
+                        drdata.exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
+                    if (settings.BypassedByWeaponType)
+                        drdata.exceptions.Add((string)settings.WeaponType.TypeName);
+                    if (drdata.exceptions.Count == 0)
+                        drdata.exceptions.Add("-");
                     drdataList.Add(drdata);
                 }
                 __result = drdataList;
