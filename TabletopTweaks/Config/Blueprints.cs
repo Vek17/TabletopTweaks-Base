@@ -48,7 +48,7 @@ namespace TabletopTweaks.Config {
                 }
 #endif
             }
-            if (Id == null) { Main.Error($"ERROR: GUID for {name} not found"); }
+            if (Id == null) { Main.Log($"ERROR: GUID for {name} not found"); }
             UsedGUIDs[name] = Id;
             return new BlueprintGuid(Id);
         }

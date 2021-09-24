@@ -3,16 +3,8 @@ using System.Collections.Generic;
 
 namespace TabletopTweaks.Config {
     public class Fixes : IUpdatableSettings {
-        public bool DisableNaturalArmorStacking = true;
-        public bool DisablePolymorphStacking = true;
-        public bool DisableCannyDefenseStacking = true;
-        public bool DisableAfterCombatDeactivationOfUnlimitedAbilities = true;
-        public bool FixMountedLongspearModifer = true;
-        public bool FixInherentSkillpoints = true;
-        public bool FixBackgroundModifiers = true;
-        public bool FixShadowSpells = true;
-        public bool MetamagicStacking = true;
-        public bool SelectiveMetamagicNonInstantaneous = true;
+        public bool NewSettingsOffByDefault = false;
+        public SettingGroup BaseFixes = new SettingGroup();
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
@@ -42,47 +34,41 @@ namespace TabletopTweaks.Config {
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as Fixes;
-            DisableNaturalArmorStacking = loadedSettings.DisableNaturalArmorStacking;
-            DisablePolymorphStacking = loadedSettings.DisablePolymorphStacking;
-            DisableCannyDefenseStacking = loadedSettings.DisableCannyDefenseStacking;
-            DisableAfterCombatDeactivationOfUnlimitedAbilities = loadedSettings.DisableAfterCombatDeactivationOfUnlimitedAbilities;
+            NewSettingsOffByDefault = loadedSettings.NewSettingsOffByDefault;
 
-            FixMountedLongspearModifer = loadedSettings.FixMountedLongspearModifer;
-            FixShadowSpells = loadedSettings.FixShadowSpells;
-            MetamagicStacking = loadedSettings.MetamagicStacking;
-            SelectiveMetamagicNonInstantaneous = loadedSettings.SelectiveMetamagicNonInstantaneous;
+            BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
 
-            Aeon.LoadSettingGroup(loadedSettings.Aeon);
-            Azata.LoadSettingGroup(loadedSettings.Azata);
-            Lich.LoadSettingGroup(loadedSettings.Lich);
-            Trickster.LoadSettingGroup(loadedSettings.Trickster);
+            Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
+            Azata.LoadSettingGroup(loadedSettings.Azata, NewSettingsOffByDefault);
+            Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
+            Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault );
 
-            Alchemist.LoadClassGroup(loadedSettings.Alchemist);
-            Arcanist.LoadClassGroup(loadedSettings.Arcanist);
-            Barbarian.LoadClassGroup(loadedSettings.Barbarian);
-            Bloodrager.LoadClassGroup(loadedSettings.Bloodrager);
-            Cavalier.LoadClassGroup(loadedSettings.Cavalier);
-            Fighter.LoadClassGroup(loadedSettings.Fighter);
-            Kineticist.LoadClassGroup(loadedSettings.Kineticist);
-            Magus.LoadClassGroup(loadedSettings.Magus);
-            Monk.LoadClassGroup(loadedSettings.Monk);
-            Paladin.LoadClassGroup(loadedSettings.Paladin);
-            Ranger.LoadClassGroup(loadedSettings.Ranger);
-            Rogue.LoadClassGroup(loadedSettings.Rogue);
-            Slayer.LoadClassGroup(loadedSettings.Slayer);
-            Witch.LoadClassGroup(loadedSettings.Witch);
+            Alchemist.LoadClassGroup(loadedSettings.Alchemist, NewSettingsOffByDefault);
+            Arcanist.LoadClassGroup(loadedSettings.Arcanist, NewSettingsOffByDefault);
+            Barbarian.LoadClassGroup(loadedSettings.Barbarian, NewSettingsOffByDefault);
+            Bloodrager.LoadClassGroup(loadedSettings.Bloodrager, NewSettingsOffByDefault);
+            Cavalier.LoadClassGroup(loadedSettings.Cavalier, NewSettingsOffByDefault);
+            Fighter.LoadClassGroup(loadedSettings.Fighter, NewSettingsOffByDefault);
+            Kineticist.LoadClassGroup(loadedSettings.Kineticist, NewSettingsOffByDefault);
+            Magus.LoadClassGroup(loadedSettings.Magus, NewSettingsOffByDefault);
+            Monk.LoadClassGroup(loadedSettings.Monk, NewSettingsOffByDefault);
+            Paladin.LoadClassGroup(loadedSettings.Paladin, NewSettingsOffByDefault);
+            Ranger.LoadClassGroup(loadedSettings.Ranger, NewSettingsOffByDefault);
+            Rogue.LoadClassGroup(loadedSettings.Rogue, NewSettingsOffByDefault);
+            Slayer.LoadClassGroup(loadedSettings.Slayer, NewSettingsOffByDefault);
+            Witch.LoadClassGroup(loadedSettings.Witch, NewSettingsOffByDefault);
 
-            Hellknight.LoadSettingGroup(loadedSettings.Hellknight);
-            Loremaster.LoadSettingGroup(loadedSettings.Loremaster);
+            Hellknight.LoadSettingGroup(loadedSettings.Hellknight, NewSettingsOffByDefault);
+            Loremaster.LoadSettingGroup(loadedSettings.Loremaster, NewSettingsOffByDefault);
 
-            Spells.LoadSettingGroup(loadedSettings.Spells);
-            Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);
-            Feats.LoadSettingGroup(loadedSettings.Feats);
-            MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
+            Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
+            Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
+            Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
+            MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
 
-            Crusade.LoadCrusadeGroup(loadedSettings.Crusade);
+            Crusade.LoadCrusadeGroup(loadedSettings.Crusade, NewSettingsOffByDefault);
 
-            Items.LoadItemGroup(loadedSettings.Items);
+            Items.LoadItemGroup(loadedSettings.Items, NewSettingsOffByDefault);
         }
 
         public class ClassGroup : IDisableableGroup {
@@ -95,12 +81,12 @@ namespace TabletopTweaks.Config {
                 Base = new NestedSettingGroup(this);
             }
 
-            public void LoadClassGroup(ClassGroup group) {
+            public void LoadClassGroup(ClassGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
-                Base.LoadSettingGroup(group.Base);
+                Base.LoadSettingGroup(group.Base, frozen);
                 group.Archetypes.ForEach(entry => {
                     if (Archetypes.ContainsKey(entry.Key)) {
-                        Archetypes[entry.Key].LoadSettingGroup(entry.Value);
+                        Archetypes[entry.Key].LoadSettingGroup(entry.Value, frozen);
                     }
                 });
                 Archetypes.ForEach(entry => entry.Value.Parent = this);
@@ -116,9 +102,9 @@ namespace TabletopTweaks.Config {
                 Buildings = new NestedSettingGroup(this);
             }
 
-            public void LoadCrusadeGroup(CrusadeGroup group) {
+            public void LoadCrusadeGroup(CrusadeGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
-                Buildings.LoadSettingGroup(group.Buildings);
+                Buildings.LoadSettingGroup(group.Buildings, frozen);
             }
         }
 
@@ -135,11 +121,11 @@ namespace TabletopTweaks.Config {
                 Weapons = new NestedSettingGroup(this);
             }
 
-            public void LoadItemGroup(ItemGroup group) {
+            public void LoadItemGroup(ItemGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
-                Armor.LoadSettingGroup(group.Armor);
-                Equipment.LoadSettingGroup(group.Equipment);
-                Weapons.LoadSettingGroup(group.Weapons);
+                Armor.LoadSettingGroup(group.Armor, frozen);
+                Equipment.LoadSettingGroup(group.Equipment, frozen);
+                Weapons.LoadSettingGroup(group.Weapons, frozen);
             }
         }
     }

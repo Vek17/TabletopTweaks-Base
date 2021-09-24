@@ -13,7 +13,7 @@ namespace TabletopTweaks.NewUnitParts {
     class UnitPartBroadStudy : OldStyleUnitPart {
 
         public void AddEntry(BlueprintCharacterClassReference characterClass, EntityFact source) {
-            BroadStudyEntry item = new BroadStudyEntry {
+            BroadStudyClassEntry item = new BroadStudyClassEntry {
                 CharacterClass = characterClass,
                 Source = source
             };
@@ -24,12 +24,17 @@ namespace TabletopTweaks.NewUnitParts {
             Mythic.Add(source);
         }
 
-        public void RemoveEntry(EntityFact source) {
-            Classes.RemoveAll((BroadStudyEntry p) => p.Source == source);
-            TryRemove();
+        public void AddMythicSpellbook(BlueprintSpellbookReference spellbook, EntityFact source) {
+            BroadStudySpellbookEntry item = new BroadStudySpellbookEntry {
+                Spellbook = spellbook,
+                Source = source
+            };
+            MythicSpellbooks.Add(item);
         }
 
-        public void RemoveMythicSource(EntityFact source) {
+        public void RemoveEntry(EntityFact source) {
+            Classes.RemoveAll((BroadStudyClassEntry c) => c.Source == source);
+            MythicSpellbooks.RemoveAll((BroadStudySpellbookEntry b) => b.Source == source);
             Mythic.RemoveAll(s => s == source);
             TryRemove();
         }
@@ -49,13 +54,20 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public bool IsMythicBroadStudy(AbilityData spell) {
-            return Mythic.Any() && (spell?.Spellbook?.IsMythic ?? false);
+            return Mythic.Any()
+                && ((spell?.Spellbook?.IsMythic ?? false)
+                    || MythicSpellbooks.Any(entry => spell?.Spellbook?.Blueprint?.AssetGuid == entry.Spellbook.Guid));
         }
 
+        public List<BroadStudyClassEntry> Classes = new List<BroadStudyClassEntry>();
         public List<EntityFact> Mythic = new List<EntityFact>();
-        public List<BroadStudyEntry> Classes = new List<BroadStudyEntry>();
-        public class BroadStudyEntry {
+        public List<BroadStudySpellbookEntry> MythicSpellbooks = new();
+        public class BroadStudyClassEntry {
             public BlueprintCharacterClassReference CharacterClass;
+            public EntityFact Source;
+        }
+        public class BroadStudySpellbookEntry {
+            public BlueprintSpellbookReference Spellbook;
             public EntityFact Source;
         }
 

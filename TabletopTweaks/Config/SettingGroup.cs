@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Utility;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TabletopTweaks.Config {
     public class SettingGroup {
@@ -7,8 +8,13 @@ namespace TabletopTweaks.Config {
         public SortedDictionary<string, bool> Enabled = new SortedDictionary<string, bool>();
         public virtual bool this[string key] => IsEnabled(key);
 
-        public void LoadSettingGroup(SettingGroup group) {
+        public void LoadSettingGroup(SettingGroup group, bool frozen) {
             DisableAll = group.DisableAll;
+            if (frozen) {
+                this.Enabled.Keys.ToList().ForEach(key => {
+                    Enabled[key] = false;
+                });
+            }
             group.Enabled.ForEach(entry => {
                 if (Enabled.ContainsKey(entry.Key)) {
                     Enabled[entry.Key] = entry.Value;

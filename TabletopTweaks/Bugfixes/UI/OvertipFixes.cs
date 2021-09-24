@@ -35,7 +35,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                         return i - 2;
                     }
                 }
-                Main.Error("DisplayFix_OvertipsVM_SavingThrow_Patch: COULD NOT FIND TARGET");
+                Main.Log("DisplayFix_OvertipsVM_SavingThrow_Patch: COULD NOT FIND TARGET");
                 return -1;
             }
         }
@@ -63,7 +63,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                         return i;
                     }
                 }
-                Main.Error("DisplayFix_OvertipsVM_AttackRollHit_Patch: COULD NOT FIND TARGET");
+                Main.Log("DisplayFix_OvertipsVM_AttackRollHit_Patch: COULD NOT FIND TARGET");
                 return -1;
             }
         }
@@ -91,7 +91,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                         return i;
                     }
                 }
-                Main.Error("DisplayFix_OvertipsVM_AttackRollMiss_Patch: COULD NOT FIND TARGET");
+                Main.Log("DisplayFix_OvertipsVM_AttackRollMiss_Patch: COULD NOT FIND TARGET");
                 return -1;
             }
         }

@@ -18,7 +18,7 @@ namespace TabletopTweaks.MechanicsChanges {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                if (!ModSettings.Fixes.FixMountedLongspearModifer) { return; }
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("FixMountedLongspearModifer")) { return; }
                 Main.LogHeader("Patching Mounted Effects");
                 FixModifers();
 

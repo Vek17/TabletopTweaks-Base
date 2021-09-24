@@ -1,14 +1,22 @@
 {
-    "DisableNaturalArmorStacking": true,
-    "DisablePolymorphStacking": true,
-    "DisableCannyDefenseStacking": true,
-    "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
-    "FixMountedLongspearModifer": true,
-    "FixInherentSkillpoints": true,
-    "FixBackgroundModifiers": true,
-    "FixShadowSpells": true,
-    "MetamagicStacking": true,
-    "SelectiveMetamagicNonInstantaneous": true,
+    "NewSettingsOffByDefault": false,
+    "BaseFixes": {
+        "DisableAll": false,
+        "Enabled": {
+            "FeatSelections": true,
+            "CoupDeGrace": true,
+            "DisableNaturalArmorStacking": true,
+            "DisablePolymorphStacking": true,
+            "DisableCannyDefenseStacking": true,
+            "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
+            "FixMountedLongspearModifer": true,
+            "FixInherentSkillpoints": true,
+            "FixBackgroundModifiers": true,
+            "FixShadowSpells": true,
+            "MetamagicStacking": true,
+            "SelectiveMetamagicNonInstantaneous": true
+        }
+    },
     "Aeon": {
         "DisableAll": false,
         "Enabled": {

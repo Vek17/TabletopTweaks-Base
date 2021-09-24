@@ -123,7 +123,7 @@ namespace TabletopTweaks.MechanicsChanges {
             static void Postfix(ModifierDescriptor descriptor, ref string __result) {
                 switch (descriptor) {
                     case (ModifierDescriptor)NaturalArmor.Bonus:
-                        if (!ModSettings.Fixes.DisableNaturalArmorStacking) { break; }
+                        if (ModSettings.Fixes.BaseFixes.IsDisabled("DisableNaturalArmorStacking")) { break; }
                         __result = "Natural armor bonus";
                         break;
                     case (ModifierDescriptor)NaturalArmor.Size:

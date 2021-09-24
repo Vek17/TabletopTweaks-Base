@@ -80,5 +80,14 @@ namespace TabletopTweaks.NewComponents {
                 }
             }
         }
+        [HarmonyPatch(typeof(CharGenSpellsPhaseVM), "OrderPriority", MethodType.Getter)]
+        static class CharGenSpellsPhaseVM_OrderPriority_AdditionalSpellSelection_Patch {
+            static void Postfix(CharGenSpellsPhaseVM __instance, ref int __result) {
+                if (__instance?.m_SelectionData == null) { return; }
+                if (__instance.m_SelectionData.Spellbook?.SpellList?.AssetGuid != __instance.m_SelectionData.SpellList?.AssetGuid) {
+                    __result -= 500;
+                }
+            }
+        }
     }
 }

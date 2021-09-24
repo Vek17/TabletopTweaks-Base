@@ -22,7 +22,7 @@ namespace TabletopTweaks.MechanicsChanges {
             });
             //Change bonus descriptor to Dodge.Intelligence instead of Dodge
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if (!ModSettings.Fixes.DisableCannyDefenseStacking) { return instructions; }
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("DisableCannyDefenseStacking")) { return instructions; }
 
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
@@ -38,7 +38,7 @@ namespace TabletopTweaks.MechanicsChanges {
                         return i - 1;
                     }
                 }
-                Main.Error("CANNY DEFENSE PATCH: COULD NOT FIND TARGET");
+                Main.Log("CANNY DEFENSE PATCH: COULD NOT FIND TARGET");
                 return -1;
             }
         }
