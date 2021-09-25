@@ -46,8 +46,21 @@ namespace TabletopTweaks.NewContent.Feats
             if (ModSettings.AddedContent.Feats.IsDisabled("ProdigiousTWF")) { return; }
 
             FeatTools.AddAsFeat(ProdigiousTWF);
-            AlterTWFFeatCascade();    
+            AlterTWFFeatCascade();
+            BlueprintFeatureSelection twfT1 = Resources.GetBlueprint<BlueprintFeatureSelection>("019e68517c95c5447bff125b8a91c73f");
+            BlueprintFeatureSelection twfT2 = Resources.GetBlueprint<BlueprintFeatureSelection>("59d5445392ac62245a5ece9b01c05ee8");
+            BlueprintFeatureSelection twfT3 = Resources.GetBlueprint<BlueprintFeatureSelection>("ee907845112b8aa4e907cf326e6142a6");
+            twfT1.m_Features = twfT1.m_Features.AppendToArray(ProdigiousTWF.ToReference<BlueprintFeatureReference>());
+            twfT2.m_Features = twfT2.m_Features.AppendToArray(ProdigiousTWF.ToReference<BlueprintFeatureReference>());
+            twfT3.m_Features = twfT3.m_Features.AppendToArray(ProdigiousTWF.ToReference<BlueprintFeatureReference>());
 
+
+            BlueprintFeatureSelection sns1 = Resources.GetBlueprint<BlueprintFeatureSelection>("019e68517c95c5447bff125b8a91c73f");
+            BlueprintFeatureSelection sns2 = Resources.GetBlueprint<BlueprintFeatureSelection>("59d5445392ac62245a5ece9b01c05ee8");
+            BlueprintFeatureSelection sns3 = Resources.GetBlueprint<BlueprintFeatureSelection>("ee907845112b8aa4e907cf326e6142a6");
+            sns1.m_Features = sns1.m_Features.AppendToArray(ProdigiousTWF.ToReference<BlueprintFeatureReference>());
+            sns2.m_Features = sns2.m_Features.AppendToArray(ProdigiousTWF.ToReference<BlueprintFeatureReference>());
+            sns3.m_Features = sns3.m_Features.AppendToArray(ProdigiousTWF.ToReference<BlueprintFeatureReference>());
         }
        
         public static void AlterTWFFeatCascade()

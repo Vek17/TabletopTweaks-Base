@@ -12,6 +12,9 @@ namespace TabletopTweaks.NewComponents
 	{
 		public void OnEventAboutToTrigger(RuleCalculateAttackBonusWithoutTarget evt)
 		{
+			//This should make Prodigious TWF remove non-light off-hand weapon penalties.
+			//Must test with heavy shield
+
 			ItemEntityWeapon maybeWeapon = evt.Initiator.Body.PrimaryHand.MaybeWeapon;
 			ItemEntityWeapon maybeWeapon2 = evt.Initiator.Body.SecondaryHand.MaybeWeapon;
 			int num = 0;
