@@ -289,137 +289,183 @@ namespace TabletopTweaks.MechanicsChanges
             }
         }
 
-#if false
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class BlueprintsCache_Init_Patch
+        {
             static bool Initialized;
 
-            static void Postfix() {
+            static void Postfix()
+            {
                 if (Initialized) return;
                 Initialized = true;
-                if (!ModSettings.Fixes.DisableDRStacking) { return; }
-                Main.LogHeader("Patching DR instances that should stack");
+                if (!ModSettings.Fixes.DRRework) { return; }
+                Main.LogHeader("Patching Blueprints for DR Rework");
 
-                //PatchStalwartDefenderDR();
+                PatchArmorDR();
+                PatchStalwartDefender();
+                PatchBarbariansDR();
             }
 
-            static void PatchStalwartDefenderDR() {
-                BlueprintCharacterClass stalwartDefenderClass = Resources.GetBlueprint<BlueprintCharacterClass>("d5917881586ff1d4d96d5b7cebda9464");
-                BlueprintProgression stalwartDefenderProgression = stalwartDefenderClass.m_Progression.Get();
+            static void PatchArmorDR()
+            {
+                BlueprintUnitFact[] armorFactsWithPhysicalDR = new BlueprintUnitFact[]
+                {
+                    Resources.GetBlueprint<BlueprintFeature>("e93a376547629e2478d6f50e5f162efb"), // AdamantineArmorLightFeature
+                    Resources.GetBlueprint<BlueprintFeature>("74a80c42774045f4d916dc0d990b7738"), // AdamantineArmorMediumFeature
+                    Resources.GetBlueprint<BlueprintFeature>("dbbf704bfcc78854ab149597ef9aae7c"), // AdamantineArmorHeavyFeature
+                    Resources.GetBlueprint<BlueprintFeature>("b99c50dd771a36d4f913bf1f56ba77a2"), // ArmorOfWealthFeature
+                    Resources.GetBlueprint<BlueprintFeature>("a8ea2027afa333246a86b8085c23fbfd"), // BeaconOfCarnageFeature
+                    Resources.GetBlueprint<BlueprintBuff>("42ab909d597f1734cb9bf65a74db7424"),    // BeaconOfCarnageEffectBuff
+                    Resources.GetBlueprint<BlueprintFeature>("06d2f00616ad40c3b136d06dffc8f0b5"), // ColorlessRemainsBreastplate_SolidFeature
+                    Resources.GetBlueprint<BlueprintFeature>("ff2d26e87b5f2bc4ba1823e242f10890"), // ForMounted_HalfplateOfSynergyFeature
+                    Resources.GetBlueprint<BlueprintFeature>("e19008b823a221043b9184ef3c271db1"), // RealmProtectorFeature
+                    Resources.GetBlueprint<BlueprintFeature>("79babe38a7306ba4c81f2fa3c88d1bae")  // StuddedArmorOfTrinityFeature
+                };
 
-                BlueprintUnitProperty stalwartDefenderHiddenDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("SDHiddenDRProperty", bp => {
-                    bp.AddComponent(Helpers.Create<StalwartDefenderDRProperty>());
+                foreach (BlueprintUnitFact armorBlueprint in armorFactsWithPhysicalDR)
+                {
+                    armorBlueprint.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                    {
+                        newRes.SourceIsArmor = true;
+                    });
+                }
+            }
+
+            static void PatchBarbariansDR()
+            {
+                BlueprintFeature barbarianDR = Resources.GetBlueprint<BlueprintFeature>("cffb5cddefab30140ac133699d52a8f8");
+                BlueprintFeature invulnerableRagerDR = Resources.GetBlueprint<BlueprintFeature>("e71bd204a2579b1438ebdfbf75aeefae");
+                BlueprintFeature madDogMasterDamageReduction = Resources.GetBlueprint<BlueprintFeature>("a0d4a3295224b8f4387464a4447c31d5");
+                BlueprintFeature madDogPetDamageReduction = Resources.GetBlueprint<BlueprintFeature>("2edbf059fd033974bbff67960f15974d");
+
+                BlueprintFeature bloodragerDR = Resources.GetBlueprint<BlueprintFeature>("07eba4bb72c2e3845bb442dce85d3b58");
+
+                BlueprintFeature skaldDR = Resources.GetBlueprint<BlueprintFeature>("d9446a35d1401cf418bb9b5e0e199d57");
+
+                BlueprintFeature increasedDamageReductionRagePower = Resources.GetBlueprint<BlueprintFeature>("ddaee203ee4dcb24c880d633fbd77db6");
+
+                BlueprintBuff manglingFrenzyBuff = Resources.GetBlueprint<BlueprintBuff>("1581c5ceea24418cadc9f26ce4d391a9");
+
+                barbarianDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
                 });
 
-                /*BlueprintBuff stalwartDefenderDRBuff = Helpers.CreateBuff("SDHiddenDRBuff", bp => {
-                    bp.IsClassFeature = true;
-                    bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                    bp.AddComponent(Helpers.Create<AddFacts>(c => {
-                        Helpers.Create<ContextRankConfig>(crc => {
-                            crc.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
-                            crc.m_CustomProperty = stalwartDefenderHiddenDRProperty.ToReference<BlueprintUnitPropertyReference>();
-                        });
-                    }));
-                });*/
+                invulnerableRagerDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
+                });
 
+                madDogMasterDamageReduction.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
+                });
+
+                bloodragerDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
+                });
+
+                skaldDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
+                });
+
+                // Fix Skald DR not increasing with Increased Damage ResistanCce Rage Power
+                ContextRankConfig barbarianDRConfig = barbarianDR.GetComponent<ContextRankConfig>();
+                ContextRankConfig skaldDRRankConfig = Helpers.CreateCopy(barbarianDRConfig, crc =>
+                {
+                    crc.m_FeatureList = new BlueprintFeatureReference[]
+                    {
+                        skaldDR.ToReference<BlueprintFeatureReference>(),
+                        increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>(),
+                        increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>()
+                    };
+                });
+
+                skaldDR.RemoveComponents<ContextRankConfig>();
+                skaldDR.AddComponent(skaldDRRankConfig);
+
+                Main.Log($"Patched: ContextRankConfig on {skaldDR.AssetGuid} - {skaldDR.NameSafe()}");
+
+                // Allow Mangling Frenzy to stack with Barbarian DR's
+                manglingFrenzyBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.StacksWithFacts = new BlueprintUnitFactReference[]
+                    {
+                        barbarianDR.ToReference<BlueprintUnitFactReference>(),
+                        invulnerableRagerDR.ToReference<BlueprintUnitFactReference>(),
+                        madDogMasterDamageReduction.ToReference<BlueprintUnitFactReference>(),
+                        madDogPetDamageReduction.ToReference<BlueprintUnitFactReference>(),
+                        bloodragerDR.ToReference<BlueprintUnitFactReference>(),
+                        skaldDR.ToReference<BlueprintUnitFactReference>()
+                    };
+                });
+
+                // Fix Mad Dog's pet DR not being improved by master's Increased Damage Resistance Rage Power(s)
+                BlueprintUnitProperty madDogPetDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("MadDogPetDRProperty", bp =>
+                {
+                    bp.AddComponent(Helpers.Create<MadDogPetDRProperty>());
+                });
+
+                madDogPetDamageReduction.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
+                });
+
+                madDogPetDamageReduction.RemoveComponents<ContextRankConfig>();
+                madDogPetDamageReduction.AddComponent(Helpers.Create<ContextRankConfig>(crc =>
+                {
+                    crc.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
+                    crc.m_CustomProperty = madDogPetDRProperty.ToReference<BlueprintUnitPropertyReference>();
+                }));
+            }
+
+            static void PatchStalwartDefender()
+            {
                 BlueprintFeature stalwartDefenderDamageReductionFeature = Resources.GetBlueprint<BlueprintFeature>("4d4f48f401d5d8b408c2e7a973fba9ea");
 
-                BlueprintFeature stalwartDefenderHiddenDRFeature = Helpers.CreateCopy(stalwartDefenderDamageReductionFeature, bp => {
-                    bp.name = "StalwartDefenderStackingDRFeature";
-                    bp.AssetGuid = ModSettings.Blueprints.GetGUID("StalwartDefenderStackingDRFeature");
-                    bp.HideInUI = true;
-                    bp.Ranks = 1;
-                    bp.ReapplyOnLevelUp = true;
-                    bp.SetName("Stalwart Defender Hidden Stacking DR Calculation");
-                    bp.SetDescription("This should be hidden in the UI");
-                    bp.RemoveComponents<ContextRankConfig>();
-                    bp.AddComponent(Helpers.Create<ContextRankConfig>(crc => {
-                        crc.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
-                        crc.m_CustomProperty = stalwartDefenderHiddenDRProperty.ToReference<BlueprintUnitPropertyReference>();
-                    }));
-                    bp.AddComponent(Helpers.Create<RecalculateOnFactsChange>(rofc => {
-                        rofc.m_CheckedFacts = new BlueprintUnitFactReference[] {
-                            Resources.GetBlueprint<BlueprintFeature>("4d4f48f401d5d8b408c2e7a973fba9ea").ToReference<BlueprintUnitFactReference>(),
-                            Resources.GetBlueprint<BlueprintFeature>("dbbf704bfcc78854ab149597ef9aae7c").ToReference<BlueprintUnitFactReference>()
-                        };
-                    }));
+                stalwartDefenderDamageReductionFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
+                    newRes.IsIncreasedByArmor = true;
                 });
 
-                /*stalwartDefenderDamageReductionFeature.RemoveComponents<ContextRankConfig>();
-                stalwartDefenderDamageReductionFeature.RemoveComponents<AddDamageResistancePhysical>();*/
+                BlueprintFeature increasedDamageReductionDefensivePower = Resources.GetBlueprint<BlueprintFeature>("d10496e92d0799a40bb3930b8f4fda0d");
 
-                Resources.AddBlueprint(stalwartDefenderHiddenDRFeature);
-
-                stalwartDefenderProgression.LevelEntries.Where(le => le.Level == 5).First().m_Features.Add(
-                    stalwartDefenderHiddenDRFeature.ToReference<BlueprintFeatureBaseReference>()
-                );
-                Main.LogPatch("Patched", stalwartDefenderProgression);
+                increasedDamageReductionDefensivePower.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
+                {
+                    newRes.SourceIsClassFeature = true;
+                    newRes.IncreasesFacts = new BlueprintUnitFactReference[]
+                    {
+                        stalwartDefenderDamageReductionFeature.ToReference<BlueprintUnitFactReference>()
+                    };
+                });
             }
         }
 
-        public class StalwartDefenderDRProperty : PropertyValueGetter {
+        public class MadDogPetDRProperty : PropertyValueGetter
+        {
+            private static BlueprintFeature MadDogMasterDamageReduction = Resources.GetBlueprint<BlueprintFeature>("a0d4a3295224b8f4387464a4447c31d5");
+            //private static BlueprintFeature IncreasedDamageReductionRagePower = Resources.GetBlueprint<BlueprintFeature>("ddaee203ee4dcb24c880d633fbd77db6");
 
-            internal static readonly BlueprintFeature StalwartDamageReductionFeature = Resources.GetBlueprint<BlueprintFeature>("4d4f48f401d5d8b408c2e7a973fba9ea");
-
-            private static readonly BlueprintFeature AdamantineArmorLightFeature = Resources.GetBlueprint<BlueprintFeature>("e93a376547629e2478d6f50e5f162efb");
-            private static readonly BlueprintFeature AdamantineArmorMediumFeature = Resources.GetBlueprint<BlueprintFeature>("74a80c42774045f4d916dc0d990b7738");
-            private static readonly BlueprintFeature AdamantineArmorHeavyFeature = Resources.GetBlueprint<BlueprintFeature>("dbbf704bfcc78854ab149597ef9aae7c");
-            private static readonly BlueprintFeature ArmorOfWealthFeature = Resources.GetBlueprint<BlueprintFeature>("b99c50dd771a36d4f913bf1f56ba77a2");
-            private static readonly BlueprintBuff BeaconOfCarnageEffectBuff = Resources.GetBlueprint<BlueprintBuff>("42ab909d597f1734cb9bf65a74db7424");
-            private static readonly BlueprintFeature BeaconOfCarnageFeature = Resources.GetBlueprint<BlueprintFeature>("a8ea2027afa333246a86b8085c23fbfd");
-            private static readonly BlueprintFeature ColorlessRemainsBreastplate_SolidFeature = Resources.GetBlueprint<BlueprintFeature>("06d2f00616ad40c3b136d06dffc8f0b5");
-            private static readonly BlueprintFeature ForMounted_HalfplateOfSynergyFeature = Resources.GetBlueprint<BlueprintFeature>("ff2d26e87b5f2bc4ba1823e242f10890");
-            private static readonly BlueprintBuff RealmProtectorCountBuff = Resources.GetBlueprint<BlueprintBuff>("e48413be052ec004ca7f1c8d4fa4a008");
-            private static readonly BlueprintFeature StuddedArmorOfTrinityFeature = Resources.GetBlueprint<BlueprintFeature>("79babe38a7306ba4c81f2fa3c88d1bae");
-
-            internal static Dictionary<BlueprintUnitFactReference, int> StalwartDefenderStackingDRFactsRankMultiplier = new Dictionary<BlueprintUnitFactReference, int>
+            public override int GetBaseValue(UnitEntityData unit)
             {
-                { AdamantineArmorLightFeature.ToReference<BlueprintUnitFactReference>(), 1 },
-                { AdamantineArmorMediumFeature.ToReference<BlueprintUnitFactReference>(), 2 },
-                { AdamantineArmorHeavyFeature.ToReference<BlueprintUnitFactReference>(), 3 },
-                { ArmorOfWealthFeature.ToReference<BlueprintUnitFactReference>(), 5 },
-                { BeaconOfCarnageEffectBuff.ToReference<BlueprintUnitFactReference>(), 1 },
-                { BeaconOfCarnageFeature.ToReference<BlueprintUnitFactReference>(), 2 },
-                { ColorlessRemainsBreastplate_SolidFeature.ToReference<BlueprintUnitFactReference>(), 3 },
-                { ForMounted_HalfplateOfSynergyFeature.ToReference<BlueprintUnitFactReference>(), 1 },
-                { RealmProtectorCountBuff.ToReference<BlueprintUnitFactReference>(), 2 },
-                { StuddedArmorOfTrinityFeature.ToReference<BlueprintUnitFactReference>(), 3 },
+                if (!unit.IsPet || unit.Master == null)
+                    return 0;
 
-            };
-
-
-            public override int GetBaseValue(UnitEntityData unit) {
-                int num = 0;
-                // Stalwart Defender Base DR
-                /*EntityFact stalwartDefenderDRFact = unit.Descriptor.GetFact(StalwartDamageReductionFeature.ToReference<BlueprintFeatureReference>());
-                if (stalwartDefenderDRFact != null) {
-                    // 1, 3, 5
-                    // num += 1 + (stalwartDefenderDRFact.GetRank() - 1) * 2;
-                    num += ((AddDamageResistancePhysical.ComponentRuntime)stalwartDefenderDRFact.GetComponentWithRuntime<AddDamageResistancePhysical>().Runtime).GetCurrentValue();
-                }
-                // DR from armor
-                EntityFact adamantineArmorHeavyFact = unit.Descriptor.GetFact(AdamantineArmorHeavyFeature.ToReference<BlueprintFeatureReference>());
-                if (adamantineArmorHeavyFact != null) {
-                    Main.LogDebug("Adding +3 to stalwart defender DR/- because of heavy adamantine armor");
-                    num += ((AddDamageResistancePhysical.ComponentRuntime)adamantineArmorHeavyFact.GetComponentWithRuntime<AddDamageResistancePhysical>().Runtime).GetCurrentValue();
-                }*/
-                EntityFact stalwartDefenderDRFact = unit.Descriptor.GetFact(StalwartDamageReductionFeature.ToReference<BlueprintUnitFactReference>());
-                EntityFact adamantineArmorHeavyFact = unit.Descriptor.GetFact(AdamantineArmorHeavyFeature.ToReference<BlueprintUnitFactReference>());
-                List<EntityFact> list = new List<EntityFact>
+                int value = 0;
+                EntityFact masterDamageReduction = unit.Master.GetFact(MadDogMasterDamageReduction);
+                if (masterDamageReduction != null)
                 {
-                    stalwartDefenderDRFact,
-                    adamantineArmorHeavyFact
-                }.Where(x => x != null).ToList();
-                foreach (AddDamageResistanceBase.ComponentRuntime dr in unit.Ensure<UnitPartDamageReduction>().AllSources)
-                {
-                    if (list.Contains(dr.Fact))
+                    foreach(BlueprintComponentAndRuntime<TTAddDamageResistancePhysical> componentAndRuntime in masterDamageReduction.SelectComponentsWithRuntime<TTAddDamageResistancePhysical>())
                     {
-                        num += dr.GetCurrentValue();
+                        value += ((TTAddDamageResistancePhysical.ComponentRuntime)componentAndRuntime.Runtime).GetCurrentValue();
                     }
                 }
-                return num;
+
+                return value;
             }
         }
-#endif
     }
 }

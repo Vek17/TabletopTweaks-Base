@@ -266,7 +266,7 @@ namespace TabletopTweaks.NewUnitParts
             m_ChunkStacks = m_Chunks.Select((c, i) => new ChunkStack(m_Chunks, i)).ToArray();
             BlueprintUnitFactReference[] factsPresentInChunks = m_Chunks.Select(c => c.DR.Fact.Blueprint.ToReference<BlueprintUnitFactReference>()).ToArray();
 
-            // Increases pass
+            // Increases pass - increases are confusing, so loop once per property. These are tiny arrays, so performance is still acceptable.
             foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
             {
                 if (chunkStack.IsIncreasedByArmor)
@@ -275,21 +275,30 @@ namespace TabletopTweaks.NewUnitParts
                         .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsArmor)
                         .ForEach(other => chunkStack.AddAsIncrease(other));
                 }
+            }
 
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
+            {
                 if (chunkStack.IsIncreasedByClassFeatures)
                 {
                     m_ChunkStacks
                         .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsClassFeature)
                         .ForEach(other => chunkStack.AddAsIncrease(other));
                 }
+            }
 
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
+            {
                 if (chunkStack.IsIncreasedByFacts && factsPresentInChunks.Intersect(chunkStack.IncreasedByFacts).Any())
                 {
                     m_ChunkStacks
                         .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.IncreasedByFacts.Contains(other.ReferenceFact))
                         .ForEach(other => chunkStack.AddAsIncrease(other));
                 }
+            }
 
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
+            {
                 if (chunkStack.IsIncreasesFacts && factsPresentInChunks.Intersect(chunkStack.IncreasesFacts).Any())
                 {
                     m_ChunkStacks
@@ -298,7 +307,8 @@ namespace TabletopTweaks.NewUnitParts
                 }
             }
 
-            // Stacking pass
+            // Stacking pass - these are simpler as whether or not a ChunkStack stacks with something cannot change during this process,
+            // so we can do everything in one pass.
             foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
             {
                 if (chunkStack.IsStacksWithArmor)
@@ -627,7 +637,6 @@ namespace TabletopTweaks.NewUnitParts
             public void AddAsIncrease(ChunkStack other)
             {
                 m_baseChunkIndices.Or(other.m_baseChunkIndices);
-                other.m_baseChunkIndices.Or(m_baseChunkIndices);
             }
 
             public void AddToStack(ChunkStack other)
@@ -637,53 +646,11 @@ namespace TabletopTweaks.NewUnitParts
                 m_stackingChunkIndices[other.m_referenceChunkIndex] = true;
             }
 
-            public bool IsStacksWithArmor
-            {
-                get
-                {
-                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
-                    {
-                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsStacksWithArmor)
-                        {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-            }
-            public bool IsStacksWithClassFeatures
-            {
-                get
-                {
-                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
-                    {
-                        if (m_baseChunkIndices[i] && m_chunkListReference[i].DR.Settings.IsStacksWithClassFeatures)
-                        {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-            }
-            public bool IsStacksWithUnitFacts
-            {
-                get
-                {
-                    for (int i = 0; i < m_baseChunkIndices.Length; i++)
-                    {
-                        if (m_baseChunkIndices[i]
-                            && m_chunkListReference[i].DR.Settings.StacksWithFacts != null
-                            && m_chunkListReference[i].DR.Settings.StacksWithFacts.Length > 0)
-                        {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-            }
+            public bool IsStacksWithArmor => ReferenceChunk.DR.Settings.IsStacksWithArmor;
+            public bool IsStacksWithClassFeatures => ReferenceChunk.DR.Settings.IsStacksWithClassFeatures;
+            public bool IsStacksWithUnitFacts => ReferenceChunk.DR.Settings.IsStacksWithFacts;
 
-            public IEnumerable<BlueprintUnitFactReference> StacksWithFacts =>
-                m_chunkListReference.Where((c, i) => m_baseChunkIndices[i]).SelectMany(c => c.DR.Settings.StacksWithFacts.EmptyIfNull());
+            public IEnumerable<BlueprintUnitFactReference> StacksWithFacts => ReferenceChunk.DR.Settings.StacksWithFacts.EmptyIfNull();
 
 
             public bool IsIncreasedByArmor
@@ -752,9 +719,6 @@ namespace TabletopTweaks.NewUnitParts
             public IEnumerable<BlueprintUnitFactReference> IncreasedByFacts =>
                 m_chunkListReference.Where((c, i) => m_baseChunkIndices[i]).SelectMany(c => c.DR.Settings.IncreasedByFacts.EmptyIfNull());
 
-
-
-            public HashSet<Chunk> StackingChunks { get; set; } = new HashSet<Chunk>();
 
             // The applied reduction of the stack is the sum of all the chunks' applied reduction in this stack.
             public int AppliedReduction

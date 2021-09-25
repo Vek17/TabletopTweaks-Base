@@ -4,6 +4,7 @@
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -11,6 +12,7 @@ using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
@@ -21,6 +23,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using TabletopTweaks.Config;
+using TabletopTweaks.NewComponents;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
@@ -222,6 +225,45 @@ namespace TabletopTweaks.Utilities {
             init?.Invoke(config);
             return config;
         }
+
+        public static void ConvertVanillaDamageResistanceToRework<V,N>(
+            this BlueprintScriptableObject blueprint, 
+            Action<N> additionalDamageResistanceConfiguration = null)
+            where V : AddDamageResistanceBase
+            where N : TTAddDamageResistanceBase, new()
+        {
+            bool foundComponent = false;
+            for (int i = 0; i < blueprint.ComponentsArray.Length; i++)
+            {
+                if (blueprint.ComponentsArray[i] is V oldResistance)
+                {
+                    foundComponent = true;
+                    N newResistance = Helpers.Create<N>(newRes => newRes.InitFromVanillaDamageResistance(oldResistance));
+                    if (additionalDamageResistanceConfiguration != null)
+                        additionalDamageResistanceConfiguration(newResistance);
+                    blueprint.ComponentsArray[i] = newResistance;
+                    Main.Log($"Replaced component: {typeof(V).Name} -> {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
+                }
+                else if (blueprint.ComponentsArray[i] is N newResistance)
+                {
+                    foundComponent = true;
+                    if (additionalDamageResistanceConfiguration != null)
+                    {
+                        additionalDamageResistanceConfiguration(newResistance);
+                        Main.Log($"Configured component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
+                    }
+                    else
+                    {
+                        Main.Log($"Skipped component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()} (no additional configration specified)");
+                    }
+                }
+            }
+            if (!foundComponent)
+            {
+                Main.Log($"COMPONENT NOT FOUND: {typeof(V).Name} or {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
+            }
+        }
+
         private class ObjectDeepCopier {
             private class ArrayTraverse {
                 public int[] Position;
