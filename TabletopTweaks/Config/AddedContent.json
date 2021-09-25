@@ -50,7 +50,8 @@
             "Scholar": true,
             "Self-Sufficent": true,
             "ShingleRunner": true,
-            "StreetSmarts": true
+            "StreetSmarts": true,
+            "ProdigiousTWF" :true
         }
     },
     "FighterAdvancedWeaponTraining": {

@@ -195,6 +195,9 @@
     <Compile Include="NewComponents\MountedCombatFixed.cs" />
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
+    <Compile Include="NewComponents\PrerequisiteAbstractLogical.cs" />
+    <Compile Include="NewComponents\PrerequisiteLogicalAND.cs" />
+    <Compile Include="NewComponents\PrerequisiteLogicalOR.cs" />
     <Compile Include="NewComponents\PrerequisiteMythicSpellbook.cs" />
     <Compile Include="NewComponents\PrerequisiteStatBonus.cs" />
     <Compile Include="NewComponents\PrerequisiteStatValues.cs" />
@@ -214,6 +217,7 @@
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\PrerequisiteFeaturesFromListFormatted.cs" />
+    <Compile Include="NewComponents\TWFNoPenaltyFromNotLight.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
@@ -262,6 +266,7 @@
     <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
+    <Compile Include="NewContent\Feats\ProdigiousTWF.cs" />
     <Compile Include="NewContent\Feats\Scholar.cs" />
     <Compile Include="NewContent\Feats\SelfSufficient.cs" />
     <Compile Include="NewContent\Feats\ShingleRunner.cs" />

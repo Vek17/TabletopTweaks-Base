@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
@@ -11,6 +12,7 @@ using Kingmaker.Utility;
 using System;
 using System.Linq;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 
 namespace TabletopTweaks.Utilities {
     static class FeatTools {
@@ -170,6 +172,38 @@ namespace TabletopTweaks.Utilities {
             init?.Invoke(extraResourceFeat);
             return extraResourceFeat;
         }
+
+        /// <summary>
+        /// Inserts an alternate StatType unlock with prerequisite feat
+        /// For instance, Prodigious TWF's replacing dex reqs with str reqs is implemented this way
+        /// Don't use this method if the feat *already* has a OR requirmenet not including the stat implemented using the Prequisite.Group.Any setting because that only allows a single OR group
+        /// </summary>
+        /// <param name="feat"></param>
+        /// <param name="originalStat"></param>
+        /// <param name="unlock"></param>
+        /// <param name="newStat"></param>
+        public static void PatchFeatWithFeatLockedAlternateAbilityPrereqSimple(BlueprintFeature feat, StatType originalStat, BlueprintFeature unlock, StatType newStat)
+        {
+            PrerequisiteStatValue ogReq = feat.Components.OfType<PrerequisiteStatValue>().FirstOrDefault(x => x.Stat == originalStat);
+            if (ogReq != null)
+            {
+                ogReq.Group = Prerequisite.GroupType.Any;
+
+                PrerequisiteLogicalAND logicalAND = new PrerequisiteLogicalAND();
+                logicalAND.Group = Prerequisite.GroupType.Any;
+                feat.AddComponent(logicalAND);
+                logicalAND.OwnerBlueprint = feat;//Not sure if this necessary to set this but i do need this set for safety's sake
+                PrerequisiteFeature featReq = new PrerequisiteFeature();
+                featReq.m_Feature = unlock.ToReference<BlueprintFeatureReference>();
+                logicalAND.AddPrequisiteToList(featReq);
+                PrerequisiteStatValue altReq = new PrerequisiteStatValue();
+                altReq.Value = ogReq.Value;
+                altReq.Stat = newStat;
+                logicalAND.AddPrequisiteToList(altReq);
+            }
+
+        }
+
         public static class Selections {
             public static BlueprintFeatureSelection AasimarHeritageSelection => Resources.GetBlueprint<BlueprintFeatureSelection>("67aabcbce8f8ae643a9d08a6ca67cabd");
             public static BlueprintFeatureSelection Adaptability => Resources.GetBlueprint<BlueprintFeatureSelection>("26a668c5a8c22354bac67bcd42e09a3f");
