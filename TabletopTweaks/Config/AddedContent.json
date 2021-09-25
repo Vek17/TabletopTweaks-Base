@@ -50,7 +50,9 @@
             "Scholar": true,
             "Self-Sufficent": true,
             "ShingleRunner": true,
-            "StreetSmarts": true
+            "StreetSmarts": true,
+            "NatureSoul": true,
+            "AnimalAlly":  true
         }
     },
     "FighterAdvancedWeaponTraining": {

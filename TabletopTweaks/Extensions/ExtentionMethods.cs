@@ -462,6 +462,28 @@ namespace TabletopTweaks.Extensions {
                 blueprint.AddComponent(newComponent);
             }
         }
+
+        /// <summary>
+        /// Remove first component in blueprint for which the predicate is true. If such a component was found, adds a new component.
+        /// </summary>
+        public static void ReplaceComponent(this BlueprintScriptableObject blueprint, Predicate<BlueprintComponent> which, BlueprintComponent newComponent)
+        {
+            bool found = false;
+            for (int i = 0; i < blueprint.Components.Length; i++)
+            {
+                if (which(blueprint.Components[i]))
+                {
+                    blueprint.RemoveComponent(blueprint.Components[i]);
+                    found = true;
+                    break;
+                }
+            }
+            if (found == true)
+            {
+                blueprint.AddComponent(newComponent);
+            }
+        }
+
         public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, BlueprintComponent newComponent) where T : BlueprintComponent {
             blueprint.ReplaceComponents<T>(c => true, newComponent);
         }
