@@ -2,6 +2,8 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Utility;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -19,6 +21,7 @@ namespace TabletopTweaks.NewContent.Classes {
             CreateSpellSecretSelection(LoremasterClericSpellSecret);
             CreateSpellSecretSelection(LoremasterDruidSpellSecret);
             CreateSpellSecretSelection(LoremasterWizardSpellSecret);
+            CreateSpellbookSelection();
 
             void CreateSpellSecretSelection(BlueprintFeatureSelection secret) {
                 var name = $"{secret.name}_TTT";
@@ -64,6 +67,68 @@ namespace TabletopTweaks.NewContent.Classes {
                     });
                     return spellSecret;
                 }).ToArray();
+            }
+
+            void CreateSpellbookSelection() {
+                var spellbookSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("LoremasterSpellbookSelectionTTT", bp => {
+                    bp.SetName("Spellbook Selection");
+                    bp.SetDescription("When a new loremaster level is gained, the character gains new spells per day as if he had " +
+                        "also gained a level in a spellcasting class he belonged to before adding the prestige class. He does not, however, gain other benefits " +
+                        "a character of that class would have gained, except for additional spells per day, spells known (if he is a spontaneous spellcaster), " +
+                        "and an increased effective level of spellcasting. If a character had more than one spellcasting class before becoming a loremaster, " +
+                        "he must decide to which class he adds the new level for purposes of determining spells per day.");
+                    bp.IsClassFeature = true;
+                    bp.Obligatory = true;
+                    bp.Ranks = 1;
+                    bp.Group = FeatureGroup.ArcaneTricksterSpellbook;
+                    bp.Groups = new FeatureGroup[] { FeatureGroup.ReplaceSpellbook, FeatureGroup.ArcaneTricksterSpellbook };
+                });
+                SpellTools.SpellCastingClasses.AllClasses.ForEach(castingClass => {
+                    spellbookSelection.AddFeatures(CreateSpellbookReplacements(castingClass, spellbookSelection));
+                });
+                spellbookSelection.AddFeatures(CreateSpellbookReplacementsThassilonian(spellbookSelection));
+            }
+            BlueprintFeatureReplaceSpellbook[] CreateSpellbookReplacements(BlueprintCharacterClass characterClass, BlueprintFeatureSelection selection) {
+                List<BlueprintSpellbookReference> spellbooks = characterClass
+                    .m_Archetypes
+                    .Select(archetype => archetype.Get().m_ReplaceSpellbook)
+                    .Append(characterClass.m_Spellbook)
+                    .Where(spellbook => spellbook?.Get() != null)
+                    .Distinct()
+                    .ToList();
+                return spellbooks.Select(spellbook => CreateSpellbookReplacement(spellbook, characterClass, selection)).ToArray();
+            }
+            BlueprintFeatureReplaceSpellbook[] CreateSpellbookReplacementsThassilonian(BlueprintFeatureSelection selection) {
+                List<BlueprintSpellbookReference> spellbooks = new List<BlueprintSpellbookReference>() {
+                    SpellTools.Spellbook.ThassilonianAbjurationSpellbook.ToReference<BlueprintSpellbookReference>(),
+                    SpellTools.Spellbook.ThassilonianConjurationSpellbook.ToReference<BlueprintSpellbookReference>(),
+                    SpellTools.Spellbook.ThassilonianEnchantmentSpellbook.ToReference<BlueprintSpellbookReference>(),
+                    SpellTools.Spellbook.ThassilonianEvocationSpellbook.ToReference<BlueprintSpellbookReference>(),
+                    SpellTools.Spellbook.ThassilonianIllusionSpellbook.ToReference<BlueprintSpellbookReference>(),
+                    SpellTools.Spellbook.ThassilonianNecromancySpellbook.ToReference<BlueprintSpellbookReference>(),
+                    SpellTools.Spellbook.ThassilonianTransmutationSpellbook.ToReference<BlueprintSpellbookReference>()
+                };
+                return spellbooks.Select(spellbook => CreateSpellbookReplacement(spellbook, SpellTools.SpellCastingClasses.WizardClass, selection)).ToArray();
+            }
+            BlueprintFeatureReplaceSpellbook CreateSpellbookReplacement(BlueprintSpellbookReference spellbook, BlueprintCharacterClass characterClass, BlueprintFeatureSelection selection) {
+                return Helpers.CreateBlueprint<BlueprintFeatureReplaceSpellbook>($"LoremasterSpellbook{spellbook.Get().name.Replace("Spellbook", "")}TTT", bp => {
+                    bp.m_DisplayName = characterClass.LocalizedName;
+                    bp.m_Description = selection.m_Description;
+                    bp.IsClassFeature = true;
+                    bp.m_Spellbook = spellbook;
+                    bp.Groups = new FeatureGroup[] { FeatureGroup.ArcaneTricksterSpellbook };
+                    bp.HideInUI = true;
+                    bp.HideNotAvailibleInUI = true;
+                    bp.AddPrerequisite<PrerequisiteClassSpellLevel>(c => {
+                        c.m_CharacterClass = characterClass.ToReference<BlueprintCharacterClassReference>();
+                        c.RequiredSpellLevel = 3;
+                    });
+                    bp.AddPrerequisite<PrerequisiteSpellbook>(c => {
+                        c.Spellbook = spellbook;
+                        c.RequiredSpellLevel = 3;
+                        c.HideInUI = true;
+                    });
+                });
             }
         }
     }
