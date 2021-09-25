@@ -1,3 +1,8 @@
+## Version 1.3.2
+* extra slayer talents should now allow all slayers
+* coup de grace is now working again (opps)
+* The holy symbol of Iomedae no longer turns itself off
+
 ## Version 1.3.1
 * fixed an edge case with spell blending preventing multiple from being taken in the same level
 * divine caster classes should now work as expected with the loremaster class

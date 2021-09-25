@@ -120,6 +120,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Selective now only works on instaneous effects
         Coup De Grace now scales properly (Thanks @Perunq)
         Class specific feat selections should now have the correct feats
+        The Holy Symbol of Iomedae no longer turns itself off
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor
