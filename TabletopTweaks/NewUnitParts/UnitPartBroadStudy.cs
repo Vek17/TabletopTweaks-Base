@@ -55,7 +55,7 @@ namespace TabletopTweaks.NewUnitParts {
 
         public bool IsMythicBroadStudy(AbilityData spell) {
             return Mythic.Any()
-                && ((spell?.Spellbook?.IsMythic ?? false)
+                && ((spell?.Spellbook?.IsStandaloneMythic ?? false)
                     || MythicSpellbooks.Any(entry => spell?.Spellbook?.Blueprint?.AssetGuid == entry.Spellbook.Guid));
         }
 

@@ -46,6 +46,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     ModifierDescriptor modDescriptor = m.ModDescriptor;
                     return
                         FilterIsArmorOriginal(m)
+                        || modDescriptor == ModifierDescriptor.NaturalArmorForm
                         || modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus
                         || modDescriptor == (ModifierDescriptor)NaturalArmor.Size
                         || modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable;

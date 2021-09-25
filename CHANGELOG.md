@@ -1,3 +1,14 @@
+## Version 1.3.1
+* fixed an edge case with spell blending preventing multiple from being taken in the same level
+* divine caster classes should now work as expected with the loremaster class
+    * this is NOT retroactive
+* the following classes can now progress thier spellbook with loremaster
+    * Hunter
+    * Warpriest
+    * Crossblooded Sorcerer
+    * Espionage Expert
+    * Nature Mage
+
 ## Version 1.3.0
 * mythic spell combat now works with UMD3s spellbook
 * fixed feat selections missing relevent feats

@@ -168,6 +168,12 @@ All fixes and added content are configurable and can be disabled by editing the 
         Prerequisites have been fixed
         Trickster feats removed from selection
         No longer causes you to lose a caster level
+        The following classes can now progress thier spellbook with loremaster
+            Hunter
+            Warpriest
+            Crossblooded Sorcerer
+            Espionage Expert
+            Nature Mage
     Magus
         Spell combat now works with abilities that have variants
     Monk

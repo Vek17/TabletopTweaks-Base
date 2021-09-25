@@ -56,7 +56,7 @@ namespace TabletopTweaks.NewComponents {
         }
 
         private UnitEntityData GetNewTarget(AbilityData data, UnitEntityData baseTarget) {
-            List<UnitEntityData> list = EntityBoundsHelper.FindUnitsInRange(Owner.Position, m_FeetsRadius.Feet().Meters);
+            List<UnitEntityData> list = EntityBoundsHelper.FindUnitsInRange(baseTarget.Position, m_FeetsRadius.Feet().Meters);
             list.Remove(baseTarget);
             list.Remove(Owner);
             list.RemoveAll((UnitEntityData x) => x.Faction != baseTarget.Faction || !data.CanTarget(x));
