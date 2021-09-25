@@ -32,7 +32,7 @@ namespace TabletopTweaks.NewComponents {
                 AutoCriticalThreat = true
             };
             context.TriggerRule(weaponAttack);
-            if (!weaponAttack.AttackRoll.IsCriticalRoll) { yield break; }
+            //if (!weaponAttack.AttackRoll.IsCriticalRoll) { yield break; }
             var damage = weaponAttack.MeleeDamage?.Result ?? 0;
             RuleSavingThrow coupSave = new RuleSavingThrow(targetUnit, SavingThrowType.Fortitude, damage + 10);
             context.TriggerRule(coupSave);

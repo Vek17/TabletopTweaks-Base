@@ -1,3 +1,6 @@
+## Version 1.3.2
+* extra slayer talents should now allow all slayers
+
 ## Version 1.3.1
 * fixed an edge case with spell blending preventing multiple from being taken in the same level
 * divine caster classes should now work as expected with the loremaster class

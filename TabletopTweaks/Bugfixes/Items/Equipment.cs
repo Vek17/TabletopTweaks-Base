@@ -20,6 +20,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 Main.LogHeader("Patching Equipment");
                 PatchMagiciansRing();
                 PatchMetamagicRods();
+                PatchHolySymbolofIomedae();
 
                 void PatchMagiciansRing() {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("MagiciansRing")) { return; }
@@ -27,6 +28,16 @@ namespace TabletopTweaks.Bugfixes.Items {
                     var RingOfTheSneakyWizardFeature = Resources.GetBlueprint<BlueprintFeature>("d848f1f1b31b3e143ba4aeeecddb17f4");
                     RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
                     Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
+                }
+
+                void PatchHolySymbolofIomedae() {
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("HolySymbolofIomedae")) { return; }
+
+                    var Artifact_HolySymbolOfIomedaeToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("e67dc14ff73014547920dc92bc8e1bfc");
+                    Artifact_HolySymbolOfIomedaeToggleAbility.ActivationType = AbilityActivationType.Immediately;
+                    Artifact_HolySymbolOfIomedaeToggleAbility.DoNotTurnOffOnRest = true;
+                    Artifact_HolySymbolOfIomedaeToggleAbility.Group = (ActivatableAbilityGroup)1000;
+                    Main.LogPatch("Patched", Artifact_HolySymbolOfIomedaeToggleAbility);
                 }
 
                 void PatchMetamagicRods() {
