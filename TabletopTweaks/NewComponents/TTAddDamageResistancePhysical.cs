@@ -102,10 +102,10 @@ namespace TabletopTweaks.NewComponents
                 && this.BypassedByReality == otherDR.BypassedByReality
                 && (!this.BypassedByReality || this.Reality == otherDR.Reality)
                 && this.BypassedByWeaponType == otherDR.BypassedByWeaponType
-                && (!this.BypassedByWeaponType || this.m_WeaponType == otherDR.m_WeaponType)
+                && (!this.BypassedByWeaponType || this.m_WeaponType.Equals(otherDR.m_WeaponType))
                 && this.BypassedByMeleeWeapon == otherDR.BypassedByMeleeWeapon
                 && this.BypassedByEpic == otherDR.BypassedByEpic
-                && ((this.m_CheckedFactMythic == null && otherDR.m_CheckedFactMythic == null) || this.m_CheckedFactMythic == otherDR.m_CheckedFactMythic);
+                && ((this.m_CheckedFactMythic == null && otherDR.m_CheckedFactMythic == null) || (this.m_CheckedFactMythic != null && otherDR.m_CheckedFactMythic != null && this.m_CheckedFactMythic.Equals(otherDR.m_CheckedFactMythic)));
         }
 
         public override void ApplyValidation(ValidationContext context)

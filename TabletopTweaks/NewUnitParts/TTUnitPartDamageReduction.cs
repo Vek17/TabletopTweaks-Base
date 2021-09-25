@@ -95,18 +95,14 @@ namespace TabletopTweaks.NewUnitParts
 
         public void Add(EntityFact fact)
         {
-            Main.LogDebug("TTUnitPartDamageReduction.Add(" + fact.Blueprint.name + ":" + fact.Blueprint.AssetGuid.ToString() + ")");
             this.TryInitialize();
-            Main.LogDebug("TTUnitPartDamageReduction.Add: fact is " + (!this.m_SourceFacts.HasItem<EntityFact>(fact) ? "not " : "") + "present");
             if (this.m_SourceFacts.HasItem<EntityFact>(fact))
                 return;
             this.m_SourceFacts.Add(fact);
-            Main.LogDebug("TTUnitPartDamageReduction.Add: adding componentruntimes of fact <" + fact.Blueprint.name + ":" + fact.Blueprint.AssetGuid.ToString() + "> to chunks"); 
             foreach (BlueprintComponentAndRuntime<TTAddDamageResistanceBase> componentAndRuntime in fact.SelectComponentsWithRuntime<TTAddDamageResistanceBase>())
             {
                 this.m_Chunks.Add(new TTUnitPartDamageReduction.Chunk(fact, (TTAddDamageResistanceBase.ComponentRuntime)componentAndRuntime.Runtime));
             }
-            Main.LogDebug("TTUnitPartDamageReduction.Add: recalculating chunk stacks...");
             this.RecalculateChunkStacks();
         }
 
@@ -263,21 +259,16 @@ namespace TabletopTweaks.NewUnitParts
 
         private void RecalculateChunkStacks()
         {
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Begin");
-            //var watch = new System.Diagnostics.Stopwatch();
-            //watch.Start();
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: build chunk stack array from chunks");
+#if DEBUG
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+#endif
             m_ChunkStacks = m_Chunks.Select((c, i) => new ChunkStack(m_Chunks, i)).ToArray();
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: # chunk stacks: " + m_ChunkStacks.Length.ToString());
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: build list of facts present in chunks");
             BlueprintUnitFactReference[] factsPresentInChunks = m_Chunks.Select(c => c.DR.Fact.Blueprint.ToReference<BlueprintUnitFactReference>()).ToArray();
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: # of facts present in chunks: " + factsPresentInChunks.Length.ToString());
 
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Starting increases pass..");
             // Increases pass
             foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
             {
-                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Processing possible increases for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());
                 if (chunkStack.IsIncreasedByArmor)
                 {
                     m_ChunkStacks
@@ -305,14 +296,11 @@ namespace TabletopTweaks.NewUnitParts
                         .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.IncreasesFacts.Contains(other.ReferenceFact))
                         .ForEach(other => other.AddAsIncrease(chunkStack));
                 }
-                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Done Processing possible increases for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());
             }
 
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Starting stacking pass...");
             // Stacking pass
             foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
             {
-                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Processing possible stacking for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());
                 if (chunkStack.IsStacksWithArmor)
                 {
                     m_ChunkStacks
@@ -333,55 +321,48 @@ namespace TabletopTweaks.NewUnitParts
                         .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.StacksWithFacts.Contains(other.ReferenceFact))
                         .ForEach(other => chunkStack.AddToStack(other));
                 }
-                Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks:  - Done processing possible stacking for reference chunk: " + chunkStack.ReferenceChunk.ToDebugString());            
             }
 
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: Starting display pass...");
             // Populate sources display list
             List<ChunkStack> chunkStacksForDisplay = new List<ChunkStack>();
             for (int i = 0; i < m_ChunkStacks.Length; i++)
             {
                 ChunkStack chunkStack = m_ChunkStacks[i];
-                if (!chunkStacksForDisplay.Contains(cd => 
+                if (!chunkStacksForDisplay.Contains(cd =>
                     cd.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
                     && cd.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority))
                 {
-                    chunkStacksForDisplay.Add(
-                        m_ChunkStacks
+                    ChunkStack maxChunkStack = m_ChunkStacks
                             .Where(cs => cs.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
                                 && cs.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)
-                            .MaxBy(cs => cs.Reduction));
+                            .MaxBy(cs => cs.Reduction);
+
+                    chunkStacksForDisplay.Add(maxChunkStack);
                 }
             }
 
             m_ReductionDisplays = chunkStacksForDisplay.Select(cs => new ReductionDisplay(cs.ReferenceChunk.DR, cs.Reduction)).ToList();
-            Main.LogDebug("TTUnitPartDamageReduction.RecalculateChunkStacks: done with display pass. # of reduction displays = " + m_ReductionDisplays.Count.ToString());
-            //watch.Stop();
+#if DEBUG
+            watch.Stop();
             DebugLogChunkStacks();
             DebugLogReductionDisplays();
-            //Main.LogDebug($"Calculated DR stacking groups in {watch.ElapsedMilliseconds} ms");
+            Main.LogDebug($"Calculated DR stacking groups in {watch.ElapsedMilliseconds} ms");
+#endif
         }
 
         private void DebugLogChunkStacks()
         {
-            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks");
             StringBuilder builder = new StringBuilder("ChunkStacks: \n");
-            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: created string builder");
             int indent = 1;
-            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: indent is 1");
-            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: #m_ChunkStacks = " + m_ChunkStacks.Length.ToString());
             for (int i = 0; i < m_ChunkStacks.Length; i++)
             {
-                Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: append debug log chunkstack # " + i.ToString());
                 builder.Append(m_ChunkStacks[i].ToDebugString(indent));
             }
-            Main.LogDebug("TTUnitPartDamageReduction.DebugLogChunkStacks: logging builder.ToString() ");
             Main.LogDebug(builder.ToString());
         }
 
         private void DebugLogReductionDisplays()
         {
-            Main.LogDebug("TTUnitPartDamageReduction.DebugLogReductionDisplays");
             StringBuilder builder = new StringBuilder("Reduction Display Values: \n");
             int indent = 1;
             foreach (ReductionDisplay rd in m_ReductionDisplays)
@@ -393,7 +374,6 @@ namespace TabletopTweaks.NewUnitParts
 
         public void TryInitialize()
         {
-            Main.LogDebug("TTUnitPartDamageReduction.TryInitialize: m_Initialized = " + this.m_Initialized.ToString());
             if (this.m_Initialized)
                 return;
             this.m_Initialized = true;
@@ -402,7 +382,6 @@ namespace TabletopTweaks.NewUnitParts
                 foreach (BlueprintComponentAndRuntime<TTAddDamageResistanceBase> componentAndRuntime in sourceFact.SelectComponentsWithRuntime<TTAddDamageResistanceBase>())
                     this.m_Chunks.Add(new TTUnitPartDamageReduction.Chunk(sourceFact, (TTAddDamageResistanceBase.ComponentRuntime)componentAndRuntime.Runtime));
             }
-            Main.LogDebug("TTUnitPartDamageReduction.TryInitialize: recalculating chunk stacks...");
             this.RecalculateChunkStacks();
         }
 
