@@ -329,7 +329,8 @@
             "DisableAll": false,
             "Enabled": {
                 "BladeOfTheMerciful": true,
-                "HonorableJudgement": true
+                "HonorableJudgement": true,
+                "LongswordOfRight" : true
             }
         }
     },

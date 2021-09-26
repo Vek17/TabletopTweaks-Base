@@ -10,6 +10,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -27,6 +28,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 Main.LogHeader("Patching Weapons");
                 PatchBladeOfTheMerciful();
                 PatchHonorableJudgement();
+                PatchLongswordOfRight();
 
                 void PatchBladeOfTheMerciful() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }
@@ -87,6 +89,30 @@ namespace TabletopTweaks.Bugfixes.Items {
                         };
                     }));
                     Main.LogPatch("Patched", JudgementOfRuleEnchantment);
+                }
+                void PatchLongswordOfRight()
+                {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("LongswordOfRight")) { return; }
+                    var LongswordOfRightEnchantment = Resources.GetBlueprint<BlueprintWeaponEnchantment>("59c2b96ee4525144e9ba7b8063ae20bb");
+                    
+                    var LongswordOfRightConditionalDamage = LongswordOfRightEnchantment.Components.OfType<WeaponConditionalDamageDice>().First(x => x.Damage.Dice.m_Dice == DiceType.D3);
+                    
+                    LongswordOfRightEnchantment.RemoveComponent(LongswordOfRightConditionalDamage);
+                    WeaponDamageAgainstAlignment LongswordOfRightNewEnchant = new WeaponDamageAgainstAlignment();
+                    LongswordOfRightNewEnchant.WeaponAlignment = DamageAlignment.Lawful;
+                    LongswordOfRightNewEnchant.EnemyAlignment = AlignmentComponent.Chaotic;
+                    LongswordOfRightNewEnchant.DamageType = DamageEnergyType.Holy;//It'll have to do since axiomatic isn't in the game
+                 
+                    LongswordOfRightNewEnchant.Value = new Kingmaker.UnitLogic.Mechanics.ContextDiceValue
+                    {
+                        DiceType = DiceType.D3,
+                       DiceCountValue = new Kingmaker.UnitLogic.Mechanics.ContextValue
+                       {
+                           Value = 1
+                       }
+                    };
+                    
+
                 }
             }
         }
