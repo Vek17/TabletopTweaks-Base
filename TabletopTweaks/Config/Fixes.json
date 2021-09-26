@@ -43,7 +43,7 @@
     "Trickster": {
         "DisableAll": false,
         "Enabled": {
-            "TricksterTricks": true
+            "UseMagicDevice2": true
         }
     },
     "Alchemist": {
@@ -289,10 +289,13 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
+            "BolsteredMetamagic": true,
             "CraneWing": true,
+            "EmpowerMetamagic": true,
             "Endurance": true,
             "FencingGrace": true,
             "IndomitableMount": true,
+            "MaximizeMetamagic": true,
             "MountedCombat": true,
             "PersistantMetamagic": true,
             "SlashingGrace": true,

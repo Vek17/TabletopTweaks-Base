@@ -1,3 +1,11 @@
+## Version 1.3.3
+* fixed mounted maniac not triggering
+* trickster UMD2 now allows you to ignore equipment restrictions as the description states
+* bolster should now be allowed on sticky touch spells
+* empower should now be allowed on sticky touch spells
+* maximize should now be allowed on sticky touch spells
+* bolster splash damage should not longer hit you (unless you targeted a friendly)
+
 ## Version 1.3.2
 * extra slayer talents should now allow all slayers
 * coup de grace is now working again (opps)
