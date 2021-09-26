@@ -123,12 +123,3 @@ namespace TabletopTweaks.NewContent.Feats
         }
     }
 }
-
-// TODO - fix prog
-// TODO - check the ui
-// TODO - check if interactions with other animal allies check out
-// TODO - lint
-// TODO - reorganize
-// TODO - check how to fetch exisiting localized string
-// TODO - set up the environment?
-// at least debugger and separate installs for dev and stable
