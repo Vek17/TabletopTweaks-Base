@@ -111,6 +111,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                            Value = 1
                        }
                     };
+                    LongswordOfRightEnchantment.AddComponent(LongswordOfRightNewEnchant);
                     
 
                 }
