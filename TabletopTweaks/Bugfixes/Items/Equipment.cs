@@ -4,8 +4,11 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Items {
     static class Equipment {
@@ -19,6 +22,7 @@ namespace TabletopTweaks.Bugfixes.Items {
 
                 Main.LogHeader("Patching Equipment");
                 PatchMagiciansRing();
+                PatchManglingFrenzy();
                 PatchMetamagicRods();
 
                 void PatchMagiciansRing() {
@@ -27,6 +31,21 @@ namespace TabletopTweaks.Bugfixes.Items {
                     var RingOfTheSneakyWizardFeature = Resources.GetBlueprint<BlueprintFeature>("d848f1f1b31b3e143ba4aeeecddb17f4");
                     RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
                     Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
+                }
+
+                // Fix Mangling Frenzy does not apply to Bloodrager's Rage
+                void PatchManglingFrenzy()
+                {
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("ManglingFrenzy")) { return; }
+                    var ManglingFrenzyFeature = Resources.GetBlueprint<BlueprintFeature>("29e2f51e6dd7427099b015de88718990");
+                    var ManglingFrenzyBuff = Resources.GetBlueprint<BlueprintBuff>("1581c5ceea24418cadc9f26ce4d391a9");
+                    var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+
+                    ManglingFrenzyFeature.AddComponent(Helpers.Create<BuffExtraEffects>(c =>
+                    {
+                        c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                        c.m_ExtraEffectBuff = ManglingFrenzyBuff.ToReference<BlueprintBuffReference>();
+                    }));
                 }
 
                 void PatchMetamagicRods() {

@@ -304,6 +304,7 @@
             "DisableAll": false,
             "Enabled": {
                 "MagiciansRing": true,
+                "ManglingFrenzy": true,
                 "MetamagicRods": true
             }
         },

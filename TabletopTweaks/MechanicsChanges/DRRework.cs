@@ -402,6 +402,14 @@ namespace TabletopTweaks.MechanicsChanges
                     };
                 });
 
+                // Fix Bloodrager (Primalist) DR not being increased by the Improved Damage Reduction rage power
+                ContextRankConfig bloodRagerDRContextRankConfig = bloodragerDR.GetComponent<ContextRankConfig>();
+                bloodRagerDRContextRankConfig.m_FeatureList = bloodRagerDRContextRankConfig.m_FeatureList.AddRangeToArray(new BlueprintFeatureReference[]
+                {
+                    increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>(),
+                    increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>()
+                });
+
                 // Fix Mad Dog's pet DR not being improved by master's Increased Damage Resistance Rage Power(s)
                 BlueprintUnitProperty madDogPetDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("MadDogPetDRProperty", bp =>
                 {
@@ -419,6 +427,20 @@ namespace TabletopTweaks.MechanicsChanges
                     crc.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
                     crc.m_CustomProperty = madDogPetDRProperty.ToReference<BlueprintUnitPropertyReference>();
                 }));
+
+                // Fix Increased Damage Reduction Rage Power not checking if the character actual has the DamageReduction class feature
+                increasedDamageReductionRagePower.AddComponent<PrerequisiteFeaturesFromListFormatted>(p =>
+                {
+                    p.m_Features = new BlueprintFeatureReference[]
+                    {
+                        barbarianDR.ToReference<BlueprintFeatureReference>(),
+                        invulnerableRagerDR.ToReference<BlueprintFeatureReference>(),
+                        madDogMasterDamageReduction.ToReference<BlueprintFeatureReference>(),
+                        bloodragerDR.ToReference<BlueprintFeatureReference>(),
+                        skaldDR.ToReference<BlueprintFeatureReference>()
+                    };
+                    p.Amount = 1;
+                });
             }
 
             static void PatchStalwartDefender()
@@ -447,7 +469,6 @@ namespace TabletopTweaks.MechanicsChanges
         public class MadDogPetDRProperty : PropertyValueGetter
         {
             private static BlueprintFeature MadDogMasterDamageReduction = Resources.GetBlueprint<BlueprintFeature>("a0d4a3295224b8f4387464a4447c31d5");
-            //private static BlueprintFeature IncreasedDamageReductionRagePower = Resources.GetBlueprint<BlueprintFeature>("ddaee203ee4dcb24c880d633fbd77db6");
 
             public override int GetBaseValue(UnitEntityData unit)
             {
@@ -458,7 +479,7 @@ namespace TabletopTweaks.MechanicsChanges
                 EntityFact masterDamageReduction = unit.Master.GetFact(MadDogMasterDamageReduction);
                 if (masterDamageReduction != null)
                 {
-                    foreach(BlueprintComponentAndRuntime<TTAddDamageResistancePhysical> componentAndRuntime in masterDamageReduction.SelectComponentsWithRuntime<TTAddDamageResistancePhysical>())
+                    foreach (BlueprintComponentAndRuntime<TTAddDamageResistancePhysical> componentAndRuntime in masterDamageReduction.SelectComponentsWithRuntime<TTAddDamageResistancePhysical>())
                     {
                         value += ((TTAddDamageResistancePhysical.ComponentRuntime)componentAndRuntime.Runtime).GetCurrentValue();
                     }
