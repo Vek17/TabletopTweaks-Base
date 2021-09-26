@@ -94,9 +94,14 @@ namespace TabletopTweaks.Bugfixes.Items {
                 {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("LongswordOfRight")) { return; }
                     var LongswordOfRightEnchantment = Resources.GetBlueprint<BlueprintWeaponEnchantment>("59c2b96ee4525144e9ba7b8063ae20bb");
-                    
+
                     var LongswordOfRightConditionalDamage = LongswordOfRightEnchantment.Components.OfType<WeaponConditionalDamageDice>().First(x => x.Damage.Dice.m_Dice == DiceType.D3);
-                    
+                    LongswordOfRightConditionalDamage.Damage.TypeDescription = new DamageTypeDescription
+                    {
+                        Type = DamageType.Energy,
+                        Energy = DamageEnergyType.Holy
+                    };
+                    /*
                     LongswordOfRightEnchantment.RemoveComponent(LongswordOfRightConditionalDamage);
                     WeaponDamageAgainstAlignment LongswordOfRightNewEnchant = new WeaponDamageAgainstAlignment();
                     LongswordOfRightNewEnchant.WeaponAlignment = DamageAlignment.Lawful;
@@ -112,7 +117,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                        }
                     };
                     LongswordOfRightEnchantment.AddComponent(LongswordOfRightNewEnchant);
-                    
+                    */
 
                 }
             }
