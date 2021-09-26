@@ -47,11 +47,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                         .GetComponent<AbilityAreaEffectRunAction>()
                         .UnitExit = Helpers.CreateActionList(
                             Helpers.Create<ContextActionRemoveBuff>(a => a.m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>())    
-                        );
-                    //Artifact_HolySymbolOfIomedaeToggleAbility.ActivationType = AbilityActivationType.Immediately;
-                    //Artifact_HolySymbolOfIomedaeToggleAbility.DoNotTurnOffOnRest = true;
-                    //Artifact_HolySymbolOfIomedaeToggleAbility.Group =  (ActivatableAbilityGroup)1000;
-                    //Artifact_HolySymbolOfIomedaeToggleAbility.WeightInGroup = 0;
+                    );
                     Main.LogPatch("Patched", Artifact_HolySymbolOfIomedaeArea);
                 }
 
@@ -91,19 +87,6 @@ namespace TabletopTweaks.Bugfixes.Items {
                         ability.DoNotTurnOffOnRest = false;
                         Main.LogPatch("Patched", ability);
                     });
-                }
-            }
-            //[HarmonyPatch(typeof(ActivatableAbility), "Stop", new Type[] { typeof(bool)})]
-            class ActivatableAbility_TryStart_Patch {
-                static bool Prefix(ActivatableAbility __instance) {
-                    
-                    var Artifact_HolySymbolOfIomedaeToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("e67dc14ff73014547920dc92bc8e1bfc");
-                    if (__instance.Blueprint.AssetGuid.Equals(Artifact_HolySymbolOfIomedaeToggleAbility.AssetGuid)) {
-                        try {
-                            throw new ArgumentException();
-                        } catch { Main.Error("Artifact_HolySymbolOfIomedaeToggleAbility"); }
-                    }
-                    return true;
                 }
             }
         }
