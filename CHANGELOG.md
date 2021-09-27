@@ -1,3 +1,6 @@
+## Version 1.3.4
+* added precision critical
+
 ## Version 1.3.3
 * fixed mounted maniac not triggering
 * fixed coup de grace not causing sneak attack damage
