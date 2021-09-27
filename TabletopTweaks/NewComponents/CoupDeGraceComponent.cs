@@ -12,6 +12,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.Utility;
 using System.Collections.Generic;
+using TabletopTweaks.NewRules;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("5da9ff47fe484e0faadd0330ec998a95")]
@@ -26,10 +27,11 @@ namespace TabletopTweaks.NewComponents {
             if (caster == null) { yield break; }
             if (threatHand == null) { yield break; }
             if (targetUnit == null) { yield break; }
-            RuleAttackWithWeapon weaponAttack = new RuleAttackWithWeapon(caster, targetUnit, threatHand.Weapon, 0) {
+            RuleAttackWithWeapon weaponAttack = new RuleAttackWithWeaponPrecision(caster, targetUnit, threatHand.Weapon, 0) {
                 AutoHit = true,
                 AutoCriticalConfirmation = true,
-                AutoCriticalThreat = true
+                AutoCriticalThreat = true,
+                ForceSneakAttack = true
             };
             context.TriggerRule(weaponAttack);
             //if (!weaponAttack.AttackRoll.IsCriticalRoll) { yield break; }

@@ -8,6 +8,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -18,10 +19,13 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -289,34 +293,120 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
         }
 
-        [HarmonyPatch(typeof(AbilityCustomVitalStrike.VitalStrike), "OnEventDidTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
+        [HarmonyPatch]
         static class VitalStrike_OnEventDidTrigger_Rowdy_Patch {
+            private static Type _type = typeof(AbilityCustomVitalStrike).GetNestedType("<Deliver>d__7", AccessTools.all);
+            internal static MethodInfo TargetMethod(Harmony instance) {
+                return AccessTools.Method(_type, "MoveNext");
+            }
 
-            static bool Prefix(AbilityCustomMeleeAttack.VitalStrike __instance, RuleCalculateWeaponStats evt) {
-                if (ModSettings.Fixes.Feats.IsDisabled("VitalStrike")) { return true; }
-
-                DamageDescription damageDescription = evt.DamageDescription.FirstItem();
-                if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
-                    var vitalDamage = new DamageDescription() {
-                        Dice = new DiceFormula(damageDescription.Dice.Rolls * Math.Max(1, __instance.m_DamageMod - 1), damageDescription.Dice.Dice),
-                        Bonus = __instance.m_Mythic ? damageDescription.Bonus * Math.Max(1, __instance.m_DamageMod - 1) : 0,
-                        TypeDescription = damageDescription.TypeDescription,
-                        IgnoreReduction = damageDescription.IgnoreReduction,
-                        IgnoreImmunities = damageDescription.IgnoreImmunities,
-                        SourceFact = damageDescription.SourceFact,
-                        CausedByCheckFail = damageDescription.CausedByCheckFail,
-                        m_BonusWithSource = 0
-                    };
-                    evt.DamageDescription.Insert(1, vitalDamage);
-                    if (__instance.m_Rowdy && evt.Initiator.Descriptor.Stats.SneakAttack.ModifiedValue > 0) {
-                        DamageDescription damageDescription2 = new DamageDescription {
-                            TypeDescription = evt.DamageDescription.FirstItem().TypeDescription,
-                            Dice = new DiceFormula(evt.Initiator.Descriptor.Stats.SneakAttack * 2, DiceType.D6),
-                        };
-                        evt.DamageDescription.Add(damageDescription2);
+            static readonly MethodInfo AbilityCustomVitalStrike_get_RowdyFeature = AccessTools.PropertyGetter(
+                typeof(AbilityCustomVitalStrike),
+                "RowdyFeature"
+            );
+            static readonly ConstructorInfo VitalStrikeEventHandler_Constructor = AccessTools.Constructor(
+                typeof(VitalStrikeEventHandler),
+                new Type[] {
+                    typeof(UnitEntityData),
+                    typeof(int),
+                    typeof(bool),
+                    typeof(bool)
+                }
+            );
+            // ------------before------------
+            // eventHandlers.Add(new AbilityCustomVitalStrike.VitalStrike(maybeCaster, this.VitalStrikeMod, maybeCaster.HasFact(this.MythicBlueprint), maybeCaster.HasFact(this.RowdyFeature)));
+            // ------------after-------------
+            // eventHandlers.Add(new VitalStrikeEventHandler(maybeCaster, this.VitalStrikeMod, maybeCaster.HasFact(this.MythicBlueprint), maybeCaster.HasFact(this.RowdyFeature)));
+            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
+                var codes = new List<CodeInstruction>(instructions);
+                if (ModSettings.Fixes.Feats.IsDisabled("VitalStrike")) { return instructions; }
+                int target = FindInsertionTarget(codes);
+                Main.Log($"OpperandType: {codes[71].operand.GetType()}");
+                //Utilities.ILUtils.LogIL(codes);
+                codes[target] = new CodeInstruction(OpCodes.Newobj, VitalStrikeEventHandler_Constructor);
+                //Utilities.ILUtils.LogIL(codes);
+                return codes.AsEnumerable();
+            }
+            private static int FindInsertionTarget(List<CodeInstruction> codes) {
+                //Looking for the arguments that define the object creation because searching for the object creation itself is hard
+                for (int i = 0; i < codes.Count; i++) {
+                    if (codes[i].opcode == OpCodes.Call && codes[i].Calls(AbilityCustomVitalStrike_get_RowdyFeature)) {
+                        if (codes[i+2].opcode == OpCodes.Newobj) {
+                            return i + 2;
+                        }
                     }
                 }
-                return false;
+                Main.Log("VITALSTRIKEPATCH: COULD NOT FIND TARGET");
+                return -1;
+            }
+
+            private class VitalStrikeEventHandler : IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
+            IRulebookHandler<RuleCalculateWeaponStats>,
+            IInitiatorRulebookHandler<RuleAttackWithWeapon>,
+            IRulebookHandler<RuleAttackWithWeapon>,
+            ISubscriber, IInitiatorRulebookSubscriber {
+
+                public VitalStrikeEventHandler(UnitEntityData unit, int damageMod, bool mythic, bool rowdy) {
+                    this.m_Unit = unit;
+                    this.m_DamageMod = damageMod;
+                    this.m_Mythic = mythic;
+                    this.m_Rowdy = rowdy;
+                }
+
+                public UnitEntityData GetSubscribingUnit() {
+                    return this.m_Unit;
+                }
+
+                public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {
+                }
+
+                public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
+                    Main.Log("RuleCalculateWeaponStats::OnEventDidTrigger");
+                    DamageDescription damageDescription = evt.DamageDescription.FirstItem();
+                    if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
+                        var vitalDamage = new DamageDescription() {
+                            Dice = new DiceFormula(damageDescription.Dice.Rolls * Math.Max(1, this.m_DamageMod - 1), damageDescription.Dice.Dice),
+                            Bonus = this.m_Mythic ? damageDescription.Bonus * Math.Max(1, this.m_DamageMod - 1) : 0,
+                            TypeDescription = damageDescription.TypeDescription,
+                            IgnoreReduction = damageDescription.IgnoreReduction,
+                            IgnoreImmunities = damageDescription.IgnoreImmunities,
+                            SourceFact = damageDescription.SourceFact,
+                            CausedByCheckFail = damageDescription.CausedByCheckFail,
+                            m_BonusWithSource = 0
+                        };
+                        evt.DamageDescription.Insert(1, vitalDamage);
+                    }
+                }
+
+                public void OnEventDidTrigger(RuleAttackWithWeapon evt) {
+                    if (!m_Rowdy) { return; }
+                    RuleAttackRoll ruleAttackRoll = evt.AttackRoll;
+                    if (ruleAttackRoll == null) { return; }
+                    if (evt.Initiator.Stats.SneakAttack < 1) { return; }
+
+                    if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
+                        DamageTypeDescription damageTypeDescription = evt.ResolveRules
+                            .Select(e => e.Damage).First()
+                            .DamageBundle.First<BaseDamage>().CreateTypeDescription();
+                        int rowdyDice = evt.Initiator.Stats.SneakAttack * 2;
+                        DiceFormula dice = new DiceFormula(rowdyDice, DiceType.D6);
+                        BaseDamage baseDamage = damageTypeDescription.GetDamageDescriptor(dice, 0).CreateDamage();
+                        baseDamage.Precision = true;
+                        evt.ResolveRules.Select(e => e.Damage)
+                            .ForEach(e => e.Add(baseDamage));
+                    }
+                }
+
+                public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) {
+                }
+
+                private readonly UnitEntityData m_Unit;
+
+                private int m_DamageMod;
+
+                private bool m_Mythic;
+
+                private bool m_Rowdy;
             }
         }
     }

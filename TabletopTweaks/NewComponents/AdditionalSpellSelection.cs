@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewComponents {
     class AdditionalSpellSelection : UnitFactComponentDelegate, IUnitCompleteLevelUpHandler {
 
         private Spellbook spellbook { get => Owner.DemandSpellbook(SpellCastingClass); }
-        private int adjustedMaxLevel {
+        public int AdjustedMaxLevel {
             get {
                 if (!UseOffset) { return MaxSpellLevel; }
                 return Math.Max((spellbook?.MaxSpellLevel ?? 0) - SpellLevelOffset, 1);
@@ -35,9 +35,10 @@ namespace TabletopTweaks.NewComponents {
                 .OfType<AdditionalSpellSelection>()
                 .Where(c => c.spellbook.Blueprint.AssetGuid.Equals(spellbook.Blueprint.AssetGuid))
                 .Where(c => c.SpellList.Guid.Equals(SpellList.Guid))
+                .Where(c => c.AdjustedMaxLevel == this.AdjustedMaxLevel) //Experemental "Fix"
                 .Aggregate(0, (acc, x) => acc + x.Count) ?? 0;
             spellSelection = controller.State.DemandSpellSelection(spellbook.Blueprint, SpellList);
-            spellSelection.SetExtraSpells(spellCount, adjustedMaxLevel);
+            spellSelection.SetExtraSpells(spellCount, AdjustedMaxLevel);
         }
         public override void OnDeactivate() {
             if (spellSelection == null) { return; }
