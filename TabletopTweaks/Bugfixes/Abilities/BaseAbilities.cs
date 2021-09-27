@@ -28,7 +28,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     var CoupDeGraceAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("32280b137ca642c45be17e2d92898758");
                     CoupDeGraceAbility.SetDescription("As a full-round action, you can use a melee weapon to deliver a coup de grace " +
                         "to a helpless opponent.\nYou automatically hit and score a critical hit. If the defender survives the damage, he " +
-                        "must make a Fortitude save DC 10 + damage dealt) or die. A rogue also gets her extra sneak attack damage against " +
+                        "must make a Fortitude save (DC 10 + damage dealt) or die. A rogue also gets her extra sneak attack damage against " +
                         "a helpless opponent when delivering a coup de grace.\nDelivering a coup de grace provokes attacks of opportunity " +
                         "from threatening opponents.\nYou can’t deliver a coup de grace against a creature that is immune to critical hits.");
                     CoupDeGraceAbility.ReplaceComponents<AbilityEffectRunAction>(
