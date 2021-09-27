@@ -15,7 +15,7 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void OnEventAboutToTrigger(RuleCalculateDamage evt) {
-            if (evt.ParentRule?.DamageBundle?.WeaponDamage?.CriticalModifier < 2) { return; }
+            if ((evt.ParentRule?.DamageBundle?.WeaponDamage?.CriticalModifier ?? 1) < 2) { return; }
             var PrecisionCritical = base.Owner.Get<UnitPartPrecisionCritical>();
 
             foreach (var baseDamage in evt.ParentRule.DamageBundle) {

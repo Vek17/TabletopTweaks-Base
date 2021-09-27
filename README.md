@@ -35,6 +35,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Armored Might
         Mounted Maniac
         Mythic Spell Combat
+        Precision Critical
     
     Adds the following arcanist exploits:
         Quick Study
@@ -129,6 +130,10 @@ All fixes and added content are configurable and can be disabled by editing the 
         Adds the damage component of zippy magic
         Enables favorable magic on reoccurring saves
         Enables azata songs to be started outside of combat
+    Alchemist
+        Grenadier
+            No longer gets brew potions
+            No longer gets poision resistance
     Arcansit
         Fixed consume spells minimum resources
     Bloodrager
@@ -235,14 +240,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         Bolster metatmagic splash damage should not longer hit you (unless you targeted a friendly)
     Mythic Abilities
         Bloodline Ascendance now works with mutated bloodlines
-        Domain zealot now works properly
-        Boundless healing now works properly
         Enduring spells now works with temporary item enhancement spells
         Second bloodline is now available to mutated bloodlines
         Second bloodrager bloodline now works with reformed fiend
-        Second mystery now is selectable
-        Second spirit now is selectable    
-        Everlasting Judgment is now Functional
 
 Acknowledgments:  
 

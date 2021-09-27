@@ -1,5 +1,6 @@
 ## Version 1.3.4
 * added precision critical
+* rowdy's vital force now deals precision damage
 
 ## Version 1.3.3
 * fixed mounted maniac not triggering
