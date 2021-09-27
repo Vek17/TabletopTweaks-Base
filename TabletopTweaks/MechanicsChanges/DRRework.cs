@@ -50,6 +50,19 @@ namespace TabletopTweaks.MechanicsChanges
             }
         }
 
+#if DEBUG
+        [HarmonyPatch(typeof(AddDamageResistanceBase.ComponentRuntime), nameof(AddDamageResistanceBase.ComponentRuntime.OnTurnOn))]
+        static class AddDamageResistanceBase_OnTurnOn_LogPatch {
+
+            static bool Prefix(AddDamageResistanceBase.ComponentRuntime __instance) {
+                if (ModSettings.Fixes.DRRework.IsEnabled("Base")) {
+                    Main.LogDebug($"WARNING: Vanilla Damage Resistance turned on for fact: {__instance.Fact.Blueprint.AssetGuid} - {__instance.Fact.Blueprint.NameSafe()}");
+                }
+                return true;
+            }
+        }
+#endif
+
         [HarmonyPatch(typeof(BlueprintFact), nameof(BlueprintFact.CollectComponents))]
         static class BlueprintFact_CollectComponents_Patch
         {
@@ -403,12 +416,15 @@ namespace TabletopTweaks.MechanicsChanges
                 });
 
                 // Fix Bloodrager (Primalist) DR not being increased by the Improved Damage Reduction rage power
-                ContextRankConfig bloodRagerDRContextRankConfig = bloodragerDR.GetComponent<ContextRankConfig>();
-                bloodRagerDRContextRankConfig.m_FeatureList = bloodRagerDRContextRankConfig.m_FeatureList.AddRangeToArray(new BlueprintFeatureReference[]
-                {
-                    increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>(),
-                    increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>()
-                });
+                bloodragerDR.AddComponent(Helpers.CreateContextRankConfig(crc => {
+                    crc.m_BaseValueType = ContextRankBaseValueType.FeatureListRanks;
+                    crc.m_FeatureList = new BlueprintFeatureReference[] {
+                        bloodragerDR.ToReference<BlueprintFeatureReference>(),
+                        increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>(),
+                        increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>()
+                    };
+                }));
+                
 
                 // Fix Mad Dog's pet DR not being improved by master's Increased Damage Resistance Rage Power(s)
                 BlueprintUnitProperty madDogPetDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("MadDogPetDRProperty", bp =>
