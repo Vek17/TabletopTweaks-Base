@@ -37,7 +37,7 @@ namespace TabletopTweaks.NewUnitParts
         private bool m_Initialized;
         private readonly List<TTUnitPartDamageReduction.Chunk> m_Chunks = new List<TTUnitPartDamageReduction.Chunk>();
         private ChunkStack[] m_ChunkStacks;
-        private List<ReductionDisplay> m_ReductionDisplays = new List<ReductionDisplay>();
+        private List<ChunkStack> m_ChunkStacksForDisplay;
         private readonly List<TTUnitPartDamageReduction.Immunity> m_Immunities = new List<TTUnitPartDamageReduction.Immunity>();
 
         public void AddPenaltyEntry(int penalty, EntityFact source) => this.PenaltyEntries.Add(new TTUnitPartDamageReduction.ReductionPenalty()
@@ -69,7 +69,11 @@ namespace TabletopTweaks.NewUnitParts
             get
             {
                 this.TryInitialize();
-                return this.m_ReductionDisplays;
+                return m_ChunkStacksForDisplay.Select(cs => new ReductionDisplay() {
+                    ReferenceDamageResistance = cs.ReferenceChunk.DR.Settings,
+                    TotalReduction = cs.Reduction
+                });
+                
             }
         }
 
@@ -334,11 +338,11 @@ namespace TabletopTweaks.NewUnitParts
             }
 
             // Populate sources display list
-            List<ChunkStack> chunkStacksForDisplay = new List<ChunkStack>();
+            m_ChunkStacksForDisplay = new List<ChunkStack>();
             for (int i = 0; i < m_ChunkStacks.Length; i++)
             {
                 ChunkStack chunkStack = m_ChunkStacks[i];
-                if (!chunkStacksForDisplay.Contains(cd =>
+                if (!m_ChunkStacksForDisplay.Contains(cd =>
                     cd.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
                     && cd.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority))
                 {
@@ -347,11 +351,9 @@ namespace TabletopTweaks.NewUnitParts
                                 && cs.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)
                             .MaxBy(cs => cs.Reduction);
 
-                    chunkStacksForDisplay.Add(maxChunkStack);
+                    m_ChunkStacksForDisplay.Add(maxChunkStack);
                 }
             }
-
-            m_ReductionDisplays = chunkStacksForDisplay.Select(cs => new ReductionDisplay(cs.ReferenceChunk.DR, cs.Reduction)).ToList();
 #if DEBUG
             watch.Stop();
             DebugLogChunkStacks();
@@ -375,8 +377,10 @@ namespace TabletopTweaks.NewUnitParts
         {
             StringBuilder builder = new StringBuilder("Reduction Display Values: \n");
             int indent = 1;
-            foreach (ReductionDisplay rd in m_ReductionDisplays)
-            {
+            foreach (ReductionDisplay rd in m_ChunkStacksForDisplay.Select(cs => new ReductionDisplay() {
+                ReferenceDamageResistance = cs.ReferenceChunk.DR.Settings,
+                TotalReduction = cs.Reduction
+            })) {
                 builder.Append(new string(' ', indent * 2) + "- " + rd.ToDebugString() + "\n");
             }
             Main.LogDebug(builder.ToString());
@@ -426,22 +430,15 @@ namespace TabletopTweaks.NewUnitParts
             return true;
         }
 
-        public class ReductionDisplay
-        {
-            public ReductionDisplay(TTAddDamageResistanceBase.ComponentRuntime referenceRuntime, int totalReduction)
-            {
-                ReferenceRuntime = referenceRuntime;
-                TotalReduction = totalReduction;
-            }
-
-            public TTAddDamageResistanceBase.ComponentRuntime ReferenceRuntime { get; }
-            public int TotalReduction { get; }
+        public class ReductionDisplay {
+            public TTAddDamageResistanceBase ReferenceDamageResistance { get; set; }
+            public int TotalReduction { get; set; }
 
             public string ToDebugString()
             {
                 string result = "";
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
-                if (this.ReferenceRuntime.Settings is TTAddDamageResistancePhysical settings1)
+                if (this.ReferenceDamageResistance is TTAddDamageResistancePhysical settings1)
                 {
                     List<string> exceptions = new List<string>();
                     int value = this.TotalReduction;
@@ -471,28 +468,27 @@ namespace TabletopTweaks.NewUnitParts
                         result = "DR " + value.ToString() + "/" + string.Join(" and ", exceptions);
                     }
                 }
-                else if (this.ReferenceRuntime.Settings is TTProtectionFromEnergy settings2)
+                else if (this.ReferenceDamageResistance is TTProtectionFromEnergy settings2)
                 {
-                    result = "protection from " + ls.DamageEnergy.GetText(settings2.Type) + " (" + this.ReferenceRuntime.RemainPool + ")";
+                    result = "protection from " + ls.DamageEnergy.GetText(settings2.Type) + " (" + this.TotalReduction + ")";
                 }
-                else if (this.ReferenceRuntime.Settings is TTWizardAbjurationResistance settings3)
+                else if (this.ReferenceDamageResistance is TTWizardAbjurationResistance settings3)
                 {
                     result = "resist " + ls.DamageEnergy.GetText(settings3.Type) + " " + this.TotalReduction + " (abjuration)";
                 }
-                else if (this.ReferenceRuntime.Settings is TTWizardEnergyAbsorption settings4)
+                else if (this.ReferenceDamageResistance is TTWizardEnergyAbsorption settings4)
                 {
-                    result = "(abjuration) " + ls.DamageEnergy.GetText(settings4.Type) + " absorption (" + this.ReferenceRuntime.RemainPool + ")";
+                    result = "(abjuration) " + ls.DamageEnergy.GetText(settings4.Type) + " absorption (" + this.TotalReduction + ")";
                 }
-                else if (this.ReferenceRuntime.Settings is TTAddDamageResistanceEnergy settings5)
+                else if (this.ReferenceDamageResistance is TTAddDamageResistanceEnergy settings5)
                 {
                     result = "resist " + ls.DamageEnergy.GetText(settings5.Type) + " " + this.TotalReduction;
                 }
-                else if (this.ReferenceRuntime.Settings is TTAddDamageResistanceForce settings6)
+                else if (this.ReferenceDamageResistance is TTAddDamageResistanceForce settings6)
                 {
                     result = "resist force " + this.TotalReduction;
                 }
 
-                result += " <" + this.ReferenceRuntime.Fact.Blueprint.name + ":" + this.ReferenceRuntime.Fact.Blueprint.AssetGuid.ToString() + "> ";
                 return result;
             }
         }
@@ -759,16 +755,10 @@ namespace TabletopTweaks.NewUnitParts
                 }
             }
 
-            private int m_cachedReduction = -1;
             public int Reduction
             {
                 get
                 {
-                    if (m_cachedReduction >= 0)
-                    {
-                        return m_cachedReduction;
-                    }
-
                     int reduction = 0;
                     for (int i = 0; i < m_baseChunkIndices.Length; i++)
                     {
@@ -777,7 +767,6 @@ namespace TabletopTweaks.NewUnitParts
                             reduction += m_chunkListReference[i].Reduction;
                         }
                     }
-                    m_cachedReduction = reduction;
                     return reduction;
                 }
             }

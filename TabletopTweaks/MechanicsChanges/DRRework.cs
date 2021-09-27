@@ -17,6 +17,7 @@ using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Solvers;
 using Kingmaker.Tutorial.Triggers;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Martial.DamageReduction;
+using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Martial.EnergyResistance;
 using Kingmaker.UI.ServiceWindow.CharacterScreen;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -156,7 +157,7 @@ namespace TabletopTweaks.MechanicsChanges
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
                 foreach(TTUnitPartDamageReduction.ReductionDisplay reduction in allSources.EmptyIfNull())
                 {
-                    if (reduction.ReferenceRuntime.Settings is TTAddDamageResistancePhysical settings1)
+                    if (reduction.ReferenceDamageResistance is TTAddDamageResistancePhysical settings1)
                     {
                         CharInfoDamageReductionEntryVM reductionEntryVm = new CharInfoDamageReductionEntryVM()
                         {
@@ -185,6 +186,26 @@ namespace TabletopTweaks.MechanicsChanges
             }
         }
 
+        [HarmonyPatch(typeof(CharInfoEnergyResistanceVM), nameof(CharInfoEnergyResistanceVM.GetEnergyResistance))]
+        static class CharInfoEnergyResistanceVM_GetEnergyResistance_Patch {
+            static void Postfix(CharInfoEnergyResistanceVM __instance, UnitDescriptor unit, ref List<CharInfoEnergyResistanceEntryVM> __result) {
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
+                List<CharInfoEnergyResistanceEntryVM> resistanceEntryVMList = new List<CharInfoEnergyResistanceEntryVM>();
+                LocalizedTexts localizedTexts = Game.Instance.BlueprintRoot.LocalizedTexts;
+                foreach (TTUnitPartDamageReduction.ReductionDisplay reduction in 
+                    unit.Get<TTUnitPartDamageReduction>()?.AllSources?.EmptyIfNull().OrderByDescending(rd => rd.ReferenceDamageResistance?.Priority ?? TTAddDamageResistanceBase.DRPriority.Normal)) {
+                    if (reduction.ReferenceDamageResistance is TTAddDamageResistanceEnergy settings1) {
+                        CharInfoEnergyResistanceEntryVM resistanceEntryVM = new CharInfoEnergyResistanceEntryVM() {
+                            Value = reduction.TotalReduction,
+                            Type = localizedTexts.DamageEnergy.GetText(settings1.Type)
+                        };
+                        resistanceEntryVMList.Add(resistanceEntryVM);
+                    }
+                }
+                __result = resistanceEntryVMList;
+            }
+        }
+
         [HarmonyPatch(typeof(CharSMartial), nameof(CharSMartial.GetDamageReduction))]
         static class CharSMartial_GetDamageReduction_Patch
         {
@@ -193,11 +214,11 @@ namespace TabletopTweaks.MechanicsChanges
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 List<CharSMartial.DRdata> drdataList = new List<CharSMartial.DRdata>();
                 TTUnitPartDamageReduction partDamageReduction = unit.Get<TTUnitPartDamageReduction>();
-                IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> list = partDamageReduction != null ? partDamageReduction.AllSources.Where(c => c.ReferenceRuntime.Settings is TTAddDamageResistancePhysical) : null;
+                IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> list = partDamageReduction != null ? partDamageReduction.AllSources.Where(c => c.ReferenceDamageResistance is TTAddDamageResistancePhysical) : null;
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
                 foreach (TTUnitPartDamageReduction.ReductionDisplay reduction in list.EmptyIfNull())
                 {
-                    TTAddDamageResistancePhysical settings = (TTAddDamageResistancePhysical)reduction.ReferenceRuntime.Settings;
+                    TTAddDamageResistancePhysical settings = (TTAddDamageResistancePhysical)reduction.ReferenceDamageResistance;
 
                     CharSMartial.DRdata drdata = new CharSMartial.DRdata();
                     drdata.value = reduction.TotalReduction.ToString();
@@ -220,6 +241,25 @@ namespace TabletopTweaks.MechanicsChanges
                     drdataList.Add(drdata);
                 }
                 __result = drdataList;
+            }
+        }
+
+        [HarmonyPatch(typeof(CharSMartial), nameof(CharSMartial.GetEnergyResistance))]
+        static class CharSMartial_GetEnergyResistance_Patch {
+            static void Postfix(CharSMartial __instance, UnitDescriptor unit, List<CharSMartial.ERdata> __result) {
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
+                List<CharSMartial.ERdata> erdataList = new List<CharSMartial.ERdata>();
+                LocalizedTexts localizedTexts = Game.Instance.BlueprintRoot.LocalizedTexts;
+                foreach (TTUnitPartDamageReduction.ReductionDisplay reduction in
+                    unit.Get<TTUnitPartDamageReduction>()?.AllSources?.EmptyIfNull().OrderByDescending(rd => rd.ReferenceDamageResistance?.Priority ?? TTAddDamageResistanceBase.DRPriority.Normal)) {
+                    if (reduction.ReferenceDamageResistance is TTAddDamageResistanceEnergy settings1) {
+                        CharSMartial.ERdata erdata = new CharSMartial.ERdata();
+                        erdata.value = reduction.TotalReduction.ToString();
+                        erdata.type = localizedTexts.DamageEnergy.GetText(settings1.Type);
+                        erdataList.Add(erdata);
+                    }
+                }
+                __result = erdataList;
             }
         }
 
