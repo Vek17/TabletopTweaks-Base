@@ -66,9 +66,8 @@ namespace TabletopTweaks.NewContent.Feats {
                     m_Feature = AnimalAllyProgression.ToReference<BlueprintFeatureReference>()
                 };
 
-                x.ReplaceComponent(comp =>
-                    comp is AddFeatureOnApply add
-                    && add.m_Feature.Guid == RangerAnimalCompanionProgression.AssetGuid, AddAnimalAllyCompanionProgression);
+                x.ReplaceComponents<AddFeatureOnApply>(add => 
+                    add.m_Feature.Guid == RangerAnimalCompanionProgression.AssetGuid, AddAnimalAllyCompanionProgression);
 
                 x.AddPrerequisiteFeature(NatureSoul, GroupType.All);
                 x.AddPrerequisite<PrerequisiteCharacterLevel>(x => {

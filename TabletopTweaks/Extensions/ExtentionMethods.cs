@@ -450,35 +450,18 @@ namespace TabletopTweaks.Extensions {
             }
         }
 
-        public static void ReplaceComponent(this BlueprintScriptableObject blueprint, BlueprintComponent oldComponent, BlueprintComponent newComponent) {
-            BlueprintComponent[] compnents_to_remove = blueprint.ComponentsArray;
-            bool found = false;
-            for (int i = 0; i < compnents_to_remove.Length; i++) {
-                if (compnents_to_remove[i] == oldComponent) {
-                    blueprint.RemoveComponent(oldComponent);
-                }
-            }
-            if (found) {
-                blueprint.AddComponent(newComponent);
-            }
-        }
-
-        /// <summary>
-        /// Remove first component in blueprint for which the predicate is true. If such a component was found, adds a new component.
-        /// </summary>
-        public static void ReplaceComponent(this BlueprintScriptableObject blueprint, Predicate<BlueprintComponent> which, BlueprintComponent newComponent)
+        public static void ReplaceComponents(this BlueprintScriptableObject blueprint, Predicate<BlueprintComponent> predicate, BlueprintComponent newComponent)
         {
             bool found = false;
-            for (int i = 0; i < blueprint.Components.Length; i++)
+            foreach (var component in blueprint.ComponentsArray)
             {
-                if (which(blueprint.Components[i]))
+                if (predicate(component))
                 {
-                    blueprint.RemoveComponent(blueprint.Components[i]);
+                    blueprint.SetComponents(blueprint.ComponentsArray.RemoveFromArray(component));
                     found = true;
-                    break;
                 }
             }
-            if (found == true)
+            if (found)
             {
                 blueprint.AddComponent(newComponent);
             }
@@ -487,10 +470,11 @@ namespace TabletopTweaks.Extensions {
         public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, BlueprintComponent newComponent) where T : BlueprintComponent {
             blueprint.ReplaceComponents<T>(c => true, newComponent);
         }
+
         public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, Predicate<T> predicate, BlueprintComponent newComponent) where T : BlueprintComponent {
-            var compnents_to_remove = blueprint.GetComponents<T>().ToArray();
+            var components = blueprint.GetComponents<T>().ToArray();
             bool found = false;
-            foreach (var c in compnents_to_remove) {
+            foreach (var c in components) {
                 if (predicate(c)) {
                     blueprint.SetComponents(blueprint.ComponentsArray.RemoveFromArray(c));
                     found = true;
