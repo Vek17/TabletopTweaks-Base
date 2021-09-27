@@ -31,7 +31,7 @@ namespace TabletopTweaks.NewComponents {
                 AutoHit = true,
                 AutoCriticalConfirmation = true,
                 AutoCriticalThreat = true,
-                AutoSneakAttack = true
+                ForceSneakAttack = true
             };
             context.TriggerRule(weaponAttack);
             //if (!weaponAttack.AttackRoll.IsCriticalRoll) { yield break; }

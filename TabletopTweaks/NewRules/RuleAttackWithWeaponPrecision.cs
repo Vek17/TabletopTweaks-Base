@@ -10,7 +10,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 namespace TabletopTweaks.NewRules {
     class RuleAttackWithWeaponPrecision : RuleAttackWithWeapon {
 
-        public bool AutoSneakAttack { get; set; }
+        public bool ForceSneakAttack { get; set; }
         public RuleAttackWithWeaponPrecision([NotNull] UnitEntityData attacker, [NotNull] UnitEntityData target, [NotNull] ItemEntityWeapon weapon, int attackBonusPenalty) : base(attacker, target, weapon, attackBonusPenalty) {
         }
 
@@ -24,7 +24,7 @@ namespace TabletopTweaks.NewRules {
                 RuleAttackWithWeapon = this,
                 DoNotProvokeAttacksOfOpportunity = this.IsAttackOfOpportunity,
                 ForceFlatFooted = this.ForceFlatFooted,
-                IsSneakAttack = this.AutoSneakAttack,
+                IsSneakAttack = this.ForceSneakAttack,
             });
             BlueprintProjectileReference[] projectiles = this.Weapon.Blueprint.VisualParameters.Projectiles;
             if (projectiles.Length != 0) {
