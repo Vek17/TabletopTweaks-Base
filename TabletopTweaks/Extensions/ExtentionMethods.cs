@@ -450,19 +450,15 @@ namespace TabletopTweaks.Extensions {
             }
         }
 
-        public static void ReplaceComponents(this BlueprintScriptableObject blueprint, Predicate<BlueprintComponent> predicate, BlueprintComponent newComponent)
-        {
+        public static void ReplaceComponents(this BlueprintScriptableObject blueprint, Predicate<BlueprintComponent> predicate, BlueprintComponent newComponent) {
             bool found = false;
-            foreach (var component in blueprint.ComponentsArray)
-            {
-                if (predicate(component))
-                {
+            foreach (var component in blueprint.ComponentsArray) {
+                if (predicate(component)) {
                     blueprint.SetComponents(blueprint.ComponentsArray.RemoveFromArray(component));
                     found = true;
                 }
             }
-            if (found)
-            {
+            if (found) {
                 blueprint.AddComponent(newComponent);
             }
         }
