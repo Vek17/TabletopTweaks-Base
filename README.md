@@ -229,6 +229,10 @@ All fixes and added content are configurable and can be disabled by editing the 
         Indomitable Mount now works properly
         Spirited Charage now works properly
         Persistant metatmagic can now be applied to spells
+        Empower metatmagic can now be applied to touch spells
+        Maximize metatmagic can now be applied to touch spells
+        Bolster metatmagic can now be applied to touch spells
+        Bolster metatmagic splash damage should not longer hit you (unless you targeted a friendly)
     Mythic Abilities
         Bloodline Ascendance now works with mutated bloodlines
         Domain zealot now works properly
