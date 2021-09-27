@@ -315,21 +315,21 @@ namespace TabletopTweaks.NewUnitParts
                 {
                     m_ChunkStacks
                         .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsArmor)
-                        .ForEach(other => chunkStack.AddToStack(other));
+                        .ForEach(other => other.AddToStack(chunkStack));
                 }
 
                 if (chunkStack.IsStacksWithClassFeatures)
                 {
                     m_ChunkStacks
                         .Where(other => chunkStack.IsCompatibleWith(other) && other.SourceIsClassFeature)
-                        .ForEach(other => chunkStack.AddToStack(other));
+                        .ForEach(other => other.AddToStack(chunkStack));
                 }
 
                 if (chunkStack.IsStacksWithUnitFacts && factsPresentInChunks.Intersect(chunkStack.StacksWithFacts).Any())
                 {
                     m_ChunkStacks
                         .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.StacksWithFacts.Contains(other.ReferenceFact))
-                        .ForEach(other => chunkStack.AddToStack(other));
+                        .ForEach(other => other.AddToStack(chunkStack));
                 }
             }
 
