@@ -17,6 +17,12 @@
             "SelectiveMetamagicNonInstantaneous": true
         }
     },
+    "DRRework": {
+        "DisableAll": false,
+        "Enabled": {
+            "Base": true
+        }
+    }
     "Aeon": {
         "DisableAll": false,
         "Enabled": {

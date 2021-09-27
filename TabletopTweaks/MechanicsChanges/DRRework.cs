@@ -44,7 +44,7 @@ namespace TabletopTweaks.MechanicsChanges
         static class AddDamageResistancePhysical_IsStackable_Patch {
 
             static void Postfix(ref bool __result) {
-                if (ModSettings.Fixes.DRRework) {
+                if (ModSettings.Fixes.DRRework.IsEnabled("Base")) {
                     __result = false;
                 }
             }
@@ -55,7 +55,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static void Postfix(ref List<BlueprintComponent> __result)
             {
-                if (!ModSettings.Fixes.DRRework) { return; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
 
                 for (int i = 0; i < __result.Count; i++)
                 {
@@ -114,7 +114,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static bool Prefix(ReduceDamageReduction __instance)
             {
-                if (!ModSettings.Fixes.DRRework) { return true; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 int penalty = __instance.Value.Calculate(__instance.Context) * __instance.Multiplier;
                 __instance.Owner.Ensure<TTUnitPartDamageReduction>().AddPenaltyEntry(penalty, __instance.Fact);
                 return false;
@@ -126,7 +126,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static bool Prefix(ReduceDamageReduction __instance)
             {
-                if (!ModSettings.Fixes.DRRework) { return true; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 __instance.Owner.Ensure<TTUnitPartDamageReduction>().RemovePenaltyEntry(__instance.Fact);
                 return false;
             }
@@ -137,7 +137,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static void Postfix(CharInfoDamageReductionVM __instance, UnitDescriptor unit, ref List<CharInfoDamageReductionEntryVM> __result)
             {
-                if (!ModSettings.Fixes.DRRework) { return; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 List<CharInfoDamageReductionEntryVM> reductionEntryVmList = new List<CharInfoDamageReductionEntryVM>();
                 IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> allSources = unit.Get<TTUnitPartDamageReduction>()?.AllSources;
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
@@ -177,7 +177,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static void Postfix(CharSMartial __instance, UnitDescriptor unit, ref List<CharSMartial.DRdata> __result)
             {
-                if (!ModSettings.Fixes.DRRework) { return; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 List<CharSMartial.DRdata> drdataList = new List<CharSMartial.DRdata>();
                 TTUnitPartDamageReduction partDamageReduction = unit.Get<TTUnitPartDamageReduction>();
                 IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> list = partDamageReduction != null ? partDamageReduction.AllSources.Where(c => c.ReferenceRuntime.Settings is TTAddDamageResistancePhysical) : null;
@@ -215,7 +215,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static void Postfix(TutorialTriggerDamageReduction __instance, RuleDealDamage rule, ref bool __result)
             {
-                if (!ModSettings.Fixes.DRRework) { return; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 if (!__result && !rule.IgnoreDamageReduction)
                 {
                     TTUnitPartDamageReduction partDamageReduction = rule.Target.Get<TTUnitPartDamageReduction>();
@@ -239,7 +239,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static bool Prefix(AddEnergyImmunity __instance)
             {
-                if (!ModSettings.Fixes.DRRework) { return true; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 __instance.Owner.Ensure<TTUnitPartDamageReduction>().AddImmunity(__instance.Fact, __instance, __instance.Type);
                 return false;
             }
@@ -250,7 +250,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static bool Prefix(AddEnergyImmunity __instance)
             {
-                if (!ModSettings.Fixes.DRRework) { return true; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 __instance.Owner.Get<TTUnitPartDamageReduction>()?.RemoveImmunity(__instance.Fact, __instance);
                 return false;
             }
@@ -261,7 +261,7 @@ namespace TabletopTweaks.MechanicsChanges
         {
             static void Postfix(TutorialSolverSpellWithDamage __instance, BlueprintAbility ability, UnitEntityData caster, ref int __result)
             {
-                if (!ModSettings.Fixes.DRRework) { return; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 if (__result != -1)
                 {
                     TTUnitPartDamageReduction partDamageReduction = ContextData<TutorialContext>.Current.TargetUnit.Get<TTUnitPartDamageReduction>();
@@ -298,7 +298,7 @@ namespace TabletopTweaks.MechanicsChanges
             {
                 if (Initialized) return;
                 Initialized = true;
-                if (!ModSettings.Fixes.DRRework) { return; }
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 Main.LogHeader("Patching Blueprints for DR Rework");
 
                 PatchArmorDR();
