@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using JetBrains.Annotations;
+using Kingmaker;
 using Kingmaker.Blueprints.JsonSystem;
 using System;
 using TabletopTweaks.Config;
@@ -21,6 +22,11 @@ namespace TabletopTweaks {
             Enabled = value;
             return true;
         }
+
+        internal static void LogPatch(string v, object coupDeGraceAbility) {
+            throw new NotImplementedException();
+        }
+
         public static void Log(string msg) {
             ModSettings.ModEntry.Logger.Log(msg);
         }
@@ -34,9 +40,14 @@ namespace TabletopTweaks {
         public static void LogHeader(string msg) {
             Log($"--{msg.ToUpper()}--");
         }
-        public static Exception Error(String message) {
+        public static void Error(Exception e, string message) {
             Log(message);
-            return new InvalidOperationException(message);
+            Log(e.ToString());
+            PFLog.Mods.Error(message);
+        }
+        public static void Error(string message) {
+            Log(message);
+            PFLog.Mods.Error(message);
         }
     }
 }

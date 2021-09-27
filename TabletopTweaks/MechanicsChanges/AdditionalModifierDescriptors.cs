@@ -46,6 +46,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     ModifierDescriptor modDescriptor = m.ModDescriptor;
                     return
                         FilterIsArmorOriginal(m)
+                        || modDescriptor == ModifierDescriptor.NaturalArmorForm
                         || modDescriptor == (ModifierDescriptor)NaturalArmor.Bonus
                         || modDescriptor == (ModifierDescriptor)NaturalArmor.Size
                         || modDescriptor == (ModifierDescriptor)NaturalArmor.Stackable;
@@ -123,7 +124,7 @@ namespace TabletopTweaks.MechanicsChanges {
             static void Postfix(ModifierDescriptor descriptor, ref string __result) {
                 switch (descriptor) {
                     case (ModifierDescriptor)NaturalArmor.Bonus:
-                        if (!ModSettings.Fixes.DisableNaturalArmorStacking) { break; }
+                        if (ModSettings.Fixes.BaseFixes.IsDisabled("DisableNaturalArmorStacking")) { break; }
                         __result = "Natural armor bonus";
                         break;
                     case (ModifierDescriptor)NaturalArmor.Size:

@@ -1,15 +1,22 @@
 {
-    "DRRework": true,
-    "DisableNaturalArmorStacking": true,
-    "DisablePolymorphStacking": true,
-    "DisableCannyDefenseStacking": true,
-    "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
-    "FixMountedLongspearModifer": true,
-    "FixInherentSkillpoints": true,
-    "FixBackgroundModifiers": true,
-    "FixShadowSpells": true,
-    "MetamagicStacking": true,
-    "SelectiveMetamagicNonInstantaneous": true,
+    "NewSettingsOffByDefault": false,
+    "BaseFixes": {
+        "DisableAll": false,
+        "Enabled": {
+            "FeatSelections": true,
+            "CoupDeGrace": true,
+            "DisableNaturalArmorStacking": true,
+            "DisablePolymorphStacking": true,
+            "DisableCannyDefenseStacking": true,
+            "DisableAfterCombatDeactivationOfUnlimitedAbilities": true,
+            "FixMountedLongspearModifer": true,
+            "FixInherentSkillpoints": true,
+            "FixBackgroundModifiers": true,
+            "FixShadowSpells": true,
+            "MetamagicStacking": true,
+            "SelectiveMetamagicNonInstantaneous": true
+        }
+    },
     "Aeon": {
         "DisableAll": false,
         "Enabled": {
@@ -36,7 +43,7 @@
     "Trickster": {
         "DisableAll": false,
         "Enabled": {
-            "TricksterTricks": true
+            "UseMagicDevice2": true
         }
     },
     "Alchemist": {
@@ -136,6 +143,16 @@
                 }
             }
         }
+    },
+    "Magus": {
+        "DisableAll": false,
+        "Base": {
+            "DisableAll": false,
+            "Enabled": {
+                "SpellCombatAbilityVariants": true
+            }
+        },
+        "Archetypes": {}
     },
     "Monk": {
         "DisableAll": false,
@@ -272,10 +289,13 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
+            "BolsteredMetamagic": true,
             "CraneWing": true,
+            "EmpowerMetamagic": true,
             "Endurance": true,
             "FencingGrace": true,
             "IndomitableMount": true,
+            "MaximizeMetamagic": true,
             "MountedCombat": true,
             "PersistantMetamagic": true,
             "SlashingGrace": true,
@@ -305,7 +325,8 @@
             "Enabled": {
                 "MagiciansRing": true,
                 "ManglingFrenzy": true,
-                "MetamagicRods": true
+                "MetamagicRods": true,
+                "HolySymbolofIomedae": true
             }
         },
         "Weapons": {

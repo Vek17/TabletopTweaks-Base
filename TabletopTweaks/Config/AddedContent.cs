@@ -1,6 +1,7 @@
 ﻿
 namespace TabletopTweaks.Config {
     public class AddedContent : IUpdatableSettings {
+        public bool NewSettingsOffByDefault = false;
         public SettingGroup Archetypes = new SettingGroup();
         public SettingGroup BaseAbilities = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
@@ -15,17 +16,18 @@ namespace TabletopTweaks.Config {
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as AddedContent;
-            Archetypes.LoadSettingGroup(loadedSettings.Archetypes);
-            BaseAbilities.LoadSettingGroup(loadedSettings.BaseAbilities);
-            Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines);
-            ArcanistExploits.LoadSettingGroup(loadedSettings.ArcanistExploits);
-            Feats.LoadSettingGroup(loadedSettings.Feats);
-            FighterAdvancedArmorTraining.LoadSettingGroup(loadedSettings.FighterAdvancedArmorTraining);
-            FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining);
-            MagusArcana.LoadSettingGroup(loadedSettings.MagusArcana);
-            Races.LoadSettingGroup(loadedSettings.Races);
-            Spells.LoadSettingGroup(loadedSettings.Spells);
-            MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities);
+            NewSettingsOffByDefault = loadedSettings.NewSettingsOffByDefault;
+            Archetypes.LoadSettingGroup(loadedSettings.Archetypes, NewSettingsOffByDefault);
+            BaseAbilities.LoadSettingGroup(loadedSettings.BaseAbilities, NewSettingsOffByDefault);
+            Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
+            ArcanistExploits.LoadSettingGroup(loadedSettings.ArcanistExploits, NewSettingsOffByDefault);
+            Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
+            FighterAdvancedArmorTraining.LoadSettingGroup(loadedSettings.FighterAdvancedArmorTraining, NewSettingsOffByDefault);
+            FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining, NewSettingsOffByDefault);
+            MagusArcana.LoadSettingGroup(loadedSettings.MagusArcana, NewSettingsOffByDefault);
+            Races.LoadSettingGroup(loadedSettings.Races, NewSettingsOffByDefault);
+            Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
+            MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
         }
     }
 }

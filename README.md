@@ -34,6 +34,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Armor Master
         Armored Might
         Mounted Maniac
+        Mythic Spell Combat
     
     Adds the following arcanist exploits:
         Quick Study
@@ -117,6 +118,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         Empower and Maximize no longer stack incorrectly
         Skills points properly increase from permanant bonuses
         Selective now only works on instaneous effects
+        Coup De Grace now scales properly (Thanks @Perunq)
+        Class specific feat selections should now have the correct feats
+        The Holy Symbol of Iomedae no longer turns itself off
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor
@@ -165,11 +169,17 @@ All fixes and added content are configurable and can be disabled by editing the 
         Prerequisites have been fixed
         Trickster feats removed from selection
         No longer causes you to lose a caster level
+        The following classes can now progress thier spellbook with loremaster
+            Hunter
+            Warpriest
+            Crossblooded Sorcerer
+            Espionage Expert
+            Nature Mage
+    Magus
+        Spell combat now works with abilities that have variants
     Monk
         Zen Archer
             Perfect Strike now upgrades at level 10
-    Paladin
-        Fixes divine mount selection
     Ranger
         Reverts favorable enemy outsider to work on all outsiders
         Espionage Expert
@@ -219,6 +229,10 @@ All fixes and added content are configurable and can be disabled by editing the 
         Indomitable Mount now works properly
         Spirited Charage now works properly
         Persistant metatmagic can now be applied to spells
+        Empower metatmagic can now be applied to touch spells
+        Maximize metatmagic can now be applied to touch spells
+        Bolster metatmagic can now be applied to touch spells
+        Bolster metatmagic splash damage should not longer hit you (unless you targeted a friendly)
     Mythic Abilities
         Bloodline Ascendance now works with mutated bloodlines
         Domain zealot now works properly

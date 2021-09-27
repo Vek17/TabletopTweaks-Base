@@ -16,7 +16,7 @@ namespace TabletopTweaks.MechanicsChanges {
             };
 
             static void Postfix(ModifiableValueAttributeStat __instance, ref int __result) {
-                if (!ModSettings.Fixes.FixInherentSkillpoints) { return; }
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("FixInherentSkillpoints")) { return; }
                 __result = __instance.ApplyModifiersFiltered(__instance.CalculateBaseValue(__instance.BaseValue), FilterGrantsSkillpoints);
             }
         }

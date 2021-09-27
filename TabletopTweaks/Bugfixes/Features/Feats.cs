@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
@@ -19,6 +20,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -42,6 +44,9 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchIndomitableMount();
                 PatchMountedCombat();
                 PatchPersistantMetamagic();
+                PatchBolsteredMetamagic();
+                PatchEmpowerMetamagic();
+                PatchMaximizeMetamagic();
                 PatchSlashingGrace();
                 PatchSpiritedCharge();
                 PatchWeaponFinesse();
@@ -137,7 +142,7 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 var PersistentSpellFeat = Resources.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
                 var spells = SpellTools.SpellList.AllSpellLists
-                    .Where(list => list.IsMythic == false)
+                    .Where(list => !list.IsMythic)
                     .SelectMany(list => list.SpellsByLevel)
                     .Where(spellList => spellList.SpellLevel != 0)
                     .SelectMany(level => level.Spells)
@@ -151,6 +156,93 @@ namespace TabletopTweaks.Bugfixes.Features {
                         if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Persistent)) {
                             spell.AvailableMetamagic |= Metamagic.Persistent;
                             Main.LogPatch("Enabled Persistant Metamagic", spell);
+                        }
+                    };
+                }
+            }
+            static void PatchBolsteredMetamagic() {
+                if (ModSettings.Fixes.Feats.IsDisabled("BolsteredMetamagic")) { return; }
+
+                var BolsteredSpellFeat = Resources.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
+                var spells = SpellTools.SpellList.AllSpellLists
+                    .Where(list => !list.IsMythic)
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .ToArray();
+                Main.LogPatch("Enabling", BolsteredSpellFeat);
+                foreach (var spell in spells) {
+                    bool dealsDamage = spell.FlattenAllActions()
+                        .OfType<ContextActionDealDamage>().Any()
+                        || (spell?.GetComponent<AbilityEffectStickyTouch>()?
+                        .TouchDeliveryAbility?
+                        .FlattenAllActions()?
+                        .OfType<ContextActionDealDamage>()?
+                        .Any() ?? false);
+                    if (dealsDamage) {
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Bolstered)) {
+                            spell.AvailableMetamagic |= Metamagic.Bolstered;
+                            Main.LogPatch("Enabled Bolstered Metamagic", spell);
+                        }
+                    };
+                }
+            }
+            static void PatchEmpowerMetamagic() {
+                if (ModSettings.Fixes.Feats.IsDisabled("EmpowerMetamagic")) { return; }
+
+                var EmpowerSpellFeat = Resources.GetBlueprint<BlueprintFeature>("a1de1e4f92195b442adb946f0e2b9d4e");
+                var spells = SpellTools.SpellList.AllSpellLists
+                    .Where(list => !list.IsMythic)
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .ToArray();
+                Main.LogPatch("Enabling", EmpowerSpellFeat);
+                foreach (var spell in spells) {
+                    bool dealsDamage = spell.FlattenAllActions()
+                        .OfType<ContextActionDealDamage>().Any()
+                        || (spell?.GetComponent<AbilityEffectStickyTouch>()?
+                        .TouchDeliveryAbility?
+                        .FlattenAllActions()?
+                        .OfType<ContextActionDealDamage>()?
+                        .Any() ?? false);
+                    if (dealsDamage) {
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Empower)) {
+                            spell.AvailableMetamagic |= Metamagic.Empower;
+                            Main.LogPatch("Enabled Empower Metamagic", spell);
+                        }
+                    };
+                }
+            }
+            static void PatchMaximizeMetamagic() {
+                if (ModSettings.Fixes.Feats.IsDisabled("MaximizeMetamagic")) { return; }
+
+                var MaximizeSpellFeat = Resources.GetBlueprint<BlueprintFeature>("7f2b282626862e345935bbea5e66424b");
+                var spells = SpellTools.SpellList.AllSpellLists
+                    .Where(list => !list.IsMythic)
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .ToArray();
+                Main.LogPatch("Enabling", MaximizeSpellFeat);
+                foreach (var spell in spells) {
+                    bool dealsDamage = spell.FlattenAllActions()
+                        .OfType<ContextActionDealDamage>().Any()
+                        || (spell?.GetComponent<AbilityEffectStickyTouch>()?
+                        .TouchDeliveryAbility?
+                        .FlattenAllActions()?
+                        .OfType<ContextActionDealDamage>()?
+                        .Any() ?? false);
+                    if (dealsDamage) {
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Maximize)) {
+                            spell.AvailableMetamagic |= Metamagic.Maximize;
+                            Main.LogPatch("Enabled Maximize Metamagic", spell);
                         }
                     };
                 }
@@ -188,6 +280,12 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.SubCategory = WeaponSubCategory.Finessable;
                 }));
                 Main.LogPatch("Patched", WeaponFinesse);
+            }
+        }
+        [HarmonyPatch(typeof(MetamagicHelper), "GetBolsteredAreaEffectUnits", new Type[] { typeof(TargetWrapper) })]
+        static class MetamagicHelper_GetBolsteredAreaEffectUnits_Patch {
+            static void Postfix(TargetWrapper origin, ref List<UnitEntityData> __result) {
+                __result = __result.Where(unit => unit.Faction.AssetGuid.Equals(origin.Unit.Faction.AssetGuid) || !unit.IsPlayerFaction).ToList();
             }
         }
 

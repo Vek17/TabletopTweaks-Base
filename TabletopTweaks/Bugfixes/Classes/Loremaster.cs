@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Utility;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -103,22 +104,21 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                 void PatchSpellProgression() {
                     if (ModSettings.Fixes.Loremaster.IsDisabled("SpellProgression")) { return; }
-
+                    var LoremasterProgression = Resources.GetBlueprint<BlueprintProgression>("2bcd2330cc2c5a747968a8c782d4fa0a");
+                    var LoremasterSecretSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("beeb25d7a7732e14f9986cdb79acecfc");
                     var LoremasterSpellbookSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7a28ab4dfc010834eabc770152997e87");
-                    LoremasterSpellbookSelection.SetDescription("When a new loremaster level is gained, the character gains new spells per day as if he had " +
-                        "also gained a level in a spellcasting class he belonged to before adding the prestige class. He does not, however, gain other benefits " +
-                        "a character of that class would have gained, except for additional spells per day, spells known (if he is a spontaneous spellcaster), " +
-                        "and an increased effective level of spellcasting. If a character had more than one spellcasting class before becoming a loremaster, " +
-                        "he must decide to which class he adds the new level for purposes of determining spells per day.");
-                    LoremasterSpellbookSelection.Group = FeatureGroup.ArcaneTricksterSpellbook;
-                    Main.LogPatch("Patched", LoremasterSpellbookSelection);
-                    LoremasterSpellbookSelection.m_AllFeatures
-                        .Select(feature => feature.Get())
-                        .ForEach(feature => {
-                            feature.Groups = new FeatureGroup[] { FeatureGroup.ArcaneTricksterSpellbook };
-                            feature.m_Description = LoremasterSpellbookSelection.m_Description;
-                            Main.LogPatch("Patched", feature);
-                        });
+                    var LoremasterSpellbookSelectionTTT = Resources.GetModBlueprint<BlueprintFeatureSelection>("LoremasterSpellbookSelectionTTT");
+
+                    LoremasterProgression.LevelEntries = LoremasterProgression.LevelEntries
+                        .Where(entry => entry.Level != 1)
+                        .Append(new LevelEntry { 
+                            m_Features = new List<BlueprintFeatureBaseReference>() {
+                                LoremasterSpellbookSelectionTTT.ToReference<BlueprintFeatureBaseReference>(),
+                                LoremasterSecretSelection.ToReference<BlueprintFeatureBaseReference>()
+                            },
+                            Level = 1
+                        }).ToArray();
+                    Main.LogPatch("Patched", LoremasterProgression);
                 }
 
                 void PatchSpellSecrets() {

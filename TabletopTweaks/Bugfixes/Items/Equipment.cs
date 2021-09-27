@@ -2,10 +2,16 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Controllers.Units;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
+using System;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -24,6 +30,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 PatchMagiciansRing();
                 PatchManglingFrenzy();
                 PatchMetamagicRods();
+                PatchHolySymbolofIomedae();
 
                 void PatchMagiciansRing() {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("MagiciansRing")) { return; }
@@ -31,6 +38,19 @@ namespace TabletopTweaks.Bugfixes.Items {
                     var RingOfTheSneakyWizardFeature = Resources.GetBlueprint<BlueprintFeature>("d848f1f1b31b3e143ba4aeeecddb17f4");
                     RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
                     Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
+                }
+
+                void PatchHolySymbolofIomedae() {
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("HolySymbolofIomedae")) { return; }
+
+                    var Artifact_HolySymbolOfIomedaeArea = Resources.GetBlueprint<BlueprintAbilityAreaEffect>("e6dff35442f00ab4fa2468804c15efc0");
+                    var Artifact_HolySymbolOfIomedaeBuff = Resources.GetBlueprint<BlueprintBuff>("c8b1c0f5cd21f1d4e892f7440ec28e24");
+                    Artifact_HolySymbolOfIomedaeArea
+                        .GetComponent<AbilityAreaEffectRunAction>()
+                        .UnitExit = Helpers.CreateActionList(
+                            Helpers.Create<ContextActionRemoveBuff>(a => a.m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>())    
+                    );
+                    Main.LogPatch("Patched", Artifact_HolySymbolOfIomedaeArea);
                 }
 
                 // Fix Mangling Frenzy does not apply to Bloodrager's Rage

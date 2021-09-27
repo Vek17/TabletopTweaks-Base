@@ -24,8 +24,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             });
 
             if (ModSettings.AddedContent.MythicAbilities.IsDisabled("ArmoredMight")) { return; }
-            MythicAbilitySelection.AddFeatures(ArmoredMightFeature);
-            ExtraMythicAbilityMythicFeat.AddFeatures(ArmoredMightFeature);
+            FeatTools.AddAsMythicAbility(ArmoredMightFeature);
         }
     }
 }

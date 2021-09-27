@@ -22,12 +22,22 @@ namespace TabletopTweaks.NewComponents {
                 return Math.Max((spellbook?.MaxSpellLevel ?? 0) - SpellLevelOffset, 1);
             }
         }
-        public override void OnFactAttached() {
+        public override void OnActivate() {
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;
-            if (controller == null) { Main.LogDebug("null controller"); return; }
-            if (spellbook == null) { Main.LogDebug("null book"); return; }
+            if (controller == null) { return; }
+            if (spellbook == null) { return; }
+            var spellCount = controller
+                .State?
+                .Selections?
+                .Select(s => s.SelectedItem?
+                    .Feature?
+                    .GetComponent<AdditionalSpellSelection>())
+                .OfType<AdditionalSpellSelection>()
+                .Where(c => c.spellbook.Blueprint.AssetGuid.Equals(spellbook.Blueprint.AssetGuid))
+                .Where(c => c.SpellList.Guid.Equals(SpellList.Guid))
+                .Aggregate(0, (acc, x) => acc + x.Count) ?? 0;
             spellSelection = controller.State.DemandSpellSelection(spellbook.Blueprint, SpellList);
-            spellSelection.SetExtraSpells(Count, adjustedMaxLevel);
+            spellSelection.SetExtraSpells(spellCount, adjustedMaxLevel);
         }
         public override void OnDeactivate() {
             if (spellSelection == null) { return; }
@@ -77,6 +87,15 @@ namespace TabletopTweaks.NewComponents {
                 if (!selectionData.Spellbook.AllSpellsKnown) { return; }
                 if (selectionData.ExtraSelected.Any<BlueprintAbility>() && !selectionData.ExtraByStat) {
                     __result = CharGenSpellsPhaseVM.SpellSelectorMode.AnyLevels;
+                }
+            }
+        }
+        [HarmonyPatch(typeof(CharGenSpellsPhaseVM), "OrderPriority", MethodType.Getter)]
+        static class CharGenSpellsPhaseVM_OrderPriority_AdditionalSpellSelection_Patch {
+            static void Postfix(CharGenSpellsPhaseVM __instance, ref int __result) {
+                if (__instance?.m_SelectionData == null) { return; }
+                if (__instance.m_SelectionData.Spellbook?.SpellList?.AssetGuid != __instance.m_SelectionData.SpellList?.AssetGuid) {
+                    __result -= 500;
                 }
             }
         }

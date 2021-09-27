@@ -129,6 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bugfixes\Abilities\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Classes\Alchemist.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
@@ -138,14 +139,17 @@
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
     <Compile Include="Bugfixes\Classes\Lich.cs" />
     <Compile Include="Bugfixes\Classes\Loremaster.cs" />
+    <Compile Include="Bugfixes\Classes\Magus.cs" />
     <Compile Include="Bugfixes\Classes\Monk.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
+    <Compile Include="Bugfixes\General\FeatSelections.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
+    <Compile Include="Bugfixes\General\WeaponProperties.cs" />
     <Compile Include="Bugfixes\Items\Armor.cs" />
     <Compile Include="Bugfixes\Items\Equipment.cs" />
     <Compile Include="Bugfixes\Items\Weapons.cs" />
@@ -179,8 +183,10 @@
     <Compile Include="NewComponents\ArmorFeatureUnlock.cs" />
     <Compile Include="NewComponents\AttackStatReplacementEnforced.cs" />
     <Compile Include="NewComponents\BroadStudyComponent.cs" />
+    <Compile Include="NewComponents\BroadStudyMythicComponent.cs" />
     <Compile Include="NewComponents\BuffExtraEffectsRequirements.cs" />
     <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
+    <Compile Include="NewComponents\CoupDeGraceComponent.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\DefensiveWeaponTrainingComponent.cs" />
     <Compile Include="NewComponents\FocusedWeaponComponent.cs" />
@@ -190,6 +196,9 @@
     <Compile Include="NewComponents\MountedCombatFixed.cs" />
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
+    <Compile Include="NewComponents\PrecisionCriticalComponent.cs" />
+    <Compile Include="NewComponents\PrerequisiteMythicSpellbook.cs" />
+    <Compile Include="NewComponents\PrerequisiteSpellbook.cs" />
     <Compile Include="NewComponents\PrerequisiteStatBonus.cs" />
     <Compile Include="NewComponents\PrerequisiteStatValues.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
@@ -292,6 +301,8 @@
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
+    <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
+    <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
     <Compile Include="NewContent\Races\Elf.cs" />
     <Compile Include="NewContent\Races\Dwarf.cs" />
     <Compile Include="NewContent\Races\Gnome.cs" />
@@ -299,11 +310,13 @@
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
+    <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
+    <Compile Include="NewUnitParts\UnitPartPrecisionCritical.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="SaveGamePatch.cs" />
     <Compile Include="Utilities\AssetLoader.cs" />

@@ -1,8 +1,10 @@
 {
+    "NewSettingsOffByDefault": false,
     "BaseAbilities": {
         "DisableAll": false,
         "Enabled": {
-            "OneHandedToggle": true
+            "OneHandedToggle": true,
+            "DummyToggle": true
         }
     },
     "Bloodlines": {
@@ -102,7 +104,9 @@
             "ImpossibleSpeed": true,
             "ArmorMaster": true,
             "ArmoredMight": true,
-            "MountedManiac": true
+            "MountedManiac": true,
+            "MythicSpellCombat": true,
+            "PrecisionCritical": true
         }
     }
 }

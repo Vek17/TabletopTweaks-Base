@@ -1,3 +1,47 @@
+## Version 1.3.4
+* added precision critical
+
+## Version 1.3.3
+* fixed mounted maniac not triggering
+* fixed coup de grace not causing sneak attack damage
+* trickster UMD2 now allows you to ignore equipment restrictions as the description states
+* bolster should now be allowed on sticky touch spells like shocking grasp
+* empower should now be allowed on sticky touch spells like shocking grasp
+* maximize should now be allowed on sticky touch spells like shocking grasp
+* bolster splash damage should not longer hit you (unless you targeted a friendly)
+
+## Version 1.3.2
+* extra slayer talents should now allow all slayers
+* coup de grace is now working again (opps)
+* The holy symbol of Iomedae no longer turns itself off
+
+## Version 1.3.1
+* fixed an edge case with spell blending preventing multiple from being taken in the same level
+* divine caster classes should now work as expected with the loremaster class
+    * this is NOT retroactive
+* the following classes can now progress thier spellbook with loremaster
+    * Hunter
+    * Warpriest
+    * Crossblooded Sorcerer
+    * Espionage Expert
+    * Nature Mage
+
+## Version 1.3.0
+* mythic spell combat now works with UMD3s spellbook
+* fixed feat selections missing relevent feats
+* fix coup de grace DC scaling (HUGE thanks to @Perunq)
+* additional spell selections from feats now happen before normal spell selections
+
+## Version 1.2.4
+* fixed issue with broken cantrips with spell combat
+* added mythic spell combat
+
+## Version 1.2.3
+* spell combat now works with spells that have variants
+
+## Version 1.2.2
+* fixed issue where broad study's settings were inverted
+
 ## Version 1.2.1
 * disabled selective metamagic on non instantaneous effects
 * added broad study magus arcana
