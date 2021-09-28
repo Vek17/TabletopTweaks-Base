@@ -57,7 +57,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddPrerequisiteFeature(ShatterDefenses);
             });
             if (ModSettings.Fixes.Feats.IsDisabled("ShatterDefenses")) { return; }
-            if (ModSettings.Fixes.Feats.IsDisabled("ShatterDefenses")) { return; }
+            if (ModSettings.AddedContent.MythicFeats.IsDisabled("MythicShatterDefenses")) { return; }
             FeatTools.AddAsMythicFeat(ShatterDefensesMythicFeat);
         }
     }
