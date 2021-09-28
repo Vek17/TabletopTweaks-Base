@@ -357,6 +357,7 @@ namespace TabletopTweaks.MechanicsChanges
                 PatchArmorDR();
                 PatchStalwartDefender();
                 PatchBarbariansDR();
+                PatchLichIndestructibleBonesDR();
             }
 
             static void PatchArmorDR()
@@ -518,6 +519,14 @@ namespace TabletopTweaks.MechanicsChanges
                     {
                         stalwartDefenderDamageReductionFeature.ToReference<BlueprintUnitFactReference>()
                     };
+                });
+            }
+
+            static void PatchLichIndestructibleBonesDR() {
+                BlueprintFeature lichIndestructibleBonesFeature = Resources.GetBlueprint<BlueprintFeature>("42274a4428cb43b40acf771a7f5ddfac");
+
+                lichIndestructibleBonesFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.AddToAllStacks = true;
                 });
             }
         }
