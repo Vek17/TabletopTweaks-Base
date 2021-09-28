@@ -1,6 +1,7 @@
 ## Version 1.3.4
 * added precision critical
 * rowdy's vital force now deals precision damage
+* profane ascention now works corectly for dex and strength based characters
 
 ## Version 1.3.3
 * fixed mounted maniac not triggering

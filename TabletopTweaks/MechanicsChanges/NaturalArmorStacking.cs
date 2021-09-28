@@ -91,13 +91,13 @@ namespace TabletopTweaks.MechanicsChanges {
                     Main.LogPatch("Patched", ProtectionOfColdBuff);
                 }
                 void PatchSpellBuffs() {
-                    var LegendaryProportions = Resources.GetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
-                    LegendaryProportions.GetComponents<AddContextStatBonus>()
+                    var LegendaryProportionsBuff = Resources.GetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
+                    LegendaryProportionsBuff.GetComponents<AddContextStatBonus>()
                         .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorForm)
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Size);
-                    Main.LogPatch("Patched", LegendaryProportions);
+                    Main.LogPatch("Patched", LegendaryProportionsBuff);
                     var FrightfulAspectBuff = Resources.GetBlueprint<BlueprintBuff>("906262fda0fbda442b27f9b0a04e5aa0");
-                    FrightfulAspectBuff.GetComponents<AddContextStatBonus>()
+                    FrightfulAspectBuff.GetComponents<AddStatBonus>()
                         .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorForm)
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Bonus);
                     Main.LogPatch("Patched", FrightfulAspectBuff);
