@@ -358,6 +358,7 @@ namespace TabletopTweaks.MechanicsChanges
                 PatchStalwartDefender();
                 PatchBarbariansDR();
                 PatchLichIndestructibleBonesDR();
+                PatchBrokenDRSettings();
             }
 
             static void PatchArmorDR()
@@ -527,6 +528,27 @@ namespace TabletopTweaks.MechanicsChanges
 
                 lichIndestructibleBonesFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.AddToAllStacks = true;
+                });
+            }
+
+
+            static void PatchBrokenDRSettings() {
+                // Fix: Winter Oracle Ice Armor revelation should be DR 5/piercing, but is DR 5/- due to missing BypassedByForm flag
+                BlueprintBuff oracleRevelationIceArmorDRBuff = Resources.GetBlueprint<BlueprintBuff>("448e35444e80e24438a5ad0a3114aee3");
+                oracleRevelationIceArmorDRBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.BypassedByForm = true;
+                });
+
+                // Fix: Bruiser's Chainshirt DR should be DR 3/piercing, but is DR 3/- due to missing BypassedByForm flag
+                BlueprintFeature bruisersChainshirtFeature = Resources.GetBlueprint<BlueprintFeature>("2f08e4d39c1c568478c43aba81c42525");
+                bruisersChainshirtFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.BypassedByForm = true;
+                });
+
+                // Fix: Warden of Darkness (Tower Shield) should be DR 5/good, but was DR 5/-
+                BlueprintFeature towerShieldWardenOfDarknessShieldFeature = Resources.GetBlueprint<BlueprintFeature>("4211cdbf0bf04a540a366ba1d1c7dcc2");
+                towerShieldWardenOfDarknessShieldFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.BypassedByAlignment = true;
                 });
             }
         }
