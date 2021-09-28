@@ -69,6 +69,23 @@ namespace TabletopTweaks.NewUnitParts
             get
             {
                 this.TryInitialize();
+
+                // Populate sources display list
+                m_ChunkStacksForDisplay = new List<ChunkStack>();
+                for (int i = 0; i < m_ChunkStacks.Length; i++) {
+                    ChunkStack chunkStack = m_ChunkStacks[i];
+                    if (!m_ChunkStacksForDisplay.Contains(cd =>
+                        cd.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
+                        && cd.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)) {
+                        ChunkStack maxChunkStack = m_ChunkStacks
+                                .Where(cs => cs.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
+                                    && cs.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)
+                                .MaxBy(cs => cs.Reduction);
+
+                        m_ChunkStacksForDisplay.Add(maxChunkStack);
+                    }
+                }
+
                 return m_ChunkStacksForDisplay.Select(cs => new ReductionDisplay() {
                     ReferenceDamageResistance = cs.ReferenceChunk.DR.Settings,
                     TotalReduction = cs.Reduction
@@ -112,9 +129,10 @@ namespace TabletopTweaks.NewUnitParts
 
         public void Remove(EntityFact fact)
         {
+            Main.LogDebug($"Remove fact: {fact.Blueprint?.NameSafe()}");
             this.m_SourceFacts.Remove(fact);
-            this.m_Chunks.RemoveAll((Predicate<TTUnitPartDamageReduction.Chunk>)(c => c.Source == fact));
-            this.RecalculateChunkStacks();
+            var removedCount = this.m_Chunks.RemoveAll((Predicate<TTUnitPartDamageReduction.Chunk>)(c => c.Source == fact));
+            Main.LogDebug($"Removed {removedCount} related chunks");
             this.RemovePartIfNecessary();
         }
 
@@ -160,7 +178,7 @@ namespace TabletopTweaks.NewUnitParts
             TTAddDamageResistanceBase.DRPriority priority)
         {
             ChunkStack bestDR = null;
-            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => cs.Priority == priority))
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => cs.Priority == priority && !cs.ReferenceChunk.Bypassed(damage.Source, damageEventWeapon)))
             {
                 // CalculateReduction still returns the remainig pool size in the case of e.g. Protection From Energy. However, the "best" DR is now calculated
                 // such that full immunity is always considered better than pool-based immunity, which is always considered better than "normal" resistance.
@@ -239,30 +257,36 @@ namespace TabletopTweaks.NewUnitParts
 
         private void Cleanup([CanBeNull] UnitPartClusteredAttack clusteredAttack)
         {
+            bool shouldRecalculate = false;
             for (int index = 0; index < this.m_Chunks.Count; ++index)
             {
                 if (this.m_Chunks[index].DR.Settings is TTAddDamageResistancePhysical && clusteredAttack != null)
                     clusteredAttack.AddReduction(this.m_Chunks[index].AppliedReduction);
                 this.m_Chunks[index].AppliedReduction = 0;
-                if (this.m_Chunks[index].ShouldBeRemoved)
+                if (this.m_Chunks[index].ShouldBeRemoved) {
                     TTUnitPartDamageReduction.ChunksForRemove.Add(this.m_Chunks[index]);
+                    shouldRecalculate = true;
+                }
             }
             for (int index = 0; index < TTUnitPartDamageReduction.ChunksForRemove.Count; ++index)
             {
-                if (!(TTUnitPartDamageReduction.ChunksForRemove[index].Source is Buff source1))
-                {
+                if (!(TTUnitPartDamageReduction.ChunksForRemove[index].Source is Buff source1)) {
                     this.m_Chunks.Remove(TTUnitPartDamageReduction.ChunksForRemove[index]);
                     if (this.m_Chunks.Empty<TTUnitPartDamageReduction.Chunk>())
                         this.Owner.Remove<TTUnitPartDamageReduction>();
-                }
-                else
+                } else {
                     source1.Remove();
+                }
             }
             TTUnitPartDamageReduction.ChunksForRemove.Clear();
+            if (shouldRecalculate) {
+                RecalculateChunkStacks();
+            }
         }
 
         private void RecalculateChunkStacks()
         {
+            Main.LogDebug("RecalculateChunkStacks");
 #if DEBUG
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
@@ -334,24 +358,6 @@ namespace TabletopTweaks.NewUnitParts
                     m_ChunkStacks
                         .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.StacksWithFacts.Contains(other.ReferenceFact))
                         .ForEach(other => other.AddToStack(chunkStack));
-                }
-            }
-
-            // Populate sources display list
-            m_ChunkStacksForDisplay = new List<ChunkStack>();
-            for (int i = 0; i < m_ChunkStacks.Length; i++)
-            {
-                ChunkStack chunkStack = m_ChunkStacks[i];
-                if (!m_ChunkStacksForDisplay.Contains(cd =>
-                    cd.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
-                    && cd.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority))
-                {
-                    ChunkStack maxChunkStack = m_ChunkStacks
-                            .Where(cs => cs.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
-                                && cs.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)
-                            .MaxBy(cs => cs.Reduction);
-
-                    m_ChunkStacksForDisplay.Add(maxChunkStack);
                 }
             }
 #if DEBUG
