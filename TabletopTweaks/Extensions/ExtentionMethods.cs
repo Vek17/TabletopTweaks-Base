@@ -46,6 +46,14 @@ namespace TabletopTweaks.Extensions {
             }
             return actions;
         }
+        public static IEnumerable<BlueprintAbility> AbilityAndVariants(this BlueprintAbility ability) {
+            var List = new List<BlueprintAbility>() { ability };
+            var varriants = ability.GetComponent<AbilityVariants>();
+            if (varriants != null) {
+                List.AddRange(varriants.Variants);
+            }
+            return List;
+        }
         public static V PutIfAbsent<K, V>(this IDictionary<K, V> self, K key, V value) where V : class {
             V oldValue;
             if (!self.TryGetValue(key, out oldValue)) {

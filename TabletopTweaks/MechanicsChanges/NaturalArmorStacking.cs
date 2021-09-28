@@ -4,13 +4,17 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.Utilities;
 using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.MechanicsChanges {
@@ -91,16 +95,35 @@ namespace TabletopTweaks.MechanicsChanges {
                     Main.LogPatch("Patched", ProtectionOfColdBuff);
                 }
                 void PatchSpellBuffs() {
+                    var buffComponents = SpellTools.SpellList.AllSpellLists
+                        .SelectMany(list => list.SpellsByLevel)
+                        .SelectMany(level => level.Spells)
+                        .SelectMany(spell => spell.AbilityAndVariants())
+                        .Distinct()
+                        .SelectMany(spell => spell.FlattenAllActions())
+                        .OfType<ContextActionApplyBuff>()
+                        .Select(action => action.Buff)
+                        .SelectMany(buff => buff.Components)
+                        .ToArray();
+                    buffComponents
+                        .OfType<AddContextStatBonus>()
+                        .Where(component => component.Descriptor == ModifierDescriptor.NaturalArmorForm)
+                        .ForEach(component => {
+                            component.Descriptor = (ModifierDescriptor)NaturalArmor.Bonus;
+                            Main.LogPatch($"Patched", component.OwnerBlueprint);
+                        });
+                    buffComponents
+                        .OfType<AddStatBonus>()
+                        .Where(component => component.Descriptor == ModifierDescriptor.NaturalArmorForm)
+                        .ForEach(component => {
+                            component.Descriptor = (ModifierDescriptor)NaturalArmor.Bonus;
+                            Main.LogPatch($"Patched", component.OwnerBlueprint);
+                        });
                     var LegendaryProportionsBuff = Resources.GetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
                     LegendaryProportionsBuff.GetComponents<AddContextStatBonus>()
-                        .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorForm)
+                        .Where(c => c.Descriptor == (ModifierDescriptor)NaturalArmor.Bonus)
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Size);
                     Main.LogPatch("Patched", LegendaryProportionsBuff);
-                    var FrightfulAspectBuff = Resources.GetBlueprint<BlueprintBuff>("906262fda0fbda442b27f9b0a04e5aa0");
-                    FrightfulAspectBuff.GetComponents<AddStatBonus>()
-                        .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorForm)
-                        .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Bonus);
-                    Main.LogPatch("Patched", FrightfulAspectBuff);
                 }
             }
         }

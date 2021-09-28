@@ -82,6 +82,8 @@ namespace TabletopTweaks.NewContent {
                 Feats.GracefulAthlete.AddGracefulAthlete();
                 Feats.DervishDance.AddDervishDance();
 
+                Feats.ShatterDefenses.AddShatterDefensesBuffs();
+
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();
                 Feats.ExtraArcanistExploit.AddExtraArcanistExploit();
@@ -91,7 +93,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraSlayerTalent.AddExtraSlayerTalent();
                 Feats.ExtraRevelation.AddExtraRevelation();
                 Feats.ExtraDiscovery.AddExtraDiscovery();
-                Feats.ExtraMercy.AddExtraMercy();
+                Feats.ExtraMercy.AddExtraMercy();             
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }

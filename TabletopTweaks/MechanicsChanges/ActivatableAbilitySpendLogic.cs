@@ -52,7 +52,7 @@ namespace TabletopTweaks.MechanicsChanges {
         class ActivatableAbilityResourceLogic_IsAvailable_PerfectCritical_Patch {
             static void Postfix(ActivatableAbilityResourceLogic __instance, ref bool __result, EntityFactComponent runtime) {
                 using (runtime.RequestEventContext()) {
-                    if (__instance.SpendType.IsType(CustomSpendType.Crit)) {
+                    if (__instance.SpendType.IsCustomSpendType()) {
                         __result = __instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, __instance.SpendType.CustomValue());
                     }
                 }

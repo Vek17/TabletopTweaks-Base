@@ -29,6 +29,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
+        public SettingGroup MythicFeats = new SettingGroup();
         public CrusadeGroup Crusade = new CrusadeGroup();
         public ItemGroup Items = new ItemGroup();
 
@@ -65,6 +66,7 @@ namespace TabletopTweaks.Config {
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
             Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
+            MythicFeats.LoadSettingGroup(loadedSettings.MythicFeats, NewSettingsOffByDefault);
 
             Crusade.LoadCrusadeGroup(loadedSettings.Crusade, NewSettingsOffByDefault);
 
