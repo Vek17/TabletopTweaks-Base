@@ -458,25 +458,27 @@ namespace TabletopTweaks.Extensions {
             }
         }
 
-        public static void ReplaceComponent(this BlueprintScriptableObject blueprint, BlueprintComponent oldComponent, BlueprintComponent newComponent) {
-            BlueprintComponent[] compnents_to_remove = blueprint.ComponentsArray;
+        public static void ReplaceComponents(this BlueprintScriptableObject blueprint, Predicate<BlueprintComponent> predicate, BlueprintComponent newComponent) {
             bool found = false;
-            for (int i = 0; i < compnents_to_remove.Length; i++) {
-                if (compnents_to_remove[i] == oldComponent) {
-                    blueprint.RemoveComponent(oldComponent);
+            foreach (var component in blueprint.ComponentsArray) {
+                if (predicate(component)) {
+                    blueprint.SetComponents(blueprint.ComponentsArray.RemoveFromArray(component));
+                    found = true;
                 }
             }
             if (found) {
                 blueprint.AddComponent(newComponent);
             }
         }
+
         public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, BlueprintComponent newComponent) where T : BlueprintComponent {
             blueprint.ReplaceComponents<T>(c => true, newComponent);
         }
+
         public static void ReplaceComponents<T>(this BlueprintScriptableObject blueprint, Predicate<T> predicate, BlueprintComponent newComponent) where T : BlueprintComponent {
-            var compnents_to_remove = blueprint.GetComponents<T>().ToArray();
+            var components = blueprint.GetComponents<T>().ToArray();
             bool found = false;
-            foreach (var c in compnents_to_remove) {
+            foreach (var c in components) {
                 if (predicate(c)) {
                     blueprint.SetComponents(blueprint.ComponentsArray.RemoveFromArray(c));
                     found = true;

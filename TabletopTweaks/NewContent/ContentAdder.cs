@@ -81,6 +81,8 @@ namespace TabletopTweaks.NewContent {
                 Feats.StreetSmarts.AddStreetSmarts();
                 Feats.GracefulAthlete.AddGracefulAthlete();
                 Feats.DervishDance.AddDervishDance();
+                Feats.NatureSoul.AddNatureSoul();
+                Feats.AnimalAlly.AddAnimalAlly();
 
                 Feats.ShatterDefenses.AddShatterDefensesBuffs();
 

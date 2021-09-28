@@ -255,6 +255,7 @@
     <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
+    <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />
     <Compile Include="NewContent\Feats\ExtraArcanistExploit.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
+    <Compile Include="NewContent\Feats\NatureSoul.cs" />
     <Compile Include="NewContent\Feats\Scholar.cs" />
     <Compile Include="NewContent\Feats\SelfSufficient.cs" />
     <Compile Include="NewContent\Feats\ShatterDefenses.cs" />
