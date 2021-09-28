@@ -162,6 +162,7 @@
     <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="Config\NestedSettingGroup.cs" />
     <Compile Include="Config\SettingGroup.cs" />
+    <Compile Include="MechanicsChanges\ActivatableAbilitySpendLogic.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />

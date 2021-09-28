@@ -122,6 +122,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Coup De Grace now scales properly (Thanks @Perunq)
         Class specific feat selections should now have the correct feats
         The Holy Symbol of Iomedae no longer turns itself off
+        Profane ascention now works corectly for dexterity and strength based characters
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor
@@ -182,6 +183,8 @@ All fixes and added content are configurable and can be disabled by editing the 
             Nature Mage
     Magus
         Spell combat now works with abilities that have variants
+        Sword Saint
+            Perfect Critical now correctly costs 2 points of pool instead of 1
     Monk
         Zen Archer
             Perfect Strike now upgrades at level 10

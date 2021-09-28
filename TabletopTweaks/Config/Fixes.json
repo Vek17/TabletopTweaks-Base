@@ -152,7 +152,14 @@
                 "SpellCombatAbilityVariants": true
             }
         },
-        "Archetypes": {}
+        "Archetypes": {
+            "SwordSaint": {
+                "DisableAll": false,
+                "Enabled": {
+                    "PerfectCritical": true
+                }
+            }
+        }
     },
     "Monk": {
         "DisableAll": false,
