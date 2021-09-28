@@ -342,6 +342,8 @@ namespace TabletopTweaks.Bugfixes.Features {
 
             private class VitalStrikeEventHandler : IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
             IRulebookHandler<RuleCalculateWeaponStats>,
+            IInitiatorRulebookHandler<RulePrepareDamage>,
+            IRulebookHandler<RulePrepareDamage>,
             IInitiatorRulebookHandler<RuleAttackWithWeapon>,
             IRulebookHandler<RuleAttackWithWeapon>,
             ISubscriber, IInitiatorRulebookSubscriber {
@@ -361,7 +363,6 @@ namespace TabletopTweaks.Bugfixes.Features {
                 }
 
                 public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
-                    Main.Log("RuleCalculateWeaponStats::OnEventDidTrigger");
                     DamageDescription damageDescription = evt.DamageDescription.FirstItem();
                     if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
                         var vitalDamage = new DamageDescription() {
@@ -377,7 +378,10 @@ namespace TabletopTweaks.Bugfixes.Features {
                         evt.DamageDescription.Insert(1, vitalDamage);
                     }
                 }
+                public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) {
+                }
 
+                //For Ranged - Handling of damage calcs does not occur the same due to projectiles
                 public void OnEventDidTrigger(RuleAttackWithWeapon evt) {
                     if (!m_Rowdy) { return; }
                     RuleAttackRoll ruleAttackRoll = evt.AttackRoll;
@@ -397,15 +401,30 @@ namespace TabletopTweaks.Bugfixes.Features {
                     }
                 }
 
-                public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) {
+                //For Melee
+                public void OnEventAboutToTrigger(RulePrepareDamage evt) {
+                    if (!m_Rowdy) { return; }
+                    RuleAttackRoll ruleAttackRoll = evt.ParentRule.AttackRoll;
+                    if (ruleAttackRoll == null) { return; }
+                    if (evt.Initiator.Stats.SneakAttack < 1) { return; }
+                    if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
+                        DamageTypeDescription damageTypeDescription = evt.DamageBundle
+                            .First()
+                            .CreateTypeDescription();
+                        int rowdyDice = evt.Initiator.Stats.SneakAttack * 2;
+                        DiceFormula dice = new DiceFormula(rowdyDice, DiceType.D6);
+                        BaseDamage baseDamage = damageTypeDescription.GetDamageDescriptor(dice, 0).CreateDamage();
+                        baseDamage.Precision = true;
+                        evt.Add(baseDamage);
+                    }
+                }
+
+                public void OnEventDidTrigger(RulePrepareDamage evt) {
                 }
 
                 private readonly UnitEntityData m_Unit;
-
                 private int m_DamageMod;
-
                 private bool m_Mythic;
-
                 private bool m_Rowdy;
             }
         }

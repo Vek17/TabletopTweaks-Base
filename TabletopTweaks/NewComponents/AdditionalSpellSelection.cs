@@ -35,7 +35,6 @@ namespace TabletopTweaks.NewComponents {
                 .OfType<AdditionalSpellSelection>()
                 .Where(c => c.spellbook.Blueprint.AssetGuid.Equals(spellbook.Blueprint.AssetGuid))
                 .Where(c => c.SpellList.Guid.Equals(SpellList.Guid))
-                .Where(c => c.AdjustedMaxLevel == this.AdjustedMaxLevel) //Experemental "Fix"
                 .Aggregate(0, (acc, x) => acc + x.Count) ?? 0;
             spellSelection = controller.State.DemandSpellSelection(spellbook.Blueprint, SpellList);
             spellSelection.SetExtraSpells(spellCount, AdjustedMaxLevel);
@@ -71,10 +70,9 @@ namespace TabletopTweaks.NewComponents {
                 if (!__instance.Spellbook.AllSpellsKnown) { return; }
                 if (__instance.ExtraSelected != null && __instance.ExtraSelected.Length != 0) {
                     if (__instance.ExtraSelected.HasItem((BlueprintAbility i) => i == null) && !__instance.ExtraByStat) {
-                        for (int k = 0; k <= __instance.ExtraMaxLevel; k++) {
-                            int ii = k;
-                            if (__instance.SpellList.SpellsByLevel[k].SpellsFiltered.HasItem((BlueprintAbility sb) => !sb.IsCantrip 
-                            && !__instance.SpellbookContainsSpell(spellbook, ii, sb) && !__instance.ExtraSelected.Contains(sb))) {
+                        for (int level = 0; level <= __instance.ExtraMaxLevel; level++) {
+                            if (__instance.SpellList.SpellsByLevel[level].SpellsFiltered.HasItem((BlueprintAbility sb) => !sb.IsCantrip 
+                            && !__instance.SpellbookContainsSpell(spellbook, level, sb) && !__instance.ExtraSelected.Contains(sb))) {
                                 __result = true;
                             }
                         }

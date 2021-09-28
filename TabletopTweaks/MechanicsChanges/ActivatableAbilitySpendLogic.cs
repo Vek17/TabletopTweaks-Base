@@ -15,19 +15,34 @@ namespace TabletopTweaks.MechanicsChanges {
     static class ActivatableAbilitySpendLogic {
 
         public enum CustomSpendType : int {
-            Crit = 100
+            Crit = 0b00000000_00000001_00000000_00000000
         }
 
-        public static ResourceSpendType Amount(this CustomSpendType type, int value) {
-            return (ResourceSpendType)((int)type + value);
+        public static ResourceSpendType Amount(this CustomSpendType type, byte value) {
+            return (ResourceSpendType)((int)type | value);
+        }
+
+        private static int Amount(this CustomSpendType type) {
+            return ((int)type & 0b00000000_00000000_00000000_11111111);
+        }
+
+        private static int CustomValue(this ResourceSpendType type) {
+            return ((int)type & 0b00000000_00000000_00000000_11111111);
+        }
+
+        private static bool IsCustomSpendType(this ResourceSpendType type) {
+            return ((int)type & 0b11111111_11111111_00000000_00000000) > 0;
+        }
+
+        private static bool IsType(this ResourceSpendType flag, CustomSpendType type) {
+            return (flag & (ResourceSpendType)type) > 0;
         }
 
         [HarmonyPatch(typeof(ActivatableAbilityResourceLogic),
             "Kingmaker.UnitLogic.ActivatableAbilities.IActivatableAbilitySpendResourceLogic.OnCrit")]
         class ActivatableAbilityResourceLogic_OnCrit_PerfectCritical_Patch {
             static void Postfix(ActivatableAbilityResourceLogic __instance) {
-                var spendAmount = (int)__instance.SpendType - (int)CustomSpendType.Crit;
-                if (spendAmount < 100 && spendAmount > 0) {
+                if (__instance.SpendType.IsType(CustomSpendType.Crit)) {
                     __instance.SpendResource(true);
                 }
             }
@@ -37,9 +52,8 @@ namespace TabletopTweaks.MechanicsChanges {
         class ActivatableAbilityResourceLogic_IsAvailable_PerfectCritical_Patch {
             static void Postfix(ActivatableAbilityResourceLogic __instance, ref bool __result, EntityFactComponent runtime) {
                 using (runtime.RequestEventContext()) {
-                    var spendAmount = (int)__instance.SpendType - (int)CustomSpendType.Crit;
-                    if (spendAmount < 100 && spendAmount > 0) {
-                        __result = __instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, spendAmount);
+                    if (__instance.SpendType.IsType(CustomSpendType.Crit)) {
+                        __result = __instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, __instance.SpendType.CustomValue());
                     }
                 }
             }
@@ -48,25 +62,22 @@ namespace TabletopTweaks.MechanicsChanges {
         [HarmonyPatch(typeof(ActivatableAbilityResourceLogic), "SpendResource", new Type[] { typeof(bool) })]
         class ActivatableAbilityResourceLogic_SpendResource_PerfectCritical_Patch {
             static bool Prefix(ActivatableAbilityResourceLogic __instance) {
-                var spendAmount = (int)__instance.SpendType - (int)CustomSpendType.Crit;
-                if (spendAmount < 100 && spendAmount > 0) {
-                    if (__instance.Owner.HasFact(__instance.FreeBlueprint)) {
-                        return false;
-                    }
-                    if (!__instance.RequiredResource) {
-                        if (__instance.Fact.SourceItem != null && !__instance.Fact.SourceItem.SpendCharges()) {
-                            __instance.Fact.TurnOffImmediately();
-                        }
-                        return false;
-                    }
-                    if (__instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, spendAmount)) {
-                        __instance.Owner.Resources.Spend(__instance.RequiredResource, spendAmount);
-                        return false;
-                    }
-                    
-                    __instance.Fact.TurnOffImmediately();
+                if (!__instance.SpendType.IsCustomSpendType()) { return true; }
+                if (__instance.Owner.HasFact(__instance.FreeBlueprint)) {
+                    return false;
                 }
-                return false;
+                if (!__instance.RequiredResource) {
+                    if (__instance.Fact.SourceItem != null && !__instance.Fact.SourceItem.SpendCharges()) {
+                        __instance.Fact.TurnOffImmediately();
+                    }
+                    return false;
+                }
+                if (__instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, __instance.SpendType.CustomValue())) {
+                    __instance.Owner.Resources.Spend(__instance.RequiredResource, __instance.SpendType.CustomValue());
+                    return false;
+                }
+                __instance.Fact.TurnOffImmediately();
+                return true;
             }
         }
 
