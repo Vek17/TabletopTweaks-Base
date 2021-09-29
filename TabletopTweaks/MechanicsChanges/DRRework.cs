@@ -3,6 +3,7 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.Designers.Mechanics.Buffs;
@@ -11,14 +12,18 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums.Damage;
+using Kingmaker.Items;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Solvers;
 using Kingmaker.Tutorial.Triggers;
+using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Martial.DamageReduction;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Martial.EnergyResistance;
+using Kingmaker.UI.MVVM._VM.Tooltip.Templates;
 using Kingmaker.UI.ServiceWindow.CharacterScreen;
+using Kingmaker.UI.Tooltip;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -31,6 +36,8 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -339,6 +346,279 @@ namespace TabletopTweaks.MechanicsChanges
                         }
                     }
                 }
+            }
+        }
+
+        [HarmonyPatch(typeof(UIUtilityItem), nameof(UIUtilityItem.FillShieldEnchantments), typeof(ItemTooltipData), typeof(ItemEntityShield), typeof(string))]
+        [HarmonyDebug]
+        static class UIUtilityItem_FillShieldEnchantments2_Patch {
+
+            private static Dictionary<Type, Type> _typeMapping = new Dictionary<Type, Type>() {
+                { typeof(AddDamageResistanceEnergy), typeof(TTAddDamageResistanceEnergy) },
+                { typeof(BlueprintComponentAndRuntime<AddDamageResistanceEnergy>), typeof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>) },
+                { typeof(AddDamageResistanceBase.ComponentRuntime), typeof(TTAddDamageResistanceBase.ComponentRuntime) }
+            };
+
+            private static Dictionary<MethodInfo, MethodInfo> _staticCallMapping = new Dictionary<MethodInfo, MethodInfo> {
+                { 
+                    AccessTools.Method(typeof(UIUtilityItem), nameof(UIUtilityItem.GetEnergyResistanceText)), 
+                    AccessTools.Method(typeof(UIUtilityItem_FillShieldEnchantments2_Patch), nameof(UIUtilityItem_FillShieldEnchantments2_Patch.TTGetEnergyResistanceText)) 
+                }
+            };
+
+            static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> codes, ILGenerator il) {
+
+                bool replaceLoc0 = false;
+                LocalBuilder loc0replacement = null;
+
+                bool replaceLoc1 = false;
+                LocalBuilder loc1replacement = null;
+
+                bool replaceLoc2 = false;
+                LocalBuilder loc2replacement = null;
+
+                bool replaceLoc3 = false;
+                LocalBuilder loc3replacement = null;
+
+                Dictionary<Type, LocalBuilder> locSReplacements = new Dictionary<Type, LocalBuilder>();
+                
+                foreach(LocalVariableInfo local in original.GetMethodBody().LocalVariables) {
+                    if (_typeMapping.ContainsKey(local.LocalType)) {
+                        LocalBuilder newLocal = il.DeclareLocal(_typeMapping[local.LocalType]);
+                        switch (local.LocalIndex) {
+                            case 0:
+                                replaceLoc0 = true;
+                                loc0replacement = newLocal;
+                                break;
+                            case 1:
+                                replaceLoc1 = true;
+                                loc1replacement = newLocal;
+                                break;
+                            case 2:
+                                replaceLoc2 = true;
+                                loc2replacement = newLocal;
+                                break;
+                            case 3:
+                                replaceLoc3 = true;
+                                loc3replacement = newLocal;
+                                break;
+                            default:
+                                locSReplacements.Add(local.LocalType, newLocal);
+                                break;
+                        }
+                    }
+                }
+
+                foreach (CodeInstruction code in codes) {
+                    if (code.opcode == OpCodes.Stloc_0 && replaceLoc0) {
+                        yield return new CodeInstruction(OpCodes.Stloc_S, loc0replacement);
+                    } else if (code.opcode == OpCodes.Stloc_1 && replaceLoc1) {
+                        yield return new CodeInstruction(OpCodes.Stloc_S, loc1replacement);
+                    } else if (code.opcode == OpCodes.Stloc_2 && replaceLoc2) {
+                        yield return new CodeInstruction(OpCodes.Stloc_S, loc2replacement);
+                    } else if (code.opcode == OpCodes.Stloc_3 && replaceLoc3) {
+                        yield return new CodeInstruction(OpCodes.Stloc_S, loc3replacement);
+                    } else if (code.opcode == OpCodes.Stloc_S && locSReplacements.ContainsKey(((LocalBuilder)code.operand).LocalType)) {
+                        yield return new CodeInstruction(OpCodes.Stloc_S, locSReplacements[((LocalBuilder)code.operand).LocalType]);
+                    } else if (code.opcode == OpCodes.Ldloc_0 && replaceLoc0) {
+                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc0replacement);
+                    } else if (code.opcode == OpCodes.Ldloc_1 && replaceLoc1) {
+                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc1replacement);
+                    } else if (code.opcode == OpCodes.Ldloc_2 && replaceLoc2) {
+                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc2replacement);
+                    } else if (code.opcode == OpCodes.Ldloc_3 && replaceLoc3) {
+                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc3replacement);
+                    } else if (code.opcode == OpCodes.Ldloc_S && locSReplacements.ContainsKey(((LocalBuilder)code.operand).LocalType)) {
+                        yield return new CodeInstruction(OpCodes.Ldloc_S, locSReplacements[((LocalBuilder)code.operand).LocalType]);
+                    } else if (code.opcode == OpCodes.Callvirt) {
+                        MethodInfo method = (MethodInfo)code.operand;
+                        bool replaceMethod = false;
+                        MethodInfo newMethod = null;
+                        if (_typeMapping.ContainsKey(method.DeclaringType)) {
+                            replaceMethod = true;
+                            newMethod = AccessTools.Method(
+                                _typeMapping[method.DeclaringType], 
+                                method.Name, 
+                                method.GetParameters().Select(pi => pi.ParameterType).ToArray(), 
+                                method.GetGenericArguments());
+                        }
+                        if (method.IsGenericMethod) {
+                            Type[] genericArguments = method.GetGenericArguments();
+                            List<Type> replacementGenerics = new List<Type>();
+                            bool replaceGenerics = false;
+                            for (int i = 0; i < genericArguments.Length; i++) {
+                                if (_typeMapping.ContainsKey(genericArguments[i])) {
+                                    replaceGenerics = true;
+                                    replacementGenerics.Add(_typeMapping[genericArguments[i]]);
+                                } else {
+                                    replacementGenerics.Add(genericArguments[i]);
+                                }
+                            }
+                            if (replaceGenerics) {
+                                replaceMethod = true;
+                                if (newMethod == null) {
+                                    newMethod = AccessTools.Method(
+                                        method.DeclaringType,
+                                        method.Name,
+                                        method.GetParameters().Select(pi => pi.ParameterType).ToArray(),
+                                        replacementGenerics.ToArray());
+                                } else {
+                                    newMethod = AccessTools.Method(
+                                        newMethod.DeclaringType,
+                                        newMethod.Name,
+                                        newMethod.GetParameters().Select(pi => pi.ParameterType).ToArray(),
+                                        replacementGenerics.ToArray());
+                                }
+                            }
+                        }
+                        if (replaceMethod) {
+                            yield return new CodeInstruction(OpCodes.Callvirt, newMethod);
+                        } else {
+                            yield return code;
+                        }
+                    } else if (code.opcode == OpCodes.Call && _staticCallMapping.ContainsKey((MethodInfo)code.operand)) {
+                        yield return new CodeInstruction(OpCodes.Call, _staticCallMapping[(MethodInfo)code.operand]);
+                    } else if (code.opcode == OpCodes.Ldfld) {
+                        FieldInfo field = (FieldInfo)code.operand;
+                        if (_typeMapping.ContainsKey(field.DeclaringType)) {
+                            FieldInfo newField = AccessTools.Field(
+                                _typeMapping[field.DeclaringType],
+                                field.Name);
+
+                            yield return new CodeInstruction(OpCodes.Ldfld, newField);
+                        } else {
+                            yield return code;
+                        }
+                    } else if (code.opcode == OpCodes.Castclass && _typeMapping.ContainsKey((Type)code.operand)) {
+                        yield return new CodeInstruction(OpCodes.Castclass, _typeMapping[(Type)code.operand]);
+                    } else {
+                        yield return code;
+                    }
+                }
+            }
+
+            private static string TTGetEnergyResistanceText(TTAddDamageResistanceBase.ComponentRuntime damageEnergyResist) {
+                return damageEnergyResist == null ? "" : "+" + (object)damageEnergyResist.GetValue();
+            }
+
+        }
+
+        [HarmonyPatch(typeof(UIUtilityItem), nameof(UIUtilityItem.FillShieldEnchantments), typeof(TooltipData), typeof(ItemEntityShield), typeof(string))]
+        static class UIUtilityItem_FillShieldEnchantments_Patch {
+            static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> codes, ILGenerator il) {
+                // -------- before --------
+                // visibleEnchantment.GetComponentWithRuntime<AddDamageResistanceEnergy>();
+                // -------- after ---------
+                // visibleEnchantment.GetComponentWithRuntime<TTAddDamageResistanceEnergy>();
+                MethodInfo get_component_with_runtime_vanilla_energy_resist =
+                    typeof(EntityFact).GetMethod(nameof(EntityFact.GetComponentWithRuntime))
+                    .MakeGenericMethod(typeof(AddDamageResistanceEnergy));
+                MethodInfo get_component_with_runtime_rework_energy_resist = 
+                    typeof(EntityFact).GetMethod(nameof(EntityFact.GetComponentWithRuntime))
+                    .MakeGenericMethod(typeof(TTAddDamageResistanceEnergy));
+
+                // -------- before --------
+                // ((BlueprintComponent<AddDamageResistanceEnergy>)componentWithRuntime).Component
+                // -------- after ---------
+                // ((BlueprintComponent<TTAddDamageResistanceEnergy>)componentWithRuntime).Component
+                FieldInfo component_field_component_with_runtime_vanilla_energy_resist =
+                    typeof(BlueprintComponentAndRuntime<AddDamageResistanceEnergy>)
+                    .GetField(nameof(BlueprintComponentAndRuntime<AddDamageResistanceEnergy>.Component));
+                FieldInfo component_field_component_with_runtime_rework_energy_resist =
+                    typeof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>)
+                    .GetField(nameof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>));
+
+                // -------- before --------
+                // AddDamageResistanceBase.ComponentRuntime runtime = (AddDamageResistanceBase.ComponentRuntime) componentWithRuntime.Runtime;
+                // -------- after ---------
+                // TTAddDamageResistanceBase.ComponentRuntime runtime = (TTAddDamageResistanceBase.ComponentRuntime) componentWithRuntime.Runtime;
+                FieldInfo runtime_field_component_with_runtime_vanilla_energy_resist =
+                    typeof(BlueprintComponentAndRuntime<AddDamageResistanceEnergy>)
+                    .GetField(nameof(BlueprintComponentAndRuntime<AddDamageResistanceEnergy>.Runtime));
+                FieldInfo runtime_field_component_with_runtime_rework_energy_resist =
+                    typeof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>)
+                    .GetField(nameof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>.Runtime));
+
+                // -------- before --------
+                // componentWithRuntime.Component.Type // (vanilla types)
+                // -------- after ---------
+                // componentWithRuntime.Component.Type // (rework types)
+                FieldInfo type_field_vanilla_energy_resist =
+                    typeof(AddDamageResistanceEnergy)
+                    .GetField(nameof(AddDamageResistanceEnergy.Type));
+                FieldInfo type_field_rework_energy_resist =
+                    typeof(TTAddDamageResistanceEnergy)
+                    .GetField(nameof(TTAddDamageResistanceEnergy.Type));
+
+                LocalBuilder newLoc2 = il.DeclareLocal(typeof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>));
+                LocalBuilder newLoc4 = il.DeclareLocal(typeof(TTAddDamageResistanceBase.ComponentRuntime));
+
+                var locals = original.GetMethodBody().LocalVariables;
+                foreach(var local in locals) {
+                    Main.LogDebug($"Local: type = {local.LocalType} ; index = {local.LocalIndex} ; isPinned = {local.IsPinned}");
+                }
+
+                foreach (var code in codes) {
+                    if (code.opcode == OpCodes.Stloc_2) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found stloc.2");
+                        CodeInstruction newCodeInstruction = new CodeInstruction(OpCodes.Stloc_S, newLoc2);
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yield stloc_s newLoc2");
+                        yield return newCodeInstruction;
+                    } else if (code.opcode == OpCodes.Ldloc_2) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found ldloc.2");
+                        CodeInstruction newCodeInstruction = new CodeInstruction(OpCodes.Ldloc_S, newLoc2);
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yield ldloc_s newLoc2");
+                        yield return newCodeInstruction;
+                    } else if (code.opcode == OpCodes.Stloc_S && ((LocalBuilder)code.operand).LocalType == typeof(AddDamageResistanceBase.ComponentRuntime)) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found stloc.s 4");
+                        CodeInstruction newCodeInstruction = new CodeInstruction(OpCodes.Stloc_S, newLoc4);
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yield stloc_s newloc4");
+                        yield return newCodeInstruction;
+                    } else if (code.opcode == OpCodes.Ldloc_S && ((LocalBuilder)code.operand).LocalType == typeof(AddDamageResistanceBase.ComponentRuntime)) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found ldloc.s 4");
+                        CodeInstruction newCodeInstruction = new CodeInstruction(OpCodes.Ldloc_S, newLoc4);
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yield ldloc_s newloc4");
+                        yield return newCodeInstruction;
+                    } else if (code.opcode == OpCodes.Callvirt && (MethodInfo)code.operand == get_component_with_runtime_vanilla_energy_resist) {
+                    //if (code.Calls(get_component_with_runtime_vanilla_energy_resist)) { 
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found call to GetComponentWithRuntime<AddDamageResistanceEnergy>");
+                        CodeInstruction newCodeInstruction = new CodeInstruction(OpCodes.Callvirt, get_component_with_runtime_rework_energy_resist);
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yielding GetComponentWithRuntime<TTAddDamageResistanceEnergy>");
+                        yield return newCodeInstruction;
+                    } else if (code.LoadsField(component_field_component_with_runtime_vanilla_energy_resist)) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found loadfield Component of BlueprintComponentAndRuntime<AddDamageResistanceEnergy>");
+                        CodeInstruction newCodeInstruction = CodeInstruction.LoadField(
+                            typeof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>),
+                            nameof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>.Component));
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yielding loadfield Component of BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>");
+                        yield return newCodeInstruction;
+                    } else if (code.LoadsField(runtime_field_component_with_runtime_vanilla_energy_resist)) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found loadfield Runtime of BlueprintComponentAndRuntime<AddDamageResistanceEnergy>");
+                        CodeInstruction newCodeInstruction = CodeInstruction.LoadField(
+                            typeof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>),
+                            nameof(BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>.Runtime));
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yielding loadfield Runtime of BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>");
+                        yield return newCodeInstruction;
+                    } else if (code.opcode == OpCodes.Castclass && (Type)code.operand == typeof(AddDamageResistanceBase.ComponentRuntime)) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found castclass to AddDamageResistanceBase.ComponentRuntime");
+                        CodeInstruction newCodeInstruction = new CodeInstruction(OpCodes.Castclass, typeof(TTAddDamageResistanceBase.ComponentRuntime));
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yielding castclass to TTAddDamageResistanceBase.ComponentRuntime");
+                        yield return newCodeInstruction;
+                    } else if (code.Calls(typeof(UIUtilityItem).GetMethod(nameof(UIUtilityItem.GetEnergyResistanceText), BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static))) {
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: found call to UIUtilityItem::GetEnergyResistance");
+                        CodeInstruction newCodeInstruction = CodeInstruction.Call(
+                            typeof(UIUtilityItem_FillShieldEnchantments_Patch),
+                            nameof(UIUtilityItem_FillShieldEnchantments_Patch.TTGetEnergyResistanceText));
+                        Main.LogDebug("UIUtilityItem.FillShieldEnchantments Patch: yielding call to UIUtilityItem_FillShieldEnchantments_Patch.TTGetEnergyResistanceText");
+                        yield return newCodeInstruction;
+                    } else {
+                        yield return code;
+                    }
+                }
+            }
+
+            private static string TTGetEnergyResistanceText(TTAddDamageResistanceBase.ComponentRuntime damageEnergyResist) {
+                return damageEnergyResist == null ? "" : "+" + (object)damageEnergyResist.GetValue();
             }
         }
 
