@@ -22,6 +22,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -468,7 +469,10 @@ namespace TabletopTweaks.Bugfixes.Features {
                     RuleAttackRoll ruleAttackRoll = evt.AttackRoll;
                     if (ruleAttackRoll == null) { return; }
                     if (evt.Initiator.Stats.SneakAttack < 1) { return; }
-
+                    if (!ruleAttackRoll.TargetUseFortification) {
+                        UnitPartFortification unitPartFortification = ruleAttackRoll.Target.Get<UnitPartFortification>();
+                        ruleAttackRoll.FortificationChance = ((unitPartFortification != null) ? unitPartFortification.Value : 0);
+                    }
                     if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
                         DamageTypeDescription damageTypeDescription = evt.ResolveRules
                             .Select(e => e.Damage).First()
@@ -488,6 +492,10 @@ namespace TabletopTweaks.Bugfixes.Features {
                     RuleAttackRoll ruleAttackRoll = evt.ParentRule.AttackRoll;
                     if (ruleAttackRoll == null) { return; }
                     if (evt.Initiator.Stats.SneakAttack < 1) { return; }
+                    if (!ruleAttackRoll.TargetUseFortification) {
+                        UnitPartFortification unitPartFortification = ruleAttackRoll.Target.Get<UnitPartFortification>();
+                        ruleAttackRoll.FortificationChance = ((unitPartFortification != null) ? unitPartFortification.Value : 0);
+                    }
                     if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
                         DamageTypeDescription damageTypeDescription = evt.DamageBundle
                             .First()

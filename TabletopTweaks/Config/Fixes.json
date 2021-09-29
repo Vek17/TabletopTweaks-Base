@@ -149,7 +149,8 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "SpellCombatAbilityVariants": true
+                "SpellCombatAbilityVariants": true,
+                "SpellCombatDisableImmediatly": true
             }
         },
         "Archetypes": {
