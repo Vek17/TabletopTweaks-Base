@@ -36,6 +36,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         Mounted Maniac
         Mythic Spell Combat
         Precision Critical
+
+    Adds the following mythic feats:
+        Shatter Defenses (Mythic)
     
     Adds the following arcanist exploits:
         Quick Study
@@ -81,6 +84,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Extra Revelation
         Extra Discovery
         Extra Mercy
+        Nature Soul
+        Animal Ally
 
     Adds the following rogue talents:
         Graceful Athlete

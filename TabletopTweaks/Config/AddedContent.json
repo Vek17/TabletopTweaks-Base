@@ -52,7 +52,7 @@
             "ShingleRunner": true,
             "StreetSmarts": true,
             "NatureSoul": true,
-            "AnimalAlly":  true
+            "AnimalAlly": true
         }
     },
     "FighterAdvancedWeaponTraining": {
@@ -109,6 +109,12 @@
             "MountedManiac": true,
             "MythicSpellCombat": true,
             "PrecisionCritical": true
+        }
+    },
+    "MythicFeats": {
+        "DisableAll": false,
+        "Enabled": {
+            "MythicShatterDefenses": true
         }
     }
 }

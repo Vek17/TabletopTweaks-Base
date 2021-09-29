@@ -74,6 +74,8 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.MythicSpellCombat.AddMythicSpellCombat();
                 MythicAbilities.PrecisionCritical.AddPrecisionCritical();
 
+                MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
+
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();
                 Feats.SelfSufficient.AddSelfSufficient();
@@ -84,7 +86,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.NatureSoul.AddNatureSoul();
                 Feats.AnimalAlly.AddAnimalAlly();
 
-                Feats.ShatterDefenses.AddShatterDefensesBuffs();
+                Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

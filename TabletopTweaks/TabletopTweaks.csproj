@@ -302,6 +302,7 @@
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
     <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicShatterDefenses.cs" />
     <Compile Include="NewContent\Races\Elf.cs" />
     <Compile Include="NewContent\Races\Dwarf.cs" />
     <Compile Include="NewContent\Races\Gnome.cs" />
