@@ -56,6 +56,7 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
         [HarmonyPatch(typeof(ItemEntityWeapon), "HoldInTwoHands", MethodType.Getter)]
         static class ItemEntityWeapon_HoldInTwoHands_Patch {
             static void Postfix(ItemEntityWeapon __instance, ref bool __result) {
+                if (ModSettings.AddedContent.BaseAbilities.IsDisabled("OneHandedToggle")) { return; }
                 var OneHandedBuff = Resources.GetModBlueprint<BlueprintBuff>("OneHandedBuff");
                 if (__instance.Wielder != null && __instance.Wielder.HasFact(OneHandedBuff)) {
                     if (__instance.Blueprint.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {

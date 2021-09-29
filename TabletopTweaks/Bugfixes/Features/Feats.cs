@@ -370,7 +370,7 @@ namespace TabletopTweaks.Bugfixes.Features {
         [HarmonyPatch(typeof(MetamagicHelper), "GetBolsteredAreaEffectUnits", new Type[] { typeof(TargetWrapper) })]
         static class MetamagicHelper_GetBolsteredAreaEffectUnits_Patch {
             static void Postfix(TargetWrapper origin, ref List<UnitEntityData> __result) {
-                __result = __result.Where(unit => unit.Faction.AssetGuid.Equals(origin.Unit.Faction.AssetGuid) || !unit.IsPlayerFaction).ToList();
+                __result = __result.Where(unit => unit.AttackFactions.IsPlayerEnemy).ToList();
             }
         }
 
