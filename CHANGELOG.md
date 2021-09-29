@@ -1,3 +1,7 @@
+## Version 1.3.6
+* animal ally should now always progress correctly
+* fixed for 1.0.7
+
 ## Version 1.3.5
 * shatter defenses now works like in tabletop
 * extra feat mythic feat can now only be taken once

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {
@@ -16,7 +17,6 @@ namespace TabletopTweaks.NewContent.Feats {
         public static void AddAnimalAlly() {
             var MountTargetFeature = Resources.GetBlueprint<BlueprintFeature>("cb06f0e72ffb5c640a156bd9f8000c1d");
             var AnimalCompanionArchetypeSelection = Resources.GetBlueprint<BlueprintFeature>("65af7290b4efd5f418132141aaa36c1b");
-            var AnimalCompanionRank = Resources.GetBlueprint<BlueprintFeature>("1670990255e4fe948a863bafd5dbda5d");
             var NatureSoul = Resources.GetModBlueprint<BlueprintFeature>("NatureSoul");
             var AnimalCompanionSelectionRanger = Resources.GetBlueprint<BlueprintFeatureSelection>("ee63330662126374e8785cc901941ac7");
 
@@ -28,25 +28,38 @@ namespace TabletopTweaks.NewContent.Feats {
             var AnimalCompanionFeatureWolf = Resources.GetBlueprint<BlueprintFeature>("67a9dc42b15d0954ca4689b13e8dedea");
             var AnimalCompanionFeatureHorse_PreorderBonus = Resources.GetBlueprint<BlueprintFeature>("bfeb9be0a3c9420b8b2beecc8171029c");
 
+            var AnimalCompanionRank = Resources.GetBlueprint<BlueprintFeature>("1670990255e4fe948a863bafd5dbda5d");
+            var AnimalAllyRank = Helpers.CreateBlueprint<BlueprintFeature>("AnimalAllyRank", bp => {
+                bp.IsClassFeature = true;
+                bp.HideInUI = true;
+                bp.Ranks = 20;
+                bp.HideInCharacterSheetAndLevelUp = true;
+                bp.SetName("Animal Ally Rank");
+                bp.AddComponent<ConstrainTargetFeatureRank>(c => {
+                    c.TargetFeature = AnimalCompanionRank.ToReference<BlueprintFeatureReference>();
+                });
+            });
+
             var AnimalAllyProgression = Helpers.CreateBlueprint<BlueprintProgression>("AnimalAllyProgression", bp => {
+                bp.SetName("Animal Ally Progression");
+                bp.SetName("");
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
-                bp.m_DisplayName = new LocalizedString();
-                bp.m_Description = new LocalizedString();
-                bp.m_DescriptionShort = new LocalizedString();
+                bp.ReapplyOnLevelUp = true;
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeatureRankIncrease = new BlueprintFeatureReference();
-                bp.LevelEntries = Enumerable.Range(5, 20)
+                bp.LevelEntries = Enumerable.Range(4, 20)
                     .Select(i => new LevelEntry {
                         Level = i,
                         m_Features = new List<BlueprintFeatureBaseReference> {
-                            AnimalCompanionRank.ToReference<BlueprintFeatureBaseReference>()
+                            AnimalAllyRank.ToReference<BlueprintFeatureBaseReference>()
                         },
                     })
                     .ToArray();
+                bp.AddComponent<EnsureProgressionAdded>();
             });
 
             var AnimalAlly = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AnimalAllyFeatureSelection", bp => {
@@ -74,9 +87,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.m_Feature = AnimalAllyProgression.ToReference<BlueprintFeatureReference>();
                 });
                 bp.AddComponent<AddFeatureOnApply>(c => {
-                    c.m_Feature = AnimalCompanionRank.ToReference<BlueprintFeatureReference>();
-                });
-                bp.AddComponent<AddFeatureOnApply>(c => {
                     c.m_Feature = MountTargetFeature.ToReference<BlueprintFeatureReference>();
                 });
                 bp.AddComponent<AddFeatureOnApply>(c => {
@@ -97,6 +107,11 @@ namespace TabletopTweaks.NewContent.Feats {
 
             if (ModSettings.AddedContent.Feats.IsDisabled("NatureSoul")) { return; }
             if (ModSettings.AddedContent.Feats.IsDisabled("AnimalAlly")) { return; }
+            var CompanionBoon = Resources.GetBlueprint<BlueprintFeature>("8fc01f06eab4dd946baa5bc658cac556");
+            CompanionBoon.AddComponent<CompanionBoon>(c => {
+                c.m_RankFeature = AnimalAllyRank.ToReference<BlueprintFeatureReference>();
+                c.Bonus = 4;
+            });
             FeatTools.AddAsFeat(AnimalAlly);
         }
     }

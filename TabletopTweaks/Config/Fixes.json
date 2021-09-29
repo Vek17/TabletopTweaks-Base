@@ -5,6 +5,7 @@
         "Enabled": {
             "FeatSelections": true,
             "CoupDeGrace": true,
+            "FixCriticalConfirmationOn20": true,
             "DisableNaturalArmorStacking": true,
             "DisablePolymorphStacking": true,
             "DisableCannyDefenseStacking": true,

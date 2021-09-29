@@ -1,4 +1,5 @@
 ﻿using System;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
@@ -11,26 +12,23 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.ContextData;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("52c4991ee89544a2973b7e8b95396aba")]
     class ShatterDefensesInitiator : EntityFactComponentDelegate,
         IInitiatorRulebookHandler<RuleAttackWithWeapon>,
         IRulebookHandler<RuleAttackWithWeapon>,
         ISubscriber, IInitiatorRulebookSubscriber {
 
         public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) {
-            Main.Log($"ShatterDefensesInitiator::OnEventAboutToTrigger - BeforeValid: {IsValid}");
             IsValid = evt.Target.State.HasCondition(UnitCondition.Shaken) || evt.Target.State.HasCondition(UnitCondition.Frightened);
-            Main.Log($"ShatterDefensesInitiator::OnEventAboutToTrigger - AfterValid: {IsValid}");
         }
 
         public void OnEventDidTrigger(RuleAttackWithWeapon evt) {
-            Main.Log($"ShatterDefensesInitiator::OnEventDidTrigger - Valid: {IsValid}");
             if (!IsSuitable(evt)) {
                 return;
             }
             MechanicsContext context = base.Context;
             EntityFact fact = base.Fact;
 
-            Main.Log($"ShatterDefensesInitiator::OnEventDidTrigger - Trigger Actions");
             foreach (RuleAttackWithWeaponResolve ruleAttackWithWeaponResolve in evt.ResolveRules) {
                 if (ruleAttackWithWeaponResolve.IsTriggered) {
                     RunActions(this, evt, context, fact);
@@ -43,7 +41,6 @@ namespace TabletopTweaks.NewComponents {
         }
 
         private static void RunActions(ShatterDefensesInitiator c, RuleAttackWithWeapon rule, MechanicsContext context, EntityFact fact) {
-            Main.Log($"ShatterDefensesInitiator::RunActions - Valid: {c.IsValid}");
             UnitEntityData unit = rule.Target;
             using (ContextData<ContextAttackData>.Request().Setup(rule.AttackRoll, null)) {
                 if (!fact.IsDisposed) {

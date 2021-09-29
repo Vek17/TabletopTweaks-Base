@@ -38,15 +38,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 if (ModSettings.Fixes.Arcanist.Base.IsDisabled("PreparedSpellUI")) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
-                //Utilities.ILUtils.LogIL(codes);
+                Utilities.ILUtils.LogIL(codes);
                 codes.InsertRange(target, new CodeInstruction[] {
-                    new CodeInstruction(OpCodes.Ldloc_S, 5),
+                    new CodeInstruction(OpCodes.Ldloc_S, 2),
                     new CodeInstruction(OpCodes.Ldfld, Spellbook_BlueprintSpellbook),
                     new CodeInstruction(OpCodes.Ldfld, BlueprintSpellbook_IsArcanist),
                     new CodeInstruction(OpCodes.Not),
                     new CodeInstruction(OpCodes.And),
                 });
-                //Utilities.ILUtils.LogIL(codes);
+                Utilities.ILUtils.LogIL(codes);
                 return codes.AsEnumerable();
             }
             private static int FindInsertionTarget(List<CodeInstruction> codes) {
