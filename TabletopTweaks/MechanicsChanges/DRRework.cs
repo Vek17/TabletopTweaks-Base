@@ -349,9 +349,28 @@ namespace TabletopTweaks.MechanicsChanges
             }
         }
 
-        [HarmonyPatch(typeof(UIUtilityItem), nameof(UIUtilityItem.FillShieldEnchantments), typeof(ItemTooltipData), typeof(ItemEntityShield), typeof(string))]
+        [HarmonyPatch]
         [HarmonyDebug]
-        static class UIUtilityItem_FillShieldEnchantments2_Patch {
+        static class UIUtilityItem_FillShieldEnchantments_Patch {
+
+            static IEnumerable<MethodBase> TargetMethods() {
+                yield return AccessTools.Method(
+                    typeof(UIUtilityItem),
+                    nameof(UIUtilityItem.FillShieldEnchantments),
+                    new Type[] { typeof(ItemTooltipData), typeof(ItemEntityShield), typeof(string) });
+                yield return AccessTools.Method(
+                    typeof(UIUtilityItem),
+                    nameof(UIUtilityItem.FillShieldEnchantments),
+                    new Type[] { typeof(TooltipData), typeof(ItemEntityShield), typeof(string) });
+                yield return AccessTools.Method(
+                    typeof(UIUtilityItem),
+                    nameof(UIUtilityItem.FillArmorEnchantments),
+                    new Type[] { typeof(ItemTooltipData), typeof(ItemEntityArmor), typeof(string) });
+                yield return AccessTools.Method(
+                    typeof(UIUtilityItem),
+                    nameof(UIUtilityItem.FillArmorEnchantments),
+                    new Type[] { typeof(TooltipData), typeof(ItemEntityArmor), typeof(string) });
+            }
 
             private static Dictionary<Type, Type> _typeMapping = new Dictionary<Type, Type>() {
                 { typeof(AddDamageResistanceEnergy), typeof(TTAddDamageResistanceEnergy) },
@@ -362,139 +381,12 @@ namespace TabletopTweaks.MechanicsChanges
             private static Dictionary<MethodInfo, MethodInfo> _staticCallMapping = new Dictionary<MethodInfo, MethodInfo> {
                 { 
                     AccessTools.Method(typeof(UIUtilityItem), nameof(UIUtilityItem.GetEnergyResistanceText)), 
-                    AccessTools.Method(typeof(UIUtilityItem_FillShieldEnchantments2_Patch), nameof(UIUtilityItem_FillShieldEnchantments2_Patch.TTGetEnergyResistanceText)) 
+                    AccessTools.Method(typeof(UIUtilityItem_FillShieldEnchantments_Patch), nameof(UIUtilityItem_FillShieldEnchantments_Patch.TTGetEnergyResistanceText)) 
                 }
             };
 
             static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> codes, ILGenerator il) {
-
-                bool replaceLoc0 = false;
-                LocalBuilder loc0replacement = null;
-
-                bool replaceLoc1 = false;
-                LocalBuilder loc1replacement = null;
-
-                bool replaceLoc2 = false;
-                LocalBuilder loc2replacement = null;
-
-                bool replaceLoc3 = false;
-                LocalBuilder loc3replacement = null;
-
-                Dictionary<Type, LocalBuilder> locSReplacements = new Dictionary<Type, LocalBuilder>();
-                
-                foreach(LocalVariableInfo local in original.GetMethodBody().LocalVariables) {
-                    if (_typeMapping.ContainsKey(local.LocalType)) {
-                        LocalBuilder newLocal = il.DeclareLocal(_typeMapping[local.LocalType]);
-                        switch (local.LocalIndex) {
-                            case 0:
-                                replaceLoc0 = true;
-                                loc0replacement = newLocal;
-                                break;
-                            case 1:
-                                replaceLoc1 = true;
-                                loc1replacement = newLocal;
-                                break;
-                            case 2:
-                                replaceLoc2 = true;
-                                loc2replacement = newLocal;
-                                break;
-                            case 3:
-                                replaceLoc3 = true;
-                                loc3replacement = newLocal;
-                                break;
-                            default:
-                                locSReplacements.Add(local.LocalType, newLocal);
-                                break;
-                        }
-                    }
-                }
-
-                foreach (CodeInstruction code in codes) {
-                    if (code.opcode == OpCodes.Stloc_0 && replaceLoc0) {
-                        yield return new CodeInstruction(OpCodes.Stloc_S, loc0replacement);
-                    } else if (code.opcode == OpCodes.Stloc_1 && replaceLoc1) {
-                        yield return new CodeInstruction(OpCodes.Stloc_S, loc1replacement);
-                    } else if (code.opcode == OpCodes.Stloc_2 && replaceLoc2) {
-                        yield return new CodeInstruction(OpCodes.Stloc_S, loc2replacement);
-                    } else if (code.opcode == OpCodes.Stloc_3 && replaceLoc3) {
-                        yield return new CodeInstruction(OpCodes.Stloc_S, loc3replacement);
-                    } else if (code.opcode == OpCodes.Stloc_S && locSReplacements.ContainsKey(((LocalBuilder)code.operand).LocalType)) {
-                        yield return new CodeInstruction(OpCodes.Stloc_S, locSReplacements[((LocalBuilder)code.operand).LocalType]);
-                    } else if (code.opcode == OpCodes.Ldloc_0 && replaceLoc0) {
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc0replacement);
-                    } else if (code.opcode == OpCodes.Ldloc_1 && replaceLoc1) {
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc1replacement);
-                    } else if (code.opcode == OpCodes.Ldloc_2 && replaceLoc2) {
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc2replacement);
-                    } else if (code.opcode == OpCodes.Ldloc_3 && replaceLoc3) {
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, loc3replacement);
-                    } else if (code.opcode == OpCodes.Ldloc_S && locSReplacements.ContainsKey(((LocalBuilder)code.operand).LocalType)) {
-                        yield return new CodeInstruction(OpCodes.Ldloc_S, locSReplacements[((LocalBuilder)code.operand).LocalType]);
-                    } else if (code.opcode == OpCodes.Callvirt) {
-                        MethodInfo method = (MethodInfo)code.operand;
-                        bool replaceMethod = false;
-                        MethodInfo newMethod = null;
-                        if (_typeMapping.ContainsKey(method.DeclaringType)) {
-                            replaceMethod = true;
-                            newMethod = AccessTools.Method(
-                                _typeMapping[method.DeclaringType], 
-                                method.Name, 
-                                method.GetParameters().Select(pi => pi.ParameterType).ToArray(), 
-                                method.GetGenericArguments());
-                        }
-                        if (method.IsGenericMethod) {
-                            Type[] genericArguments = method.GetGenericArguments();
-                            List<Type> replacementGenerics = new List<Type>();
-                            bool replaceGenerics = false;
-                            for (int i = 0; i < genericArguments.Length; i++) {
-                                if (_typeMapping.ContainsKey(genericArguments[i])) {
-                                    replaceGenerics = true;
-                                    replacementGenerics.Add(_typeMapping[genericArguments[i]]);
-                                } else {
-                                    replacementGenerics.Add(genericArguments[i]);
-                                }
-                            }
-                            if (replaceGenerics) {
-                                replaceMethod = true;
-                                if (newMethod == null) {
-                                    newMethod = AccessTools.Method(
-                                        method.DeclaringType,
-                                        method.Name,
-                                        method.GetParameters().Select(pi => pi.ParameterType).ToArray(),
-                                        replacementGenerics.ToArray());
-                                } else {
-                                    newMethod = AccessTools.Method(
-                                        newMethod.DeclaringType,
-                                        newMethod.Name,
-                                        newMethod.GetParameters().Select(pi => pi.ParameterType).ToArray(),
-                                        replacementGenerics.ToArray());
-                                }
-                            }
-                        }
-                        if (replaceMethod) {
-                            yield return new CodeInstruction(OpCodes.Callvirt, newMethod);
-                        } else {
-                            yield return code;
-                        }
-                    } else if (code.opcode == OpCodes.Call && _staticCallMapping.ContainsKey((MethodInfo)code.operand)) {
-                        yield return new CodeInstruction(OpCodes.Call, _staticCallMapping[(MethodInfo)code.operand]);
-                    } else if (code.opcode == OpCodes.Ldfld) {
-                        FieldInfo field = (FieldInfo)code.operand;
-                        if (_typeMapping.ContainsKey(field.DeclaringType)) {
-                            FieldInfo newField = AccessTools.Field(
-                                _typeMapping[field.DeclaringType],
-                                field.Name);
-
-                            yield return new CodeInstruction(OpCodes.Ldfld, newField);
-                        } else {
-                            yield return code;
-                        }
-                    } else if (code.opcode == OpCodes.Castclass && _typeMapping.ContainsKey((Type)code.operand)) {
-                        yield return new CodeInstruction(OpCodes.Castclass, _typeMapping[(Type)code.operand]);
-                    } else {
-                        yield return code;
-                    }
-                }
+                return new TypeReplaceTranspiler(_typeMapping, _staticCallMapping).Transpiler(original, codes, il);
             }
 
             private static string TTGetEnergyResistanceText(TTAddDamageResistanceBase.ComponentRuntime damageEnergyResist) {
@@ -503,7 +395,7 @@ namespace TabletopTweaks.MechanicsChanges
 
         }
 
-        [HarmonyPatch(typeof(UIUtilityItem), nameof(UIUtilityItem.FillShieldEnchantments), typeof(TooltipData), typeof(ItemEntityShield), typeof(string))]
+        /*[HarmonyPatch(typeof(UIUtilityItem), nameof(UIUtilityItem.FillShieldEnchantments), typeof(TooltipData), typeof(ItemEntityShield), typeof(string))]
         static class UIUtilityItem_FillShieldEnchantments_Patch {
             static IEnumerable<CodeInstruction> Transpiler(MethodBase original, IEnumerable<CodeInstruction> codes, ILGenerator il) {
                 // -------- before --------
@@ -617,10 +509,8 @@ namespace TabletopTweaks.MechanicsChanges
                 }
             }
 
-            private static string TTGetEnergyResistanceText(TTAddDamageResistanceBase.ComponentRuntime damageEnergyResist) {
-                return damageEnergyResist == null ? "" : "+" + (object)damageEnergyResist.GetValue();
-            }
-        }
+            
+        }*/
 
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch

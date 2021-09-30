@@ -337,6 +337,7 @@
     <Compile Include="Config\Fixes.cs" />
     <Compile Include="Utilities\ILUtils.cs" />
     <Compile Include="Utilities\SpellTools.cs" />
+    <Compile Include="Utilities\TypeReplaceTranspiler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\AddedContent.json" />
