@@ -155,6 +155,7 @@ namespace TabletopTweaks.NewUnitParts
             this.TryInitialize();
             UnitPartClusteredAttack partClusteredAttack = evt.Initiator.Get<UnitPartClusteredAttack>();
             UnitPartClusteredAttack clusteredAttack = partClusteredAttack == null || !partClusteredAttack.IsSuitableForEvent((RulebookTargetEvent)evt) ? (UnitPartClusteredAttack)null : partClusteredAttack;
+            Dictionary<DamageTypeDescription, ChunkStack[]> damageTypeToBestDRMapping = new Dictionary<DamageTypeDescription, ChunkStack[]>();
             foreach (DamageValue damage in evt.CalculatedDamage)
             {
                 if (damage.FinalValue >= 1)
@@ -163,9 +164,23 @@ namespace TabletopTweaks.NewUnitParts
                     // priority ones, and then the best of the low priority ones.
                     // This is used for "spill-over" immunities and resistances. By default, only Protection From Energy has a High priority and only the Abjuration
                     // school's Energy Absorption feature has a Low priority. Everything else should have a Normal priority.
-                    ChunkStack bestDRHigh = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.High);
-                    ChunkStack bestDRNormal = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Normal);
-                    ChunkStack bestDRLow = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Low);
+                    ChunkStack bestDRHigh;
+                    ChunkStack bestDRNormal;
+                    ChunkStack bestDRLow;
+                    DamageTypeDescription damageTypeDescription = damage.Source.CreateTypeDescription();
+                    // If part of the damage of a certain type of one attack or effect was reduced by some DR, then that specific DR must be used
+                    // to reduce (if possible) all damage of that type for that attack or effect
+                    if (damageTypeToBestDRMapping.ContainsKey(damageTypeDescription)) {
+                        ChunkStack[] bestDRs = damageTypeToBestDRMapping[damageTypeDescription];
+                        bestDRHigh = bestDRs[0];
+                        bestDRNormal = bestDRs[1];
+                        bestDRLow = bestDRs[2];
+                    } else {
+                        bestDRHigh = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.High);
+                        bestDRNormal = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Normal);
+                        bestDRLow = FindBestDRWithPriority(damage, evt.DamageBundle.Weapon, TTAddDamageResistanceBase.DRPriority.Low);
+                        damageTypeToBestDRMapping.Add(damageTypeDescription, new ChunkStack[] { bestDRHigh, bestDRNormal, bestDRLow });
+                    }
                     this.ApplyReduction(damage, evt.DamageBundle.Weapon, clusteredAttack, bestDRHigh, bestDRNormal, bestDRLow);
                 }
             }
