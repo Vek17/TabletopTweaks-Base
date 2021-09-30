@@ -351,7 +351,7 @@ namespace TabletopTweaks.MechanicsChanges
 
         [HarmonyPatch]
         [HarmonyDebug]
-        static class UIUtilityItem_FillShieldEnchantments_Patch {
+        static class UIUtilityItem_Patches {
 
             static IEnumerable<MethodBase> TargetMethods() {
                 yield return AccessTools.Method(
@@ -381,7 +381,7 @@ namespace TabletopTweaks.MechanicsChanges
             private static Dictionary<MethodInfo, MethodInfo> _staticCallMapping = new Dictionary<MethodInfo, MethodInfo> {
                 { 
                     AccessTools.Method(typeof(UIUtilityItem), nameof(UIUtilityItem.GetEnergyResistanceText)), 
-                    AccessTools.Method(typeof(UIUtilityItem_FillShieldEnchantments_Patch), nameof(UIUtilityItem_FillShieldEnchantments_Patch.TTGetEnergyResistanceText)) 
+                    AccessTools.Method(typeof(UIUtilityItem_Patches), nameof(UIUtilityItem_Patches.TTGetEnergyResistanceText)) 
                 }
             };
 
