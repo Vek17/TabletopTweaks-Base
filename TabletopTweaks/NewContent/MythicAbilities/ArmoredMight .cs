@@ -2,7 +2,7 @@
 using Kingmaker.Blueprints.Classes.Selection;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.MythicAbilities {

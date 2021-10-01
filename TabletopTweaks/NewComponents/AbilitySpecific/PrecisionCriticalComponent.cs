@@ -3,7 +3,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using TabletopTweaks.NewUnitParts;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.AbilitySpecific {
     class PrecisionCriticalComponent : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleCalculateDamage>, IRulebookHandler<RuleCalculateDamage>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public override void OnTurnOn() {

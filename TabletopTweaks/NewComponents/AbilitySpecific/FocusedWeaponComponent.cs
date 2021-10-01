@@ -10,7 +10,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Parts;
 using TabletopTweaks.NewUnitParts;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("a945c1d2b2d44247bd37d651665d4f54")]

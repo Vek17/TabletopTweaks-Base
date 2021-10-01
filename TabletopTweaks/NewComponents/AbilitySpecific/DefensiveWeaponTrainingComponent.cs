@@ -8,7 +8,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Parts;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.AbilitySpecific {
     class DefensiveWeaponTrainingComponent : UnitFactComponentDelegate,
         IUnitActiveEquipmentSetHandler,
         IGlobalSubscriber,

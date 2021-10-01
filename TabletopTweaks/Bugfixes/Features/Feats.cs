@@ -32,6 +32,7 @@ using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 

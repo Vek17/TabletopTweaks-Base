@@ -219,7 +219,7 @@
     <Compile Include="NewComponents\RestrictHasBuff.cs" />
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
-    <Compile Include="NewComponents\ShatterDefensesInitiator.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\ShatterDefensesInitiator.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\AbilitySpecific\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteFeaturesFromListFormatted.cs" />

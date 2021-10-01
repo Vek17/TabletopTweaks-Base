@@ -25,7 +25,7 @@ using System.Linq;
 using TabletopTweaks.Utilities;
 using UnityEngine;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("4515aeab69cc419ba926987dd2cce54f")]
     class QuickStudyComponent : AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
 

@@ -2,7 +2,7 @@
 using Kingmaker.UnitLogic;
 using TabletopTweaks.NewUnitParts;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.AbilitySpecific {
     class BroadStudyMythicComponent : UnitFactComponentDelegate {
         public override void OnTurnOn() {
             base.Owner.Ensure<UnitPartBroadStudy>().AddMythicSource(base.Fact);

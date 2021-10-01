@@ -8,7 +8,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using UnityEngine;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("080a6418d97c4bd48cd37851b9cfe89e")]
     class DestinedArcanaComponent : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCastSpell>,

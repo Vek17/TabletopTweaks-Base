@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
