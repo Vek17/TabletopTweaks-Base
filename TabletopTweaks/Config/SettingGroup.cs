@@ -15,6 +15,7 @@ namespace TabletopTweaks.Config {
                     Enabled[key] = false;
                 });
             }
+            this.DisableAll = group.DisableAll;
             group.Enabled.ForEach(entry => {
                 if (Enabled.ContainsKey(entry.Key)) {
                     Enabled[entry.Key] = entry.Value;

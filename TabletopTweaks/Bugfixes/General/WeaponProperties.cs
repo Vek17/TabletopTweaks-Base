@@ -11,7 +11,7 @@ namespace TabletopTweaks.Bugfixes.General {
          * This is a set of patches to apply weapon properties to all of a weapon's damage to support changes like vital strike
         */
         [HarmonyPatch(typeof(WeaponReality), "OnEventDidTrigger", new Type[] { typeof(RulePrepareDamage) })]
-        class WeaponReality_OnEventAboutToTrigger_Patch {
+        class WeaponReality_OnEventDidTrigger_Patch {
             static void Postfix(WeaponReality __instance, RulePrepareDamage evt) {
                 if (evt.DamageBundle.Weapon == __instance.Owner && evt.DamageBundle.WeaponDamage != null) {
                     foreach (var damage in evt.DamageBundle) {
@@ -21,7 +21,7 @@ namespace TabletopTweaks.Bugfixes.General {
             }
         }
         [HarmonyPatch(typeof(WeaponMaterial), "OnEventDidTrigger", new Type[] { typeof(RulePrepareDamage) })]
-        class WeaponMaterial_OnEventAboutToTrigger_Patch {
+        class WeaponMaterial_OnEventDidTrigger_Patch {
             static void Postfix(WeaponMaterial __instance, RulePrepareDamage evt) {
                 if (evt.DamageBundle.Weapon == __instance.Owner && evt.DamageBundle.WeaponDamage != null) {
                     foreach (PhysicalDamage damage in evt.DamageBundle.OfType<PhysicalDamage>()) {
@@ -31,7 +31,7 @@ namespace TabletopTweaks.Bugfixes.General {
             }
         }
         [HarmonyPatch(typeof(WeaponAlignment), "OnEventDidTrigger", new Type[] { typeof(RulePrepareDamage) })]
-        class WeaponAlignment_OnEventAboutToTrigger_Patch {
+        class WeaponAlignment_OnEventDidTrigger_Patch {
             static void Postfix(WeaponAlignment __instance, RulePrepareDamage evt) {
                 if (evt.DamageBundle.Weapon == __instance.Owner && evt.DamageBundle.WeaponDamage != null) {
                     foreach (var damage in evt.DamageBundle) {

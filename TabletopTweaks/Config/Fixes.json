@@ -309,6 +309,7 @@
             "PersistantMetamagic": true,
             "ShatterDefenses": true,
             "SlashingGrace": true,
+            "SpellFocus": true,
             "SpiritedCharge": true,
             "VitalStrike": true,
             "WeaponFinesse": true

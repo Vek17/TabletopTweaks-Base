@@ -144,7 +144,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Vigilance ");
+                bp.SetName("Vigilance");
                 bp.SetDescription("You gain a +2 dodge bonus to AC against attacks by chaotic creatures.\nThis trait replaces elven magic.");
                 bp.AddComponent(Helpers.Create<ArmorClassBonusAgainstAlignment>(c => {
                     c.alignment = AlignmentComponent.Chaotic;
@@ -167,7 +167,6 @@ namespace TabletopTweaks.NewContent.Races {
             LoremasterElf.AddSelectionCallback(ElvenHeritageSelection);
 
             if (ModSettings.AddedContent.Races.IsDisabled("ElfAlternateTraits")) { return; }
-            //ElfRace.ComponentsArray = new BlueprintComponent[0];
             ElfRace.SetComponents(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = ElfAbilityModifiers.ToReference<BlueprintFeatureReference>();
             }));

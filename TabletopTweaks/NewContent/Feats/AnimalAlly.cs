@@ -59,7 +59,6 @@ namespace TabletopTweaks.NewContent.Feats {
                         },
                     })
                     .ToArray();
-                bp.AddComponent<EnsureProgressionAdded>();
             });
 
             var AnimalAlly = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AnimalAllyFeatureSelection", bp => {
