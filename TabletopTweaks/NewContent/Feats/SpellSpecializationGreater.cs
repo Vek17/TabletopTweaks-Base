@@ -11,7 +11,6 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.Utilities;
-using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 
 namespace TabletopTweaks.NewContent.Feats {
     class SpellSpecializationGreater {

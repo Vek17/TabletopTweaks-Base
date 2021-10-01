@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem;
-using Kingmaker.Enums;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
@@ -93,7 +92,7 @@ namespace TabletopTweaks.NewUnitParts {
                 List<AbilityData> list = __result.ToList();
                 UnitPartSpellSpecialization spellSpecialization = __instance.Caster.Get<UnitPartSpellSpecialization>();
                 if (spellSpecialization == null || !spellSpecialization.IsGreater() || spellSpecialization.HasEntry(__instance)) {
-                    return; 
+                    return;
                 }
                 if (__instance.Spellbook != null) {
                     var conversions = spellSpecialization.GenerateConversions(__instance);
@@ -133,8 +132,8 @@ namespace TabletopTweaks.NewUnitParts {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
                 var spontaneousData = __instance as SpontaneousConversionAbilityData;
                 if (spontaneousData != null) {
-                    if (spontaneousData.MetamagicData != null 
-                        && spontaneousData.MetamagicData.NotEmpty 
+                    if (spontaneousData.MetamagicData != null
+                        && spontaneousData.MetamagicData.NotEmpty
                         && !spontaneousData.MetamagicData.Has(Metamagic.Quicken)) {
 
                         __result = true;
@@ -181,10 +180,10 @@ namespace TabletopTweaks.NewUnitParts {
 
         private class SpontaneousConversionAbilityData : AbilityData {
             public SpontaneousConversionAbilityData(
-                BlueprintAbility blueprint, 
-                UnitDescriptor caster, 
-                [CanBeNull] Ability fact, 
-                [CanBeNull] BlueprintSpellbook spellbookBlueprint) : base (blueprint, caster, fact, spellbookBlueprint) { 
+                BlueprintAbility blueprint,
+                UnitDescriptor caster,
+                [CanBeNull] Ability fact,
+                [CanBeNull] BlueprintSpellbook spellbookBlueprint) : base(blueprint, caster, fact, spellbookBlueprint) {
             }
         }
     }
