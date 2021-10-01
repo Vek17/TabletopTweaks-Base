@@ -197,8 +197,8 @@
     <Compile Include="NewComponents\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
-    <Compile Include="NewComponents\IndomitableMountFixed.cs" />
-    <Compile Include="NewComponents\MountedCombatFixed.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\IndomitableMountFixed.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\MountedCombatFixed.cs" />
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
     <Compile Include="NewComponents\PrecisionCriticalComponent.cs" />
