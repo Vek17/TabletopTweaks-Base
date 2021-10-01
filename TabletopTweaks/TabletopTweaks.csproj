@@ -202,15 +202,15 @@
     <Compile Include="NewComponents\NegateArmorCheckSkillPenalty.cs" />
     <Compile Include="NewComponents\OutcomingAdditionalDamageAndHealingModifier.cs" />
     <Compile Include="NewComponents\PrecisionCriticalComponent.cs" />
-    <Compile Include="NewComponents\PrerequisiteMythicSpellbook.cs" />
-    <Compile Include="NewComponents\PrerequisiteSpellbook.cs" />
-    <Compile Include="NewComponents\PrerequisiteStatBonus.cs" />
-    <Compile Include="NewComponents\PrerequisiteStatValues.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteMythicSpellbook.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteSpellbook.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteStatBonus.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteStatValues.cs" />
     <Compile Include="NewComponents\QuickStudyComponent.cs" />
     <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\DestinedArcanaComponent.cs" />
     <Compile Include="NewComponents\IgnoreClassPrerequisites.cs" />
-    <Compile Include="NewComponents\PrerequisiteSize.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteSize.cs" />
     <Compile Include="NewComponents\RecommendationWeaponCategoryFocus.cs" />
     <Compile Include="NewComponents\SavingThrowBonusAgainstAbility.cs" />
     <Compile Include="NewComponents\InitiatorSpellCritAutoconfirm.cs" />
@@ -222,7 +222,7 @@
     <Compile Include="NewComponents\ShatterDefensesInitiator.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
-    <Compile Include="NewComponents\PrerequisiteFeaturesFromListFormatted.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteFeaturesFromListFormatted.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
@@ -246,7 +246,7 @@
     <Compile Include="NewComponents\AzataZippyMagicComponent.cs" />
     <Compile Include="NewComponents\BlockSpellDuplicationComponent.cs" />
     <Compile Include="NewComponents\ContextConditionHasFreeHand.cs" />
-    <Compile Include="NewComponents\PrerequisiteNoClassLevelVisible.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteNoClassLevelVisible.cs" />
     <Compile Include="NewComponents\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
@@ -332,7 +332,7 @@
     <Compile Include="MechanicsChanges\NaturalArmorStacking.cs" />
     <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
     <Compile Include="Bugfixes\Features\Bloodlines.cs" />
-    <Compile Include="NewComponents\PrerequisiteNoFeaturesFromList.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteNoFeaturesFromList.cs" />
     <Compile Include="Config\ModSettings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
