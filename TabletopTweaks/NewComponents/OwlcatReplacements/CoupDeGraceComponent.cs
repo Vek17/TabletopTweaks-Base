@@ -14,7 +14,7 @@ using Kingmaker.Utility;
 using System.Collections.Generic;
 using TabletopTweaks.NewRules;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("5da9ff47fe484e0faadd0330ec998a95")]
     [AllowedOn(typeof(BlueprintAbility))]
     //This is brought to you by Perunq

@@ -10,7 +10,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using UnityEngine;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [ComponentName("Replace attack stat")]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("a2f09aa00803458fb96caa907389a8e7")]

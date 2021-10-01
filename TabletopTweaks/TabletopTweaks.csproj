@@ -220,7 +220,7 @@
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\ShatterDefensesInitiator.cs" />
-    <Compile Include="NewComponents\OwlcatReplacements\SurviveDeathWithSave.cs" />
+    <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteFeaturesFromListFormatted.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />

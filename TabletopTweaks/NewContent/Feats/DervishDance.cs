@@ -10,6 +10,7 @@ using Kingmaker.Enums;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {

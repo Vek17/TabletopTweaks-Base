@@ -11,7 +11,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("f97c2c9ad47743b49972f7c8c026d416")]
     class SuppressBuffsPersistant : UnitFactComponentDelegate {
 
