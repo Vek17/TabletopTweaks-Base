@@ -60,7 +60,7 @@ namespace TabletopTweaks.NewComponents {
         public int SpellLevelOffset;
         public int Count = 1;
 
-        [HarmonyPatch(typeof(SpellSelectionData), "CanSelectAnything", new Type[]{ typeof(UnitDescriptor) })]
+        [HarmonyPatch(typeof(SpellSelectionData), "CanSelectAnything", new Type[] { typeof(UnitDescriptor) })]
         static class SpellSelectionData_CanSelectAnything_AdditionalSpellSelection_Patch {
             static void Postfix(SpellSelectionData __instance, ref bool __result, UnitDescriptor unit) {
                 Spellbook spellbook = unit.Spellbooks.FirstOrDefault((Spellbook s) => s.Blueprint == __instance.Spellbook);
@@ -71,7 +71,7 @@ namespace TabletopTweaks.NewComponents {
                 if (__instance.ExtraSelected != null && __instance.ExtraSelected.Length != 0) {
                     if (__instance.ExtraSelected.HasItem((BlueprintAbility i) => i == null) && !__instance.ExtraByStat) {
                         for (int level = 0; level <= __instance.ExtraMaxLevel; level++) {
-                            if (__instance.SpellList.SpellsByLevel[level].SpellsFiltered.HasItem((BlueprintAbility sb) => !sb.IsCantrip 
+                            if (__instance.SpellList.SpellsByLevel[level].SpellsFiltered.HasItem((BlueprintAbility sb) => !sb.IsCantrip
                             && !__instance.SpellbookContainsSpell(spellbook, level, sb) && !__instance.ExtraSelected.Contains(sb))) {
                                 __result = true;
                             }

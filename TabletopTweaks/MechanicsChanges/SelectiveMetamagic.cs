@@ -8,8 +8,8 @@ namespace TabletopTweaks.MechanicsChanges {
         class UnitDescriptor_FixSizeModifiers_Patch {
             static void Postfix(AreaEffectEntityData __instance) {
                 if (ModSettings.Fixes.BaseFixes.IsDisabled("SelectiveMetamagicNonInstantaneous")) { return; }
-				__instance.m_CanAffectAllies = true;
-			}
+                __instance.m_CanAffectAllies = true;
+            }
         }
     }
 }

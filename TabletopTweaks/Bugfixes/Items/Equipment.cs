@@ -2,16 +2,13 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Controllers.Units;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
-using System;
 using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
 
@@ -46,7 +43,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                     Artifact_HolySymbolOfIomedaeArea
                         .GetComponent<AbilityAreaEffectRunAction>()
                         .UnitExit = Helpers.CreateActionList(
-                            Helpers.Create<ContextActionRemoveBuff>(a => a.m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>())    
+                            Helpers.Create<ContextActionRemoveBuff>(a => a.m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>())
                     );
                     Main.LogPatch("Patched", Artifact_HolySymbolOfIomedaeArea);
                 }

@@ -20,7 +20,6 @@ using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewActions;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 

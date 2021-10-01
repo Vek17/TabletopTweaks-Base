@@ -1,12 +1,8 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using System;
-using TabletopTweaks.Config;
-using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Trickster {

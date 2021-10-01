@@ -71,7 +71,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             StatType.SkillLoreReligion
                         };
                     });
-                    
+
                     LoremasterClass.AddComponent<PrerequisiteFeaturesFromListFormatted>(c => {
                         c.m_Features = new BlueprintFeatureReference[] {
                             SkillFocusKnowledgeArcana.ToReference<BlueprintFeatureReference>(),
@@ -110,7 +110,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     LoremasterProgression.LevelEntries = LoremasterProgression.LevelEntries
                         .Where(entry => entry.Level != 1)
-                        .Append(new LevelEntry { 
+                        .Append(new LevelEntry {
                             m_Features = new List<BlueprintFeatureBaseReference>() {
                                 LoremasterSpellbookSelectionTTT.ToReference<BlueprintFeatureBaseReference>(),
                                 LoremasterSecretSelection.ToReference<BlueprintFeatureBaseReference>()

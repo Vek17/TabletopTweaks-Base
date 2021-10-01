@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem.Rules.Damage;
 using System;
 using System.Linq;

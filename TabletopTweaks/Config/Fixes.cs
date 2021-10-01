@@ -42,7 +42,7 @@ namespace TabletopTweaks.Config {
             Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
             Azata.LoadSettingGroup(loadedSettings.Azata, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
-            Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault );
+            Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
 
             Alchemist.LoadClassGroup(loadedSettings.Alchemist, NewSettingsOffByDefault);
             Arcanist.LoadClassGroup(loadedSettings.Arcanist, NewSettingsOffByDefault);
