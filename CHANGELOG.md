@@ -1,6 +1,7 @@
 ## Version 1.3.7
 * fixed issue where settings were not always properly preserved in version updates
 * shatter defenses should now work correctly for anything with an attack rolls instead of just weapon attacks
+* added greater spell specialization
 
 ## Version 1.3.6
 * animal ally should now always progress correctly

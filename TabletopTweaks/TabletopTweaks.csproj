@@ -176,6 +176,8 @@
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
@@ -204,6 +206,7 @@
     <Compile Include="NewComponents\AbilitySpecific\PrecisionCriticalComponent.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteMythicSpellbook.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteSpellbook.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteSpellBookType.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteStatBonus.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteStatValues.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickStudyComponent.cs" />
@@ -277,6 +280,7 @@
     <Compile Include="NewContent\Feats\SelfSufficient.cs" />
     <Compile Include="NewContent\Feats\ShatterDefenses.cs" />
     <Compile Include="NewContent\Feats\ShingleRunner.cs" />
+    <Compile Include="NewContent\Feats\SpellSpecializationGreater.cs" />
     <Compile Include="NewContent\Feats\StreetSmarts.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
     <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
@@ -319,6 +323,7 @@
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewUnitParts\UnitPartPrecisionCritical.cs" />
+    <Compile Include="NewUnitParts\UnitPartSpellSpecialization.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="SaveGamePatch.cs" />
     <Compile Include="Utilities\AssetLoader.cs" />

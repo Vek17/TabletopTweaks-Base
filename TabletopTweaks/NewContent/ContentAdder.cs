@@ -85,6 +85,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.DervishDance.AddDervishDance();
                 Feats.NatureSoul.AddNatureSoul();
                 Feats.AnimalAlly.AddAnimalAlly();
+                Feats.SpellSpecializationGreater.AddSpellSpecializationGreater();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 
