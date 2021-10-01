@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using System.Linq;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("282fa36ad9784f639bbdec2e281e7bed")]
     public class PrerequisiteStatBonus : Prerequisite {
         public override bool CheckInternal([CanBeNull] FeatureSelectionState selectionState, [NotNull] UnitDescriptor unit, [CanBeNull] LevelUpState state) {

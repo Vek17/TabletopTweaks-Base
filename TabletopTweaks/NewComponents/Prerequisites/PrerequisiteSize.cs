@@ -4,7 +4,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("e5db1c3ea30a44559f1f7542ed3b9d0d")]
     class PrerequisiteSize : Prerequisite {
         public override bool CheckInternal([CanBeNull] FeatureSelectionState selectionState, [NotNull] UnitDescriptor unit, [CanBeNull] LevelUpState state) {

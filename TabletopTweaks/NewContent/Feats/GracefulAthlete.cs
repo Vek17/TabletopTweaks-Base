@@ -7,7 +7,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {

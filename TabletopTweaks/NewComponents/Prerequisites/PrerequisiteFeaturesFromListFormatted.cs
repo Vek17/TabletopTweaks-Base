@@ -4,7 +4,7 @@ using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.UnitLogic;
 using System.Text;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.Prerequisites {
     class PrerequisiteFeaturesFromListFormatted : PrerequisiteFeaturesFromList {
 		public override string GetUITextInternal(UnitDescriptor unit) {
 			StringBuilder stringBuilder = new StringBuilder();

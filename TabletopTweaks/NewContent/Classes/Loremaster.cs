@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Classes {

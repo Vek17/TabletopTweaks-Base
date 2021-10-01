@@ -7,7 +7,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.Prerequisites {
     class PrerequisiteStatValues : Prerequisite {
 		public override bool CheckInternal(FeatureSelectionState selectionState, UnitDescriptor unit, LevelUpState state) {
 			return CheckUnit(unit);

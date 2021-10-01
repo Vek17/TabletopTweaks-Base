@@ -8,7 +8,7 @@ using Kingmaker.UnitLogic.Class.LevelUp;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("cb76145587814eabbbbaed3d2a9b5d99")]
     public class PrerequisiteNoClassLevelVisible : Prerequisite {
         public BlueprintCharacterClass CharacterClass {

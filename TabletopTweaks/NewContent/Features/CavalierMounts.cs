@@ -1,7 +1,7 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Features {
