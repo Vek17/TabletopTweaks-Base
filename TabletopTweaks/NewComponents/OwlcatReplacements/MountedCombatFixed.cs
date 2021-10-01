@@ -10,7 +10,7 @@ using Kingmaker.Utility;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("6529138e5e96494f958a758ee21e451e")]
     class MountedCombatFixed : UnitFactComponentDelegate, IRulebookHandler<RuleAttackRoll>, IGlobalRulebookHandler<RuleAttackRoll>, ISubscriber, IGlobalSubscriber {
 
