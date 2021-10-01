@@ -31,39 +31,39 @@ namespace TabletopTweaks.Utilities {
         }*/
         public static void AddAsRogueTalent(BlueprintFeature feature) {
             var TalentSelections = new BlueprintFeatureSelection[] {
-                Resources.GetBlueprint<BlueprintFeatureSelection>("290bbcc3c3bb92144b853fd8fb8ff452"), //SylvanTricksterTalentSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("913b9cf25c9536949b43a2651b7ffb66"), //SlayerTalentSelection10
-                Resources.GetBlueprint<BlueprintFeatureSelection>("43d1b15873e926848be2abf0ea3ad9a8"), //SlayerTalentSelection6
-                Resources.GetBlueprint<BlueprintFeatureSelection>("04430ad24988baa4daa0bcd4f1c7d118"), //SlayerTalentSelection2
-                Resources.GetBlueprint<BlueprintFeatureSelection>("d2a8fde8985691045b90e1ec57e3cc57"), //SkaldTalentSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93"), //RogueTalentSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("4b7018b1ed4b27140a5e7adfacaaf9c6"), //LoremasterRogueTalentSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("94e2cd84bf3a8e04f8609fe502892f4f"), //BardTalentSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("40f85fbe8cc35ef4fa96c66e06eeafe8")  //BardTalentSelection
+                Selections.SylvanTricksterTalentSelection,
+                Selections.SlayerTalentSelection10,
+                Selections.SlayerTalentSelection6,
+                Selections.SlayerTalentSelection2,
+                Selections.SkaldTalentSelection,
+                Selections.RogueTalentSelection,
+                Selections.LoremasterRogueTalentSelection,
+                Selections.BardTalentSelection,
+                Selections.BardTalentSelection2
             };
             TalentSelections.ForEach(selection => selection.AddFeatures(feature));
         }
         public static void AddAsArcanistExploit(BlueprintFeature feature) {
             var TalentSelections = new BlueprintFeatureSelection[] {
-                Resources.GetBlueprint<BlueprintFeatureSelection>("2ba8a0040e0149e9ae9bfcb01a8ff01d"), //ExploiterExploitSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("b8bf3d5023f2d8c428fdf6438cecaea7"), //ArcanistExploitSelection
+                Selections.ExploiterExploitSelection,
+                Selections.ArcanistExploitSelection
             };
             TalentSelections.ForEach(selection => selection.AddFeatures(feature));
         }
         public static void AddAsMagusArcana(BlueprintFeature feature, params BlueprintFeatureSelection[] ignore) {
             var ArcanaSelections = new BlueprintFeatureSelection[] {
-                Resources.GetBlueprint<BlueprintFeatureSelection>("e9dc4dfc73eaaf94aae27e0ed6cc9ada"), //MagusArcanaSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("ad6b9cecb5286d841a66e23cea3ef7bf"), //HexcrafterMagusHexArcanaSelection
-                Resources.GetBlueprint<BlueprintFeatureSelection>("d4b54d9db4932454ab2899f931c2042c")  //EldritchMagusArcanaSelection;
+                Selections.MagusArcanaSelection,
+                Selections.HexcrafterMagusHexArcanaSelection,
+                Selections.EldritchMagusArcanaSelection
             };
             ArcanaSelections.Where(selection => !ignore?.Contains(selection) ?? true).ForEach(selection => selection.AddFeatures(feature));
         }
         public static void AddAsMythicAbility(BlueprintFeature feature) {
-            var MythicAbilitySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
-            var ExtraMythicAbilityMythicFeat = Resources.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
-
-            MythicAbilitySelection.AddFeatures(feature);
-            ExtraMythicAbilityMythicFeat.AddFeatures(feature);
+            Selections.MythicAbilitySelection.AddFeatures(feature);
+            Selections.ExtraMythicAbilityMythicFeat.AddFeatures(feature);
+        }
+        public static void AddAsMythicFeat(BlueprintFeature feature) {
+            Selections.MythicFeatSelection.AddFeatures(feature);
         }
         public static BlueprintFeature CreateSkillFeat(string name, StatType skill1, StatType skill2, Action<BlueprintFeature> init = null) {
             var SkillFeat = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {

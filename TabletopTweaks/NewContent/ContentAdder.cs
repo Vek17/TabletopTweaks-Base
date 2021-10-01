@@ -74,6 +74,8 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.MythicSpellCombat.AddMythicSpellCombat();
                 MythicAbilities.PrecisionCritical.AddPrecisionCritical();
 
+                MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
+
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();
                 Feats.SelfSufficient.AddSelfSufficient();
@@ -81,6 +83,10 @@ namespace TabletopTweaks.NewContent {
                 Feats.StreetSmarts.AddStreetSmarts();
                 Feats.GracefulAthlete.AddGracefulAthlete();
                 Feats.DervishDance.AddDervishDance();
+                Feats.NatureSoul.AddNatureSoul();
+                Feats.AnimalAlly.AddAnimalAlly();
+
+                Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();
@@ -91,7 +97,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraSlayerTalent.AddExtraSlayerTalent();
                 Feats.ExtraRevelation.AddExtraRevelation();
                 Feats.ExtraDiscovery.AddExtraDiscovery();
-                Feats.ExtraMercy.AddExtraMercy();
+                Feats.ExtraMercy.AddExtraMercy();             
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }

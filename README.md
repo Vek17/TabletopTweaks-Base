@@ -35,6 +35,10 @@ All fixes and added content are configurable and can be disabled by editing the 
         Armored Might
         Mounted Maniac
         Mythic Spell Combat
+        Precision Critical
+
+    Adds the following mythic feats:
+        Shatter Defenses (Mythic)
     
     Adds the following arcanist exploits:
         Quick Study
@@ -80,6 +84,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Extra Revelation
         Extra Discovery
         Extra Mercy
+        Nature Soul
+        Animal Ally
 
     Adds the following rogue talents:
         Graceful Athlete
@@ -121,6 +127,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Coup De Grace now scales properly (Thanks @Perunq)
         Class specific feat selections should now have the correct feats
         The Holy Symbol of Iomedae no longer turns itself off
+        Profane ascention now works corectly for dexterity and strength based characters
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor
@@ -129,6 +136,10 @@ All fixes and added content are configurable and can be disabled by editing the 
         Adds the damage component of zippy magic
         Enables favorable magic on reoccurring saves
         Enables azata songs to be started outside of combat
+    Alchemist
+        Grenadier
+            No longer gets brew potions
+            No longer gets poision resistance
     Arcansit
         Fixed consume spells minimum resources
     Bloodrager
@@ -177,6 +188,8 @@ All fixes and added content are configurable and can be disabled by editing the 
             Nature Mage
     Magus
         Spell combat now works with abilities that have variants
+        Sword Saint
+            Perfect Critical now correctly costs 2 points of pool instead of 1
     Monk
         Zen Archer
             Perfect Strike now upgrades at level 10
@@ -235,14 +248,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         Bolster metatmagic splash damage should not longer hit you (unless you targeted a friendly)
     Mythic Abilities
         Bloodline Ascendance now works with mutated bloodlines
-        Domain zealot now works properly
-        Boundless healing now works properly
         Enduring spells now works with temporary item enhancement spells
         Second bloodline is now available to mutated bloodlines
         Second bloodrager bloodline now works with reformed fiend
-        Second mystery now is selectable
-        Second spirit now is selectable    
-        Everlasting Judgment is now Functional
 
 Acknowledgments:  
 

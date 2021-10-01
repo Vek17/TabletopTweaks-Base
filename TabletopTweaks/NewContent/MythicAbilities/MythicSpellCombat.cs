@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Spells;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -9,7 +10,7 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.NewContent.MythicAbilities {
     static class MythicSpellCombat {
         public static void AddMythicSpellCombat() {
-            var TricksterWizardSpellbook = Resources.GetBlueprint<BlueprintFeature>("bbe483b903854104a11606412803f214");
+            var TricksterWizardSpellbook = Resources.GetBlueprint<BlueprintSpellbook>("bbe483b903854104a11606412803f214");
             var SpellCombatFeature = Resources.GetBlueprint<BlueprintFeature>("2464ba53317c7fc4d88f383fac2b45f9");
 
             var MythicSpellCombat = Helpers.CreateBlueprint<BlueprintFeature>("MythicSpellCombat", bp => {

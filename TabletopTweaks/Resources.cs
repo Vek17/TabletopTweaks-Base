@@ -1,11 +1,16 @@
 ﻿using JetBrains.Annotations;
 using Kingmaker.Blueprints;
+using System;
 using System.Collections.Generic;
 using TabletopTweaks.Config;
 
 namespace TabletopTweaks {
     static class Resources {
         public static readonly Dictionary<BlueprintGuid, SimpleBlueprint> ModBlueprints = new Dictionary<BlueprintGuid, SimpleBlueprint>();
+
+        internal static object GetBlueprint<T>() {
+            throw new NotImplementedException();
+        }
 #if false
         public static IEnumerable<T> GetBlueprints<T>() where T : BlueprintScriptableObject {
             if (blueprints == null) {

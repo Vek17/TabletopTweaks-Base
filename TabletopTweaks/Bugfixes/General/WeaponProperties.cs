@@ -3,6 +3,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem.Rules.Damage;
 using System;
+using System.Linq;
 
 namespace TabletopTweaks.Bugfixes.General {
     static class WeaponProperties {
@@ -23,7 +24,7 @@ namespace TabletopTweaks.Bugfixes.General {
         class WeaponMaterial_OnEventAboutToTrigger_Patch {
             static void Postfix(WeaponMaterial __instance, RulePrepareDamage evt) {
                 if (evt.DamageBundle.Weapon == __instance.Owner && evt.DamageBundle.WeaponDamage != null) {
-                    foreach (PhysicalDamage damage in evt.DamageBundle) {
+                    foreach (PhysicalDamage damage in evt.DamageBundle.OfType<PhysicalDamage>()) {
                         damage.AddMaterial(__instance.Material);
                     }
                 }

@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewComponents {
     class AdditionalSpellSelection : UnitFactComponentDelegate, IUnitCompleteLevelUpHandler {
 
         private Spellbook spellbook { get => Owner.DemandSpellbook(SpellCastingClass); }
-        private int adjustedMaxLevel {
+        public int AdjustedMaxLevel {
             get {
                 if (!UseOffset) { return MaxSpellLevel; }
                 return Math.Max((spellbook?.MaxSpellLevel ?? 0) - SpellLevelOffset, 1);
@@ -37,7 +37,7 @@ namespace TabletopTweaks.NewComponents {
                 .Where(c => c.SpellList.Guid.Equals(SpellList.Guid))
                 .Aggregate(0, (acc, x) => acc + x.Count) ?? 0;
             spellSelection = controller.State.DemandSpellSelection(spellbook.Blueprint, SpellList);
-            spellSelection.SetExtraSpells(spellCount, adjustedMaxLevel);
+            spellSelection.SetExtraSpells(spellCount, AdjustedMaxLevel);
         }
         public override void OnDeactivate() {
             if (spellSelection == null) { return; }
@@ -70,10 +70,9 @@ namespace TabletopTweaks.NewComponents {
                 if (!__instance.Spellbook.AllSpellsKnown) { return; }
                 if (__instance.ExtraSelected != null && __instance.ExtraSelected.Length != 0) {
                     if (__instance.ExtraSelected.HasItem((BlueprintAbility i) => i == null) && !__instance.ExtraByStat) {
-                        for (int k = 0; k <= __instance.ExtraMaxLevel; k++) {
-                            int ii = k;
-                            if (__instance.SpellList.SpellsByLevel[k].SpellsFiltered.HasItem((BlueprintAbility sb) => !sb.IsCantrip 
-                            && !__instance.SpellbookContainsSpell(spellbook, ii, sb) && !__instance.ExtraSelected.Contains(sb))) {
+                        for (int level = 0; level <= __instance.ExtraMaxLevel; level++) {
+                            if (__instance.SpellList.SpellsByLevel[level].SpellsFiltered.HasItem((BlueprintAbility sb) => !sb.IsCantrip 
+                            && !__instance.SpellbookContainsSpell(spellbook, level, sb) && !__instance.ExtraSelected.Contains(sb))) {
                                 __result = true;
                             }
                         }

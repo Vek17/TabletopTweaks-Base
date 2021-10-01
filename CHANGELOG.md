@@ -1,5 +1,26 @@
+## Version 1.3.6
+* animal ally should now always progress correctly
+* fixed for 1.0.7
+
+## Version 1.3.5
+* shatter defenses now works like in tabletop
+* extra feat mythic feat can now only be taken once
+* extra mythic ability mythic feat can now only be taken once
+* improvements to natual armor stacking rules
+* added mythic shatter defenses
+* added nature soul @Aegonek 
+* added animal ally @Aegonek 
+
+## Version 1.3.4a
+* fixed issue where weapon materials didn't apply correctly
+* fixed issues where activiatable abilities with resources spent incorrecty
+* fixed issue where vital force was not properly applied to melee attacks
+
 ## Version 1.3.4
-* added precision critical
+* added precision critical mythic ability
+* rowdy's vital force now deals precision damage
+* profane ascension now works correctly for dexterity and strength based characters
+* sword saint's perfect critical now correctly costs 2 points of pool instead of 1
 
 ## Version 1.3.3
 * fixed mounted maniac not triggering

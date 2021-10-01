@@ -5,6 +5,7 @@
         "Enabled": {
             "FeatSelections": true,
             "CoupDeGrace": true,
+            "FixCriticalConfirmationOn20": true,
             "DisableNaturalArmorStacking": true,
             "DisablePolymorphStacking": true,
             "DisableCannyDefenseStacking": true,
@@ -155,10 +156,18 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "SpellCombatAbilityVariants": true
+                "SpellCombatAbilityVariants": true,
+                "SpellCombatDisableImmediatly": true
             }
         },
-        "Archetypes": {}
+        "Archetypes": {
+            "SwordSaint": {
+                "DisableAll": false,
+                "Enabled": {
+                    "PerfectCritical": true
+                }
+            }
+        }
     },
     "Monk": {
         "DisableAll": false,
@@ -304,6 +313,7 @@
             "MaximizeMetamagic": true,
             "MountedCombat": true,
             "PersistantMetamagic": true,
+            "ShatterDefenses": true,
             "SlashingGrace": true,
             "SpiritedCharge": true,
             "VitalStrike": true,
@@ -318,6 +328,13 @@
             "MythicCharge": true,
             "SecondBloodline": true,
             "SecondBloodragerBloodline": true
+        }
+    },
+    "MythicFeats": {
+        "DisableAll": false,
+        "Enabled": {
+            "ExtraFeat": true,
+            "ExtraMythicAbility": true
         }
     },
     "Items": {

@@ -88,6 +88,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -146,7 +147,9 @@
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
+    <Compile Include="Bugfixes\Features\MythicFeats.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
+    <Compile Include="Bugfixes\General\ProfaneGift.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
     <Compile Include="Bugfixes\General\WeaponProperties.cs" />
@@ -161,6 +164,7 @@
     <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="Config\NestedSettingGroup.cs" />
     <Compile Include="Config\SettingGroup.cs" />
+    <Compile Include="MechanicsChanges\ActivatableAbilitySpendLogic.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
@@ -169,6 +173,7 @@
     <Compile Include="MechanicsChanges\DRRework.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
+    <Compile Include="MechanicsChanges\NewAttribute.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
@@ -185,10 +190,13 @@
     <Compile Include="NewComponents\BroadStudyComponent.cs" />
     <Compile Include="NewComponents\BroadStudyMythicComponent.cs" />
     <Compile Include="NewComponents\BuffExtraEffectsRequirements.cs" />
+    <Compile Include="NewComponents\ContextConditionHasCondition.cs" />
     <Compile Include="NewComponents\ContextRestoreResourcesFixed.cs" />
     <Compile Include="NewComponents\CoupDeGraceComponent.cs" />
     <Compile Include="NewComponents\DamageGraceEnforced.cs" />
     <Compile Include="NewComponents\DefensiveWeaponTrainingComponent.cs" />
+    <Compile Include="NewComponents\ConstrainTargetFeatureRank.cs" />
+    <Compile Include="NewComponents\EnsureProgressionAdded.cs" />
     <Compile Include="NewComponents\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
@@ -214,6 +222,7 @@
     <Compile Include="NewComponents\RestrictHasBuff.cs" />
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
+    <Compile Include="NewComponents\ShatterDefensesInitiator.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\TTAddDamageResistanceForce.cs" />
@@ -259,6 +268,7 @@
     <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
+    <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />
     <Compile Include="NewContent\Feats\ExtraArcanistExploit.cs" />
@@ -272,8 +282,10 @@
     <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
+    <Compile Include="NewContent\Feats\NatureSoul.cs" />
     <Compile Include="NewContent\Feats\Scholar.cs" />
     <Compile Include="NewContent\Feats\SelfSufficient.cs" />
+    <Compile Include="NewContent\Feats\ShatterDefenses.cs" />
     <Compile Include="NewContent\Feats\ShingleRunner.cs" />
     <Compile Include="NewContent\Feats\StreetSmarts.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
@@ -303,6 +315,7 @@
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
     <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicShatterDefenses.cs" />
     <Compile Include="NewContent\Races\Elf.cs" />
     <Compile Include="NewContent\Races\Dwarf.cs" />
     <Compile Include="NewContent\Races\Gnome.cs" />

@@ -3,8 +3,7 @@
     "BaseAbilities": {
         "DisableAll": false,
         "Enabled": {
-            "OneHandedToggle": true,
-            "DummyToggle": true
+            "OneHandedToggle": true
         }
     },
     "Bloodlines": {
@@ -48,9 +47,11 @@
             "GracefulAthlete": true,
             "MagicalAptitude": true,
             "Scholar": true,
-            "Self-Sufficent": true,
+            "Self-Sufficient": true,
             "ShingleRunner": true,
-            "StreetSmarts": true
+            "StreetSmarts": true,
+            "NatureSoul": true,
+            "AnimalAlly": true
         }
     },
     "FighterAdvancedWeaponTraining": {
@@ -107,6 +108,12 @@
             "MountedManiac": true,
             "MythicSpellCombat": true,
             "PrecisionCritical": true
+        }
+    },
+    "MythicFeats": {
+        "DisableAll": false,
+        "Enabled": {
+            "MythicShatterDefenses": true
         }
     }
 }
