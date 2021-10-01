@@ -11,6 +11,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
@@ -28,11 +29,13 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
+using Kingmaker.Utility.UnitDescription;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -392,7 +395,62 @@ namespace TabletopTweaks.MechanicsChanges
             private static string TTGetEnergyResistanceText(TTAddDamageResistanceBase.ComponentRuntime damageEnergyResist) {
                 return damageEnergyResist == null ? "" : "+" + (object)damageEnergyResist.GetValue();
             }
+        }
 
+        [HarmonyPatch(typeof(UnitDescriptionHelper), nameof(UnitDescriptionHelper.ExtractDamageReductions))]
+        static class UnitDescriptionHelper_ExtractDamageReductions_Patch {
+            static bool Prefix(UnitEntityData unit, ref UnitDescription.DamageReduction[] __result) {
+                List<UnitDescription.DamageReduction> result = new List<UnitDescription.DamageReduction>();
+                unit.VisitComponents<TTAddDamageResistancePhysical>((c, f) => result.Add(TTExtractDamageReduction(c, f)));
+                __result = result.ToArray();
+                return false;
+            }
+
+            static UnitDescription.DamageReduction TTExtractDamageReduction(
+                TTAddDamageResistancePhysical dr,
+                EntityFact fact) {
+                TTAddDamageResistanceBase.ComponentRuntime componentRuntime = 
+                    (TTAddDamageResistanceBase.ComponentRuntime) fact.Components.First(c => 
+                        c.SourceBlueprintComponent == dr && c.SourceBlueprintComponentName == dr.name);
+                return new UnitDescription.DamageReduction() {
+                    Or = dr.Or,
+                    Value = componentRuntime.GetValue(),
+                    BypassedByMaterial = dr.BypassedByMaterial,
+                    Material = dr.Material,
+                    BypassedByForm = dr.BypassedByForm,
+                    Form = dr.Form,
+                    BypassedByMagic = dr.BypassedByMagic,
+                    MinEnhancementBonus = dr.MinEnhancementBonus,
+                    BypassedByAlignment = dr.BypassedByAlignment,
+                    Alignment = dr.Alignment,
+                    BypassedByReality = dr.BypassedByReality,
+                    Reality = dr.Reality,
+                    BypassedByWeapon = dr.BypassedByWeaponType ? dr.WeaponType : null,
+                    BypassedByMeleeWeapon = dr.BypassedByMeleeWeapon
+                };
+            }
+        }
+
+         [HarmonyPatch(typeof(UnitDescriptionHelper), nameof(UnitDescriptionHelper.ExtractEnergyResistances))]
+         static class UnitDescriptionHelper_ExtractEnergyResistances_Patch {
+            static bool Prefix(UnitEntityData unit, UnitDescription.EnergyResistanceData[] __result) {
+                List<UnitDescription.EnergyResistanceData> result = new List<UnitDescription.EnergyResistanceData>();
+                unit.VisitComponents<TTAddDamageResistanceEnergy>((c, f) => result.Add(TTExtractEnergyResistance(c, f)));
+                __result = result.ToArray();
+                return false;
+            }
+
+            static UnitDescription.EnergyResistanceData TTExtractEnergyResistance(
+                TTAddDamageResistanceEnergy er,
+                EntityFact fact) {
+                TTAddDamageResistanceBase.ComponentRuntime componentRuntime = 
+                    (TTAddDamageResistanceBase.ComponentRuntime)fact.Components.First(c => 
+                        c.SourceBlueprintComponent == er && c.SourceBlueprintComponentName == er.name);
+                return new UnitDescription.EnergyResistanceData() {
+                    Value = componentRuntime.GetValue(),
+                    Energy = er.Type
+                };
+            }
         }
 
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
@@ -412,6 +470,7 @@ namespace TabletopTweaks.MechanicsChanges
                 PatchBarbariansDR();
                 PatchLichIndestructibleBonesDR();
                 PatchBrokenDRSettings();
+                PatchArmoredJuggernaut();
             }
 
             static void PatchArmorDR()
@@ -603,6 +662,74 @@ namespace TabletopTweaks.MechanicsChanges
                 towerShieldWardenOfDarknessShieldFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.BypassedByAlignment = true;
                 });
+            }
+
+            static void PatchArmoredJuggernaut() {
+                
+                BlueprintFeature armoredJuggernautFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautFeature"));
+                BlueprintFeature armoredJuggernautLightEffect = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautLightEffect"));
+                BlueprintFeature armoredJuggernautMediumEffect = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautMediumEffect"));
+                BlueprintFeature armoredJuggernautHeavyEffect = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautHeavyEffect"));
+
+                BlueprintUnitFactReference[] adamantineArmorFeatures = new BlueprintUnitFactReference[] {
+                    Resources.GetBlueprint<BlueprintFeature>("e93a376547629e2478d6f50e5f162efb").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorLightFeature
+                    Resources.GetBlueprint<BlueprintFeature>("74a80c42774045f4d916dc0d990b7738").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorMediumFeature
+                    Resources.GetBlueprint<BlueprintFeature>("dbbf704bfcc78854ab149597ef9aae7c").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorHeavyFeature
+                };
+
+                BlueprintCharacterClass FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+
+                armoredJuggernautLightEffect.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.SourceIsClassFeature = true;
+                    newRes.StacksWithFacts = adamantineArmorFeatures;
+                });
+
+                armoredJuggernautMediumEffect.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.SourceIsClassFeature = true;
+                    newRes.StacksWithFacts = adamantineArmorFeatures;
+                });
+
+                armoredJuggernautHeavyEffect.RemoveComponents<AddDamageResistancePhysical>();
+                armoredJuggernautHeavyEffect.RemoveComponents<ContextRankConfig>();
+
+                armoredJuggernautHeavyEffect.AddComponent(Helpers.Create<TTAddDamageResistancePhysical>(c => {
+                    c.Material = PhysicalDamageMaterial.Adamantite;
+                    c.MinEnhancementBonus = 1;
+                    c.Alignment = DamageAlignment.Good;
+                    c.Reality = DamageRealityType.Ghost;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                    c.Pool = new ContextValue { };
+                    c.SourceIsClassFeature = true;
+                    c.StacksWithFacts = adamantineArmorFeatures;
+                }));
+                armoredJuggernautHeavyEffect.AddComponent(Helpers.CreateContextRankConfig(crc => {
+                    crc.m_Type = AbilityRankType.StatBonus;
+                    crc.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    crc.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
+                    crc.m_Progression = ContextRankProgression.Custom;
+                    crc.m_CustomProgression = new ContextRankConfig.CustomProgressionItem[] {
+                        new ContextRankConfig.CustomProgressionItem() {
+                            BaseValue = 1,
+                            ProgressionValue = 1
+                        },
+                        new ContextRankConfig.CustomProgressionItem() {
+                            BaseValue = 7,
+                            ProgressionValue = 2
+                        },
+                        new ContextRankConfig.CustomProgressionItem() {
+                            BaseValue = 11,
+                            ProgressionValue = 3
+                        }
+                    };
+                }));
+
+                armoredJuggernautFeature.SetDescription("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
+                    "and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, " +
+                    "and DR 3/— when wearing heavy armor. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of " +
+                    "damage reduction.");
             }
         }
 
