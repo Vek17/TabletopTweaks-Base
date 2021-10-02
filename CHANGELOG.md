@@ -1,3 +1,7 @@
+## Version 1.3.8
+* weapon training no longer stacks with itself incorrectly
+* greater spell specialization now works more correctly with variant spells
+
 ## Version 1.3.7
 * fixed issue where settings were not always properly preserved in version updates
 * shatter defenses should now work correctly for anything with an attack rolls instead of just weapon attacks

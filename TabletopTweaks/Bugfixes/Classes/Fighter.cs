@@ -38,6 +38,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchBase() {
                 PatchTwoHandedWeaponTraining();
                 PatchAdvancedWeaponTraining();
+                PatchWeaponTrainingStacking();
                 EnableAdvancedArmorTraining();
 
                 void PatchAdvancedWeaponTraining() {
@@ -79,6 +80,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
                 void PatchTwoHandedWeaponTraining() {
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return; }
+                    var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+                    var TwoHandedFighterArchetype = Resources.GetBlueprint<BlueprintArchetype>("84643e02a764bff4a9c1aba333a53c89");
                     var TwoHandedFighterWeaponTraining = Resources.GetBlueprint<BlueprintFeature>("88da2a5dfc505054f933bb81014e864f");
                     var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("b8cecf4e5e464ad41b79d5b42b76b399");
                     var AdvancedWeapontrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedWeaponTrainingSelection");
@@ -96,6 +99,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         }),
                         Helpers.Create<WeaponTraining>()
                     );
+                    TwoHandedFighterWeaponTraining.AddPrerequisite<PrerequisiteArchetypeLevel>(c => {
+                        c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
+                        c.m_Archetype = TwoHandedFighterArchetype.ToReference<BlueprintArchetypeReference>();
+                        c.Level = 5;
+                    });
                     Main.LogPatch("Patched", TwoHandedFighterWeaponTraining);
                     WeaponTrainingSelection.m_AllFeatures
                         .Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature))
@@ -106,6 +114,28 @@ namespace TabletopTweaks.Bugfixes.Classes {
                                 Main.LogPatch("Patched", feature.Get());
                             }
                         });
+                }
+                void PatchWeaponTrainingStacking() {
+                    if (ModSettings.Fixes.Fighter.Base.IsDisabled("WeaponTrainingStacking")) { return; }
+                    var WeaponTrainingSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("b8cecf4e5e464ad41b79d5b42b76b399");
+                    var AdvancedWeapontrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("AdvancedWeaponTrainingSelection");
+                    WeaponTrainingSelection.m_AllFeatures
+                        .Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature))
+                        .ForEach(feature => {
+                            var damageComponent = feature.Get().GetComponent<WeaponGroupDamageBonus>();
+                            if (damageComponent != null) {
+                                damageComponent.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.WeaponTraining;
+                                
+                            }
+                            var attackComponent = feature.Get().GetComponent<WeaponGroupAttackBonus>();
+                            if (attackComponent != null) {
+                                attackComponent.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.WeaponTraining;
+                            }
+                            if (damageComponent != null || attackComponent != null) {
+                                Main.LogPatch("Patched", feature.Get());
+                            }
+                        });
+
                 }
                 void EnableAdvancedArmorTraining() {
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }

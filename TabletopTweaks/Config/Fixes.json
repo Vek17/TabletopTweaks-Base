@@ -133,7 +133,8 @@
             "Enabled": {
                 "AdvancedWeaponTraining": true,
                 "AdvancedArmorTraining": true,
-                "TwoHandedWeaponTraining": true
+                "TwoHandedWeaponTraining": true,
+                "WeaponTrainingStacking": true
             }
         },
         "Archetypes": {
