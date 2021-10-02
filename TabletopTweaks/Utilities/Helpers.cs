@@ -238,19 +238,21 @@ namespace TabletopTweaks.Utilities {
                     if (additionalDamageResistanceConfiguration != null)
                         additionalDamageResistanceConfiguration(newResistance);
                     blueprint.ComponentsArray[i] = newResistance;
-                    Main.Log($"Replaced component: {typeof(V).Name} -> {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
+                    Main.LogDebug($"Replaced component: {typeof(V).Name} -> {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
                 } else if (blueprint.ComponentsArray[i] is N newResistance) {
                     foundComponent = true;
                     if (additionalDamageResistanceConfiguration != null) {
                         additionalDamageResistanceConfiguration(newResistance);
-                        Main.Log($"Configured component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
+                        Main.LogDebug($"Configured component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
                     } else {
-                        Main.Log($"Skipped component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()} (no additional configration specified)");
+                        Main.LogDebug($"Skipped component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()} (no additional configration specified)");
                     }
                 }
             }
             if (!foundComponent) {
                 Main.Log($"COMPONENT NOT FOUND: {typeof(V).Name} or {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
+            } else {
+                Main.Log($"Rebuilt DR for: {blueprint.AssetGuid} - {blueprint.NameSafe()}");
             }
         }
 

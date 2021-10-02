@@ -433,6 +433,7 @@ namespace TabletopTweaks.MechanicsChanges {
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
@@ -598,7 +599,6 @@ namespace TabletopTweaks.MechanicsChanges {
                 });
             }
 
-
             static void PatchBrokenDRSettings() {
                 // Fix: Winter Oracle Ice Armor revelation should be DR 5/piercing, but is DR 5/- due to missing BypassedByForm flag
                 BlueprintBuff oracleRevelationIceArmorDRBuff = Resources.GetBlueprint<BlueprintBuff>("448e35444e80e24438a5ad0a3114aee3");
@@ -617,6 +617,36 @@ namespace TabletopTweaks.MechanicsChanges {
                 towerShieldWardenOfDarknessShieldFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.BypassedByAlignment = true;
                 });
+
+                // Fix: DragonAzataFeatureTierII should be DR 5/lawful, but was DR 5/-
+                BlueprintFeature DragonAzataFeatureTierII = Resources.GetBlueprint<BlueprintFeature>("fc2aeb954e13811488d38dc1af72ef9c");
+                DragonAzataFeatureTierII.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.BypassedByAlignment = true;
+                });
+
+                // Fix: DragonAzataFeatureTierIII should be DR 15/lawful, but was DR 15/-
+                BlueprintFeature DragonAzataFeatureTierIII = Resources.GetBlueprint<BlueprintFeature>("fd8c12d3c29189d4c81d88ee6aaba636");
+                DragonAzataFeatureTierIII.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.BypassedByAlignment = true;
+                });
+
+                // Fix: DragonAzataFeatureTierIV should be DR 20/lawful, but was DR 20/-
+                BlueprintFeature DragonAzataFeatureTierIV = Resources.GetBlueprint<BlueprintFeature>("ee1bac8c71df3f9408bad5ca3a19eb23");
+                DragonAzataFeatureTierIV.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.BypassedByAlignment = true;
+                });
+
+                // Fix: Artifact_AzataCloakEnchantment should stack with existing DR
+                var Artifact_AzataCloakItem = Resources.GetBlueprint<BlueprintFeature>("78cd50deada655e4cbe49765c0bbb7e4");
+                Artifact_AzataCloakItem.SetDescription("Azata shares a bond with her dragon. 50% damage is redirected to Aivu. " +
+                    "In addition, Aivu gets additional DR N/Lawful where N is equal to Azata's mythic rank.");
+                BlueprintFeature Artifact_AzataCloakPetFeature = Resources.GetBlueprint<BlueprintFeature>("af6f1ca38fe54e5baf67adfb9b731ae8");
+                Artifact_AzataCloakPetFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.Alignment = DamageAlignment.Lawful;
+                    newRes.BypassedByAlignment = true;
+                    newRes.AddToAllStacks = true;
+                });
+                
             }
 
             static void PatchArmorMastery() {

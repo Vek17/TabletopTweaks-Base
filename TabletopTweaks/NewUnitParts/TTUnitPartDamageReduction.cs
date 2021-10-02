@@ -337,6 +337,12 @@ namespace TabletopTweaks.NewUnitParts {
                         .Where(other => chunkStack.IsCompatibleWith(other) && chunkStack.StacksWithFacts.Contains(other.ReferenceFact))
                         .ForEach(other => other.AddToStack(chunkStack));
                 }
+
+                if (chunkStack.AddToAllStacks) {
+                    m_ChunkStacks
+                        .Where(other => chunkStack.IsCompatibleWith(other))
+                        .ForEach(other => other.AddToStack(chunkStack));
+                }
             }
 #if DEBUG
             watch.Stop();
@@ -562,6 +568,8 @@ namespace TabletopTweaks.NewUnitParts {
                     && this.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunk.DR.Settings)
                     && this.ReferenceChunk.DR.Settings.Priority == chunk.DR.Settings.Priority;
             }
+
+            public bool AddToAllStacks => ReferenceChunk.DR.Settings.AddToAllStacks;
 
             public bool SourceIsArmor => ReferenceChunk.DR.Settings.SourceIsArmor;
 
