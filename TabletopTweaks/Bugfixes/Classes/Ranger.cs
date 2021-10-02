@@ -48,6 +48,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     AddPrerequisite(FavoriteEnemyDemonOfMagic);
                     AddPrerequisite(FavoriteEnemyDemonOfSlaughter);
                     AddPrerequisite(FavoriteEnemyDemonOfStrength);
+
                     void PatchCheckedFacts(BlueprintFeature FavoriteEnemy) {
                         var favoredEnemy = FavoriteEnemy.GetComponent<FavoredEnemy>();
                         favoredEnemy.m_CheckedFacts = new BlueprintUnitFactReference[] {
@@ -62,6 +63,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             c.Group = Prerequisite.GroupType.All;
                             c.m_Feature = FavoriteEnemy.ToReference<BlueprintFeatureReference>();
                         }));
+                        FavoriteEnemy.SetDescription("This works exactly like Favorite Enemy (Outsider) and exists for existing " +
+                        "build compatability. If you already have this feature continue taking ranks to progress Favored Enemy Outsider properly.");
                     }
                 }
             }

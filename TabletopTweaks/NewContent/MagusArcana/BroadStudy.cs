@@ -5,7 +5,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.MagusArcana {
@@ -34,7 +34,7 @@ namespace TabletopTweaks.NewContent.MagusArcana {
             BlueprintFeature[] CreateAllBroadStudtFeatures(BlueprintCharacterClass[] classes, BlueprintFeatureSelection selection) {
                 return classes
                     .Where(c => c.AssetGuid != SpellTools.SpellCastingClasses.MagusClass.AssetGuid)
-                    .Select(characterClass =>{
+                    .Select(characterClass => {
                         var spellSecret = Helpers.CreateBlueprint<BlueprintFeature>($"BroadStudy{characterClass.name}", bp => {
                             bp.SetName($"Broad Study — {characterClass.Name}");
                             bp.m_Description = selection.m_Description;

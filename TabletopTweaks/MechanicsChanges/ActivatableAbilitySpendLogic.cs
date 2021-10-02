@@ -5,10 +5,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Kingmaker.UnitLogic.ActivatableAbilities.ActivatableAbilityResourceLogic;
 
 namespace TabletopTweaks.MechanicsChanges {
@@ -105,6 +102,6 @@ namespace TabletopTweaks.MechanicsChanges {
             }
         }
 
-        
+
     }
 }

@@ -28,7 +28,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchBase() {
                 PatchSpellCombatDisableImmediatly();
 
-                void PatchSpellCombatDisableImmediatly(){
+                void PatchSpellCombatDisableImmediatly() {
                     if (ModSettings.Fixes.Magus.Base.IsDisabled("SpellCombatDisableImmediatly")) { return; }
 
                     var SpellCombatAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("8898a573e8a8a184b8186dbc3a26da74");
@@ -48,7 +48,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (ModSettings.Fixes.Magus.Archetypes["SwordSaint"].IsDisabled("PerfectCritical")) { return; }
 
                     var SwordSaintPerfectStrikeCritAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("c6559839738a7fc479aadc263ff9ffff");
-                    
+
                     SwordSaintPerfectStrikeCritAbility.SetDescription("At 4th level, when a sword saint confirms a critical hit, " +
                         "he can spend 2 points from his arcane pool to increase his weapon's critical multiplier by 1.");
                     SwordSaintPerfectStrikeCritAbility

@@ -136,7 +136,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Flat_Footed",
-                Patterns = { 
+                Patterns = {
                     "Flat Footed",
                     "Flat-Footed"
                 }

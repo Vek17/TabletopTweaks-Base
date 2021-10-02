@@ -86,6 +86,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Extra Mercy
         Nature Soul
         Animal Ally
+        Greater Spell Specialization
 
     Adds the following rogue talents:
         Graceful Athlete

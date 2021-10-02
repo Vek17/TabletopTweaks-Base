@@ -4,7 +4,8 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
+using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.MythicAbilities {

@@ -10,7 +10,7 @@ using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -67,7 +67,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchFavorableMagic() {
                 if (ModSettings.Fixes.Azata.IsDisabled("FavorableMagic")) { return; }
                 var FavorableMagicFeature = Resources.GetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
-                var fixedComponent = new NewComponents.AzataFavorableMagicComponent();
+                var fixedComponent = new AzataFavorableMagicComponent();
 
                 FavorableMagicFeature.SetComponents(
                     Helpers.Create<AzataFavorableMagicComponent>()
@@ -79,7 +79,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchZippyMagicFeature() {
                 if (ModSettings.Fixes.Azata.IsDisabled("ZippyMagic")) { return; }
                 var ZippyMagicFeature = Resources.GetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
-                var ZippyMagic = new NewComponents.AzataZippyMagicComponent();
+                var ZippyMagic = new AzataZippyMagicComponent();
 
                 ZippyMagicFeature.RemoveComponents<AddAbilityUseTrigger>();
                 ZippyMagicFeature.ReplaceComponents<DublicateSpellComponent>(ZippyMagic);

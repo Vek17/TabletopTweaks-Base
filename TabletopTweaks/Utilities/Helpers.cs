@@ -296,6 +296,13 @@ namespace TabletopTweaks.Utilities {
                 }
                 public override int GetHashCode(object obj) {
                     if (obj == null) return 0;
+                    if (obj is WeakResourceLink wrl) {
+                        if (wrl.AssetId == null) {
+                            return "WeakResourceLink".GetHashCode();
+                        } else {
+                            return wrl.GetHashCode();
+                        }
+                    }
                     return obj.GetHashCode();
                 }
             }
@@ -312,6 +319,7 @@ namespace TabletopTweaks.Utilities {
                 if (originalObject == null) return null;
                 var typeToReflect = originalObject.GetType();
                 if (IsPrimitive(typeToReflect)) return originalObject;
+                if (originalObject is BlueprintReferenceBase) return originalObject;
                 if (visited.ContainsKey(originalObject)) return visited[originalObject];
                 if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return null;
                 var cloneObject = CloneMethod.Invoke(originalObject, null);

@@ -5,12 +5,11 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.Prerequisites;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     static class Loremaster {
@@ -72,7 +71,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             StatType.SkillLoreReligion
                         };
                     });
-                    
+
                     LoremasterClass.AddComponent<PrerequisiteFeaturesFromListFormatted>(c => {
                         c.m_Features = new BlueprintFeatureReference[] {
                             SkillFocusKnowledgeArcana.ToReference<BlueprintFeatureReference>(),
@@ -111,7 +110,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     LoremasterProgression.LevelEntries = LoremasterProgression.LevelEntries
                         .Where(entry => entry.Level != 1)
-                        .Append(new LevelEntry { 
+                        .Append(new LevelEntry {
                             m_Features = new List<BlueprintFeatureBaseReference>() {
                                 LoremasterSpellbookSelectionTTT.ToReference<BlueprintFeatureBaseReference>(),
                                 LoremasterSecretSelection.ToReference<BlueprintFeatureBaseReference>()

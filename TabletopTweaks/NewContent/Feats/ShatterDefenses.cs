@@ -4,7 +4,6 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
@@ -25,7 +24,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.Stacking = StackingType.Stack;
                 bp.AddComponent<AddFactContextActions>(c => {
                     c.Activated = Helpers.CreateActionList(
-                        new ContextActionApplyBuff (){
+                        new ContextActionApplyBuff() {
                             m_Buff = ShatterDefensesDisplayBuff.ToReference<BlueprintBuffReference>(),
                             DurationValue = new ContextDurationValue() {
                                 m_IsExtendable = false,

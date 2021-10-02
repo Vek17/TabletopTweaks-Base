@@ -19,6 +19,11 @@ namespace TabletopTweaks.NewUnitParts {
 
         public void RemoveEntry(EntityFact source) {
             this.Weapons.RemoveAll((FocusedWeaponEntry p) => p.Source == source);
+            TryRemove();
+        }
+
+        private void TryRemove() {
+            if (!Weapons.Any()) { this.RemoveSelf(); }
         }
 
         public bool HasEntry(WeaponCategory category) {

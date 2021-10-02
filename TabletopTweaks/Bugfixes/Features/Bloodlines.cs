@@ -308,7 +308,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleUnletteredArcanist"),
                     Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleNatureMage"),
                     Resources.GetModBlueprint<BlueprintFeature>("DragonDiscipleAccursedWitch")
-                );;
+                ); ;
                 Main.LogPatch("Patched", BloodOfDragonsSelection);
                 Main.LogPatch("Patched", DragonDiscipleSpellbookSelection);
                 Main.LogPatch("Patched", DragonDiscipleClass);

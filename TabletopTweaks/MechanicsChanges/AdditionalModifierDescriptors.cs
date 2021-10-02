@@ -35,11 +35,6 @@ namespace TabletopTweaks.MechanicsChanges {
             WeaponTraining = 3127,
             WeaponFocus = 3128
         }
-        public enum SpellFocus : int {
-            Normal = 4121,
-            Greater = 4122,
-            Mastery = 4123
-        }
 
         private static class FilterAdjustments {
             private static readonly Func<ModifiableValue.Modifier, bool> FilterIsDodgeOriginal = ModifiableValueArmorClass.FilterIsDodge;
@@ -155,11 +150,6 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Untyped.WeaponTraining:
                     case (ModifierDescriptor)Untyped.WeaponFocus:
                         __result = "Other";
-                        break;
-                    case (ModifierDescriptor)SpellFocus.Normal:
-                    case (ModifierDescriptor)SpellFocus.Greater:
-                    case (ModifierDescriptor)SpellFocus.Mastery:
-                        __result = "Feat";
                         break;
                 }
             }

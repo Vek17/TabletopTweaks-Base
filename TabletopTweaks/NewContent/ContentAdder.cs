@@ -85,6 +85,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.DervishDance.AddDervishDance();
                 Feats.NatureSoul.AddNatureSoul();
                 Feats.AnimalAlly.AddAnimalAlly();
+                Feats.SpellSpecializationGreater.AddSpellSpecializationGreater();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 
@@ -97,7 +98,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraSlayerTalent.AddExtraSlayerTalent();
                 Feats.ExtraRevelation.AddExtraRevelation();
                 Feats.ExtraDiscovery.AddExtraDiscovery();
-                Feats.ExtraMercy.AddExtraMercy();             
+                Feats.ExtraMercy.AddExtraMercy();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }
