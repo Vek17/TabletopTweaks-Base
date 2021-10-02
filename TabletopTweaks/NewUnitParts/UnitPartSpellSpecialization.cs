@@ -101,7 +101,7 @@ namespace TabletopTweaks.NewUnitParts {
                         AbilityVariants variantComponent = conversion.Blueprint.GetComponent<AbilityVariants>();
                         if (variantComponent != null) {
                             foreach (var variant in variantComponent.Variants) {
-                                convertedData.Add(new SpontaneousConversionAbilityData(variant, conversion.Caster, null, conversion.SpellbookBlueprint) {
+                                convertedData.Add(new SpontaneousConversionAbilityData(variant, conversion.Caster, null, conversion.SpellbookBlueprint, conversion) {
                                     DecorationBorderNumber = conversion.DecorationBorderNumber,
                                     DecorationColorNumber = conversion.DecorationColorNumber,
                                     MetamagicData = conversion.MetamagicData?.Clone(),
@@ -132,12 +132,15 @@ namespace TabletopTweaks.NewUnitParts {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
                 var spontaneousData = __instance as SpontaneousConversionAbilityData;
                 if (spontaneousData != null) {
+                    __result = spontaneousData.RequireFullRoundAction;
+                    /*
                     if (spontaneousData.MetamagicData != null
                         && spontaneousData.MetamagicData.NotEmpty
                         && !spontaneousData.MetamagicData.Has(Metamagic.Quicken)) {
 
                         __result = true;
                     }
+                    */
                 }
             }
         }
@@ -148,10 +151,13 @@ namespace TabletopTweaks.NewUnitParts {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
                 var spontaneousData = __instance as SpontaneousConversionAbilityData;
                 if (spontaneousData != null) {
+                    __result = spontaneousData.SpellLevel;
+                    /*
                     Spellbook spellbook = spontaneousData.Spellbook;
                     if (spellbook != null) {
                         __result = spellbook.GetSpellLevel(spontaneousData);
                     }
+                    */
                 }
             }
         }
@@ -185,6 +191,36 @@ namespace TabletopTweaks.NewUnitParts {
                 [CanBeNull] Ability fact,
                 [CanBeNull] BlueprintSpellbook spellbookBlueprint) : base(blueprint, caster, fact, spellbookBlueprint) {
             }
+
+            public SpontaneousConversionAbilityData(
+                BlueprintAbility blueprint,
+                UnitDescriptor caster,
+                [CanBeNull] Ability fact,
+                [CanBeNull] BlueprintSpellbook spellbookBlueprint,
+                [CanBeNull] AbilityData baseData) : this(blueprint, caster, fact, spellbookBlueprint) {
+                this.baseData = baseData;
+            }
+
+            public bool IsVariant { get => baseData != null; }
+
+            public new int SpellLevel { 
+                get {
+                    Main.Log("SpontaneousConversionAbilityData::SpellLevel");
+                    if (this.IsVariant) {
+                        return this.baseData.Spellbook?.GetSpellLevel(baseData) ?? 0;
+                    }
+                    return this.Spellbook?.GetSpellLevel(this) ?? 0;
+                }
+            }
+            public new bool RequireFullRoundAction {
+                get {
+                    return this.MetamagicData != null
+                        && this.MetamagicData.NotEmpty
+                        && !this.MetamagicData.Has(Metamagic.Quicken);
+                }
+            }
+
+            private AbilityData baseData;
         }
     }
 }
