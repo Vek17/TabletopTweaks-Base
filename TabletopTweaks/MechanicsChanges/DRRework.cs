@@ -198,7 +198,24 @@ namespace TabletopTweaks.MechanicsChanges
 
         [HarmonyPatch(typeof(CharInfoEnergyResistanceVM), nameof(CharInfoEnergyResistanceVM.GetEnergyResistance))]
         static class CharInfoEnergyResistanceVM_GetEnergyResistance_Patch {
-            static void Postfix(CharInfoEnergyResistanceVM __instance, UnitDescriptor unit, ref List<CharInfoEnergyResistanceEntryVM> __result) {
+
+            static bool Prefix(CharInfoEnergyResistanceVM __instance, UnitDescriptor unit, ref List<CharInfoEnergyResistanceEntryVM> __result) {
+                IEnumerable<BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>> componentAndRuntimes = unit.Facts.List.SelectMany(i => i.SelectComponentsWithRuntime<TTAddDamageResistanceEnergy>());
+                LocalizedTexts localizedTexts = Game.Instance.BlueprintRoot.LocalizedTexts;
+                Dictionary<DamageEnergyType, CharInfoEnergyResistanceEntryVM> dictionary = new Dictionary<DamageEnergyType, CharInfoEnergyResistanceEntryVM>();
+                foreach (BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy> componentAndRuntime in componentAndRuntimes) {
+                    TTAddDamageResistanceBase.ComponentRuntime runtime = (TTAddDamageResistanceBase.ComponentRuntime)componentAndRuntime.Runtime;
+                    CharInfoEnergyResistanceEntryVM resistanceEntryVm = new CharInfoEnergyResistanceEntryVM() {
+                        Value = runtime.GetValue(),
+                        Type = localizedTexts.DamageEnergy.GetText(componentAndRuntime.Component.Type)
+                    };
+                    if (!dictionary.ContainsKey(componentAndRuntime.Component.Type) || dictionary[componentAndRuntime.Component.Type].Value < resistanceEntryVm.Value)
+                        dictionary[componentAndRuntime.Component.Type] = resistanceEntryVm;
+                }
+                __result = dictionary.Values.ToList();
+                return false;
+            }
+            /*static void Postfix(CharInfoEnergyResistanceVM __instance, UnitDescriptor unit, ref List<CharInfoEnergyResistanceEntryVM> __result) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 List<CharInfoEnergyResistanceEntryVM> resistanceEntryVMList = new List<CharInfoEnergyResistanceEntryVM>();
                 LocalizedTexts localizedTexts = Game.Instance.BlueprintRoot.LocalizedTexts;
@@ -213,7 +230,7 @@ namespace TabletopTweaks.MechanicsChanges
                     }
                 }
                 __result = resistanceEntryVMList;
-            }
+            }*/
         }
 
         [HarmonyPatch(typeof(CharSMartial), nameof(CharSMartial.GetDamageReduction))]
@@ -470,6 +487,7 @@ namespace TabletopTweaks.MechanicsChanges
                 PatchBarbariansDR();
                 PatchLichIndestructibleBonesDR();
                 PatchBrokenDRSettings();
+                PatchArmorMastery();
                 PatchArmoredJuggernaut();
             }
 
@@ -664,12 +682,16 @@ namespace TabletopTweaks.MechanicsChanges
                 });
             }
 
+            static void PatchArmorMastery() {
+                BlueprintBuff armorMasteryBuff = Resources.GetBlueprint<BlueprintBuff>("0794e96a6c5da8f41979d809bb4a9a8c");
+                armorMasteryBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.SourceIsClassFeature = true;
+                });
+            }
+
             static void PatchArmoredJuggernaut() {
                 
                 BlueprintFeature armoredJuggernautFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautFeature"));
-                BlueprintFeature armoredJuggernautLightEffect = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautLightEffect"));
-                BlueprintFeature armoredJuggernautMediumEffect = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautMediumEffect"));
-                BlueprintFeature armoredJuggernautHeavyEffect = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautHeavyEffect"));
 
                 BlueprintUnitFactReference[] adamantineArmorFeatures = new BlueprintUnitFactReference[] {
                     Resources.GetBlueprint<BlueprintFeature>("e93a376547629e2478d6f50e5f162efb").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorLightFeature
@@ -677,82 +699,18 @@ namespace TabletopTweaks.MechanicsChanges
                     Resources.GetBlueprint<BlueprintFeature>("dbbf704bfcc78854ab149597ef9aae7c").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorHeavyFeature
                 };
 
-                BlueprintCharacterClass FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+                BlueprintUnitFactReference armorMasteryBuff = Resources.GetBlueprint<BlueprintBuff>("0794e96a6c5da8f41979d809bb4a9a8c").ToReference<BlueprintUnitFactReference>();
 
-                armoredJuggernautLightEffect.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                armoredJuggernautFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                     newRes.StacksWithFacts = adamantineArmorFeatures;
+                    newRes.IncreasedByFacts = new BlueprintUnitFactReference[] { armorMasteryBuff };
                 });
-
-                armoredJuggernautMediumEffect.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
-                    newRes.SourceIsClassFeature = true;
-                    newRes.StacksWithFacts = adamantineArmorFeatures;
-                });
-
-                armoredJuggernautHeavyEffect.RemoveComponents<AddDamageResistancePhysical>();
-                armoredJuggernautHeavyEffect.RemoveComponents<ContextRankConfig>();
-
-                armoredJuggernautHeavyEffect.AddComponent(Helpers.Create<TTAddDamageResistancePhysical>(c => {
-                    c.Material = PhysicalDamageMaterial.Adamantite;
-                    c.MinEnhancementBonus = 1;
-                    c.Alignment = DamageAlignment.Good;
-                    c.Reality = DamageRealityType.Ghost;
-                    c.Value = new ContextValue {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = AbilityRankType.StatBonus
-                    };
-                    c.Pool = new ContextValue { };
-                    c.SourceIsClassFeature = true;
-                    c.StacksWithFacts = adamantineArmorFeatures;
-                }));
-                armoredJuggernautHeavyEffect.AddComponent(Helpers.CreateContextRankConfig(crc => {
-                    crc.m_Type = AbilityRankType.StatBonus;
-                    crc.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    crc.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
-                    crc.m_Progression = ContextRankProgression.Custom;
-                    crc.m_CustomProgression = new ContextRankConfig.CustomProgressionItem[] {
-                        new ContextRankConfig.CustomProgressionItem() {
-                            BaseValue = 1,
-                            ProgressionValue = 1
-                        },
-                        new ContextRankConfig.CustomProgressionItem() {
-                            BaseValue = 7,
-                            ProgressionValue = 2
-                        },
-                        new ContextRankConfig.CustomProgressionItem() {
-                            BaseValue = 11,
-                            ProgressionValue = 3
-                        }
-                    };
-                }));
 
                 armoredJuggernautFeature.SetDescription("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
                     "and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, " +
-                    "and DR 3/— when wearing heavy armor. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of " +
-                    "damage reduction.");
-            }
-        }
-
-        public class MadDogPetDRProperty : PropertyValueGetter
-        {
-            private static BlueprintFeature MadDogMasterDamageReduction = Resources.GetBlueprint<BlueprintFeature>("a0d4a3295224b8f4387464a4447c31d5");
-
-            public override int GetBaseValue(UnitEntityData unit)
-            {
-                if (!unit.IsPet || unit.Master == null)
-                    return 0;
-
-                int value = 0;
-                EntityFact masterDamageReduction = unit.Master.GetFact(MadDogMasterDamageReduction);
-                if (masterDamageReduction != null)
-                {
-                    foreach (BlueprintComponentAndRuntime<TTAddDamageResistancePhysical> componentAndRuntime in masterDamageReduction.SelectComponentsWithRuntime<TTAddDamageResistancePhysical>())
-                    {
-                        value += ((TTAddDamageResistancePhysical.ComponentRuntime)componentAndRuntime.Runtime).GetCurrentValue();
-                    }
-                }
-
-                return value;
+                    "and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. " +
+                    "The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.");
             }
         }
     }

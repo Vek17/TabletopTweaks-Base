@@ -180,6 +180,9 @@
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
+    <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
+    <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
+    <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
     <Compile Include="NewComponents\TTAddDamageResistanceEnergy.cs" />
     <Compile Include="NewComponents\TTAddDamageResistanceBase.cs" />
     <Compile Include="NewComponents\AddOutgoingWeaponDamageBonus.cs" />

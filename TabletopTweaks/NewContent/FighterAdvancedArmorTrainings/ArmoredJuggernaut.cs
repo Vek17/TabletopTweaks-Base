@@ -6,6 +6,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -117,6 +118,11 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
+
+            var ArmoredJuggernautDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("ArmoredJuggernautDRProperty", bp => {
+                bp.AddComponent(Helpers.Create<ArmoredJuggernautDRProperty>());
+            });
+
             var ArmoredJuggernautFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautFeature", bp => {
                 bp.SetName("Armored Juggernaut");
                 bp.SetDescription("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
@@ -124,18 +130,17 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     "and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
-                    c.NewFact = ArmoredJuggernautLightEffect.ToReference<BlueprintUnitFactReference>();
-                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Light };
+                bp.ReapplyOnLevelUp = true;
+                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.CasterCustomProperty,
+                        m_CustomProperty = ArmoredJuggernautDRProperty.ToReference<BlueprintUnitPropertyReference>()
+                    };
+                    c.m_CheckedFactMythic = BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
+                    c.m_WeaponType = BlueprintReferenceBase.CreateTyped<BlueprintWeaponTypeReference>(null);
+                    c.Pool = new ContextValue { };
                 }));
-                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
-                    c.NewFact = ArmoredJuggernautMediumEffect.ToReference<BlueprintUnitFactReference>();
-                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
-                }));
-                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
-                    c.NewFact = ArmoredJuggernautHeavyEffect.ToReference<BlueprintUnitFactReference>();
-                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
-                }));
+                bp.AddComponent(Helpers.Create<RecalculateOnEquipmentChange>());
             });
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("ArmoredJuggernaut")) { return; }

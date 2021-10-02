@@ -37,8 +37,9 @@ namespace TabletopTweaks.NewUnitParts
         private bool m_Initialized;
         private readonly List<TTUnitPartDamageReduction.Chunk> m_Chunks = new List<TTUnitPartDamageReduction.Chunk>();
         private ChunkStack[] m_ChunkStacks;
-        private List<ChunkStack> m_ChunkStacksForDisplay;
+        private List<ChunkStack> m_ChunkStacksForDisplay = new List<ChunkStack>();
         private readonly List<TTUnitPartDamageReduction.Immunity> m_Immunities = new List<TTUnitPartDamageReduction.Immunity>();
+        private bool m_Cleanup = false;
 
         public void AddPenaltyEntry(int penalty, EntityFact source) => this.PenaltyEntries.Add(new TTUnitPartDamageReduction.ReductionPenalty()
         {
@@ -68,18 +69,19 @@ namespace TabletopTweaks.NewUnitParts
         {
             get
             {
-                this.TryInitialize();
-
                 // Populate sources display list
                 m_ChunkStacksForDisplay = new List<ChunkStack>();
                 for (int i = 0; i < m_ChunkStacks.Length; i++) {
                     ChunkStack chunkStack = m_ChunkStacks[i];
+                    if (chunkStack.Reduction <= 0)
+                        continue;
                     if (!m_ChunkStacksForDisplay.Contains(cd =>
                         cd.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
                         && cd.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)) {
                         ChunkStack maxChunkStack = m_ChunkStacks
                                 .Where(cs => cs.ReferenceChunk.DR.Settings.IsSameDRTypeAs(chunkStack.ReferenceChunk.DR.Settings)
-                                    && cs.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority)
+                                    && cs.ReferenceChunk.DR.Settings.Priority == chunkStack.ReferenceChunk.DR.Settings.Priority
+                                    && cs.Reduction > 0)
                                 .MaxBy(cs => cs.Reduction);
 
                         m_ChunkStacksForDisplay.Add(maxChunkStack);
@@ -133,6 +135,8 @@ namespace TabletopTweaks.NewUnitParts
             this.m_SourceFacts.Remove(fact);
             var removedCount = this.m_Chunks.RemoveAll((Predicate<TTUnitPartDamageReduction.Chunk>)(c => c.Source == fact));
             Main.LogDebug($"Removed {removedCount} related chunks");
+            if (!m_Cleanup)
+                RecalculateChunkStacks();
             this.RemovePartIfNecessary();
         }
 
@@ -193,7 +197,10 @@ namespace TabletopTweaks.NewUnitParts
             TTAddDamageResistanceBase.DRPriority priority)
         {
             ChunkStack bestDR = null;
-            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => cs.Priority == priority && !cs.ReferenceChunk.Bypassed(damage.Source, damageEventWeapon)))
+            foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => 
+                    cs.Priority == priority 
+                && !cs.ReferenceChunk.Bypassed(damage.Source, damageEventWeapon)
+                &&  cs.Reduction > 0))
             {
                 // CalculateReduction still returns the remainig pool size in the case of e.g. Protection From Energy. However, the "best" DR is now calculated
                 // such that full immunity is always considered better than pool-based immunity, which is always considered better than "normal" resistance.
@@ -272,6 +279,7 @@ namespace TabletopTweaks.NewUnitParts
 
         private void Cleanup([CanBeNull] UnitPartClusteredAttack clusteredAttack)
         {
+            m_Cleanup = true;
             bool shouldRecalculate = false;
             for (int index = 0; index < this.m_Chunks.Count; ++index)
             {
@@ -294,6 +302,7 @@ namespace TabletopTweaks.NewUnitParts
                 }
             }
             TTUnitPartDamageReduction.ChunksForRemove.Clear();
+            m_Cleanup = false;
             if (shouldRecalculate) {
                 RecalculateChunkStacks();
             }
@@ -301,14 +310,13 @@ namespace TabletopTweaks.NewUnitParts
 
         private void RecalculateChunkStacks()
         {
-            Main.LogDebug("RecalculateChunkStacks");
+            Main.LogDebug($"RecalculateChunkStacks ({this.Owner.CharacterName})");
 #if DEBUG
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 #endif
             m_ChunkStacks = m_Chunks.Select((c, i) => new ChunkStack(m_Chunks, i)).ToArray();
             BlueprintUnitFactReference[] factsPresentInChunks = m_Chunks.Select(c => c.DR.Fact.Blueprint.ToReference<BlueprintUnitFactReference>()).ToArray();
-
             // Increases pass - increases are confusing, so loop once per property. These are tiny arrays, so performance is still acceptable.
             foreach (ChunkStack chunkStack in m_ChunkStacks.Where(cs => !cs.IsImmunity && !cs.IsImmunityPool))
             {
@@ -378,7 +386,6 @@ namespace TabletopTweaks.NewUnitParts
 #if DEBUG
             watch.Stop();
             DebugLogChunkStacks();
-            DebugLogReductionDisplays();
             Main.LogDebug($"Calculated DR stacking groups in {watch.ElapsedMilliseconds} ms");
 #endif
         }
@@ -414,10 +421,11 @@ namespace TabletopTweaks.NewUnitParts
             this.m_Initialized = true;
             foreach (EntityFact sourceFact in this.m_SourceFacts)
             {
-                foreach (BlueprintComponentAndRuntime<TTAddDamageResistanceBase> componentAndRuntime in sourceFact.SelectComponentsWithRuntime<TTAddDamageResistanceBase>())
+                foreach (BlueprintComponentAndRuntime<TTAddDamageResistanceBase> componentAndRuntime in sourceFact.SelectComponentsWithRuntime<TTAddDamageResistanceBase>()) {
                     this.m_Chunks.Add(new TTUnitPartDamageReduction.Chunk(sourceFact, (TTAddDamageResistanceBase.ComponentRuntime)componentAndRuntime.Runtime));
+                }
             }
-            this.RecalculateChunkStacks();
+            RecalculateChunkStacks();
         }
 
         public override void OnPreSave()
@@ -658,9 +666,7 @@ namespace TabletopTweaks.NewUnitParts
 
             public void AddToStack(ChunkStack other)
             {
-                // Don't add a chunk as stacking if it is already included in the "base" increases package.
-                if (m_baseChunkIndices[other.m_referenceChunkIndex]) { return; }
-                m_stackingChunkIndices[other.m_referenceChunkIndex] = true;
+                m_stackingChunkIndices.Or(other.m_baseChunkIndices);
             }
 
             public bool IsStacksWithArmor => ReferenceChunk.DR.Settings.IsStacksWithArmor;
