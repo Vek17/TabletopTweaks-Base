@@ -130,17 +130,10 @@ namespace TabletopTweaks.NewUnitParts {
         static class AbilityData_RequireFullRoundAction_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref bool __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
-                var spontaneousData = __instance as SpontaneousConversionAbilityData;
-                if (spontaneousData != null) {
-                    __result = spontaneousData.RequireFullRoundAction;
-                    /*
-                    if (spontaneousData.MetamagicData != null
-                        && spontaneousData.MetamagicData.NotEmpty
-                        && !spontaneousData.MetamagicData.Has(Metamagic.Quicken)) {
-
-                        __result = true;
-                    }
-                    */
+                switch (__instance) {
+                    case SpontaneousConversionAbilityData abilityData:
+                        __result = abilityData.RequireFullRoundAction;
+                        break;
                 }
             }
         }
@@ -149,15 +142,10 @@ namespace TabletopTweaks.NewUnitParts {
         static class AbilityData_SpellLevel_QuickStudy_Patch {
             static void Postfix(AbilityData __instance, ref int __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
-                var spontaneousData = __instance as SpontaneousConversionAbilityData;
-                if (spontaneousData != null) {
-                    __result = spontaneousData.SpellLevel;
-                    /*
-                    Spellbook spellbook = spontaneousData.Spellbook;
-                    if (spellbook != null) {
-                        __result = spellbook.GetSpellLevel(spontaneousData);
-                    }
-                    */
+                switch (__instance) {
+                    case SpontaneousConversionAbilityData abilityData:
+                        __result = abilityData.SpellLevel;
+                        break;
                 }
             }
         }
@@ -166,9 +154,10 @@ namespace TabletopTweaks.NewUnitParts {
         static class AbilityData_DecorationColorNumber_QuickStudy_Patch {
             static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Sprite __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
-                var spontaneousData = __instance.Spell as SpontaneousConversionAbilityData;
-                if (spontaneousData != null) {
-                    __result = UIUtility.GetDecorationBorderByIndex(spontaneousData.DecorationBorderNumber);
+                switch (__instance.Spell) {
+                    case SpontaneousConversionAbilityData abilityData:
+                        __result = UIUtility.GetDecorationBorderByIndex(abilityData.DecorationBorderNumber);
+                        break;
                 }
             }
         }
@@ -177,9 +166,10 @@ namespace TabletopTweaks.NewUnitParts {
         static class AbilityData_DecorationBorderNumber_QuickStudy_Patch {
             static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Color __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
-                var spontaneousData = __instance.Spell as SpontaneousConversionAbilityData;
-                if (spontaneousData != null) {
-                    __result = UIUtility.GetDecorationColorByIndex(spontaneousData.DecorationColorNumber);
+                switch (__instance.Spell) {
+                    case SpontaneousConversionAbilityData abilityData:
+                        __result = UIUtility.GetDecorationColorByIndex(abilityData.DecorationColorNumber);
+                        break;
                 }
             }
         }
@@ -219,7 +209,7 @@ namespace TabletopTweaks.NewUnitParts {
                 }
             }
 
-            private AbilityData baseData;
+            private readonly AbilityData baseData;
         }
     }
 }
