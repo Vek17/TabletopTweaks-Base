@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("bb71b6a071064d13b28aa71d626085d2")]

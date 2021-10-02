@@ -44,11 +44,12 @@ using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
+using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.NewUnitParts;
 using TabletopTweaks.Utilities;
 
-namespace TabletopTweaks.MechanicsChanges
-{
+namespace TabletopTweaks.MechanicsChanges {
     class DRRework {
 
         [HarmonyPatch(typeof(AddDamageResistancePhysical), nameof(AddDamageResistancePhysical.IsStackable), MethodType.Getter)]

@@ -15,20 +15,18 @@ using System.Text;
 using System.Threading.Tasks;
 using TabletopTweaks.NewUnitParts;
 
-namespace TabletopTweaks.NewComponents
-{
+namespace TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance {
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [AllowedOn(typeof(BlueprintUnit), false)]
     [AllowMultipleComponents]
     [TypeId("3543db673ac347bda9afc1f58793e6a0")]
-    public abstract class TTAddDamageResistanceBase : 
+    public abstract class TTAddDamageResistanceBase :
         BlueprintComponent,
-        IRuntimeEntityFactComponentProvider
-    {
-        public ContextValue Value = (ContextValue)5;
+        IRuntimeEntityFactComponentProvider {
+        public ContextValue Value = 5;
         public bool UsePool;
         [ShowIf("UsePool")]
-        public ContextValue Pool = (ContextValue)12;
+        public ContextValue Pool = 12;
 
         public bool Immunity = false;
 
@@ -70,7 +68,7 @@ namespace TabletopTweaks.NewComponents
 
         // This isn't really useful anymore, but I've overridden it with something that kinda sorta makes sense, as I haven't gotten around to properly updating
         // the character info screens that still make use of this
-        public virtual bool IsStackable => IsStacksWithArmor || IsStacksWithClassFeatures || (StacksWithFacts != null && StacksWithFacts.Length > 0);
+        public virtual bool IsStackable => IsStacksWithArmor || IsStacksWithClassFeatures || StacksWithFacts != null && StacksWithFacts.Length > 0;
 
         // The priority of this resistance. This is used for cases where damage might "spill over" from one (usually pool-based) resistance to another resistance
         // The *vast* majority of resistances should have a priority of Normal. Currently, only Protection From Energy has a High priority, and only the Abjuration
@@ -82,49 +80,46 @@ namespace TabletopTweaks.NewComponents
         // this method returns true.
         public abstract bool IsSameDRTypeAs(TTAddDamageResistanceBase other);
 
-        protected virtual bool ShouldBeRemoved(TTAddDamageResistanceBase.ComponentRuntime runtime) => this.UsePool && this.CalculateRemainingPool(runtime) < 1;
+        protected virtual bool ShouldBeRemoved(ComponentRuntime runtime) => UsePool && CalculateRemainingPool(runtime) < 1;
 
-        protected virtual int CalculateValue(TTAddDamageResistanceBase.ComponentRuntime runtime) => this.Value.Calculate(runtime.Fact.MaybeContext);
+        protected virtual int CalculateValue(ComponentRuntime runtime) => Value.Calculate(runtime.Fact.MaybeContext);
 
-        protected virtual int CalculateRemainingPool(TTAddDamageResistanceBase.ComponentRuntime runtime) => ((TTAddDamageResistanceBase.IDamageResistanceRuntimeInternal)runtime).RemainPool;
+        protected virtual int CalculateRemainingPool(ComponentRuntime runtime) => ((IDamageResistanceRuntimeInternal)runtime).RemainPool;
 
-        protected virtual void OnSpendPool(TTAddDamageResistanceBase.ComponentRuntime runtime, int damage)
-        {
-            if (!this.UsePool)
+        protected virtual void OnSpendPool(ComponentRuntime runtime, int damage) {
+            if (!UsePool)
                 return;
-            ((TTAddDamageResistanceBase.IDamageResistanceRuntimeInternal)runtime).ReducePool(damage);
+            ((IDamageResistanceRuntimeInternal)runtime).ReducePool(damage);
         }
 
         protected abstract bool Bypassed(
-          TTAddDamageResistanceBase.ComponentRuntime runtime,
+          ComponentRuntime runtime,
           BaseDamage damage,
           ItemEntityWeapon weapon);
 
-        public virtual EntityFactComponent CreateRuntimeFactComponent() => (EntityFactComponent)new TTAddDamageResistanceBase.ComponentRuntime();
+        public virtual EntityFactComponent CreateRuntimeFactComponent() => new ComponentRuntime();
 
         // This creates a TTAddDamageResistanceBase from a vanilla AddDamageResistanceBase component.
-        public void InitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance)
-        {
+        public void InitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance) {
             // BlueprintComponent
-            this.m_Flags = vanillaResistance.m_Flags;
-            this.name = vanillaResistance.name;
-            this.m_PrototypeLink = vanillaResistance.m_PrototypeLink;
-            this.OwnerBlueprint = vanillaResistance.OwnerBlueprint;
-            this.Disabled = vanillaResistance.Disabled;
+            m_Flags = vanillaResistance.m_Flags;
+            name = vanillaResistance.name;
+            m_PrototypeLink = vanillaResistance.m_PrototypeLink;
+            OwnerBlueprint = vanillaResistance.OwnerBlueprint;
+            Disabled = vanillaResistance.Disabled;
 
             // AddDamageResistanceBase
-            this.Value = vanillaResistance.Value;
-            this.UsePool = vanillaResistance.UsePool;
-            this.Pool = vanillaResistance.Pool;
+            Value = vanillaResistance.Value;
+            UsePool = vanillaResistance.UsePool;
+            Pool = vanillaResistance.Pool;
 
-            this.AdditionalInitFromVanillaDamageResistance(vanillaResistance);
+            AdditionalInitFromVanillaDamageResistance(vanillaResistance);
         }
         // Additional initialization specific to the implementation of this base class, that should be done when such an implementation is created from its
         // vanilla counterpart.
         protected abstract void AdditionalInitFromVanillaDamageResistance(Kingmaker.UnitLogic.FactLogic.AddDamageResistanceBase vanillaResistance);
 
-        private interface IDamageResistanceRuntimeInternal
-        {
+        private interface IDamageResistanceRuntimeInternal {
             int RemainPool { get; }
 
             void ReducePool(int value);
@@ -132,48 +127,43 @@ namespace TabletopTweaks.NewComponents
 
         public class ComponentRuntime :
           UnitFactComponent<TTAddDamageResistanceBase>,
-          TTAddDamageResistanceBase.IDamageResistanceRuntimeInternal
-        {
+          IDamageResistanceRuntimeInternal {
             [JsonProperty]
             private int m_RemainPool;
             public int RemainPool => m_RemainPool;
 
-            public bool ShouldBeRemoved => this.Settings.ShouldBeRemoved(this);
+            public bool ShouldBeRemoved => Settings.ShouldBeRemoved(this);
 
-            public override void OnActivate() => this.m_RemainPool = this.Settings.Pool.Calculate(this.Fact.MaybeContext);
+            public override void OnActivate() => m_RemainPool = Settings.Pool.Calculate(Fact.MaybeContext);
 
-            public override void OnTurnOn() 
-            {
-                Main.LogDebug("DR Fact turned on: " + this.Fact.Blueprint.name + ":" + this.Fact.Blueprint.AssetGuid.ToString());
-                this.Owner.Ensure<TTUnitPartDamageReduction>().Add(this.Fact);
+            public override void OnTurnOn() {
+                Main.LogDebug("DR Fact turned on: " + Fact.Blueprint.name + ":" + Fact.Blueprint.AssetGuid.ToString());
+                Owner.Ensure<TTUnitPartDamageReduction>().Add(Fact);
             }
 
-            public override void OnTurnOff() => this.Owner.Get<TTUnitPartDamageReduction>()?.Remove(this.Fact);
+            public override void OnTurnOff() => Owner.Get<TTUnitPartDamageReduction>()?.Remove(Fact);
 
-            public void SpendPool(int value) => this.Settings.OnSpendPool(this, value);
+            public void SpendPool(int value) => Settings.OnSpendPool(this, value);
 
-            public int GetValue() => this.Settings.CalculateValue(this);
+            public int GetValue() => Settings.CalculateValue(this);
 
-            public int GetCurrentValue()
-            {
-                int val2 = this.GetValue();
-                return !this.Settings.UsePool ? val2 : Math.Min(this.Settings.CalculateRemainingPool(this), val2);
+            public int GetCurrentValue() {
+                int val2 = GetValue();
+                return !Settings.UsePool ? val2 : Math.Min(Settings.CalculateRemainingPool(this), val2);
             }
 
-            public bool Bypassed(BaseDamage damage, ItemEntityWeapon weapon) => this.Settings.Bypassed(this, damage, weapon);
+            public bool Bypassed(BaseDamage damage, ItemEntityWeapon weapon) => Settings.Bypassed(this, damage, weapon);
 
-            int TTAddDamageResistanceBase.IDamageResistanceRuntimeInternal.RemainPool => this.m_RemainPool;
+            int IDamageResistanceRuntimeInternal.RemainPool => m_RemainPool;
 
-            void TTAddDamageResistanceBase.IDamageResistanceRuntimeInternal.ReducePool(
-              int value)
-            {
-                this.m_RemainPool = Math.Max(0, this.m_RemainPool - value);
+            void IDamageResistanceRuntimeInternal.ReducePool(
+              int value) {
+                m_RemainPool = Math.Max(0, m_RemainPool - value);
             }
         }
 
         // The possible priorities that a resistance can have. See TTAddDamageResistanceBase.Priority
-        public enum DRPriority
-        {
+        public enum DRPriority {
             Low = 0,
             Normal = 10,
             High = 20,

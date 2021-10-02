@@ -23,7 +23,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using TabletopTweaks.Config;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 
 namespace TabletopTweaks.Utilities {
     public static class Helpers {
