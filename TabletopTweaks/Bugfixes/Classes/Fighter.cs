@@ -125,7 +125,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             var damageComponent = feature.Get().GetComponent<WeaponGroupDamageBonus>();
                             if (damageComponent != null) {
                                 damageComponent.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.WeaponTraining;
-                                
+
                             }
                             var attackComponent = feature.Get().GetComponent<WeaponGroupAttackBonus>();
                             if (attackComponent != null) {

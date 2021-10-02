@@ -4,7 +4,6 @@
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -226,40 +225,31 @@ namespace TabletopTweaks.Utilities {
             return config;
         }
 
-        public static void ConvertVanillaDamageResistanceToRework<V,N>(
-            this BlueprintScriptableObject blueprint, 
+        public static void ConvertVanillaDamageResistanceToRework<V, N>(
+            this BlueprintScriptableObject blueprint,
             Action<N> additionalDamageResistanceConfiguration = null)
             where V : AddDamageResistanceBase
-            where N : TTAddDamageResistanceBase, new()
-        {
+            where N : TTAddDamageResistanceBase, new() {
             bool foundComponent = false;
-            for (int i = 0; i < blueprint.ComponentsArray.Length; i++)
-            {
-                if (blueprint.ComponentsArray[i] is V oldResistance)
-                {
+            for (int i = 0; i < blueprint.ComponentsArray.Length; i++) {
+                if (blueprint.ComponentsArray[i] is V oldResistance) {
                     foundComponent = true;
                     N newResistance = Helpers.Create<N>(newRes => newRes.InitFromVanillaDamageResistance(oldResistance));
                     if (additionalDamageResistanceConfiguration != null)
                         additionalDamageResistanceConfiguration(newResistance);
                     blueprint.ComponentsArray[i] = newResistance;
                     Main.Log($"Replaced component: {typeof(V).Name} -> {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
-                }
-                else if (blueprint.ComponentsArray[i] is N newResistance)
-                {
+                } else if (blueprint.ComponentsArray[i] is N newResistance) {
                     foundComponent = true;
-                    if (additionalDamageResistanceConfiguration != null)
-                    {
+                    if (additionalDamageResistanceConfiguration != null) {
                         additionalDamageResistanceConfiguration(newResistance);
                         Main.Log($"Configured component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
-                    }
-                    else
-                    {
+                    } else {
                         Main.Log($"Skipped component: {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()} (no additional configration specified)");
                     }
                 }
             }
-            if (!foundComponent)
-            {
+            if (!foundComponent) {
                 Main.Log($"COMPONENT NOT FOUND: {typeof(V).Name} or {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
             }
         }

@@ -1,15 +1,9 @@
-﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TabletopTweaks.NewComponents {
 
@@ -26,12 +20,12 @@ namespace TabletopTweaks.NewComponents {
 
             int fighterLevel = 0;
             foreach (ClassData classData in unit.Descriptor.Progression.Classes) {
-                if (classData.CharacterClass.Equals(FighterClass)) 
+                if (classData.CharacterClass.Equals(FighterClass))
                     fighterLevel += classData.Level;
             }
 
             if (fighterLevel == 0)
-                    return 0;
+                return 0;
 
             if (armorProficiencyGroup == ArmorProficiencyGroup.Light) {
                 if (fighterLevel >= 11)

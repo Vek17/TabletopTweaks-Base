@@ -193,7 +193,7 @@ namespace TabletopTweaks.NewUnitParts {
 
             public bool IsVariant { get => baseData != null; }
 
-            public new int SpellLevel { 
+            public new int SpellLevel {
                 get {
                     if (this.IsVariant) {
                         return this.baseData.Spellbook?.GetSpellLevel(baseData) ?? 0;

@@ -9,10 +9,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance {

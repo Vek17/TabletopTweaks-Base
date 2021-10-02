@@ -1,16 +1,10 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items;
 using Kingmaker.Items.Slots;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TabletopTweaks.NewComponents {
 
@@ -26,7 +20,7 @@ namespace TabletopTweaks.NewComponents {
 
 
         public void HandleEquipmentSlotUpdated(ItemSlot slot, ItemEntity previousItem) {
-            if ((UnitEntityData)slot.Owner != this.Owner)
+            if (slot.Owner != this.Owner)
                 return;
             this.Fact.Reapply();
         }

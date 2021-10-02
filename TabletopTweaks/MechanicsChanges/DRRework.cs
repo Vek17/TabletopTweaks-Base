@@ -3,15 +3,12 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.Designers.Mechanics.Buffs;
-using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
@@ -29,11 +26,9 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
-using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Kingmaker.Utility.UnitDescription;
 using System;
@@ -43,7 +38,6 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.NewUnitParts;
@@ -76,17 +70,13 @@ namespace TabletopTweaks.MechanicsChanges {
 #endif
 
         [HarmonyPatch(typeof(BlueprintFact), nameof(BlueprintFact.CollectComponents))]
-        static class BlueprintFact_CollectComponents_Patch
-        {
-            static void Postfix(ref List<BlueprintComponent> __result)
-            {
+        static class BlueprintFact_CollectComponents_Patch {
+            static void Postfix(ref List<BlueprintComponent> __result) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
 
-                for (int i = 0; i < __result.Count; i++)
-                {
+                for (int i = 0; i < __result.Count; i++) {
                     BlueprintComponent component = __result[i];
-                    if (component is AddDamageResistanceBase resistanceComponent)
-                    {
+                    if (component is AddDamageResistanceBase resistanceComponent) {
                         TTAddDamageResistanceBase replacementComponent = CreateFromVanillaDamageResistance(resistanceComponent);
                         // https://c.tenor.com/eqLNYv0A9TQAAAAC/swap-indiana-jones.gif
                         __result[i] = replacementComponent;
@@ -95,11 +85,9 @@ namespace TabletopTweaks.MechanicsChanges {
                 }
             }
 
-            static TTAddDamageResistanceBase CreateFromVanillaDamageResistance(AddDamageResistanceBase vanillaResistance)
-            {
+            static TTAddDamageResistanceBase CreateFromVanillaDamageResistance(AddDamageResistanceBase vanillaResistance) {
                 TTAddDamageResistanceBase result = null;
-                switch (vanillaResistance)
-                {
+                switch (vanillaResistance) {
                     case ResistEnergy:
                         result = Helpers.Create<TTResistEnergy>();
                         break;
@@ -135,10 +123,8 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(ReduceDamageReduction), nameof(ReduceDamageReduction.OnTurnOn))]
-        static class ReduceDamageReduction_OnTurnOn_Patch
-        {
-            static bool Prefix(ReduceDamageReduction __instance)
-            {
+        static class ReduceDamageReduction_OnTurnOn_Patch {
+            static bool Prefix(ReduceDamageReduction __instance) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 int penalty = __instance.Value.Calculate(__instance.Context) * __instance.Multiplier;
                 __instance.Owner.Ensure<TTUnitPartDamageReduction>().AddPenaltyEntry(penalty, __instance.Fact);
@@ -147,10 +133,8 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(ReduceDamageReduction), nameof(ReduceDamageReduction.OnTurnOff))]
-        static class ReduceDamageReduction_OnTurnOff_Patch
-        {
-            static bool Prefix(ReduceDamageReduction __instance)
-            {
+        static class ReduceDamageReduction_OnTurnOff_Patch {
+            static bool Prefix(ReduceDamageReduction __instance) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 __instance.Owner.Ensure<TTUnitPartDamageReduction>().RemovePenaltyEntry(__instance.Fact);
                 return false;
@@ -158,36 +142,31 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(CharInfoDamageReductionVM), nameof(CharInfoDamageReductionVM.GetDamageReduction))]
-        static class CharInfoDamageReductionVM_GetDamageReduction_Patch
-        {
-            static void Postfix(CharInfoDamageReductionVM __instance, UnitDescriptor unit, ref List<CharInfoDamageReductionEntryVM> __result)
-            {
+        static class CharInfoDamageReductionVM_GetDamageReduction_Patch {
+            static void Postfix(CharInfoDamageReductionVM __instance, UnitDescriptor unit, ref List<CharInfoDamageReductionEntryVM> __result) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 List<CharInfoDamageReductionEntryVM> reductionEntryVmList = new List<CharInfoDamageReductionEntryVM>();
                 IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> allSources = unit.Get<TTUnitPartDamageReduction>()?.AllSources;
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
-                foreach(TTUnitPartDamageReduction.ReductionDisplay reduction in allSources.EmptyIfNull())
-                {
-                    if (reduction.ReferenceDamageResistance is TTAddDamageResistancePhysical settings1)
-                    {
-                        CharInfoDamageReductionEntryVM reductionEntryVm = new CharInfoDamageReductionEntryVM()
-                        {
+                foreach (TTUnitPartDamageReduction.ReductionDisplay reduction in allSources.EmptyIfNull()) {
+                    if (reduction.ReferenceDamageResistance is TTAddDamageResistancePhysical settings1) {
+                        CharInfoDamageReductionEntryVM reductionEntryVm = new CharInfoDamageReductionEntryVM() {
                             Value = reduction.TotalReduction.ToString()
                         };
                         if (settings1.BypassedByAlignment)
                             reductionEntryVm.Exceptions.Add(ls.DamageAlignment.GetTextFlags(settings1.Alignment));
                         if (settings1.BypassedByForm)
-                            reductionEntryVm.Exceptions.AddRange(settings1.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
+                            reductionEntryVm.Exceptions.AddRange(settings1.Form.Components().Select<PhysicalDamageForm, string>(f => ls.DamageForm.GetText(f)));
                         if (settings1.BypassedByMagic)
-                            reductionEntryVm.Exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
+                            reductionEntryVm.Exceptions.Add(Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
                         if (settings1.BypassedByMaterial)
                             reductionEntryVm.Exceptions.Add(ls.DamageMaterial.GetTextFlags(settings1.Material));
                         if (settings1.BypassedByReality)
                             reductionEntryVm.Exceptions.Add(ls.DamageReality.GetText(settings1.Reality));
                         if (settings1.BypassedByMeleeWeapon)
-                            reductionEntryVm.Exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
+                            reductionEntryVm.Exceptions.Add(Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
                         if (settings1.BypassedByWeaponType)
-                            reductionEntryVm.Exceptions.Add((string)settings1.WeaponType.TypeName);
+                            reductionEntryVm.Exceptions.Add(settings1.WeaponType.TypeName);
                         if (reductionEntryVm.Exceptions.Count == 0)
                             reductionEntryVm.Exceptions.Add("-");
                         reductionEntryVmList.Add(reductionEntryVm);
@@ -235,17 +214,14 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(CharSMartial), nameof(CharSMartial.GetDamageReduction))]
-        static class CharSMartial_GetDamageReduction_Patch
-        {
-            static void Postfix(CharSMartial __instance, UnitDescriptor unit, ref List<CharSMartial.DRdata> __result)
-            {
+        static class CharSMartial_GetDamageReduction_Patch {
+            static void Postfix(CharSMartial __instance, UnitDescriptor unit, ref List<CharSMartial.DRdata> __result) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
                 List<CharSMartial.DRdata> drdataList = new List<CharSMartial.DRdata>();
                 TTUnitPartDamageReduction partDamageReduction = unit.Get<TTUnitPartDamageReduction>();
                 IEnumerable<TTUnitPartDamageReduction.ReductionDisplay> list = partDamageReduction != null ? partDamageReduction.AllSources.Where(c => c.ReferenceDamageResistance is TTAddDamageResistancePhysical) : null;
                 LocalizedTexts ls = Game.Instance.BlueprintRoot.LocalizedTexts;
-                foreach (TTUnitPartDamageReduction.ReductionDisplay reduction in list.EmptyIfNull())
-                {
+                foreach (TTUnitPartDamageReduction.ReductionDisplay reduction in list.EmptyIfNull()) {
                     TTAddDamageResistancePhysical settings = (TTAddDamageResistancePhysical)reduction.ReferenceDamageResistance;
 
                     CharSMartial.DRdata drdata = new CharSMartial.DRdata();
@@ -253,17 +229,17 @@ namespace TabletopTweaks.MechanicsChanges {
                     if (settings.BypassedByAlignment)
                         drdata.exceptions.Add(ls.DamageAlignment.GetTextFlags(settings.Alignment));
                     if (settings.BypassedByForm)
-                        drdata.exceptions.AddRange(settings.Form.Components().Select<PhysicalDamageForm, string>((Func<PhysicalDamageForm, string>)(f => ls.DamageForm.GetText(f))));
+                        drdata.exceptions.AddRange(settings.Form.Components().Select<PhysicalDamageForm, string>(f => ls.DamageForm.GetText(f)));
                     if (settings.BypassedByMagic)
-                        drdata.exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
+                        drdata.exceptions.Add(Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MagicDRDescriptor);
                     if (settings.BypassedByMaterial)
                         drdata.exceptions.Add(ls.DamageMaterial.GetTextFlags(settings.Material));
                     if (settings.BypassedByReality)
                         drdata.exceptions.Add(ls.DamageReality.GetText(settings.Reality));
                     if (settings.BypassedByMeleeWeapon)
-                        drdata.exceptions.Add((string)Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
+                        drdata.exceptions.Add(Game.Instance.BlueprintRoot.LocalizedTexts.UserInterfacesText.CharacterSheet.MeleeDRDescriptor);
                     if (settings.BypassedByWeaponType)
-                        drdata.exceptions.Add((string)settings.WeaponType.TypeName);
+                        drdata.exceptions.Add(settings.WeaponType.TypeName);
                     if (drdata.exceptions.Count == 0)
                         drdata.exceptions.Add("-");
                     drdataList.Add(drdata);
@@ -292,20 +268,14 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(TutorialTriggerDamageReduction), nameof(TutorialTriggerDamageReduction.ShouldTrigger))]
-        static class TutorialTriggerDamageReduction_ShouldTrigger_Patch
-        {
-            static void Postfix(TutorialTriggerDamageReduction __instance, RuleDealDamage rule, ref bool __result)
-            {
+        static class TutorialTriggerDamageReduction_ShouldTrigger_Patch {
+            static void Postfix(TutorialTriggerDamageReduction __instance, RuleDealDamage rule, ref bool __result) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
-                if (!__result && !rule.IgnoreDamageReduction)
-                {
+                if (!__result && !rule.IgnoreDamageReduction) {
                     TTUnitPartDamageReduction partDamageReduction = rule.Target.Get<TTUnitPartDamageReduction>();
-                    if (partDamageReduction != null && rule.ResultList != null && __instance.AbsoluteDR == partDamageReduction.HasAbsolutePhysicalDR)
-                    {
-                        foreach(DamageValue res in rule.ResultList)
-                        {
-                            if (res.Source is PhysicalDamage && res.Reduction > 0)
-                            {
+                    if (partDamageReduction != null && rule.ResultList != null && __instance.AbsoluteDR == partDamageReduction.HasAbsolutePhysicalDR) {
+                        foreach (DamageValue res in rule.ResultList) {
+                            if (res.Source is PhysicalDamage && res.Reduction > 0) {
                                 __result = true;
                                 return;
                             }
@@ -316,10 +286,8 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(AddEnergyImmunity), nameof(AddEnergyImmunity.OnTurnOn))]
-        static class AddEnergyImmunity_OnTurnOn_Patch
-        {
-            static bool Prefix(AddEnergyImmunity __instance)
-            {
+        static class AddEnergyImmunity_OnTurnOn_Patch {
+            static bool Prefix(AddEnergyImmunity __instance) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 __instance.Owner.Ensure<TTUnitPartDamageReduction>().AddImmunity(__instance.Fact, __instance, __instance.Type);
                 return false;
@@ -327,10 +295,8 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(AddEnergyImmunity), nameof(AddEnergyImmunity.OnTurnOff))]
-        static class AddEnergyImmunity_OnTurnOff_Patch
-        {
-            static bool Prefix(AddEnergyImmunity __instance)
-            {
+        static class AddEnergyImmunity_OnTurnOff_Patch {
+            static bool Prefix(AddEnergyImmunity __instance) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 __instance.Owner.Get<TTUnitPartDamageReduction>()?.RemoveImmunity(__instance.Fact, __instance);
                 return false;
@@ -338,28 +304,20 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(TutorialSolverSpellWithDamage), nameof(TutorialSolverSpellWithDamage.GetBasePriority))]
-        static class TutorialSolverSpellWithDamage_GetBasePriority_Patch
-        {
-            static void Postfix(TutorialSolverSpellWithDamage __instance, BlueprintAbility ability, UnitEntityData caster, ref int __result)
-            {
+        static class TutorialSolverSpellWithDamage_GetBasePriority_Patch {
+            static void Postfix(TutorialSolverSpellWithDamage __instance, BlueprintAbility ability, UnitEntityData caster, ref int __result) {
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
-                if (__result != -1)
-                {
+                if (__result != -1) {
                     TTUnitPartDamageReduction partDamageReduction = ContextData<TutorialContext>.Current.TargetUnit.Get<TTUnitPartDamageReduction>();
-                    if (partDamageReduction != null)
-                    {
-                        foreach(Element elements in ability.ElementsArray)
-                        {
-                            if (elements is ContextActionDealDamage actionDealDamage)
-                            {
-                                if (actionDealDamage.DamageType.Type == DamageType.Energy && partDamageReduction.IsImmune(actionDealDamage.DamageType.Energy))
-                                {
+                    if (partDamageReduction != null) {
+                        foreach (Element elements in ability.ElementsArray) {
+                            if (elements is ContextActionDealDamage actionDealDamage) {
+                                if (actionDealDamage.DamageType.Type == DamageType.Energy && partDamageReduction.IsImmune(actionDealDamage.DamageType.Energy)) {
                                     __result = -1;
                                     return;
                                 }
                                 BaseDamage damage = actionDealDamage.DamageType.CreateDamage(DiceFormula.Zero, 0);
-                                if (!partDamageReduction.CanBypass(damage, null))
-                                {
+                                if (!partDamageReduction.CanBypass(damage, null)) {
                                     __result = -1;
                                     return;
                                 }
@@ -400,9 +358,9 @@ namespace TabletopTweaks.MechanicsChanges {
             };
 
             private static Dictionary<MethodInfo, MethodInfo> _staticCallMapping = new Dictionary<MethodInfo, MethodInfo> {
-                { 
-                    AccessTools.Method(typeof(UIUtilityItem), nameof(UIUtilityItem.GetEnergyResistanceText)), 
-                    AccessTools.Method(typeof(UIUtilityItem_Patches), nameof(UIUtilityItem_Patches.TTGetEnergyResistanceText)) 
+                {
+                    AccessTools.Method(typeof(UIUtilityItem), nameof(UIUtilityItem.GetEnergyResistanceText)),
+                    AccessTools.Method(typeof(UIUtilityItem_Patches), nameof(UIUtilityItem_Patches.TTGetEnergyResistanceText))
                 }
             };
 
@@ -411,7 +369,7 @@ namespace TabletopTweaks.MechanicsChanges {
             }
 
             private static string TTGetEnergyResistanceText(TTAddDamageResistanceBase.ComponentRuntime damageEnergyResist) {
-                return damageEnergyResist == null ? "" : "+" + (object)damageEnergyResist.GetValue();
+                return damageEnergyResist == null ? "" : "+" + damageEnergyResist.GetValue();
             }
         }
 
@@ -427,9 +385,9 @@ namespace TabletopTweaks.MechanicsChanges {
             static UnitDescription.DamageReduction TTExtractDamageReduction(
                 TTAddDamageResistancePhysical dr,
                 EntityFact fact) {
-                TTAddDamageResistanceBase.ComponentRuntime componentRuntime = 
-                    (TTAddDamageResistanceBase.ComponentRuntime) fact.Components.First(c => 
-                        c.SourceBlueprintComponent == dr && c.SourceBlueprintComponentName == dr.name);
+                TTAddDamageResistanceBase.ComponentRuntime componentRuntime =
+                    (TTAddDamageResistanceBase.ComponentRuntime)fact.Components.First(c =>
+                       c.SourceBlueprintComponent == dr && c.SourceBlueprintComponentName == dr.name);
                 return new UnitDescription.DamageReduction() {
                     Or = dr.Or,
                     Value = componentRuntime.GetValue(),
@@ -449,8 +407,8 @@ namespace TabletopTweaks.MechanicsChanges {
             }
         }
 
-         [HarmonyPatch(typeof(UnitDescriptionHelper), nameof(UnitDescriptionHelper.ExtractEnergyResistances))]
-         static class UnitDescriptionHelper_ExtractEnergyResistances_Patch {
+        [HarmonyPatch(typeof(UnitDescriptionHelper), nameof(UnitDescriptionHelper.ExtractEnergyResistances))]
+        static class UnitDescriptionHelper_ExtractEnergyResistances_Patch {
             static bool Prefix(UnitEntityData unit, UnitDescription.EnergyResistanceData[] __result) {
                 List<UnitDescription.EnergyResistanceData> result = new List<UnitDescription.EnergyResistanceData>();
                 unit.VisitComponents<TTAddDamageResistanceEnergy>((c, f) => result.Add(TTExtractEnergyResistance(c, f)));
@@ -461,8 +419,8 @@ namespace TabletopTweaks.MechanicsChanges {
             static UnitDescription.EnergyResistanceData TTExtractEnergyResistance(
                 TTAddDamageResistanceEnergy er,
                 EntityFact fact) {
-                TTAddDamageResistanceBase.ComponentRuntime componentRuntime = 
-                    (TTAddDamageResistanceBase.ComponentRuntime)fact.Components.First(c => 
+                TTAddDamageResistanceBase.ComponentRuntime componentRuntime =
+                    (TTAddDamageResistanceBase.ComponentRuntime)fact.Components.First(c =>
                         c.SourceBlueprintComponent == er && c.SourceBlueprintComponentName == er.name);
                 return new UnitDescription.EnergyResistanceData() {
                     Value = componentRuntime.GetValue(),
@@ -472,12 +430,10 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch
-        {
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
-            static void Postfix()
-            {
+            static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
                 if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return; }
@@ -492,8 +448,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchArmoredJuggernaut();
             }
 
-            static void PatchArmorDR()
-            {
+            static void PatchArmorDR() {
                 BlueprintUnitFact[] armorFactsWithPhysicalDR = new BlueprintUnitFact[]
                 {
                     Resources.GetBlueprint<BlueprintFeature>("e93a376547629e2478d6f50e5f162efb"), // AdamantineArmorLightFeature
@@ -508,17 +463,14 @@ namespace TabletopTweaks.MechanicsChanges {
                     Resources.GetBlueprint<BlueprintFeature>("79babe38a7306ba4c81f2fa3c88d1bae")  // StuddedArmorOfTrinityFeature
                 };
 
-                foreach (BlueprintUnitFact armorBlueprint in armorFactsWithPhysicalDR)
-                {
-                    armorBlueprint.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                    {
+                foreach (BlueprintUnitFact armorBlueprint in armorFactsWithPhysicalDR) {
+                    armorBlueprint.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                         newRes.SourceIsArmor = true;
                     });
                 }
             }
 
-            static void PatchBarbariansDR()
-            {
+            static void PatchBarbariansDR() {
                 BlueprintFeature barbarianDR = Resources.GetBlueprint<BlueprintFeature>("cffb5cddefab30140ac133699d52a8f8");
                 BlueprintFeature invulnerableRagerDR = Resources.GetBlueprint<BlueprintFeature>("e71bd204a2579b1438ebdfbf75aeefae");
                 BlueprintFeature madDogMasterDamageReduction = Resources.GetBlueprint<BlueprintFeature>("a0d4a3295224b8f4387464a4447c31d5");
@@ -532,35 +484,29 @@ namespace TabletopTweaks.MechanicsChanges {
 
                 BlueprintBuff manglingFrenzyBuff = Resources.GetBlueprint<BlueprintBuff>("1581c5ceea24418cadc9f26ce4d391a9");
 
-                barbarianDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                barbarianDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                 });
 
-                invulnerableRagerDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                invulnerableRagerDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                 });
 
-                madDogMasterDamageReduction.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                madDogMasterDamageReduction.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                 });
 
-                bloodragerDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                bloodragerDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                 });
 
-                skaldDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                skaldDR.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                 });
 
                 // Fix Skald DR not increasing with Increased Damage ResistanCce Rage Power
                 ContextRankConfig barbarianDRConfig = barbarianDR.GetComponent<ContextRankConfig>();
-                ContextRankConfig skaldDRRankConfig = Helpers.CreateCopy(barbarianDRConfig, crc =>
-                {
+                ContextRankConfig skaldDRRankConfig = Helpers.CreateCopy(barbarianDRConfig, crc => {
                     crc.m_FeatureList = new BlueprintFeatureReference[]
                     {
                         skaldDR.ToReference<BlueprintFeatureReference>(),
@@ -575,8 +521,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 Main.Log($"Patched: ContextRankConfig on {skaldDR.AssetGuid} - {skaldDR.NameSafe()}");
 
                 // Allow Mangling Frenzy to stack with Barbarian DR's
-                manglingFrenzyBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                manglingFrenzyBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.StacksWithFacts = new BlueprintUnitFactReference[]
                     {
                         barbarianDR.ToReference<BlueprintUnitFactReference>(),
@@ -602,21 +547,18 @@ namespace TabletopTweaks.MechanicsChanges {
                 // Fix Mad Dog's pet DR not being improved by master's Increased Damage Resistance Rage Power(s)
                 BlueprintUnitProperty madDogPetDRProperty = Resources.GetModBlueprint<BlueprintUnitProperty>("MadDogPetDRProperty");
 
-                madDogPetDamageReduction.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                madDogPetDamageReduction.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                 });
 
                 madDogPetDamageReduction.RemoveComponents<ContextRankConfig>();
-                madDogPetDamageReduction.AddComponent(Helpers.Create<ContextRankConfig>(crc =>
-                {
+                madDogPetDamageReduction.AddComponent(Helpers.Create<ContextRankConfig>(crc => {
                     crc.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
                     crc.m_CustomProperty = madDogPetDRProperty.ToReference<BlueprintUnitPropertyReference>();
                 }));
 
                 // Fix Increased Damage Reduction Rage Power not checking if the character actual has the DamageReduction class feature
-                increasedDamageReductionRagePower.AddComponent<PrerequisiteFeaturesFromListFormatted>(p =>
-                {
+                increasedDamageReductionRagePower.AddComponent<PrerequisiteFeaturesFromListFormatted>(p => {
                     p.m_Features = new BlueprintFeatureReference[]
                     {
                         barbarianDR.ToReference<BlueprintFeatureReference>(),
@@ -629,20 +571,17 @@ namespace TabletopTweaks.MechanicsChanges {
                 });
             }
 
-            static void PatchStalwartDefender()
-            {
+            static void PatchStalwartDefender() {
                 BlueprintFeature stalwartDefenderDamageReductionFeature = Resources.GetBlueprint<BlueprintFeature>("4d4f48f401d5d8b408c2e7a973fba9ea");
 
-                stalwartDefenderDamageReductionFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                stalwartDefenderDamageReductionFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                     newRes.IsIncreasedByArmor = true;
                 });
 
                 BlueprintFeature increasedDamageReductionDefensivePower = Resources.GetBlueprint<BlueprintFeature>("d10496e92d0799a40bb3930b8f4fda0d");
 
-                increasedDamageReductionDefensivePower.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
-                {
+                increasedDamageReductionDefensivePower.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.SourceIsClassFeature = true;
                     newRes.IncreasesFacts = new BlueprintUnitFactReference[]
                     {
@@ -688,7 +627,7 @@ namespace TabletopTweaks.MechanicsChanges {
             }
 
             static void PatchArmoredJuggernaut() {
-                
+
                 BlueprintFeature armoredJuggernautFeature = Resources.GetBlueprint<BlueprintFeature>(ModSettings.Blueprints.GetGUID("ArmoredJuggernautFeature"));
 
                 BlueprintUnitFactReference[] adamantineArmorFeatures = new BlueprintUnitFactReference[] {
