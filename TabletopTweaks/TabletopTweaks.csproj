@@ -170,6 +170,7 @@
     <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
+    <Compile Include="MechanicsChanges\DRRework.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="MechanicsChanges\NewAttribute.cs" />
@@ -181,6 +182,11 @@
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
+    <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
+    <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
+    <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceBase.cs" />
     <Compile Include="NewComponents\AddOutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewComponents\ApplyArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ArmoredMightComponent.cs" />
@@ -224,6 +230,13 @@
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ShatterDefensesInitiator.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceForce.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistancePhysical.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTProtectionFromEnergy.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTResistEnergy.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTResistEnergyContext.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTWizardAbjurationResistance.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTWizardEnergyAbsorption.cs" />
     <Compile Include="NewComponents\AbilitySpecific\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteFeaturesFromListFormatted.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
@@ -318,6 +331,7 @@
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
+    <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
@@ -344,6 +358,7 @@
     <Compile Include="Config\Fixes.cs" />
     <Compile Include="Utilities\ILUtils.cs" />
     <Compile Include="Utilities\SpellTools.cs" />
+    <Compile Include="Utilities\TypeReplaceTranspiler.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Config\AddedContent.json" />

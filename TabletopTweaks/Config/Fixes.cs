@@ -5,6 +5,7 @@ namespace TabletopTweaks.Config {
     public class Fixes : IUpdatableSettings {
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
+        public SettingGroup DRRework = new SettingGroup();
         public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Azata = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
@@ -38,6 +39,8 @@ namespace TabletopTweaks.Config {
             NewSettingsOffByDefault = loadedSettings.NewSettingsOffByDefault;
 
             BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
+
+            DRRework.LoadSettingGroup(loadedSettings.DRRework, NewSettingsOffByDefault);
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
             Azata.LoadSettingGroup(loadedSettings.Azata, NewSettingsOffByDefault);
