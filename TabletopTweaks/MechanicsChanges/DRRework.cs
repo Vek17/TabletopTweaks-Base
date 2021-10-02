@@ -597,13 +597,10 @@ namespace TabletopTweaks.MechanicsChanges {
                         increasedDamageReductionRagePower.ToReference<BlueprintFeatureReference>()
                     };
                 }));
-                
+
 
                 // Fix Mad Dog's pet DR not being improved by master's Increased Damage Resistance Rage Power(s)
-                BlueprintUnitProperty madDogPetDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("MadDogPetDRProperty", bp =>
-                {
-                    bp.AddComponent(Helpers.Create<MadDogPetDRProperty>());
-                });
+                BlueprintUnitProperty madDogPetDRProperty = Resources.GetModBlueprint<BlueprintUnitProperty>("MadDogPetDRProperty");
 
                 madDogPetDamageReduction.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes =>
                 {

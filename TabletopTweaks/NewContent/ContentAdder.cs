@@ -58,10 +58,12 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
 
                 Classes.Loremaster.AddLoremasterFeatures();
-
+                //New archetypes
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
                 Archetypes.MetamagicRager.AddMetamagicRager();
+                //Features to support existing archetypes
+                Archetypes.MadDog.AddMadDogFeatures();
 
                 Spells.LongArms.AddLongArms();
                 Spells.ShadowEnchantment.AddShadowEnchantment();

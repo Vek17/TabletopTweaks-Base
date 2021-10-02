@@ -405,7 +405,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 var codes = new List<CodeInstruction>(instructions);
                 if (ModSettings.Fixes.Feats.IsDisabled("VitalStrike")) { return instructions; }
                 int target = FindInsertionTarget(codes);
-                Main.Log($"OpperandType: {codes[71].operand.GetType()}");
+                //Main.Log($"OpperandType: {codes[71].operand.GetType()}");
                 //Utilities.ILUtils.LogIL(codes);
                 codes[target] = new CodeInstruction(OpCodes.Newobj, VitalStrikeEventHandler_Constructor);
                 //Utilities.ILUtils.LogIL(codes);
