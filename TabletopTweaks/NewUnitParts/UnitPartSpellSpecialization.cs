@@ -205,7 +205,6 @@ namespace TabletopTweaks.NewUnitParts {
 
             public new int SpellLevel { 
                 get {
-                    Main.Log("SpontaneousConversionAbilityData::SpellLevel");
                     if (this.IsVariant) {
                         return this.baseData.Spellbook?.GetSpellLevel(baseData) ?? 0;
                     }
