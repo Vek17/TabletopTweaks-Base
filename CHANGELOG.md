@@ -1,6 +1,25 @@
-## Version 1.3.8
+## Version 1.4.0
 * weapon training no longer stacks with itself incorrectly
 * greater spell specialization now works more correctly with variant spells
+* Damage Reduction (HUGE Thanks to @bguns):
+    * Overview: This provides a comprehensive rework of the damage reduction / resistance mechanics in the game. This rework allows for (more) correct stacking of DR, and fixes issues with the interaction between Protection From Energy, energy resistance, and the Abjuration school's Elemental Absorption class feature.
+    * Fixed: DR X/- now increases and stacks as per the tabletop rules
+        * Changed: Mangling Frenzy item extra rage DR allowed to stack with barbarian(-like) damage reduction
+        * Changed: Lich's Indestructible Bones mythic ability allowed to stack with all other sources of DR/-
+        * Changed: Azata's The Bound of Possibility item now grants stacking DR/Lawful to match Aivu
+        * Changed: Armored Juggernaut (added by TTT) only stacks with adamantine armors, and is increased by Armor Mastery
+    * Fixed: interaction between protection from energy, energy resistance, and the abjuration school's energy absorption feature
+    * Fixed: Clustered Shots was able to (in theory) overcome force resistance
+    * Fixed: Abilities that reduced DR (such as Aeon's Enforcing Gaze with the DR option) also reduced energy resistance(s)
+    * Fixed: Skald Damage Reduction was not increased by the Increased Damage Reduction rage power
+    * Fixed: Mad Dog's pet's DR did not increase if the Mad Dog took the Increased Damage Reduction rage power
+    * Fixed: Bloodrager (Primalist) DR was not increased by the Increased Damage Reduction rage power
+    * Fixed: Winter Oracle Ice Armor revelation gave DR 5/- instead of DR 5/piercing
+    * Fixed: Bruiser's Chainshirt gave DR 3/- instead of DR 3/piercing
+    * Fixed: Warden of Darkness (Tower Shield) gave DR 5/- instead of DR 5/good
+    * Fixed: Aivu was gaining DR/- instead of DR/Lawful
+    * Fixed: The rage buff from the Mangling Frenzy belt did not apply to Bloodrager's rage
+
 
 ## Version 1.3.7
 * fixed issue where settings were not always properly preserved in version updates
