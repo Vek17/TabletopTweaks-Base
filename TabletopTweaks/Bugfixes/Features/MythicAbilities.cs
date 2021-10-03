@@ -32,6 +32,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
+                PatchFavoriteMetamagic();
                 PatchMythicCharge();
             }
             static void PatchBloodlineAscendance() {
@@ -100,6 +101,14 @@ namespace TabletopTweaks.Bugfixes.Features {
                     };
                     c.Amount = 1;
                 }));
+            }
+            static void PatchFavoriteMetamagic() {
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("FavoriteMetamagic")) { return; }
+
+                var FavoriteMetamagicSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+                var FavoriteMetamagicBolstered = Resources.GetBlueprint<BlueprintFeature>("8d44a7d4950f4d6cbfda8530d108e63a");
+                FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicBolstered);
+                Main.LogPatch("Patched", FavoriteMetamagicSelection);
             }
             static void PatchMythicCharge() {
                 if (ModSettings.Fixes.MythicAbilities.IsDisabled("MythicCharge")) { return; }

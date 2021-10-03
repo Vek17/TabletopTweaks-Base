@@ -327,6 +327,7 @@
         "Enabled": {
             "BloodlineAscendance": true,
             "EnduringSpells": true,
+            "FavoriteMetamagic": true,
             "MythicCharge": true,
             "SecondBloodline": true,
             "SecondBloodragerBloodline": true
