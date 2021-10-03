@@ -60,6 +60,8 @@ namespace TabletopTweaks.NewUnitParts {
 
         public IEnumerable<ReductionDisplay> AllSources {
             get {
+                if (m_ChunkStacks == null)
+                    RecalculateChunkStacks();
                 // Populate sources display list
                 m_ChunkStacksForDisplay = new List<ChunkStack>();
                 for (int i = 0; i < m_ChunkStacks.Length; i++) {
