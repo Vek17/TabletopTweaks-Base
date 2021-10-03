@@ -3,13 +3,19 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.EntitySystem;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -28,6 +34,36 @@ namespace TabletopTweaks.MechanicsChanges {
                 if (descriptor == (ModifierDescriptor)NaturalArmor.Stackable) {
                     __result = true;
                 }
+            }
+        }
+
+        [HarmonyPatch(typeof(Polymorph), nameof(Polymorph.OnActivate))]
+        static class Polymorphr_OnActivate_NaturalArmorStacking_Patch {
+            static readonly MethodInfo Modifier_AddModifier = AccessTools.Method(typeof(ModifiableValue), "AddModifier", new Type[] {
+                typeof(int),
+                typeof(EntityFactComponent),
+                typeof(ModifierDescriptor)
+            });
+            //Change bonus descriptor to NaturalArmor.Bonus instead of ModifierDescriptor.NaturalArmorForm
+            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("DisableNaturalArmorStacking")) { return instructions; }
+                var codes = new List<CodeInstruction>(instructions);
+                int target = FindInsertionTarget(codes);
+                Utilities.ILUtils.LogIL(codes);
+                codes[target] = new CodeInstruction(OpCodes.Ldc_I4, (int)NaturalArmor.Bonus);
+                Utilities.ILUtils.LogIL(codes);
+                return codes.AsEnumerable();
+            }
+            private static int FindInsertionTarget(List<CodeInstruction> codes) {
+                for (int i = 0; i < codes.Count; i++) {
+                    //Find the modifier using Natural Armor Form
+                    if (codes[i].OperandIs((int)ModifierDescriptor.NaturalArmorForm)
+                        && codes[i+1].Calls(Modifier_AddModifier)) {
+                        return i;
+                    }
+                }
+                Main.Log("POLYMORPH PATCH: COULD NOT FIND TARGET");
+                return -1;
             }
         }
 
