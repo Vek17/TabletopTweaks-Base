@@ -60,6 +60,8 @@ namespace TabletopTweaks.NewUnitParts {
 
         public IEnumerable<ReductionDisplay> AllSources {
             get {
+                if (m_ChunkStacks == null)
+                    RecalculateChunkStacks();
                 // Populate sources display list
                 m_ChunkStacksForDisplay = new List<ChunkStack>();
                 for (int i = 0; i < m_ChunkStacks.Length; i++) {
@@ -125,6 +127,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void AddImmunity(EntityFact fact, BlueprintComponent component, DamageEnergyType type) {
+            this.TryInitialize();
             if (this.m_Immunities.FirstItem<TTUnitPartDamageReduction.Immunity>(i => i.SourceFact == fact && i.SourceComponent == component) != null)
                 PFLog.Default.Error("UnitPartDamageReduction.AddImmunity: can't add immunity twice {0}.{1}", fact.Blueprint.name, component.name);
             else
