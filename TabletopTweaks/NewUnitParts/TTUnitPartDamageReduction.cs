@@ -38,6 +38,10 @@ namespace TabletopTweaks.NewUnitParts {
         private readonly List<TTUnitPartDamageReduction.Immunity> m_Immunities = new List<TTUnitPartDamageReduction.Immunity>();
         private bool m_Cleanup = false;
 
+        public override void OnTurnOn() {
+            TryInitialize();
+        }
+
         public void AddPenaltyEntry(int penalty, EntityFact source) => this.PenaltyEntries.Add(new TTUnitPartDamageReduction.ReductionPenalty() {
             Penalty = penalty,
             Source = source
@@ -60,8 +64,6 @@ namespace TabletopTweaks.NewUnitParts {
 
         public IEnumerable<ReductionDisplay> AllSources {
             get {
-                if (m_ChunkStacks == null)
-                    RecalculateChunkStacks();
                 // Populate sources display list
                 m_ChunkStacksForDisplay = new List<ChunkStack>();
                 for (int i = 0; i < m_ChunkStacks.Length; i++) {
@@ -106,7 +108,6 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void Add(EntityFact fact) {
-            this.TryInitialize();
             if (this.m_SourceFacts.HasItem<EntityFact>(fact))
                 return;
             this.m_SourceFacts.Add(fact);
@@ -127,7 +128,6 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void AddImmunity(EntityFact fact, BlueprintComponent component, DamageEnergyType type) {
-            this.TryInitialize();
             if (this.m_Immunities.FirstItem<TTUnitPartDamageReduction.Immunity>(i => i.SourceFact == fact && i.SourceComponent == component) != null)
                 PFLog.Default.Error("UnitPartDamageReduction.AddImmunity: can't add immunity twice {0}.{1}", fact.Blueprint.name, component.name);
             else
@@ -140,7 +140,6 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void ApplyDamageReduction(RuleCalculateDamage evt) {
-            this.TryInitialize();
             UnitPartClusteredAttack partClusteredAttack = evt.Initiator.Get<UnitPartClusteredAttack>();
             UnitPartClusteredAttack clusteredAttack = partClusteredAttack == null || !partClusteredAttack.IsSuitableForEvent(evt) ? null : partClusteredAttack;
             Dictionary<DamageTypeDescription, ChunkStack[]> damageTypeToBestDRMapping = new Dictionary<DamageTypeDescription, ChunkStack[]>();
