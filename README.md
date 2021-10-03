@@ -129,6 +129,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Class specific feat selections should now have the correct feats
         The Holy Symbol of Iomedae no longer turns itself off
         Profane ascention now works corectly for dexterity and strength based characters
+        DR Rules now more closely follow the tabletop rules
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor
