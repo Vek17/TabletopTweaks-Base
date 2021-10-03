@@ -130,6 +130,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         The Holy Symbol of Iomedae no longer turns itself off
         Profane ascention now works corectly for dexterity and strength based characters
         DR Rules now more closely follow the tabletop rules
+        Favorite Metamagic Bolster can now be picked
     
     Aeon
         Allows bane uses to scale will all classes instead of just Inquisitor

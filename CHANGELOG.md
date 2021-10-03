@@ -1,5 +1,6 @@
 ## Version 1.4.1
 * favorite metamagic bolstered is now pickable
+* fixed cases where it was sometimes impossible to complete levelup due to the DR rework
 
 ## Version 1.4.0
 * weapon training no longer stacks with itself incorrectly
