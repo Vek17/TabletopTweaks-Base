@@ -127,16 +127,15 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void AddImmunity(EntityFact fact, BlueprintComponent component, DamageEnergyType type) {
+            this.TryInitialize();
             if (this.m_Immunities.FirstItem<TTUnitPartDamageReduction.Immunity>(i => i.SourceFact == fact && i.SourceComponent == component) != null)
                 PFLog.Default.Error("UnitPartDamageReduction.AddImmunity: can't add immunity twice {0}.{1}", fact.Blueprint.name, component.name);
             else
                 this.m_Immunities.Add(new TTUnitPartDamageReduction.Immunity(fact, component, type));
-            RecalculateChunkStacks();
         }
 
         public void RemoveImmunity(EntityFact fact, BlueprintComponent component) {
             this.m_Immunities.RemoveAll(i => i.SourceFact == fact && i.SourceComponent == component);
-            RecalculateChunkStacks();
             this.RemovePartIfNecessary();
         }
 
