@@ -1,3 +1,6 @@
+## Version 1.4.1
+* favorite metamagic bolstered is now pickable
+
 ## Version 1.4.0
 * weapon training no longer stacks with itself incorrectly
 * greater spell specialization now works more correctly with variant spells

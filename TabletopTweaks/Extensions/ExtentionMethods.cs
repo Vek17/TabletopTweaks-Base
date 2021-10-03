@@ -21,9 +21,9 @@ using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 
 namespace TabletopTweaks.Extensions {
     static class ExtentionMethods {
-        public static IEnumerable<GameAction> FlattenAllActions(this BlueprintAbility ability) {
+        public static IEnumerable<GameAction> FlattenAllActions(this BlueprintScriptableObject blueprint) {
             List<GameAction> actions = new List<GameAction>();
-            foreach (var component in ability.ComponentsArray) {
+            foreach (var component in blueprint.ComponentsArray) {
                 Type type = component.GetType();
                 var foundActions = AccessTools.GetDeclaredFields(type)
                     .Where(f => f.FieldType == typeof(ActionList))
