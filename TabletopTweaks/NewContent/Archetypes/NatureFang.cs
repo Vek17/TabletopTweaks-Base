@@ -1,14 +1,8 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using System;
-using System.Collections.Generic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -30,8 +24,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
         private static readonly BlueprintFeature ResistNaturesLure = Resources.GetBlueprint<BlueprintFeature>("ad6a5b0e1a65c3540986cf9a7b006388");
         private static readonly BlueprintFeature VenomImmunity = Resources.GetBlueprint<BlueprintFeature>("5078622eb5cecaf4683fa16a9b948c2c");
 
-        
-        //private static readonly BlueprintFeature StudyTarget = Resources.GetBlueprint<BlueprintFeature>("09bdd9445ac38044389476689ae8d5a1");
         private static readonly BlueprintFeature SneakAttack = Resources.GetBlueprint<BlueprintFeature>("9b9eac6709e1c084cb18c3a366e0ec87");
 
         private static readonly BlueprintFeature SlayerTalent2 = Resources.GetBlueprint<BlueprintFeature>("04430ad24988baa4daa0bcd4f1c7d118");
@@ -39,104 +31,93 @@ namespace TabletopTweaks.NewContent.Archetypes {
         private static readonly BlueprintFeature SlayerTalent10 = Resources.GetBlueprint<BlueprintFeature>("913b9cf25c9536949b43a2651b7ffb66");
         private static readonly BlueprintFeature SlayerAdvancedTalents = Resources.GetBlueprint<BlueprintFeature>("a33b99f95322d6741af83e9381b2391c");
 
-        private static readonly BlueprintFeature SanctifiedSlayerStudiedTargetFeature = Resources.GetBlueprint<BlueprintFeature>("6d9d3fbc30564e64d966dba27cd6357a");
-        private static readonly BlueprintFeature SlayerSwiftStudyTarget = Resources.GetBlueprint<BlueprintFeature>("40d4f55a5ac0e4f469d67d36c0dfc40b");
+        private static readonly BlueprintFeature SlayerStudyTargetFeature = Resources.GetBlueprint<BlueprintFeature>("09bdd9445ac38044389476689ae8d5a1");
+        private static readonly BlueprintFeature SlayerSwiftStudyTargetFeature = Resources.GetBlueprint<BlueprintFeature>("40d4f55a5ac0e4f469d67d36c0dfc40b");
 
         private static readonly BlueprintBuff SlayerStudyTargetBuff = Resources.GetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
 
-
         private static readonly BlueprintCharacterClass DruidClass = Resources.GetBlueprint<BlueprintCharacterClass>("610d836f3a3a9ed42a4349b62f002e96");
 
-        private static LevelEntry MakeLevelEntry(int level, params BlueprintFeature[] features) {
-            var entry = new LevelEntry() {
-                Level = level,
-                m_Features = new List<BlueprintFeatureBaseReference>(features.Length)
-            };
-            for (int i = 0; i < features.Length; i++) {
-                entry.m_Features.Add(features[i].ToReference<BlueprintFeatureBaseReference>());
-            }
-            return entry;
-        }
-
-        private static readonly List<LevelEntry> FeaturesToRemove = new List<LevelEntry> {
-            MakeLevelEntry(1, NatureSense),
-            MakeLevelEntry(4, WildShapeWolfFeature, ResistNaturesLure),
-            MakeLevelEntry(6, WildShapeLeopardFeature, WildShapeExtraUse, WildShapeElementalSmallFeature),
-            MakeLevelEntry(8, WildShapeBearFeature, WildShapeExtraUse, WildShapeElementalMediumFeature),
-            MakeLevelEntry(9, VenomImmunity),
-            MakeLevelEntry(10, WildShapeSmilodonFeature, WildShapeExtraUse, WildShapeElementalLargeFeature, WildShapeShamblingMoundFeature),
-            MakeLevelEntry(12, WildShapeElementalHugeFeature, WildShapeExtraUse),
-            MakeLevelEntry(14, WildShapeExtraUse),
-            MakeLevelEntry(16, WildShapeExtraUse),
-            MakeLevelEntry(18, WildShapeExtraUse),
-        };
-        
-        private static readonly List<LevelEntry> FeaturesToAdd = new List<LevelEntry> {
-            MakeLevelEntry(4, SlayerTalent2, SneakAttack),
-            MakeLevelEntry(6, SlayerTalent6),
-            MakeLevelEntry(8, SlayerTalent6),
-            MakeLevelEntry(10, SlayerTalent10),
-            MakeLevelEntry(12, SlayerAdvancedTalents, SlayerTalent10),
-            MakeLevelEntry(14, SlayerTalent10),
-            MakeLevelEntry(16, SlayerTalent10),
-            MakeLevelEntry(18, SlayerTalent10),
-            MakeLevelEntry(20, SlayerTalent10),
-        };
-
         public static void AddNatureFang() {
-            var studiedTargetFeature = Helpers.CreateCopy(SanctifiedSlayerStudiedTargetFeature, bp => {
-                bp.name = "NatureFangStudiedTargetFeature.Name";
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
-                bp.m_Description = Helpers.CreateString("NatureFangStudiedTargetFeature.Description", "At 1st level, a nature fang gains the slayer’s studied target class feature." +
-                    " At 5th level and every 5 levels thereafter, the nature fang’s bonus against her studied target increases by 1." +
-                    " Unlike a slayer, a nature fang does not gain the ability to maintain more than one studied target at the same time.");
+
+            var NatureFangStudiedTargetFeature = Helpers.CreateBlueprint<BlueprintFeature>("NatureFangStudiedTargetFeature", bp => {
+                bp.SetName("Studied Target");
+                bp.SetDescription("At 1st level, a nature fang gains the slayer’s studied target class feature." +
+                    " At 5th level and every 5 levels thereafter, the nature fang’s bonus against her studied target increases by 1.");
+                bp.m_Icon = SlayerStudyTargetFeature.Icon;
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { SlayerStudyTargetFeature.ToReference<BlueprintUnitFactReference>() };
+                });
             });
-            Resources.AddBlueprint(studiedTargetFeature);
 
-            var swiftStudiedTargetFeature = Helpers.CreateCopy(SanctifiedSlayerStudiedTargetFeature, bp => {
-                bp.name = "NatureFangStudiedTargetSwiftFeature.Name";
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
-                bp.m_Description = Helpers.CreateString("NatureFangStudiedTargetSwiftFeature.Description", "At 7th level, a character can study an opponent as a move or {g|Encyclopedia:Swift_Action}swift action{/g}.");
-                bp.GetComponent<AddFacts>().m_Facts[0] = SlayerSwiftStudyTarget.ToReference<BlueprintUnitFactReference>();
+            var NatureFangStudiedTargetSwiftFeature = Helpers.CreateBlueprint<BlueprintFeature>("NatureFangStudiedTargetSwiftFeature", bp => {
+                bp.SetName("Studied Target");
+                bp.SetDescription("At 7th level, a character can study an opponent as a move or swift action.");
+                bp.m_Icon = SlayerSwiftStudyTargetFeature.Icon;
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { SlayerSwiftStudyTargetFeature.ToReference<BlueprintUnitFactReference>() };
+                });
             });
-            Resources.AddBlueprint(swiftStudiedTargetFeature);
 
+            var NatureFangAdvancedSlayerTalent = Helpers.CreateBlueprint<BlueprintFeature>("NatureFangAdvancedSlayerTalent", bp => {
+                bp.SetName("Advanced Talent");
+                bp.SetDescription("Starting at 12th level, a Nature Fang can select an advanced slayer talent in place of a slayer talent.");
+                bp.m_Icon = SlayerAdvancedTalents.Icon;
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { SlayerAdvancedTalents.ToReference<BlueprintUnitFactReference>() };
+                });
+            });
 
-            FeaturesToAdd.Add(MakeLevelEntry(1, studiedTargetFeature));
-            FeaturesToAdd.Add(MakeLevelEntry(7, swiftStudiedTargetFeature));
-
-            var archetype = Helpers.CreateBlueprint<BlueprintArchetype>("NatureFangArcehtype", bp => {
+            var NatureFangArcehtype = Helpers.CreateBlueprint<BlueprintArchetype>("NatureFangArcehtype", bp => {
                 bp.LocalizedName = Helpers.CreateString("NatureFangArchetype.Name", "Nature Fang");
                 bp.LocalizedDescription = Helpers.CreateString("NatureFangArchetype.Description", "A nature fang is a druid who stalks and slays those who despoil nature, kill scarce animals, or introduce diseases to unprotected habitats." +
                     " She gives up a close empathic connection with the natural world to become its deadly champion and avenger.");
-
-                bp.RemoveFeatures = FeaturesToRemove.ToArray();
-                bp.AddFeatures = FeaturesToAdd.ToArray();
+                bp.RemoveFeatures = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(1, NatureSense),
+                    Helpers.CreateLevelEntry(4, WildShapeWolfFeature, ResistNaturesLure),
+                    Helpers.CreateLevelEntry(6, WildShapeLeopardFeature, WildShapeExtraUse, WildShapeElementalSmallFeature),
+                    Helpers.CreateLevelEntry(8, WildShapeBearFeature, WildShapeExtraUse, WildShapeElementalMediumFeature),
+                    Helpers.CreateLevelEntry(9, VenomImmunity),
+                    Helpers.CreateLevelEntry(10, WildShapeSmilodonFeature, WildShapeExtraUse, WildShapeElementalLargeFeature, WildShapeShamblingMoundFeature),
+                    Helpers.CreateLevelEntry(12, WildShapeElementalHugeFeature, WildShapeExtraUse),
+                    Helpers.CreateLevelEntry(14, WildShapeExtraUse),
+                    Helpers.CreateLevelEntry(16, WildShapeExtraUse),
+                    Helpers.CreateLevelEntry(18, WildShapeExtraUse)
+                };
+                bp.AddFeatures = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(1, NatureFangStudiedTargetFeature),
+                    Helpers.CreateLevelEntry(4, SlayerTalent2, SneakAttack),
+                    Helpers.CreateLevelEntry(6, SlayerTalent6),
+                    Helpers.CreateLevelEntry(7, NatureFangStudiedTargetSwiftFeature),
+                    Helpers.CreateLevelEntry(8, SlayerTalent6),
+                    Helpers.CreateLevelEntry(10, SlayerTalent10),
+                    Helpers.CreateLevelEntry(12, NatureFangAdvancedSlayerTalent, SlayerTalent10),
+                    Helpers.CreateLevelEntry(14, SlayerTalent10),
+                    Helpers.CreateLevelEntry(16, SlayerTalent10),
+                    Helpers.CreateLevelEntry(18, SlayerTalent10),
+                    Helpers.CreateLevelEntry(20, SlayerTalent10)
+                };
             });
 
             var studyTargetRankConfig = SlayerStudyTargetBuff.GetComponent<ContextRankConfig>();
             studyTargetRankConfig.m_Class = studyTargetRankConfig.m_Class.AppendToArray(DruidClass.ToReference<BlueprintCharacterClassReference>());
+            studyTargetRankConfig.m_AdditionalArchetypes = studyTargetRankConfig.m_AdditionalArchetypes.AppendToArray(NatureFangArcehtype.ToReference<BlueprintArchetypeReference>());
 
             if (ModSettings.AddedContent.Archetypes.IsDisabled("NatureFang")) { return; }
-            DruidClass.m_Archetypes = DruidClass.m_Archetypes.AppendToArray(archetype.ToReference<BlueprintArchetypeReference>());
+            DruidClass.m_Archetypes = DruidClass.m_Archetypes.AppendToArray(NatureFangArcehtype.ToReference<BlueprintArchetypeReference>());
 
             DruidClass.Progression.UIGroups = DruidClass.Progression.UIGroups.AppendToArray(
-                new UIGroup() {
-                    m_Features = new List<BlueprintFeatureBaseReference> {
-                        SlayerTalent2.ToReference<BlueprintFeatureBaseReference>(),
-                        SlayerTalent6.ToReference<BlueprintFeatureBaseReference>(),
-                        SlayerTalent10.ToReference<BlueprintFeatureBaseReference>(),
-                    }
-                },
-                new UIGroup() {
-                    m_Features = new List<BlueprintFeatureBaseReference>() {
-                        studiedTargetFeature.ToReference<BlueprintFeatureBaseReference>(),
-                        swiftStudiedTargetFeature.ToReference<BlueprintFeatureBaseReference>(),
-                    }
-                }
+                Helpers.CreateUIGroup(
+                    SlayerTalent2,
+                    SlayerTalent6,
+                    SlayerTalent10
+                ),
+                Helpers.CreateUIGroup(
+                    NatureFangStudiedTargetFeature,
+                    NatureFangStudiedTargetSwiftFeature
+                )
             );
-
-            Main.LogPatch("Added", archetype);
+            Main.LogPatch("Added", NatureFangArcehtype);
         }
     }
 }
