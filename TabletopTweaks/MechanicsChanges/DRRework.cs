@@ -330,7 +330,7 @@ namespace TabletopTweaks.MechanicsChanges {
         }
 
         [HarmonyPatch]
-        [HarmonyDebug]
+        //[HarmonyDebug]
         static class UIUtilityItem_Patches {
 
             static IEnumerable<MethodBase> TargetMethods() {
