@@ -58,6 +58,8 @@ namespace TabletopTweaks.MechanicsChanges {
                                 ClassData c = enumerator.Current;
                                 if (checklist.Contains(c.CharacterClass.ToReference<BlueprintCharacterClassReference>())) {
 
+                                } else if (c.CharacterClass.IsMythic) { 
+                                
                                 } else {
 
                                     if (!__instance.m_Classes.HasItem((BlueprintProgression.ClassWithLevel i) => i.Class == c.CharacterClass) || !c.Archetypes.HasItem((BlueprintArchetype a) => __instance.m_Archetypes.HasItem((BlueprintProgression.ArchetypeWithLevel i) => i.Archetype == a))) {
