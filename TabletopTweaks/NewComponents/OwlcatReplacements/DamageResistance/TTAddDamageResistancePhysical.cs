@@ -44,7 +44,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance {
         [ShowIf("BypassedByWeaponType")]
         [SerializeField]
         [FormerlySerializedAs("WeaponType")]
-        private BlueprintWeaponTypeReference m_WeaponType;
+        public BlueprintWeaponTypeReference m_WeaponType;
         public bool BypassedByMeleeWeapon;
         [Header("Epic")]
         public bool BypassedByEpic;
