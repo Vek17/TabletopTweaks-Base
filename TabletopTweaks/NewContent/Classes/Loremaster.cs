@@ -51,8 +51,8 @@ namespace TabletopTweaks.NewContent.Classes {
                         bp.Groups = secret.Groups;
                         bp.HideNotAvailibleInUI = true;
                         bp.AddComponent<AdditionalSpellSelection>(c => {
-                            c.SpellCastingClass = secret.m_SpellcasterClass;
-                            c.SpellList = secret.m_SpellList;
+                            c.m_SpellCastingClass = secret.m_SpellcasterClass;
+                            c.m_SpellList = secret.m_SpellList;
                             c.UseOffset = true;
                             c.Count = 1;
                         });
