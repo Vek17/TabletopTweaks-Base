@@ -288,7 +288,7 @@
     <Compile Include="NewContent\Feats\ExtraRevelation.cs" />
     <Compile Include="NewContent\Feats\ExtraRogueTalent.cs" />
     <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
-    <Compile Include="NewContent\Feats\DeadeyesBlessing.cs" />
+    <Compile Include="NewContent\Feats\ErastilsBlessing.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
     <Compile Include="NewContent\Feats\NatureSoul.cs" />

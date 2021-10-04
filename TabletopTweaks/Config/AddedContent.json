@@ -35,7 +35,7 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
-            "DeadeyesBlessing": true,
+            "ErastilsBlessing": true,
             "DervishDance": true,
             "ExtraArcanistExploit": true,
             "ExtraArcana": true,

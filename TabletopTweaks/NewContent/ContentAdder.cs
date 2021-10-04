@@ -91,7 +91,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.AnimalAlly.AddAnimalAlly();
                 Feats.SpellSpecializationGreater.AddSpellSpecializationGreater();
 
-                Feats.DeadeyesBlessing.AddDeadeyesBlessing();
+                Feats.ErastilsBlessing.AddErastilsBlessing();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 
