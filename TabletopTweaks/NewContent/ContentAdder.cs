@@ -62,6 +62,8 @@ namespace TabletopTweaks.NewContent {
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
                 Archetypes.MetamagicRager.AddMetamagicRager();
+                Archetypes.DivineCommander.AddDivineCommander();
+                Archetypes.NatureFang.AddNatureFang();
                 //Features to support existing archetypes
                 Archetypes.MadDog.AddMadDogFeatures();
 
@@ -88,6 +90,8 @@ namespace TabletopTweaks.NewContent {
                 Feats.NatureSoul.AddNatureSoul();
                 Feats.AnimalAlly.AddAnimalAlly();
                 Feats.SpellSpecializationGreater.AddSpellSpecializationGreater();
+
+                Feats.DeadeyesBlessing.AddDeadeyesBlessing();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 

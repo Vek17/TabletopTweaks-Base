@@ -16,6 +16,8 @@
     "Archetypes": {
         "DisableAll": false,
         "Enabled": {
+            "NatureFang": true,
+            "DivineCommander": true,
             "CauldronWitchArchetype": true,
             "ElementalMasterArchetype": true,
             "MetamagicRager": true
@@ -33,6 +35,7 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
+            "DeadeyesBlessing": true,
             "DervishDance": true,
             "ExtraArcanistExploit": true,
             "ExtraArcana": true,
