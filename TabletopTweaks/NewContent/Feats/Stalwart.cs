@@ -132,7 +132,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
             });
 
-            var StalwartToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("StalwartToggleABility", bp => {
+            var StalwartToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("StalwartToggleAbility", bp => {
                 bp.SetName("Stalwart");
                 bp.SetDescription(StalwartDescription());
                 bp.m_Icon = DefensiveStanceActivatableAbility.m_Icon;

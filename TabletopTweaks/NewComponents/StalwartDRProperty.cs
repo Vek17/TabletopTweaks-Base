@@ -41,12 +41,6 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public override int GetBaseValue(UnitEntityData unit) {
-            Main.LogDebug($"Stalwart feat: unit.Descriptor.GetFact(m_FightingDefensivelyBuff): {unit.Descriptor.GetFact(m_FightingDefensivelyBuff) == null}");
-            Main.LogDebug($"Stalwart feat: unit.Descriptor.GetFact(m_CraneStyleBuff) == null: {unit.Descriptor.GetFact(m_CraneStyleBuff) == null}");
-            Main.LogDebug($"Stalwart feat: unit.Descriptor.GetFact(m_CautiousFighter) == null: {unit.Descriptor.GetFact(m_CautiousFighter) == null}");
-            Main.LogDebug($"Stalwart feat: unit.Descriptor.GetFact(m_SwordLordSteelNetFeature) == null: {unit.Descriptor.GetFact(m_SwordLordSteelNetFeature) == null}");
-            Main.LogDebug($"Stalwart feat: unit.Descriptor.GetFact(m_CombatExpertiseBuff) == null: {unit.Descriptor.GetFact(m_CombatExpertiseBuff) == null}");
-            Main.LogDebug($"Stalwart feat: unit.Descriptor.GetFact(m_StalwartImprovedFeature) == null: {unit.Descriptor.GetFact(m_StalwartImprovedFeature) == null}");
             int num = 0;
             EntityFact fightingDefensivelyFact = unit.Descriptor.GetFact(m_FightingDefensivelyBuff);
             if (fightingDefensivelyFact != null) {
