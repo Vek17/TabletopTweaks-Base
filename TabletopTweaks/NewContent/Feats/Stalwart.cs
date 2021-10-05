@@ -1,9 +1,13 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.ResourceLinks;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
@@ -44,17 +48,11 @@ namespace TabletopTweaks.NewContent.Feats {
                     StalwartImprovedFeature.ToReference<BlueprintUnitFactReference>()));
             });
 
-            var StalwartFeature = Helpers.CreateBlueprint<BlueprintFeature>("StalwartFeature", bp => {
+            var StalwartBuff = Helpers.CreateBlueprint<BlueprintBuff>("StalwartBuff", bp => {
                 bp.SetName("Stalwart");
-                bp.SetDescription("While fighting defensively or using Combat Expertise, " +
-                    "you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, " +
-                    "to a maximum of DR 5/—, until the start of your next turn. This damage reduction stacks with DR you gain from class features, " +
-                    "such as the barbarian’s, but not with DR from any other source.");
-                bp.Ranks = 1;
-                bp.ReapplyOnLevelUp = true;
+                bp.m_Flags = BlueprintBuff.Flags.StayOnDeath;
                 bp.IsClassFeature = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                // TODO: move these to the buff granted by the toggle granted by this feat
+                bp.ResourceAssetIds = Array.Empty<string>();
                 bp.AddComponent<TTAddDamageResistancePhysical>(c => {
                     c.Value = new ContextValue {
                         ValueType = ContextValueType.Rank
@@ -76,6 +74,44 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.m_CustomPropertyList = Array.Empty<BlueprintUnitPropertyReference>();
                     c.m_CustomProperty = StalwartDRPpropertyBlueprint.ToReference<BlueprintUnitPropertyReference>();
                 });
+                bp.AddComponent<RecalculateOnFactsChange>(c => {
+                    c.m_CheckedFacts = new BlueprintUnitFactReference[] {
+                        CombatExpertiseBuff.ToReference<BlueprintUnitFactReference>(),
+                        FightDefensivelyBuff.ToReference<BlueprintUnitFactReference>(),
+                        CraneStyleBuff.ToReference<BlueprintUnitFactReference>()
+                    };
+                });
+            });
+
+            var StalwartToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("StalwartToggleABility", bp => {
+                bp.SetName("Stalwart");
+                bp.SetDescription("While fighting defensively or using Combat Expertise, " +
+                    "you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, " +
+                    "to a maximum of DR 5/—, until the start of your next turn. This damage reduction stacks with DR you gain from class features, " +
+                    "such as the barbarian’s, but not with DR from any other source.");
+                bp.m_Buff = StalwartBuff.ToReference<BlueprintBuffReference>();
+                bp.m_SelectTargetAbility = BlueprintReferenceBase.CreateTyped<BlueprintAbilityReference>(null);
+                bp.IsOnByDefault = false;
+                bp.ResourceAssetIds = Array.Empty<string>();
+            });
+
+            var StalwartFeature = Helpers.CreateBlueprint<BlueprintFeature>("StalwartFeature", bp => {
+                bp.SetName("Stalwart");
+                bp.SetDescription("While fighting defensively or using Combat Expertise, " +
+                    "you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, " +
+                    "to a maximum of DR 5/—, until the start of your next turn. This damage reduction stacks with DR you gain from class features, " +
+                    "such as the barbarian’s, but not with DR from any other source.");
+                bp.Ranks = 1;
+                bp.ReapplyOnLevelUp = true;
+                bp.IsClassFeature = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+                bp.IsPrerequisiteFor = new List<BlueprintFeatureReference>() { StalwartImprovedFeature.ToReference<BlueprintFeatureReference>() };
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        StalwartToggleAbility.ToReference<BlueprintUnitFactReference>()
+                    };
+                    c.Dummy = BlueprintReferenceBase.CreateTyped<BlueprintUnitReference>(null);
+                });
                 bp.AddPrerequisite<PrerequisiteFeature>(p => {
                     p.m_Feature = Diehard.ToReference<BlueprintFeatureReference>();
                 });
@@ -95,6 +131,8 @@ namespace TabletopTweaks.NewContent.Feats {
                 p.Stat = StatType.BaseAttackBonus;
                 p.Value = 11;
             });
+            FeatTools.AddAsFeat(StalwartFeature);
+            FeatTools.AddAsFeat(StalwartImprovedFeature);
         }
     }
 }

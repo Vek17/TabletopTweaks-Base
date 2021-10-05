@@ -41,6 +41,7 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 using TabletopTweaks.NewComponents.Prerequisites;
+using TabletopTweaks.NewContent.Feats;
 using TabletopTweaks.NewUnitParts;
 using TabletopTweaks.Utilities;
 
@@ -448,6 +449,8 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchBrokenDRSettings();
                 PatchArmorMastery();
                 PatchArmoredJuggernaut();
+
+                Stalwart.AddStalwart();
             }
 
             static void PatchArmorDR() {
