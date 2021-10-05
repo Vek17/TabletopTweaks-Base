@@ -1,3 +1,11 @@
+## Version 1.5.0
+* added new archetypes (big thanks to @factubsio for their work on these)
+    * nature fang
+        * A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents
+    * divine commander
+        * A warpriest/cavalier hybrid archetype who trades blessings and some bonus feats for a divine mount and the tactician ability
+
+
 ## Version 1.4.1
 * favorite metamagic bolstered is now pickable
 * fixed cases where it was sometimes impossible to complete levelup due to the DR rework

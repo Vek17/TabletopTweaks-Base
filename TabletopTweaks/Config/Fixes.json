@@ -243,8 +243,7 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "Trapfinding": true,
-                "StudiedTarget": true
+                "Trapfinding": true
             }
         },
         "Archetypes": {}

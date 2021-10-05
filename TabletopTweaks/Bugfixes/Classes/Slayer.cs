@@ -25,7 +25,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBaseClass();
             }
             static void PatchBaseClass() {
-                PatchSlayerStudiedTarget();
                 PatchSlayerTrapfinding();
 
                 void PatchSlayerTrapfinding() {
@@ -39,12 +38,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         };
                     }));
                     Main.LogPatch("Patched", SlayerTrapfinding);
-                }
-                void PatchSlayerStudiedTarget() {
-                    if (ModSettings.Fixes.Slayer.Base.IsDisabled("StudiedTarget")) { return; }
-                    BlueprintBuff SlayerStudiedTargetBuff = Resources.GetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
-                    SlayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
-                    Main.LogPatch("Patched", SlayerStudiedTargetBuff);
                 }
             }
         }

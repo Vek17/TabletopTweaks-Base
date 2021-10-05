@@ -62,7 +62,7 @@ namespace TabletopTweaks.NewComponents {
         public int SpellLevelOffset;
         public int Count = 1;
 
-        [HarmonyPatch(typeof(SpellSelectionData), "CanSelectAnything", new Type[] { typeof(UnitDescriptor) })]
+        [HarmonyPatch(typeof(SpellSelectionData), nameof(SpellSelectionData.CanSelectAnything), new Type[] { typeof(UnitDescriptor) })]
         static class SpellSelectionData_CanSelectAnything_AdditionalSpellSelection_Patch {
             static void Postfix(SpellSelectionData __instance, ref bool __result, UnitDescriptor unit) {
                 Spellbook spellbook = unit.Spellbooks.FirstOrDefault((Spellbook s) => s.Blueprint == __instance.Spellbook);
@@ -82,7 +82,7 @@ namespace TabletopTweaks.NewComponents {
                 }
             }
         }
-        [HarmonyPatch(typeof(CharGenSpellsPhaseVM), "DefinePhaseMode", new Type[] { typeof(SpellSelectionData), typeof(SpellSelectionData.SpellSelectionState) })]
+        [HarmonyPatch(typeof(CharGenSpellsPhaseVM), nameof(CharGenSpellsPhaseVM.DefinePhaseMode), new Type[] { typeof(SpellSelectionData), typeof(SpellSelectionData.SpellSelectionState) })]
         static class CharGenSpellsPhaseVM_DefinePhaseMode_AdditionalSpellSelection_Patch {
             static void Postfix(CharGenSpellsPhaseVM __instance, ref CharGenSpellsPhaseVM.SpellSelectorMode __result, SpellSelectionData selectionData) {
                 if (!selectionData.Spellbook.AllSpellsKnown) { return; }
@@ -91,7 +91,7 @@ namespace TabletopTweaks.NewComponents {
                 }
             }
         }
-        [HarmonyPatch(typeof(CharGenSpellsPhaseVM), "OrderPriority", MethodType.Getter)]
+        [HarmonyPatch(typeof(CharGenSpellsPhaseVM), nameof(CharGenSpellsPhaseVM.OrderPriority), MethodType.Getter)]
         static class CharGenSpellsPhaseVM_OrderPriority_AdditionalSpellSelection_Patch {
             static void Postfix(CharGenSpellsPhaseVM __instance, ref int __result) {
                 if (__instance?.m_SelectionData == null) { return; }

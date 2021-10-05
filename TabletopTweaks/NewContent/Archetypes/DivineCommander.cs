@@ -35,8 +35,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
 
         private static readonly BlueprintFeature BonusFeatSelection = Resources.GetBlueprint<BlueprintFeature>("303fd456ddb14437946e344bad9a893b");
 
-        private static readonly BlueprintFeature OtherworldlyCompanionSelection = Resources.GetBlueprint<BlueprintFeature>("b1c0bcb356a496e4487b7dd8e7521043");
-
         private static readonly BlueprintFeatureSelection CavalierMountSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("0605927df6e2fdd42af6ee2424eb89f2");
         private static readonly BlueprintAbility CavalierTacticianAbility = Resources.GetBlueprint<BlueprintAbility>("3ff8ef7ba7b5be0429cf32cd4ddf637c");
         private static readonly BlueprintFeature CavalierTacticianSupportFeature = Resources.GetBlueprint<BlueprintFeature>("37c496c0c2f04544b83a8d013409fd47");
