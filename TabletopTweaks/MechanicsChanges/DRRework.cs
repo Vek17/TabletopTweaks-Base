@@ -449,8 +449,6 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchBrokenDRSettings();
                 PatchArmorMastery();
                 PatchArmoredJuggernaut();
-
-                Stalwart.AddStalwart();
             }
 
             static void PatchArmorDR() {
