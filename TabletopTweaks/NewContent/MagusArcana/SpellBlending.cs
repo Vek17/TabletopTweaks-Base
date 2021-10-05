@@ -35,8 +35,8 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                     "list that is of a magus spell level he can cast. He adds this spell to his spellbook and list of " +
                     "magus spells known as a magus spell of its wizard spell level.");
                 bp.AddComponent<AdditionalSpellSelection>(c => {
-                    c.SpellCastingClass = MagusClass.ToReference<BlueprintCharacterClassReference>();
-                    c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
+                    c.m_SpellCastingClass = MagusClass.ToReference<BlueprintCharacterClassReference>();
+                    c.m_SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
                     c.UseOffset = true;
                     c.SpellLevelOffset = 0;
                     c.Count = 1;
@@ -52,8 +52,8 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                     "list that are one level lower of a magus spell level he can cast. He adds these spells to his spellbook and list of " +
                     "magus spells known as magus spells of thier wizard spell level.");
                 bp.AddComponent<AdditionalSpellSelection>(c => {
-                    c.SpellCastingClass = MagusClass.ToReference<BlueprintCharacterClassReference>();
-                    c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
+                    c.m_SpellCastingClass = MagusClass.ToReference<BlueprintCharacterClassReference>();
+                    c.m_SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
                     c.UseOffset = true;
                     c.SpellLevelOffset = 1;
                     c.Count = 2;
