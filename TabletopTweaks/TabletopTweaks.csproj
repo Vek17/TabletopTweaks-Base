@@ -268,6 +268,7 @@
     <Compile Include="NewContent\Archetypes\NatureFang.cs" />
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Classes\Cavalier.cs" />
     <Compile Include="NewContent\Classes\Loremaster.cs" />
     <Compile Include="NewContent\Archetypes\MetamagicRager.cs" />
     <Compile Include="NewContent\BaseAbilities\OneHandedToggleAbility.cs" />
@@ -300,8 +301,6 @@
     <Compile Include="NewContent\Feats\StreetSmarts.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
     <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
-    <Compile Include="NewContent\Features\CavalierMobilityFeature.cs" />
-    <Compile Include="NewContent\Features\CavalierMounts.cs" />
     <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
     <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
     <Compile Include="NewContent\Archetypes\MadDog.cs" />
@@ -333,6 +332,7 @@
     <Compile Include="NewContent\Races\Halfling.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
+    <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />

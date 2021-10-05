@@ -45,6 +45,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.SetDescription("At 1st level, a nature fang gains the slayer’s studied target class feature." +
                     " At 5th level and every 5 levels thereafter, the nature fang’s bonus against her studied target increases by 1.");
                 bp.m_Icon = SlayerStudyTargetFeature.Icon;
+                bp.IsClassFeature = true;
                 bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { SlayerStudyTargetFeature.ToReference<BlueprintUnitFactReference>() };
                 });
@@ -54,6 +55,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.SetName("Studied Target");
                 bp.SetDescription("At 7th level, a character can study an opponent as a move or swift action.");
                 bp.m_Icon = SlayerSwiftStudyTargetFeature.Icon;
+                bp.IsClassFeature = true;
                 bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { SlayerSwiftStudyTargetFeature.ToReference<BlueprintUnitFactReference>() };
                 });
@@ -63,6 +65,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.SetName("Advanced Talent");
                 bp.SetDescription("Starting at 12th level, a Nature Fang can select an advanced slayer talent in place of a slayer talent.");
                 bp.m_Icon = SlayerAdvancedTalents.Icon;
+                bp.IsClassFeature = true;
                 bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { SlayerAdvancedTalents.ToReference<BlueprintUnitFactReference>() };
                 });

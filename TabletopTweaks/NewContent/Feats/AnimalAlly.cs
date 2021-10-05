@@ -60,7 +60,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     .ToArray();
             });
 
-            var AnimalAlly = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AnimalAllyFeatureSelection", bp => {
+            var AnimalAllyFeatureSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AnimalAllyFeatureSelection", bp => {
                 bp.SetName("Animal Ally");
                 bp.SetDescription("You gain an animal companion as if you were a druid of your character level –3. Unlike normal animals of its kind, " +
                     "an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level.");
@@ -110,7 +110,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 c.m_RankFeature = AnimalAllyRank.ToReference<BlueprintFeatureReference>();
                 c.Bonus = 4;
             });
-            FeatTools.AddAsFeat(AnimalAlly);
+            FeatTools.AddAsFeat(AnimalAllyFeatureSelection);
         }
     }
 }
