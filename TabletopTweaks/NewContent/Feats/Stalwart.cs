@@ -75,7 +75,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.SetDescription("Double the DR you gain from Stalwart, to a maximum of DR 10/—.");
             });
 
-            var StalwartDRPpropertyBlueprint = Helpers.CreateBlueprint<BlueprintUnitProperty>("StalwartDRProperty", bp => {
+            var StalwartDRPropertyBlueprint = Helpers.CreateBlueprint<BlueprintUnitProperty>("StalwartDRProperty", bp => {
                 bp.AddComponent(new StalwartDRProperty(
                     CombatExpertiseBuff.ToReference<BlueprintUnitFactReference>(), 
                     FightDefensivelyBuff.ToReference<BlueprintUnitFactReference>(), 
@@ -111,7 +111,7 @@ namespace TabletopTweaks.NewContent.Feats {
                         c.IsStacksWithClassFeatures = true;
                     });
                 }
-                bp.AddComponent<ContextRankConfig>(c => {
+                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
                     c.m_Feature = BlueprintReferenceBase.CreateTyped<BlueprintFeatureReference>(null);
                     c.m_FeatureList = Array.Empty<BlueprintFeatureReference>();
@@ -121,8 +121,8 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.m_AdditionalArchetypes = Array.Empty<BlueprintArchetypeReference>();
                     c.m_Class = Array.Empty<BlueprintCharacterClassReference>();
                     c.m_CustomPropertyList = Array.Empty<BlueprintUnitPropertyReference>();
-                    c.m_CustomProperty = StalwartDRPpropertyBlueprint.ToReference<BlueprintUnitPropertyReference>();
-                });
+                    c.m_CustomProperty = StalwartDRPropertyBlueprint.ToReference<BlueprintUnitPropertyReference>();
+                }));
                 bp.AddComponent<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] {
                         CombatExpertiseBuff.ToReference<BlueprintUnitFactReference>(),
@@ -204,7 +204,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 };
             });
 
-            CombatExpertiseBuff.AddComponent<ContextRankConfig>(c => {
+            CombatExpertiseBuff.AddComponent(Helpers.CreateContextRankConfig(c => {
                 c.m_BaseValueType = ContextRankBaseValueType.BaseAttack;
                 c.m_Progression = ContextRankProgression.OnePlusDivStep;
                 c.m_StepLevel = 4;
@@ -217,7 +217,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 c.m_AdditionalArchetypes = Array.Empty<BlueprintArchetypeReference>();
                 c.m_Class = Array.Empty<BlueprintCharacterClassReference>();
                 c.m_CustomPropertyList = Array.Empty<BlueprintUnitPropertyReference>();
-            });
+            }));
 
             CombatExpertiseBuff.RemoveComponents<AddStatBonus>();
 
