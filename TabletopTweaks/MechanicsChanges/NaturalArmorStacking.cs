@@ -58,7 +58,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 for (int i = 0; i < codes.Count; i++) {
                     //Find the modifier using Natural Armor Form
                     if (codes[i].OperandIs((int)ModifierDescriptor.NaturalArmorForm)
-                        && codes[i+1].Calls(Modifier_AddModifier)) {
+                        && codes[i + 1].Calls(Modifier_AddModifier)) {
                         return i;
                     }
                 }

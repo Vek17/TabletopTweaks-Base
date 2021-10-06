@@ -88,6 +88,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Animal Ally
         Greater Spell Specialization
         Erastil's Blessing
+        Stalwart
+        Improved Stalwart
 
     Adds the following rogue talents:
         Graceful Athlete

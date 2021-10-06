@@ -6,7 +6,6 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
@@ -212,7 +211,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     p.HideInUI = true;
                 });
             });
-            
+
             var DivineCommanderBlessedMountResolute = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderBlessedMountResolute", bp => {
                 bp.SetName("Blessed Mount — Resolute");
                 bp.SetDescription("Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
@@ -257,7 +256,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     BaseValue = 1,
                     IncreasedByStat = false,
                     m_Class = new BlueprintCharacterClassReference[0],
-                    m_ClassDiv = new BlueprintCharacterClassReference[] { 
+                    m_ClassDiv = new BlueprintCharacterClassReference[] {
                         WarpriestClass.ToReference<BlueprintCharacterClassReference>()
                     },
                     m_Archetypes = new BlueprintArchetypeReference[0],
@@ -321,7 +320,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         m_IsExtendable = true,
                         DiceType = Kingmaker.RuleSystem.DiceType.One,
                         DiceCountValue = 4,
-                        BonusValue = new ContextValue() { 
+                        BonusValue = new ContextValue() {
                             ValueType = ContextValueType.Rank
                         }
                     };

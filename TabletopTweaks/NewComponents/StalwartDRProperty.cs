@@ -6,15 +6,11 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TabletopTweaks.NewComponents {
 
     [TypeId("157d986776584a2da0729efd762e5598")]
-    public class StalwartDRProperty : PropertyValueGetter{
+    public class StalwartDRProperty : PropertyValueGetter {
         private BlueprintUnitFactReference m_CombatExpertiseBuff;
 
         private BlueprintUnitFactReference m_FightingDefensivelyBuff;

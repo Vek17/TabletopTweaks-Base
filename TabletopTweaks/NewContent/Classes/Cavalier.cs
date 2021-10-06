@@ -7,7 +7,6 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
-using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.Prerequisites;
@@ -40,7 +39,7 @@ namespace TabletopTweaks.NewContent.Classes {
                     c.m_ExtraEffectBuff = CavalierMobilityBuff.ToReference<BlueprintBuffReference>();
                 }));
             });
-            
+
             var CavalierMountFeatureWolf = Helpers.CreateBlueprint<BlueprintFeature>("CavalierMountFeatureWolf", bp => {
                 bp.m_DisplayName = AnimalCompanionFeatureWolf.m_DisplayName;
                 bp.m_Description = AnimalCompanionFeatureWolf.m_Description;

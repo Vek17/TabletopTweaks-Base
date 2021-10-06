@@ -7,7 +7,6 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -18,9 +17,6 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -77,10 +73,10 @@ namespace TabletopTweaks.NewContent.Feats {
 
             var StalwartDRPropertyBlueprint = Helpers.CreateBlueprint<BlueprintUnitProperty>("StalwartDRProperty", bp => {
                 bp.AddComponent(new StalwartDRProperty(
-                    CombatExpertiseBuff.ToReference<BlueprintUnitFactReference>(), 
-                    FightDefensivelyBuff.ToReference<BlueprintUnitFactReference>(), 
-                    CraneStyleBuff.ToReference<BlueprintUnitFactReference>(), 
-                    CautiousFighter.ToReference<BlueprintUnitFactReference>(), 
+                    CombatExpertiseBuff.ToReference<BlueprintUnitFactReference>(),
+                    FightDefensivelyBuff.ToReference<BlueprintUnitFactReference>(),
+                    CraneStyleBuff.ToReference<BlueprintUnitFactReference>(),
+                    CautiousFighter.ToReference<BlueprintUnitFactReference>(),
                     SwordLordSteelNetFeature.ToReference<BlueprintUnitFactReference>(),
                     StalwartImprovedFeature.ToReference<BlueprintUnitFactReference>()));
             });
@@ -175,7 +171,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 p.Stat = StatType.BaseAttackBonus;
                 p.Value = 11;
             });
-            
+
             if (ModSettings.AddedContent.Feats.IsDisabled("Stalwart")) { return; }
 
             FeatTools.AddAsFeat(StalwartFeature);
