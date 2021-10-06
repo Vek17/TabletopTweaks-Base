@@ -230,6 +230,7 @@
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ShatterDefensesInitiator.cs" />
+    <Compile Include="NewComponents\StalwartDRProperty.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceForce.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistancePhysical.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="NewContent\Feats\ShatterDefenses.cs" />
     <Compile Include="NewContent\Feats\ShingleRunner.cs" />
     <Compile Include="NewContent\Feats\SpellSpecializationGreater.cs" />
+    <Compile Include="NewContent\Feats\Stalwart.cs" />
     <Compile Include="NewContent\Feats\StreetSmarts.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
     <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
