@@ -4,8 +4,8 @@
         * A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents
     * divine commander
         * A warpriest/cavalier hybrid archetype who trades blessings and some bonus feats for a divine mount and the tactician ability
-* added erastil's blessing feat
-* added stalwart and improved stalwart feats
+* added erastil's blessing feat (Thanks @bguns)
+* added stalwart and improved stalwart feats (Thanks @factubsio)
 * fixed issues with ContextRankConfigs giving incorrect progressions in some cases. Unsure of the scope of the bug but things should work more correctly now.
 
 
