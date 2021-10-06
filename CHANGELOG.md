@@ -1,3 +1,6 @@
+## Version 1.5.0a
+* fixed issue where ContextRankConfigs would sometimes calculate incorrectly if only one archetype was setup
+
 ## Version 1.5.0
 * added new archetypes (big thanks to @factubsio for their work on these)
     * nature fang

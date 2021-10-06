@@ -5,6 +5,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using System.Linq;
+using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.General {
     static class ContextRankConfigFix {
@@ -14,53 +15,58 @@ namespace TabletopTweaks.Bugfixes.General {
             static void Postfix(ContextRankConfig __instance, MechanicsContext context, ref int __result) {
                 switch (__instance.m_BaseValueType) {
                     case ContextRankBaseValueType.SummClassLevelWithArchetype: {
-                        int value = 0;
-                        var additionalArchetypes = __instance.m_AdditionalArchetypes ?? new BlueprintArchetypeReference[0];
-                        var archetypes = additionalArchetypes.AddToArray(__instance.Archetype);
-                        foreach (ClassData characterClass in context.MaybeCaster.Descriptor.Progression.Classes) {
-                            if (__instance.m_ExceptClasses ?
-                                !__instance.m_Class.HasReference(characterClass.CharacterClass) : __instance.m_Class.HasReference(characterClass.CharacterClass)) {
-
-                                if (archetypes.Length > 0) {
-
-                                    if (archetypes.Any(archetype => characterClass.CharacterClass.Archetypes.HasReference(archetype))) {
-
-                                        if (__instance.Archetypes.Any(archetype => characterClass.Archetypes.Contains(archetype) || characterClass.Archetypes.Contains(__instance.Archetype))) {
-                                            value += characterClass.Level + context.Params.RankBonus;
+                            int value = 0;
+                            var archetypes = new BlueprintArchetypeReference[0];
+                            archetypes = archetypes.AppendToArray(__instance.m_AdditionalArchetypes);
+                            archetypes = archetypes.AppendToArray(__instance.Archetype);
+                            Main.Log($"archetypes: {archetypes.Length}");
+                            foreach (ClassData characterClass in context.MaybeCaster.Descriptor.Progression.Classes) {
+                                if (__instance.m_ExceptClasses ?
+                                    !__instance.m_Class.HasReference(characterClass.CharacterClass) : __instance.m_Class.HasReference(characterClass.CharacterClass)) {
+                                    Main.Log($"Checking Class: {characterClass.CharacterClass.Name}");
+                                    if (archetypes.Length > 0) {
+                                        Main.Log($"Checking Archetypes: {characterClass.CharacterClass.Name}");
+                                        if (archetypes.Any(archetype => characterClass.CharacterClass.Archetypes.HasReference(archetype))) {
+                                            Main.Log($"Found Archetype: {characterClass.CharacterClass.Name}");
+                                            if (archetypes.Any(archetype => characterClass.Archetypes.Contains(archetype))) {
+                                                value += characterClass.Level + context.Params.RankBonus;
+                                            }
                                         }
+                                    } else {
+                                        value += characterClass.Level + context.Params.RankBonus;
                                     }
-                                } else {
-                                    value += characterClass.Level + context.Params.RankBonus;
                                 }
                             }
+                            Main.Log($"Value: {value}");
+                            __result = value;
                         }
-                        __result = value;
-                    }
-                    break;
+                        break;
                     case ContextRankBaseValueType.MaxClassLevelWithArchetype: {
-                        int value = 0;
-                        var additionalArchetypes = __instance.m_AdditionalArchetypes ?? new BlueprintArchetypeReference[0];
-                        var archetypes = additionalArchetypes.AddToArray(__instance.Archetype);
-                        foreach (ClassData characterClass in context.MaybeCaster.Descriptor.Progression.Classes) {
-                            if (__instance.m_ExceptClasses ?
-                                !__instance.m_Class.HasReference(characterClass.CharacterClass) : __instance.m_Class.HasReference(characterClass.CharacterClass)) {
-
-                                if (archetypes.Length > 0) {
-
-                                    if (archetypes.Any(archetype => characterClass.CharacterClass.Archetypes.HasReference(archetype))) {
-
-                                        if (__instance.Archetypes.Any(archetype => characterClass.Archetypes.Contains(archetype) || characterClass.Archetypes.Contains(__instance.Archetype))) {
-                                            value = Math.Max(value, characterClass.Level + context.Params.RankBonus);
+                            int value = 0;
+                            var archetypes = new BlueprintArchetypeReference[0];
+                            archetypes = archetypes.AppendToArray(__instance.m_AdditionalArchetypes);
+                            archetypes = archetypes.AppendToArray(__instance.Archetype);
+                            foreach (ClassData characterClass in context.MaybeCaster.Descriptor.Progression.Classes) {
+                                if (__instance.m_ExceptClasses ?
+                                    !__instance.m_Class.HasReference(characterClass.CharacterClass) : __instance.m_Class.HasReference(characterClass.CharacterClass)) {
+                                    Main.Log($"Checking Class: {characterClass.CharacterClass.Name}");
+                                    if (archetypes.Length > 0) {
+                                        Main.Log($"Checking Archetypes: {characterClass.CharacterClass.Name}");
+                                        if (archetypes.Any(archetype => characterClass.CharacterClass.Archetypes.HasReference(archetype))) {
+                                            Main.Log($"Found Archetype: {characterClass.CharacterClass.Name}");
+                                            if (archetypes.Any(archetype => characterClass.Archetypes.Contains(archetype))) {
+                                                value = Math.Max(value, characterClass.Level + context.Params.RankBonus);
+                                            }
                                         }
+                                    } else {
+                                        value = Math.Max(value, characterClass.Level + context.Params.RankBonus);
                                     }
-                                } else {
-                                    value = Math.Max(value, characterClass.Level + context.Params.RankBonus);
                                 }
                             }
+                            Main.Log($"Value: {value}");
+                            __result = value;
                         }
-                        __result = value;
-                    }
-                    break;
+                        break;
                 }
             }
         }
