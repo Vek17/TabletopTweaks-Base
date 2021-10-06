@@ -268,6 +268,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     StartingLevel = 9,
                     LevelStep = 6,
                     PerStepIncrease = 1,
+                    StartingIncrease = 1
                 };
             });
 
@@ -342,7 +343,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBattleTacticianAbilitySwift = Helpers.CreateBlueprint<BlueprintAbility>("DivineCommanderBattleTacticianAbilitySwift", bp => {
-                bp.SetName("Battle Tactician");
+                bp.SetName("Battle Tactician (Swift)");
                 bp.SetDescription("At 12th level, the divine commander gains an additional teamwork feat as a bonus feat." +
                     " She must meet the prerequisites for this feat." +
                     " The divine commander can grant this feat to her allies using the battle tactician ability." +

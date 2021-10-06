@@ -22,6 +22,7 @@ using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
@@ -34,6 +35,13 @@ namespace TabletopTweaks.NewContent.Templates {
 
         public static void AddCelestialTemplate() {
             var CelestialTemplate = CreateAlignmentTemplate("TemplateCelestial", DamageAlignment.Evil, DamageEnergyType.Cold, DamageEnergyType.Acid, DamageEnergyType.Electricity);
+            CelestialTemplate.SetDescription("Crature gains spell resistance equal to its level +5. It also gains:\n" +
+                "1 — 4 HD: resistance 5 to cold, acid, and electricity.\n" +
+                "5 — 10 HD: resistance 10 to cold, acid, and electricity, DR 5/evil\n" +
+                "11+ HD: resistance 15 to cold, acid, and electricity, DR 10/evil\n" +
+                "Smite Evil (Su): Once per day, the celestial creature may smite a evil-aligned creature. As a swift action, " +
+                "the creature chooses one target within sight to smite. If this target is evil, the creature adds its Charisma bonus (if any) to " +
+                "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var CelestialTemplateSmiteEvilResource = CreateAlignmentResource("TemplateCelestialResource");
             var CelestialTemplateSmiteEvilBuff = CreateAlignmentSmiteBuff("TemplateCelestialSmiteEvilBuff", SmiteEvilBuff, bp => {
                 bp.SetName("Smite Evil");
@@ -59,6 +67,13 @@ namespace TabletopTweaks.NewContent.Templates {
         }
         public static void AddFiendishTemplate() {
             var FiendishTemplate = CreateAlignmentTemplate("TemplateFiendish", DamageAlignment.Good, DamageEnergyType.Cold, DamageEnergyType.Fire);
+            FiendishTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
+                    "1 — 4 HD: resistance 5 to cold and fire.\n" +
+                    "5 — 10 HD: resistance 10 to cold and fire, DR 5/good\n" +
+                    "11+ HD: resistance 15 to cold and fire, DR 10/good\n" +
+                    "Smite Good (Su): Once per day, the fiendish creature may smite a good-aligned creature. As a swift action, " +
+                    "the creature chooses one target within sight to smite. If this target is good, the creature adds its Charisma bonus (if any) to " +
+                    "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var FiendishTemplateSmiteGoodResource = CreateAlignmentResource("TemplateFiendishResource");
             var FiendishTemplateSmiteGoodBuff = CreateAlignmentSmiteBuff("TemplateFiendishSmiteGoodBuff", FiendishSmiteGoodBuff, bp => {
                 bp.SetName("Smite Good");
@@ -84,6 +99,13 @@ namespace TabletopTweaks.NewContent.Templates {
         }
         public static void AddEntropicTemplate() {
             var EntropicTemplate = CreateAlignmentTemplate("TemplateEntropic", DamageAlignment.Lawful, DamageEnergyType.Acid, DamageEnergyType.Fire);
+            EntropicTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
+                    "1 — 4 HD: resistance 5 to acid and fire.\n" +
+                    "5 — 10 HD: resistance 10 to acid and fire, DR 5/lawful\n" +
+                    "11+ HD: resistance 15 to acid and fire, DR 10/lawful\n" +
+                    "Smite Law (Su): Once per day, the entropic creature may smite a law-aligned creature. As a swift action, " +
+                    "the creature chooses one target within sight to smite. If this target is lawful, the creature adds its Charisma bonus (if any) to " +
+                    "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var EntropicTemplateSmiteLawResource = CreateAlignmentResource("TemplateEntropicResource");
             var EntropicTemplateSmiteLawBuff = CreateAlignmentSmiteBuff("TemplateEntropicSmiteLawBuff", FiendishSmiteGoodBuff, bp => {
                 bp.SetName("Smite Law");
@@ -109,6 +131,13 @@ namespace TabletopTweaks.NewContent.Templates {
         }
         public static void AddResoluteTemplate() {
             var ResoluteTemplate = CreateAlignmentTemplate("TemplateResolute", DamageAlignment.Chaotic, DamageEnergyType.Acid, DamageEnergyType.Cold, DamageEnergyType.Fire);
+            ResoluteTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
+                    "1 — 4 HD: resistance 5 to acid, cold and fire.\n" +
+                    "5 — 10 HD: resistance 10 to acid, cold and fire, DR 5/chaotic\n" +
+                    "11+ HD: resistance 15 to acid, cold and fire, DR 10/chaotic\n" +
+                    "Smite Chaos (Su): Once per day, the resolute creature may smite a chaos-aligned creature. As a swift action, " +
+                    "the creature chooses one target within sight to smite. If this target is chaotic, the creature adds its Charisma bonus (if any) to " +
+                    "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var ResoluteTemplateSmiteChaosResource = CreateAlignmentResource("TemplateResoluteResource");
             var ResoluteTemplateSmiteChaosBuff = CreateAlignmentSmiteBuff("TemplateResoluteSmiteChaosBuff", FiendishSmiteGoodBuff, bp => {
                 bp.SetName("Smite Chaos");
@@ -135,7 +164,8 @@ namespace TabletopTweaks.NewContent.Templates {
 
         private static BlueprintFeature CreateAlignmentTemplate(string name, DamageAlignment dr, params DamageEnergyType[] resists) {
             return Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
-                bp.SetName(name);
+                var Name = Regex.Split(name, @"(?<!^)(?=[A-Z])");
+                bp.SetName($"{Name[1]} {Name[0]}");
                 bp.SetDescription("");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;

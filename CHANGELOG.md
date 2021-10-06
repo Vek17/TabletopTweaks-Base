@@ -4,6 +4,7 @@
         * A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents
     * divine commander
         * A warpriest/cavalier hybrid archetype who trades blessings and some bonus feats for a divine mount and the tactician ability
+* added erastil's blessing feat
 
 
 ## Version 1.4.1

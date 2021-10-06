@@ -1,8 +1,14 @@
-﻿using Kingmaker.Blueprints;
+﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using System;
+using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -33,6 +39,9 @@ namespace TabletopTweaks.NewContent.Archetypes {
 
         private static readonly BlueprintFeature SlayerStudyTargetFeature = Resources.GetBlueprint<BlueprintFeature>("09bdd9445ac38044389476689ae8d5a1");
         private static readonly BlueprintFeature SlayerSwiftStudyTargetFeature = Resources.GetBlueprint<BlueprintFeature>("40d4f55a5ac0e4f469d67d36c0dfc40b");
+
+        private static readonly BlueprintFeature UncannyDodgeTalent = Resources.GetBlueprint<BlueprintFeature>("ca5274d057152fa45b7527cad0927840");
+        private static readonly BlueprintFeature ImprovedUncannyDodgeTalent = Resources.GetBlueprint<BlueprintFeature>("e821c61b2711cea4cb993725b910e7e8");
 
         private static readonly BlueprintBuff SlayerStudyTargetBuff = Resources.GetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
 
@@ -105,6 +114,15 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var studyTargetRankConfig = SlayerStudyTargetBuff.GetComponent<ContextRankConfig>();
             studyTargetRankConfig.m_Class = studyTargetRankConfig.m_Class.AppendToArray(DruidClass.ToReference<BlueprintCharacterClassReference>());
             studyTargetRankConfig.m_AdditionalArchetypes = studyTargetRankConfig.m_AdditionalArchetypes.AppendToArray(NatureFangArcehtype.ToReference<BlueprintArchetypeReference>());
+
+            UncannyDodgeTalent.AddPrerequisite<PrerequisiteArchetypeLevel>(p => {
+                p.m_CharacterClass = DruidClass.ToReference<BlueprintCharacterClassReference>();
+                p.m_Archetype = NatureFangArcehtype.ToReference<BlueprintArchetypeReference>();
+            });
+            ImprovedUncannyDodgeTalent.AddPrerequisite<PrerequisiteArchetypeLevel>(p => {
+                p.m_CharacterClass = DruidClass.ToReference<BlueprintCharacterClassReference>();
+                p.m_Archetype = NatureFangArcehtype.ToReference<BlueprintArchetypeReference>();
+            });
 
             if (ModSettings.AddedContent.Archetypes.IsDisabled("NatureFang")) { return; }
             DruidClass.m_Archetypes = DruidClass.m_Archetypes.AppendToArray(NatureFangArcehtype.ToReference<BlueprintArchetypeReference>());
