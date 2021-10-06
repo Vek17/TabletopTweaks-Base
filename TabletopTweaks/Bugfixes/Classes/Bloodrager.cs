@@ -1,17 +1,20 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -125,6 +128,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchPrimalist() {
                 PatchRagePowerFeatQualifications();
+                PatchPrimalistRageBuffs();
 
                 void PatchRagePowerFeatQualifications() {
                     if (ModSettings.Fixes.Bloodrager.Archetypes["Primalist"].IsDisabled("RagePowerFeatQualifications")) { return; }
@@ -173,6 +177,40 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (ModSettings.Fixes.Bloodrager.Archetypes["ReformedFiend"].IsDisabled("DamageReduction")) { return; }
                     var ReformedFiendDamageReductionFeature = Resources.GetBlueprint<BlueprintFeature>("2a3243ad1ccf43d5a5d69de3f9d0420e");
                     ReformedFiendDamageReductionFeature.GetComponent<AddDamageResistancePhysical>().BypassedByAlignment = true;
+                }
+            }
+
+            static void PatchPrimalistRageBuffs() {
+                PatchCelestialTotem();
+
+                void PatchCelestialTotem() {
+                    var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+
+                    var CelestialTotemLesserFeature = Resources.GetBlueprint<BlueprintFeature>("aba61e0b0e66bf3439cc247ee89fddae");
+                    var CelestialTotemLesserBuff = Resources.GetBlueprint<BlueprintBuff>("fe27c0d9b9dc6a74aa88887b561ad5f3");
+
+                    CelestialTotemLesserFeature.AddComponent<BuffExtraEffects>(c => {
+                        c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                        c.m_ExtraEffectBuff = CelestialTotemLesserBuff.ToReference<BlueprintBuffReference>();
+                    });
+
+                    var CelestialTotemFeature = Resources.GetBlueprint<BlueprintFeature>("5156331dc888e9347ae6fc81ad3f3cec");
+                    var CelestialTotemAreaBuff = Resources.GetBlueprint<BlueprintBuff>("7bf740b33eaa2534e91def3cef142e00");
+
+                    CelestialTotemFeature.AddComponent<BuffExtraEffects>(c => {
+                        c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                        c.m_ExtraEffectBuff = CelestialTotemAreaBuff.ToReference<BlueprintBuffReference>();
+                    });
+
+                    var CelestialTotemGreaterFeature = Resources.GetBlueprint<BlueprintFeature>("774f79845d1683a43aa42ebd2a549497");
+                    var CelestialTotemGreaterBuff = Resources.GetBlueprint<BlueprintBuff>("e31276241f875254cb102329c0b55ba7");
+
+                    CelestialTotemGreaterFeature.GetComponent<PrerequisiteArchetypeLevel>().Group = Prerequisite.GroupType.Any;
+
+                    CelestialTotemGreaterFeature.AddComponent<BuffExtraEffects>(c => {
+                        c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                        c.m_ExtraEffectBuff = CelestialTotemGreaterBuff.ToReference<BlueprintBuffReference>();
+                    });
                 }
             }
         }
