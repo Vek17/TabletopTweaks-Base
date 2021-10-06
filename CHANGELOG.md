@@ -1,4 +1,7 @@
 ## Version 1.5.0a
+* fixed issue where ContextRankConfigs would sometimes calculate incorrectly for classes without an archetype
+
+## Version 1.5.0a
 * fixed issue where ContextRankConfigs would sometimes calculate incorrectly if only one archetype was setup
 
 ## Version 1.5.0

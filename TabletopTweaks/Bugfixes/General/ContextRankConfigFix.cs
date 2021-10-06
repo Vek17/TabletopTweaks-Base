@@ -19,25 +19,22 @@ namespace TabletopTweaks.Bugfixes.General {
                             var archetypes = new BlueprintArchetypeReference[0];
                             archetypes = archetypes.AppendToArray(__instance.m_AdditionalArchetypes);
                             archetypes = archetypes.AppendToArray(__instance.Archetype);
-                            Main.Log($"archetypes: {archetypes.Length}");
                             foreach (ClassData characterClass in context.MaybeCaster.Descriptor.Progression.Classes) {
                                 if (__instance.m_ExceptClasses ?
                                     !__instance.m_Class.HasReference(characterClass.CharacterClass) : __instance.m_Class.HasReference(characterClass.CharacterClass)) {
-                                    Main.Log($"Checking Class: {characterClass.CharacterClass.Name}");
                                     if (archetypes.Length > 0) {
-                                        Main.Log($"Checking Archetypes: {characterClass.CharacterClass.Name}");
                                         if (archetypes.Any(archetype => characterClass.CharacterClass.Archetypes.HasReference(archetype))) {
-                                            Main.Log($"Found Archetype: {characterClass.CharacterClass.Name}");
                                             if (archetypes.Any(archetype => characterClass.Archetypes.Contains(archetype))) {
                                                 value += characterClass.Level + context.Params.RankBonus;
                                             }
+                                        } else {
+                                            value += characterClass.Level + context.Params.RankBonus;
                                         }
                                     } else {
                                         value += characterClass.Level + context.Params.RankBonus;
                                     }
                                 }
                             }
-                            Main.Log($"Value: {value}");
                             __result = value;
                         }
                         break;
@@ -49,21 +46,19 @@ namespace TabletopTweaks.Bugfixes.General {
                             foreach (ClassData characterClass in context.MaybeCaster.Descriptor.Progression.Classes) {
                                 if (__instance.m_ExceptClasses ?
                                     !__instance.m_Class.HasReference(characterClass.CharacterClass) : __instance.m_Class.HasReference(characterClass.CharacterClass)) {
-                                    Main.Log($"Checking Class: {characterClass.CharacterClass.Name}");
                                     if (archetypes.Length > 0) {
-                                        Main.Log($"Checking Archetypes: {characterClass.CharacterClass.Name}");
                                         if (archetypes.Any(archetype => characterClass.CharacterClass.Archetypes.HasReference(archetype))) {
-                                            Main.Log($"Found Archetype: {characterClass.CharacterClass.Name}");
                                             if (archetypes.Any(archetype => characterClass.Archetypes.Contains(archetype))) {
                                                 value = Math.Max(value, characterClass.Level + context.Params.RankBonus);
                                             }
+                                        } else {
+                                            value = Math.Max(value, characterClass.Level + context.Params.RankBonus);
                                         }
                                     } else {
                                         value = Math.Max(value, characterClass.Level + context.Params.RankBonus);
                                     }
                                 }
                             }
-                            Main.Log($"Value: {value}");
                             __result = value;
                         }
                         break;
