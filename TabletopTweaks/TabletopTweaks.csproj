@@ -174,7 +174,7 @@
     <Compile Include="MechanicsChanges\DRRework.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
-    <Compile Include="MechanicsChanges\ProgressionFix.cs" />
+    <Compile Include="Bugfixes\General\ProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
