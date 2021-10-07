@@ -148,6 +148,7 @@
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Features\MythicFeats.cs" />
+    <Compile Include="Bugfixes\General\ContextRankConfigFix.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
     <Compile Include="Bugfixes\General\ProfaneGift.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
@@ -173,7 +174,6 @@
     <Compile Include="MechanicsChanges\DRRework.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
-    <Compile Include="MechanicsChanges\NewAttribute.cs" />
     <Compile Include="MechanicsChanges\ProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
@@ -230,6 +230,7 @@
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ShatterDefensesInitiator.cs" />
+    <Compile Include="NewComponents\StalwartDRProperty.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceForce.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistancePhysical.cs" />
@@ -266,7 +267,10 @@
     <Compile Include="NewComponents\Prerequisites\PrerequisiteNoClassLevelVisible.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
+    <Compile Include="NewContent\Archetypes\NatureFang.cs" />
+    <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Classes\Cavalier.cs" />
     <Compile Include="NewContent\Classes\Loremaster.cs" />
     <Compile Include="NewContent\Archetypes\MetamagicRager.cs" />
     <Compile Include="NewContent\BaseAbilities\OneHandedToggleAbility.cs" />
@@ -287,6 +291,7 @@
     <Compile Include="NewContent\Feats\ExtraRevelation.cs" />
     <Compile Include="NewContent\Feats\ExtraRogueTalent.cs" />
     <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
+    <Compile Include="NewContent\Feats\ErastilsBlessing.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
     <Compile Include="NewContent\Feats\NatureSoul.cs" />
@@ -295,11 +300,10 @@
     <Compile Include="NewContent\Feats\ShatterDefenses.cs" />
     <Compile Include="NewContent\Feats\ShingleRunner.cs" />
     <Compile Include="NewContent\Feats\SpellSpecializationGreater.cs" />
+    <Compile Include="NewContent\Feats\Stalwart.cs" />
     <Compile Include="NewContent\Feats\StreetSmarts.cs" />
     <Compile Include="NewContent\Features\AeonBaneIncreaseResourceFeature.cs" />
     <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
-    <Compile Include="NewContent\Features\CavalierMobilityFeature.cs" />
-    <Compile Include="NewContent\Features\CavalierMounts.cs" />
     <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
     <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
     <Compile Include="NewContent\Archetypes\MadDog.cs" />
@@ -331,6 +335,7 @@
     <Compile Include="NewContent\Races\Halfling.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
+    <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />

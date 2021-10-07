@@ -14,6 +14,11 @@ namespace TabletopTweaks.NewContent {
                 Main.LogHeader("Loading New Content");
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
+                Templates.AlignmentTemplates.AddCelestialTemplate();
+                Templates.AlignmentTemplates.AddEntropicTemplate();
+                Templates.AlignmentTemplates.AddFiendishTemplate();
+                Templates.AlignmentTemplates.AddResoluteTemplate();
+
                 WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
 
                 Races.Dwarf.AddDwarfHeritage();
@@ -43,10 +48,8 @@ namespace TabletopTweaks.NewContent {
                 FighterAdvancedArmorTrainings.SteelHeadbutt.AddSteelHeadbutt();
 
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
-                Features.CavalierMounts.AddCavalierMountFeatureWolf();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.LongspearChargeBuff.AddLongspearChargeBuff();
-                Features.CavalierMobilityFeature.AddCavalierMobilityFeature();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
                 Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
 
@@ -56,14 +59,17 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
-
+                //Features to support existing clases
                 Classes.Loremaster.AddLoremasterFeatures();
+                Classes.Cavalier.AddCavalierFeatures();
+                //Features to support existing archetypes
+                Archetypes.MadDog.AddMadDogFeatures();
                 //New archetypes
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
                 Archetypes.MetamagicRager.AddMetamagicRager();
-                //Features to support existing archetypes
-                Archetypes.MadDog.AddMadDogFeatures();
+                Archetypes.DivineCommander.AddDivineCommander();
+                Archetypes.NatureFang.AddNatureFang();
 
                 Spells.LongArms.AddLongArms();
                 Spells.ShadowEnchantment.AddShadowEnchantment();
@@ -88,6 +94,9 @@ namespace TabletopTweaks.NewContent {
                 Feats.NatureSoul.AddNatureSoul();
                 Feats.AnimalAlly.AddAnimalAlly();
                 Feats.SpellSpecializationGreater.AddSpellSpecializationGreater();
+                Feats.Stalwart.AddStalwart();
+
+                Feats.ErastilsBlessing.AddErastilsBlessing();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 

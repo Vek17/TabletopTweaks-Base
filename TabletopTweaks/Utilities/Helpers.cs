@@ -66,16 +66,19 @@ namespace TabletopTweaks.Utilities {
             };
         }
 
-        public static LevelEntry LevelEntry(int level, params BlueprintFeatureBase[] features) {
-            return LevelEntry(level, features);
-        }
-
-        public static LevelEntry LevelEntry(int level, IEnumerable<BlueprintFeatureBase> features) {
+        public static LevelEntry CreateLevelEntry(int level, params BlueprintFeatureBase[] features) {
             LevelEntry levelEntry = new LevelEntry();
             levelEntry.Level = level;
             features.ForEach(f => levelEntry.Features.Add(f));
             return levelEntry;
         }
+
+        public static UIGroup CreateUIGroup(params BlueprintFeatureBase[] features) {
+            UIGroup uiGroup = new UIGroup();
+            features.ForEach(f => uiGroup.Features.Add(f));
+            return uiGroup;
+        }
+
         public static ContextValue CreateContextValueRank(AbilityRankType value = AbilityRankType.Default) => value.CreateContextValue();
         public static ContextValue CreateContextValue(this AbilityRankType value) {
             return new ContextValue() { ValueType = ContextValueType.Rank, ValueRank = value };

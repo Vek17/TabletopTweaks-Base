@@ -1,3 +1,24 @@
+## Version 1.5.1
+* fixed issue with uncanny dodge prerequisites
+* fixed utilitarian magic tooltip
+
+## Version 1.5.0b
+* fixed issue where ContextRankConfigs would sometimes calculate incorrectly for classes without an archetype
+
+## Version 1.5.0a
+* fixed issue where ContextRankConfigs would sometimes calculate incorrectly if only one archetype was setup
+
+## Version 1.5.0
+* added new archetypes (big thanks to @factubsio for their work on these)
+    * nature fang
+        * A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents
+    * divine commander
+        * A warpriest/cavalier hybrid archetype who trades blessings and some bonus feats for a divine mount and the tactician ability
+* added erastil's blessing feat (Thanks @bguns)
+* added stalwart and improved stalwart feats (Thanks @factubsio)
+* fixed issues with ContextRankConfigs giving incorrect progressions in some cases. Unsure of the scope of the bug but things should work more correctly now.
+
+
 ## Version 1.4.1
 * favorite metamagic bolstered is now pickable
 * fixed cases where it was sometimes impossible to complete levelup due to the DR rework

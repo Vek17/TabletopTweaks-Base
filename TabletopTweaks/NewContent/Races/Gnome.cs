@@ -162,7 +162,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Utilitarian Magic");
-                bp.SetDescription("Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic");
+                bp.SetDescription("Some gnomes develop practical magic to assist them with their obsessive projects. " +
+                    "These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic");
                 bp.AddComponent(Helpers.Create<IncreaseSpellSchoolDC>(c => {
                     c.School = SpellSchool.Transmutation;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;

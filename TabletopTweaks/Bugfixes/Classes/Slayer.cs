@@ -1,12 +1,9 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -25,7 +22,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBaseClass();
             }
             static void PatchBaseClass() {
-                PatchSlayerStudiedTarget();
                 PatchSlayerTrapfinding();
 
                 void PatchSlayerTrapfinding() {
@@ -39,12 +35,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         };
                     }));
                     Main.LogPatch("Patched", SlayerTrapfinding);
-                }
-                void PatchSlayerStudiedTarget() {
-                    if (ModSettings.Fixes.Slayer.Base.IsDisabled("StudiedTarget")) { return; }
-                    BlueprintBuff SlayerStudiedTargetBuff = Resources.GetBlueprint<BlueprintBuff>("45548967b714e254aa83f23354f174b0");
-                    SlayerStudiedTargetBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.OnePlusDivStep;
-                    Main.LogPatch("Patched", SlayerStudiedTargetBuff);
                 }
             }
         }

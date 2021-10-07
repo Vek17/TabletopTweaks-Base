@@ -16,6 +16,8 @@
     "Archetypes": {
         "DisableAll": false,
         "Enabled": {
+            "NatureFang": true,
+            "DivineCommander": true,
             "CauldronWitchArchetype": true,
             "ElementalMasterArchetype": true,
             "MetamagicRager": true
@@ -33,6 +35,7 @@
     "Feats": {
         "DisableAll": false,
         "Enabled": {
+            "ErastilsBlessing": true,
             "DervishDance": true,
             "ExtraArcanistExploit": true,
             "ExtraArcana": true,
@@ -50,6 +53,7 @@
             "Self-Sufficient": true,
             "ShingleRunner": true,
             "SpellSpecializationGreater": true,
+            "Stalwart":  true,
             "StreetSmarts": true,
             "NatureSoul": true,
             "AnimalAlly": true
