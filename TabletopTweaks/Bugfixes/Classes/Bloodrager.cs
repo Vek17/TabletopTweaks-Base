@@ -186,6 +186,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchDaemonTotem();
                 PatchFiendTotem();
                 PatchPowerfulStance();
+                PatchScentRagePower();
 
                 void PatchCelestialTotem() {
 
@@ -276,6 +277,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         c.m_ExtraEffectBuff = PowerfulStanceEffectBuff.ToReference<BlueprintBuffReference>();
                     });
                     Main.LogPatch("Patched", PowerfulStanceSwitchBuff);
+                }
+
+                void PatchScentRagePower() {
+                    var PrimalistRagePowersBuff = Resources.GetBlueprint<BlueprintBuff>("ecc22ca1eea1bf6488a0d7c6ee2527d8");
+
+                    var ScentFeature = Resources.GetBlueprint<BlueprintFeature>("6e5d57a733d1eea46a9022a304f2c728");
+                    var ScentRageBuff = Resources.GetBlueprint<BlueprintBuff>("879e6a7ed8101404d8e4f1bc25c0d34f");
+                    PrimalistRagePowersBuff.AddConditionalBuff(ScentFeature, ScentRageBuff);
+                    Main.LogPatch("Patched", ScentFeature);
                 }
             }
         }
