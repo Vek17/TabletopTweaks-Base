@@ -64,7 +64,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         Steel Headbut
         
     Adds the following archetypes:
-        Metamagic Rager
+        Bloodrager - Metamagic Rager
+        Warpriest - Divine Commander
+        Druid - Nature Fang
 
     Adds the following feats:
         Dervish Dance

@@ -85,7 +85,7 @@ namespace TabletopTweaks.NewUnitParts {
             public EntityFact Source;
         }
 
-        [HarmonyPatch(typeof(AbilityData), "GetConversions")]
+        [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.GetConversions))]
         static class AbilityData_GetConversions_SpellSpecializationGreater_Patch {
             static void Postfix(AbilityData __instance, ref IEnumerable<AbilityData> __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
@@ -126,8 +126,8 @@ namespace TabletopTweaks.NewUnitParts {
             }
         }
 
-        [HarmonyPatch(typeof(AbilityData), "RequireFullRoundAction", MethodType.Getter)]
-        static class AbilityData_RequireFullRoundAction_QuickStudy_Patch {
+        [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.RequireFullRoundAction), MethodType.Getter)]
+        static class AbilityData_RequireFullRoundAction_SpellSpecializationGreater_Patch {
             static void Postfix(AbilityData __instance, ref bool __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
                 switch (__instance) {
@@ -138,8 +138,8 @@ namespace TabletopTweaks.NewUnitParts {
             }
         }
 
-        [HarmonyPatch(typeof(AbilityData), "SpellLevel", MethodType.Getter)]
-        static class AbilityData_SpellLevel_QuickStudy_Patch {
+        [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.SpellLevel), MethodType.Getter)]
+        static class AbilityData_SpellLevel_SpellSpecializationGreater_Patch {
             static void Postfix(AbilityData __instance, ref int __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
                 switch (__instance) {
@@ -150,8 +150,9 @@ namespace TabletopTweaks.NewUnitParts {
             }
         }
 
-        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationSprite")]
-        static class AbilityData_DecorationColorNumber_QuickStudy_Patch {
+        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell))]
+        [HarmonyPatch(nameof(MechanicActionBarSlotSpontaneusConvertedSpell.GetDecorationSprite))]
+        static class AbilityData_DecorationColorNumber_SpellSpecializationGreater_Patch {
             static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Sprite __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
                 switch (__instance.Spell) {
@@ -162,8 +163,9 @@ namespace TabletopTweaks.NewUnitParts {
             }
         }
 
-        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell), "GetDecorationColor")]
-        static class AbilityData_DecorationBorderNumber_QuickStudy_Patch {
+        [HarmonyPatch(typeof(MechanicActionBarSlotSpontaneusConvertedSpell))]
+        [HarmonyPatch(nameof(MechanicActionBarSlotSpontaneusConvertedSpell.GetDecorationColor))]
+        static class AbilityData_DecorationBorderNumber_SpellSpecializationGreater_Patch {
             static void Postfix(MechanicActionBarSlotSpontaneusConvertedSpell __instance, ref Color __result) {
                 if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
                 switch (__instance.Spell) {

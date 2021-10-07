@@ -1,4 +1,8 @@
-## Version 1.5.0a
+## Version 1.5.1
+* fixed issue with uncanny dodge prerequisites
+* fixed utilitarian magic tooltip
+
+## Version 1.5.0b
 * fixed issue where ContextRankConfigs would sometimes calculate incorrectly for classes without an archetype
 
 ## Version 1.5.0a

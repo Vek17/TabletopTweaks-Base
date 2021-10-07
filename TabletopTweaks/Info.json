@@ -3,11 +3,11 @@
     "Author": "Sean Petrie",
     "DisplayName": "Tabletop Tweaks",
     "EntryMethod": "TabletopTweaks.Main.Load",
-    "GameVersion": "1.0.7",
+    "GameVersion": "1.0.8",
     "HomePage": "https://github.com/Vek17/WrathMods-TabletopTweaks/releases",
     "Id": "TabletopTweaks",
     "ManagerVersion": "0.23.0",
     "Repository": "https://raw.githubusercontent.com/Vek17/WrathMods-TabletopTweaks/master/Repository.json",
     "Requirements": [],
-    "Version": "1.5.0b"
+    "Version": "1.5.1"
 }
