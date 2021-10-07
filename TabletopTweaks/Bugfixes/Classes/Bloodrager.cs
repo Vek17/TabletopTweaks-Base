@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -33,6 +34,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchSpellbook();
                 PatchAbysalBulk();
                 PatchLimitlessRage();
+                PatchArcaneBloodrage();
+
+                void PatchArcaneBloodrage() {
+                    if(ModSettings.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
+
+                    var BloodragerArcaneGreaterSpellHaste = Resources.GetBlueprint<BlueprintAbility>("54209a58537e1a34e99c2e28a0341f25");
+
+                    BloodragerArcaneGreaterSpellHaste.Range = AbilityRange.Personal;
+                }
 
                 void PatchAbysalBulk() {
                     if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("AbysalBulk")) { return; }

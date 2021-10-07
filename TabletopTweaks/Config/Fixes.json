@@ -92,9 +92,10 @@
         "Base": {
             "DisableAll": false,
             "Enabled": {
-                "AbysalBulk": true,
-                "LimitlessRage": true,
-                "Spellbook": true
+              "ArcaneBloodrage": true,
+              "AbysalBulk": true,
+              "LimitlessRage": true,
+              "Spellbook": true
             }
         },
         "Archetypes": {
