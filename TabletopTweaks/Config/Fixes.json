@@ -3,6 +3,7 @@
     "BaseFixes": {
         "DisableAll": false,
         "Enabled": {
+            "AlternateClassProgressions": true,
             "FeatSelections": true,
             "CoupDeGrace": true,
             "FixCriticalConfirmationOn20": true,

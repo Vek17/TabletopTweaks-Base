@@ -5,6 +5,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.MechanicsChanges {
     class BlueprintProgressionFix {
@@ -13,6 +14,7 @@ namespace TabletopTweaks.MechanicsChanges {
         static class BlueprintProgression_AllOtherClasses_CalcLevel_Fix {
 
             static void Postfix(BlueprintProgression __instance, ref int __result, [NotNull] UnitDescriptor unit) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("AlternateClassProgressions")) { return; }
                 if (!__instance.ForAllOtherClasses) { return; }
                 Main.Log($"{__instance.name} - {__result}");
                 //Old Progression logic so we can remove it from the total
