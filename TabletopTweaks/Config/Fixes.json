@@ -185,6 +185,16 @@
             }
         }
     },
+    "Oracle": {
+        "DisableAll": false,
+        "Base": {
+            "DisableAll": false,
+            "Enabled": {
+                "NaturesWhisperMonkStacking": true
+            }
+        },
+        "Archetypes": {}
+    },
     "Kineticist": {
         "DisableAll": false,
         "Base": {

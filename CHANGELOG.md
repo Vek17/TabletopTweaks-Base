@@ -2,6 +2,8 @@
 * fixed issue with uncanny dodge prerequisites
 * fixed utilitarian magic tooltip
 * primailist rage powers should all work now with bloodrage (Thanks to @bguns)
+* oracle curses should now work correctly (Thanks to @pheonix99)
+* nature oracle and scaled fist AC bonus no longer stack
 
 ## Version 1.5.0b
 * fixed issue where ContextRankConfigs would sometimes calculate incorrectly for classes without an archetype
