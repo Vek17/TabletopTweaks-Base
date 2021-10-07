@@ -184,6 +184,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
                 PatchCelestialTotem();
                 PatchDaemonTotem();
+                PatchFiendTotem();
 
                 void PatchCelestialTotem() {
 
@@ -238,6 +239,22 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
                         c.m_ExtraEffectBuff = DaemonTotemGreaterBuff.ToReference<BlueprintBuffReference>();
                     });
+                }
+
+                void PatchFiendTotem() {
+                    var PrimalistRagePowersBuff = Resources.GetBlueprint<BlueprintBuff>("ecc22ca1eea1bf6488a0d7c6ee2527d8");
+
+                    var FiendTotemLesserFeature = Resources.GetBlueprint<BlueprintFeature>("76437492f801f054ba536473ad2fde79");
+                    var FiendTotemLesserRageBuff = Resources.GetBlueprint<BlueprintBuff>("d0649010d93907745a44034ad6eeeb5e");
+                    PrimalistRagePowersBuff.AddConditionalBuff(FiendTotemLesserFeature, FiendTotemLesserRageBuff);
+
+                    var FiendTotemFeature = Resources.GetBlueprint<BlueprintFeature>("ce449404eeb4a7c499fbe0248056174f");
+                    var FiendTotemRageBuff = Resources.GetBlueprint<BlueprintBuff>("4f524a75bb13f7c40806b0c19dc06fe4");
+                    PrimalistRagePowersBuff.AddConditionalBuff(FiendTotemFeature, FiendTotemRageBuff);
+
+                    var FiendTotemGreaterFeature = Resources.GetBlueprint<BlueprintFeature>("1105632657d94d940a43707a3a57b006");
+                    var FiendTotemGreaterRageBuff = Resources.GetBlueprint<BlueprintBuff>("c84ca8f21f63c8249a192f34195f8787");
+                    PrimalistRagePowersBuff.AddConditionalBuff(FiendTotemGreaterFeature, FiendTotemGreaterRageBuff);
                 }
             }
         }
