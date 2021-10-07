@@ -93,7 +93,6 @@
             "DisableAll": false,
             "Enabled": {
                 "AbysalBulk": true,
-                "LimitlessRage": true,
                 "Spellbook": true
             }
         },
@@ -101,6 +100,7 @@
             "Primalist": {
                 "DisableAll": false,
                 "Enabled": {
+                    "FixBrokenRagePowers": true,
                     "RagePowerFeatQualifications": true
                 }
             },

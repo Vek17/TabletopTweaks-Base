@@ -1,6 +1,7 @@
 ## Version 1.5.1
 * fixed issue with uncanny dodge prerequisites
 * fixed utilitarian magic tooltip
+* primailist rage powers should all work now with bloodrage (Thanks to @bguns)
 
 ## Version 1.5.0b
 * fixed issue where ContextRankConfigs would sometimes calculate incorrectly for classes without an archetype
