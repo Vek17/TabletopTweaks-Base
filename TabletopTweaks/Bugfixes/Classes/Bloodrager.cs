@@ -181,10 +181,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
 
             static void PatchPrimalistRageBuffs() {
+                var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
                 PatchCelestialTotem();
+                PatchDaemonTotem();
 
                 void PatchCelestialTotem() {
-                    var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
 
                     var CelestialTotemLesserFeature = Resources.GetBlueprint<BlueprintFeature>("aba61e0b0e66bf3439cc247ee89fddae");
                     var CelestialTotemLesserBuff = Resources.GetBlueprint<BlueprintBuff>("fe27c0d9b9dc6a74aa88887b561ad5f3");
@@ -210,6 +211,32 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     CelestialTotemGreaterFeature.AddComponent<BuffExtraEffects>(c => {
                         c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
                         c.m_ExtraEffectBuff = CelestialTotemGreaterBuff.ToReference<BlueprintBuffReference>();
+                    });
+                }
+
+                void PatchDaemonTotem() {
+                    var DaemonTotemLesserFeature = Resources.GetBlueprint<BlueprintFeature>("45102fd7aab96f94d81ec80768549e12");
+                    var DaemonTotemLesserBaseBuff = Resources.GetBlueprint<BlueprintBuff>("a8957a1c6f212244d969645bc2fa7c25");
+
+                    DaemonTotemLesserFeature.AddComponent<BuffExtraEffects>(c => {
+                        c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                        c.m_ExtraEffectBuff = DaemonTotemLesserBaseBuff.ToReference<BlueprintBuffReference>();
+                    });
+
+                    var DaemonTotemFeature = Resources.GetBlueprint<BlueprintFeature>("d673c30720e8e7c4bb0903dc3c9ab649");
+                    var DaemonTotemBuff = Resources.GetBlueprint<BlueprintBuff>("a4195deeb13eb9c4b93b6987839b60c7");
+
+                    DaemonTotemFeature.AddComponent<BuffExtraEffects>(c => {
+                        c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                        c.m_ExtraEffectBuff = DaemonTotemBuff.ToReference<BlueprintBuffReference>();
+                    });
+
+                    var DaemonTotemGreaterFeature = Resources.GetBlueprint<BlueprintFeature>("9a2f0ffe517d221459640a4ad85710d7");
+                    var DaemonTotemGreaterBuff = Resources.GetBlueprint<BlueprintBuff>("2cf21dce5ecc791449f3106fcd0b60c3");
+
+                    DaemonTotemGreaterFeature.AddComponent<BuffExtraEffects>(c => {
+                        c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                        c.m_ExtraEffectBuff = DaemonTotemGreaterBuff.ToReference<BlueprintBuffReference>();
                     });
                 }
             }
