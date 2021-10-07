@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -39,9 +40,66 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 void PatchArcaneBloodrage() {
                     if(ModSettings.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
 
-                    var BloodragerArcaneGreaterSpellHaste = Resources.GetBlueprint<BlueprintAbility>("54209a58537e1a34e99c2e28a0341f25");
+                    var BloodragerArcaneSpellBlur = Resources.GetBlueprint<BlueprintAbility>("1cca16d1f03462b4697b39937a5aa726");
+                    BloodragerArcaneSpellBlur.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
 
+                    var BloodragerArcaneSpellProtectionFromArrows = Resources.GetBlueprint<BlueprintAbility>("033428f0ab03df047ac3920e1c5f6152");
+                    BloodragerArcaneSpellProtectionFromArrows.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneSpellResistAcid = Resources.GetBlueprint<BlueprintAbility>("f3968083c2b20014ab58fb2232594f9e");
+                    BloodragerArcaneSpellResistAcid.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneSpellResistCold = Resources.GetBlueprint<BlueprintAbility>("6ba9f942e25d9fa41a54980b36b40698");
+                    BloodragerArcaneSpellResistCold.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneSpellResistElectricity = Resources.GetBlueprint<BlueprintAbility>("c627dc55d27b77044885634c07d8ab0d");
+                    BloodragerArcaneSpellResistElectricity.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneSpellResistFire = Resources.GetBlueprint<BlueprintAbility>("ebac7215bdf025443b85643a3096e221");
+                    BloodragerArcaneSpellResistFire.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneSpellResistSonic = Resources.GetBlueprint<BlueprintAbility>("eb0bfb36fb5d5454e8cae0d62985cad4");
+                    BloodragerArcaneSpellResistSonic.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneGreaterSpellHaste = Resources.GetBlueprint<BlueprintAbility>("54209a58537e1a34e99c2e28a0341f25");
                     BloodragerArcaneGreaterSpellHaste.Range = AbilityRange.Personal;
+                    BloodragerArcaneGreaterSpellHaste.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneGreaterSpellDisplacement = Resources.GetBlueprint<BlueprintAbility>("65eb78967e14aaf48a4b8baa5f40dc11");
+                    BloodragerArcaneGreaterSpellDisplacement.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellBeastShapeIVShamblingMound = Resources.GetBlueprint<BlueprintAbility>("67fc979bc5c426e41bc88c1c0df964a7");
+                    BloodragerArcaneTrueSpellBeastShapeIVShamblingMound.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellBeastShapeIVSmilodon = Resources.GetBlueprint<BlueprintAbility>("a0644a79ff01dda4190be4be0ac5d1f4");
+                    BloodragerArcaneTrueSpellBeastShapeIVSmilodon.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellBeastShapeIVWyvern = Resources.GetBlueprint<BlueprintAbility>("bfd0f517657ba8a46992ca532b441b5d");
+                    BloodragerArcaneTrueSpellBeastShapeIVWyvern.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellFormOfTheDragonIBlack = Resources.GetBlueprint<BlueprintAbility>("d259038503ee8c94ebc2f0d6f2ff69e1");
+                    BloodragerArcaneTrueSpellFormOfTheDragonIBlack.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellFormOfTheDragonIBlue = Resources.GetBlueprint<BlueprintAbility>("d5322b7198a7b8d408252001f4f07c0b");
+                    BloodragerArcaneTrueSpellFormOfTheDragonIBlue.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellFormOfTheDragonIBrass = Resources.GetBlueprint<BlueprintAbility>("2577b5e0ccee59e44abbbcda8bcbaea6");
+                    BloodragerArcaneTrueSpellFormOfTheDragonIBrass.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellFormOfTheDragonIBronze = Resources.GetBlueprint<BlueprintAbility>("05266e35a7aaf5046aaf41d1fc151ede");
+                    BloodragerArcaneTrueSpellFormOfTheDragonIBronze.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellFormOfTheDragonICopper = Resources.GetBlueprint<BlueprintAbility>("2014f063206d6cc429be52ccf3bd65d5");
+                    BloodragerArcaneTrueSpellFormOfTheDragonICopper.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellFormOfTheDragonIGold = Resources.GetBlueprint<BlueprintAbility>("bb864728d4e63e14b9bb02cbf9e46280");
+                    BloodragerArcaneTrueSpellFormOfTheDragonIGold.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellFormOfTheDragonIGreen = Resources.GetBlueprint<BlueprintAbility>("ccc14864e9ca6ed4da878c1c34b832d9");
+                    BloodragerArcaneTrueSpellFormOfTheDragonIGreen.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
+
+                    var BloodragerArcaneTrueSpellTransformation = Resources.GetBlueprint<BlueprintAbility>("dc8f5f7658743ff4ba99e1d2fba6cf9c");
+                    BloodragerArcaneTrueSpellTransformation.GetComponent<ContextCalculateAbilityParams>().ReplaceCasterLevel = false;
                 }
 
                 void PatchAbysalBulk() {
