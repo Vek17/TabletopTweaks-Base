@@ -19,6 +19,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Kineticist = new ClassGroup();
         public ClassGroup Magus = new ClassGroup();
         public ClassGroup Monk = new ClassGroup();
+        public ClassGroup Oracle = new ClassGroup();
         public ClassGroup Paladin = new ClassGroup();
         public ClassGroup Ranger = new ClassGroup();
         public ClassGroup Rogue = new ClassGroup();
@@ -56,6 +57,7 @@ namespace TabletopTweaks.Config {
             Kineticist.LoadClassGroup(loadedSettings.Kineticist, NewSettingsOffByDefault);
             Magus.LoadClassGroup(loadedSettings.Magus, NewSettingsOffByDefault);
             Monk.LoadClassGroup(loadedSettings.Monk, NewSettingsOffByDefault);
+            Oracle.LoadClassGroup(loadedSettings.Oracle, NewSettingsOffByDefault);
             Paladin.LoadClassGroup(loadedSettings.Paladin, NewSettingsOffByDefault);
             Ranger.LoadClassGroup(loadedSettings.Ranger, NewSettingsOffByDefault);
             Rogue.LoadClassGroup(loadedSettings.Rogue, NewSettingsOffByDefault);
