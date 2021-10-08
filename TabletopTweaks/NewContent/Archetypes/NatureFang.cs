@@ -113,10 +113,14 @@ namespace TabletopTweaks.NewContent.Archetypes {
             UncannyDodgeTalent.AddPrerequisite<PrerequisiteArchetypeLevel>(p => {
                 p.m_CharacterClass = DruidClass.ToReference<BlueprintCharacterClassReference>();
                 p.m_Archetype = NatureFangArcehtype.ToReference<BlueprintArchetypeReference>();
+                p.Level = 4;
+                p.Group = Prerequisite.GroupType.Any;
             });
             ImprovedUncannyDodgeTalent.AddPrerequisite<PrerequisiteArchetypeLevel>(p => {
                 p.m_CharacterClass = DruidClass.ToReference<BlueprintCharacterClassReference>();
                 p.m_Archetype = NatureFangArcehtype.ToReference<BlueprintArchetypeReference>();
+                p.Level = 12;
+                p.Group = Prerequisite.GroupType.Any;
             });
 
             if (ModSettings.AddedContent.Archetypes.IsDisabled("NatureFang")) { return; }
