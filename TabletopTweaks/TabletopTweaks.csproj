@@ -149,6 +149,7 @@
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Features\MythicFeats.cs" />
+    <Compile Include="Bugfixes\General\AddFactsFix.cs" />
     <Compile Include="Bugfixes\General\ContextRankConfigFix.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
     <Compile Include="Bugfixes\General\ProfaneGift.cs" />

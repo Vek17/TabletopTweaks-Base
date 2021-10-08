@@ -45,6 +45,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
                 PatchWrachingRay();
+                PatchFromSpellFlags();
             }
 
             static void PatchBelieveInYourself() {
@@ -315,6 +316,22 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     }
                 }
                 Main.LogPatch("Patched", WrackingRay);
+            }
+
+            static void PatchFromSpellFlags() {
+                if (ModSettings.Fixes.Spells.IsDisabled("FixSpellFlags")) { return; }
+
+                SpellTools.SpellList.AllSpellLists
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .SelectMany(a => a.FlattenAllActions())
+                    .OfType<ContextActionApplyBuff>()
+                    .Distinct()
+                    .Select(a => a.Buff)
+                    .ForEach(b => b.m_Flags |= BlueprintBuff.Flags.IsFromSpell);
             }
         }
     }

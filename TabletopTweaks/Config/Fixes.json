@@ -5,6 +5,7 @@
         "Enabled": {
             "AlternateClassProgressions": true,
             "FeatSelections": true,
+            "FixPrebuffCLs": true,
             "CoupDeGrace": true,
             "FixCriticalConfirmationOn20": true,
             "DisableNaturalArmorStacking": true,
@@ -303,7 +304,8 @@
             "ShadowConjuration": true,
             "ShadowEvocation": true,
             "ShadowEvocationGreater": true,
-            "WrackingRay": true
+            "WrackingRay": true,
+            "FixSpellFlags": true
         }
     },
     "Bloodlines": {
