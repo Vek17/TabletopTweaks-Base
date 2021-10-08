@@ -94,8 +94,8 @@
             "DisableAll": false,
             "Enabled": {
               "AbysalBulk": true,
-              "Spellbook": true
-              "ArcaneBloodrage": true,
+              "Spellbook": true,
+              "ArcaneBloodrage": true
             }
         },
         "Archetypes": {
