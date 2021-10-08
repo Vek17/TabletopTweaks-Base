@@ -92,6 +92,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Erastil's Blessing
         Stalwart
         Improved Stalwart
+        Celestial Servant
 
     Adds the following rogue talents:
         Graceful Athlete

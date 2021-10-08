@@ -53,10 +53,11 @@
             "Self-Sufficient": true,
             "ShingleRunner": true,
             "SpellSpecializationGreater": true,
-            "Stalwart":  true,
+            "Stalwart": true,
             "StreetSmarts": true,
             "NatureSoul": true,
-            "AnimalAlly": true
+            "AnimalAlly": true,
+            "CelestialServant": true
         }
     },
     "FighterAdvancedWeaponTraining": {

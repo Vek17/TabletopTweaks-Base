@@ -284,6 +284,7 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
+    <Compile Include="NewContent\Feats\CelestialServant.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />
     <Compile Include="NewContent\Feats\ExtraArcanistExploit.cs" />

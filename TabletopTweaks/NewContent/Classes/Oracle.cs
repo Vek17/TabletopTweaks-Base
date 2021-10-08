@@ -10,7 +10,7 @@ namespace TabletopTweaks.NewContent.Classes {
         public static void AddOracleFeatures() {
             var NaturesWhispersACConversion = Helpers.CreateBlueprint<BlueprintFeature>("NaturesWhispersACConversion", bp => {
                 bp.SetName("Natures Whispers AC Conversion");
-                bp.SetDescription("A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
+                bp.SetDescription("");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;

@@ -1,6 +1,7 @@
 ## Version 1.5.2
 * preapplied buffs will now be added at the correct CL, this will result in many buffs being easier to dispell
 * tagged more buffs applied by spells as being applied by spells, this means they will now be correctly dispellable
+* added celestial servant feat
 
 ## Version 1.5.1
 * fixed issue with uncanny dodge prerequisites
