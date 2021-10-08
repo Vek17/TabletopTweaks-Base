@@ -115,6 +115,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 }));
             });
 
+            var ArmorSpeedFlag = Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingSpeedHiddenFlag", bp => {
+                bp.Ranks = 2;
+                bp.HideInCharacterSheetAndLevelUp = true;
+                bp.HideInUI = true;
+                bp.SetName("Armor Speed Up");
+                bp.AddComponent(Helpers.Create<ArmorSpeedPenaltyRemoval>());
+
+            });
+
             var ArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection", bp => {
                 bp.Ranks = 4;
                 bp.m_Icon = ArmorTraining.Icon;
@@ -129,9 +138,21 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent(Helpers.Create<SelectionDefaultFeature>(c => {
                     c.DefaultFeature = ArmorTraining.ToReference<BlueprintFeatureReference>();
                 }));
-                bp.AddComponent(Helpers.Create<ArmorSpeedPenaltyRemoval>(c => {
-                }));
+               
+                
             });
+
+            PatchFeatWithArmorSpeedFlag(ArmorTraining);
+            PatchFeatWithArmorSpeedFlag(ArmorTrainingSelection);
+
+            static void PatchFeatWithArmorSpeedFlag(BlueprintFeature feature) {
+                feature.AddComponent(Helpers.Create<AddFeatureOnApply>(x => {
+                    x.m_Feature = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingSpeedHiddenFlag").ToReference<BlueprintFeatureReference>();
+
+                }));
+            }
+                
+
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("Feats")) { return; }
             FeatTools.AddAsFeat(
@@ -185,5 +206,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             AdvancedArmorTraining5.AddFeatures(features);
             AdvancedArmorTraining6.AddFeatures(features);
         }
+
+
     }
 }
