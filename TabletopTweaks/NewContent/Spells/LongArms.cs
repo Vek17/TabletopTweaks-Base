@@ -8,6 +8,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using TabletopTweaks.Config;
@@ -23,6 +24,7 @@ namespace TabletopTweaks.NewContent.Spells {
                 bp.SetName("Long Arm");
                 bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.m_Icon = icon;
+                bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.Reach;
                     c.Descriptor = ModifierDescriptor.Enhancement;

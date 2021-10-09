@@ -5,6 +5,7 @@
         "Enabled": {
             "AlternateClassProgressions": true,
             "FeatSelections": true,
+            "FixPrebuffCLs": true,
             "CoupDeGrace": true,
             "FixCriticalConfirmationOn20": true,
             "DisableNaturalArmorStacking": true,
@@ -295,6 +296,7 @@
             "BelieveInYourself": true,
             "BestowCurseGreater": true,
             "CrusadersEdge": true,
+            "DispelMagicGreater": true,
             "GreaterMagicWeapon": true,
             "MagicalVestment": true,
             "OdeToMiraculousMagic": true,
@@ -303,7 +305,8 @@
             "ShadowConjuration": true,
             "ShadowEvocation": true,
             "ShadowEvocationGreater": true,
-            "WrackingRay": true
+            "WrackingRay": true,
+            "FixSpellFlags": true
         }
     },
     "Bloodlines": {

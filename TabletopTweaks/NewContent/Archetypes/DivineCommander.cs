@@ -238,7 +238,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "entropic, fiendish, or resolute template, matching the alignment of the warpriest (celestial for good, entropic for chaotic, fiendish for evil, " +
                     "and resolute for lawful). If the warpriest matches more than one alignment, the divine commander can select which of the two " +
                     "templates the mount receives. Once the type of template is selected, it cannot be changed.\n" +
-                    "If the divine commander is neutral with no other alignment components, she may selecy any template.");
+                    "If the divine commander is neutral with no other alignment components, she may select any template.");
                 bp.m_Icon = OtherworldlyCompanionFiendish.Icon;
                 bp.Groups = new FeatureGroup[0];
                 bp.IsClassFeature = true;

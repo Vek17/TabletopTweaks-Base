@@ -36,6 +36,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
                 PatchCrusadersEdge();
+                PatchDispelMagicGreater();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchOdeToMiraculousMagicBuff();
@@ -45,6 +46,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
                 PatchWrachingRay();
+                PatchFromSpellFlags();
             }
 
             static void PatchBelieveInYourself() {
@@ -118,6 +120,42 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 BlueprintBuff CrusadersEdgeBuff = Resources.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 Main.LogPatch("Patched", CrusadersEdgeBuff);
+            }
+
+            static void PatchDispelMagicGreater() {
+                if (ModSettings.Fixes.Spells.IsDisabled("DispelMagicGreater")) { return; }
+                var DispelMagicGreaterTarget = Resources.GetBlueprint<BlueprintAbility>("6d490c80598f1d34bb277735b52d52c1");
+                DispelMagicGreaterTarget.SetDescription("This functions as a targeted dispel magic, but it can dispel one spell for every four caster " +
+                    "levels you possess, starting with the highest level spells and proceeding to lower level spells.\n" +
+                    "Targeted Dispel: One object, creature, or spell is the target of the dispel magic spell. You make one dispel check (1d20 + your caster level)" +
+                    " and compare that to the spell with highest caster level (DC = 11 + the spell’s caster level). If successful, that spell ends. " +
+                    "If not, compare the same result to the spell with the next highest caster level. Repeat this process until you have dispelled " +
+                    "one spell affecting the target, or you have failed to dispel every spell.");
+                DispelMagicGreaterTarget.GetComponent<AbilityEffectRunAction>().Actions = Helpers.CreateActionList(
+                    new ContextActionDispelMagicCapped() {
+                        m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
+                        m_MaxSpellLevel = new ContextValue(),
+                        m_MaxCasterLevel = new ContextValue(),
+                        m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
+                        ContextBonus = new ContextValue(),
+                        DispelLimit = new ContextValue() {
+                            ValueType = ContextValueType.Rank,
+                            ValueRank = AbilityRankType.StatBonus
+                        },
+                        Schools = new SpellSchool[0],
+                        OnSuccess = Helpers.CreateActionList(),
+                        OnFail = Helpers.CreateActionList(),
+                    }
+                );
+                DispelMagicGreaterTarget.AddComponent(Helpers.CreateContextRankConfig(c => {
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                    c.m_Progression = ContextRankProgression.DivStep;
+                    c.m_StepLevel = 4;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                }));
+                Main.LogPatch("Patched", DispelMagicGreaterTarget);
             }
 
             static void PatchMagicalVestment() {
@@ -315,6 +353,22 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     }
                 }
                 Main.LogPatch("Patched", WrackingRay);
+            }
+
+            static void PatchFromSpellFlags() {
+                if (ModSettings.Fixes.Spells.IsDisabled("FixSpellFlags")) { return; }
+
+                SpellTools.SpellList.AllSpellLists
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .SelectMany(a => a.FlattenAllActions())
+                    .OfType<ContextActionApplyBuff>()
+                    .Distinct()
+                    .Select(a => a.Buff)
+                    .ForEach(b => b.m_Flags |= BlueprintBuff.Flags.IsFromSpell);
             }
         }
     }

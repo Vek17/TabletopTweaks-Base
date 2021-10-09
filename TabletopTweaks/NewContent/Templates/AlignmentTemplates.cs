@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewContent.Templates {
 
         public static void AddCelestialTemplate() {
             var CelestialTemplate = CreateAlignmentTemplate("TemplateCelestial", DamageAlignment.Evil, DamageEnergyType.Cold, DamageEnergyType.Acid, DamageEnergyType.Electricity);
-            CelestialTemplate.SetDescription("Crature gains spell resistance equal to its level +5. It also gains:\n" +
+            CelestialTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
                 "1 — 4 HD: resistance 5 to cold, acid, and electricity.\n" +
                 "5 — 10 HD: resistance 10 to cold, acid, and electricity, DR 5/evil\n" +
                 "11+ HD: resistance 15 to cold, acid, and electricity, DR 10/evil\n" +
