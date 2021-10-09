@@ -149,6 +149,7 @@
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Features\MythicFeats.cs" />
+    <Compile Include="Bugfixes\General\AddFactsFix.cs" />
     <Compile Include="Bugfixes\General\ContextRankConfigFix.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
     <Compile Include="Bugfixes\General\ProfaneGift.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
@@ -283,6 +285,7 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
+    <Compile Include="NewContent\Feats\CelestialServant.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />
     <Compile Include="NewContent\Feats\ExtraArcanistExploit.cs" />

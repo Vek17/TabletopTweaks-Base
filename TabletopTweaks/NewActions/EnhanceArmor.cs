@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items;
@@ -13,7 +14,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewActions {
-
+    [TypeId("94f7fe11fb1c4c38b13736bd164a53de")]
     public class EnhanceArmor : ContextAction {
 
         public ReferenceArrayProxy<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> Enchantment {
