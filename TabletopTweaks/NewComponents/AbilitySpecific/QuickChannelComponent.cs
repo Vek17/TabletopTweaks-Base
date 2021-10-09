@@ -31,7 +31,6 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 };
                 conversionList.Add(moveAbility);
                 conversions = conversionList;
-                Main.Log($"QuickChannelComponent: {conversionList.Count}");
             }
         }
         [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.RuntimeActionType), MethodType.Getter)]

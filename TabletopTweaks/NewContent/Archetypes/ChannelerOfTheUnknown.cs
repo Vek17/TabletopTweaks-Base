@@ -47,11 +47,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
         private static readonly BlueprintFeatureSelection ChannelEnergySelection = Resources.GetBlueprint<BlueprintFeatureSelection>("d332c1748445e8f4f9e92763123e31bd");
         private static readonly BlueprintFeatureSelection DomainsSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("48525e5da45c9c243a343fc6545dbdb9");
         private static readonly BlueprintFeatureSelection SecondDomainsSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("43281c3d7fe18cc4d91928395837cd1e");
-        private static readonly BlueprintFeature ClericOrisonsFeature = Resources.GetBlueprint<BlueprintFeature>("e62f392949c24eb4b8fb2bc9db4345e3");
-        private static readonly BlueprintFeature RayCalculateFeature = Resources.GetBlueprint<BlueprintFeature>("d3e6275cfa6e7a04b9213b7b292a011c");
-        private static readonly BlueprintFeature TouchCalculateFeature = Resources.GetBlueprint<BlueprintFeature>("62ef1cdb90f1d654d996556669caf7fa");
-        private static readonly BlueprintFeature FullCasterFeature = Resources.GetBlueprint<BlueprintFeature>("9fc9813f569e2e5448ddc435abf774b3");
-        private static readonly BlueprintFeature DetectMagic = Resources.GetBlueprint<BlueprintFeature>("ee0b69e90bac14446a4cf9a050f87f2e");
 
         private static readonly BlueprintFeature DarknessDomainProgression = Resources.GetBlueprint<BlueprintFeature>("1e1b4128290b11a41ba55280ede90d7d");
         private static readonly BlueprintFeature DestructionDomainProgression = Resources.GetBlueprint<BlueprintFeature>("269ff0bf4596f5248864bc2653a2f0e0");
