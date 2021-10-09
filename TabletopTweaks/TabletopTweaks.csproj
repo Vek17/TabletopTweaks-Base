@@ -187,6 +187,7 @@
     <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
+    <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceBase.cs" />

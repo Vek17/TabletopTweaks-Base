@@ -8,13 +8,21 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -31,6 +39,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchReformedFiend();
+                PatchArcaneBloodrage();
             }
             static void PatchBaseClass() {
                 PatchSpellbook();
@@ -279,6 +288,186 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
 
+            static void PatchArcaneBloodrage() {
+                var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
+                var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+                var BloodragerArcaneSpellFeature = Resources.GetBlueprint<BlueprintFeature>("3584b932341ecf14fbaaa87bf337c2cf");
+                var BloodragerArcaneSpellAbility = Resources.GetBlueprint<BlueprintAbility>("3151dfeeb202e38448d1fea1e8bc237e");
+                
+                var Blur = Resources.GetBlueprint<BlueprintAbility>("14ec7a4e52e90fa47a4c8d63c69fd5c1");
+                var BlurBuff = Resources.GetBlueprint<BlueprintBuff>("dd3ad347240624d46a11a092b4dd4674");
+
+                var ProtectionFromArrows = Resources.GetBlueprint<BlueprintAbility>("c28de1f98a3f432448e52e5d47c73208");
+                var ProtectionFromArrowsBuff = Resources.GetBlueprint<BlueprintBuff>("241ee6bd8c8767343994bce5dc1a95e0");
+                var ProtectionFromArrowsArcaneBloodragerBuff = Helpers.CreateBuff("ProtectionFromArrowsArcaneBloodrageBuff", bp => {
+                    bp.m_DisplayName = ProtectionFromArrows.m_DisplayName;
+                    bp.m_Description = ProtectionFromArrows.m_Description;
+                    bp.m_DescriptionShort = ProtectionFromArrows.m_DescriptionShort;
+                    bp.m_Icon = ProtectionFromArrowsBuff.m_Icon;
+                    bp.AddComponent<AddDamageResistancePhysical>(c => {
+                        c.m_WeaponType = BlueprintReferenceBase.CreateTyped<BlueprintWeaponTypeReference>(null);
+                        c.Or = true;
+                        c.Material = Kingmaker.Enums.Damage.PhysicalDamageMaterial.Adamantite;
+                        c.BypassedByMagic = true;
+                        c.MinEnhancementBonus = 1;
+                        c.Alignment = Kingmaker.Enums.Damage.DamageAlignment.Good;
+                        c.Reality = Kingmaker.Enums.Damage.DamageRealityType.Ghost;
+                        c.BypassedByMeleeWeapon = true;
+                        c.m_CheckedFactMythic = BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
+                        c.Value = new ContextValue() {
+                            Value = 10
+                        };
+                        c.UsePool = true;
+                        c.Pool = new ContextValue() {
+                            ValueType = ContextValueType.Rank
+                        };
+                    });
+                    var crc = Helpers.CreateContextRankConfig();
+                    crc.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    crc.m_Progression = ContextRankProgression.MultiplyByModifier;
+                    crc.m_StepLevel = 10;
+                    crc.m_UseMax = true;
+                    crc.m_Max = 100;
+                    crc.m_Class = new BlueprintCharacterClassReference[] {
+                        BloodragerClass.ToReference<BlueprintCharacterClassReference>()
+                    };
+                    bp.AddComponent(crc);
+                });
+
+                var ResistFire = Resources.GetBlueprint<BlueprintAbility>("ddfb4ac970225f34dbff98a10a4a8844");
+                var ResistFireBuff = Resources.GetBlueprint<BlueprintBuff>("468877871a8e3ba41813a9697ec4eb4e");
+
+                var ResistCold = Resources.GetBlueprint<BlueprintAbility>("5368cecec375e1845ae07f48cdc09dd1");
+                var ResistColdBuff = Resources.GetBlueprint<BlueprintBuff>("dfedc0bf1d93f024d85546314c42b56a");
+
+                var ResistElectricity = Resources.GetBlueprint<BlueprintAbility>("90987584f54ab7a459c56c2d2f22cee2");
+                var ResistElectricityBuff = Resources.GetBlueprint<BlueprintBuff>("17aee23103aee674082ff9891c82ae2f");
+
+                var ResistAcid = Resources.GetBlueprint<BlueprintAbility>("fedc77de9b7aad54ebcc43b4daf8decd");
+                var ResistAcidBuff = Resources.GetBlueprint<BlueprintBuff>("8d8f20391422c0e41a1650e7a9b7a21f");
+
+                var ResistSonic = Resources.GetBlueprint<BlueprintAbility>("8d3b10f92387c84429ced317b06ad001");
+                var ResistSonicBuff = Resources.GetBlueprint<BlueprintBuff>("c0f3b16ff3f79b749b121905d659a2d4");
+
+                BlueprintBuff BloodragerArcaneSpellBlurSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneSpellBlurSwitchBuff",
+                    "Arcane Bloodrage: Blur",
+                    BloodragerArcaneSpellAbility,
+                    BloodragerStandartRageBuff,
+                    BlurBuff);
+
+                BlueprintBuff BloodragerArcaneSpellProtectionFromArrowsSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneSpellProtectionFromArrowsSwitchBuff",
+                    "Arcane Bloodrage: Protection From Arrows",
+                    BloodragerArcaneSpellAbility,
+                    BloodragerStandartRageBuff,
+                    ProtectionFromArrowsArcaneBloodragerBuff);
+
+                BlueprintBuff BloodragerArcaneSpellResistFireSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneSpellResistFireSwitchBuff",
+                    "Arcane Bloodrage: Resist Fire",
+                    BloodragerArcaneSpellAbility,
+                    BloodragerStandartRageBuff,
+                    ResistFireBuff);
+
+                BlueprintBuff BloodragerArcaneSpellResistColdSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneSpellResistColdSwitchBuff",
+                    "Arcane Bloodrage: Resist Cold",
+                    BloodragerArcaneSpellAbility,
+                    BloodragerStandartRageBuff,
+                    ResistColdBuff);
+
+                BlueprintBuff BloodragerArcaneSpellResistElectricitySwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneSpellResistElectricitySwitchBuff",
+                    "Arcane Bloodrage: Resist Electricity",
+                    BloodragerArcaneSpellAbility,
+                    BloodragerStandartRageBuff,
+                    ResistElectricityBuff);
+
+                BlueprintBuff BloodragerArcaneSpellResistAcidSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneSpellResistAcidSwitchBuff",
+                    "Arcane Bloodrage: Resist Acid",
+                    BloodragerArcaneSpellAbility,
+                    BloodragerStandartRageBuff,
+                    ResistAcidBuff);
+
+                BlueprintBuff BloodragerArcaneSpellResistSonicSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneSpellResistSonicSwitchBuff",
+                    "Arcane Bloodrage: Resist Sonic",
+                    BloodragerArcaneSpellAbility,
+                    BloodragerStandartRageBuff,
+                    ResistSonicBuff);
+
+                var AllBloodragerArcaneSpellSwitchBuffs = new List<BlueprintBuff>() {
+                    BloodragerArcaneSpellBlurSwitchBuff,
+                    BloodragerArcaneSpellProtectionFromArrowsSwitchBuff,
+                    BloodragerArcaneSpellResistFireSwitchBuff,
+                    BloodragerArcaneSpellResistColdSwitchBuff,
+                    BloodragerArcaneSpellResistElectricitySwitchBuff,
+                    BloodragerArcaneSpellResistAcidSwitchBuff,
+                    BloodragerArcaneSpellResistSonicSwitchBuff
+                };
+
+                BlueprintAbility BloodragerArcaneSpellBlurToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellBlurToggle",
+                    Blur,
+                    BloodragerArcaneSpellAbility,
+                    BloodragerArcaneSpellBlurSwitchBuff,
+                    AllBloodragerArcaneSpellSwitchBuffs);
+
+                BlueprintAbility BloodragerArcaneSpellProtectionFromArrowsToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellProtectionFromArrowsToggle",
+                    ProtectionFromArrows,
+                    BloodragerArcaneSpellAbility,
+                    BloodragerArcaneSpellProtectionFromArrowsSwitchBuff,
+                    AllBloodragerArcaneSpellSwitchBuffs);
+
+                BlueprintAbility BloodragerArcaneSpellResistFireToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellResistFireToggle",
+                    ResistFire,
+                    BloodragerArcaneSpellAbility,
+                    BloodragerArcaneSpellResistFireSwitchBuff,
+                    AllBloodragerArcaneSpellSwitchBuffs);
+                
+                BlueprintAbility BloodragerArcaneSpellResistColdToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellResistColdToggle",
+                    ResistCold,
+                    BloodragerArcaneSpellAbility,
+                    BloodragerArcaneSpellResistColdSwitchBuff,
+                    AllBloodragerArcaneSpellSwitchBuffs);
+
+                BlueprintAbility BloodragerArcaneSpellResistElectricityToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellResistElectricityToggle",
+                    ResistElectricity,
+                    BloodragerArcaneSpellAbility,
+                    BloodragerArcaneSpellResistElectricitySwitchBuff,
+                    AllBloodragerArcaneSpellSwitchBuffs);
+                
+                BlueprintAbility BloodragerArcaneSpellResistAcidToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellResistAcidToggle",
+                    ResistAcid,
+                    BloodragerArcaneSpellAbility,
+                    BloodragerArcaneSpellResistAcidSwitchBuff,
+                    AllBloodragerArcaneSpellSwitchBuffs);
+                
+                BlueprintAbility BloodragerArcaneSpellResistSonicToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellResistSonicToggle",
+                    ResistSonic,
+                    BloodragerArcaneSpellAbility,
+                    BloodragerArcaneSpellResistSonicSwitchBuff,
+                    AllBloodragerArcaneSpellSwitchBuffs);
+
+
+                BloodragerArcaneSpellAbility.GetComponent<AbilityVariants>().m_Variants = new BlueprintAbilityReference[] {
+                    BloodragerArcaneSpellBlurToggle.ToReference<BlueprintAbilityReference>(),
+                    BloodragerArcaneSpellProtectionFromArrowsToggle.ToReference<BlueprintAbilityReference>(),
+                    BloodragerArcaneSpellResistFireToggle.ToReference<BlueprintAbilityReference>(),
+                    BloodragerArcaneSpellResistColdToggle.ToReference<BlueprintAbilityReference>(),
+                    BloodragerArcaneSpellResistElectricityToggle.ToReference<BlueprintAbilityReference>(),
+                    BloodragerArcaneSpellResistAcidToggle.ToReference<BlueprintAbilityReference>(),
+                    BloodragerArcaneSpellResistSonicToggle.ToReference<BlueprintAbilityReference>()
+                };
+            }
             
         }
     }

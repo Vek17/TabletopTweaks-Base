@@ -185,7 +185,20 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         [HarmonyPatch(typeof(ActionBarSpontaneousConvertedSlot), "Set", new Type[] { typeof(UnitEntityData), typeof(AbilityData) })]
         static class ActionBarSpontaneousConvertedSlot_Set_QuickStudy_Patch {
             static bool Prefix(ActionBarSpontaneousConvertedSlot __instance, UnitEntityData selected, AbilityData spell) {
-                if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
+                var pseudoActivatableComponent = spell.Blueprint.GetComponent<PseudoActivatable>();
+                if (pseudoActivatableComponent != null) {
+                    __instance.Selected = selected;
+                    if (selected == null) {
+                        return true;
+                    }
+                    __instance.MechanicSlot = new MechanicActionBarSlotPseudoActivatableAbility {
+                        Spell = spell,
+                        Unit = selected,
+                        BuffToWatch = pseudoActivatableComponent.BuffToWatch
+                    };
+                    __instance.MechanicSlot.SetSlot(__instance);
+                    return false;
+                } else if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
                     __instance.Selected = selected;
                     if (selected == null) {
                         return true;
@@ -212,7 +225,14 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                     return false;
                 }
                 __instance.ConvertedVm.Value = new ActionBarConvertedVM(__instance.m_Conversion.Select(abilityData => {
-                    if (abilityData.Blueprint.GetComponent<QuickStudyComponent>()) {
+                    var pseudoActivatable = abilityData.Blueprint.GetComponent<PseudoActivatable>();
+                    if (pseudoActivatable != null) {
+                        return new MechanicActionBarSlotPseudoActivatableAbility {
+                            Spell = abilityData,
+                            Unit = __instance.MechanicActionBarSlot.Unit,
+                            BuffToWatch = pseudoActivatable.BuffToWatch
+                        };
+                    } else if (abilityData.Blueprint.GetComponent<QuickStudyComponent>()) {
                         return new MechanicActionBarSlotQuickStudy {
                             Spell = abilityData,
                             Unit = __instance.MechanicActionBarSlot.Unit
