@@ -345,6 +345,9 @@
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
+    <Compile Include="NewUI\ActionBarPatches.cs" />
+    <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbility.cs" />
+    <Compile Include="NewUI\MechanicActionBarSlotQuickStudy.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />

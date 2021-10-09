@@ -22,11 +22,4 @@ namespace TabletopTweaks.NewComponents {
 
         public BlueprintBuffReference BuffToWatch => m_BuffToWatch ?? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null);
     }
-
-    internal class MechanicActionBarSlotPseudoActivatableAbility : MechanicActionBarSlotSpontaneusConvertedSpell {
-
-        public BlueprintBuffReference BuffToWatch;
-
-        public override bool IsActive() => Unit.Descriptor.HasFact(BuffToWatch);
-    }
 }
