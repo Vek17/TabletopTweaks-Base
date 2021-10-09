@@ -59,7 +59,8 @@
             "NatureSoul": true,
             "AnimalAlly": true,
             "CelestialServant": true,
-            "ImprovedChannel": true
+            "ImprovedChannel": true,
+            "QuickChannel": true
         }
     },
     "FighterAdvancedWeaponTraining": {

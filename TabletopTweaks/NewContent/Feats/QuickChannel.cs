@@ -12,28 +12,25 @@ using Kingmaker.Utility;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {
-    static class ImprovedChannel {
-        public static void AddImprovedChannel() {
+    static class QuickChannel {
+        public static void AddQuickChannel() {
             var SelectiveChannel = Resources.GetBlueprint<BlueprintFeature>("fd30c69417b434d47b6b03b9c1f568ff");
             var ExtraChannel = Resources.GetBlueprint<BlueprintFeature>("cd9f19775bd9d3343a31a065e93f0c47");
 
-            var ImprovedChannel = Helpers.CreateBlueprint<BlueprintFeature>("ImprovedChannel", bp => {
-                bp.SetName("Improved Channel");
-                bp.SetDescription("Add 2 to the DC of saving throws made to resist the effects of your channel energy ability.");
+            var QuickChannel = Helpers.CreateBlueprint<BlueprintFeature>("QuickChannel", bp => {
+                bp.SetName("Quick Channel");
+                bp.SetDescription("You may channel energy as a move action by spending 2 daily uses of that ability.");
                 bp.m_Icon = ExtraChannel.Icon;
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.AddComponent<IncreaseSpellDescriptorDC>(c => {
-                    c.Descriptor = new SpellDescriptorWrapper(SpellDescriptor.ChannelNegativeHarm | SpellDescriptor.ChannelNegativeHarm | SpellDescriptor.ChannelNegativeHeal | SpellDescriptor.ChannelPositiveHeal);
-                    c.BonusDC = 2;
-                    c.ModifierDescriptor = ModifierDescriptor.UntypedStackable;
-                });
+                bp.AddComponent<QuickChannelComponent>();
                 bp.AddComponent(Helpers.Create<PureRecommendation>(c => {
                     c.Priority = RecommendationPriority.Good;
                 }));
@@ -43,9 +40,13 @@ namespace TabletopTweaks.NewContent.Feats {
                 SelectiveChannel.GetComponents<PrerequisiteFeature>().ForEach(p => {
                     bp.AddPrerequisiteFeature(p.Feature, p.Group);
                 });
+                bp.AddPrerequisite<PrerequisiteStatValue>(p => {
+                    p.Stat = StatType.SkillLoreReligion;
+                    p.Value = 5;
+                });
             });
-            if (ModSettings.AddedContent.Feats.IsDisabled("ImprovedChannel")) { return; }
-            FeatTools.AddAsFeat(ImprovedChannel);
+            if (ModSettings.AddedContent.Feats.IsDisabled("QuickChannel")) { return; }
+            FeatTools.AddAsFeat(QuickChannel);
         }
     }
 }

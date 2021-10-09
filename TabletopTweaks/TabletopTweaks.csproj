@@ -181,6 +181,7 @@
     <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
@@ -306,6 +307,7 @@
     <Compile Include="NewContent\Feats\ImprovedChannel.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
     <Compile Include="NewContent\Feats\NatureSoul.cs" />
+    <Compile Include="NewContent\Feats\QuickChannel.cs" />
     <Compile Include="NewContent\Feats\Scholar.cs" />
     <Compile Include="NewContent\Feats\SelfSufficient.cs" />
     <Compile Include="NewContent\Feats\ShatterDefenses.cs" />

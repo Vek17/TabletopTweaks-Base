@@ -105,6 +105,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.Stalwart.AddStalwart();
                 Feats.CelestialServant.AddCelestialServant();
                 Feats.ImprovedChannel.AddImprovedChannel();
+                Feats.QuickChannel.AddQuickChannel();
                 Feats.ErastilsBlessing.AddErastilsBlessing();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
