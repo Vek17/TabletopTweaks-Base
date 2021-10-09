@@ -18,7 +18,9 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
     class QuickChannelComponent : UnitFactComponentDelegate, ISpontaneousConversionHandler {
         public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions) {
             var conversionList = conversions.ToList();
-            var isChannel = ability.Blueprint.SpellDescriptor.HasAnyFlag(SpellDescriptor.ChannelNegativeHarm | SpellDescriptor.ChannelNegativeHeal | SpellDescriptor.ChannelPositiveHarm | SpellDescriptor.ChannelPositiveHeal);
+            var isChannel = ability.Blueprint.SpellDescriptor
+                .HasAnyFlag(SpellDescriptor.ChannelNegativeHarm | SpellDescriptor.ChannelNegativeHeal | SpellDescriptor.ChannelPositiveHarm | SpellDescriptor.ChannelPositiveHeal)
+                && ability.IsAOE;
             if (isChannel) {
                 QuickChannelAbilityData moveAbility = new QuickChannelAbilityData(ability, null) {
                     MetamagicData = (ability.MetamagicData ?? new MetamagicData()),
