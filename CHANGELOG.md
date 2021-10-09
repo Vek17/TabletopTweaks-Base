@@ -1,5 +1,6 @@
-## Version 1.5.3
+## Version 1.6.0
 * dispel magic greater now correctly has a cap on how many buffs it can remove (1/4 CL)
+* added channeler of the Unknown
 
 ## Version 1.5.2
 * preapplied buffs will now be added at the correct CL, this will result in many buffs being easier to dispell

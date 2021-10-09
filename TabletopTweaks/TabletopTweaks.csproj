@@ -236,6 +236,7 @@
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ShatterDefensesInitiator.cs" />
+    <Compile Include="NewComponents\SpontaneousSpecialListConversion.cs" />
     <Compile Include="NewComponents\StalwartDRProperty.cs" />
     <Compile Include="NewComponents\SurviveDeathWithSave.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceForce.cs" />
@@ -302,6 +303,7 @@
     <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
     <Compile Include="NewContent\Feats\ErastilsBlessing.cs" />
     <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
+    <Compile Include="NewContent\Feats\ImprovedChannel.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
     <Compile Include="NewContent\Feats\NatureSoul.cs" />
     <Compile Include="NewContent\Feats\Scholar.cs" />
@@ -347,6 +349,7 @@
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
+    <Compile Include="NewEvents\ISpontaneousConversionHandler.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
@@ -391,6 +394,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Abilities\Icon_ChannelEntropy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Abilities\Icon_LongArm.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

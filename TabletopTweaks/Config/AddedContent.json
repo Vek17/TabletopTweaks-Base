@@ -58,7 +58,8 @@
             "StreetSmarts": true,
             "NatureSoul": true,
             "AnimalAlly": true,
-            "CelestialServant": true
+            "CelestialServant": true,
+            "ImprovedChannel": true
         }
     },
     "FighterAdvancedWeaponTraining": {

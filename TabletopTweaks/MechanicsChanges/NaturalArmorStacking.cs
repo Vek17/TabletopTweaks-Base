@@ -49,9 +49,9 @@ namespace TabletopTweaks.MechanicsChanges {
                 if (ModSettings.Fixes.BaseFixes.IsDisabled("DisableNaturalArmorStacking")) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
-                Utilities.ILUtils.LogIL(codes);
+                //Utilities.ILUtils.LogIL(codes);
                 codes[target] = new CodeInstruction(OpCodes.Ldc_I4, (int)NaturalArmor.Bonus);
-                Utilities.ILUtils.LogIL(codes);
+                //Utilities.ILUtils.LogIL(codes);
                 return codes.AsEnumerable();
             }
             private static int FindInsertionTarget(List<CodeInstruction> codes) {

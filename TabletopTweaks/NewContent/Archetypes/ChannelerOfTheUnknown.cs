@@ -3,12 +3,19 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
+using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
@@ -16,6 +23,8 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System.Collections.Generic;
@@ -52,7 +61,25 @@ namespace TabletopTweaks.NewContent.Archetypes {
         private static readonly BlueprintFeature LuckDomainProgression = Resources.GetBlueprint<BlueprintFeature>("8bd8cfad69085654b9118534e4aa215e");
         private static readonly BlueprintFeature MadnessDomainProgression = Resources.GetBlueprint<BlueprintFeature>("9ebe166b9b901c746b1858029f13a2c5");
 
+        private static readonly BlueprintUnitFact ChannelEnergyFact = Resources.GetBlueprint<BlueprintUnitFact>("93f062bc0bf70e84ebae436e325e30e8");
+        private static readonly BlueprintAbility ChannelNegativeEnergy = Resources.GetBlueprint<BlueprintAbility>("89df18039ef22174b81052e2e419c728");
+        private static readonly BlueprintAbilityResource ChannelEnergyResource = Resources.GetBlueprint<BlueprintAbilityResource>("5e2bba3e07c37be42909a12945c27de7");
+        private static readonly BlueprintUnitProperty MythicChannelProperty = Resources.GetBlueprint<BlueprintUnitProperty>("152e61de154108d489ff34b98066c25c");
+        private static readonly BlueprintFeature SelectiveChannel = Resources.GetBlueprint<BlueprintFeature>("fd30c69417b434d47b6b03b9c1f568ff");
+        private static readonly BlueprintFeature ExtraChannel = Resources.GetBlueprint<BlueprintFeature>("cd9f19775bd9d3343a31a065e93f0c47");
+
+        private static readonly BlueprintCharacterClass MysticTheurgeClass = Resources.GetBlueprint<BlueprintCharacterClass>("0920ea7e4fd7a404282e3d8b0ac41838");
+        private static readonly BlueprintFeatureSelection MysticTheurgeDivineSpellbookSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7cd057944ce7896479717778330a4933");
+        private static readonly BlueprintProgression MysticTheurgeClericProgression = Resources.GetBlueprint<BlueprintProgression>("8bac42667e6f67047acbcbd668cf2029");
+
+        private static readonly BlueprintCharacterClass HellknightSigniferClass = Resources.GetBlueprint<BlueprintCharacterClass>("ee6425d6392101843af35f756ce7fefd");
+        private static readonly BlueprintFeatureSelection HellknightSigniferSpellbook = Resources.GetBlueprint<BlueprintFeatureSelection>("68782aa7a302b6d43a42a71c6e9b5277");
+        private static readonly BlueprintProgression HellknightSigniferClericProgression = Resources.GetBlueprint<BlueprintProgression>("e673d91c731469549b8962016f48410e");
+
+        private static readonly BlueprintFeatureSelectMythicSpellbook AngelIncorporateSpellbook = Resources.GetBlueprint<BlueprintFeatureSelectMythicSpellbook>("e1fbb0e0e610a3a4d91e5e5284587939");
+
         public static void AddChannelerOfTheUnknown() {
+            var ChannelEntropyIcon = AssetLoader.LoadInternal("Abilities", "Icon_ChannelEntropy.png");
             var ChannelerOfTheUnknownSpellLevels = Helpers.CreateBlueprint<BlueprintSpellsTable>("ChannelerOfTheUnknownSpellLevels", bp => {
                 bp.Levels = CrusaderSpellLevels.Levels.Select(level => SpellTools.CreateSpellLevelEntry(level.Count)).ToArray();
             });
@@ -70,7 +97,9 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.m_MythicSpellList = ClericClass.Spellbook.m_MythicSpellList;
                 bp.m_CharacterClass = ClericClass.Spellbook.m_CharacterClass;
                 bp.m_Overrides = ClericClass.Spellbook.m_Overrides;
+                bp.IsArcane = false;
                 bp.AddComponent<CustomSpecialSlotAmount>(c => c.Amount = 2);
+                SpellTools.Spellbook.AllSpellbooks.Add(bp);
             });
             var ChannelerOfTheUnknownProficiencies = Helpers.CreateBlueprint<BlueprintFeature>("ChannelerOfTheUnknownProficiencies", bp => {
                 bp.SetName("Channeler Of The Unknown Proficiencies");
@@ -89,7 +118,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var ChannelerOfTheUnknownWeaponProficiency = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ChannelerOfTheUnknownWeaponProficiency", bp => {
-                bp.SetName("Channeler Of The Unknown Weapon Proficiency");
+                bp.SetName("Bonus Weapon Proficiency");
                 bp.SetDescription("A channeler of the unknown loses proficiency with her deity’s favored weapon. She instead gains proficiency with one martial or exotic weapon, " +
                     "chosen when she first takes this archetype, which thereafter effectively functions as her holy or unholy symbol for the purposes of class abilities and spellcasting. " +
                     "Once she makes this choice, she can’t later change it.");
@@ -115,6 +144,189 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     // To support all features that check for domains this way
                     c.m_Facts = new BlueprintUnitFactReference[] { DomainsSelection.ToReference<BlueprintUnitFactReference>() };
                 });
+                bp.AddComponent<SpontaneousSpecialListConversion>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                });
+            });
+            var ChannelerOfTheUnknownChannelEntropyAbility = Helpers.CreateBlueprint<BlueprintAbility>("ChannelerOfTheUnknownChannelEntropyAbility", bp => {
+                bp.SetName("Channel Entropy");
+                bp.SetDescription("Channeling entropy causes a burst that damages all creatures in a 30-foot radius centered on the cleric. The amount of damage " +
+                    "inflicted is equal to 1d6 points of damage plus 1d6 points of damage for every two cleric levels beyond 1st (2d6 at 3rd, 3d6 at 5th, and so on). " +
+                    "Creatures that take damage from channeled energy receive a Will save to halve the damage. " +
+                    "The DC of this save is equal to 10 + 1/2 the cleric's level + the cleric's Charisma modifier.");
+                bp.m_Icon = ChannelEntropyIcon;
+                bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
+                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.AvailableMetamagic = Metamagic.Empower | Metamagic.Maximize | Metamagic.Heighten | Metamagic.Quicken;
+                bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Special;
+                bp.CanTargetEnemies = true;
+                bp.CanTargetFriends = true;
+                bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
+                bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
+                bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Omni;
+                bp.ActionType = UnitCommand.CommandType.Standard;
+                bp.ResourceAssetIds = ChannelNegativeEnergy.ResourceAssetIds;
+                bp.AddComponent<AbilityResourceLogic>(c => {
+                    c.m_RequiredResource = ChannelEnergyResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_IsSpendResource = true;
+                    c.Amount = 1;
+                    c.ResourceCostIncreasingFacts = new List<BlueprintUnitFactReference>();
+                    c.ResourceCostDecreasingFacts = new List<BlueprintUnitFactReference>();
+                });
+                bp.AddComponent<AbilityTargetsAround>(c => {
+                    c.m_Radius = 30.Feet();
+                    c.m_TargetType = TargetType.Any;
+                    c.m_Condition = new ConditionsChecker() { 
+                        Conditions = new Condition[0]
+                    };
+                });
+                bp.AddComponent<AbilitySpawnFx>(c => {
+                    c.PrefabLink = ChannelNegativeEnergy.GetComponent<AbilitySpawnFx>().PrefabLink;
+                    c.PositionAnchor = AbilitySpawnFxAnchor.None;
+                    c.OrientationAnchor = AbilitySpawnFxAnchor.None;
+                });
+                bp.AddComponent<SpellDescriptorComponent>(c => {
+                    c.Descriptor = new SpellDescriptorWrapper(SpellDescriptor.ChannelNegativeHarm);
+                });
+                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                    c.m_Type = AbilityRankType.DamageDice;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Class = new BlueprintCharacterClassReference[] { ClericClass.ToReference<BlueprintCharacterClassReference>() };
+                    c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
+                    c.m_StartLevel = 1;
+                    c.m_StepLevel = 2;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                }));
+                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                    c.m_Type = AbilityRankType.DamageBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
+                    c.m_CustomProperty = MythicChannelProperty.ToReference<BlueprintUnitPropertyReference>();
+                    c.m_Progression = ContextRankProgression.AsIs;
+                    c.m_Min = 0;
+                    c.m_UseMin = true;
+                }));
+                bp.AddComponent<AbilityEffectRunAction>(c => {
+                    c.Actions = Helpers.CreateActionList(
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Conditions = new Condition[] {
+                                    new ContextConditionCasterHasFact() {
+                                        m_Fact = SelectiveChannel.ToReference<BlueprintUnitFactReference>()
+                                    }
+                                }
+                            },
+                            IfTrue = Helpers.CreateActionList(
+                                new Conditional() {
+                                    ConditionsChecker = new ConditionsChecker() {
+                                        Conditions = new Condition[] {
+                                            new ContextConditionIsEnemy()
+                                        }
+                                    },
+                                    IfTrue = Helpers.CreateActionList(
+                                        new ContextActionSavingThrow() {
+                                            m_ConditionalDCIncrease = new ContextActionSavingThrow.ConditionalDCIncrease[0],
+                                            Type = SavingThrowType.Will,
+                                            CustomDC = new ContextValue(),
+                                            Actions = Helpers.CreateActionList(
+                                                new ContextActionDealDamage() {
+                                                    DamageType = new DamageTypeDescription() {
+                                                        Type = DamageType.Direct,
+                                                        Common = new DamageTypeDescription.CommomData(),
+                                                        Physical = new DamageTypeDescription.PhysicalData(),
+                                                    },
+                                                    Duration = new ContextDurationValue() {
+                                                        m_IsExtendable = true,
+                                                        DiceCountValue = new ContextValue(),
+                                                        BonusValue = new ContextValue()
+                                                    },
+                                                    Value = new ContextDiceValue() {
+                                                        DiceType = Kingmaker.RuleSystem.DiceType.D6,
+                                                        DiceCountValue = new ContextValue() {
+                                                            ValueType = ContextValueType.Rank,
+                                                            ValueRank = AbilityRankType.DamageDice
+                                                        },
+                                                        BonusValue = new ContextValue() {
+                                                            ValueType = ContextValueType.Rank,
+                                                            ValueRank = AbilityRankType.DamageBonus
+                                                        }
+                                                    },
+                                                    IsAoE = true,
+                                                    HalfIfSaved = true
+                                                }
+                                            )
+                                        }
+                                    ),
+                                    IfFalse = Helpers.CreateActionList()
+                                }
+                            ),
+                            IfFalse = Helpers.CreateActionList(
+                                new Conditional() {
+                                    ConditionsChecker = new ConditionsChecker() {
+                                        Conditions = new Condition[] {
+                                            new ContextConditionIsCaster(){
+                                                Not = true
+                                            }
+                                        }
+                                    },
+                                    IfTrue = Helpers.CreateActionList(
+                                        new ContextActionSavingThrow() {
+                                            m_ConditionalDCIncrease = new ContextActionSavingThrow.ConditionalDCIncrease[0],
+                                            Type = SavingThrowType.Will,
+                                            CustomDC = new ContextValue(),
+                                            Actions = Helpers.CreateActionList(
+                                                new ContextActionDealDamage() {
+                                                    DamageType = new DamageTypeDescription() {
+                                                        Type = DamageType.Direct,
+                                                        Common = new DamageTypeDescription.CommomData(),
+                                                        Physical = new DamageTypeDescription.PhysicalData(),
+                                                    },
+                                                    Duration = new ContextDurationValue() {
+                                                        m_IsExtendable = true,
+                                                        DiceCountValue = new ContextValue(),
+                                                        BonusValue = new ContextValue()
+                                                    },
+                                                    Value = new ContextDiceValue() {
+                                                        DiceType = Kingmaker.RuleSystem.DiceType.D6,
+                                                        DiceCountValue = new ContextValue() {
+                                                            ValueType = ContextValueType.Rank,
+                                                            ValueRank = AbilityRankType.DamageDice
+                                                        },
+                                                        BonusValue = new ContextValue() {
+                                                            ValueType = ContextValueType.Rank,
+                                                            ValueRank = AbilityRankType.DamageBonus
+                                                        }
+                                                    },
+                                                    IsAoE = true,
+                                                    HalfIfSaved = true
+                                                }
+                                            )
+                                        }
+                                    ),
+                                    IfFalse = Helpers.CreateActionList()
+                                }
+                            )
+                        }
+                    );
+                });
+            });
+            var ChannelerOfTheUnknownChannelEntropyFeature = Helpers.CreateBlueprint<BlueprintFeature>("ChannelerOfTheUnknownChannelEntropyFeature", bp => {
+                bp.SetName("Channel Entropy");
+                bp.SetDescription("A channeler of the unknown can channel entropy as a cleric channels negative or positive energy, releasing a wave of twisting void that harms " +
+                    "creatures in the area of effect. The amount of damage dealt is equal to that an evil cleric of her level would deal by channeling negative energy, except it " +
+                    "affects living, unliving, and undead creatures alike. This functions in all other ways as a cleric’s channel energy class feature, including benefiting from feats " +
+                    "that affect channel energy (such as Selective Channeling).");
+                bp.m_Icon = ChannelEntropyIcon;
+                bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[0];
+                bp.IsClassFeature = true;
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        ChannelEnergyFact.ToReference<BlueprintUnitFactReference>(),
+                        ChannelerOfTheUnknownChannelEntropyAbility.ToReference<BlueprintUnitFactReference>()
+                    };
+                });
             });
             var ChannelerOfTheUnknownArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("ChannelerOfTheUnknownArchetype", bp => {
                 bp.LocalizedName = Helpers.CreateString("ChannelerOfTheUnknownArchetype.Name", "Channeler of the Unknown");
@@ -136,12 +348,126 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     Helpers.CreateLevelEntry(1, 
                         ChannelerOfTheUnknownProficiencies,
                         ChannelerOfTheUnknownWeaponProficiency,
-                        ChannelerOfTheUnknownPowerOfTheUnknown
+                        ChannelerOfTheUnknownPowerOfTheUnknown,
+                        ChannelerOfTheUnknownChannelEntropyFeature
                     ),
                 };
             });
+
+            var MysticTheurgeChannelerOfTheUnknownLevelUp = Helpers.CreateBlueprint<BlueprintFeature>("MysticTheurgeChannelerOfTheUnknownLevelUp", bp => {
+                bp.SetName("Channeler Of The Unknown");
+                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                    "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
+                bp.Ranks = 10;
+                bp.HideInUI = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.MysticTheurgeDivineSpellbook };
+                bp.IsClassFeature = true;
+                bp.AddComponent<AddSpellbookLevel>(c => {
+                    c.m_Spellbook = ChannelerOfTheUnknownSpellbook.ToReference<BlueprintSpellbookReference>();
+                });
+            });
+            var MysticTheurgeChannelerOfTheUnknownProgression = Helpers.CreateBlueprint<BlueprintProgression>("MysticTheurgeChannelerOfTheUnknownProgression", bp => {
+                bp.SetName("Channeler Of The Unknown");
+                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                    "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
+                bp.Ranks = 1;
+                bp.HideInUI = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
+                bp.HideNotAvailibleInUI = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.MysticTheurgeDivineSpellbook };
+                bp.IsClassFeature = true;
+                bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
+                    new BlueprintProgression.ClassWithLevel{
+                        m_Class = MysticTheurgeClass.ToReference<BlueprintCharacterClassReference>()
+                    }
+                };
+                bp.LevelEntries = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(1, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(2, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(3, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(4, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(5, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(6, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(7, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(8, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(9, MysticTheurgeChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(10, MysticTheurgeChannelerOfTheUnknownLevelUp)
+                };
+                bp.AddPrerequisite<PrerequisiteClassSpellLevel>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                    c.RequiredSpellLevel = 2;
+                });
+                bp.AddComponent<MysticTheurgeSpellbook>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                    c.m_MysticTheurge = MysticTheurgeClass.ToReference<BlueprintCharacterClassReference>();
+                });
+                bp.AddPrerequisite<PrerequisiteArchetypeLevel>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                    c.m_Archetype = ChannelerOfTheUnknownArchetype.ToReference<BlueprintArchetypeReference>();
+                    c.Level = 1;
+                });
+            });
+
+            var HellknightSigniferChannelerOfTheUnknownLevelUp = Helpers.CreateBlueprint<BlueprintFeature>("HellknightSigniferChannelerOfTheUnknownLevelUp", bp => {
+                bp.SetName("Channeler Of The Unknown");
+                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                    "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
+                bp.Ranks = 10;
+                bp.HideInUI = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.MysticTheurgeDivineSpellbook };
+                bp.IsClassFeature = true;
+                bp.AddComponent<AddSpellbookLevel>(c => {
+                    c.m_Spellbook = ChannelerOfTheUnknownSpellbook.ToReference<BlueprintSpellbookReference>();
+                });
+            });
+            var HellknightSigniferChannelerOfTheUnknownProgression = Helpers.CreateBlueprint<BlueprintProgression>("HellknightSigniferChannelerOfTheUnknownProgression", bp => {
+                bp.SetName("Channeler Of The Unknown");
+                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                    "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
+                bp.Ranks = 1;
+                bp.HideInUI = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
+                bp.HideNotAvailibleInUI = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.MysticTheurgeDivineSpellbook };
+                bp.IsClassFeature = true;
+                bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
+                    new BlueprintProgression.ClassWithLevel{ 
+                        m_Class = HellknightSigniferClass.ToReference<BlueprintCharacterClassReference>()
+                    }
+                };
+                bp.LevelEntries = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(1, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(2, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(3, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(4, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(5, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(6, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(7, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(8, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(9, HellknightSigniferChannelerOfTheUnknownLevelUp),
+                    Helpers.CreateLevelEntry(10, HellknightSigniferChannelerOfTheUnknownLevelUp)
+                };
+                bp.AddPrerequisite<PrerequisiteClassSpellLevel>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                    c.RequiredSpellLevel = 2;
+                });
+                bp.AddComponent<MysticTheurgeSpellbook>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                    c.m_MysticTheurge = MysticTheurgeClass.ToReference<BlueprintCharacterClassReference>();
+                });
+                bp.AddPrerequisite<PrerequisiteArchetypeLevel>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                    c.m_Archetype = ChannelerOfTheUnknownArchetype.ToReference<BlueprintArchetypeReference>();
+                    c.Level = 1;
+                });
+            });
+
             if (ModSettings.AddedContent.Archetypes.IsDisabled("ChannelerOfTheUnknown")) { return; }
             ClericClass.m_Archetypes = ClericClass.m_Archetypes.AppendToArray(ChannelerOfTheUnknownArchetype.ToReference<BlueprintArchetypeReference>());
+            SelectiveChannel.AddPrerequisiteFeature(ChannelerOfTheUnknownChannelEntropyFeature, Prerequisite.GroupType.Any);
+            Main.LogPatch("Patched", SelectiveChannel);
+            ExtraChannel.AddPrerequisiteFeature(ChannelerOfTheUnknownChannelEntropyFeature, Prerequisite.GroupType.Any);
+            Main.LogPatch("Patched", ExtraChannel);
             DeitySelection.AllFeatures.ForEach(deity => {
                 var addFeature = deity.GetComponent<AddFeatureOnClassLevel>();
                 if (addFeature != null) {
@@ -158,6 +484,25 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     Main.LogPatch("Patched", deity);
                 }
             });
+            // Add to Mystic Theurge
+            MysticTheurgeClericProgression.AddPrerequisite<PrerequisiteNoArchetype>(c => {
+                c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                c.m_Archetype = ChannelerOfTheUnknownArchetype.ToReference<BlueprintArchetypeReference>();
+            });
+            MysticTheurgeDivineSpellbookSelection.AddFeatures(MysticTheurgeChannelerOfTheUnknownProgression);
+            Main.LogPatch("Patched", MysticTheurgeClericProgression);
+            Main.LogPatch("Patched", MysticTheurgeDivineSpellbookSelection);
+            // Add to Hellknight Signifier
+            HellknightSigniferClericProgression.AddPrerequisite<PrerequisiteNoArchetype>(c => {
+                c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                c.m_Archetype = ChannelerOfTheUnknownArchetype.ToReference<BlueprintArchetypeReference>();
+            });
+            HellknightSigniferSpellbook.AddFeatures(HellknightSigniferChannelerOfTheUnknownProgression);
+            Main.LogPatch("Patched", HellknightSigniferClericProgression);
+            Main.LogPatch("Patched", HellknightSigniferSpellbook);
+            // Enable Angel Merge
+            AngelIncorporateSpellbook.m_AllowedSpellbooks = AngelIncorporateSpellbook.m_AllowedSpellbooks.AppendToArray(ChannelerOfTheUnknownSpellbook.ToReference<BlueprintSpellbookReference>());
+            Main.LogPatch("Patched", AngelIncorporateSpellbook);
         }
     }
 }

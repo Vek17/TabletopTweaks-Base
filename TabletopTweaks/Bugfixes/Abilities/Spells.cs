@@ -363,6 +363,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     .Where(spellList => spellList.SpellLevel != 0)
                     .SelectMany(level => level.Spells)
                     .Distinct()
+                    .SelectMany(spell => spell.AbilityAndVariants())
                     .OrderBy(spell => spell.Name)
                     .SelectMany(a => a.FlattenAllActions())
                     .OfType<ContextActionApplyBuff>()
