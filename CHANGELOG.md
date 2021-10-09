@@ -1,3 +1,6 @@
+## Version 1.6.0a
+* actual release version
+
 ## Version 1.6.0
 * dispel magic greater now correctly has a cap on how many buffs it can remove (1/4 CL)
 * added new cleric archetype

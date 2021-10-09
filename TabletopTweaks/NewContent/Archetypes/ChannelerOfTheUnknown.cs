@@ -136,9 +136,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     // To support all features that check for domains this way
                     c.m_Facts = new BlueprintUnitFactReference[] { DomainsSelection.ToReference<BlueprintUnitFactReference>() };
                 });
-                bp.AddComponent<SpontaneousSpecialListConversion>(c => {
-                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
-                });
             });
             var ChannelerOfTheUnknownChannelEntropyAbility = Helpers.CreateBlueprint<BlueprintAbility>("ChannelerOfTheUnknownChannelEntropyAbility", bp => {
                 bp.SetName("Channel Entropy");
@@ -320,6 +317,18 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     };
                 });
             });
+            var ChannelerOfTheUnknownSpontaneousCasting = Helpers.CreateBlueprint<BlueprintFeature>("ChannelerOfTheUnknownSpontaneousCasting", bp => {
+                bp.SetName("Spontaneous Casting");
+                bp.SetDescription("Instead of converting prepared spells into cure or inflict spells, a channeler of the unknown can channel stored spell energy into her domain spells.\n" +
+                    "She can lose a prepared spell, including a domain spell, to spontaneously cast a domain spell of the same spell level or lower.");
+                bp.m_Icon = DomainsSelection.Icon;
+                bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[0];
+                bp.IsClassFeature = true;
+                bp.AddComponent<SpontaneousSpecialListConversion>(c => {
+                    c.m_CharacterClass = ClericClass.ToReference<BlueprintCharacterClassReference>();
+                });
+            });
             var ChannelerOfTheUnknownArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("ChannelerOfTheUnknownArchetype", bp => {
                 bp.LocalizedName = Helpers.CreateString("ChannelerOfTheUnknownArchetype.Name", "Channeler of the Unknown");
                 bp.LocalizedDescription = Helpers.CreateString("ChannelerOfTheUnknownArchetype.Description", "While most clerics who fall out of favor with their deities " +
@@ -341,7 +350,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         ChannelerOfTheUnknownProficiencies,
                         ChannelerOfTheUnknownWeaponProficiency,
                         ChannelerOfTheUnknownPowerOfTheUnknown,
-                        ChannelerOfTheUnknownChannelEntropyFeature
+                        ChannelerOfTheUnknownChannelEntropyFeature,
+                        ChannelerOfTheUnknownSpontaneousCasting
                     ),
                 };
             });
