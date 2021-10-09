@@ -178,6 +178,7 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
