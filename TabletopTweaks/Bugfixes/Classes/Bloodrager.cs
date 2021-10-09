@@ -39,6 +39,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchPrimalist();
                 PatchReformedFiend();
                 PatchArcaneBloodrage();
+                PatchGreaterArcaneBloodrage();
             }
             static void PatchBaseClass() {
                 PatchSpellbook();
@@ -465,6 +466,101 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     BloodragerArcaneSpellResistElectricityToggle.ToReference<BlueprintAbilityReference>(),
                     BloodragerArcaneSpellResistAcidToggle.ToReference<BlueprintAbilityReference>(),
                     BloodragerArcaneSpellResistSonicToggle.ToReference<BlueprintAbilityReference>()
+                };
+            }
+
+            static void PatchGreaterArcaneBloodrage() {
+                var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+                var BloodragerArcaneGreaterSpell = Resources.GetBlueprint<BlueprintAbility>("31dbadf586920494b87e8e95452af998");
+
+                var Displacement = Resources.GetBlueprint<BlueprintAbility>("903092f6488f9ce45a80943923576ab3");
+                var DisplacementBuff = Resources.GetBlueprint<BlueprintBuff>("00402bae4442a854081264e498e7a833");
+
+                var Haste = Resources.GetBlueprint<BlueprintAbility>("486eaff58293f6441a5c2759c4872f98");
+                var HasteBuff = Resources.GetBlueprint<BlueprintBuff>("03464790f40c3c24aa684b57155f3280");
+                var SlowBuff = Resources.GetBlueprint<BlueprintBuff>("0bc608c3f2b548b44b7146b7530613ac");
+
+                BlueprintBuff BloodragerArcaneGreaterSpellHasteActivationBuff = Helpers.CreateBuff("BloodragerArcaneGreaterSpellHasteActivationBuff", bp => {
+                    bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                    bp.IsClassFeature = true;
+                    bp.SetName("Greater Arcane Bloodrage: Haste");
+                    bp.m_Description = HasteBuff.m_Description;
+                    bp.AddComponent<AddFactContextActions>(c => {
+                        c.Activated = new ActionList() {
+                            Actions = new GameAction[] {
+                                new Conditional() {
+                                    name = "HasteActivationBuffCondition",
+                                    Comment = "",
+                                    ConditionsChecker = new ConditionsChecker() {
+                                        Conditions = new Condition[] {
+                                            new ContextConditionHasBuff {
+                                                m_Buff = SlowBuff.ToReference<BlueprintBuffReference>()
+                                            }
+                                        }
+                                    },
+                                    IfTrue = new ActionList() {
+                                        Actions = new GameAction[] {
+                                            new ContextActionRemoveBuff() {
+                                                m_Buff = SlowBuff.ToReference<BlueprintBuffReference>()
+                                            }
+                                        }
+                                    },
+                                    IfFalse = new ActionList() {
+                                        Actions = new GameAction[] {
+                                            new ContextActionApplyBuff() {
+                                                m_Buff = HasteBuff.ToReference<BlueprintBuffReference>(),
+                                                Permanent = true,
+                                                AsChild = true,
+                                                DurationValue = new ContextDurationValue(),
+                                                IsFromSpell = false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        };
+                        c.Deactivated = new ActionList();
+                        c.NewRound = new ActionList();
+                    });
+                });
+
+                BlueprintBuff BloodragerArcaneGreaterSpellDisplacementSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneGreaterSpellDisplacementSwitchBuff",
+                    "Greater Arcane Bloodrage: Displacement",
+                    BloodragerArcaneGreaterSpell,
+                    BloodragerStandartRageBuff,
+                    DisplacementBuff);
+                
+                BlueprintBuff BloodragerArcaneGreaterSpellHasteSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
+                    "BloodragerArcaneGreaterSpellHasteSwitchBuff",
+                    "Greater Arcane Bloodrage: Haste",
+                    BloodragerArcaneGreaterSpell,
+                    BloodragerStandartRageBuff,
+                    BloodragerArcaneGreaterSpellHasteActivationBuff);
+
+                var AllBloodragerArcaneGreaterSpellSwitchBuffs = new List<BlueprintBuff>() {
+                    BloodragerArcaneGreaterSpellDisplacementSwitchBuff,
+                    BloodragerArcaneGreaterSpellHasteSwitchBuff
+                };
+
+
+                BlueprintAbility BloodragerArcaneSpellGreaterDisplacementToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellGreaterDisplacementToggle",
+                    Displacement,
+                    BloodragerArcaneGreaterSpell,
+                    BloodragerArcaneGreaterSpellDisplacementSwitchBuff,
+                    AllBloodragerArcaneGreaterSpellSwitchBuffs);
+                
+                BlueprintAbility BloodragerArcaneSpellGreaterHasteToggle = BloodlineTools.CreateArcaneBloodrageToggle(
+                    "BloodragerArcaneSpellGreaterHasteToggle",
+                    Haste,
+                    BloodragerArcaneGreaterSpell,
+                    BloodragerArcaneGreaterSpellHasteSwitchBuff,
+                    AllBloodragerArcaneGreaterSpellSwitchBuffs);
+
+                BloodragerArcaneGreaterSpell.GetComponent<AbilityVariants>().m_Variants = new BlueprintAbilityReference[] {
+                    BloodragerArcaneSpellGreaterDisplacementToggle.ToReference<BlueprintAbilityReference>(),
+                    BloodragerArcaneSpellGreaterHasteToggle.ToReference<BlueprintAbilityReference>()
                 };
             }
             
