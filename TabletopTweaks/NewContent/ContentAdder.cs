@@ -14,6 +14,8 @@ namespace TabletopTweaks.NewContent {
                 Main.LogHeader("Loading New Content");
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
+                Features.MartialWeaponProficencySelection.AddMartialWeaponProficencySelection();
+
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();
                 Templates.AlignmentTemplates.AddFiendishTemplate();
@@ -71,6 +73,7 @@ namespace TabletopTweaks.NewContent {
                 Archetypes.MetamagicRager.AddMetamagicRager();
                 Archetypes.DivineCommander.AddDivineCommander();
                 Archetypes.NatureFang.AddNatureFang();
+                Archetypes.ChannelerOfTheUnknown.AddChannelerOfTheUnknown();
 
                 Spells.LongArms.AddLongArms();
                 Spells.ShadowEnchantment.AddShadowEnchantment();

@@ -17,6 +17,7 @@
         "DisableAll": false,
         "Enabled": {
             "NatureFang": true,
+            "ChannelerOfTheUnknown": true,
             "DivineCommander": true,
             "CauldronWitchArchetype": true,
             "ElementalMasterArchetype": true,

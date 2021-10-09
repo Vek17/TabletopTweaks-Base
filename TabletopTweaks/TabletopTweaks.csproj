@@ -185,8 +185,10 @@
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
+    <Compile Include="NewComponents\AddFeatureOnClassLevelExclude.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
     <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
+    <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
@@ -271,6 +273,7 @@
     <Compile Include="NewComponents\Prerequisites\PrerequisiteNoClassLevelVisible.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
+    <Compile Include="NewContent\Archetypes\ChannelerOfTheUnknown.cs" />
     <Compile Include="NewContent\Archetypes\NatureFang.cs" />
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
@@ -313,6 +316,7 @@
     <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
     <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
     <Compile Include="NewContent\Archetypes\MadDog.cs" />
+    <Compile Include="NewContent\Features\MartialWeaponProficencySelection.cs" />
     <Compile Include="NewContent\Features\PerfectStrikeZenArcherBuff.cs" />
     <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
     <Compile Include="NewContent\FighterAdvancedArmorTrainings\AdvancedArmorTraining.cs" />
