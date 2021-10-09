@@ -132,20 +132,20 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     "If not, compare the same result to the spell with the next highest caster level. Repeat this process until you have dispelled " +
                     "one spell affecting the target, or you have failed to dispel every spell.");
                 DispelMagicGreaterTarget.GetComponent<AbilityEffectRunAction>().Actions = Helpers.CreateActionList(
-                    new ContextActionDispelMagicCapped() { 
+                    new ContextActionDispelMagicCapped() {
                         m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
                         m_MaxSpellLevel = new ContextValue(),
                         m_MaxCasterLevel = new ContextValue(),
                         m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
                         ContextBonus = new ContextValue(),
-                        DispelLimit = new ContextValue() { 
+                        DispelLimit = new ContextValue() {
                             ValueType = ContextValueType.Rank,
                             ValueRank = AbilityRankType.StatBonus
                         },
                         Schools = new SpellSchool[0],
                         OnSuccess = Helpers.CreateActionList(),
                         OnFail = Helpers.CreateActionList(),
-                    }    
+                    }
                 );
                 DispelMagicGreaterTarget.AddComponent(Helpers.CreateContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;

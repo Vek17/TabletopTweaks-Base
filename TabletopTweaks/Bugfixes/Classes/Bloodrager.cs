@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
@@ -279,7 +278,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
 
-            
+
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items;
@@ -12,7 +13,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewActions {
-
+    [TypeId("bc47e9ceb15f4e85960909fdf8b5a8b5")]
     public class EnhanceSheild : ContextAction {
 
         public ReferenceArrayProxy<BlueprintItemEnchantment, BlueprintItemEnchantmentReference> Enchantment {
