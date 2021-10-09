@@ -10,14 +10,11 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
-using Kingmaker.UnitLogic.Alignments;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -177,7 +174,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.AddComponent<AbilityTargetsAround>(c => {
                     c.m_Radius = 30.Feet();
                     c.m_TargetType = TargetType.Any;
-                    c.m_Condition = new ConditionsChecker() { 
+                    c.m_Condition = new ConditionsChecker() {
                         Conditions = new Condition[0]
                     };
                 });
@@ -345,7 +342,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     ),
                 };
                 bp.AddFeatures = new LevelEntry[] {
-                    Helpers.CreateLevelEntry(1, 
+                    Helpers.CreateLevelEntry(1,
                         ChannelerOfTheUnknownProficiencies,
                         ChannelerOfTheUnknownWeaponProficiency,
                         ChannelerOfTheUnknownPowerOfTheUnknown,
@@ -431,7 +428,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MysticTheurgeDivineSpellbook };
                 bp.IsClassFeature = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
-                    new BlueprintProgression.ClassWithLevel{ 
+                    new BlueprintProgression.ClassWithLevel{
                         m_Class = HellknightSigniferClass.ToReference<BlueprintCharacterClassReference>()
                     }
                 };

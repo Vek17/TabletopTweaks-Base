@@ -2,18 +2,13 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.Utility;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
-using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {

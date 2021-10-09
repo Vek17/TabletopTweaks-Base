@@ -44,7 +44,7 @@ namespace TabletopTweaks.NewContent.Features {
                 bp.AddComponent<AddProficiencies>(c => {
                     c.m_RaceRestriction = new Kingmaker.Blueprints.BlueprintRaceReference();
                     c.ArmorProficiencies = new ArmorProficiencyGroup[0];
-                    c.WeaponProficiencies = new WeaponCategory[] { WeaponCategory.EarthBreaker};
+                    c.WeaponProficiencies = new WeaponCategory[] { WeaponCategory.EarthBreaker };
                 });
             });
             var BardicheProficiency = Helpers.CreateBlueprint<BlueprintFeature>("BardicheProficiency", bp => {
