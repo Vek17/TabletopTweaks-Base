@@ -14,6 +14,8 @@ namespace TabletopTweaks.NewContent {
                 Main.LogHeader("Loading New Content");
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
+                Features.MartialWeaponProficencySelection.AddMartialWeaponProficencySelection();
+
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();
                 Templates.AlignmentTemplates.AddFiendishTemplate();
@@ -60,7 +62,6 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
                 //Features to support existing clases
-                Classes.Loremaster.AddLoremasterFeatures();
                 Classes.Cavalier.AddCavalierFeatures();
                 Classes.Oracle.AddOracleFeatures();
                 //Features to support existing archetypes
@@ -71,6 +72,10 @@ namespace TabletopTweaks.NewContent {
                 Archetypes.MetamagicRager.AddMetamagicRager();
                 Archetypes.DivineCommander.AddDivineCommander();
                 Archetypes.NatureFang.AddNatureFang();
+                Archetypes.ChannelerOfTheUnknown.AddChannelerOfTheUnknown();
+                //Features to support existing prestige clases
+                Classes.Loremaster.AddLoremasterFeatures();
+
 
                 Spells.LongArms.AddLongArms();
                 Spells.ShadowEnchantment.AddShadowEnchantment();
@@ -85,6 +90,8 @@ namespace TabletopTweaks.NewContent {
 
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
 
+                Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
+
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();
                 Feats.SelfSufficient.AddSelfSufficient();
@@ -97,10 +104,9 @@ namespace TabletopTweaks.NewContent {
                 Feats.SpellSpecializationGreater.AddSpellSpecializationGreater();
                 Feats.Stalwart.AddStalwart();
                 Feats.CelestialServant.AddCelestialServant();
-
+                Feats.ImprovedChannel.AddImprovedChannel();
+                Feats.QuickChannel.AddQuickChannel();
                 Feats.ErastilsBlessing.AddErastilsBlessing();
-
-                Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

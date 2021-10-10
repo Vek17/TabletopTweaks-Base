@@ -67,6 +67,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Bloodrager - Metamagic Rager
         Warpriest - Divine Commander
         Druid - Nature Fang
+        Cleric - Channeler of the Unknown
 
     Adds the following feats:
         Dervish Dance

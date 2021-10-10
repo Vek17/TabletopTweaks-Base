@@ -44,6 +44,10 @@ namespace TabletopTweaks.NewComponents {
             RemoveFact();
         }
 
+        public override void OnPostLoad() {
+            Apply();
+        }
+
         private void Apply() {
             RemoveFact();
             if (base.Data.AppliedFact != null) {
