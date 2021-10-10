@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -9,6 +10,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -295,6 +297,35 @@ namespace TabletopTweaks.Utilities {
                 bp.AddComponent<RestrictHasBuff>(c => {
                     c.Inverted = true;
                     c.RequiredBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                });
+            });
+        }
+
+        public static BlueprintBuff CreateBloodragerTrueArcaneSpellRagePolymorphActivationBuff(
+                string blueprintName,
+                string displayName,
+                BlueprintBuff polymorphBuff) {
+            return Helpers.CreateBuff(blueprintName, bp => {
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
+                bp.SetName(displayName);
+                bp.m_Description = polymorphBuff.m_Description;
+                bp.AddComponent<AddFactContextActions>(c => {
+                    c.Activated = new ActionList() {
+                        Actions = new GameAction[] {
+                                new ContextActionRemoveBuffsByDescriptor() {
+                                    NotSelf = true,
+                                    SpellDescriptor = SpellDescriptor.Polymorph
+                                },
+                                new ContextActionApplyBuff() {
+                                    m_Buff = polymorphBuff.ToReference<BlueprintBuffReference>(),
+                                    Permanent = true,
+                                    AsChild = true,
+                                    DurationValue = new ContextDurationValue(),
+                                    IsFromSpell = false
+                                }
+                            }
+                    };
                 });
             });
         }

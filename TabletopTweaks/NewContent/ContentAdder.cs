@@ -61,6 +61,7 @@ namespace TabletopTweaks.NewContent {
                 Bloodlines.DestinedBloodline.AddBloodragerDestinedBloodline();
                 Bloodlines.DestinedBloodline.AddSorcererDestinedBloodline();
                 Bloodlines.AbyssalBloodline.AddBloodragerAbyssalDemonicBulkEnlargeBuff();
+                Bloodlines.BloodragerArcaneBloodline.AddArcaneBloodrageReworkToggles();
                 //Features to support existing clases
                 Classes.Cavalier.AddCavalierFeatures();
                 Classes.Oracle.AddOracleFeatures();
