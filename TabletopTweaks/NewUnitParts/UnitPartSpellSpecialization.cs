@@ -177,6 +177,8 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         private class SpontaneousConversionAbilityData : AbilityData {
+
+            public SpontaneousConversionAbilityData() : base() { }
             public SpontaneousConversionAbilityData(
                 BlueprintAbility blueprint,
                 UnitDescriptor caster,

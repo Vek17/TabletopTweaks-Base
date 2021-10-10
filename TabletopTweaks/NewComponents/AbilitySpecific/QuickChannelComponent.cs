@@ -54,6 +54,8 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
             }
         }
         private class QuickChannelAbilityData : AbilityData {
+
+            public QuickChannelAbilityData() : base() { }
             public QuickChannelAbilityData(
                 BlueprintAbility blueprint,
                 UnitDescriptor caster,
