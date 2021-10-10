@@ -114,6 +114,9 @@ All fixes and added content are configurable and can be disabled by editing the 
         added halfling secretive survivor trait
         added halfling underfoot trait
 
+    Adds the following backgrounds:
+        Lecturer
+
     Enables the following data mined content:
         Cauldron Witch Archetype
         Elemental Master Archetype
@@ -156,6 +159,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Fixes abyssal bulk blood rage feature
         Fixes spells per day to prevent premature qualification of prerequisites
         Fixed limitless rage not granting extra temp hp
+        Rebuilt Arcane Bloodrage to work better
         Primalist
             Prevents qualification of Extra Rage power feat
             All Rage powers should now work
