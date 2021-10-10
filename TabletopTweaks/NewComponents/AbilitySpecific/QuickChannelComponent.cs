@@ -27,9 +27,10 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                         m_IsSpendResource = ability.ResourceLogic.IsSpendResource,
                         Amount = ability.ResourceLogic.CalculateCost(ability) * 2,
                     },
+                    
                     CustomActionType = UnitCommand.CommandType.Move
                 };
-                conversionList.Add(moveAbility);
+                AbilityData.AddAbilityUnique(ref conversionList, moveAbility);
                 conversions = conversionList;
             }
         }
