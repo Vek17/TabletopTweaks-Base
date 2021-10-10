@@ -278,6 +278,7 @@ namespace TabletopTweaks.Utilities {
                                                 new ContextActionApplyBuff() {
                                                     m_Buff = switchBuff.ToReference<BlueprintBuffReference>(),
                                                     Permanent = true,
+                                                    IsNotDispelable = true,
                                                     DurationValue = new Kingmaker.UnitLogic.Mechanics.ContextDurationValue(),
                                                     AsChild = true
                                                 }
