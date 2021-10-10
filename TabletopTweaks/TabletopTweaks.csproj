@@ -192,6 +192,7 @@
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
+    <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceBase.cs" />
@@ -279,6 +280,7 @@
     <Compile Include="NewContent\Archetypes\NatureFang.cs" />
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Bloodlines\BloodragerArcaneBloodline.cs" />
     <Compile Include="NewContent\Backgrounds\Lecturer.cs" />
     <Compile Include="NewContent\Classes\Cavalier.cs" />
     <Compile Include="NewContent\Classes\Loremaster.cs" />
@@ -354,6 +356,9 @@
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewEvents\ISpontaneousConversionHandler.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
+    <Compile Include="NewUI\ActionBarPatches.cs" />
+    <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbility.cs" />
+    <Compile Include="NewUI\MechanicActionBarSlotQuickStudy.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />

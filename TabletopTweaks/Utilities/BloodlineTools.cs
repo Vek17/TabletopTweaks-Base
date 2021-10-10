@@ -2,15 +2,19 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -203,6 +207,129 @@ namespace TabletopTweaks.Utilities {
                 Group = Prerequisite.GroupType.Any
             });
         }
+
+        public static BlueprintBuff CreateArcaneBloodrageSwitchBuff(
+                string blueprintName,
+                string displayName,
+                BlueprintAbility bloodragerArcaneSpellAbility,
+                BlueprintBuff rageBuff,
+                BlueprintBuff spellBuff
+                ) {
+
+            return Helpers.CreateBuff(blueprintName, bp => {
+                bp.m_Flags = BlueprintBuff.Flags.StayOnDeath | BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
+                bp.SetName(displayName);
+                bp.m_Description = bloodragerArcaneSpellAbility.m_Description;
+                bp.m_DescriptionShort = bloodragerArcaneSpellAbility.m_DescriptionShort;
+                bp.m_Icon = spellBuff.m_Icon;
+                bp.AddComponent<BuffExtraEffects>(c => {
+                    c.m_CheckedBuff = rageBuff.ToReference<BlueprintBuffReference>();
+                    c.m_ExtraEffectBuff = spellBuff.ToReference<BlueprintBuffReference>();
+                });
+            });
+        }
+
+        public static BlueprintAbility CreateArcaneBloodrageToggle(
+            string blueprintName,
+            BlueprintAbility abilityToImitate,
+            BlueprintAbility bloodragerArcaneSpellAbility,
+            BlueprintBuff switchBuff,
+            List<BlueprintBuff> allToggleBuffsInGroup
+            ) {
+            var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+            return Helpers.CreateBlueprint<BlueprintAbility>(blueprintName, bp => {
+                bp.m_DisplayName = abilityToImitate.m_DisplayName;
+                bp.m_Description = abilityToImitate.m_Description;
+                bp.m_DescriptionShort = abilityToImitate.m_DescriptionShort;
+                bp.m_Icon = abilityToImitate.m_Icon;
+                bp.m_Parent = bloodragerArcaneSpellAbility.ToReference<BlueprintAbilityReference>();
+                bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
+                bp.Type = AbilityType.Special;
+                bp.Range = AbilityRange.Personal;
+                bp.CanTargetFriends = true;
+                bp.CanTargetSelf = true;
+                bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Special;
+                bp.AddComponent<AbilityEffectRunAction>(c => {
+                    c.Actions = new ActionList() {
+                        Actions = new GameAction[] {
+                                    new Conditional() {
+                                        name = bloodragerArcaneSpellAbility.name,
+                                        Comment = abilityToImitate.name,
+                                        ConditionsChecker = new ConditionsChecker() {
+                                            Conditions = new Condition[] {
+                                                new ContextConditionHasFact() {
+                                                    m_Fact = switchBuff.ToReference<BlueprintUnitFactReference>()
+                                                }
+                                            }
+                                        },
+                                        IfTrue = new ActionList() {
+                                            Actions = new GameAction[] {
+                                                new ContextActionRemoveBuff() {
+                                                    m_Buff = switchBuff.ToReference<BlueprintBuffReference>()
+                                                }
+                                            }
+                                        },
+                                        IfFalse = new ActionList() {
+                                            Actions = new GameAction[] {
+                                                new ContextActionApplyBuff() {
+                                                    m_Buff = switchBuff.ToReference<BlueprintBuffReference>(),
+                                                    Permanent = true,
+                                                    DurationValue = new Kingmaker.UnitLogic.Mechanics.ContextDurationValue(),
+                                                    AsChild = true
+                                                }
+                                            }.AppendToArray(
+                                                allToggleBuffsInGroup
+                                                    .Where(b => b != switchBuff)
+                                                    .Select(buff =>
+                                                        new ContextActionRemoveBuff() {
+                                                            m_Buff = buff.ToReference<BlueprintBuffReference>()
+                                                        })
+                                                    ).ToArray()
+                                        }
+                                    }
+                                }
+                    };
+                });
+                bp.AddComponent<PseudoActivatable>(c => {
+                    c.m_BuffToWatch = switchBuff.ToReference<BlueprintBuffReference>();
+                });
+                bp.AddComponent<RestrictHasBuff>(c => {
+                    c.Inverted = true;
+                    c.RequiredBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
+                });
+            });
+        }
+
+        public static BlueprintBuff CreateBloodragerTrueArcaneSpellRagePolymorphActivationBuff(
+                string blueprintName,
+                string displayName,
+                BlueprintBuff polymorphBuff) {
+            return Helpers.CreateBuff(blueprintName, bp => {
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
+                bp.SetName(displayName);
+                bp.m_Description = polymorphBuff.m_Description;
+                bp.AddComponent<AddFactContextActions>(c => {
+                    c.Activated = new ActionList() {
+                        Actions = new GameAction[] {
+                                new ContextActionRemoveBuffsByDescriptor() {
+                                    NotSelf = true,
+                                    SpellDescriptor = SpellDescriptor.Polymorph
+                                },
+                                new ContextActionApplyBuff() {
+                                    m_Buff = polymorphBuff.ToReference<BlueprintBuffReference>(),
+                                    Permanent = true,
+                                    AsChild = true,
+                                    DurationValue = new ContextDurationValue(),
+                                    IsFromSpell = false
+                                }
+                            }
+                    };
+                });
+            });
+        }
+
         public static class Bloodline {
             public static BlueprintProgression BloodragerAberrantBloodline => Resources.GetModBlueprint<BlueprintProgression>("BloodragerAberrantBloodline");
             public static BlueprintProgression BloodragerAbyssalBloodline => Resources.GetBlueprint<BlueprintProgression>("55d5bbf4b5ae1744ab26c71be98067f9");

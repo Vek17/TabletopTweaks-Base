@@ -527,6 +527,9 @@ namespace TabletopTweaks.NewUnitParts {
                 } else if (this.DR.Settings is TTAddDamageResistanceForce settings6) {
                     result = "resist force " + this.Reduction;
                 }
+                if (this.DR.Settings.UsePool) {
+                    result += " (Pool: " + this.DR.RemainPool + ")";
+                }
 
                 result += " <" + this.Source.Blueprint.name + ":" + this.Source.Blueprint.AssetGuid.ToString() + "> ";
                 return result;

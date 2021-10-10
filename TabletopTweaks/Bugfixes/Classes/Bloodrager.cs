@@ -7,13 +7,21 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
@@ -30,6 +38,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchReformedFiend();
+                PatchArcaneBloodrage();
+                PatchGreaterArcaneBloodrage();
+                PatchTrueArcaneBloodrage();
             }
             static void PatchBaseClass() {
                 PatchSpellbook();
@@ -273,7 +284,55 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
 
+            static void PatchArcaneBloodrage() {
+                if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
+                var BloodragerArcaneSpellAbility = Resources.GetBlueprint<BlueprintAbility>("3151dfeeb202e38448d1fea1e8bc237e");
+                BloodragerArcaneSpellAbility.GetComponent<AbilityVariants>().m_Variants = new BlueprintAbilityReference[] {
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellBlurToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellProtectionFromArrowsToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellResistFireToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellResistColdToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellResistElectricityToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellResistAcidToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellResistSonicToggle").ToReference<BlueprintAbilityReference>()
+                };
 
+                Main.LogPatch("Patched", BloodragerArcaneSpellAbility);
+            }
+
+            static void PatchGreaterArcaneBloodrage() {
+                if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
+                var BloodragerArcaneGreaterSpell = Resources.GetBlueprint<BlueprintAbility>("31dbadf586920494b87e8e95452af998");
+                BloodragerArcaneGreaterSpell.GetComponent<AbilityVariants>().m_Variants = new BlueprintAbilityReference[] {
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellGreaterDisplacementToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellGreaterHasteToggle").ToReference<BlueprintAbilityReference>()
+                };
+
+                Main.LogPatch("Patched", BloodragerArcaneGreaterSpell);
+            }
+
+            static void PatchTrueArcaneBloodrage() {
+                if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
+                var BloodragerArcaneTrueSpellAbility = Resources.GetBlueprint<BlueprintAbility>("9d4d7f56d2d87f643b5ef990ef481094");
+                BloodragerArcaneTrueSpellAbility.GetComponent<AbilityVariants>().m_Variants = new BlueprintAbilityReference[] {
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueBeastShapeIVShamblingMoundToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueBeastShapeIVSmilodonToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueBeastShapeIVWyvernToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonIBlackToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonIBlueToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonIBrassToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonIBronzeToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonICopperToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonIGoldToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonIGreenToggle").ToReference<BlueprintAbilityReference>(),
+                    Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueTransformationToggle").ToReference<BlueprintAbilityReference>(),
+                };
+
+                Main.LogPatch("Patched", BloodragerArcaneTrueSpellAbility);
+            }
+
+            
+            
         }
     }
 }
