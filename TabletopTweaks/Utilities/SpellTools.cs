@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
 
@@ -81,6 +82,11 @@ namespace TabletopTweaks.Utilities {
             result[(int)SpellSchool.Transmutation] = new SpellSchool[] { SpellSchool.Enchantment, SpellSchool.Illusion };
             return result;
         });
+        public static SpellsLevelEntry CreateSpellLevelEntry(params int[] count) {
+            var entry = new SpellsLevelEntry();
+            entry.Count = count;
+            return entry;
+        }
         public static class Spellbook {
             public static BlueprintSpellbook AccursedWitchSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("b897fe0947e4b804082b1a687c21e6e2");
             public static BlueprintSpellbook AeonSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("6091d66a2a9876b4891b989804cfbcb6");
@@ -138,7 +144,7 @@ namespace TabletopTweaks.Utilities {
             public static BlueprintSpellbook WitchSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("dd04f9239f655ea438976742728e4909");
             public static BlueprintSpellbook WizardSpellbook => Resources.GetBlueprint<BlueprintSpellbook>("5a38c9ac8607890409fcb8f6342da6f4");
 
-            public static BlueprintSpellbook[] AllSpellbooks = new BlueprintSpellbook[] {
+            public static List<BlueprintSpellbook> AllSpellbooks = new List<BlueprintSpellbook> {
                 AccursedWitchSpellbook,
                 AeonSpellbook,
                 AlchemistSpellbook,

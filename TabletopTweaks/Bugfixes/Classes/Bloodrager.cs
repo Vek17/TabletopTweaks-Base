@@ -73,57 +73,52 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var BloodragerSpellPerDayTable = BloodragerSpellbook.SpellsPerDay;
                     BloodragerSpellbook.CasterLevelModifier = 0;
                     BloodragerSpellKnownTable.Levels = new SpellsLevelEntry[] {
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0,2),
-                        CreateSpellLevelEntry(0,3),
-                        CreateSpellLevelEntry(0,4),
-                        CreateSpellLevelEntry(0,4,2),
-                        CreateSpellLevelEntry(0,4,3),
-                        CreateSpellLevelEntry(0,5,4),
-                        CreateSpellLevelEntry(0,5,4,2),
-                        CreateSpellLevelEntry(0,5,4,3),
-                        CreateSpellLevelEntry(0,6,5,4),
-                        CreateSpellLevelEntry(0,6,5,4,2),
-                        CreateSpellLevelEntry(0,6,5,4,3),
-                        CreateSpellLevelEntry(0,6,6,5,4),
-                        CreateSpellLevelEntry(0,6,6,5,4),
-                        CreateSpellLevelEntry(0,6,6,5,4),
-                        CreateSpellLevelEntry(0,6,6,6,5),
-                        CreateSpellLevelEntry(0,6,6,6,5),
-                        CreateSpellLevelEntry(0,6,6,6,5)
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0,2),
+                        SpellTools.CreateSpellLevelEntry(0,3),
+                        SpellTools.CreateSpellLevelEntry(0,4),
+                        SpellTools.CreateSpellLevelEntry(0,4,2),
+                        SpellTools.CreateSpellLevelEntry(0,4,3),
+                        SpellTools.CreateSpellLevelEntry(0,5,4),
+                        SpellTools.CreateSpellLevelEntry(0,5,4,2),
+                        SpellTools.CreateSpellLevelEntry(0,5,4,3),
+                        SpellTools.CreateSpellLevelEntry(0,6,5,4),
+                        SpellTools.CreateSpellLevelEntry(0,6,5,4,2),
+                        SpellTools.CreateSpellLevelEntry(0,6,5,4,3),
+                        SpellTools.CreateSpellLevelEntry(0,6,6,5,4),
+                        SpellTools.CreateSpellLevelEntry(0,6,6,5,4),
+                        SpellTools.CreateSpellLevelEntry(0,6,6,5,4),
+                        SpellTools.CreateSpellLevelEntry(0,6,6,6,5),
+                        SpellTools.CreateSpellLevelEntry(0,6,6,6,5),
+                        SpellTools.CreateSpellLevelEntry(0,6,6,6,5)
                     };
                     BloodragerSpellPerDayTable.Levels = new SpellsLevelEntry[] {
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0),
-                        CreateSpellLevelEntry(0,1),
-                        CreateSpellLevelEntry(0,1),
-                        CreateSpellLevelEntry(0,1),
-                        CreateSpellLevelEntry(0,1,1),
-                        CreateSpellLevelEntry(0,1,1),
-                        CreateSpellLevelEntry(0,2,1),
-                        CreateSpellLevelEntry(0,2,1,1),
-                        CreateSpellLevelEntry(0,2,1,1),
-                        CreateSpellLevelEntry(0,2,2,1),
-                        CreateSpellLevelEntry(0,3,2,1,1),
-                        CreateSpellLevelEntry(0,3,2,1,1),
-                        CreateSpellLevelEntry(0,3,2,2,1),
-                        CreateSpellLevelEntry(0,3,3,2,1),
-                        CreateSpellLevelEntry(0,4,3,2,1),
-                        CreateSpellLevelEntry(0,4,3,2,2),
-                        CreateSpellLevelEntry(0,4,3,3,2),
-                        CreateSpellLevelEntry(0,4,4,3,2)
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0),
+                        SpellTools.CreateSpellLevelEntry(0,1),
+                        SpellTools.CreateSpellLevelEntry(0,1),
+                        SpellTools.CreateSpellLevelEntry(0,1),
+                        SpellTools.CreateSpellLevelEntry(0,1,1),
+                        SpellTools.CreateSpellLevelEntry(0,1,1),
+                        SpellTools.CreateSpellLevelEntry(0,2,1),
+                        SpellTools.CreateSpellLevelEntry(0,2,1,1),
+                        SpellTools.CreateSpellLevelEntry(0,2,1,1),
+                        SpellTools.CreateSpellLevelEntry(0,2,2,1),
+                        SpellTools.CreateSpellLevelEntry(0,3,2,1,1),
+                        SpellTools.CreateSpellLevelEntry(0,3,2,1,1),
+                        SpellTools.CreateSpellLevelEntry(0,3,2,2,1),
+                        SpellTools.CreateSpellLevelEntry(0,3,3,2,1),
+                        SpellTools.CreateSpellLevelEntry(0,4,3,2,1),
+                        SpellTools.CreateSpellLevelEntry(0,4,3,2,2),
+                        SpellTools.CreateSpellLevelEntry(0,4,3,3,2),
+                        SpellTools.CreateSpellLevelEntry(0,4,4,3,2)
                     };
                     Main.LogPatch("Patched", BloodragerSpellPerDayTable);
-                    SpellsLevelEntry CreateSpellLevelEntry(params int[] count) {
-                        var entry = new SpellsLevelEntry();
-                        entry.Count = count;
-                        return entry;
-                    }
                 }
             }
             static void PatchPrimalist() {

@@ -67,6 +67,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Bloodrager - Metamagic Rager
         Warpriest - Divine Commander
         Druid - Nature Fang
+        Cleric - Channeler of the Unknown
 
     Adds the following feats:
         Dervish Dance
@@ -232,11 +233,6 @@ All fixes and added content are configurable and can be disabled by editing the 
         Updates to better match tabletop versions:
             Angelic Aspect Greater
             Magical Vestment
-            Protection from Alignment
-            Unholy Aura
-            Holy Aura
-            Shield of Law
-            Cloak of Chaos
         Fixes:
             Believe in Yourself
             Bestow Curse Greater
