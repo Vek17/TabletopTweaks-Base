@@ -55,6 +55,12 @@
             "UseMagicDevice2": true
         }
     },
+    "Legend": {
+      "DisableAll": false,
+      "Enabled": {
+        "CasterLevel": true
+      }
+    },
     "Alchemist": {
         "DisableAll": false,
         "Base": {

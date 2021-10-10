@@ -10,6 +10,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Azata = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
+        public SettingGroup Legend = new SettingGroup();
         public ClassGroup Alchemist = new ClassGroup();
         public ClassGroup Arcanist = new ClassGroup();
         public ClassGroup Barbarian = new ClassGroup();
@@ -47,6 +48,7 @@ namespace TabletopTweaks.Config {
             Azata.LoadSettingGroup(loadedSettings.Azata, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
+            Legend.LoadSettingGroup(loadedSettings.Legend, NewSettingsOffByDefault);
 
             Alchemist.LoadClassGroup(loadedSettings.Alchemist, NewSettingsOffByDefault);
             Arcanist.LoadClassGroup(loadedSettings.Arcanist, NewSettingsOffByDefault);

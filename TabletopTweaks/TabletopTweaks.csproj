@@ -175,6 +175,7 @@
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\DRRework.cs" />
     <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
+    <Compile Include="Bugfixes\Classes\Legend.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
