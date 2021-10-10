@@ -573,8 +573,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
                 var BloodragerArcaneTrueSpellAbility = Resources.GetBlueprint<BlueprintAbility>("9d4d7f56d2d87f643b5ef990ef481094");
 
-                var BeastShapeIVAbility = Resources.GetBlueprint<BlueprintAbility>("940a545a665194b48b722c1f9dd78d53");
-
                 var BeastShapeIVShamblingMoundAbility = Resources.GetBlueprint<BlueprintAbility>("b140c323981ba0a45a3bee5a1a57f493");
                 var BeastShapeIVShamblingMoundBuff = Resources.GetBlueprint<BlueprintBuff>("50ab9c820eb9cf94d8efba3632ad5ce2");
                 var BloodragerArcaneTrueSpellBeastShapIVShamblingMoundActivationBuff = CreateBloodragerTrueArcaneSpellRagePolymorphActivationBuff(
