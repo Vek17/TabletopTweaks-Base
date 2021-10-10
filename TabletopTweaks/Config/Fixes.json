@@ -815,6 +815,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Can no longer be picked more than once."
+      },
+      "ExpandedArsenal": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Can no longer stack multiple schools."
       }
     },
     "IsExpanded": true
