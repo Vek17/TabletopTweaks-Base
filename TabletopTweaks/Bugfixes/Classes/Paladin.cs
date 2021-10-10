@@ -25,8 +25,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (ModSettings.Fixes.Paladin.Base.IsDisabled("DivineMountTemplate")) { return; }
 
                     var TemplateCelestial = Resources.GetModBlueprint<BlueprintFeature>("TemplateCelestial");
-                    var PaladinMount2Celestial = Resources.GetBlueprint<BlueprintFeature>("ea31185f4e0f91041bf766d67214182f");
-                    var addFeatureToPet = PaladinMount2Celestial.Components.OfType<AddFeatureToPet>().FirstOrDefault();
+                    var PaladinDivineMount11Feature = Resources.GetBlueprint<BlueprintFeature>("ea31185f4e0f91041bf766d67214182f");
+                    var addFeatureToPet = PaladinDivineMount11Feature.Components.OfType<AddFeatureToPet>().FirstOrDefault();
                     if (addFeatureToPet != null) {
                         addFeatureToPet.m_Feature = TemplateCelestial.ToReference<BlueprintFeatureReference>();
                     }

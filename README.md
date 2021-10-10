@@ -233,11 +233,6 @@ All fixes and added content are configurable and can be disabled by editing the 
         Updates to better match tabletop versions:
             Angelic Aspect Greater
             Magical Vestment
-            Protection from Alignment
-            Unholy Aura
-            Holy Aura
-            Shield of Law
-            Cloak of Chaos
         Fixes:
             Believe in Yourself
             Bestow Curse Greater

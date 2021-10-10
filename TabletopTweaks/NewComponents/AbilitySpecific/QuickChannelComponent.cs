@@ -53,6 +53,16 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 }
             }
         }
+        [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.Name), MethodType.Getter)]
+        static class AbilityData_Name_QuickChannel_Patch {
+            static void Postfix(AbilityData __instance, ref string __result) {
+                switch (__instance) {
+                    case QuickChannelAbilityData abilityData:
+                        __result = abilityData.Name;
+                        break;
+                }
+            }
+        }
         private class QuickChannelAbilityData : AbilityData {
 
             public QuickChannelAbilityData() : base() { }
@@ -67,6 +77,12 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 MetamagicData metamagicData = other.MetamagicData;
                 this.MetamagicData = (metamagicData != null) ? metamagicData.Clone() : null;
                 this.m_ConvertedFrom = other;
+            }
+
+            public new string Name {
+                get {
+                    return $"{Blueprint.Name} — Quick";
+                }
             }
 
             public new UnitCommand.CommandType RuntimeActionType {
