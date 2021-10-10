@@ -281,6 +281,7 @@
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
     <Compile Include="NewContent\Bloodlines\BloodragerArcaneBloodline.cs" />
+    <Compile Include="NewContent\Backgrounds\Lecturer.cs" />
     <Compile Include="NewContent\Classes\Cavalier.cs" />
     <Compile Include="NewContent\Classes\Loremaster.cs" />
     <Compile Include="NewContent\Archetypes\MetamagicRager.cs" />

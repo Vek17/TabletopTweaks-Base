@@ -28,6 +28,8 @@ namespace TabletopTweaks.NewContent {
                 Races.Gnome.AddGnomeHeritage();
                 Races.Halfling.AddHalflingHeritage();
 
+                Backgrounds.Lecturer.AddLecturer();
+
                 ArcanistExploits.QuickStudy.AddQuickStudy();
                 ArcanistExploits.ItemCrafting.AddItemCrafting();
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();
