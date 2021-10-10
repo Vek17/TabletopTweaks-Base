@@ -350,8 +350,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         ChannelerOfTheUnknownProficiencies,
                         ChannelerOfTheUnknownWeaponProficiency,
                         ChannelerOfTheUnknownPowerOfTheUnknown,
-                        ChannelerOfTheUnknownChannelEntropyFeature,
-                        ChannelerOfTheUnknownSpontaneousCasting
+                        ChannelerOfTheUnknownSpontaneousCasting,
+                        ChannelerOfTheUnknownChannelEntropyFeature
                     ),
                 };
             });

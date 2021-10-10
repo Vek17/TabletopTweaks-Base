@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -357,7 +358,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchFromSpellFlags() {
                 if (ModSettings.Fixes.Spells.IsDisabled("FixSpellFlags")) { return; }
-
+                Main.Log("Updating Spell Flags");
                 SpellTools.SpellList.AllSpellLists
                     .SelectMany(list => list.SpellsByLevel)
                     .Where(spellList => spellList.SpellLevel != 0)
@@ -369,7 +370,18 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     .OfType<ContextActionApplyBuff>()
                     .Distinct()
                     .Select(a => a.Buff)
-                    .ForEach(b => b.m_Flags |= BlueprintBuff.Flags.IsFromSpell);
+                    .Distinct()
+                    .OrderBy(buff => buff.name)
+                    .ForEach(buff => {
+                        if (buff.GetComponent<AddCondition>() == null 
+                        && buff.GetComponent<BuffStatusCondition>() == null 
+                        && buff.GetComponent<BuffPoisonStatDamage>() == null
+                        && (buff.SpellDescriptor & SpellDescriptor.Bleed) == 0) {
+                            buff.m_Flags |= BlueprintBuff.Flags.IsFromSpell;
+                            Main.LogPatch("Patched", buff);
+                        }
+                    });
+                Main.Log("Finished Spell Flags");
             }
         }
     }

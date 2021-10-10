@@ -1,3 +1,7 @@
+## Version 1.6.1
+* fixed some buffs being dispellable that should not have been
+* fixed paladin divine mount template
+
 ## Version 1.6.0a
 * actual release version
 

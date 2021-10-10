@@ -3,8 +3,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
-using System;
 using System.Linq;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Paladin {
@@ -19,19 +19,18 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchBase();
             }
             static void PatchBase() {
-
-
                 PatchDivineMount();
+
                 void PatchDivineMount() {
-                    BlueprintFeature TemplateCelestial = Resources.GetModBlueprint<BlueprintFeature>("TemplateCelestial");
-                    BlueprintFeature PaladinMount2Celestial = Resources.GetBlueprint<BlueprintFeature>("ea31185f4e0f91041bf766d67214182f");
-                    AddFeatureToPet addFeatureToPet = PaladinMount2Celestial.Components.OfType<AddFeatureToPet>().FirstOrDefault();
+                    if (ModSettings.Fixes.Paladin.Base.IsDisabled("DivineMountTemplate")) { return; }
+
+                    var TemplateCelestial = Resources.GetModBlueprint<BlueprintFeature>("TemplateCelestial");
+                    var PaladinMount2Celestial = Resources.GetBlueprint<BlueprintFeature>("ea31185f4e0f91041bf766d67214182f");
+                    var addFeatureToPet = PaladinMount2Celestial.Components.OfType<AddFeatureToPet>().FirstOrDefault();
                     if (addFeatureToPet != null) {
                         addFeatureToPet.m_Feature = TemplateCelestial.ToReference<BlueprintFeatureReference>();
                     }
-                    
                 }
-
             }
 
             static void PatchArchetypes() {
