@@ -350,7 +350,8 @@
         "DisableAll": false,
         "Enabled": {
             "ExtraFeat": true,
-            "ExtraMythicAbility": true
+            "ExtraMythicAbility": true,
+            "ExpandedArsenal": true
         }
     },
     "Items": {
