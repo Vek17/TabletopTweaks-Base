@@ -11,6 +11,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup FighterAdvancedWeaponTraining = new SettingGroup();
         public SettingGroup MagusArcana = new SettingGroup();
         public SettingGroup Races = new SettingGroup();
+        public SettingGroup Backgrounds = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
         public SettingGroup MythicFeats = new SettingGroup();
@@ -27,6 +28,7 @@ namespace TabletopTweaks.Config {
             FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining, NewSettingsOffByDefault);
             MagusArcana.LoadSettingGroup(loadedSettings.MagusArcana, NewSettingsOffByDefault);
             Races.LoadSettingGroup(loadedSettings.Races, NewSettingsOffByDefault);
+            Backgrounds.LoadSettingGroup(loadedSettings.Backgrounds, NewSettingsOffByDefault);
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
             MythicFeats.LoadSettingGroup(loadedSettings.MythicFeats, NewSettingsOffByDefault);
