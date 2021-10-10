@@ -238,6 +238,7 @@ namespace TabletopTweaks.Utilities {
             List<BlueprintBuff> allToggleBuffsInGroup
             ) {
             var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+            var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
             return Helpers.CreateBlueprint<BlueprintAbility>(blueprintName, bp => {
                 bp.m_DisplayName = abilityToImitate.m_DisplayName;
                 bp.m_Description = abilityToImitate.m_Description;
@@ -300,6 +301,23 @@ namespace TabletopTweaks.Utilities {
                     c.Inverted = true;
                     c.RequiredBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
                 });
+                bp.AddComponent<ContextSetAbilityParams>(c => {
+                    c.DC = new ContextValue();
+                    c.Concentration = new ContextValue();
+                    c.SpellLevel = new ContextValue();
+                    c.CasterLevel = new ContextValue() {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = Kingmaker.Enums.AbilityRankType.StatBonus
+                    };
+                });
+                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                    c.m_Type = Kingmaker.Enums.AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Class = new BlueprintCharacterClassReference[] { BloodragerClass.ToReference<BlueprintCharacterClassReference>() };
+                    c.m_Progression = ContextRankProgression.AsIs;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                }));
             });
         }
 
