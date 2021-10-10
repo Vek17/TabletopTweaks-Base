@@ -95,6 +95,7 @@
             "DisableAll": false,
             "Enabled": {
                 "AbysalBulk": true,
+                "ArcaneBloodrage": true,
                 "Spellbook": true
             }
         },
