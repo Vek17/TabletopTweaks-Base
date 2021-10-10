@@ -242,6 +242,8 @@ namespace TabletopTweaks.Utilities {
                 bp.m_DisplayName = abilityToImitate.m_DisplayName;
                 bp.m_Description = abilityToImitate.m_Description;
                 bp.m_DescriptionShort = abilityToImitate.m_DescriptionShort;
+                bp.LocalizedDuration = Helpers.CreateString($"{blueprintName}.LocalizedDuration", "While Raging");
+                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.m_Icon = abilityToImitate.m_Icon;
                 bp.m_Parent = bloodragerArcaneSpellAbility.ToReference<BlueprintAbilityReference>();
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
