@@ -129,7 +129,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 4;
-                    c.m_Max = 4;
+                    c.m_Max = 5;
                     c.m_Min = 1;
                     c.m_UseMin = true;
                     c.m_UseMax = true;

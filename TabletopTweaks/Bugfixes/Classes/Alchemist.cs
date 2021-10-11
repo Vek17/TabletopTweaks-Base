@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Alchemist {
@@ -52,30 +53,10 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     GrenadierArchetype.RemoveFeatures = GrenadierArchetype.RemoveFeatures
                         .Where(entry => !new int[] { 2, 5, 8, 10 }.Contains(entry.Level))
                         .Concat(new LevelEntry[] {
-                            new LevelEntry() {
-                                Level = 2,
-                                m_Features = new List<BlueprintFeatureBaseReference>() {
-                                    PoisonResistance.ToReference<BlueprintFeatureBaseReference>()
-                                }
-                            },
-                            new LevelEntry() {
-                                Level = 5,
-                                m_Features = new List<BlueprintFeatureBaseReference>() {
-                                    PoisonResistance.ToReference<BlueprintFeatureBaseReference>()
-                                }
-                            },
-                            new LevelEntry() {
-                                Level = 8,
-                                m_Features = new List<BlueprintFeatureBaseReference>() {
-                                    PoisonResistance.ToReference<BlueprintFeatureBaseReference>()
-                                }
-                            },
-                            new LevelEntry() {
-                                Level = 10,
-                                m_Features = new List<BlueprintFeatureBaseReference>() {
-                                    PoisonImmunity.ToReference<BlueprintFeatureBaseReference>()
-                                }
-                            }
+                            Helpers.CreateLevelEntry(2, PoisonResistance),
+                            Helpers.CreateLevelEntry(5, PoisonResistance),
+                            Helpers.CreateLevelEntry(8, PoisonResistance),
+                            Helpers.CreateLevelEntry(10, PoisonImmunity)
                         }).ToArray();
                     Main.LogPatch("Patched", GrenadierArchetype);
                 }
