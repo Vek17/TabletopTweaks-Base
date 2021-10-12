@@ -91,16 +91,16 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Actions = new ActionList();
                     c.Actions.Actions = c.Actions.Actions.AppendToArray(conditionSaved);
                 });
-                bp.AddComponent(Helpers.Create<AddInitiatorAttackWithWeaponTrigger>(c => {
+                bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
                     c.OnlyHit = true;
                     c.CriticalHit = true;
                     c.Action = new ActionList();
                     c.Action.Actions = c.Action.Actions.AppendToArray(savingThrow);
-                }));
-                bp.AddComponent(Helpers.Create<ContextCalculateAbilityParamsBasedOnClass>(c => {
+                });
+                bp.AddComponent<ContextCalculateAbilityParamsBasedOnClass>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.StatType = StatType.Constitution;
-                }));
+                });
             });
             var BloodragerAberrantAbnormalReach = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantAbnormalReach", bp => {
                 bp.SetName("Abnormal Reach");
@@ -110,11 +110,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerAberrantAbnormalReach.Name);
                 bp.SetDescription(BloodragerAberrantAbnormalReach.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Stat = StatType.Reach;
                     c.Value = 5;
-                }));
+                });
             });
             var BloodragerAberrantFortitude = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantFortitude", bp => {
                 bp.SetName("Aberrant Fortitude");
@@ -124,18 +124,18 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerAberrantFortitude.Name);
                 bp.SetDescription(BloodragerAberrantFortitude.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                bp.AddComponent<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Sickened;
-                }));
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                });
+                bp.AddComponent<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Nauseated;
-                }));
-                bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
+                });
+                bp.AddComponent<SpellImmunityToSpellDescriptor>(c => {
                     c.Descriptor = SpellDescriptor.Nauseated | SpellDescriptor.Sickened;
-                }));
-                bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
+                });
+                bp.AddComponent<BuffDescriptorImmunity>(c => {
                     c.Descriptor = SpellDescriptor.Nauseated | SpellDescriptor.Sickened;
-                }));
+                });
             });
             var BloodragerAberrantUnusualAnatomy = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantUnusualAnatomy", bp => {
                 bp.SetName("Unusual Anatomy");
@@ -146,10 +146,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerAberrantUnusualAnatomy.Name);
                 bp.SetDescription(BloodragerAberrantUnusualAnatomy.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
+                bp.AddComponent<AddFortification>(c => {
                     c.UseContextValue = false;
                     c.Bonus = 50;
-                }));
+                });
             });
             var BloodragerAberrantResistance = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantResistance", bp => {
                 bp.SetName("Aberrant Resistance");
@@ -159,38 +159,38 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerAberrantResistance.Name);
                 bp.SetDescription(BloodragerAberrantResistance.Description);
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                bp.AddComponent<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Fatigued;
-                }));
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                });
+                bp.AddComponent<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Exhausted;
-                }));
-                bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
+                });
+                bp.AddComponent<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Staggered;
-                }));
-                bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
+                });
+                bp.AddComponent<SpellImmunityToSpellDescriptor>(c => {
                     c.Descriptor = SpellDescriptor.Fatigue | SpellDescriptor.Exhausted | SpellDescriptor.Staggered | SpellDescriptor.Disease | SpellDescriptor.Poison;
-                }));
-                bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
+                });
+                bp.AddComponent<BuffDescriptorImmunity>(c => {
                     c.Descriptor = SpellDescriptor.Fatigue | SpellDescriptor.Exhausted | SpellDescriptor.Staggered | SpellDescriptor.Disease | SpellDescriptor.Poison;
-                }));
+                });
             });
             var BloodragerAberrantForm = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantForm", bp => {
                 bp.SetName("Aberrant Form");
                 bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. "
                     + "In addition, you gain blindsight with a range of 60 feet and your bloodrager damage reduction increases by 1. "
                     + "You have these benefits constantly, even while not bloodraging.");
-                bp.AddComponent(Helpers.Create<Blindsense>(c => {
+                bp.AddComponent<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;
-                }));
-                bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
+                });
+                bp.AddComponent<SpellImmunityToSpellDescriptor>(c => {
                     c.Descriptor = SpellDescriptor.GazeAttack;
-                }));
-                bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
+                });
+                bp.AddComponent<BuffDescriptorImmunity>(c => {
                     c.Descriptor = SpellDescriptor.GazeAttack;
-                }));
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                });
+                bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.BypassedByAlignment = false;
                     c.BypassedByForm = false;
                     c.BypassedByMagic = false;
@@ -200,9 +200,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.BypassedByWeaponType = false;
                     c.Value.Value = 1;
                     c.Value.ValueType = ContextValueType.Simple;
-                }));
-                bp.AddComponent(Helpers.Create<AddImmunityToCriticalHits>());
-                bp.AddComponent(Helpers.Create<AddImmunityToPrecisionDamage>());
+                });
+                bp.AddComponent<AddImmunityToCriticalHits>();
+                bp.AddComponent<AddImmunityToPrecisionDamage>();
             });
             //Bloodline Feats
             var BloodragerAberrantFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BloodragerAberrantFeatSelection", bp => {
@@ -234,52 +234,52 @@ namespace TabletopTweaks.NewContent.Bloodlines {
 
                 bp.m_Features = BloodragerAberrantFeatSelection.m_Features;
                 bp.m_AllFeatures = bp.m_Features;
-                bp.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
+                bp.AddComponent<PrerequisiteNoArchetype>(c => {
                     c.HideInUI = true;
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Archetype = GreenragerArchetype;
-                }));
+                });
             });
             //Bloodline Spells
             var BloodragerAberrantSpell7 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell7", bp => {
                 var spell = EnlargePerson;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
                     c.SpellLevel = 1;
-                }));
+                });
             });
             var BloodragerAberrantSpell10 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell10", bp => {
                 var spell = SeeInvisibility;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
                     c.SpellLevel = 2;
-                }));
+                });
             });
             var BloodragerAberrantSpell13 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell13", bp => {
                 var spell = Displacement;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
                     c.SpellLevel = 3;
-                }));
+                });
             });
             var BloodragerAberrantSpell16 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell16", bp => {
                 var spell = SpikeStones;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
                     c.SpellLevel = 4;
-                }));
+                });
             });
             //Bloodline Core
             var BloodragerAberrantBloodline = Helpers.CreateBlueprint<BlueprintProgression>("BloodragerAberrantBloodline", bp => {
@@ -298,28 +298,28 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
-                    new LevelEntry(){ Level = 1, Features = { BloodragerAberrantStaggeringStrike, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
-                    new LevelEntry(){ Level = 4, Features = { BloodragerAberrantAbnormalReach }},
-                    new LevelEntry(){ Level = 6, Features = { BloodragerAberrantFeatSelectionGreenrager }},
-                    new LevelEntry(){ Level = 7, Features = { BloodragerAberrantSpell7 }},
-                    new LevelEntry(){ Level = 8, Features = { BloodragerAberrantFortitude }},
-                    new LevelEntry(){ Level = 9, Features = { BloodragerAberrantFeatSelectionGreenrager }},
-                    new LevelEntry(){ Level = 10, Features = { BloodragerAberrantSpell10 }},
-                    new LevelEntry(){ Level = 12, Features = { BloodragerAberrantFeatSelection, BloodragerAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 13, Features = { BloodragerAberrantSpell13 }},
-                    new LevelEntry(){ Level = 15, Features = { BloodragerAberrantFeatSelection }},
-                    new LevelEntry(){ Level = 16, Features = { BloodragerAberrantResistance, BloodragerAberrantSpell16 }},
-                    new LevelEntry(){ Level = 18, Features = { BloodragerAberrantFeatSelection }},
-                    new LevelEntry(){ Level = 20, Features = { BloodragerAberrantForm }},
+                    Helpers.CreateLevelEntry(1, BloodragerAberrantStaggeringStrike, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature),
+                    Helpers.CreateLevelEntry(4, BloodragerAberrantAbnormalReach),
+                    Helpers.CreateLevelEntry(6, BloodragerAberrantFeatSelectionGreenrager),
+                    Helpers.CreateLevelEntry(7, BloodragerAberrantSpell7),
+                    Helpers.CreateLevelEntry(8, BloodragerAberrantFortitude),
+                    Helpers.CreateLevelEntry(9, BloodragerAberrantFeatSelectionGreenrager),
+                    Helpers.CreateLevelEntry(10, BloodragerAberrantSpell10),
+                    Helpers.CreateLevelEntry(12, BloodragerAberrantFeatSelection, BloodragerAberrantUnusualAnatomy),
+                    Helpers.CreateLevelEntry(13, BloodragerAberrantSpell13),
+                    Helpers.CreateLevelEntry(15, BloodragerAberrantFeatSelection),
+                    Helpers.CreateLevelEntry(16, BloodragerAberrantResistance, BloodragerAberrantSpell16),
+                    Helpers.CreateLevelEntry(18, BloodragerAberrantFeatSelection),
+                    Helpers.CreateLevelEntry(20, BloodragerAberrantForm)
                 };
-                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
-                }));
-                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
+                });
+                bp.AddPrerequisite<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
-                }));
+                });
             });
             var BloodragerAberrantBaseBuff = Helpers.CreateBuff("BloodragerAberrantBaseBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -370,9 +370,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererAberrantClassSkill = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantClassSkill", bp => {
                 bp.SetName("Class Skill — Knowledge (World)");
                 bp.SetDescription("Additional class skill from the aberrant bloodline.");
-                bp.AddComponent(Helpers.Create<AddClassSkill>(c => {
+                bp.AddComponent<AddClassSkill>(c => {
                     c.Skill = StatType.SkillKnowledgeWorld;
-                }));
+                });
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.m_Icon = BloodlineInfernalClassSkill.Icon;
@@ -382,7 +382,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Aberrant Bloodline Arcana");
                 bp.SetDescription("Whenever you cast a spell of the polymorph subschool, increase the duration "
                     + "of the spell by 50% (minimum 1 round). This bonus does not stack with the increase granted by the Extend Spell feat.");
-                bp.AddComponent(Helpers.Create<AberrantArcanaExtendComponent>());
+                bp.AddComponent<AberrantArcanaExtendComponent>();
             });
             var SorcererAberrantAcidicRayResource = Helpers.CreateBlueprint<BlueprintAbilityResource>("SorcererAberrantAcidicRayResource", bp => {
                 bp.m_Min = 0;
@@ -410,23 +410,23 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
                 bp.m_Icon = AcidArrow.Icon;
                 bp.ResourceAssetIds = AcidArrow.ResourceAssetIds;
-                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
+                bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Conjuration;
-                }));
-                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
+                });
+                bp.AddComponent<SpellDescriptorComponent>(c => {
                     c.Descriptor = SpellDescriptor.Acid;
-                }));
-                bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
+                });
+                bp.AddComponent<AbilityResourceLogic>(c => {
                     c.m_RequiredResource = SorcererAberrantAcidicRayResource.ToReference<BlueprintAbilityResourceReference>();
                     c.m_IsSpendResource = true;
                     c.Amount = 1;
-                }));
-                bp.AddComponent(Helpers.Create<AbilityDeliverProjectile>(c => {
+                });
+                bp.AddComponent<AbilityDeliverProjectile>(c => {
                     c.m_Projectiles = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Projectiles;
                     c.m_LineWidth = new Kingmaker.Utility.Feet() { m_Value = 5 };
                     c.m_Weapon = AcidArrow.GetComponent<AbilityDeliverProjectile>().m_Weapon;
                     c.NeedAttackRoll = true;
-                }));
+                });
                 var dealDamage = Helpers.Create<ContextActionDealDamage>(c => {
                     c.DamageType = new DamageTypeDescription {
                         Type = DamageType.Energy,
@@ -449,11 +449,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         }
                     };
                 });
-                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
+                bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList();
                     c.Actions.Actions = new GameAction[] { dealDamage };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddComponent<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
                     c.m_Progression = ContextRankProgression.Div2;
@@ -464,22 +464,22 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_UseMin = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass, MagusClass };
                     c.Archetype = EldritchScionArchetype;
-                }));
+                });
             });
             var SorcererAberrantAcidicRay = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantAcidicRay", bp => {
                 bp.SetName("Acidic Ray");
                 bp.SetDescription("Starting at 1st level, you can fire an acidic ray as a standard action, targeting any "
                     + "foe within 30 feet as a ranged touch attack. The acidic ray deals 1d6 points of acid damage + 1 "
                     + "for every two sorcerer levels you possess. You can use this ability a number of times per day equal to 3 + your Charisma modifier.");
-                bp.AddComponent(Helpers.Create<AddFacts>(c => {
+                bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         SorcererAberrantAcidicRayAbility.ToReference<BlueprintUnitFactReference>(),
                     };
-                }));
-                bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
+                });
+                bp.AddComponent<AddAbilityResources>(c => {
                     c.m_Resource = SorcererAberrantAcidicRayResource.ToReference<BlueprintAbilityResourceReference>();
                     c.RestoreAmount = true;
-                }));
+                });
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.m_Icon = SorcererAberrantAcidicRayAbility.Icon;
@@ -491,32 +491,32 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 3rd level, your reach increases by 5 feet whenever you are making a melee touch attack. "
                     + "This ability does not otherwise increase your threatened area. At 11th level, this bonus to your reach "
                     + "increases to 10 feet. At 17th level, this bonus to your reach increases to 15 feet.");
-                bp.AddComponent(Helpers.Create<AddTouchReach>(c => {
+                bp.AddComponent<AddTouchReach>(c => {
                     c.Value = 5;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
-                }));
+                });
             });
             var SorcererAberrantUnusualAnatomy = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantUnusualAnatomy", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 2;
                 bp.SetName("Unusual Anatomy");
                 bp.SetDescription("At 9th level, your anatomy changes, giving you a 25% chance to ignore any critical hit or sneak attack scored against you. This chance increases to 50% at 13th level.");
-                bp.AddComponent(Helpers.Create<AddFortification>(c => {
+                bp.AddComponent<AddFortification>(c => {
                     c.UseContextValue = false;
                     c.Bonus = 25;
-                }));
+                });
             });
             var SorcererAberrantAlienResistance = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantAlienResistance", bp => {
                 bp.IsClassFeature = true;
                 bp.SetName("Alien Resistance");
                 bp.SetDescription("At 15th level, you gain spell resistance equal to your sorcerer level + 10.");
-                bp.AddComponent(Helpers.Create<AddSpellResistance>(c => {
+                bp.AddComponent<AddSpellResistance>(c => {
                     c.Value = new ContextValue {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
                     c.m_Progression = ContextRankProgression.BonusValue;
@@ -530,17 +530,17 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Aberrant Form");
                 bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. +"
                     + "In addition, you gain blindsight with a range of 60 feet and damage reduction 5/—");
-                bp.AddComponent(Helpers.Create<Blindsense>(c => {
+                bp.AddComponent<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;
-                }));
-                bp.AddComponent(Helpers.Create<SpellImmunityToSpellDescriptor>(c => {
+                });
+                bp.AddComponent<SpellImmunityToSpellDescriptor>(c => {
                     c.Descriptor = SpellDescriptor.GazeAttack;
-                }));
-                bp.AddComponent(Helpers.Create<BuffDescriptorImmunity>(c => {
+                });
+                bp.AddComponent<BuffDescriptorImmunity>(c => {
                     c.Descriptor = SpellDescriptor.GazeAttack;
-                }));
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                });
+                bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.BypassedByAlignment = false;
                     c.BypassedByForm = false;
                     c.BypassedByMagic = false;
@@ -550,9 +550,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.BypassedByWeaponType = false;
                     c.Value.Value = 5;
                     c.Value.ValueType = ContextValueType.Simple;
-                }));
-                bp.AddComponent(Helpers.Create<AddImmunityToCriticalHits>());
-                bp.AddComponent(Helpers.Create<AddImmunityToPrecisionDamage>());
+                });
+                bp.AddComponent<AddImmunityToCriticalHits>();
+                bp.AddComponent<AddImmunityToPrecisionDamage>();
             });
             //Bloodline Feats
             var SorcererAberrantFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("SorcererAberrantFeatSelection", bp => {
@@ -564,8 +564,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
-
-                bp.m_Features = new BlueprintFeatureReference[] {
+                bp.AddFeatures(
                     CombatCasting,
                     ImprovedDisarm,
                     ImprovedDirtyTrick,
@@ -574,8 +573,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     IronWill,
                     ExtendSpell,
                     SkillFocusKnowledgeWorld
-                };
-                bp.m_AllFeatures = bp.m_Features;
+                );
             });
             //Bloodline Spells
             var SorcererAberrantSpell3 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell3", bp => {
@@ -584,11 +582,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 1;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell5 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell5", bp => {
@@ -597,11 +595,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 2;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell7 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell7", bp => {
@@ -610,11 +608,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 3;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell9 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell9", bp => {
@@ -623,11 +621,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 4;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell11 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell11", bp => {
@@ -636,11 +634,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 5;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell13 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell13", bp => {
@@ -649,11 +647,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 6;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell15 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell15", bp => {
@@ -662,11 +660,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 7;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell17 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell17", bp => {
@@ -675,11 +673,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 8;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             var SorcererAberrantSpell19 = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantSpell19", bp => {
@@ -688,11 +686,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(Spell.Get().Name);
                 bp.SetDescription("At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n"
                     + $"{Spell.Get().Name}: {Spell.Get().Description}");
-                bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
+                bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = SorcererClass;
                     c.m_Spell = Spell;
                     c.SpellLevel = 9;
-                }));
+                });
                 bp.m_Icon = Spell.Get().Icon;
             });
             //Bloodline Core
@@ -716,31 +714,31 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     }
                 };
                 bp.GiveFeaturesForPreviousLevels = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
+                bp.Groups = new FeatureGroup[] { FeatureGroup.BloodLine };
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
-                    new LevelEntry(){ Level = 1, Features = { SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
-                    new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3, SorcererAberrantLongLimbs }},
-                    new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
-                    new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11, SorcererAberrantLongLimbs }},
-                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15, SorcererAberrantAlienResistance }},
-                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17, SorcererAberrantLongLimbs }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
-                    new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
+                    Helpers.CreateLevelEntry(1, SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature),
+                    Helpers.CreateLevelEntry(3, SorcererAberrantSpell3, SorcererAberrantLongLimbs),
+                    Helpers.CreateLevelEntry(5, SorcererAberrantSpell5),
+                    Helpers.CreateLevelEntry(7, SorcererAberrantSpell7),
+                    Helpers.CreateLevelEntry(9, SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy),
+                    Helpers.CreateLevelEntry(11, SorcererAberrantSpell11, SorcererAberrantLongLimbs),
+                    Helpers.CreateLevelEntry(13, SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy),
+                    Helpers.CreateLevelEntry(15, SorcererAberrantSpell15, SorcererAberrantAlienResistance),
+                    Helpers.CreateLevelEntry(17, SorcererAberrantSpell17, SorcererAberrantLongLimbs),
+                    Helpers.CreateLevelEntry(19, SorcererAberrantSpell19),
+                    Helpers.CreateLevelEntry(20, SorcererAberrantForm)
                 };
-                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
-                }));
-                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
+                });
+                bp.AddPrerequisite<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
-                }));
+                });
             });
             var CrossbloodedAberrantBloodline = Helpers.CreateBlueprint<BlueprintProgression>("CrossbloodedAberrantBloodline", bp => {
                 bp.SetName(SorcererAberrantBloodline.Name);
@@ -764,16 +762,16 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
-                    new LevelEntry(){ Level = 1, Features = { SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
-                    new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3 }},
-                    new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
-                    new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9 }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11 }},
-                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13 }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15 }},
-                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17 }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }}
+                    Helpers.CreateLevelEntry(1, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature),
+                    Helpers.CreateLevelEntry(3, SorcererAberrantSpell3),
+                    Helpers.CreateLevelEntry(5, SorcererAberrantSpell5),
+                    Helpers.CreateLevelEntry(7, SorcererAberrantSpell7),
+                    Helpers.CreateLevelEntry(9, SorcererAberrantSpell9),
+                    Helpers.CreateLevelEntry(11, SorcererAberrantSpell11),
+                    Helpers.CreateLevelEntry(13, SorcererAberrantSpell13),
+                    Helpers.CreateLevelEntry(15, SorcererAberrantSpell15),
+                    Helpers.CreateLevelEntry(17, SorcererAberrantSpell17),
+                    Helpers.CreateLevelEntry(19, SorcererAberrantSpell19)
                 };
             });
             var SeekerAberrantBloodline = Helpers.CreateBlueprint<BlueprintProgression>("SeekerAberrantBloodline", bp => {
@@ -798,26 +796,26 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
                 bp.LevelEntries = new LevelEntry[] {
-                    new LevelEntry(){ Level = 1, Features = { SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
-                    new LevelEntry(){ Level = 3, Features = { SorcererAberrantSpell3 }},
-                    new LevelEntry(){ Level = 5, Features = { SorcererAberrantSpell5 }},
-                    new LevelEntry(){ Level = 7, Features = { SorcererAberrantSpell7 }},
-                    new LevelEntry(){ Level = 9, Features = { SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 11, Features = { SorcererAberrantSpell11 }},
-                    new LevelEntry(){ Level = 13, Features = { SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy }},
-                    new LevelEntry(){ Level = 15, Features = { SorcererAberrantSpell15 }},
-                    new LevelEntry(){ Level = 17, Features = { SorcererAberrantSpell17 }},
-                    new LevelEntry(){ Level = 19, Features = { SorcererAberrantSpell19 }},
-                    new LevelEntry(){ Level = 20, Features = { SorcererAberrantForm }},
+                    Helpers.CreateLevelEntry(1, SorcererAberrantAcidicRay, SorcererAberrantBloodlineArcana, SorcererAberrantClassSkill, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature),
+                    Helpers.CreateLevelEntry(3, SorcererAberrantSpell3),
+                    Helpers.CreateLevelEntry(5, SorcererAberrantSpell5),
+                    Helpers.CreateLevelEntry(7, SorcererAberrantSpell7),
+                    Helpers.CreateLevelEntry(9, SorcererAberrantSpell9, SorcererAberrantUnusualAnatomy),
+                    Helpers.CreateLevelEntry(11, SorcererAberrantSpell11),
+                    Helpers.CreateLevelEntry(13, SorcererAberrantSpell13, SorcererAberrantUnusualAnatomy),
+                    Helpers.CreateLevelEntry(15, SorcererAberrantSpell15),
+                    Helpers.CreateLevelEntry(17, SorcererAberrantSpell17),
+                    Helpers.CreateLevelEntry(19, SorcererAberrantSpell19),
+                    Helpers.CreateLevelEntry(20, SorcererAberrantForm)
                 };
-                bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = BloodlineRequisiteFeature;
-                }));
-                bp.AddPrerequisite(Helpers.Create<PrerequisiteFeature>(c => {
+                });
+                bp.AddPrerequisite<PrerequisiteFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
-                }));
+                });
             });
             BloodlineTools.RegisterSorcererFeatSelection(SorcererAberrantFeatSelection, SorcererAberrantBloodline);
 
