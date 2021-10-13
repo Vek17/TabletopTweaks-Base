@@ -3,6 +3,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Classes {
@@ -14,13 +15,14 @@ namespace TabletopTweaks.NewContent.Classes {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.AddComponent(Helpers.Create<ReplaceStatBaseAttribute>(c => {
+                bp.AddComponent<ReplaceStatBaseAttribute>(c => {
                     c.TargetStat = StatType.AC;
                     c.BaseAttributeReplacement = StatType.Charisma;
-                }));
-                bp.AddComponent(Helpers.Create<ReplaceCMDDexterityStat>(c => {
+                });
+                bp.AddComponent<ReplaceCMDDexterityStat>(c => {
                     c.NewStat = StatType.Charisma;
-                }));
+                });
+                bp.AddComponent<ForceACUpdate>();
             });
         }
     }

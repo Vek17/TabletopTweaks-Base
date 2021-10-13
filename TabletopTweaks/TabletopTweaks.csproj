@@ -190,6 +190,7 @@
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
     <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
+    <Compile Include="NewComponents\ForceACUpdate.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />

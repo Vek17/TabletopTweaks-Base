@@ -49,7 +49,6 @@ namespace TabletopTweaks.NewComponents {
         }
 
         private void Apply() {
-            RemoveFact();
             if (base.Data.AppliedFact != null) {
                 return;
             }
@@ -66,10 +65,12 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void HandleUnitGainFact(EntityFact fact) {
+            RemoveFact();
             Apply();
         }
 
         public void HandleUnitLostFact(EntityFact fact) {
+            RemoveFact();
             Apply();
         }
 
