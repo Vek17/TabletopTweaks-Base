@@ -11,6 +11,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -285,6 +286,10 @@ namespace TabletopTweaks.Extensions {
             var components = obj.ComponentsArray.ToList();
             components.Insert(index, component);
             obj.SetComponents(components);
+        }
+
+        public static void AddContextRankConfig(this BlueprintScriptableObject obj, Action<ContextRankConfig> init = null) {
+            obj.AddComponent(Helpers.CreateContextRankConfig(init));
         }
 
         public static void AddComponent(this BlueprintScriptableObject obj, BlueprintComponent component) {

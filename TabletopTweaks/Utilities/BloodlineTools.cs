@@ -311,14 +311,14 @@ namespace TabletopTweaks.Utilities {
                         ValueRank = Kingmaker.Enums.AbilityRankType.StatBonus
                     };
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = Kingmaker.Enums.AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Class = new BlueprintCharacterClassReference[] { BloodragerClass.ToReference<BlueprintCharacterClassReference>() };
                     c.m_Progression = ContextRankProgression.AsIs;
                     c.m_Min = 1;
                     c.m_UseMin = true;
-                }));
+                });
             });
         }
 
