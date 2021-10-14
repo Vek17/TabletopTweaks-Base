@@ -140,6 +140,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 void EnableAdvancedArmorTraining() {
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
                     var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
+                    var ArmorTrainingSpeedFeature = Resources.GetModBlueprint<BlueprintFeature>("ArmorTrainingSpeedFeature");
                     var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
                     var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
                     var BaseProgression = FighterClass.Progression;
@@ -148,12 +149,19 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         .First()
                         .m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                     BaseProgression.LevelEntries
+                        .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
+                        .ForEach(entry => {
+                            entry.m_Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                        });
+                    BaseProgression.LevelEntries
                         .Where(entry => entry.Level > 3)
                         .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
                         .ForEach(entry => {
                             entry.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
                             entry.m_Features.Remove(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
                         });
+                    BaseProgression.LevelEntries
+                        .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()));
                     Main.LogPatch("Patched", BaseProgression);
                     foreach (var Archetype in FighterClass.Archetypes) {
                         Archetype.RemoveFeatures

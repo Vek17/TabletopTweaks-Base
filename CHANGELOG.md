@@ -1,5 +1,7 @@
 ## Version 1.7.1
 * fixed armor specilization cap being lower than it should have been
+* made nature oracle AC conversion more consistant
+* advanced armor training should now increase heavy armor movement speed again
 
 ## Version 1.7.0
 * arcane bloodrage rework (Thanks to @bguns)
