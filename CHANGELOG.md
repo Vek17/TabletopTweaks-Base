@@ -1,4 +1,13 @@
-## Version 1.7.1
+## Version 1.8.0
+* Aeon Mythic Rework
+    * Aeon Bane is now a free action to activate instead of a swift
+    * Aeon Bane usages now scale at 2x Mythic level + Character level
+    * Aeon Greater Bane damage is now rolled into the main weapon attack instead of a separate instance
+    * Aeon Greater Bane now allows you to cast swift action spells as a move action
+    * Aeon Gaze selection is no longer limited on the first selection and all selections are available
+    * Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same swift action and resouce usage
+    * Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level
+        * This takes the DC range from DC 21-35 to DC 21-40 (+2 vs Chaotic)
 * fixed armor specilization cap being lower than it should have been
 * made nature oracle AC conversion more consistant
 * advanced armor training should now increase heavy armor movement speed again

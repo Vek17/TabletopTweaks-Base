@@ -122,7 +122,9 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 p.Level = 12;
                 p.Group = Prerequisite.GroupType.Any;
             });
-
+            var DispellingAttackConfig = Resources.GetBlueprint<BlueprintFeature>("1b92146b8a9830d4bb97ab694335fa7c").GetComponent<ContextRankConfig>();
+            DispellingAttackConfig.m_AdditionalArchetypes = DispellingAttackConfig.m_AdditionalArchetypes.AppendToArray(NatureFangArcehtype.ToReference<BlueprintArchetypeReference>());
+            
             if (ModSettings.AddedContent.Archetypes.IsDisabled("NatureFang")) { return; }
             DruidClass.m_Archetypes = DruidClass.m_Archetypes.AppendToArray(NatureFangArcehtype.ToReference<BlueprintArchetypeReference>());
 

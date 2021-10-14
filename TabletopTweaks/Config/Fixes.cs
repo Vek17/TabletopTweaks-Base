@@ -6,8 +6,6 @@ namespace TabletopTweaks.Config {
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
         public SettingGroup DRRework = new SettingGroup();
-        public SettingGroup Aeon = new SettingGroup();
-        public SettingGroup Azata = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
         public ClassGroup Alchemist = new ClassGroup();
@@ -43,8 +41,6 @@ namespace TabletopTweaks.Config {
 
             DRRework.LoadSettingGroup(loadedSettings.DRRework, NewSettingsOffByDefault);
 
-            Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
-            Azata.LoadSettingGroup(loadedSettings.Azata, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
 

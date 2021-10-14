@@ -163,6 +163,7 @@
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Config\Blueprints.cs" />
+    <Compile Include="Config\Homebrew.cs" />
     <Compile Include="Config\IDisableableGroup.cs" />
     <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="Config\NestedSettingGroup.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="NewComponents\ForceACUpdate.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
+    <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
@@ -257,8 +260,8 @@
     <Compile Include="NewContent\ArcanistExploits\MetamagicKnowledge.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
-    <Compile Include="Bugfixes\Classes\Aeon.cs" />
-    <Compile Include="Bugfixes\Classes\Azata.cs" />
+    <Compile Include="MythicReworks\Aeon.cs" />
+    <Compile Include="MythicReworks\Azata.cs" />
     <Compile Include="Bugfixes\Classes\Bloodrager.cs" />
     <Compile Include="Bugfixes\Classes\Rogue.cs" />
     <Compile Include="Bugfixes\Classes\Slayer.cs" />
@@ -361,6 +364,7 @@
     <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbility.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotQuickStudy.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
+    <Compile Include="NewUnitParts\UnitPartAeonGazeManager.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
@@ -395,6 +399,7 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <EmbeddedResource Include="Config\Homebrew.json" />
     <None Include="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

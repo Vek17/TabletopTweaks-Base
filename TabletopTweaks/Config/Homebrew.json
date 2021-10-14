@@ -1,0 +1,59 @@
+{
+    "NewSettingsOffByDefault": false,
+    "MythicReworks": {
+        "DisableAll": false,
+        "Aeon": {
+            "DisableAll": false,
+            "Enabled": {
+                "AeonBaneAction": true,
+                "AeonBaneUses": true,
+                "AeonGazeActionSystem": true,
+                "AeonGazeDC": true,
+                "AeonGazeSelection": true,
+                "AeonGreaterBaneDamage": true,
+                "AeonGreaterBaneActionBoost": true
+            }
+        },
+        "Angel": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Azata": {
+            "DisableAll": false,
+            "Enabled": {
+                "AzataPerformanceResource": true,
+                "AzataSongToggles": true,
+                "FavorableMagic": true,
+                "ZippyMagic": true
+            }
+        },
+        "Demon": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Lich": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Trickster": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Devil": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "GoldDragon": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Legend": {
+            "DisableAll": false,
+            "Enabled": {}
+        },
+        "Swarm": {
+            "DisableAll": false,
+            "Enabled": {}
+        }
+    }
+}

@@ -53,7 +53,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         "he can spend 2 points from his arcane pool to increase his weapon's critical multiplier by 1.");
                     SwordSaintPerfectStrikeCritAbility
                         .GetComponent<ActivatableAbilityResourceLogic>()
-                        .SpendType = CustomSpendType.Crit.Amount(2);
+                        .SpendType = ValueSpendType.Crit.Amount(2);
                     Main.LogPatch("Patched", SwordSaintPerfectStrikeCritAbility);
                 }
             }

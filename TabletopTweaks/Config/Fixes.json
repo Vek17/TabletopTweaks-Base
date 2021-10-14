@@ -26,22 +26,6 @@
             "Base": true
         }
     },
-    "Aeon": {
-        "DisableAll": false,
-        "Enabled": {
-            "AeonBaneUses": true,
-            "AeonGreaterBane": true
-        }
-    },
-    "Azata": {
-        "DisableAll": false,
-        "Enabled": {
-            "AzataPerformanceResource": true,
-            "AzataSongToggles": true,
-            "FavorableMagic": true,
-            "ZippyMagic": true
-        }
-    },
     "Lich": {
         "DisableAll": false,
         "Enabled": {

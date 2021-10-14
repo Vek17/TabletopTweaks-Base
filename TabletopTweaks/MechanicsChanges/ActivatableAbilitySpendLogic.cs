@@ -11,15 +11,23 @@ using static Kingmaker.UnitLogic.ActivatableAbilities.ActivatableAbilityResource
 namespace TabletopTweaks.MechanicsChanges {
     static class ActivatableAbilitySpendLogic {
 
-        public enum CustomSpendType : int {
+        public enum StandardSpendType : int {
+            AeonGaze = 200
+        }
+
+        public static ResourceSpendType ToResourceType(this StandardSpendType type) {
+            return (ResourceSpendType)type;
+        }
+
+        public enum ValueSpendType : int {
             Crit = 0b00000000_00000001_00000000_00000000
         }
 
-        public static ResourceSpendType Amount(this CustomSpendType type, byte value) {
+        public static ResourceSpendType Amount(this ValueSpendType type, byte value) {
             return (ResourceSpendType)((int)type | value);
         }
 
-        private static int Amount(this CustomSpendType type) {
+        private static int Amount(this ValueSpendType type) {
             return ((int)type & 0b00000000_00000000_00000000_11111111);
         }
 
@@ -31,7 +39,7 @@ namespace TabletopTweaks.MechanicsChanges {
             return ((int)type & 0b11111111_11111111_00000000_00000000) > 0;
         }
 
-        private static bool IsType(this ResourceSpendType flag, CustomSpendType type) {
+        private static bool IsType(this ResourceSpendType flag, ValueSpendType type) {
             return (flag & (ResourceSpendType)type) > 0;
         }
 
@@ -39,7 +47,7 @@ namespace TabletopTweaks.MechanicsChanges {
             "Kingmaker.UnitLogic.ActivatableAbilities.IActivatableAbilitySpendResourceLogic.OnCrit")]
         class ActivatableAbilityResourceLogic_OnCrit_PerfectCritical_Patch {
             static void Postfix(ActivatableAbilityResourceLogic __instance) {
-                if (__instance.SpendType.IsType(CustomSpendType.Crit)) {
+                if (__instance.SpendType.IsType(ValueSpendType.Crit)) {
                     __instance.SpendResource(true);
                 }
             }
@@ -95,7 +103,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 if (component.FreeBlueprint != null && __instance.Owner.HasFact(component.FreeBlueprint)) {
                     return;
                 }
-                var spendAmount = (int)component.SpendType - (int)CustomSpendType.Crit;
+                var spendAmount = (int)component.SpendType - (int)ValueSpendType.Crit;
                 if (spendAmount < 100 && spendAmount > 0) {
                     __result = __instance.Owner.Resources.GetResourceAmount(blueprintAbilityResource) / spendAmount;
                 }
