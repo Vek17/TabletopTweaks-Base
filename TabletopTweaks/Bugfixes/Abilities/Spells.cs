@@ -36,6 +36,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogHeader("Patching Spells");
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
+                PatchBreakEnchantment();
                 PatchCrusadersEdge();
                 PatchDispelMagicGreater();
                 PatchMagicalVestment();
@@ -116,6 +117,18 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 }
             }
 
+            static void PatchBreakEnchantment() {
+                if (ModSettings.Fixes.Spells.IsDisabled("BreakEnchantment")) { return; }
+                var BreakEnchantment = Resources.GetBlueprint<BlueprintAbility>("7792da00c85b9e042a0fdfc2b66ec9a8");
+                BreakEnchantment
+                    .FlattenAllActions()
+                    .OfType<ContextActionDispelMagic>()
+                    .ForEach(dispel => {
+                        dispel.OnlyTargetEnemyBuffs = true;
+                    });
+                Main.LogPatch("Patched", BreakEnchantment);
+            }
+
             static void PatchCrusadersEdge() {
                 if (ModSettings.Fixes.Spells.IsDisabled("CrusadersEdge")) { return; }
                 BlueprintBuff CrusadersEdgeBuff = Resources.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
@@ -139,7 +152,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         m_MaxCasterLevel = new ContextValue(),
                         m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
                         ContextBonus = new ContextValue(),
-                        DispelLimit = new ContextValue() {
+                        DispelLimitDividend = new ContextValue() {
                             ValueType = ContextValueType.Rank,
                             ValueRank = AbilityRankType.StatBonus
                         },

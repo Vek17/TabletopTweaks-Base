@@ -1,3 +1,8 @@
+## Version 1.8.1
+* Aeon Bane no longer grants disadvantage on spell resistance and instead correctly adds mythic rank to spell resistance checks
+* Aeon Improved Bane now uses greater dispel magic rules to remove 1/4 CL buffs where CL is defined as Character Level + Mythic Rank
+* Break Enchantment no longer removes friendly buffs
+
 ## Version 1.8.0
 * Aeon Mythic Rework
     * Aeon Bane is now a free action to activate instead of a swift

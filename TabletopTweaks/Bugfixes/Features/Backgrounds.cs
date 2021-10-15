@@ -28,6 +28,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Initialized = true;
                 if (ModSettings.Fixes.BaseFixes.IsDisabled("FixBackgroundModifiers")) { return; }
                 Main.LogHeader("Patching Backgrounds");
+                PatchMiner();
                 PatchBackgrounds();
 
                 void PatchBackgrounds() {
@@ -55,6 +56,18 @@ namespace TabletopTweaks.Bugfixes.Features {
                                 Main.LogPatch("Patched", f);
                             }
                         });
+                }
+                void PatchMiner() {
+                    var EarthBreakerProficiency = Resources.GetModBlueprint<BlueprintFeature>("EarthBreakerProficiency");
+                    var BackgroundMiner = Resources.GetBlueprint<BlueprintFeature>("e4e06f443e158e646a495fce6e024546");
+
+                    BackgroundMiner.AddComponent<AddBackgroundWeaponProficiency>(c => {
+                        c.Proficiency = WeaponCategory.EarthBreaker;
+                        c.StackBonusType = ModifierDescriptor.Enhancement;
+                        c.StackBonus = 1;
+                    });
+                    var addFacts = BackgroundMiner.GetComponent<AddFacts>();
+                    addFacts.m_Facts = addFacts.m_Facts.AppendToArray(EarthBreakerProficiency.ToReference<BlueprintUnitFactReference>());
                 }
             }
         }

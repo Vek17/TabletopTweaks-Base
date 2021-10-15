@@ -282,6 +282,7 @@
         "Enabled": {
             "BelieveInYourself": true,
             "BestowCurseGreater": true,
+            "BreakEnchantment": true,
             "CrusadersEdge": true,
             "DispelMagicGreater": true,
             "GreaterMagicWeapon": true,

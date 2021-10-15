@@ -3,7 +3,9 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
@@ -29,6 +31,7 @@ using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.MechanicsChanges;
+using TabletopTweaks.NewActions;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
@@ -45,11 +48,31 @@ namespace TabletopTweaks.MythicReworks {
                 Main.LogHeader("Aeon Rework");
 
                 PatchAeonBaneAction();
+                PatchAeonBaneSpellResistance();
                 PatchAeonBaneUses();
+                PatchAeonImprovedBaneDispelLimit();
                 PatchAeonGreaterBaneDamage();
                 PatchAeonGazeAction();
                 PatchAeonGazeDC();
                 PatchAeonGazeSelection();
+            }
+            static void PatchAeonBaneAction() {
+                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneAction")) { return; }
+                var AeonBaneAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("67fb31f553f2bb14bbfae0b1040169f1");
+                AeonBaneAbility.m_ActivateWithUnitCommand = UnitCommand.CommandType.Free;
+                Main.LogPatch("Patched", AeonBaneAbility);
+            }
+            static void PatchAeonBaneSpellResistance() {
+                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneSpellResistance")) { return; }
+                var AeonBaneBuff = Resources.GetBlueprint<BlueprintBuff>("345160619fc2ddc44b8ad98c94dde448");
+                AeonBaneBuff.RemoveComponents<ModifyD20>();
+                AeonBaneBuff.AddComponent<SpellPenetrationBonus>(c => {
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank
+                    };
+                    c.Descriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+                });
+                Main.LogPatch("Patched", AeonBaneBuff);
             }
             static void PatchAeonBaneUses() {
                 if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneUses")) { return; }
@@ -66,6 +89,61 @@ namespace TabletopTweaks.MythicReworks {
                     "from the target, as per the dispel magic spell.\nAdditionally, if you have inquisitor's bane ability, you gain the " +
                     "same bonuses while using inquisitor's bane ability.");
                 Main.LogPatch("Patched", AeonBaneFeature);
+            }
+            static void PatchAeonImprovedBaneDispelLimit() {
+                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonImprovedBaneDispelLimit")) { return; }
+                var AeonBaneBuff = Resources.GetBlueprint<BlueprintBuff>("345160619fc2ddc44b8ad98c94dde448");
+                AeonBaneBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>()
+                    .Action
+                    .Actions
+                    .OfType<Conditional>()
+                    .ForEach(conditional => {
+                        conditional.IfTrue = Helpers.CreateActionList(
+                            new ContextActionDispelMagicCapped() {
+                                m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
+                                m_MaxSpellLevel = new ContextValue(),
+                                m_MaxCasterLevel = new ContextValue(),
+                                m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
+                                ContextBonus = new ContextValue() {
+                                    ValueType = ContextValueType.Shared
+                                },
+                                DispelLimitDividend = new ContextValue() {
+                                    ValueType = ContextValueType.Shared
+                                },
+                                DispelLimitDivisor = 4,
+                                Schools = new SpellSchool[0],
+                                OnSuccess = Helpers.CreateActionList(),
+                                OnFail = Helpers.CreateActionList(),
+                                OnlyTargetEnemyBuffs = true
+                            }
+                        );
+                    });
+                AeonBaneBuff.GetComponent<AddAbilityUseTrigger>()
+                    .Action
+                    .Actions
+                    .OfType<Conditional>()
+                    .ForEach(conditional => {
+                        conditional.IfTrue = Helpers.CreateActionList(
+                            new ContextActionDispelMagicCapped() {
+                                m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
+                                m_MaxSpellLevel = new ContextValue(),
+                                m_MaxCasterLevel = new ContextValue(),
+                                m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
+                                ContextBonus = new ContextValue() {
+                                    ValueType = ContextValueType.Shared
+                                },
+                                DispelLimitDividend = new ContextValue() {
+                                    ValueType = ContextValueType.Shared
+                                },
+                                DispelLimitDivisor = 4,
+                                Schools = new SpellSchool[0],
+                                OnSuccess = Helpers.CreateActionList(),
+                                OnFail = Helpers.CreateActionList(),
+                                OnlyTargetEnemyBuffs = true
+                            }
+                        );
+                    });
+                Main.LogPatch("Patched", AeonBaneBuff);
             }
             static void PatchAeonGreaterBaneDamage() {
                 if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonGreaterBaneDamage")) { return; }
@@ -86,12 +164,6 @@ namespace TabletopTweaks.MythicReworks {
                     };
                 }));
                 Main.LogPatch("Patched", AeonGreaterBaneBuff);
-            }
-            static void PatchAeonBaneAction() {
-                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneAction")) { return; }
-                var AeonBaneAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("67fb31f553f2bb14bbfae0b1040169f1");
-                AeonBaneAbility.m_ActivateWithUnitCommand = UnitCommand.CommandType.Free;
-                Main.LogPatch("Patched", AeonBaneAbility);
             }
             static void PatchAeonGazeDC() {
                 if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonGazeDC")) { return; }

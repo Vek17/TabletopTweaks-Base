@@ -6,12 +6,14 @@
             "DisableAll": false,
             "Enabled": {
                 "AeonBaneAction": true,
+                "AeonBaneSpellResistance": true,
                 "AeonBaneUses": true,
                 "AeonGazeActionSystem": true,
                 "AeonGazeDC": true,
                 "AeonGazeSelection": true,
                 "AeonGreaterBaneDamage": true,
-                "AeonGreaterBaneActionBoost": true
+                "AeonGreaterBaneActionBoost": true,
+                "AeonImprovedBaneDispelLimit": true
             }
         },
         "Angel": {

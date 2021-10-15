@@ -30,7 +30,7 @@ namespace TabletopTweaks.NewActions {
             }
             List<Buff> buffList = base.Target.Unit.Buffs.Enumerable.ToList();
             buffList.Sort((Buff b1, Buff b2) => -b1.Context.Params.CasterLevel.CompareTo(b2.Context.Params.CasterLevel));
-            int maxDispels = m_StopAfterFirstRemoved ? 1 : DispelLimit.Calculate(base.Context);
+            int maxDispels = m_StopAfterFirstRemoved ? 1 : (DispelLimitDividend.Calculate(base.Context) / DispelLimitDivisor.Calculate(base.Context));
             int dispelledBuffs = 0;
 
             foreach (var buff in buffList) {
@@ -42,6 +42,7 @@ namespace TabletopTweaks.NewActions {
                 }
             }
         }
-        public ContextValue DispelLimit;
+        public ContextValue DispelLimitDividend;
+        public ContextValue DispelLimitDivisor = 1;
     }
 }
