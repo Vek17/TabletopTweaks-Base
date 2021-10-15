@@ -12,6 +12,7 @@
                 "AeonGazeDC": true,
                 "AeonGazeSelection": true,
                 "AeonGreaterBaneDamage": true,
+                "PatchAeonGreaterBaneDispel": true,
                 "AeonGreaterBaneActionBoost": true,
                 "AeonImprovedBaneDispelLimit": true
             }

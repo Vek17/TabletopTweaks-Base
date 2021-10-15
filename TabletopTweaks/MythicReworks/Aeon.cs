@@ -52,10 +52,12 @@ namespace TabletopTweaks.MythicReworks {
                 PatchAeonBaneUses();
                 PatchAeonImprovedBaneDispelLimit();
                 PatchAeonGreaterBaneDamage();
+                PatchAeonGreaterBaneDispel();
                 PatchAeonGazeAction();
                 PatchAeonGazeDC();
                 PatchAeonGazeSelection();
             }
+
             static void PatchAeonBaneAction() {
                 if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneAction")) { return; }
                 var AeonBaneAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("67fb31f553f2bb14bbfae0b1040169f1");
@@ -99,14 +101,22 @@ namespace TabletopTweaks.MythicReworks {
                     .Actions
                     .OfType<Conditional>()
                     .ForEach(conditional => {
-                        conditional.IfTrue = Helpers.CreateActionList(CreateDispelMagicAction());
+                        conditional.IfTrue.Actions =
+                        conditional.IfTrue.Actions
+                            .Where(a => !(a is ContextActionDispelMagic))
+                            .Append(CreateDispelMagicAction())
+                            .ToArray();
                     });
                 AeonBaneBuff.GetComponent<AddAbilityUseTrigger>()
                     .Action
                     .Actions
                     .OfType<Conditional>()
                     .ForEach(conditional => {
-                        conditional.IfTrue = Helpers.CreateActionList(CreateDispelMagicAction());
+                        conditional.IfTrue.Actions =
+                        conditional.IfTrue.Actions
+                            .Where(a => !(a is ContextActionDispelMagic))
+                            .Append(CreateDispelMagicAction())
+                            .ToArray();
                     });
 
                 static ContextActionDispelMagicCapped CreateDispelMagicAction() {
@@ -149,6 +159,41 @@ namespace TabletopTweaks.MythicReworks {
                         Energy = DamageEnergyType.Divine
                     };
                 }));
+                Main.LogPatch("Patched", AeonGreaterBaneBuff);
+            }
+            static void PatchAeonGreaterBaneDispel() {
+                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("PatchAeonGreaterBaneDispel")) { return; }
+
+                var AeonGreaterBaneBuff = Resources.GetBlueprint<BlueprintBuff>("cdcc13884252b2c4d8dac57cb5f46555");
+                AeonGreaterBaneBuff.GetComponents<AddInitiatorAttackWithWeaponTrigger>()
+                    .Where(action => action.Action.Actions.OfType<ContextActionDispelMagic>().Any())
+                    .First().OnlyOnFirstHit = true;
+                AeonGreaterBaneBuff.GetComponents<AddInitiatorAttackWithWeaponTrigger>()
+                    .Where(action => action.Action.Actions.OfType<ContextActionDispelMagic>().Any())
+                    .ForEach(action => {
+                        action.Action.Actions =
+                        action.Action.Actions
+                            .Where(a => !(a is ContextActionDispelMagic))
+                            .Append(CreateDispelMagicAction())
+                            .ToArray();
+                    });
+
+                static ContextActionDispelMagic CreateDispelMagicAction() {
+                    return new ContextActionDispelMagic() {
+                        m_StopAfterFirstRemoved = true,
+                        m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
+                        m_MaxSpellLevel = new ContextValue(),
+                        m_MaxCasterLevel = new ContextValue(),
+                        m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
+                        CheckBonus = 100,
+                        ContextBonus = new ContextValue(),
+                        Schools = new SpellSchool[0],
+                        OnSuccess = Helpers.CreateActionList(),
+                        OnFail = Helpers.CreateActionList(),
+                        OnlyTargetEnemyBuffs = true
+                    };
+                }
+
                 Main.LogPatch("Patched", AeonGreaterBaneBuff);
             }
             static void PatchAeonGazeDC() {
