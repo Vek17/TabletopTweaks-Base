@@ -165,6 +165,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     Main.LogPatch("Patched", BaseProgression);
                     foreach (var Archetype in FighterClass.Archetypes) {
                         Archetype.RemoveFeatures
+                            .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
+                            .ForEach(entry => {
+                                entry.m_Features.Add(ArmorTrainingSpeedFeature.ToReference<BlueprintFeatureBaseReference>());
+                            });
+                        Archetype.RemoveFeatures
                             .Where(entry => entry.Level > 3)
                             .Where(entry => entry.m_Features.Contains(ArmorTraining.ToReference<BlueprintFeatureBaseReference>()))
                             .ForEach(entry => {
