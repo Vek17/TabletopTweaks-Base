@@ -149,6 +149,7 @@ All fixes and added content are configurable and can be disabled by editing the 
             Aeon Bane no longer grants disadvantage on spell resistance and instead correctly adds mythic rank to spell resistance checks
             Aeon Improved Bane now uses greater dispel magic rules to remove 1/4 CL buffs (where CL is defined as Character Level + Mythic Rank) instead of dispeling all buffs
             Aeon Greater Bane damage is now rolled into the main weapon attack instead of a separate instance
+            Aeon Greater Bane now auto dispels one buff on the first hit
             Aeon Greater Bane now allows you to cast swift action spells as a move action
             Aeon Gaze selection is no longer limited on the first selection and all selections are available
             Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same swift action and resouce usage

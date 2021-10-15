@@ -1,6 +1,7 @@
 ## Version 1.8.1
 * Aeon Bane no longer grants disadvantage on spell resistance and instead correctly adds mythic rank to spell resistance checks
 * Aeon Improved Bane now uses greater dispel magic rules to remove 1/4 CL buffs where CL is defined as Character Level + Mythic Rank
+* Aeon Greater Bane now has the garentee'd auto dispel on first hit
 * Break Enchantment no longer removes friendly buffs
 * Cleaned up fighter armor training speed increase to work more correctly with archetypes
 
