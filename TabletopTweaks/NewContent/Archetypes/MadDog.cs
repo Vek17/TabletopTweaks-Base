@@ -1,6 +1,6 @@
 ﻿using Kingmaker.UnitLogic.Mechanics.Properties;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Archetypes {
