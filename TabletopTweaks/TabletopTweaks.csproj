@@ -194,7 +194,7 @@
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\ForceACUpdate.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
-    <Compile Include="NewComponents\MadDogPetDRProperty.cs" />
+    <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
