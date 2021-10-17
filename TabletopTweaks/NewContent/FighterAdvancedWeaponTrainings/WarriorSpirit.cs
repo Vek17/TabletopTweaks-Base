@@ -32,7 +32,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var WeaponBondSwitchAbility = Resources.GetBlueprint<BlueprintAbility>("7ff088ab58c69854b82ea95c2b0e35b4"); //For fx
 
-            var Icon_WarriorSpirit_Select = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Select.png");
             var Icon_WarriorSpirit_Activation = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Activation.png");
             var Icon_WarriorSpirit_Anarchic = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Anarchic.png");
             var Icon_WarriorSpirit_Axiomatic = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Axiomatic.png");
@@ -48,13 +47,18 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var Icon_WarriorSpirit_IcyBurst = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_IcyBurst.png");
             var Icon_WarriorSpirit_Shock = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Shock.png");
             var Icon_WarriorSpirit_ShockingBurst = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_ShockingBurst.png");
+            var Icon_WarriorSpirit_Thundering = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Thundering.png");
+            var Icon_WarriorSpirit_ThunderingBurst = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_ThunderingBurst.png");
             var Icon_WarriorSpirit_Speed = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Speed.png");
             var Icon_WarriorSpirit_Unholy = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Unholy.png");
+            var Icon_WarriorSpirit_Keen = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Keen.png");
+            var Icon_WarriorSpirit_Cruel = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Cruel.png");
 
             var Anarchic = Resources.GetBlueprint<BlueprintWeaponEnchantment>("57315bc1e1f62a741be0efde688087e9");
             var Axiomatic = Resources.GetBlueprint<BlueprintWeaponEnchantment>("0ca43051edefcad4b9b2240aa36dc8d4");
             var Holy = Resources.GetBlueprint<BlueprintWeaponEnchantment>("28a9964d81fedae44bae3ca45710c140");
             var Unholy = Resources.GetBlueprint<BlueprintWeaponEnchantment>("d05753b8df780fc4bb55b318f06af453");
+
             var Corrosive = Resources.GetBlueprint<BlueprintWeaponEnchantment>("633b38ff1d11de64a91d490c683ab1c8");
             var CorrosiveBurst = Resources.GetBlueprint<BlueprintWeaponEnchantment>("0cf34703e67e37b40905845ca14b1380");
             var Flaming = Resources.GetBlueprint<BlueprintWeaponEnchantment>("30f90becaaac51f41bf56641966c4121");
@@ -63,8 +67,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var IcyBurst = Resources.GetBlueprint<BlueprintWeaponEnchantment>("564a6924b246d254c920a7c44bf2a58b");
             var Shock = Resources.GetBlueprint<BlueprintWeaponEnchantment>("7bda5277d36ad114f9f9fd21d0dab658");
             var ShockingBurst = Resources.GetBlueprint<BlueprintWeaponEnchantment>("914d7ee77fb09d846924ca08bccee0ff");
-            var BaneEverything = Resources.GetBlueprint<BlueprintWeaponEnchantment>("1a93ab9c46e48f3488178733be29342a");
+            var Thundering = Resources.GetBlueprint<BlueprintWeaponEnchantment>("690e762f7704e1f4aa1ac69ef0ce6a96");
+            var ThunderingBurst = Resources.GetBlueprint<BlueprintWeaponEnchantment>("83bd616525288b34a8f34976b2759ea1");
+
+            var CruelEnchantment = Resources.GetBlueprint<BlueprintWeaponEnchantment>("629c383ffb407224398bb71d1bd95d14");
+            var Keen = Resources.GetBlueprint<BlueprintWeaponEnchantment>("102a9c8c9b7a75e4fb5844e79deaf4c0");
             var GhostTouch = Resources.GetBlueprint<BlueprintWeaponEnchantment>("47857e1a5a3ec1a46adf6491b1423b4f");
+            var BaneEverything = Resources.GetBlueprint<BlueprintWeaponEnchantment>("1a93ab9c46e48f3488178733be29342a");
+            
             var BrilliantEnergy = Resources.GetBlueprint<BlueprintWeaponEnchantment>("66e9e299c9002ea4bb65b6f300e43770");
             var Speed = Resources.GetBlueprint<BlueprintWeaponEnchantment>("f1c0c50108025d546b2554674ea1c006");
 
@@ -136,6 +146,12 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                                 TemporaryEnhancement3.ToReference<BlueprintItemEnchantmentReference>(),
                                 TemporaryEnhancement4.ToReference<BlueprintItemEnchantmentReference>(),
                                 TemporaryEnhancement5.ToReference<BlueprintItemEnchantmentReference>()
+                            },
+                            DurationValue = new ContextDurationValue() {
+                                m_IsExtendable = true,
+                                Rate = DurationRate.Minutes,
+                                DiceCountValue = new ContextValue(),
+                                BonusValue = 1
                             }
                         },
                         new ContextActionApplyBuff() {
@@ -176,6 +192,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.AddComponent<NestedPsudoActivatableAbilities>(c => {
                     c.m_Variants = new BlueprintAbilityReference[0];
                 });
+                bp.AddComponent<UpdateSlotsOnEquipmentChange>();
                 bp.AddComponent<AbilityRequirementHasWeaponTrainingWithWeapon>();
             });
 
@@ -192,11 +209,16 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             CreateWarriorSpiritToggle("WarriorSpiritIcyBurst", Icon_WarriorSpirit_IcyBurst, WarriorSpiritToggleAbility, 2, IcyBurst, Frost);
             CreateWarriorSpiritToggle("WarriorSpiritShock", Icon_WarriorSpirit_Shock, WarriorSpiritToggleAbility, 1, Shock);
             CreateWarriorSpiritToggle("WarriorSpiritShockingBurst", Icon_WarriorSpirit_ShockingBurst, WarriorSpiritToggleAbility, 2, ShockingBurst, Shock);
+            CreateWarriorSpiritToggle("WarriorSpiritThundering", Icon_WarriorSpirit_Thundering, WarriorSpiritToggleAbility, 1, Thundering);
+            CreateWarriorSpiritToggle("WarriorSpiritThunderingBurst", Icon_WarriorSpirit_ThunderingBurst, WarriorSpiritToggleAbility, 2, ThunderingBurst, Thundering);
+
+            CreateWarriorSpiritToggle("WarriorSpiritCruel", Icon_WarriorSpirit_Cruel, WarriorSpiritToggleAbility, 1, CruelEnchantment);
+            CreateWarriorSpiritToggle("WarriorSpiritKeen", Icon_WarriorSpirit_Keen, WarriorSpiritToggleAbility, 1, Keen);
+            CreateWarriorSpiritToggle("WarriorSpiritGhostTouch", Icon_WarriorSpirit_GhostTouch, WarriorSpiritToggleAbility, 1, GhostTouch);
 
             CreateWarriorSpiritToggle("WarriorSpiritBane", Icon_WarriorSpirit_Bane, WarriorSpiritToggleAbility, 2, BaneEverything);
-            CreateWarriorSpiritToggle("WarriorSpiritGhostTouch", Icon_WarriorSpirit_GhostTouch, WarriorSpiritToggleAbility, 1, GhostTouch);
-            CreateWarriorSpiritToggle("WarriorSpiritBrilliantEnergy", Icon_WarriorSpirit_BrilliantEnergy, WarriorSpiritToggleAbility, 4, BrilliantEnergy);
             CreateWarriorSpiritToggle("WarriorSpiritSpeed", Icon_WarriorSpirit_Speed, WarriorSpiritToggleAbility, 3, Speed);
+            CreateWarriorSpiritToggle("WarriorSpiritBrilliantEnergy", Icon_WarriorSpirit_BrilliantEnergy, WarriorSpiritToggleAbility, 4, BrilliantEnergy);
 
             var WarriorSpiritFeature = Helpers.CreateBlueprint<BlueprintFeature>("WarriorSpiritFeature", bp => {
                 bp.IsClassFeature = true;
@@ -209,9 +231,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                         WarriorSpiritToggleAbility.ToReference<BlueprintUnitFactReference>(),
                         WarriorSpiritResourceIncrease.ToReference<BlueprintUnitFactReference>()
                     };
-                });
-                bp.AddComponent<IncreaseResourceAmountByWeaponTraining>(c => {
-                    c.m_Resource = WarriorSpiritResource.ToReference<BlueprintAbilityResourceReference>();
                 });
                 bp.AddComponent<AddAbilityResources>(c => {
                     c.m_Resource = WarriorSpiritResource.ToReference<BlueprintAbilityResourceReference>();

@@ -1,3 +1,26 @@
+## Version 1.8.2
+* Added Warrior Spirit advanced weapon training with the following options:
+    * Anarchic
+    * Axiomatic
+    * Holy
+    * Unholy
+    * Corrosive
+    * CorrosiveBurst
+    * Flaming
+    * FlamingBurst
+    * Frost
+    * IcyBurst
+    * Shock
+    * ShockingBurst
+    * Thundering
+    * Thundering Burst
+    * Cruel
+    * Keen
+    * Bane
+    * Ghost Touch
+    * Brilliant Energy
+    * Speed
+
 ## Version 1.8.1
 * Aeon Bane no longer grants disadvantage on spell resistance and instead correctly adds mythic rank to spell resistance checks
 * Aeon Improved Bane now uses greater dispel magic rules to remove 1/4 CL buffs where CL is defined as Character Level + Mythic Rank

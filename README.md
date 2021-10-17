@@ -55,6 +55,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Trained Throw
         Defensive Weapon Training
         Focused Weapon
+        Warrior Spirit
 
     Adds the following advanced armor trainings:
         Armored Confidence

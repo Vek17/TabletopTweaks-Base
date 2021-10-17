@@ -12,9 +12,10 @@ namespace TabletopTweaks.Utilities {
             public static string icons_folder = "";
             public static Sprite Create(string filePath) {
                 var bytes = File.ReadAllBytes(icons_folder + filePath);
-                var texture = new Texture2D(64, 64, TextureFormat.DXT5, false);
+                var texture = new Texture2D(64, 64, TextureFormat.RGBA32, false);
                 _ = texture.LoadImage(bytes);
-                return Sprite.Create(texture, new Rect(0, 0, 64, 64), new Vector2(0, 0));
+                var sprite = Sprite.Create(texture, new Rect(0, 0, 64, 64), new Vector2(0, 0));
+                return sprite;
             }
         }
     }

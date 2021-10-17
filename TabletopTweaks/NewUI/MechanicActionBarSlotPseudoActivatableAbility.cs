@@ -8,7 +8,9 @@ namespace TabletopTweaks.NewUI {
 
         public BlueprintBuffReference BuffToWatch;
 
-        public override bool IsActive() => Unit.Descriptor.HasFact(BuffToWatch);
+        public override bool IsActive() { 
+            return Unit.Descriptor.HasFact(BuffToWatch); 
+        }
 
         public override int GetResource() {
             return -1;

@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
@@ -35,18 +36,21 @@ namespace TabletopTweaks.NewActions {
             if (weapon == null) {
                 return;
             }
-            int itemEnhancementBonus = GameHelper.GetItemEnhancementBonus(weapon);
-            int maxEnhancement = Math.Min(5, unitPartWeaponTraining.GetMaxWeaponRank());
-            Rounds duration = 10.Rounds();
+            
+            int maxEnhancement = unitPartWeaponTraining.GetMaxWeaponRank();
+            Rounds duration = DurationValue.Calculate(base.Context);
             unitPartWarriorSpirit.ClearActiveEnchants();
             if (unitPartWarriorSpirit.HasSelectedEnchant()) {
                 var enchantmentData = unitPartWarriorSpirit.GetSelectedEnchant();
+                Main.Log($"Cost: {enchantmentData.Cost}");
                 maxEnhancement -= enchantmentData.Cost;
                 foreach (var enchant in enchantmentData.Enchants) {
+                    Main.Log($"Applied: {enchant.Get().Name}");
                     unitPartWarriorSpirit.ActivateEnchant(weapon, enchant, Context, duration);
                 }
             }
-            int remainingEnhancement = Math.Min(Math.Max(0, 5 - itemEnhancementBonus), maxEnhancement);
+            int itemEnhancementBonus = GameHelper.GetItemEnhancementBonus(weapon);
+            int remainingEnhancement = Math.Min(Math.Max(0, 5 - itemEnhancementBonus), Math.Min(5, maxEnhancement));
             if (remainingEnhancement > 0) {
                 BlueprintItemEnchantment enchantment = this.DefaultEnchantments[remainingEnhancement - 1];
                 unitPartWarriorSpirit.ActivateEnchant(weapon, enchantment, Context, duration);
@@ -54,5 +58,6 @@ namespace TabletopTweaks.NewActions {
         }
 
         public BlueprintItemEnchantmentReference[] DefaultEnchantments = new BlueprintItemEnchantmentReference[5];
+        public ContextDurationValue DurationValue;
     }
 }
