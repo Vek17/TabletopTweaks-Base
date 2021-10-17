@@ -185,16 +185,15 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         public class TooltipTemplateQuickStudy : TooltipTemplateAbility {
 
             public TooltipTemplateQuickStudy(AbilityData abilityData) : base(abilityData) {
-            }
-
-            public override void Prepare(TooltipTemplateType type) {
                 QuickStudyData = m_AbilityData;
                 var abilityDataField = AccessTools.Field(typeof(TooltipTemplateQuickStudy), "m_AbilityData");
                 var blueprintAbilityField = AccessTools.Field(typeof(TooltipTemplateQuickStudy), "BlueprintAbility");
                 abilityDataField.SetValue(this, m_AbilityData.ConvertedFrom);
                 blueprintAbilityField.SetValue(this, m_AbilityData.Blueprint);
-                base.Prepare(type);
+            }
 
+            public override void Prepare(TooltipTemplateType type) {
+                base.Prepare(type);
                 QuickStudyShortDescription = QuickStudyData.ShortenedDescription;
                 QuickStudyDescription = QuickStudyData.Description;
                 QuickStudyIcon = QuickStudyData.Icon;
