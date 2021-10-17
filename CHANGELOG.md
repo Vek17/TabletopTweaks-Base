@@ -1,4 +1,5 @@
 ## Version 1.8.2
+* Cleaned up icon rendering
 * Added Warrior Spirit advanced weapon training with the following options:
     * Anarchic
     * Axiomatic
