@@ -69,7 +69,8 @@
             "DefensiveWeaponTraining": true,
             "FocusedWeapon": true,
             "TrainedGrace": true,
-            "TrainedThrow": true
+            "TrainedThrow": true,
+            "WarriorSpirit": true
         }
     },
     "FighterAdvancedArmorTraining": {

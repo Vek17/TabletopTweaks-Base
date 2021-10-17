@@ -43,6 +43,7 @@ namespace TabletopTweaks.NewContent {
                 FighterAdvancedWeaponTrainings.FocusedWeapon.AddFocusedWeapon();
                 FighterAdvancedWeaponTrainings.TrainedThrow.AddTrainedThrow();
                 FighterAdvancedWeaponTrainings.TrainedGrace.AddTrainedGrace();
+                FighterAdvancedWeaponTrainings.WarriorSpirit.AddWarriorSpirit();
 
                 FighterAdvancedArmorTrainings.AdvancedArmorTraining.AddAdvancedArmorTraining();
                 FighterAdvancedArmorTrainings.ArmoredConfidence.AddArmoredConfidence();

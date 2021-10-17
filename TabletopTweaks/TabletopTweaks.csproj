@@ -180,8 +180,12 @@
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
+    <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
+    <Compile Include="NewComponents\AbilityRequirementHasWeaponTrainingWithWeapon.cs" />
+    <Compile Include="NewComponents\AbilityShowIfCasterWeaponTrainingRank.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\AddWarriorSpiritEnchantment.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
@@ -194,6 +198,8 @@
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\ForceACUpdate.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
+    <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
+    <Compile Include="NewComponents\NestedPsudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
@@ -238,7 +244,7 @@
     <Compile Include="NewComponents\InitiatorSpellCritAutoconfirm.cs" />
     <Compile Include="NewComponents\RemoveBuffAfterSpellResistCheck.cs" />
     <Compile Include="NewComponents\RemoveBuffRankOnAttack.cs" />
-    <Compile Include="NewComponents\RestrictHasBuff.cs" />
+    <Compile Include="NewComponents\AbilityRequirementHasBuff.cs" />
     <Compile Include="NewComponents\SavingThrowBonusUnaware.cs" />
     <Compile Include="NewComponents\SelectionDefaultFeature.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ShatterDefensesInitiator.cs" />
@@ -341,6 +347,7 @@
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\FocusedWeapon.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\WarriorSpirit.cs" />
     <Compile Include="NewContent\MagusArcana\BroadStudy.cs" />
     <Compile Include="NewContent\MagusArcana\SpellBlending.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
@@ -371,6 +378,7 @@
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewUnitParts\UnitPartPrecisionCritical.cs" />
     <Compile Include="NewUnitParts\UnitPartSpellSpecialization.cs" />
+    <Compile Include="NewUnitParts\UnitPartWarriorSpirit.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="SaveGamePatch.cs" />
     <Compile Include="Utilities\AssetLoader.cs" />
@@ -439,6 +447,63 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_ShadowEnchantmentGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Activation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Anarchic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Axiomatic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Bane.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_BrilliantEnergy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Corrosive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_CorrosiveBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Flaming.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_FlamingBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Frost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_GhostTouch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Holy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_IcyBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Keen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Select.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Shock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_ShockingBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Speed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Unholy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_ArmoredMight.png">

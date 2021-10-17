@@ -144,7 +144,7 @@ namespace TabletopTweaks.Utilities {
             }
         }
         public static void ApplyBloodrageRestriction(this BlueprintBuff bloodrage, BlueprintAbility ability) {
-            ability.AddComponent(new RestrictHasBuff() {
+            ability.AddComponent(new AbilityRequirementHasBuff() {
                 RequiredBuff = bloodrage.ToReference<BlueprintBuffReference>()
             });
         }
@@ -246,6 +246,7 @@ namespace TabletopTweaks.Utilities {
                 bp.LocalizedDuration = Helpers.CreateString($"{blueprintName}.LocalizedDuration", "While Raging");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.m_Icon = abilityToImitate.m_Icon;
+                bp.DisableLog = true;
                 bp.m_Parent = bloodragerArcaneSpellAbility.ToReference<BlueprintAbilityReference>();
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
                 bp.Type = AbilityType.Special;
@@ -298,8 +299,8 @@ namespace TabletopTweaks.Utilities {
                 bp.AddComponent<PseudoActivatable>(c => {
                     c.m_BuffToWatch = switchBuff.ToReference<BlueprintBuffReference>();
                 });
-                bp.AddComponent<RestrictHasBuff>(c => {
-                    c.Inverted = true;
+                bp.AddComponent<AbilityRequirementHasBuff>(c => {
+                    c.Not = true;
                     c.RequiredBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
                 });
                 bp.AddComponent<ContextSetAbilityParams>(c => {
