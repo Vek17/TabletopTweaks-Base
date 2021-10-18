@@ -29,15 +29,15 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public override void OnTurnOn() {
-            OnActivate();
+            Update();
         }
 
         public override void OnTurnOff() {
-            OnDeactivate();
+            RemoveFact();
         }
 
         public override void OnActivate() {
-            Apply();
+            Update();
         }
 
         public override void OnDeactivate() {
@@ -45,7 +45,7 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public override void OnPostLoad() {
-            Apply();
+            Update();
         }
 
         private void Apply() {
@@ -64,14 +64,24 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
+        private void Update() {
+            if (ShouldApply()) {
+                Apply();
+            } else {
+                RemoveFact();
+            }
+        }
+
+        private bool ShouldApply() {
+            return base.Data.AppliedFact == null && (Owner.HasFact(CheckedFact) && !Not) || (!Owner.HasFact(CheckedFact) && Not);
+        }
+
         public void HandleUnitGainFact(EntityFact fact) {
-            RemoveFact();
-            Apply();
+            Update();
         }
 
         public void HandleUnitLostFact(EntityFact fact) {
-            RemoveFact();
-            Apply();
+            Update();
         }
 
         [SerializeField]

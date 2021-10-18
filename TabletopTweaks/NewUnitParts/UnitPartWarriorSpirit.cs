@@ -2,7 +2,9 @@
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.EntitySystem;
 using Kingmaker.Items;
+using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System;
@@ -12,7 +14,7 @@ using System.Linq;
 namespace TabletopTweaks.NewUnitParts {
     class UnitPartWarriorSpirit : UnitPart {
         public void AddEntry(EntityFact source, int cost, params BlueprintWeaponEnchantmentReference[] enchants) {
-            ClearSelectedEnchants();
+            ClearSelectedEnchants(source);
             WarriorSpiritSelectedEntry item = new WarriorSpiritSelectedEntry(enchants, cost, source);
             this.SelectedEnchants.Add(item);
         }
@@ -32,8 +34,11 @@ namespace TabletopTweaks.NewUnitParts {
             return SelectedEnchants.Any();
         }
 
-        public void ClearSelectedEnchants() {
-            SelectedEnchants.ToArray().ForEach(entry => RemoveEntry(entry.Source));
+        public void ClearSelectedEnchants(EntityFact except) {
+            SelectedEnchants
+                .ToArray()
+                .Where(entry => entry.Source != except)
+                .ForEach(entry => RemoveEntry(entry.Source, true));
         }
 
         public void ClearActiveEnchants() {
@@ -51,8 +56,10 @@ namespace TabletopTweaks.NewUnitParts {
             ActiveEnchants.Clear();
         }
 
-        public void RemoveEntry(EntityFact source) {
-            Owner.RemoveFact(source);
+        public void RemoveEntry(EntityFact source, bool removeBuff = false) {
+            if (removeBuff) {
+                Owner.RemoveFact(source);
+            }
             this.SelectedEnchants.RemoveAll((WarriorSpiritSelectedEntry entry) => entry.Source == source);
         }
 

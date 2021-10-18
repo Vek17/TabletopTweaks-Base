@@ -1,3 +1,8 @@
+## Version 1.8.2a
+* Fixed broken quick study tooltips
+* Nature's Whispers MAY work correctly this time
+* Warrior Spirit should now correctly remember which buff you have selected
+
 ## Version 1.8.2
 * Cleaned up icon rendering
 * Added Warrior Spirit advanced weapon training with the following options:
