@@ -12,7 +12,23 @@ namespace TabletopTweaks.Config {
         public static Blueprints Blueprints;
         private static JsonSerializerSettings cachedSettings;
         private static JsonSerializerSettings SerializerSettings {
-            get { if (cachedSettings == null) { cachedSettings = CreateSettings(); } return cachedSettings; }
+            get { 
+                if (cachedSettings == null) { 
+                    cachedSettings = new JsonSerializerSettings {
+                        CheckAdditionalContent = false,
+                        ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+                        DefaultValueHandling = DefaultValueHandling.Include,
+                        FloatParseHandling = FloatParseHandling.Double,
+                        Formatting = Formatting.Indented,
+                        MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead,
+                        MissingMemberHandling = MissingMemberHandling.Ignore,
+                        NullValueHandling = NullValueHandling.Ignore,
+                        ObjectCreationHandling = ObjectCreationHandling.Replace,
+                        StringEscapeHandling = StringEscapeHandling.Default,
+                    };
+                } 
+                return cachedSettings; 
+            }
         }
 
         public static void LoadAllSettings() {
@@ -24,11 +40,11 @@ namespace TabletopTweaks.Config {
         private static void LoadSettings<T>(string fileName, ref T setting) where T : IUpdatableSettings {
             JsonSerializer serializer = JsonSerializer.Create(SerializerSettings);
             var assembly = Assembly.GetExecutingAssembly();
-            string userConfigFolder = ModEntry.Path + "UserSettings";
-            Directory.CreateDirectory(userConfigFolder);
+            var userConfigFolder = ModEntry.Path + "UserSettings";
             var resourcePath = $"TabletopTweaks.Config.{fileName}";
             var userPath = $"{userConfigFolder}{Path.DirectorySeparatorChar}{fileName}";
 
+            Directory.CreateDirectory(userConfigFolder);
             using (Stream stream = assembly.GetManifestResourceStream(resourcePath))
             using (StreamReader streamReader = new StreamReader(stream))
             using (JsonReader jsonReader = new JsonTextReader(streamReader)) {
@@ -51,21 +67,6 @@ namespace TabletopTweaks.Config {
             using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter)) {
                 serializer.Serialize(jsonWriter, setting);
             }
-        }
-        private static JsonSerializerSettings CreateSettings() {
-            var RefJsonSerializerSettings = new JsonSerializerSettings {
-                CheckAdditionalContent = false,
-                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-                DefaultValueHandling = DefaultValueHandling.Include,
-                FloatParseHandling = FloatParseHandling.Double,
-                Formatting = Formatting.Indented,
-                MetadataPropertyHandling = MetadataPropertyHandling.ReadAhead,
-                MissingMemberHandling = MissingMemberHandling.Ignore,
-                NullValueHandling = NullValueHandling.Ignore,
-                ObjectCreationHandling = ObjectCreationHandling.Replace,
-                StringEscapeHandling = StringEscapeHandling.Default,
-            };
-            return RefJsonSerializerSettings;
         }
     }
 }
