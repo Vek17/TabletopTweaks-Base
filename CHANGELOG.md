@@ -1,3 +1,7 @@
+## Version 1.8.2b
+* Energy Resistance should now show up when inspecting units
+* Settings should no longer break when some other mods are present
+
 ## Version 1.8.2a
 * Fixed broken quick study tooltips
 * Nature's Whispers MAY work correctly this time

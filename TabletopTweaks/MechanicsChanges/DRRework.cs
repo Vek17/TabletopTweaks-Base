@@ -181,6 +181,7 @@ namespace TabletopTweaks.MechanicsChanges {
         static class CharInfoEnergyResistanceVM_GetEnergyResistance_Patch {
 
             static bool Prefix(CharInfoEnergyResistanceVM __instance, UnitDescriptor unit, ref List<CharInfoEnergyResistanceEntryVM> __result) {
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 IEnumerable<BlueprintComponentAndRuntime<TTAddDamageResistanceEnergy>> componentAndRuntimes = unit.Facts.List.SelectMany(i => i.SelectComponentsWithRuntime<TTAddDamageResistanceEnergy>());
                 LocalizedTexts localizedTexts = Game.Instance.BlueprintRoot.LocalizedTexts;
                 Dictionary<DamageEnergyType, CharInfoEnergyResistanceEntryVM> dictionary = new Dictionary<DamageEnergyType, CharInfoEnergyResistanceEntryVM>();
@@ -377,6 +378,7 @@ namespace TabletopTweaks.MechanicsChanges {
         [HarmonyPatch(typeof(UnitDescriptionHelper), nameof(UnitDescriptionHelper.ExtractDamageReductions))]
         static class UnitDescriptionHelper_ExtractDamageReductions_Patch {
             static bool Prefix(UnitEntityData unit, ref UnitDescription.DamageReduction[] __result) {
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 List<UnitDescription.DamageReduction> result = new List<UnitDescription.DamageReduction>();
                 unit.VisitComponents<TTAddDamageResistancePhysical>((c, f) => result.Add(TTExtractDamageReduction(c, f)));
                 __result = result.ToArray();
@@ -410,7 +412,8 @@ namespace TabletopTweaks.MechanicsChanges {
 
         [HarmonyPatch(typeof(UnitDescriptionHelper), nameof(UnitDescriptionHelper.ExtractEnergyResistances))]
         static class UnitDescriptionHelper_ExtractEnergyResistances_Patch {
-            static bool Prefix(UnitEntityData unit, UnitDescription.EnergyResistanceData[] __result) {
+            static bool Prefix(UnitEntityData unit, ref UnitDescription.EnergyResistanceData[] __result) {
+                if (ModSettings.Fixes.DRRework.IsDisabled("Base")) { return true; }
                 List<UnitDescription.EnergyResistanceData> result = new List<UnitDescription.EnergyResistanceData>();
                 unit.VisitComponents<TTAddDamageResistanceEnergy>((c, f) => result.Add(TTExtractEnergyResistance(c, f)));
                 __result = result.ToArray();
