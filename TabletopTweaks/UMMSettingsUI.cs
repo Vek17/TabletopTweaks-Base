@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TabletopTweaks.Config;
 using UnityEngine;
@@ -30,7 +31,7 @@ namespace TabletopTweaks {
             UI.Div(0, 15);
             using (UI.VerticalScope()) {
                 UI.Toggle("New Settings Off By Default".bold(), ref Fixes.NewSettingsOffByDefault);
-                SetttingUI.SettingGroup("BaseFixes", TabLevel, Fixes.BaseFixes);
+                SetttingUI.SettingGroup("Base Fixes", TabLevel, Fixes.BaseFixes);
                 SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Lich);
                 SetttingUI.SettingGroup("Trickster", TabLevel, Fixes.Trickster);
                 SetttingUI.NestedSettingGroup("Alchemist", TabLevel, Fixes.Alchemist,
@@ -98,8 +99,8 @@ namespace TabletopTweaks {
                 SetttingUI.SettingGroup("Spells", TabLevel, Fixes.Spells);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, Fixes.Bloodlines);
                 SetttingUI.SettingGroup("Feats", TabLevel, Fixes.Feats);
-                SetttingUI.SettingGroup("MythicAbilities", TabLevel, Fixes.MythicAbilities);
-                SetttingUI.SettingGroup("MythicFeats", TabLevel, Fixes.MythicFeats);
+                SetttingUI.SettingGroup("Mythic Abilities", TabLevel, Fixes.MythicAbilities);
+                SetttingUI.SettingGroup("Mythic Feats", TabLevel, Fixes.MythicFeats);
                 SetttingUI.NestedSettingGroup("Crusade", TabLevel, Fixes.Crusade,
                     ("Buildings", Fixes.Crusade.Buildings)
                 );
@@ -116,7 +117,7 @@ namespace TabletopTweaks {
             UI.Div(0, 15);
             using (UI.VerticalScope()) {
                 UI.Toggle("New Settings Off By Default".bold(), ref Homebrew.NewSettingsOffByDefault);
-                SetttingUI.NestedSettingGroup("MythicReworks", TabLevel, Homebrew.MythicReworks, 
+                SetttingUI.NestedSettingGroup("Mythic Reworks", TabLevel, Homebrew.MythicReworks, 
                     ("Aeon", Homebrew.MythicReworks.Aeon),
                     ("Azata", Homebrew.MythicReworks.Azata)
                 );
@@ -129,18 +130,18 @@ namespace TabletopTweaks {
             using (UI.VerticalScope()) {
                 UI.Toggle("New Settings Off By Default".bold(), ref AddedContent.NewSettingsOffByDefault);
                 SetttingUI.SettingGroup("Archetypes", TabLevel, AddedContent.Archetypes);
-                SetttingUI.SettingGroup("BaseAbilities", TabLevel, AddedContent.BaseAbilities);
+                SetttingUI.SettingGroup("Base Abilities", TabLevel, AddedContent.BaseAbilities);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, AddedContent.Bloodlines);
-                SetttingUI.SettingGroup("ArcanistExploits", TabLevel, AddedContent.ArcanistExploits);
+                SetttingUI.SettingGroup("Arcanist Exploits", TabLevel, AddedContent.ArcanistExploits);
                 SetttingUI.SettingGroup("Feats", TabLevel, AddedContent.Feats);
-                SetttingUI.SettingGroup("FighterAdvancedArmorTraining", TabLevel, AddedContent.FighterAdvancedArmorTraining);
-                SetttingUI.SettingGroup("FighterAdvancedWeaponTraining", TabLevel, AddedContent.FighterAdvancedWeaponTraining);
-                SetttingUI.SettingGroup("MagusArcana", TabLevel, AddedContent.MagusArcana);
+                SetttingUI.SettingGroup("Fighter Advanced Armor Training", TabLevel, AddedContent.FighterAdvancedArmorTraining);
+                SetttingUI.SettingGroup("Fighter Advanced Weapon Training", TabLevel, AddedContent.FighterAdvancedWeaponTraining);
+                SetttingUI.SettingGroup("Magus Arcana", TabLevel, AddedContent.MagusArcana);
                 SetttingUI.SettingGroup("Races", TabLevel, AddedContent.Races);
                 SetttingUI.SettingGroup("Backgrounds", TabLevel, AddedContent.Backgrounds);
                 SetttingUI.SettingGroup("Spells", TabLevel, AddedContent.Spells);
-                SetttingUI.SettingGroup("MythicAbilities", TabLevel, AddedContent.MythicAbilities);
-                SetttingUI.SettingGroup("MythicFeats", TabLevel, AddedContent.MythicFeats);
+                SetttingUI.SettingGroup("Mythic Abilities", TabLevel, AddedContent.MythicAbilities);
+                SetttingUI.SettingGroup("Mythic Feats", TabLevel, AddedContent.MythicFeats);
             }
         }
     }
@@ -206,7 +207,7 @@ namespace TabletopTweaks {
                 if (group.Settings.Any()) { TabbedItem(level, () => UI.Div(Color.grey, 500)); }
                 group.Settings.ForEach(entry => {
                     TabbedItem(level,
-                        () => Toggle(entry.Key, group.IsEnabled(entry.Key), (enabled) => group.ChangeSetting(entry.Key, enabled), UI.Width(500 - level.Spacing())),
+                        () => Toggle(String.Join(" ", entry.Key.SplitOnCapitals()), group.IsEnabled(entry.Key), (enabled) => group.ChangeSetting(entry.Key, enabled), UI.Width(500 - level.Spacing())),
                         () => Label(entry.Value.Description.green()));
                     TabbedItem(level, () => UI.Div(Color.grey, 500));
                 });
@@ -240,6 +241,13 @@ namespace TabletopTweaks {
 
         public static void Label(string title) {
             GUILayout.Label(title, GUILayout.ExpandWidth(false));
+        }
+
+        public static IEnumerable<string> SplitOnCapitals(this string text) {
+            Regex regex = new Regex(@"\p{Lu}\p{Ll}*");
+            foreach (Match match in regex.Matches(text)) {
+                yield return match.Value;
+            }
         }
     }
 }
