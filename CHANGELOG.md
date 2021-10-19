@@ -1,8 +1,9 @@
-## Version 1.8.2b
+## Version 1.9.0
 * Energy Resistance should now show up when inspecting units
 * Settings should no longer break when some other mods are present
 * Loremaster should now work properly with spontaneous casters in all cases
 * Major update to settings, this is unfortunatly a breaking change
+* Settings now have a UMM UI
 
 ## Version 1.8.2a
 * Fixed broken quick study tooltips
