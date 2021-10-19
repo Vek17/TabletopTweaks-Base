@@ -5,31 +5,43 @@ using System.Linq;
 namespace TabletopTweaks.Config {
     public class SettingGroup {
         public bool DisableAll = false;
-        public SortedDictionary<string, bool> Enabled = new SortedDictionary<string, bool>();
+        public SortedDictionary<string, SettingData> Settings = new SortedDictionary<string, SettingData>();
         public virtual bool this[string key] => IsEnabled(key);
 
         public void LoadSettingGroup(SettingGroup group, bool frozen) {
             DisableAll = group.DisableAll;
             if (frozen) {
-                this.Enabled.Keys.ToList().ForEach(key => {
-                    Enabled[key] = false;
+                this.Settings.Keys.ToList().ForEach(key => {
+                    Settings[key].Enabled = false;
                 });
             }
             this.DisableAll = group.DisableAll;
-            group.Enabled.ForEach(entry => {
-                if (Enabled.ContainsKey(entry.Key)) {
-                    Enabled[entry.Key] = entry.Value;
+            group.Settings.ForEach(entry => {
+                if (Settings.ContainsKey(entry.Key)) {
+                    Settings[entry.Key].Enabled = entry.Value.Enabled;
                 }
             });
         }
         public virtual bool IsEnabled(string key) {
-            if (!Enabled.TryGetValue(key, out bool result)) {
+            if (!Settings.TryGetValue(key, out SettingData result)) {
                 Main.LogDebug($"COULD NOT FIND SETTING KEY: {key}");
             }
-            return result && !DisableAll;
+            return result.Enabled && !DisableAll;
         }
         public virtual bool IsDisabled(string key) {
             return !IsEnabled(key);
+        }
+        public class SettingData {
+            public bool Enabled;
+            public bool Homebrew;
+            public string Description;
+
+            public static implicit operator SettingData(bool enabled) {
+                return new SettingData {
+                    Enabled = enabled,
+                    Description = string.Empty
+                };
+            }
         }
     }
 }

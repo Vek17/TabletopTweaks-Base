@@ -1,62 +1,106 @@
 {
-    "NewSettingsOffByDefault": false,
     "MythicReworks": {
-        "DisableAll": false,
         "Aeon": {
-            "DisableAll": false,
-            "Enabled": {
-                "AeonBaneAction": true,
-                "AeonBaneSpellResistance": true,
-                "AeonBaneUses": true,
-                "AeonGazeActionSystem": true,
-                "AeonGazeDC": true,
-                "AeonGazeSelection": true,
-                "AeonGreaterBaneDamage": true,
-                "PatchAeonGreaterBaneDispel": true,
-                "AeonGreaterBaneActionBoost": true,
-                "AeonImprovedBaneDispelLimit": true
+            "Settings": {
+                "AeonBaneAction": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Bane is now a free action to activate instead of a swift."
+                },
+                "AeonBaneSpellResistance": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Bane adds mythic rank to spell resistance checks."
+                },
+                "AeonBaneUses": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Bane usages now scale at 2x Mythic level + Character level."
+                },
+                "AeonGazeActionSystem": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same swift action and resouce usage."
+                },
+                "AeonGazeDC": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level."
+                },
+                "AeonGazeSelection": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Gaze selection is no longer limited on the first selection and all selections are available."
+                },
+                "AeonGreaterBaneActionBoost": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Greater Bane now allows you to cast swift action spells as a move action."
+                },
+                "AeonGreaterBaneDamage": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Greater Bane damage is now rolled into the main weapon attack instead of a separate instance."
+                },
+                "AeonImprovedBaneDispelLimit": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Improved Bane now uses greater dispel magic rules to remove 1/4 CL buffs where CL is defined as Character Level + Mythic Rank."
+                },
+                "PatchAeonGreaterBaneDispel": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Aeon Greater Bane now has the garentee'd auto dispel on first hit."
+                }
             }
         },
         "Angel": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         },
         "Azata": {
-            "DisableAll": false,
-            "Enabled": {
-                "AzataPerformanceResource": true,
-                "AzataSongToggles": true,
-                "FavorableMagic": true,
-                "ZippyMagic": true
+            "Settings": {
+                "AzataPerformanceResource": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Azata perforamnce usages now scale at Mythic level + Character level."
+                },
+                "AzataSongToggles": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Azata songs can now be started outside of combat."
+                },
+                "FavorableMagic": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Favorable magic now works on reoccuring saves."
+                },
+                "ZippyMagic": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Zippy magic will now ignore some harmful effects."
+                }
             }
         },
         "Demon": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         },
         "Lich": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         },
         "Trickster": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         },
         "Devil": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         },
         "GoldDragon": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         },
         "Legend": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         },
         "Swarm": {
-            "DisableAll": false,
-            "Enabled": {}
+            "Settings": {}
         }
     }
 }

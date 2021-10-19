@@ -55,11 +55,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (ModSettings.Fixes.Lich.IsDisabled("SpellbookMerging")) { return; }
 
                     var LichIncorporateSpellbookFeature = Resources.GetBlueprint<BlueprintFeatureSelectMythicSpellbook>("3f16e9caf7c683c40884c7c455ed26af");
-                    var ExploiterWizardSpellbook = Resources.GetBlueprint<BlueprintSpellbook>("d09794fb6f93e4a40929a965b434070d");
                     var NatureMageSpellbook = Resources.GetBlueprint<BlueprintSpellbook>("3ed7e38dc8134af28e1a2b105f74fb7b");
 
                     LichIncorporateSpellbookFeature.m_AllowedSpellbooks = LichIncorporateSpellbookFeature.m_AllowedSpellbooks
-                        .AddItem(ExploiterWizardSpellbook.ToReference<BlueprintSpellbookReference>())
                         .AddItem(NatureMageSpellbook.ToReference<BlueprintSpellbookReference>())
                         .Distinct()
                         .ToArray();

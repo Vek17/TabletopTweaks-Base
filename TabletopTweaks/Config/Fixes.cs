@@ -5,7 +5,6 @@ namespace TabletopTweaks.Config {
     public class Fixes : IUpdatableSettings {
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
-        public SettingGroup DRRework = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
         public ClassGroup Alchemist = new ClassGroup();
@@ -38,8 +37,6 @@ namespace TabletopTweaks.Config {
             NewSettingsOffByDefault = loadedSettings.NewSettingsOffByDefault;
 
             BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
-
-            DRRework.LoadSettingGroup(loadedSettings.DRRework, NewSettingsOffByDefault);
 
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);

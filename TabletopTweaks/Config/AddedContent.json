@@ -2,20 +2,20 @@
     "NewSettingsOffByDefault": false,
     "BaseAbilities": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "OneHandedToggle": true
         }
     },
     "Bloodlines": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "AberrantBloodline": true,
             "DestinedBloodline": true
         }
     },
     "Archetypes": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "NatureFang": true,
             "ChannelerOfTheUnknown": true,
             "DivineCommander": true,
@@ -26,7 +26,7 @@
     },
     "ArcanistExploits": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "QuickStudy": true,
             "ItemCrafting": true,
             "MetamagicKnowledge": true,
@@ -35,7 +35,7 @@
     },
     "Feats": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "ErastilsBlessing": true,
             "DervishDance": true,
             "ExtraArcanistExploit": true,
@@ -65,7 +65,7 @@
     },
     "FighterAdvancedWeaponTraining": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "DefensiveWeaponTraining": true,
             "FocusedWeapon": true,
             "TrainedGrace": true,
@@ -75,7 +75,7 @@
     },
     "FighterAdvancedArmorTraining": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "Feats": true,
             "ArmoredConfidence": true,
             "ArmoredJuggernaut": true,
@@ -86,14 +86,14 @@
     },
     "MagusArcana": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "SpellBlending": true,
             "BroadStudy": true
         }
     },
     "Races": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "GnomeAlternateTraits": true,
             "HalflingAlternateTraits": true,
             "ElfAlternateTraits": true,
@@ -102,13 +102,13 @@
     },
     "Backgrounds": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "Lecturer": true
         }
     },
     "Spells": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "LongArm": true,
             "ShadowEnchantment": true,
             "ShadowEnchantmentGreater": true
@@ -117,7 +117,7 @@
     },
     "MythicAbilities": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "ImpossibleSpeed": true,
             "ArmorMaster": true,
             "ArmoredMight": true,
@@ -128,7 +128,7 @@
     },
     "MythicFeats": {
         "DisableAll": false,
-        "Enabled": {
+        "Settings": {
             "MythicShatterDefenses": true
         }
     }
