@@ -6,7 +6,7 @@ namespace TabletopTweaks.Config {
     public class SettingGroup : IDisableableGroup {
         public bool DisableAll = false;
         public virtual bool GroupIsDisabled() => DisableAll;
-        public virtual bool SetGroupDisabled(bool value) => DisableAll = value;
+        public virtual void SetGroupDisabled(bool value) => DisableAll = value;
         public SortedDictionary<string, SettingData> Settings = new SortedDictionary<string, SettingData>();
         public virtual bool this[string key] => IsEnabled(key);
         public bool IsExpanded = true;
@@ -29,14 +29,14 @@ namespace TabletopTweaks.Config {
             if (!Settings.TryGetValue(key, out SettingData result)) {
                 Main.LogDebug($"COULD NOT FIND SETTING KEY: {key}");
             }
-            return result.Enabled && !DisableAll;
+            return result.Enabled && !GroupIsDisabled();
         }
         public virtual bool IsDisabled(string key) {
             return !IsEnabled(key);
         }
 
-        public void ChangeSetting(string key, bool value) {
-            if (this.DisableAll) {
+        public virtual void ChangeSetting(string key, bool value) {
+            if (GroupIsDisabled()) {
                 return;
             }
             Settings[key].Enabled = value;

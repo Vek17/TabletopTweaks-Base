@@ -31,6 +31,8 @@ namespace TabletopTweaks {
             UI.Div(0, 15);
             using (UI.VerticalScope()) {
                 UI.Toggle("New Settings Off By Default".bold(), ref Fixes.NewSettingsOffByDefault);
+                UI.Space(25);
+
                 SetttingUI.SettingGroup("Base Fixes", TabLevel, Fixes.BaseFixes);
                 SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Lich);
                 SetttingUI.SettingGroup("Trickster", TabLevel, Fixes.Trickster);
@@ -117,6 +119,8 @@ namespace TabletopTweaks {
             UI.Div(0, 15);
             using (UI.VerticalScope()) {
                 UI.Toggle("New Settings Off By Default".bold(), ref Homebrew.NewSettingsOffByDefault);
+                UI.Space(25);
+
                 SetttingUI.NestedSettingGroup("Mythic Reworks", TabLevel, Homebrew.MythicReworks, 
                     ("Aeon", Homebrew.MythicReworks.Aeon),
                     ("Azata", Homebrew.MythicReworks.Azata)
@@ -129,6 +133,8 @@ namespace TabletopTweaks {
             UI.Div(0, 15);
             using (UI.VerticalScope()) {
                 UI.Toggle("New Settings Off By Default".bold(), ref AddedContent.NewSettingsOffByDefault);
+                UI.Space(25);
+
                 SetttingUI.SettingGroup("Archetypes", TabLevel, AddedContent.Archetypes);
                 SetttingUI.SettingGroup("Base Abilities", TabLevel, AddedContent.BaseAbilities);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, AddedContent.Bloodlines);
@@ -155,26 +161,22 @@ namespace TabletopTweaks {
             Four,
             Five
         }
-
         public static void Increase(ref this TabLevel level) {
             level += 1;
         }
-
         public static void Decrease(ref this TabLevel level) {
             if ((int)level > 0) {
                 level -= 1;
             }
         }
-
         public static int Spacing(this TabLevel level) {
-            return (int)level * 25;
+            return (int)level * 50;
         }
-
         public static void Indent(this TabLevel level) {
             UI.Space(level.Spacing());
         }
 
-        public static void NestedSettingGroup(string name, TabLevel level, IDisableableGroup rootGroup, (string, SettingGroup) baseGroup, IDictionary<string, NestedSettingGroup> dict) {
+        public static void NestedSettingGroup(string name, TabLevel level, IDisableableGroup rootGroup, (string, NestedSettingGroup) baseGroup, IDictionary<string, NestedSettingGroup> dict) {
             if (baseGroup.Item2.Settings.Empty() || !dict.Any(entry => !entry.Value.Settings.Empty())) { return; }
             RootGroup(name, level, rootGroup);
             level.Increase();
@@ -219,7 +221,7 @@ namespace TabletopTweaks {
             using (UI.HorizontalScope()) {
                 level.Indent();
                 Toggle("", !rootGroup.GroupIsDisabled(), (v) => rootGroup.SetGroupDisabled(!v), UI.AutoWidth());
-                UI.DisclosureToggle(name, ref rootGroup.IsExpanded(), 140);
+                UI.DisclosureToggle(name.bold(), ref rootGroup.IsExpanded(), 140);
             }
         }
 
@@ -234,6 +236,7 @@ namespace TabletopTweaks {
             options = options.AddDefaults();
             var changed = ModKit.Private.UI.CheckBox(title, value, UI.toggleStyle, options);
             if (changed) {
+                Main.Log($"Changed: {!value}");
                 action.Invoke(!value);
             }
             return changed;

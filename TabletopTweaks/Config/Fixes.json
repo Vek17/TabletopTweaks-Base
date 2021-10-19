@@ -27,7 +27,7 @@
                 "Enabled": true,
                 "Description": "Prevents multiple polymorph effects from being applied to a character at a time."
             },
-            "DRRework": {
+            "DamageReductionRework": {
                 "Enabled": true,
                 "Description": "Prevents most forms of damage reduction from stacking unless specifically specified"
             },
@@ -52,7 +52,7 @@
                 "Enabled": true,
                 "Description": "Spears now grant additional damage during a mounted charge."
             },
-            "FixPrebuffCLs": {
+            "FixPrebuffCasterLevels": {
                 "Enabled": true,
                 "Description": "Enemy buff now have the correct CL for applied buffs."
             },

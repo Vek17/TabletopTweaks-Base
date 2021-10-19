@@ -75,7 +75,7 @@ namespace TabletopTweaks.Config {
             private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
-            public bool SetGroupDisabled(bool value) => DisableAll = value;
+            public void SetGroupDisabled(bool value) => DisableAll = value;
             public NestedSettingGroup Base;
             public SortedDictionary<string, NestedSettingGroup> Archetypes = new SortedDictionary<string, NestedSettingGroup>();
 
@@ -86,12 +86,12 @@ namespace TabletopTweaks.Config {
             public void LoadClassGroup(ClassGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
                 Base.LoadSettingGroup(group.Base, frozen);
-                Base.Parent = this;
                 group.Archetypes.ForEach(entry => {
                     if (Archetypes.ContainsKey(entry.Key)) {
                         Archetypes[entry.Key].LoadSettingGroup(entry.Value, frozen);
                     }
-                });
+                }); 
+                Base.Parent = this;
                 Archetypes.ForEach(entry => entry.Value.Parent = this);
             }
 
@@ -108,7 +108,7 @@ namespace TabletopTweaks.Config {
             private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
-            public bool SetGroupDisabled(bool value) => DisableAll = value;
+            public void SetGroupDisabled(bool value) => DisableAll = value;
             public NestedSettingGroup Buildings;
 
             public CrusadeGroup() {
@@ -134,7 +134,7 @@ namespace TabletopTweaks.Config {
             private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
-            public bool SetGroupDisabled(bool value) => DisableAll = value;
+            public void SetGroupDisabled(bool value) => DisableAll = value;
             public NestedSettingGroup Armor;
             public NestedSettingGroup Equipment;
             public NestedSettingGroup Weapons;

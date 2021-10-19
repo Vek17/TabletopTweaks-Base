@@ -13,7 +13,7 @@ namespace TabletopTweaks.Config {
         public bool IsExpanded = true;
         public bool DisableAll = false;
         public bool GroupIsDisabled() => DisableAll;
-        public bool SetGroupDisabled(bool value) => DisableAll = value;
+        public void SetGroupDisabled(bool value) => DisableAll = value;
         public NestedSettingGroup Aeon;
         public NestedSettingGroup Angel;
         public NestedSettingGroup Azata;
