@@ -1,15 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 using System.Reflection;
+using UnityModManagerNet;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks.Config {
-    static class ModSettings {
+    class ModSettings {
         public static ModEntry ModEntry;
         public static Fixes Fixes;
         public static AddedContent AddedContent;
         public static Homebrew Homebrew;
         public static Blueprints Blueprints;
+        private static string  userConfigFolder => ModEntry.Path + "UserSettings";
         private static JsonSerializerSettings cachedSettings;
         private static JsonSerializerSettings SerializerSettings {
             get { 
@@ -40,7 +42,6 @@ namespace TabletopTweaks.Config {
         private static void LoadSettings<T>(string fileName, ref T setting) where T : IUpdatableSettings {
             JsonSerializer serializer = JsonSerializer.Create(SerializerSettings);
             var assembly = Assembly.GetExecutingAssembly();
-            var userConfigFolder = ModEntry.Path + "UserSettings";
             var resourcePath = $"TabletopTweaks.Config.{fileName}";
             var userPath = $"{userConfigFolder}{Path.DirectorySeparatorChar}{fileName}";
 
@@ -62,7 +63,14 @@ namespace TabletopTweaks.Config {
                     }
                 }
             }
+            SaveSettings(fileName, setting);
+        }
 
+        public static void SaveSettings(string fileName, IUpdatableSettings setting) {
+            Directory.CreateDirectory(userConfigFolder);
+            var userPath = $"{userConfigFolder}{Path.DirectorySeparatorChar}{fileName}";
+
+            JsonSerializer serializer = JsonSerializer.Create(SerializerSettings);
             using (StreamWriter streamWriter = new StreamWriter(userPath))
             using (JsonWriter jsonWriter = new JsonTextWriter(streamWriter)) {
                 serializer.Serialize(jsonWriter, setting);

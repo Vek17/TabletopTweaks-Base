@@ -71,7 +71,8 @@ namespace TabletopTweaks.Config {
             Items.LoadItemGroup(loadedSettings.Items, NewSettingsOffByDefault);
         }
 
-        public class ClassGroup : IDisableableGroup {
+        public class ClassGroup : IDisableableGroup, ICollapseableGroup {
+            private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
             public NestedSettingGroup Base;
@@ -91,9 +92,18 @@ namespace TabletopTweaks.Config {
                 });
                 Archetypes.ForEach(entry => entry.Value.Parent = this);
             }
+
+            ref bool ICollapseableGroup.IsExpanded() {
+                return ref IsExpanded;
+            }
+
+            public void SetExpanded(bool value) {
+                IsExpanded = value;
+            }
         }
 
-        public class CrusadeGroup : IDisableableGroup {
+        public class CrusadeGroup : IDisableableGroup, ICollapseableGroup {
+            private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
             public NestedSettingGroup Buildings;
@@ -106,9 +116,18 @@ namespace TabletopTweaks.Config {
                 DisableAll = group.DisableAll;
                 Buildings.LoadSettingGroup(group.Buildings, frozen);
             }
+
+            ref bool ICollapseableGroup.IsExpanded() {
+                return ref IsExpanded;
+            }
+
+            public void SetExpanded(bool value) {
+                IsExpanded = value;
+            }
         }
 
-        public class ItemGroup : IDisableableGroup {
+        public class ItemGroup : IDisableableGroup, ICollapseableGroup {
+            private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
             public NestedSettingGroup Armor;
@@ -126,6 +145,14 @@ namespace TabletopTweaks.Config {
                 Armor.LoadSettingGroup(group.Armor, frozen);
                 Equipment.LoadSettingGroup(group.Equipment, frozen);
                 Weapons.LoadSettingGroup(group.Weapons, frozen);
+            }
+
+            ref bool ICollapseableGroup.IsExpanded() {
+                return ref IsExpanded;
+            }
+
+            public void SetExpanded(bool value) {
+                IsExpanded = value;
             }
         }
     }

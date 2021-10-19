@@ -14,13 +14,17 @@ namespace TabletopTweaks {
             var harmony = new Harmony(modEntry.Info.Id);
             ModSettings.ModEntry = modEntry;
             ModSettings.LoadAllSettings();
+            ModSettings.ModEntry.OnSaveGUI = OnSaveGUI;
+            ModSettings.ModEntry.OnGUI = UMMSettingsUI.OnGUI;
             harmony.PatchAll();
             PostPatchInitializer.Initialize();
             return true;
         }
-        static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) {
-            Enabled = value;
-            return true;
+
+        static void OnSaveGUI(UnityModManager.ModEntry modEntry) {
+            ModSettings.SaveSettings("Fixes.json", ModSettings.Fixes);
+            ModSettings.SaveSettings("AddedContent.json", ModSettings.AddedContent);
+            ModSettings.SaveSettings("Homebrew.json", ModSettings.Homebrew);
         }
 
         internal static void LogPatch(string v, object coupDeGraceAbility) {

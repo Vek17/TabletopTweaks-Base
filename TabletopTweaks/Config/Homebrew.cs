@@ -9,7 +9,8 @@ namespace TabletopTweaks.Config {
             MythicReworks.LoadMythicReworkGroup(loadedSettings.MythicReworks, NewSettingsOffByDefault);
         }
     }
-    public class MythicReworkGroup : IDisableableGroup {
+    public class MythicReworkGroup : IDisableableGroup, ICollapseableGroup {
+        public bool IsExpanded = true;
         public bool DisableAll = false;
         public bool GroupIsDisabled() => DisableAll;
         public NestedSettingGroup Aeon;
@@ -48,6 +49,14 @@ namespace TabletopTweaks.Config {
             GoldDragon.LoadSettingGroup(group.GoldDragon, frozen);
             Legend.LoadSettingGroup(group.Legend, frozen);
             Swarm.LoadSettingGroup(group.Swarm, frozen);
+        }
+
+        ref bool ICollapseableGroup.IsExpanded() {
+            return ref IsExpanded;
+        }
+
+        public void SetExpanded(bool value) {
+            IsExpanded = value;
         }
     }
 }
