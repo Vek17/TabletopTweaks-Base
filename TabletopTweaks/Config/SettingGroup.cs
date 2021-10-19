@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TabletopTweaks.Config {
-    public class SettingGroup : ICollapseableGroup {
+    public class SettingGroup : IDisableableGroup {
         public bool DisableAll = false;
+        public virtual bool GroupIsDisabled() => DisableAll;
+        public virtual bool SetGroupDisabled(bool value) => DisableAll = value;
         public SortedDictionary<string, SettingData> Settings = new SortedDictionary<string, SettingData>();
         public virtual bool this[string key] => IsEnabled(key);
         public bool IsExpanded = true;

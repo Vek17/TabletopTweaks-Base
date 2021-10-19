@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TabletopTweaks.Config {
-    interface ICollapseableGroup {
+    public interface ICollapseableGroup {
         ref bool IsExpanded();
         void SetExpanded(bool value);
     }

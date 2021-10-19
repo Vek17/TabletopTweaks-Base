@@ -1,5 +1,6 @@
 ﻿namespace TabletopTweaks.Config {
-    public interface IDisableableGroup {
+    public interface IDisableableGroup : ICollapseableGroup {
         bool GroupIsDisabled();
+        bool SetGroupDisabled(bool value);
     }
 }

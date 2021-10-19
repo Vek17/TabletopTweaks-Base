@@ -75,6 +75,7 @@ namespace TabletopTweaks.Config {
             private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
+            public bool SetGroupDisabled(bool value) => DisableAll = value;
             public NestedSettingGroup Base;
             public SortedDictionary<string, NestedSettingGroup> Archetypes = new SortedDictionary<string, NestedSettingGroup>();
 
@@ -85,6 +86,7 @@ namespace TabletopTweaks.Config {
             public void LoadClassGroup(ClassGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
                 Base.LoadSettingGroup(group.Base, frozen);
+                Base.Parent = this;
                 group.Archetypes.ForEach(entry => {
                     if (Archetypes.ContainsKey(entry.Key)) {
                         Archetypes[entry.Key].LoadSettingGroup(entry.Value, frozen);
@@ -106,6 +108,7 @@ namespace TabletopTweaks.Config {
             private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
+            public bool SetGroupDisabled(bool value) => DisableAll = value;
             public NestedSettingGroup Buildings;
 
             public CrusadeGroup() {
@@ -115,6 +118,7 @@ namespace TabletopTweaks.Config {
             public void LoadCrusadeGroup(CrusadeGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
                 Buildings.LoadSettingGroup(group.Buildings, frozen);
+                Buildings.Parent = this;
             }
 
             ref bool ICollapseableGroup.IsExpanded() {
@@ -130,6 +134,7 @@ namespace TabletopTweaks.Config {
             private bool IsExpanded = true;
             public bool DisableAll = false;
             public bool GroupIsDisabled() => DisableAll;
+            public bool SetGroupDisabled(bool value) => DisableAll = value;
             public NestedSettingGroup Armor;
             public NestedSettingGroup Equipment;
             public NestedSettingGroup Weapons;
@@ -145,6 +150,10 @@ namespace TabletopTweaks.Config {
                 Armor.LoadSettingGroup(group.Armor, frozen);
                 Equipment.LoadSettingGroup(group.Equipment, frozen);
                 Weapons.LoadSettingGroup(group.Weapons, frozen);
+
+                Armor.Parent = this;
+                Equipment.Parent = this;
+                Weapons.Parent = this;
             }
 
             ref bool ICollapseableGroup.IsExpanded() {

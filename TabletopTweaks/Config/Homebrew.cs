@@ -13,6 +13,7 @@ namespace TabletopTweaks.Config {
         public bool IsExpanded = true;
         public bool DisableAll = false;
         public bool GroupIsDisabled() => DisableAll;
+        public bool SetGroupDisabled(bool value) => DisableAll = value;
         public NestedSettingGroup Aeon;
         public NestedSettingGroup Angel;
         public NestedSettingGroup Azata;
@@ -49,6 +50,17 @@ namespace TabletopTweaks.Config {
             GoldDragon.LoadSettingGroup(group.GoldDragon, frozen);
             Legend.LoadSettingGroup(group.Legend, frozen);
             Swarm.LoadSettingGroup(group.Swarm, frozen);
+
+            Aeon.Parent = this;
+            Angel.Parent = this;
+            Azata.Parent = this;
+            Demon.Parent = this;
+            Lich.Parent = this;
+            Trickster.Parent = this;
+            Devil.Parent = this;
+            GoldDragon.Parent = this;
+            Legend.Parent = this;
+            Swarm.Parent = this;
         }
 
         ref bool ICollapseableGroup.IsExpanded() {

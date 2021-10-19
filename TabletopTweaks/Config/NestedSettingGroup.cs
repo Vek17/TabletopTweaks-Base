@@ -9,6 +9,9 @@ namespace TabletopTweaks.Config {
             this.parent = parent;
         }
 
+        public override bool GroupIsDisabled() => parent?.GroupIsDisabled() ?? false && base.GroupIsDisabled();
+        public override bool SetGroupDisabled(bool value) => DisableAll = value;
+
         public override bool IsEnabled(string key) {
             return base.IsEnabled(key) && !DisableAll && (!parent?.GroupIsDisabled() ?? true);
         }

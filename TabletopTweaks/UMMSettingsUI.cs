@@ -45,11 +45,11 @@ namespace TabletopTweaks {
                     ("Base", Fixes.Barbarian.Base),
                     Fixes.Barbarian.Archetypes
                 );
-                SetttingUI.NestedSettingGroup("Bloodrager", TabLevel, Fixes.Barbarian,
+                SetttingUI.NestedSettingGroup("Bloodrager", TabLevel, Fixes.Bloodrager,
                     ("Base", Fixes.Bloodrager.Base),
                     Fixes.Bloodrager.Archetypes
                 );
-                SetttingUI.NestedSettingGroup("Cavalier", TabLevel, Fixes.Barbarian,
+                SetttingUI.NestedSettingGroup("Cavalier", TabLevel, Fixes.Cavalier,
                     ("Base", Fixes.Cavalier.Base),
                     Fixes.Cavalier.Archetypes
                 );
@@ -69,7 +69,7 @@ namespace TabletopTweaks {
                     ("Base", Fixes.Monk.Base),
                     Fixes.Monk.Archetypes
                 );
-                SetttingUI.NestedSettingGroup("Magus", TabLevel, Fixes.Oracle,
+                SetttingUI.NestedSettingGroup("Oracle", TabLevel, Fixes.Oracle,
                     ("Base", Fixes.Oracle.Base),
                     Fixes.Oracle.Archetypes
                 );
@@ -85,13 +85,13 @@ namespace TabletopTweaks {
                     ("Base", Fixes.Rogue.Base),
                     Fixes.Rogue.Archetypes
                 );
-                SetttingUI.NestedSettingGroup("Witch", TabLevel, Fixes.Witch,
+                SetttingUI.NestedSettingGroup("Slayer", TabLevel, Fixes.Slayer,
                     ("Base", Fixes.Slayer.Base),
                     Fixes.Slayer.Archetypes
                 );
                 SetttingUI.NestedSettingGroup("Witch", TabLevel, Fixes.Witch,
-                    ("Base", Fixes.Slayer.Base),
-                    Fixes.Slayer.Archetypes
+                    ("Base", Fixes.Witch.Base),
+                    Fixes.Witch.Archetypes
                 );
                 SetttingUI.SettingGroup("Hellknight", TabLevel, Fixes.Hellknight);
                 SetttingUI.SettingGroup("Loremaster", TabLevel, Fixes.Loremaster);
@@ -160,7 +160,9 @@ namespace TabletopTweaks {
         }
 
         public static void Decrease(ref this TabLevel level) {
-            level -= 1;
+            if ((int)level > 0) {
+                level -= 1;
+            }
         }
 
         public static int Spacing(this TabLevel level) {
@@ -171,8 +173,9 @@ namespace TabletopTweaks {
             UI.Space(level.Spacing());
         }
 
-        public static void NestedSettingGroup(string name, TabLevel level, ICollapseableGroup rootGroup, (string, SettingGroup) baseGroup, IDictionary<string, NestedSettingGroup> dict) {
-            TabbedItem(level, () => UI.DisclosureToggle(name, ref rootGroup.IsExpanded()));
+        public static void NestedSettingGroup(string name, TabLevel level, IDisableableGroup rootGroup, (string, SettingGroup) baseGroup, IDictionary<string, NestedSettingGroup> dict) {
+            if (baseGroup.Item2.Settings.Empty() || !dict.Any(entry => !entry.Value.Settings.Empty())) { return; }
+            RootGroup(name, level, rootGroup);
             level.Increase();
             if (rootGroup.IsExpanded()) {
                 SettingGroup(baseGroup.Item1, level, baseGroup.Item2);
@@ -183,8 +186,9 @@ namespace TabletopTweaks {
             level.Decrease();
         }
 
-        public static void NestedSettingGroup(string name, TabLevel level, ICollapseableGroup rootGroup, params (string, SettingGroup)[] nestedGroups) {
-            TabbedItem(level, () => UI.DisclosureToggle(name, ref rootGroup.IsExpanded()));
+        public static void NestedSettingGroup(string name, TabLevel level, IDisableableGroup rootGroup, params (string, SettingGroup)[] nestedGroups) {
+            if (!nestedGroups.Any(group => !group.Item2.Settings.Empty())) { return; }
+            RootGroup(name, level, rootGroup);
             level.Increase();
             foreach (var group in nestedGroups) {
                 if (rootGroup.IsExpanded()) {
@@ -195,18 +199,26 @@ namespace TabletopTweaks {
         }
 
         public static void SettingGroup(string name, TabLevel level, SettingGroup group) {
-            using (UI.HorizontalScope()) {
-                level.Indent();
-                UI.DisclosureToggle(name, ref group.IsExpanded);
-            }
+            if (group.Settings.Empty()) { return; }
+            RootGroup(name, level, group);
             if (group.IsExpanded) {
                 level.Increase();
-                TabbedItem(level, () => Toggle("Disable All", group.DisableAll, (v) => group.DisableAll = v));
-                group.Settings.ForEach(entry => TabbedItem(level, 
-                    () => Toggle(entry.Key, group.IsEnabled(entry.Key), (enabled) => group.ChangeSetting(entry.Key, enabled), UI.Width(500)),
-                    () => Label(entry.Value.Description.green())
-                ));
+                if (group.Settings.Any()) { TabbedItem(level, () => UI.Div(Color.grey, 500)); }
+                group.Settings.ForEach(entry => {
+                    TabbedItem(level,
+                        () => Toggle(entry.Key, group.IsEnabled(entry.Key), (enabled) => group.ChangeSetting(entry.Key, enabled), UI.Width(500 - level.Spacing())),
+                        () => Label(entry.Value.Description.green()));
+                    TabbedItem(level, () => UI.Div(Color.grey, 500));
+                });
                 level.Decrease();
+            }
+        }
+
+        public static void RootGroup(string name, TabLevel level, IDisableableGroup rootGroup) {
+            using (UI.HorizontalScope()) {
+                level.Indent();
+                Toggle("", !rootGroup.GroupIsDisabled(), (v) => rootGroup.SetGroupDisabled(!v), UI.AutoWidth());
+                UI.DisclosureToggle(name, ref rootGroup.IsExpanded(), 140);
             }
         }
 
