@@ -53,10 +53,7 @@ namespace TabletopTweaks.NewContent.Spells {
                 }));
                 bp.AddComponent(Helpers.Create<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
-                    c.Factor = new ContextValue() {
-                        ValueType = ContextValueType.Shared,
-                        Value = 20
-                    };
+                    c.m_Factor = BlueprintReferenceBase.CreateTyped<BlueprintUnitPropertyReference>(null);
                     c.MaxSpellLevel = 2;
                     c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
                 }));
@@ -124,11 +121,7 @@ namespace TabletopTweaks.NewContent.Spells {
                 }));
                 bp.AddComponent(Helpers.Create<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
-                    c.Factor = new ContextValue() {
-                        ValueType = ContextValueType.Shared,
-                        Value = 60
-                    };
-                    c.MaxSpellLevel = 5;
+                    c.m_Factor = BlueprintReferenceBase.CreateTyped<BlueprintUnitPropertyReference>(null);
                     c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
                 }));
                 bp.AddComponent(Helpers.Create<ContextCalculateSharedValue>(c => {

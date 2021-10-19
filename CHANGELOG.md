@@ -1,3 +1,6 @@
+## Version 1.9.1
+* Updated for 1.1.0
+
 ## Version 1.9.0
 * Energy Resistance should now show up when inspecting units
 * Settings should no longer break when some other mods are present

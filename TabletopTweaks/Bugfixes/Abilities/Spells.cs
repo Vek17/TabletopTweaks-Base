@@ -41,7 +41,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchDispelMagicGreater();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
-                PatchOdeToMiraculousMagicBuff();
                 PatchRemoveFear();
                 PatchSecondBreath();
                 PatchShadowConjuration();
@@ -277,17 +276,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
                 Main.LogPatch("Patched", MagicWeaponGreaterPrimary);
                 Main.LogPatch("Patched", MagicWeaponGreaterSecondary);
-            }
-
-            static void PatchOdeToMiraculousMagicBuff() {
-                if (ModSettings.Fixes.Spells.IsDisabled("OdeToMiraculousMagic")) { return; }
-                BlueprintBuff OdeToMiraculousMagicBuff = Resources.GetBlueprint<BlueprintBuff>("f6ef0e25745114d46bf16fd5a1d93cc9");
-                IncreaseCastersSavingThrowTypeDC bonusSaveDC = Helpers.Create<IncreaseCastersSavingThrowTypeDC>(c => {
-                    c.Type = SavingThrowType.Will;
-                    c.BonusDC = 2;
-                });
-                OdeToMiraculousMagicBuff.AddComponent(bonusSaveDC);
-                Main.LogPatch("Patched", OdeToMiraculousMagicBuff);
             }
 
             static void PatchRemoveFear() {

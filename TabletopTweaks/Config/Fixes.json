@@ -506,13 +506,9 @@
                 "Enabled": true,
                 "Description": "Magical Vestment now enhances your armor instead of granting a floating modifier."
             },
-            "OdeToMiraculousMagic": {
-                "Enabled": true,
-                "Description": "Ode to Miraculous Magic now correctly grants its DC bonus."
-            },
             "RemoveFear": {
                 "Enabled": true,
-                "Description": "Remove fear no longer makes you immune to feat."
+                "Description": "Remove fear no longer makes you immune to fear."
             },
             "SecondBreath": {
                 "Enabled": true,
@@ -617,10 +613,6 @@
             "EnduringSpells": {
                 "Enabled": true,
                 "Description": "Now works on equipment enhancing effects like crusader's edge."
-            },
-            "FavoriteMetamagic": {
-                "Enabled": true,
-                "Description": "Bolstered metamagic is now selectable."
             },
             "MythicCharge": {
                 "Enabled": true,
