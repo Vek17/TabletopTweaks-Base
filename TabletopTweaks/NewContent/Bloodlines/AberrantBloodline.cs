@@ -210,7 +210,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("Bonus Feats: Combat Reflexes, Great Fortitude, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will.");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
-                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = new BlueprintFeatureReference[] {
@@ -229,7 +228,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription(BloodragerAberrantFeatSelection.m_Description);
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
-                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = BloodragerAberrantFeatSelection.m_Features;
@@ -320,6 +318,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 });
+                bp.UIGroups = new UIGroup[] { 
+                    Helpers.CreateUIGroup(BloodragerAberrantFeatSelection, BloodragerAberrantFeatSelectionGreenrager)
+                };
             });
             var BloodragerAberrantBaseBuff = Helpers.CreateBuff("BloodragerAberrantBaseBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;

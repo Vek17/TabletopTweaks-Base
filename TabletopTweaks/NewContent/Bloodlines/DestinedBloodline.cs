@@ -327,7 +327,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("Bonus Feats: Diehard, Endurance, Improved Initiative, Intimidating Prowess, Sieze The Moment, Lightning Reflexes, Weapon Focus.");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
-                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = new BlueprintFeatureReference[] {
@@ -346,7 +345,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription(BloodragerDestinedFeatSelection.Description);
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
-                bp.HideInUI = true;
                 bp.HideNotAvailibleInUI = true;
 
                 bp.m_Features = BloodragerDestinedFeatSelection.m_Features;
@@ -438,6 +436,9 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 }));
+                bp.UIGroups = new UIGroup[] {
+                    Helpers.CreateUIGroup(BloodragerDestinedFeatSelection, BloodragerDestinedFeatSelectionGreenrager)
+                };
             });
             var BloodragerDestinedBaseBuff = Helpers.CreateBuff("BloodragerDestinedBaseBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;

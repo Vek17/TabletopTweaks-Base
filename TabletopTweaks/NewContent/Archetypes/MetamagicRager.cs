@@ -338,6 +338,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                             MetamagicRagerFeatSelection = Helpers.CreateCopy(featSelect, bp => {
                                 bp.name = GenerateName(bloodline);
                                 bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+                                bp.HideNotAvailibleInUI = true;
                                 bp.AddFeatures(metamagicFeats);
                                 bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
