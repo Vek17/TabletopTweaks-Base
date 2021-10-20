@@ -1,3 +1,6 @@
+## Version 1.9.2
+* Removed the movement impairing descriptor from staggered
+
 ## Version 1.9.1b
 * Fixed issue with Aeon Limitless gaze crashing
 * Fixed issue mythic rework setting missing the correct interface

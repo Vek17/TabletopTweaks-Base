@@ -67,6 +67,10 @@
             "SelectiveMetamagicNonInstantaneous": {
                 "Enabled": true,
                 "Description": "Allows only instaneous effects to be treated as selective by selective metamagic."
+            },
+            "StaggeredDescriptors": {
+                "Enabled": true,
+                "Description": "Removes the movement impairing descriptor from staggered."
             }
         }
     },
@@ -690,6 +694,14 @@
                 "HonorableJudgement": {
                     "Enabled": true,
                     "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+                },
+                "EnergyBurst": {
+                    "Enabled": true,
+                    "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
+                },
+                "ThunderingBurst": {
+                    "Enabled": true,
+                    "Description": "Fixes thundering burst to deal D10s like the description says instead of D8s."
                 }
             }
         }

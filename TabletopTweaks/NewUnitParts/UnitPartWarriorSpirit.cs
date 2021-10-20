@@ -2,12 +2,9 @@
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.EntitySystem;
 using Kingmaker.Items;
-using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,7 +17,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void ActivateEnchant(ItemEntity item, BlueprintItemEnchantment enchantment, MechanicsContext parentContext, Rounds duration) {
-            ActiveEnchants.Add(new WarriorSpiritActiveEntry() { 
+            ActiveEnchants.Add(new WarriorSpiritActiveEntry() {
                 Item = item,
                 EnchantmentID = item.AddEnchantment(enchantment, parentContext, new Rounds?(duration)).UniqueId
             });

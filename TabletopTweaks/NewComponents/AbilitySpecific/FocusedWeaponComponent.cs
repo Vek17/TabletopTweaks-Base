@@ -41,17 +41,21 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                     20 => new DiceFormula(2, DiceType.D8),
                     _ => null
                 };
+                Main.Log($"classLevel: {classLevel}");
+                Main.Log($"formula: {formula?.Rolls}{formula?.Dice}");
                 evt.WeaponDamageDiceOverride = formula;
             }
         }
 
         public bool HasWeaponTraining(ItemEntityWeapon weapon) {
             var weaponTaining = this.Owner.Get<UnitPartWeaponTraining>();
+            Main.Log($"Weapon Training Rank: {weaponTaining?.GetWeaponRank(weapon)}");
             return (weaponTaining?.GetWeaponRank(weapon) > 0);
         }
 
         public bool IsValidWeapon(ItemEntityWeapon weapon) {
             var focusedWeaponPart = base.Owner.Ensure<UnitPartFocusedWeapon>();
+            Main.Log($"Is Focused Weapon: {weapon.Blueprint.Name} - {focusedWeaponPart.HasEntry(weapon.Blueprint.Category)}");
             return HasWeaponTraining(weapon) && focusedWeaponPart.HasEntry(weapon.Blueprint.Category);
         }
 

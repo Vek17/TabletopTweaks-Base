@@ -9,10 +9,6 @@ using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Owlcat.Runtime.Core.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewActions {
@@ -42,10 +38,8 @@ namespace TabletopTweaks.NewActions {
             unitPartWarriorSpirit.ClearActiveEnchants();
             if (unitPartWarriorSpirit.HasSelectedEnchant()) {
                 var enchantmentData = unitPartWarriorSpirit.GetSelectedEnchant();
-                Main.Log($"Cost: {enchantmentData.Cost}");
                 maxEnhancement -= enchantmentData.Cost;
                 foreach (var enchant in enchantmentData.Enchants) {
-                    Main.Log($"Applied: {enchant.Get().Name}");
                     unitPartWarriorSpirit.ActivateEnchant(weapon, enchant, Context, duration);
                 }
             }

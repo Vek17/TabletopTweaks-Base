@@ -1,4 +1,6 @@
 ﻿using HarmonyLib;
+using Kingmaker;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
@@ -7,9 +9,15 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 
@@ -26,6 +34,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 Main.LogHeader("Patching Weapons");
                 PatchBladeOfTheMerciful();
                 PatchHonorableJudgement();
+                PatchThunderingBurst();
 
                 void PatchBladeOfTheMerciful() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }
@@ -87,7 +96,47 @@ namespace TabletopTweaks.Bugfixes.Items {
                     });
                     Main.LogPatch("Patched", JudgementOfRuleEnchantment);
                 }
+                void PatchThunderingBurst() {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("ThunderingBurst")) { return; }
+
+                    var ThunderingBurst = Resources.GetBlueprint<BlueprintWeaponEnchantment>("83bd616525288b34a8f34976b2759ea1");
+                    ThunderingBurst.GetComponent<WeaponEnergyBurst>().Dice = DiceType.D10;
+
+                    Main.LogPatch("Patched", ThunderingBurst);
+                }
             }
         }
+
+        [HarmonyPatch(typeof(WeaponEnergyBurst), nameof(WeaponEnergyBurst.OnEventAboutToTrigger), new Type[] { typeof(RuleDealDamage) })]
+        class WeaponEnergyBurst_OnEventDidTrigger_Patch {
+            static readonly MethodInfo get_Instance = AccessTools.PropertyGetter(typeof(Game), "Instance");
+            static readonly FieldInfo field_Initiator = AccessTools.Field(typeof(RuleDealDamage), "Initiator");
+            // ------------before------------
+            // RuleCalculateWeaponStats ruleCalculateWeaponStats = Rulebook.Trigger<RuleCalculateWeaponStats>(new RuleCalculateWeaponStats(Game.Instance.DefaultUnit, base.Owner, null, null));
+            // ------------after-------------
+            // RuleCalculateWeaponStats ruleCalculateWeaponStats = Rulebook.Trigger<RuleCalculateWeaponStats>(new RuleCalculateWeaponStats(evt.Initiator, base.Owner, null, null));
+            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
+                if (ModSettings.Fixes.Items.Weapons.IsDisabled("EnergyBurst")) { return instructions; }
+                var codes = new List<CodeInstruction>(instructions);
+                int target = FindInsertionTarget(codes);
+                Utilities.ILUtils.LogIL(codes);
+                // Replace the default unit with the initiator
+                codes[target].opcode = OpCodes.Ldarg_1; codes[target++].operand = null;
+                codes[target++] = new CodeInstruction(OpCodes.Ldfld, field_Initiator);
+                Utilities.ILUtils.LogIL(codes);
+                return codes.AsEnumerable();
+            }
+            private static int FindInsertionTarget(List<CodeInstruction> codes) {
+                // Find where the game is loading the default unit
+                for (int i = 0; i < codes.Count; i++) {
+                    if (codes[i].Calls(get_Instance)) {
+                        return i;
+                    }
+                }
+                Main.Log("ENERGY BURST PATCH: COULD NOT FIND TARGET");
+                return -1;
+            }
+        }
+
     }
 }
