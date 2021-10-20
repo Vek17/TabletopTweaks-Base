@@ -11,6 +11,8 @@ namespace TabletopTweaks.Config {
     }
     public class MythicReworkGroup : IDisableableGroup, ICollapseableGroup {
         public bool IsExpanded = true;
+        ref bool ICollapseableGroup.IsExpanded() => ref IsExpanded;
+        public void SetExpanded(bool value)  => IsExpanded = value;
         public bool DisableAll = false;
         public bool GroupIsDisabled() => DisableAll;
         public void SetGroupDisabled(bool value) => DisableAll = value;
@@ -61,14 +63,6 @@ namespace TabletopTweaks.Config {
             GoldDragon.Parent = this;
             Legend.Parent = this;
             Swarm.Parent = this;
-        }
-
-        ref bool ICollapseableGroup.IsExpanded() {
-            return ref IsExpanded;
-        }
-
-        public void SetExpanded(bool value) {
-            IsExpanded = value;
         }
     }
 }

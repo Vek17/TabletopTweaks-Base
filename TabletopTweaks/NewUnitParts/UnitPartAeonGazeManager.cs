@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.UnitLogic;
@@ -39,7 +40,7 @@ namespace TabletopTweaks.NewUnitParts {
         private readonly BlueprintAbilityResourceReference spendResource = 
             Resources.GetBlueprint<BlueprintAbilityResource>("905722fe39d87474aa6d41bffa327ff3").ToReference<BlueprintAbilityResourceReference>();
         private readonly BlueprintFeatureReference limitlessFeature = 
-            Resources.GetBlueprint<BlueprintAbilityResource>("a2f5852d76a165f4d8d6fe670e8013fb").ToReference< BlueprintFeatureReference>();
+            Resources.GetBlueprint<BlueprintFeature>("a2f5852d76a165f4d8d6fe670e8013fb").ToReference< BlueprintFeatureReference>();
         private bool HasSpent = false;
         private readonly List<GazeEntry> ActiveGazes = new();
         public class GazeEntry {
