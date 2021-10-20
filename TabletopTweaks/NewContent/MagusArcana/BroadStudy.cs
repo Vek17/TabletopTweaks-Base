@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                 bp.SetDescription("The magus selects another one of his spellcasting classes. The magus can use his spellstrike and " +
                     "spell combat abilities while casting or using spells from the spell list of that class. This does not allow him " +
                     "to cast arcane spells from that class’s spell list without suffering the normal chances of arcane spell failure, " +
-                    "unless the spell lacks somatic components. ");
+                    "unless the spell lacks somatic components.");
                 bp.SetName("Broad Study");
                 bp.Group = FeatureGroup.MagusArcana;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MagusArcana };

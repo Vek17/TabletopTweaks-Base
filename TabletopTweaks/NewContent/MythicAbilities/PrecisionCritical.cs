@@ -16,7 +16,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Ranks = 1;
                 bp.m_Icon = ImpromptuSneakAttackFeature.Icon;
                 bp.SetName("Precision Critical");
-                bp.SetDescription("Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. These dice are only doubled, not multiplied by the weapon’s critical modifier.");
+                bp.SetDescription("Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. " +
+                    "These dice are only doubled, not multiplied by the weapon’s critical modifier.");
                 bp.AddComponent<PrecisionCriticalComponent>(c => {
                     c.CriticalMultiplier = 2;
                 });
