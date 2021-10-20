@@ -296,7 +296,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellResistAcidToggle").ToReference<BlueprintAbilityReference>(),
                     Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellResistSonicToggle").ToReference<BlueprintAbilityReference>()
                 };
-                BloodragerArcaneSpellAbility.AddComponent<PseudoActivatable>();
 
                 Main.LogPatch("Patched", BloodragerArcaneSpellAbility);
             }
@@ -308,7 +307,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellGreaterDisplacementToggle").ToReference<BlueprintAbilityReference>(),
                     Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellGreaterHasteToggle").ToReference<BlueprintAbilityReference>()
                 };
-                BloodragerArcaneGreaterSpell.AddComponent<PseudoActivatable>();
 
                 Main.LogPatch("Patched", BloodragerArcaneGreaterSpell);
             }
@@ -329,7 +327,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueFormOfTheDragonIGreenToggle").ToReference<BlueprintAbilityReference>(),
                     Resources.GetModBlueprint<BlueprintAbility>("BloodragerArcaneSpellTrueTransformationToggle").ToReference<BlueprintAbilityReference>(),
                 };
-                BloodragerArcaneTrueSpellAbility.AddComponent<PseudoActivatable>();
 
                 Main.LogPatch("Patched", BloodragerArcaneTrueSpellAbility);
             }
