@@ -227,6 +227,7 @@ namespace TabletopTweaks.Utilities {
                     c.m_CheckedBuff = rageBuff.ToReference<BlueprintBuffReference>();
                     c.m_ExtraEffectBuff = spellBuff.ToReference<BlueprintBuffReference>();
                 });
+                bp.AddComponent<PseudoActivatableWatchedBuff>();
             });
         }
 

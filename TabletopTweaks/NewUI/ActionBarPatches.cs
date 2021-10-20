@@ -40,6 +40,7 @@ namespace TabletopTweaks.NewUI {
                         BuffToWatch = pseudoActivatableComponent.BuffToWatch
                     };
                     __instance.MechanicSlot.SetSlot(__instance);
+                    Main.LogDebug("ActionBarSpontaneousConvertedSlot_Set_Patch: registering mechanics slot in unit part");
                     selected.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(__instance.MechanicSlot);
                     return false;
                 } else if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
@@ -76,6 +77,7 @@ namespace TabletopTweaks.NewUI {
                             Unit = __instance.MechanicActionBarSlot.Unit,
                             BuffToWatch = pseudoActivatable.BuffToWatch
                         };
+                        Main.LogDebug("ActionBarSlotVM_OnShowConvertRequest_Patch: registering mechanics slot in unit part");
                         __instance.MechanicActionBarSlot.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(slot);
                         return slot;
                     } else if (abilityData.Blueprint.GetComponent<QuickStudyComponent>()) {
@@ -102,12 +104,12 @@ namespace TabletopTweaks.NewUI {
                     if (!ability.Hidden && !ability.Blueprint.IsCantrip) {
                         List<ActionBarSlotVM> groupAbilities = __instance.GroupAbilities;
                         if (ability.GetComponent<PseudoActivatable>() != null) {
-                            Main.LogDebug("CollectAbilities: Creating Pseudo Activatable Ability Mechanics slot");
                             MechanicActionBarSlotPseudoActivatableAbility actionBarSlotPseudoActivatableAbility = new MechanicActionBarSlotPseudoActivatableAbility {
                                 Ability = ability.Data,
                                 Unit = unit,
                                 BuffToWatch = ability.GetComponent<PseudoActivatable>().BuffToWatch
                             };
+                            Main.LogDebug("ActionBarVM_CollectAbilities_Patch: registering mechanics slot in unit part");
                             unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(actionBarSlotPseudoActivatableAbility);
                             ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotPseudoActivatableAbility);
                             groupAbilities.Add(actionBarSlotVm);

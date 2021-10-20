@@ -20,25 +20,10 @@ namespace TabletopTweaks.NewComponents {
 
     [AllowedOn(typeof(BlueprintAbility))]
     [TypeId("9b6e1ed4932a4932827c7fecb2c57427")]
-    public class PseudoActivatable : 
-        UnitFactComponentDelegate,
-        ISubscriber,
-        IUnitSubscriber,
-        IUnitBuffHandler {
+    public class PseudoActivatable : BlueprintComponent {
+
         public BlueprintBuffReference m_BuffToWatch;
 
         public BlueprintBuffReference BuffToWatch => m_BuffToWatch ?? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null);
-
-        public void HandleBuffDidAdded(Buff buff) {
-            if (!buff.Blueprint.ToReference<BlueprintBuffReference>().Equals(BuffToWatch) || buff.Owner != this.Owner)
-                return;
-            this.Owner.Ensure<UnitPartPseudoActivatableAbilities>().BuffActivated(buff.Blueprint);
-        }
-
-        public void HandleBuffDidRemoved(Buff buff) {
-            if (!buff.Blueprint.ToReference<BlueprintBuffReference>().Equals(BuffToWatch) || buff.Owner != this.Owner)
-                return;
-            this.Owner.Get<UnitPartPseudoActivatableAbilities>()?.BuffDeactivated(buff.Blueprint);
-        }
     }
 }

@@ -214,6 +214,7 @@
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
+    <Compile Include="NewComponents\PseudoActivatableWatchedBuff.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceBase.cs" />
