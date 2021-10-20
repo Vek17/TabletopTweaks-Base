@@ -117,7 +117,7 @@ namespace TabletopTweaks.Config {
                     if (Archetypes.ContainsKey(entry.Key)) {
                         Archetypes[entry.Key].LoadSettingGroup(entry.Value, frozen);
                     }
-                }); 
+                });
             }
 
             ref bool ICollapseableGroup.IsExpanded() {

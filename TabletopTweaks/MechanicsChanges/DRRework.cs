@@ -73,7 +73,7 @@ namespace TabletopTweaks.MechanicsChanges {
         [HarmonyPatch(typeof(BlueprintFact), nameof(BlueprintFact.CollectComponents))]
         static class BlueprintFact_CollectComponents_Patch {
             static void Postfix(ref List<BlueprintComponent> __result) {
-                if (ModSettings.Fixes.BaseFixes.IsEnabled("DamageReductionRework")) { return; }
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("DamageReductionRework")) { return; }
 
                 for (int i = 0; i < __result.Count; i++) {
                     BlueprintComponent component = __result[i];

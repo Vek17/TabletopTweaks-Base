@@ -318,7 +318,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.Group = Prerequisite.GroupType.Any;
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 });
-                bp.UIGroups = new UIGroup[] { 
+                bp.UIGroups = new UIGroup[] {
                     Helpers.CreateUIGroup(BloodragerAberrantFeatSelection, BloodragerAberrantFeatSelectionGreenrager)
                 };
             });
