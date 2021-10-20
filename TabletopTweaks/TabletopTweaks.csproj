@@ -198,6 +198,7 @@
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AddWarriorSpiritEnchantment.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
@@ -232,7 +233,7 @@
     <Compile Include="NewComponents\AbilitySpecific\DefensiveWeaponTrainingComponent.cs" />
     <Compile Include="NewComponents\ConstrainTargetFeatureRank.cs" />
     <Compile Include="NewComponents\EnsureProgressionAdded.cs" />
-    <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponDamageComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\IndomitableMountFixed.cs" />

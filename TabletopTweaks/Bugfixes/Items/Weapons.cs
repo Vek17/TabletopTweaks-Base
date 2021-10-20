@@ -9,7 +9,6 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
-using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
@@ -119,11 +118,11 @@ namespace TabletopTweaks.Bugfixes.Items {
                 if (ModSettings.Fixes.Items.Weapons.IsDisabled("EnergyBurst")) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
-                Utilities.ILUtils.LogIL(codes);
+                //Utilities.ILUtils.LogIL(codes);
                 // Replace the default unit with the initiator
                 codes[target].opcode = OpCodes.Ldarg_1; codes[target++].operand = null;
                 codes[target++] = new CodeInstruction(OpCodes.Ldfld, field_Initiator);
-                Utilities.ILUtils.LogIL(codes);
+                //Utilities.ILUtils.LogIL(codes);
                 return codes.AsEnumerable();
             }
             private static int FindInsertionTarget(List<CodeInstruction> codes) {

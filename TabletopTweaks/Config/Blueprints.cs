@@ -5,7 +5,6 @@ using Kingmaker.Utility;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace TabletopTweaks.Config {
     public class Blueprints : IUpdatableSettings {

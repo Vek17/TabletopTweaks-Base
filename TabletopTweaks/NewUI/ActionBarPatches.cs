@@ -6,10 +6,7 @@ using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic.Abilities;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 
