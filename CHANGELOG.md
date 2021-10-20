@@ -1,6 +1,7 @@
 ## Version 1.9.2
 * Removed the movement impairing descriptor from staggered
 * Fixed issue with DR config not working correctly
+* Fixed issue where loremaster wouldn't always give you spell from the correct list
 
 ## Version 1.9.1b
 * Fixed issue with Aeon Limitless gaze crashing

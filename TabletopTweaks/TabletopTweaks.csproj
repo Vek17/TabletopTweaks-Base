@@ -214,6 +214,7 @@
     <Compile Include="NewComponents\NestedPsudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
+    <Compile Include="NewComponents\Properties\ProgressionRankProperty.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
