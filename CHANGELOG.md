@@ -1,3 +1,6 @@
+## Version 1.9.1a
+* Settings UI fixes
+
 ## Version 1.9.1
 * Updated for 1.1.0
 
