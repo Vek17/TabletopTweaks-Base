@@ -1,26 +1,14 @@
 ﻿using HarmonyLib;
-using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UI.UnitSettings;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components.Base;
-using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.Commands;
-using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
-using TabletopTweaks.NewUnitParts;
-using UnityEngine;
 
 namespace TabletopTweaks.NewUI {
     class ActionBarPatches {
@@ -34,7 +22,7 @@ namespace TabletopTweaks.NewUI {
                     if (selected == null) {
                         return true;
                     }
-                    __instance.MechanicSlot = new MechanicActionBarSlotPseudoActivatableAbilityVariant {
+                    __instance.MechanicSlot = new MechanicActionBarSlotPseudoActivatableAbility {
                         Spell = spell,
                         Unit = selected,
                         BuffToWatch = pseudoActivatableComponent.BuffToWatch
@@ -72,7 +60,7 @@ namespace TabletopTweaks.NewUI {
                 __instance.ConvertedVm.Value = new ActionBarConvertedVM(__instance.m_Conversion.Select(abilityData => {
                     var pseudoActivatable = abilityData.Blueprint.GetComponent<PseudoActivatable>();
                     if (pseudoActivatable != null) {
-                        var slot = new MechanicActionBarSlotPseudoActivatableAbilityVariant {
+                        return new MechanicActionBarSlotPseudoActivatableAbility {
                             Spell = abilityData,
                             Unit = __instance.MechanicActionBarSlot.Unit,
                             BuffToWatch = pseudoActivatable.BuffToWatch

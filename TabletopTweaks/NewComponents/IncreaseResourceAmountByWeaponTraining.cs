@@ -19,7 +19,7 @@ namespace TabletopTweaks.NewComponents {
 
         public void CalculateMaxResourceAmount(BlueprintAbilityResource resource, ref int bonus) {
             var weaponTraining = Owner.Get<UnitPartWeaponTraining>();
-            if (base.Fact.Active && weaponTraining  != null && resource == this.Resource) {
+            if (base.Fact.Active && weaponTraining != null && resource == this.Resource) {
                 bonus += weaponTraining.GetMaxWeaponRank();
             }
         }

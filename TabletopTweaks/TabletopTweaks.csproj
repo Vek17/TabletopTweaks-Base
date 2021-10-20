@@ -198,6 +198,7 @@
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AddWarriorSpiritEnchantment.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
@@ -233,7 +234,7 @@
     <Compile Include="NewComponents\AbilitySpecific\DefensiveWeaponTrainingComponent.cs" />
     <Compile Include="NewComponents\ConstrainTargetFeatureRank.cs" />
     <Compile Include="NewComponents\EnsureProgressionAdded.cs" />
-    <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponDamageComponent.cs" />
     <Compile Include="NewComponents\IgnoreArmorCheckPenalty.cs" />
     <Compile Include="NewComponents\IgnoreArmorMaxDexBonus.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\IndomitableMountFixed.cs" />
@@ -381,9 +382,7 @@
     <Compile Include="NewEvents\ISpontaneousConversionHandler.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUI\ActionBarPatches.cs" />
-    <Compile Include="NewUI\IPseudoActivatableMechanicsBarSlot.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbility.cs" />
-    <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbilityVariant.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotQuickStudy.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartAeonGazeManager.cs" />
@@ -392,7 +391,6 @@
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewUnitParts\UnitPartPrecisionCritical.cs" />
-    <Compile Include="NewUnitParts\UnitPartPseudoActivatableAbilities.cs" />
     <Compile Include="NewUnitParts\UnitPartSpellSpecialization.cs" />
     <Compile Include="NewUnitParts\UnitPartWarriorSpirit.cs" />
     <Compile Include="Resources.cs" />

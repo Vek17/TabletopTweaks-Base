@@ -1,11 +1,6 @@
 ﻿using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.Tooltip.Templates;
 using Kingmaker.UI.UnitSettings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using static TabletopTweaks.NewComponents.AbilitySpecific.QuickStudyComponent;
 
