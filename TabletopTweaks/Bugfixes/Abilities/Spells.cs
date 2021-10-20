@@ -4,9 +4,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Buffs;
-using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -374,8 +372,8 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     .Distinct()
                     .OrderBy(buff => buff.name)
                     .ForEach(buff => {
-                        if (buff.GetComponent<AddCondition>() == null 
-                        && buff.GetComponent<BuffStatusCondition>() == null 
+                        if (buff.GetComponent<AddCondition>() == null
+                        && buff.GetComponent<BuffStatusCondition>() == null
                         && buff.GetComponent<BuffPoisonStatDamage>() == null
                         && (buff.SpellDescriptor & SpellDescriptor.Bleed) == 0) {
                             buff.m_Flags |= BlueprintBuff.Flags.IsFromSpell;

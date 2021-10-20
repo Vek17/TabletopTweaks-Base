@@ -32,7 +32,7 @@ namespace TabletopTweaks.NewActions {
             if (weapon == null) {
                 return;
             }
-            
+
             int maxEnhancement = unitPartWeaponTraining.GetMaxWeaponRank();
             Rounds duration = DurationValue.Calculate(base.Context);
             unitPartWarriorSpirit.ClearActiveEnchants();

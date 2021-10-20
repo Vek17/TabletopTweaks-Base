@@ -14,7 +14,7 @@ namespace TabletopTweaks.Config {
             if (!parent.GroupIsDisabled()) {
                 base.SetGroupDisabled(value);
             }
-        } 
+        }
 
         public override bool IsEnabled(string key) {
             return base.IsEnabled(key) && !GroupIsDisabled();

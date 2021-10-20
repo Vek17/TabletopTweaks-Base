@@ -4,7 +4,6 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Parts;
-using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("df38cda426724a6b9d5065585340d9d0")]

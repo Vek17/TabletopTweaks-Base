@@ -37,10 +37,10 @@ namespace TabletopTweaks.NewUnitParts {
             HasSpent = true;
         }
 
-        private readonly BlueprintAbilityResourceReference spendResource = 
+        private readonly BlueprintAbilityResourceReference spendResource =
             Resources.GetBlueprint<BlueprintAbilityResource>("905722fe39d87474aa6d41bffa327ff3").ToReference<BlueprintAbilityResourceReference>();
-        private readonly BlueprintFeatureReference limitlessFeature = 
-            Resources.GetBlueprint<BlueprintFeature>("a2f5852d76a165f4d8d6fe670e8013fb").ToReference< BlueprintFeatureReference>();
+        private readonly BlueprintFeatureReference limitlessFeature =
+            Resources.GetBlueprint<BlueprintFeature>("a2f5852d76a165f4d8d6fe670e8013fb").ToReference<BlueprintFeatureReference>();
         private bool HasSpent = false;
         private readonly List<GazeEntry> ActiveGazes = new();
         public class GazeEntry {
@@ -57,7 +57,7 @@ namespace TabletopTweaks.NewUnitParts {
                             __result = __instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, 1);
                             return;
                         }
-                        __result = __instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource,(!AeonGazeController.IsActive()) ? 1 : 0);
+                        __result = __instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, (!AeonGazeController.IsActive()) ? 1 : 0);
                     }
                 }
             }

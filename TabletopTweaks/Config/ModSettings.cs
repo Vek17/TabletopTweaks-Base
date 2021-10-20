@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 using System.Reflection;
-using UnityModManagerNet;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks.Config {
@@ -11,11 +10,11 @@ namespace TabletopTweaks.Config {
         public static AddedContent AddedContent;
         public static Homebrew Homebrew;
         public static Blueprints Blueprints;
-        private static string  userConfigFolder => ModEntry.Path + "UserSettings";
+        private static string userConfigFolder => ModEntry.Path + "UserSettings";
         private static JsonSerializerSettings cachedSettings;
         private static JsonSerializerSettings SerializerSettings {
-            get { 
-                if (cachedSettings == null) { 
+            get {
+                if (cachedSettings == null) {
                     cachedSettings = new JsonSerializerSettings {
                         CheckAdditionalContent = false,
                         ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
@@ -28,8 +27,8 @@ namespace TabletopTweaks.Config {
                         ObjectCreationHandling = ObjectCreationHandling.Replace,
                         StringEscapeHandling = StringEscapeHandling.Default,
                     };
-                } 
-                return cachedSettings; 
+                }
+                return cachedSettings;
             }
         }
 

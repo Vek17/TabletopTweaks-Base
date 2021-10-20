@@ -3,9 +3,7 @@ using ModKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using TabletopTweaks.Config;
 using UnityEngine;
 using UnityModManagerNet;
@@ -24,7 +22,7 @@ namespace TabletopTweaks {
         }
     }
 
-    static class SettingsTabs{
+    static class SettingsTabs {
         public static void Fixes() {
             var TabLevel = SetttingUI.TabLevel.Zero;
             var Fixes = ModSettings.Fixes;
@@ -121,7 +119,7 @@ namespace TabletopTweaks {
                 UI.Toggle("New Settings Off By Default".bold(), ref Homebrew.NewSettingsOffByDefault);
                 UI.Space(25);
 
-                SetttingUI.NestedSettingGroup("Mythic Reworks", TabLevel, Homebrew.MythicReworks, 
+                SetttingUI.NestedSettingGroup("Mythic Reworks", TabLevel, Homebrew.MythicReworks,
                     ("Aeon", Homebrew.MythicReworks.Aeon),
                     ("Azata", Homebrew.MythicReworks.Azata)
                 );
@@ -153,7 +151,7 @@ namespace TabletopTweaks {
     }
 
     static class SetttingUI {
-        public enum TabLevel : int { 
+        public enum TabLevel : int {
             Zero,
             One,
             Two,
@@ -227,7 +225,7 @@ namespace TabletopTweaks {
             }
         }
 
-        public static void TabbedItem(TabLevel level,  params Action[] actions) {
+        public static void TabbedItem(TabLevel level, params Action[] actions) {
             using (UI.HorizontalScope()) {
                 level.Indent();
                 actions.ForEach(action => action.Invoke());

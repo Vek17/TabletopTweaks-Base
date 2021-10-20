@@ -1,12 +1,10 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
-using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
@@ -15,7 +13,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -74,7 +71,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var Keen = Resources.GetBlueprint<BlueprintWeaponEnchantment>("102a9c8c9b7a75e4fb5844e79deaf4c0");
             var GhostTouch = Resources.GetBlueprint<BlueprintWeaponEnchantment>("47857e1a5a3ec1a46adf6491b1423b4f");
             var BaneEverything = Resources.GetBlueprint<BlueprintWeaponEnchantment>("1a93ab9c46e48f3488178733be29342a");
-            
+
             var BrilliantEnergy = Resources.GetBlueprint<BlueprintWeaponEnchantment>("66e9e299c9002ea4bb65b6f300e43770");
             var Speed = Resources.GetBlueprint<BlueprintWeaponEnchantment>("f1c0c50108025d546b2554674ea1c006");
 
@@ -156,7 +153,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                         },
                         new ContextActionApplyBuff() {
                             IsNotDispelable = true,
-                            DurationValue = new ContextDurationValue() { 
+                            DurationValue = new ContextDurationValue() {
                                 m_IsExtendable = true,
                                 Rate = DurationRate.Minutes,
                                 DiceCountValue = new ContextValue(),
@@ -248,7 +245,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
 
         private static BlueprintBuff CreateWarriorSpiritWeaponBuff(string blueprintName, Sprite icon, int cost, params BlueprintWeaponEnchantment[] enchants) {
 
-            var weaponBuff =  Helpers.CreateBuff(blueprintName, bp => {
+            var weaponBuff = Helpers.CreateBuff(blueprintName, bp => {
                 bp.m_DisplayName = enchants.First().m_EnchantName;
                 bp.m_Description = enchants.First().m_Description;
                 bp.m_Flags = BlueprintBuff.Flags.StayOnDeath | BlueprintBuff.Flags.HiddenInUi;
