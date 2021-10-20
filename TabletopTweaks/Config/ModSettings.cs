@@ -50,6 +50,7 @@ namespace TabletopTweaks.Config {
             using (StreamReader streamReader = new StreamReader(stream))
             using (JsonReader jsonReader = new JsonTextReader(streamReader)) {
                 setting = serializer.Deserialize<T>(jsonReader);
+                setting.Init();
             }
             if (File.Exists(userPath)) {
                 using (StreamReader streamReader = File.OpenText(userPath))

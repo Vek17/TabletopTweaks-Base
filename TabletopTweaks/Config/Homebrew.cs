@@ -4,6 +4,10 @@ namespace TabletopTweaks.Config {
         public bool NewSettingsOffByDefault = false;
         public MythicReworkGroup MythicReworks = new MythicReworkGroup();
 
+        public void Init() {
+            MythicReworks.Init();
+        }
+
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as Homebrew;
             MythicReworks.LoadMythicReworkGroup(loadedSettings.MythicReworks, NewSettingsOffByDefault);
@@ -40,6 +44,19 @@ namespace TabletopTweaks.Config {
             Swarm = new NestedSettingGroup(this);
         }
 
+        public void Init() {
+            Aeon.Parent = this;
+            Angel.Parent = this;
+            Azata.Parent = this;
+            Demon.Parent = this;
+            Lich.Parent = this;
+            Trickster.Parent = this;
+            Devil.Parent = this;
+            GoldDragon.Parent = this;
+            Legend.Parent = this;
+            Swarm.Parent = this;
+        }
+
         public void LoadMythicReworkGroup(MythicReworkGroup group, bool frozen) {
             DisableAll = group.DisableAll;
             Aeon.LoadSettingGroup(group.Aeon, frozen);
@@ -52,17 +69,6 @@ namespace TabletopTweaks.Config {
             GoldDragon.LoadSettingGroup(group.GoldDragon, frozen);
             Legend.LoadSettingGroup(group.Legend, frozen);
             Swarm.LoadSettingGroup(group.Swarm, frozen);
-
-            Aeon.Parent = this;
-            Angel.Parent = this;
-            Azata.Parent = this;
-            Demon.Parent = this;
-            Lich.Parent = this;
-            Trickster.Parent = this;
-            Devil.Parent = this;
-            GoldDragon.Parent = this;
-            Legend.Parent = this;
-            Swarm.Parent = this;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace TabletopTweaks.Config {
     public class Fixes : IUpdatableSettings {
+
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
@@ -31,6 +32,27 @@ namespace TabletopTweaks.Config {
         public SettingGroup MythicFeats = new SettingGroup();
         public CrusadeGroup Crusade = new CrusadeGroup();
         public ItemGroup Items = new ItemGroup();
+
+        public void Init() {
+            Alchemist.SetParents();
+            Arcanist.SetParents();
+            Barbarian.SetParents();
+            Bloodrager.SetParents();
+            Cavalier.SetParents();
+            Fighter.SetParents();
+            Kineticist.SetParents();
+            Magus.SetParents();
+            Monk.SetParents();
+            Oracle.SetParents();
+            Paladin.SetParents();
+            Ranger.SetParents();
+            Rogue.SetParents();
+            Slayer.SetParents();
+            Witch.SetParents();
+
+            Crusade.SetParents();
+            Items.SetParents();
+        }
 
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as Fixes;
@@ -83,6 +105,11 @@ namespace TabletopTweaks.Config {
                 Base = new NestedSettingGroup(this);
             }
 
+            public void SetParents() {
+                Base.Parent = this;
+                Archetypes.ForEach(entry => entry.Value.Parent = this);
+            }
+
             public void LoadClassGroup(ClassGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
                 Base.LoadSettingGroup(group.Base, frozen);
@@ -91,8 +118,6 @@ namespace TabletopTweaks.Config {
                         Archetypes[entry.Key].LoadSettingGroup(entry.Value, frozen);
                     }
                 }); 
-                Base.Parent = this;
-                Archetypes.ForEach(entry => entry.Value.Parent = this);
             }
 
             ref bool ICollapseableGroup.IsExpanded() {
@@ -115,10 +140,13 @@ namespace TabletopTweaks.Config {
                 Buildings = new NestedSettingGroup(this);
             }
 
+            public void SetParents() {
+                Buildings.Parent = this;
+            }
+
             public void LoadCrusadeGroup(CrusadeGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
                 Buildings.LoadSettingGroup(group.Buildings, frozen);
-                Buildings.Parent = this;
             }
 
             ref bool ICollapseableGroup.IsExpanded() {
@@ -145,15 +173,17 @@ namespace TabletopTweaks.Config {
                 Weapons = new NestedSettingGroup(this);
             }
 
+            public void SetParents() {
+                Armor.Parent = this;
+                Equipment.Parent = this;
+                Weapons.Parent = this;
+            }
+
             public void LoadItemGroup(ItemGroup group, bool frozen) {
                 DisableAll = group.DisableAll;
                 Armor.LoadSettingGroup(group.Armor, frozen);
                 Equipment.LoadSettingGroup(group.Equipment, frozen);
                 Weapons.LoadSettingGroup(group.Weapons, frozen);
-
-                Armor.Parent = this;
-                Equipment.Parent = this;
-                Weapons.Parent = this;
             }
 
             ref bool ICollapseableGroup.IsExpanded() {

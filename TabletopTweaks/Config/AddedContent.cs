@@ -16,6 +16,9 @@ namespace TabletopTweaks.Config {
         public SettingGroup MythicAbilities = new SettingGroup();
         public SettingGroup MythicFeats = new SettingGroup();
 
+        public void Init() {
+        }
+
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as AddedContent;
             NewSettingsOffByDefault = loadedSettings.NewSettingsOffByDefault;

@@ -53,6 +53,9 @@ namespace TabletopTweaks.Config {
             return new BlueprintGuid(Id);
         }
 
+        public void Init() {
+        }
+
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class AutoGUID_Log_Patch {
 
