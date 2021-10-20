@@ -177,11 +177,13 @@ namespace TabletopTweaks {
         }
 
         public static void NestedSettingGroup(string name, TabLevel level, IDisableableGroup rootGroup, (string, NestedSettingGroup) baseGroup, IDictionary<string, NestedSettingGroup> dict) {
-            if (baseGroup.Item2.Settings.Empty() || !dict.Any(entry => !entry.Value.Settings.Empty())) { return; }
+            if (baseGroup.Item2.Settings.Empty() && !dict.Any(entry => !entry.Value.Settings.Empty())) { return; }
             RootGroup(name, level, rootGroup);
             level.Increase();
             if (rootGroup.IsExpanded()) {
-                SettingGroup(baseGroup.Item1, level, baseGroup.Item2);
+                if (!baseGroup.Item2.Settings.Empty()) {
+                    SettingGroup(baseGroup.Item1, level, baseGroup.Item2);
+                }
                 foreach (var group in dict) {
                     SettingGroup(group.Key, level, group.Value);
                 }
