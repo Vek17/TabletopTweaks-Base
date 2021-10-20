@@ -46,7 +46,11 @@
             },
             "FixInherentSkillpoints": {
                 "Enabled": true,
-                "Description": "Inhernt bonuses to a stat now grant bonus skill points."
+                "Description": "Allows Inhernt bonuses to a stat now grant bonus skill points."
+            },
+            "FixInherentBonuses": {
+                "Enabled": true,
+                "Description": "Allows Inhernt bonuses to count for feat prerequisites."
             },
             "FixMountedLongspearModifer": {
                 "Enabled": true,
