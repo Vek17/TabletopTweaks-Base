@@ -380,7 +380,9 @@
     <Compile Include="NewEvents\ISpontaneousConversionHandler.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUI\ActionBarPatches.cs" />
+    <Compile Include="NewUI\IPseudoActivatableMechanicsBarSlot.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbility.cs" />
+    <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbilityVariant.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotQuickStudy.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartAeonGazeManager.cs" />
@@ -389,6 +391,7 @@
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />
     <Compile Include="NewUnitParts\UnitPartPrecisionCritical.cs" />
+    <Compile Include="NewUnitParts\UnitPartPseudoActivatableAbilities.cs" />
     <Compile Include="NewUnitParts\UnitPartSpellSpecialization.cs" />
     <Compile Include="NewUnitParts\UnitPartWarriorSpirit.cs" />
     <Compile Include="Resources.cs" />
