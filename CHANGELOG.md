@@ -2,7 +2,7 @@
 * Removed the movement impairing descriptor from staggered
 * Fixed issue with DR config not working correctly
 * Fixed issue where loremaster wouldn't always give you spell from the correct list
-* Inhernt stat bonuses (like those from stat tomes) now count for feat prerequisites
+* Inherent stat bonuses (like those from stat tomes) now count for feat prerequisites
 
 ## Version 1.9.1b
 * Fixed issue with Aeon Limitless gaze crashing
