@@ -42,12 +42,9 @@ namespace TabletopTweaks.NewUnitParts {
                 m_AbilitiesToMechanicSlots.Add(abilityBlueprint, new List<WeakReference<MechanicActionBarSlot>>() { new WeakReference<MechanicActionBarSlot>(mechanicSlot) });
             }
 
-            if (m_AbilitiesToBuffs.ContainsKey(abilityBlueprint)) {
-                UpdateStateForAbility(abilityBlueprint);
-                return;
+            if (!m_AbilitiesToBuffs.ContainsKey(abilityBlueprint)) {
+                m_AbilitiesToBuffs.Add(abilityBlueprint, new HashSet<BlueprintBuffReference>());
             }
-
-            m_AbilitiesToBuffs.Add(abilityBlueprint, new HashSet<BlueprintBuffReference>());
             if (!abilitySlot.BuffToWatch.Equals(_nullBuffRef)) {
                 m_AbilitiesToBuffs[abilityBlueprint].Add(abilitySlot.BuffToWatch);
                 if (m_BuffsToAbilities.TryGetValue(abilitySlot.BuffToWatch, out var abilities)) {
@@ -116,37 +113,50 @@ namespace TabletopTweaks.NewUnitParts {
             UpdateAbilitiesForBuff(buffRef);
         }
 
-        private void UpdateStateForAbility(BlueprintAbility abilityBlueprint) {
-            if (!m_AbilitiesToBuffs.TryGetValue(abilityBlueprint, out var watchedBuffs) || !m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs))
-                return;
-
-            var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff));
-            UpdateSlotRefs(slotRefs, shouldBeActive);
-        }
-
         private void UpdateAbilitiesForBuff(BlueprintBuffReference buff) {
             if (!m_BuffsToAbilities.TryGetValue(buff, out var abilities))
                 return;
 
-            Dictionary<BlueprintAbility, bool> abilitiesToggleStatus = new Dictionary<BlueprintAbility, bool>();
             foreach(var abilityBlueprint in abilities) {
-                if (m_AbilitiesToBuffs.TryGetValue(abilityBlueprint, out var watchedBuffs)) {
-                    abilitiesToggleStatus.Add(abilityBlueprint, watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff)));
-                }
-            }
-            foreach(var abilityToggleStatus in abilitiesToggleStatus) {
-                if (m_AbilitiesToMechanicSlots.TryGetValue(abilityToggleStatus.Key, out var slotRefs)) {
-                    UpdateSlotRefs(slotRefs, abilityToggleStatus.Value);
-                }
+                UpdateStateForAbility(abilityBlueprint);
             }
         }
 
-        private void UpdateSlotRefs(List<WeakReference<MechanicActionBarSlot>> slotRefs, bool shouldBeActive) {
+        private void UpdateStateForAbility(BlueprintAbility abilityBlueprint) {
+            if (!m_AbilitiesToBuffs.TryGetValue(abilityBlueprint, out var watchedBuffs) || !m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs))
+                return;
+
+            Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateStateForAbility: {abilityBlueprint.NameSafe()}");
+            var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff));
+            BlueprintBuffReference activeBuff = null;
+            if (watchedBuffs.Count > 1) {
+                Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateStateForAbility: watchedBuffs.Count > 1");
+
+                var activeBuffs = watchedBuffs.Where(b => m_ActiveWatchedBuffs.Contains(b)).ToList();
+                Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateStateForAbility: activeBuffs.Count = {activeBuffs.Count}");
+                if (activeBuffs.Count == 1) {
+                    Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateStateForAbility: setting active buff to {activeBuffs[0].NameSafe()}");
+                    activeBuff = activeBuffs[0];
+                }
+            }
+            if (activeBuff != null) {
+                Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateStateForAbility: fore icon buff: {activeBuff.NameSafe()}");
+            }
+            UpdateSlotRefs(slotRefs, shouldBeActive, activeBuff);
+        }
+
+
+        private void UpdateSlotRefs(List<WeakReference<MechanicActionBarSlot>> slotRefs, bool shouldBeActive, BlueprintBuffReference buffForForeIcon = null) {
             List<WeakReference<MechanicActionBarSlot>> slotRefsToRemove = new List<WeakReference<MechanicActionBarSlot>>();
             foreach (var slotRef in slotRefs) {
                 if (slotRef.TryGetTarget(out var slot)) {
                     if (slot is IPseudoActivatableMechanicsBarSlot pseudoActivatableSlot) {
                         pseudoActivatableSlot.ShouldBeActive = shouldBeActive;
+                    }
+                    if (slot is MechanicActionBarSlotPseudoActivatableAbility pseudoActivatableAbilitySlot) {
+                        Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateSlotRefs: setting fore icon override of {pseudoActivatableAbilitySlot.Ability.Name} to {buffForForeIcon?.NameSafe()}");
+                        pseudoActivatableAbilitySlot.ForeIconOverride = buffForForeIcon?.Get()?.Icon;
+                        pseudoActivatableAbilitySlot.ShouldUpdateForeIcon = true;
                     }
                 } else {
                     slotRefsToRemove.Add(slotRef);

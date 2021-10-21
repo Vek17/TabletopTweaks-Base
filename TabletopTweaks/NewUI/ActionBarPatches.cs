@@ -88,6 +88,20 @@ namespace TabletopTweaks.NewUI {
             }
         }
 
+        [HarmonyPatch(typeof(ActionBarSlotVM), nameof(ActionBarSlotVM.SetResource))]
+        static class ActionBarSlotVM_SetResource_Patch {
+            static void Postfix(ActionBarSlotVM __instance) {
+                if (!(__instance.MechanicActionBarSlot == null)
+                    && !(__instance.MechanicActionBarSlot.IsBad())
+                    && __instance.MechanicActionBarSlot is MechanicActionBarSlotPseudoActivatableAbility pseudoActivatable
+                    && pseudoActivatable.ShouldUpdateForeIcon) {
+                    Main.LogDebug($"ActionBarSlotVM_SetResource_Patch: updating fore icon for {pseudoActivatable.Ability.Name}");
+                    __instance.ForeIcon.Value = pseudoActivatable.GetForeIcon();
+                    pseudoActivatable.ShouldUpdateForeIcon = false;
+                }
+            }
+        }
+
         [HarmonyPatch(typeof(ActionBarVM), nameof(ActionBarVM.CollectAbilities))]
         static class ActionBarVM_CollectAbilities_Patch {
             static bool Prefix(ActionBarVM __instance, UnitEntityData unit) {

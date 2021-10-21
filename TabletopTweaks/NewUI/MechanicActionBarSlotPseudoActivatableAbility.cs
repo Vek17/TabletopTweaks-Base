@@ -10,7 +10,6 @@ namespace TabletopTweaks.NewUI {
         MechanicActionBarSlotAbility,
         IPseudoActivatableMechanicsBarSlot {
 
-        [JsonProperty]
         private BlueprintBuffReference m_BuffToWatch;
 
         public BlueprintBuffReference BuffToWatch {
@@ -21,5 +20,9 @@ namespace TabletopTweaks.NewUI {
         public AbilityData PseudoActivatableAbility => this.Ability;
 
         public override bool IsActive() => ShouldBeActive;
+
+        public Sprite ForeIconOverride { get; set; }
+        public override Sprite GetForeIcon() => ForeIconOverride;
+        public bool ShouldUpdateForeIcon { get; set; }
     }
 }
