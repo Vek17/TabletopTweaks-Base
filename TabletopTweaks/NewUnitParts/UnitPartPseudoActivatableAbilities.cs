@@ -4,6 +4,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,8 +47,9 @@ namespace TabletopTweaks.NewUnitParts {
                 return;
             }
 
+            m_AbilitiesToBuffs.Add(abilityBlueprint, new HashSet<BlueprintBuffReference>());
             if (!abilitySlot.BuffToWatch.Equals(_nullBuffRef)) {
-                m_AbilitiesToBuffs.Add(abilityBlueprint, new HashSet<BlueprintBuffReference> { abilitySlot.BuffToWatch });
+                m_AbilitiesToBuffs[abilityBlueprint].Add(abilitySlot.BuffToWatch);
                 if (m_BuffsToAbilities.TryGetValue(abilitySlot.BuffToWatch, out var abilities)) {
                     abilities.Add(abilityBlueprint);
                 } else {
@@ -64,8 +66,8 @@ namespace TabletopTweaks.NewUnitParts {
                         }
                     }
                     if (variantBlueprintBuffsToWatch.Any()) {
-                        m_AbilitiesToBuffs.Add(abilityBlueprint, variantBlueprintBuffsToWatch);
                         foreach(var buffRef in variantBlueprintBuffsToWatch) {
+                            m_AbilitiesToBuffs[abilityBlueprint].Add(buffRef);
                             if (m_BuffsToAbilities.TryGetValue(buffRef, out var abilities)) {
                                 abilities.Add(abilityBlueprint);
                             } else {
@@ -82,7 +84,6 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void RegisterWatchedBuff(BlueprintBuff buff) {
-            Main.LogDebug($"UnitPartPseudoActivatableAbilities.RegisterWatchedBuff: {buff.Name}");
             var buffRef = buff.ToReference<BlueprintBuffReference>();
             if (m_BuffsToAbilities.TryGetValue(buffRef, out var abilities)) {
                 foreach(var abilityBlueprint in abilities) {
@@ -104,14 +105,12 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void BuffActivated(BlueprintBuff buff) {
-            Main.LogDebug($"UnitPartPseudoActivatableAbilities.BuffActivated: \"{buff.NameSafe()}\"");
             var buffRef = buff.ToReference<BlueprintBuffReference>();
             m_ActiveWatchedBuffs.Add(buffRef);
             UpdateAbilitiesForBuff(buffRef);
         }
 
         public void BuffDeactivated(BlueprintBuff buff) {
-            Main.LogDebug($"UnitPartPseudoActivatableAbilities.BuffDeactivated: \"{buff.NameSafe()}\"");
             var buffRef = buff.ToReference<BlueprintBuffReference>();
             m_ActiveWatchedBuffs.Remove(buffRef);
             UpdateAbilitiesForBuff(buffRef);
@@ -122,7 +121,6 @@ namespace TabletopTweaks.NewUnitParts {
                 return;
 
             var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff));
-            Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateStateForAbility: will update slot refs for ability {abilityBlueprint.NameSafe()} to {shouldBeActive}");
             UpdateSlotRefs(slotRefs, shouldBeActive);
         }
 
@@ -154,20 +152,38 @@ namespace TabletopTweaks.NewUnitParts {
                     slotRefsToRemove.Add(slotRef);
                 }
             }
-            if (slotRefsToRemove.Any()) {
-                Main.LogDebug($"UnitPartPseudoActivatableAbilities.UpdateSlotRefs: Removing {slotRefsToRemove.Count} dead slot references.");
-            }
             foreach (var slotRef in slotRefsToRemove) {
                 slotRefs.Remove(slotRef);
             }
         }
 
         private void Validate() {
-            Main.LogDebug("UnitPartPseudoActivatableAbilities.Validate");
             var abilitiesInBuffsDictionary = m_BuffsToAbilities.Values.SelectMany(x => x).ToHashSet();
             foreach(var abilityBlueprint in abilitiesInBuffsDictionary) {
                 if (!m_AbilitiesToBuffs.ContainsKey(abilityBlueprint)) {
-                    Main.LogDebug($"UnitPartPseudoActivatableAbilities.Validate: ability \"{abilityBlueprint.NameSafe()}\" is in values of Buff dictionary, but is not a key in Abilities dictionary");
+                    Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error: ability \"{abilityBlueprint.NameSafe()}\" is in values of Buff dictionary, but is not a key in Abilities dictionary");
+                }
+            }
+
+            var buffsInAbilitiesDictionary = m_AbilitiesToBuffs.Values.SelectMany(x => x).ToHashSet();
+            foreach(var buff in buffsInAbilitiesDictionary) {
+                if (!m_BuffsToAbilities.ContainsKey(buff)) {
+                    Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error: buff \"{buff.NameSafe()}\" is in values of Abilities dictionary, but is not a key in the Buffs dictionary");
+                }
+            }
+
+            var abilitiesInMechanicsSlots = m_AbilitiesToMechanicSlots
+                .Values
+                .SelectMany(x => x)
+                .Select(slotRef => {
+                    if (!slotRef.TryGetTarget(out var slot) || !(slot is IPseudoActivatableMechanicsBarSlot pseudoActivatableSlot))
+                        return null;
+                    return pseudoActivatableSlot.PseudoActivatableAbility.Blueprint;
+                }).ToList();
+
+            foreach (var abilityBlueprint in abilitiesInMechanicsSlots) {
+                if (!m_AbilitiesToBuffs.ContainsKey(abilityBlueprint)) {
+                    Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error: a MechanicSlot is registered for ability \"{abilityBlueprint.NameSafe()}\", but this ability is not a key in the Abilities dictionary");
                 }
             }
         }

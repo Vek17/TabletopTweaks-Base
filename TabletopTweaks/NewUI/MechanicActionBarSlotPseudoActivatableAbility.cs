@@ -2,6 +2,7 @@
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace TabletopTweaks.NewUI {
@@ -9,10 +10,14 @@ namespace TabletopTweaks.NewUI {
         MechanicActionBarSlotAbility,
         IPseudoActivatableMechanicsBarSlot {
 
+        [JsonProperty]
+        private BlueprintBuffReference m_BuffToWatch;
 
-        public BlueprintBuffReference BuffToWatch { get; set; }
+        public BlueprintBuffReference BuffToWatch {
+            get => m_BuffToWatch;
+            set => m_BuffToWatch = value; 
+        }
         public bool ShouldBeActive { get; set; }
-
         public AbilityData PseudoActivatableAbility => this.Ability;
 
         public override bool IsActive() => ShouldBeActive;

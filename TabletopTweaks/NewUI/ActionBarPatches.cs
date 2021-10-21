@@ -33,7 +33,6 @@ namespace TabletopTweaks.NewUI {
                         BuffToWatch = pseudoActivatableComponent.BuffToWatch
                     };
                     __instance.MechanicSlot.SetSlot(__instance);
-                    Main.LogDebug("ActionBarSpontaneousConvertedSlot_Set_Patch: registering mechanics slot in unit part");
                     selected.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(__instance.MechanicSlot);
                     return false;
                 } else if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
@@ -70,7 +69,6 @@ namespace TabletopTweaks.NewUI {
                             Unit = __instance.MechanicActionBarSlot.Unit,
                             BuffToWatch = pseudoActivatable.BuffToWatch
                         };
-                        Main.LogDebug("ActionBarSlotVM_OnShowConvertRequest_Patch: registering mechanics slot in unit part");
                         __instance.MechanicActionBarSlot.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(slot);
                         return slot;
                     } else if (abilityData.Blueprint.GetComponent<QuickStudyComponent>()) {
@@ -102,7 +100,6 @@ namespace TabletopTweaks.NewUI {
                                 Unit = unit,
                                 BuffToWatch = ability.GetComponent<PseudoActivatable>().BuffToWatch
                             };
-                            Main.LogDebug("ActionBarVM_CollectAbilities_Patch: registering mechanics slot in unit part");
                             unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(actionBarSlotPseudoActivatableAbility);
                             ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotPseudoActivatableAbility);
                             groupAbilities.Add(actionBarSlotVm);
@@ -127,175 +124,22 @@ namespace TabletopTweaks.NewUI {
             }
         }
 
-        /*[HarmonyPatch(typeof(UnitUISettings.AbilityWrapper), nameof(UnitUISettings.AbilityWrapper.CreateSlot))]
-        static class UnitUISettings_CreateSlot_Patch {
-            static bool Prefix(UnitUISettings.AbilityWrapper __instance, UnitEntityData unit, ref MechanicActionBarSlot __result) {
-                Main.LogDebug("UnitUISettings.AbilityWrapper.CreateSlot");
-                if (__instance.SpellSlot == null && __instance.SpontaneousSpell == null && __instance.Ability != null) {
-                    Main.LogDebug("UnitUISettings.AbilityWrapper.CreateSlot: patched section");
-                    var pseudoActivatableComponent = __instance.Ability.Blueprint.GetComponent<PseudoActivatable>();
-                    if (pseudoActivatableComponent != null) {
-                        Main.LogDebug("UnitUISettings.AbilityWrapper.CreateSlot Patch: returning MechanicActionBarSlotPseudoActivatableAbility");
-                        __result = new MechanicActionBarSlotPseudoActivatableAbility {
-                            Ability = __instance.Ability.Data,
-                            Unit = unit,
-                            BuffToWatch = pseudoActivatableComponent.BuffToWatch
-                        };
-                        unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(__result);
-                        return false;
+        [HarmonyPatch(typeof(UnitUISettings), nameof(UnitUISettings.PostLoad))]
+        static class UnitUISettings_PostLoad_Patch {
+            static void Postfix(UnitUISettings __instance) {
+                if (__instance.Owner?.Unit == null || __instance.m_Slots == null)
+                    return;
+
+                for (int i = 0; i < __instance.m_Slots.Length; i++) {
+                    if (__instance.m_Slots[i] is MechanicActionBarSlotPseudoActivatableAbility pseudoActivatable) {
+                        __instance.Owner.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(pseudoActivatable);
+                    }
+                    // This probably never happens, but just in case...
+                    else if (__instance.m_Slots[i] is MechanicActionBarSlotPseudoActivatableAbilityVariant pseudoActivatableAbilityVariant) {
+                        __instance.Owner.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(pseudoActivatableAbilityVariant);
                     }
                 }
-                return true;
             }
         }
-
-        [HarmonyPatch(typeof(UnitUISettings), nameof(UnitUISettings.GetBadSlotReplacement))]
-        static class UnitUISettings_GetBadSlotReplacement_Patch {
-            static bool Prefix(UnitUISettings __instance, MechanicActionBarSlot slot, UnitDescriptor owner, ref MechanicActionBarSlot __result) {
-                Main.LogDebug("UnitUISetings.GetBadSlotReplacement Patch");
-                if (owner == null) {
-                    Main.LogDebug("UnitUISetings.GetBadSlotReplacement Patch: owner is null");
-                    __result = null;
-                    return false;
-                }
-                if (slot is MechanicActionBarSlotAbility abilitySlot) {
-                    Main.LogDebug("UnitUISetings.GetBadSlotReplacement Patch: slot is MechanicActionBarSlotAbility");
-                    Ability ability = owner.Abilities.Visible.FirstOrDefault<Ability>((Func<Ability, bool>)(a => a.Blueprint == abilitySlot.Ability.Blueprint && a.SourceItem == abilitySlot.Ability.SourceItem));
-                    if (ability != null) {
-                        Main.LogDebug($"UnitUISetings.GetBadSlotReplacement Patch: ability is not null. Name: {ability.Name}");
-                        Main.LogDebug($"UnitUISetings.GetBadSlotReplacement Patch: ability.GetComponent<PseudoActivatable>() != null : {ability.GetComponent<PseudoActivatable>() != null}");
-                        if (ability.GetComponent<PseudoActivatable>() != null) {
-                            Main.LogDebug($"UnitUISetings.GetBadSlotReplacement Patch: returning new pseudo activatable ability");
-                            __result = new MechanicActionBarSlotPseudoActivatableAbility {
-                                Ability = ability.Data,
-                                Unit = slot.Unit,
-                                BuffToWatch = ability.GetComponent<PseudoActivatable>().BuffToWatch
-                            };
-                            slot.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(__result);
-                            return false;
-                        }
-                    }
-                }
-                return true;
-            }
-        }
-
-        [HarmonyPatch(typeof(ActionBarGroupElement), nameof(ActionBarGroupElement.FillSlots))]
-        static class ActionBarGroupElement_FillSlots_Patch {
-            static bool Prefix(ActionBarGroupElement __instance) {
-                if (!__instance.PreInit) {
-                    __instance.Dispose();
-                }
-                int index = 0;
-                Main.LogDebug($"ActionBarGroupElement.FillSlots patch");
-                switch (__instance.SlotType) {
-                    case ActionBarSlotType.Spell: {
-                            Main.LogDebug($"ActionBarGroupElement.FillSlots patch: spell");
-                            ActionBarSubGroupLevels levels = __instance.m_Levels;
-                            if (levels != null) {
-                                levels.Clear();
-                            }
-                            List<AbilityData> list = new List<AbilityData>();
-                            foreach (Ability ability in __instance.m_Selected.Abilities.Visible) {
-                                if (ability.Blueprint.IsCantrip) {
-                                    AbilityData data = ability.Data;
-                                    if (!list.Contains(data)) {
-                                        list.Add(data);
-                                        ActionBarSubGroupLevels levels2 = __instance.m_Levels;
-                                        if (levels2 != null) {
-                                            var pseudoActivatableComponent = data.Blueprint.GetComponent<PseudoActivatable>();
-                                            if (pseudoActivatableComponent != null) {
-                                                Main.LogDebug($"ActionBarGroupElement.FillSlots patch: adding pseudo activatable ability for {data.Blueprint.NameSafe()}");
-                                                levels2.AddSlot(0, new MechanicActionBarSlotPseudoActivatableAbility {
-                                                    Ability = data,
-                                                    Unit = __instance.m_Selected,
-                                                    BuffToWatch = pseudoActivatableComponent.BuffToWatch
-                                                });
-                                            } else {
-                                                levels2.AddSlot(0, new MechanicActionBarSlotAbility {
-                                                    Ability = data,
-                                                    Unit = __instance.m_Selected
-                                                });
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            foreach (Spellbook spellbook in __instance.m_Selected.Descriptor.Spellbooks) {
-                                if (spellbook.Blueprint.MemorizeSpells) {
-                                    for (int i = 0; i <= spellbook.MaxSpellLevel; i++) {
-                                        foreach (SpellSlot spellSlot in spellbook.GetMemorizedSpells(i)) {
-                                            if (!list.Contains(spellSlot.Spell)) {
-                                                list.Add(spellSlot.Spell);
-                                                ActionBarSubGroupLevels levels3 = __instance.m_Levels;
-                                                if (levels3 != null) {
-                                                    levels3.AddSlot(i, new MechanicActionBarSlotMemorizedSpell(spellSlot) {
-                                                        Unit = __instance.m_Selected
-                                                    });
-                                                }
-                                            }
-                                        }
-                                    }
-                                } else {
-                                    for (int j = 1; j <= spellbook.MaxSpellLevel; j++) {
-                                        List<AbilityData> list2 = spellbook.GetSpecialSpells(j).Concat(spellbook.GetKnownSpells(j)).Distinct<AbilityData>().ToList<AbilityData>();
-                                        List<AbilityData> collection = spellbook.GetCustomSpells(j).ToList<AbilityData>();
-                                        list2.AddRange(collection);
-                                        foreach (AbilityData abilityData in list2) {
-                                            if (!list.Contains(abilityData)) {
-                                                list.Add(abilityData);
-                                                ActionBarSubGroupLevels levels4 = __instance.m_Levels;
-                                                if (levels4 != null) {
-                                                    levels4.AddSlot(j, new MechanicActionBarSlotSpontaneousSpell(abilityData) {
-                                                        Unit = __instance.m_Selected
-                                                    });
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            ActionBarSubGroupLevels levels5 = __instance.m_Levels;
-                            if (levels5 == null) {
-                                return false;
-                            }
-                            levels5.SetType(__instance.SlotType);
-                            return false;
-                        }
-                    case ActionBarSlotType.Item:
-                        foreach (UsableSlot usableSlot in __instance.m_Selected.Body.QuickSlots) {
-                            ActionBarGroupSlot slot = __instance.GetSlot(index++);
-                            if (usableSlot.HasItem) {
-                                slot.Set(__instance.m_Selected, new MechanicActionBarSlotItem {
-                                    Item = usableSlot.Item,
-                                    Unit = __instance.m_Selected
-                                });
-                            } else {
-                                slot.Set(__instance.m_Selected, new MechanicActionBarSlotEmpty());
-                            }
-                        }
-                        break;
-                    case ActionBarSlotType.ActivatableAbility:
-                        foreach (Ability ability2 in __instance.m_Selected.Abilities.Visible) {
-                            if (!ability2.Blueprint.IsCantrip) {
-                                __instance.GetSlot(index++).Set(__instance.m_Selected, new MechanicActionBarSlotAbility {
-                                    Ability = ability2.Data,
-                                    Unit = __instance.m_Selected
-                                });
-                            }
-                        }
-                        foreach (ActivatableAbility activatableAbility in __instance.m_Selected.ActivatableAbilities.Visible) {
-                            __instance.GetSlot(index++).Set(__instance.m_Selected, new MechanicActionBarSlotActivableAbility {
-                                ActivatableAbility = activatableAbility,
-                                Unit = __instance.m_Selected
-                            });
-                        }
-                        break;
-                }
-                __instance.AddEmptySlots(index);
-                return false;
-            }
-        }*/
-        
     }
 }

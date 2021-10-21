@@ -22,7 +22,6 @@ namespace TabletopTweaks.NewComponents {
                 Main.Log($"WARNING: PseudoActivatableWatchedBuff.OnActivate triggered on fact {Fact.Name}, but this fact is not a Buff");
                 return;
             }
-            Main.LogDebug($"PseudoActivatableWatchedBuff.OnActivate: {buff.Name}");
             this.Owner.Ensure<UnitPartPseudoActivatableAbilities>().BuffActivated(buff);
         }
 
@@ -31,7 +30,6 @@ namespace TabletopTweaks.NewComponents {
                 Main.Log($"WARNING: PseudoActivatableWatchedBuff.OnDeactivate triggered on fact {Fact.Name}, but this fact is not a Buff");
                 return;
             }
-            Main.LogDebug($"PseudoActivatableWatchedBuff.OnDeactivate: {buff.Name}");
             this.Owner.Get<UnitPartPseudoActivatableAbilities>()?.BuffDeactivated(buff);
         }
 
@@ -40,7 +38,6 @@ namespace TabletopTweaks.NewComponents {
                 Main.Log($"WARNING: PseudoActivatableWatchedBuff.OnPostLoad triggered on fact {Fact.Name}, but this fact is not a Buff");
                 return;
             }
-            Main.LogDebug($"PseudoActivatableWatchedBuff.OnPostLoad: {buff.Name}");
             this.Owner.Ensure<UnitPartPseudoActivatableAbilities>().RegisterWatchedBuff(buff);
         }
     }
