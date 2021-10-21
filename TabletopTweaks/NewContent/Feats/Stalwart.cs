@@ -42,7 +42,7 @@ namespace TabletopTweaks.NewContent.Feats {
         }
 
         private static string StalwartDescription() {
-            if (ModSettings.Fixes.BaseFixes.IsEnabled("DamageReductionRework")) {
+            if (ModSettings.Fixes.BaseFixes.IsDisabled("DamageReductionRework")) {
                 return "While fighting defensively or using Combat Expertise, " +
                     "you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, " +
                     "to a maximum of DR 5/—, until the start of your next turn.";
@@ -87,7 +87,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.m_Icon = DefensiveStanceActivatableAbility.m_Icon;
                 bp.m_Flags = BlueprintBuff.Flags.StayOnDeath;
                 bp.IsClassFeature = true;
-                if (ModSettings.Fixes.BaseFixes.IsEnabled("DamageReductionRework")) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("DamageReductionRework")) {
                     bp.AddComponent<AddDamageResistancePhysical>(c => {
                         c.Value = new ContextValue {
                             ValueType = ContextValueType.Rank
