@@ -81,6 +81,28 @@ namespace TabletopTweaks.NewUnitParts {
             UpdateStateForAbility(abilityBlueprint);
         }
 
+        public void RegisterWatchedBuff(BlueprintBuff buff) {
+            Main.LogDebug($"UnitPartPseudoActivatableAbilities.RegisterWatchedBuff: {buff.Name}");
+            var buffRef = buff.ToReference<BlueprintBuffReference>();
+            if (m_BuffsToAbilities.TryGetValue(buffRef, out var abilities)) {
+                foreach(var abilityBlueprint in abilities) {
+                    if (m_AbilitiesToBuffs.TryGetValue(abilityBlueprint, out var buffsForAbility)) {
+                        buffsForAbility.Add(buffRef);
+                    } else {
+                        m_AbilitiesToBuffs.Add(abilityBlueprint, new HashSet<BlueprintBuffReference> { buffRef });
+                    }
+                }
+            } else {
+                m_BuffsToAbilities.Add(buffRef, new HashSet<BlueprintAbility>());
+            }
+
+            if (this.Owner.Descriptor.HasFact(buffRef)) {
+                BuffActivated(buff);
+            } else {
+                BuffDeactivated(buff);
+            }
+        }
+
         public void BuffActivated(BlueprintBuff buff) {
             Main.LogDebug($"UnitPartPseudoActivatableAbilities.BuffActivated: \"{buff.NameSafe()}\"");
             var buffRef = buff.ToReference<BlueprintBuffReference>();
