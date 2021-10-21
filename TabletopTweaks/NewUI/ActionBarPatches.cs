@@ -5,10 +5,13 @@ using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
+using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewUI {
     class ActionBarPatches {
@@ -22,7 +25,7 @@ namespace TabletopTweaks.NewUI {
                     if (selected == null) {
                         return true;
                     }
-                    __instance.MechanicSlot = new MechanicActionBarSlotPseudoActivatableAbility {
+                    __instance.MechanicSlot = new MechanicActionBarSlotPseudoActivatableAbilityVariant {
                         Spell = spell,
                         Unit = selected,
                         BuffToWatch = pseudoActivatableComponent.BuffToWatch
@@ -60,7 +63,7 @@ namespace TabletopTweaks.NewUI {
                 __instance.ConvertedVm.Value = new ActionBarConvertedVM(__instance.m_Conversion.Select(abilityData => {
                     var pseudoActivatable = abilityData.Blueprint.GetComponent<PseudoActivatable>();
                     if (pseudoActivatable != null) {
-                        return new MechanicActionBarSlotPseudoActivatableAbility {
+                        var slot = new MechanicActionBarSlotPseudoActivatableAbilityVariant {
                             Spell = abilityData,
                             Unit = __instance.MechanicActionBarSlot.Unit,
                             BuffToWatch = pseudoActivatable.BuffToWatch
