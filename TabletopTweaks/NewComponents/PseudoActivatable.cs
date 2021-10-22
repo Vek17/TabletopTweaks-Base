@@ -16,7 +16,7 @@ namespace TabletopTweaks.NewComponents {
         public BlueprintBuffReference BuffToWatch => m_BuffToWatch ?? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null);
 
         [HarmonyPatch(typeof(AddAbilityUseTrigger), nameof(AddAbilityUseTrigger.RunAction))]
-        static class AddFacts_UpdateFacts_CL_Patch {
+        static class AddAbilityUseTrigger_PseudoActivatable_Patch {
             static bool Prefix(AbilityData spell) {
                 return !spell.Blueprint.GetComponent<PseudoActivatable>();
             }
