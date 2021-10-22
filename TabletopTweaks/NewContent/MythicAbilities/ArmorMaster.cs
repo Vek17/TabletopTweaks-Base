@@ -132,7 +132,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.m_Icon = icon;
                 bp.SetName("Armor Master");
                 bp.SetDescription("While wearing armor or wielding a shield, you reduce the armor check penalty by 1 per mythic rank " +
-                    "and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. " +
+                    "and increase the maximum Dexterity bonus allowed by 1 per mythic rank. " +
                     "Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank.");
                 bp.AddComponent<ContextMaxDexBonusIncrease>(c => {
                     c.CheckCategory = true;

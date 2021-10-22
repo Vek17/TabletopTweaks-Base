@@ -10,10 +10,13 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Extensions;
@@ -148,7 +151,7 @@ namespace TabletopTweaks.Utilities {
                 RequiredBuff = bloodrage.ToReference<BlueprintBuffReference>()
             });
         }
-        public static void RegisterBloodragerBloodline(BlueprintProgression bloodline) {
+        public static void RegisterBloodragerBloodline(BlueprintProgression bloodline, BlueprintFeature wanderingBloodline) {
             BlueprintFeatureSelection BloodragerBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
             BlueprintFeatureSelection SecondBloodragerBloodline = Resources.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
             BlueprintAbility MixedBloodlineAbility = Resources.GetBlueprint<BlueprintAbility>("352b4e8bb5ca4301b6e6084304a86546");
@@ -158,13 +161,44 @@ namespace TabletopTweaks.Utilities {
             SecondBloodragerBloodline.m_AllFeatures = BloodragerBloodlineSelection.m_AllFeatures.AppendToArray(bloodline.ToReference<BlueprintFeatureReference>());
             BloodragerBloodlineSelection.m_AllFeatures = BloodragerBloodlineSelection.m_AllFeatures.AppendToArray(bloodline.ToReference<BlueprintFeatureReference>());
 
-            AddFactToApply(MixedBloodlineAbility, bloodline);
-            AddFactToApply(MixedBloodlineAbility2, bloodline);
+            AddFactToApply(MixedBloodlineAbility, wanderingBloodline);
+            AddFactToApply(MixedBloodlineAbility2, wanderingBloodline);
 
             void AddFactToApply(BlueprintAbility ability, BlueprintUnitFact fact) {
                 var component = ability.GetComponent<AbilityApplyFact>();
-                component.m_Facts = component.m_Facts.AppendToArray(fact.ToReference<BlueprintUnitFactReference>());
+                component.m_Facts = component.m_Facts
+                    .AppendToArray(fact.ToReference<BlueprintUnitFactReference>())
+                    .OrderBy(f => f.Get().Name)
+                    .ToArray();
             }
+
+            
+        }
+        public static BlueprintFeature CreateMixedBloodFeature(string name, BlueprintProgression bloodline, Action<BlueprintFeature> init = null) {
+            var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
+            var wanderingBLoodline = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
+                bp.m_DisplayName = bloodline.m_DisplayName;
+                bp.m_Description = Helpers.CreateString($"{name}.description","");
+                bp.m_Icon = bloodline.m_Icon;
+                bp.HideInUI = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
+                bp.IsClassFeature = true;
+                bloodline.LevelEntries.ForEach(entry => {
+                    foreach (var feature in entry.Features) {
+                        if (feature is BlueprintFeatureSelection) { continue; }
+                        if (feature.GetComponent<AddKnownSpell>()) { continue; }
+                        bp.AddComponent<AddFeatureOnClassLevel>(c => {
+                            c.m_Class = BloodragerClass;
+                            c.m_AdditionalClasses = new BlueprintCharacterClassReference[0];
+                            c.m_Archetypes = new BlueprintArchetypeReference[0];
+                            c.m_Feature = feature.ToReference<BlueprintFeatureReference>();
+                            c.Level = entry.Level;
+                        });
+                    }
+                });
+            });
+            init?.Invoke(wanderingBLoodline);
+            return wanderingBLoodline;
         }
         public static void RegisterSorcererBloodline(BlueprintProgression bloodline) {
             BlueprintFeatureSelection SorcererBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("24bef8d1bee12274686f6da6ccbc8914");

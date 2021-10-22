@@ -1,5 +1,9 @@
 ## Version 1.9.3
 * Added new modified version of Armor Master as a homebrew option
+* Updated icon for Aeon Bane
+* Minor fixes to nestest activatable abilities
+* Aberant bloodline should now work correctly with Mixed Blood Bloodrager
+* Destined bloodline should now work correctly with Mixed Blood Bloodrager
 
 ## Version 1.9.2
 * Removed the movement impairing descriptor from staggered

@@ -64,10 +64,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "throw or be staggered for 1 round. The DC of this save is equal to 10 + 1/2 your bloodrager level + your "
                     + "Constitution modifier. These effects stack with the Staggering Critical feat; the target must save against "
                     + "each effect individually.");
+                bp.IsClassFeature = true;
             });
             var BloodragerAberrantStaggeringStrikeBuff = Helpers.CreateBuff("BloodragerAberrantStaggeringStrikeBuff", bp => {
                 bp.SetName(BloodragerAberrantStaggeringStrike.Name);
                 bp.SetDescription(BloodragerAberrantStaggeringStrike.Description);
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 var Staggered = Resources.GetBlueprint<BlueprintBuff>("df3950af5a783bd4d91ab73eb8fa0fd3").ToReference<BlueprintBuffReference>();
 
@@ -105,10 +107,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantAbnormalReach = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantAbnormalReach", bp => {
                 bp.SetName("Abnormal Reach");
                 bp.SetDescription("At 4th level, your limbs elongate and your reach increases by 5 feet.");
+                bp.IsClassFeature = true;
             });
             var BloodragerAberrantAbnormalReachBuff = Helpers.CreateBuff("BloodragerAberrantAbnormalReachBuff", bp => {
                 bp.SetName(BloodragerAberrantAbnormalReach.Name);
                 bp.SetDescription(BloodragerAberrantAbnormalReach.Description);
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -119,10 +123,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantFortitude = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantFortitude", bp => {
                 bp.SetName("Aberrant Fortitude");
                 bp.SetDescription("At 8th level, you become immune to the sickened and nauseated conditions.");
+                bp.IsClassFeature = true;
             });
             var BloodragerAberrantFortitudeBuff = Helpers.CreateBuff("BloodragerAberrantFortitudeBuff", bp => {
                 bp.SetName(BloodragerAberrantFortitude.Name);
                 bp.SetDescription(BloodragerAberrantFortitude.Description);
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Sickened;
@@ -141,10 +147,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Unusual Anatomy");
                 bp.SetDescription("At 12th level, your internal anatomy shifts and changes, giving you a 50% chance to negate "
                     + "any critical hit or sneak attack that hits you. The damage is instead rolled normally.");
+                bp.IsClassFeature = true;
             });
             var BloodragerAberrantUnusualAnatomyBuff = Helpers.CreateBuff("BloodragerAberrantUnusualAnatomyBuff", bp => {
                 bp.SetName(BloodragerAberrantUnusualAnatomy.Name);
                 bp.SetDescription(BloodragerAberrantUnusualAnatomy.Description);
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<AddFortification>(c => {
                     c.UseContextValue = false;
@@ -154,10 +162,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantResistance = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantResistance", bp => {
                 bp.SetName("Aberrant Resistance");
                 bp.SetDescription("At 16th level, you are immune to disease, exhaustion, fatigue, and poison, and to the staggered condition.");
+                bp.IsClassFeature = true;
             });
             var BloodragerAberrantResistanceBuff = Helpers.CreateBuff("BloodragerAberrantResistanceBuff", bp => {
                 bp.SetName(BloodragerAberrantResistance.Name);
                 bp.SetDescription(BloodragerAberrantResistance.Description);
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Fatigued;
@@ -180,6 +190,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. "
                     + "In addition, you gain blindsight with a range of 60 feet and your bloodrager damage reduction increases by 1. "
                     + "You have these benefits constantly, even while not bloodraging.");
+                bp.IsClassFeature = true;
                 bp.AddComponent<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;
@@ -208,6 +219,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerAberrantFeatSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BloodragerAberrantFeatSelection", bp => {
                 bp.SetName("Bonus Feats");
                 bp.SetDescription("Bonus Feats: Combat Reflexes, Great Fortitude, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will.");
+                bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.HideNotAvailibleInUI = true;
@@ -243,6 +255,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = EnlargePerson;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -253,6 +266,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = SeeInvisibility;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -263,6 +277,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = Displacement;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -273,6 +288,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = SpikeStones;
                 bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -286,6 +302,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "While bloodraging, you gain the abilities and immunities of some aberrations, but show signs of your tainted heritage.\n"
                     + BloodragerAberrantFeatSelection.Description
                     + "\nBonus Spells: Enlarge Person (7th), See Invisibility (10th), Displacement (13th), Spike Stones (16th).");
+                bp.IsClassFeature = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = BloodragerClass
@@ -322,8 +339,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     Helpers.CreateUIGroup(BloodragerAberrantFeatSelection, BloodragerAberrantFeatSelectionGreenrager)
                 };
             });
+            var BloodragerAberrantBloodlineWandering = BloodlineTools.CreateMixedBloodFeature("BloodragerAberrantBloodlineWandering", BloodragerAberrantBloodline, bp => {
+                bp.m_Icon = AssetLoader.LoadInternal("Abilities", "Icon_AberrantBloodline.png");
+            });
             var BloodragerAberrantBaseBuff = Helpers.CreateBuff("BloodragerAberrantBaseBuff", bp => {
+                bp.SetName("Aberrant Bloodrage");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
             });
 
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantStaggeringStrike, BloodragerAberrantStaggeringStrikeBuff);
@@ -339,7 +361,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodlineTools.ApplyPrimalistException(BloodragerAberrantResistance, 16, BloodragerAberrantBloodline);
             BloodlineTools.ApplyPrimalistException(BloodragerAberrantForm, 20, BloodragerAberrantBloodline);
             if (ModSettings.AddedContent.Bloodlines.IsDisabled("AberrantBloodline")) { return; }
-            BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline);
+            BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline, BloodragerAberrantBloodlineWandering);
         }
         public static void AddSorcererAberrantBloodline() {
             var SorcererClass = Resources.GetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
@@ -517,7 +539,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         ValueRank = AbilityRankType.StatBonus
                     };
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
                     c.m_Progression = ContextRankProgression.BonusValue;
@@ -525,12 +547,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     c.m_Max = 20;
                     c.m_Class = new BlueprintCharacterClassReference[] { SorcererClass, MagusClass };
                     c.Archetype = EldritchScionArchetype;
-                }));
+                });
             });
             var SorcererAberrantForm = Helpers.CreateBlueprint<BlueprintFeature>("SorcererAberrantForm", bp => {
                 bp.SetName("Aberrant Form");
                 bp.SetDescription("At 20th level, your body becomes truly unnatural. You are immune to critical hits and sneak attacks. +"
                     + "In addition, you gain blindsight with a range of 60 feet and damage reduction 5/—");
+                bp.IsClassFeature = true;
                 bp.AddComponent<Blindsense>(c => {
                     c.Range.m_Value = 60;
                     c.Blindsight = true;

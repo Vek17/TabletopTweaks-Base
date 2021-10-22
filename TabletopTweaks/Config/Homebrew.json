@@ -7,6 +7,11 @@
                     "Homebrew": true,
                     "Description": "Aeon Bane is now a free action to activate instead of a swift."
                 },
+                "AeonBaneIcon": {
+                    "Enabled": true,
+                    "Homebrew": true,
+                    "Description": "Update Aeon Bane's Icon."
+                },
                 "AeonBaneSpellResistance": {
                     "Enabled": true,
                     "Homebrew": true,
