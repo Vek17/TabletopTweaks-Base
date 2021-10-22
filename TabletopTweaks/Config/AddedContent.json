@@ -370,9 +370,14 @@
                 "Description": "You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one."
             },
             "ArmorMaster": {
-                "Enabled": true,
+                "Enabled": false,
                 "Homebrew": false,
-                "Description": "You don't take an armor check penalty or incur an arcane spell failure chance when wearing the selected type of armor or using any shield. In addition, the maximum Dexterity bonus of light armor doesn’t apply to you."
+                "Description": "You don't take an armor check penalty or incur an arcane spell failure chance when wearing the selected type of armor or using any shield. In addition, the maximum Dexterity bonus of the selected armor type doesn't apply to you."
+            },
+            "ArmorMasterHomebrew": {
+                "Enabled": true,
+                "Homebrew": true,
+                "Description": "Alternate versrion of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank."
             },
             "ImpossibleSpeed": {
                 "Enabled": true,
