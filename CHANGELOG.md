@@ -1,6 +1,7 @@
 ## Version 1.9.3a
 * Fixed issue with Oracle curse progression moving at the wrong rate
 * Fixed issue with alternate racial features breaking with Destinaty Beyond Birth
+* Fixed CL scaling on Burning Magic Revelation
 
 ## Version 1.9.3
 * Added new modified version of Armor Master as a homebrew option
