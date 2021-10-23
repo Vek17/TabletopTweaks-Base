@@ -22,7 +22,7 @@ namespace TabletopTweaks.Bugfixes.Items {
 
                 if (ModSettings.Fixes.Items.Weapons.IsDisabled("GhostlyPathwaysRings")) { return; }
 
-                Main.LogHeader("Patching Purifier Resources");
+                Main.LogHeader("Patching Relic Rings");
 
                 var BrokenSoulAbility = Resources.GetBlueprint<BlueprintAbility>("79858b03ea88801449c95ff9ed813333");
 
