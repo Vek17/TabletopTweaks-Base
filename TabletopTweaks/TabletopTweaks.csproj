@@ -214,7 +214,7 @@
     <Compile Include="NewComponents\ForceACUpdate.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
-    <Compile Include="NewComponents\NestedPsudoActivatableAbilities.cs" />
+    <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
     <Compile Include="NewComponents\Properties\ProgressionRankProperty.cs" />

@@ -186,7 +186,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     c.ResourceCostDecreasingFacts = new List<BlueprintUnitFactReference>();
                     c.ResourceCostIncreasingFacts = new List<BlueprintUnitFactReference>();
                 });
-                bp.AddComponent<NestedPsudoActivatableAbilities>(c => {
+                bp.AddComponent<NestedPseudoActivatableAbilities>(c => {
                     c.m_Variants = new BlueprintAbilityReference[0];
                 });
                 bp.AddComponent<UpdateSlotsOnEquipmentChange>();
@@ -276,39 +276,15 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.CanTargetSelf = true;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Special;
                 bp.DisableLog = true;
-                bp.AddComponent<AbilityEffectRunAction>(c => {
-                    c.Actions = Helpers.CreateActionList(
-                        new Conditional {
-                            ConditionsChecker = new ConditionsChecker {
-                                Conditions = new Condition[] {
-                                    new ContextConditionHasBuff() {
-                                        m_Buff = weaponBuff.ToReference<BlueprintBuffReference>()
-                                    }
-                                }
-                            },
-                            IfTrue = Helpers.CreateActionList(
-                                new ContextActionRemoveBuff() {
-                                    m_Buff = weaponBuff.ToReference<BlueprintBuffReference>()
-                                }
-                            ),
-                            IfFalse = Helpers.CreateActionList(
-                                new ContextActionApplyBuff() {
-                                    IsNotDispelable = true,
-                                    Permanent = true,
-                                    m_Buff = weaponBuff.ToReference<BlueprintBuffReference>()
-                                }
-                            ),
-                        }
-                    );
-                });
                 bp.AddComponent<AbilityShowIfCasterWeaponTrainingRank>(c => {
                     c.Rank = cost;
                 });
                 bp.AddComponent<PseudoActivatable>(c => {
                     c.m_Buff = weaponBuff.ToReference<BlueprintBuffReference>();
+                    c.m_GroupName = "WarriorSpirit";
                 });
             });
-            var abilityVariants = parent.GetComponent<NestedPsudoActivatableAbilities>();
+            var abilityVariants = parent.GetComponent<NestedPseudoActivatableAbilities>();
             abilityVariants.m_Variants = abilityVariants.m_Variants.AppendToArray(toggleAbility.ToReference<BlueprintAbilityReference>());
             return toggleAbility;
         }
