@@ -30,7 +30,7 @@ namespace TabletopTweaks.NewUI {
                     __instance.MechanicSlot = new MechanicActionBarSlotPseudoActivatableAbilityVariant {
                         Spell = spell,
                         Unit = selected,
-                        BuffToWatch = pseudoActivatableComponent.BuffToWatch
+                        BuffToWatch = pseudoActivatableComponent.Buff
                     };
                     __instance.MechanicSlot.SetSlot(__instance);
                     selected.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(__instance.MechanicSlot);
@@ -67,7 +67,7 @@ namespace TabletopTweaks.NewUI {
                         var slot = new MechanicActionBarSlotPseudoActivatableAbilityVariant {
                             Spell = abilityData,
                             Unit = __instance.MechanicActionBarSlot.Unit,
-                            BuffToWatch = pseudoActivatable.BuffToWatch
+                            BuffToWatch = pseudoActivatable.Buff
                         };
                         __instance.MechanicActionBarSlot.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(slot);
                         return slot;
@@ -95,7 +95,6 @@ namespace TabletopTweaks.NewUI {
                     && !(__instance.MechanicActionBarSlot.IsBad())
                     && __instance.MechanicActionBarSlot is MechanicActionBarSlotPseudoActivatableAbility pseudoActivatable
                     && pseudoActivatable.ShouldUpdateForeIcon) {
-                    Main.LogDebug($"ActionBarSlotVM_SetResource_Patch: updating fore icon for {pseudoActivatable.Ability.Name}");
                     __instance.ForeIcon.Value = pseudoActivatable.GetForeIcon();
                     pseudoActivatable.ShouldUpdateForeIcon = false;
                 }
@@ -112,7 +111,7 @@ namespace TabletopTweaks.NewUI {
                             MechanicActionBarSlotPseudoActivatableAbility actionBarSlotPseudoActivatableAbility = new MechanicActionBarSlotPseudoActivatableAbility {
                                 Ability = ability.Data,
                                 Unit = unit,
-                                BuffToWatch = ability.GetComponent<PseudoActivatable>().BuffToWatch
+                                BuffToWatch = ability.GetComponent<PseudoActivatable>().Buff
                             };
                             unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(actionBarSlotPseudoActivatableAbility);
                             ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotPseudoActivatableAbility);
@@ -153,6 +152,27 @@ namespace TabletopTweaks.NewUI {
                         __instance.Owner.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(pseudoActivatableAbilityVariant);
                     }
                 }
+            }
+        }
+
+        [HarmonyPatch(typeof(UnitUISettings.AbilityWrapper), nameof(UnitUISettings.AbilityWrapper.CreateSlot))]
+        static class UnitUISettingsAbilityWrapper_CreateSlot_Patch {
+            static bool Prefix(UnitUISettings.AbilityWrapper __instance, UnitEntityData unit, ref MechanicActionBarSlot __result) {
+                if (__instance.SpellSlot != null || __instance.SpontaneousSpell != null || __instance.Ability == null)
+                    return true;
+
+                var pseudoActivatableComponent = __instance.Ability.GetComponent<PseudoActivatable>();
+                if (pseudoActivatableComponent == null)
+                    return true;
+
+                var slot = new MechanicActionBarSlotPseudoActivatableAbility {
+                    Ability = __instance.Ability.Data,
+                    Unit = unit,
+                    BuffToWatch = pseudoActivatableComponent.Buff
+                };
+                unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(slot);
+                __result = slot;
+                return false;
             }
         }
     }

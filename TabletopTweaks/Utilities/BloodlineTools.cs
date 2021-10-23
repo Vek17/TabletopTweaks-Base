@@ -261,7 +261,6 @@ namespace TabletopTweaks.Utilities {
                     c.m_CheckedBuff = rageBuff.ToReference<BlueprintBuffReference>();
                     c.m_ExtraEffectBuff = spellBuff.ToReference<BlueprintBuffReference>();
                 });
-                bp.AddComponent<PseudoActivatableWatchedBuff>();
             });
         }
 
@@ -270,6 +269,7 @@ namespace TabletopTweaks.Utilities {
             BlueprintAbility abilityToImitate,
             BlueprintAbility bloodragerArcaneSpellAbility,
             BlueprintBuff switchBuff,
+            string buffGroupName,
             List<BlueprintBuff> allToggleBuffsInGroup
             ) {
             var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
@@ -289,50 +289,9 @@ namespace TabletopTweaks.Utilities {
                 bp.CanTargetFriends = true;
                 bp.CanTargetSelf = true;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Special;
-                bp.AddComponent<AbilityEffectRunAction>(c => {
-                    c.Actions = new ActionList() {
-                        Actions = new GameAction[] {
-                                    new Conditional() {
-                                        name = bloodragerArcaneSpellAbility.name,
-                                        Comment = abilityToImitate.name,
-                                        ConditionsChecker = new ConditionsChecker() {
-                                            Conditions = new Condition[] {
-                                                new ContextConditionHasFact() {
-                                                    m_Fact = switchBuff.ToReference<BlueprintUnitFactReference>()
-                                                }
-                                            }
-                                        },
-                                        IfTrue = new ActionList() {
-                                            Actions = new GameAction[] {
-                                                new ContextActionRemoveBuff() {
-                                                    m_Buff = switchBuff.ToReference<BlueprintBuffReference>()
-                                                }
-                                            }
-                                        },
-                                        IfFalse = new ActionList() {
-                                            Actions = new GameAction[] {
-                                                new ContextActionApplyBuff() {
-                                                    m_Buff = switchBuff.ToReference<BlueprintBuffReference>(),
-                                                    Permanent = true,
-                                                    IsNotDispelable = true,
-                                                    DurationValue = new Kingmaker.UnitLogic.Mechanics.ContextDurationValue(),
-                                                    AsChild = true
-                                                }
-                                            }.AppendToArray(
-                                                allToggleBuffsInGroup
-                                                    .Where(b => b != switchBuff)
-                                                    .Select(buff =>
-                                                        new ContextActionRemoveBuff() {
-                                                            m_Buff = buff.ToReference<BlueprintBuffReference>()
-                                                        })
-                                                    ).ToArray()
-                                        }
-                                    }
-                                }
-                    };
-                });
                 bp.AddComponent<PseudoActivatable>(c => {
-                    c.m_BuffToWatch = switchBuff.ToReference<BlueprintBuffReference>();
+                    c.m_Buff = switchBuff.ToReference<BlueprintBuffReference>();
+                    c.m_GroupName = buffGroupName;
                 });
                 bp.AddComponent<AbilityRequirementHasBuff>(c => {
                     c.Not = true;
@@ -367,6 +326,7 @@ namespace TabletopTweaks.Utilities {
                 bp.IsClassFeature = true;
                 bp.SetName(displayName);
                 bp.m_Description = polymorphBuff.m_Description;
+                bp.m_Icon = polymorphBuff.m_Icon;
                 bp.AddComponent<AddFactContextActions>(c => {
                     c.Activated = new ActionList() {
                         Actions = new GameAction[] {
