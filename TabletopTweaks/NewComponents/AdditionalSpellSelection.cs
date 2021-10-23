@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewComponents {
     class AdditionalSpellSelection : UnitFactComponentDelegate, IUnitCompleteLevelUpHandler {
 
         private Spellbook SpellBook { get => Owner.DemandSpellbook(m_SpellCastingClass); }
-        private BlueprintSpellList SpellList { get => new ProxyBlueprintSpellList(SpellBook?.Blueprint?.SpellList); }
+        private BlueprintSpellList SpellList { get => new ProxyBlueprintSpellList(m_SpellList ?? SpellBook?.Blueprint?.SpellList); }
         public int AdjustedMaxLevel {
             get {
                 if (!UseOffset) { return MaxSpellLevel; }

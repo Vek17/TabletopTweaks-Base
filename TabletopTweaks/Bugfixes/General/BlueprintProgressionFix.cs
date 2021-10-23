@@ -22,8 +22,8 @@ namespace TabletopTweaks.MechanicsChanges {
                     int originalIncrease = 0;
                     while (enumerator.MoveNext()) {
                         ClassData c = enumerator.Current;
-                        if (!__instance.m_Classes.HasItem((BlueprintProgression.ClassWithLevel i) => i.Class == c.CharacterClass)
-                            || !c.Archetypes.HasItem((BlueprintArchetype a) => __instance.m_Archetypes.HasItem((BlueprintProgression.ArchetypeWithLevel i) => i.Archetype == a))) {
+                        if (!__instance.m_Classes.HasItem((BlueprintProgression.ClassWithLevel i) => i.Class == c.CharacterClass) 
+                            && !c.Archetypes.HasItem((BlueprintArchetype a) => __instance.m_Archetypes.HasItem((BlueprintProgression.ArchetypeWithLevel i) => i.Archetype == a))) {
                             originalIncrease += c.Level;
                         }
                     }
@@ -32,9 +32,9 @@ namespace TabletopTweaks.MechanicsChanges {
                             originalIncrease /= 2;
                             break;
                     }
-                    Main.Log($"Original Increase: {originalIncrease}");
+                    //Main.Log($"Original Increase: {originalIncrease}");
                     __result -= originalIncrease;
-                    Main.Log($"TotalValue: {__result}\n");
+                    //Main.Log($"TotalValue: {__result}\n");
                 }
                 //New correct logic
                 int newIncrease = 0;
@@ -52,7 +52,9 @@ namespace TabletopTweaks.MechanicsChanges {
                         newIncrease /= 2;
                         break;
                 }
+                //Main.Log($"New Increase: {newIncrease}");
                 __result += newIncrease;
+                //Main.Log($"TotalValue: {__result}\n");
             }
         }
     }

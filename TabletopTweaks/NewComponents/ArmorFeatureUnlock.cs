@@ -26,7 +26,7 @@ namespace TabletopTweaks.NewComponents {
         IUnitEquipmentHandler {
         public override void OnTurnOn() {
             base.OnTurnOn();
-            CheckEligibility();
+            Update();
         }
 
         public override void OnTurnOff() {
@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public override void OnActivate() {
-            CheckEligibility();
+            Update();
         }
 
         public override void OnDeactivate() {
@@ -43,9 +43,9 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void HandleUnitChangeActiveEquipmentSet(UnitDescriptor unit) {
-            CheckEligibility();
+            Update();
         }
-
+        /*
         private void CheckEligibility() {
             RemoveFact();
             if (Owner.Body.IsPolymorphed) { return; }
@@ -62,6 +62,14 @@ namespace TabletopTweaks.NewComponents {
                 return;
             };
         }
+        */
+        private bool ShouldApply() {
+            if (Owner.Body.IsPolymorphed) { return false; }
+            var Armor = Owner.Body?.Armor?.MaybeArmor;
+            var Shield = Owner.Body?.SecondaryHand?.MaybeShield?.ArmorComponent;
+            return (Armor != null && (RequiredArmor.Contains(Armor.Blueprint.ProficiencyGroup) == !Invert))
+                || (Shield != null && (RequiredArmor.Contains(Shield.Blueprint.ProficiencyGroup) == !Invert));
+        }
 
         private void AddFact() {
             if (Data.AppliedFact == null) {
@@ -76,6 +84,14 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
+        private void Update() {
+            if (ShouldApply()) {
+                AddFact();
+            } else {
+                RemoveFact();
+            }
+        }
+
         public void HandleEquipmentSlotUpdated(ItemSlot slot, ItemEntity previousItem) {
             if (slot.Owner != Owner) {
                 return;
@@ -83,14 +99,14 @@ namespace TabletopTweaks.NewComponents {
             if (!slot.Active) {
                 return;
             }
-            CheckEligibility();
+            Update();
         }
 
         public void HandleUnitBeforeLevelUp(UnitEntityData unit) {
         }
 
         public void HandleUnitAfterLevelUp(UnitEntityData unit, LevelUpController controller) {
-            CheckEligibility();
+            Update();
         }
 
         [SerializeField]

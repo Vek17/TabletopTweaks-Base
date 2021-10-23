@@ -46,7 +46,11 @@
             },
             "FixInherentSkillpoints": {
                 "Enabled": true,
-                "Description": "Inhernt bonuses to a stat now grant bonus skill points."
+                "Description": "Allows Inhernt bonuses to a stat now grant bonus skill points."
+            },
+            "FixInherentBonuses": {
+                "Enabled": true,
+                "Description": "Allows Inhernt bonuses to count for feat prerequisites."
             },
             "FixMountedLongspearModifer": {
                 "Enabled": true,
@@ -323,6 +327,10 @@
                 "NaturesWhisperMonkStacking": {
                     "Enabled": true,
                     "Description": "Prevents Natures Whispers from stacking with Scaled Fist AC bonus. If scaled fist is present dexterity will be used for AC not charisma."
+                },
+                "RevelationBurningMagic": {
+                    "Enabled": true,
+                    "Description": "Fixes the CL scaling to be equal to oracle level."
                 }
             }
         },

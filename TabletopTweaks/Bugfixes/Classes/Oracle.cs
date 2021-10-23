@@ -1,9 +1,12 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -22,6 +25,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchBase() {
                 PatchNaturesWhisper();
+                PatchFlameMystery();
 
                 void PatchNaturesWhisper() {
                     if (ModSettings.Fixes.Oracle.Base.IsDisabled("NaturesWhisperMonkStacking")) { return; }
@@ -38,6 +42,18 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         c.Not = true;
                     });
                     Main.LogPatch("Patched", OracleRevelationNatureWhispers);
+                }
+
+                void PatchFlameMystery() {
+                    PatchRevelationBurningMagic();
+
+                    void PatchRevelationBurningMagic() {
+                        if (ModSettings.Fixes.Oracle.Base.IsDisabled("RevelationBurningMagic")) { return; }
+
+                        var OracleRevelationBurningMagicBuff = Resources.GetBlueprint<BlueprintBuff>("4ae27ae7c3d758041b25e9a3aff73592");
+                        OracleRevelationBurningMagicBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.AsIs;
+                        Main.LogPatch("Patched", OracleRevelationBurningMagicBuff);
+                    }
                 }
             }
             static void PatchArchetypes() {

@@ -47,6 +47,7 @@ namespace TabletopTweaks.MythicReworks {
                 Initialized = true;
                 Main.LogHeader("Aeon Rework");
 
+                PatchAeonBaneIcon();
                 PatchAeonBaneAction();
                 PatchAeonBaneSpellResistance();
                 PatchAeonBaneUses();
@@ -58,6 +59,16 @@ namespace TabletopTweaks.MythicReworks {
                 PatchAeonGazeSelection();
             }
 
+            static void PatchAeonBaneIcon() {
+                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneIcon")) { return; }
+                var Icon_AeonBane = AssetLoader.LoadInternal("Abilities", "Icon_AeonBane.png");
+                var AeonBaneFeature = Resources.GetBlueprint<BlueprintFeature>("0b25e8d8b0488c84c9b5714e9ca0a204");
+                var AeonBaneAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("67fb31f553f2bb14bbfae0b1040169f1");
+                AeonBaneFeature.m_Icon = Icon_AeonBane;
+                AeonBaneAbility.m_Icon = Icon_AeonBane;
+                Main.LogPatch("Patched", AeonBaneFeature);
+                Main.LogPatch("Patched", AeonBaneAbility);
+            }
             static void PatchAeonBaneAction() {
                 if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneAction")) { return; }
                 var AeonBaneAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("67fb31f553f2bb14bbfae0b1040169f1");

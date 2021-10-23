@@ -26,7 +26,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent<ArmorSpeedPenaltyRemoval>();
             });
             var AdvancedArmorTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedArmorTrainingSelection", bp => {
-                bp.Ranks = 3;
                 bp.SetName("Advanced Armor Training");
                 bp.SetDescription("Beginning at 7th level, instead of increasing the benefits provided by armor training " +
                     "(reducing his armor check penalty by 1 and increasing its maximum Dexterity bonus by 1), a fighter can " +

@@ -84,6 +84,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.Ranks = 5;
                 bp.SetName("Destined Strike");
                 bp.SetDescription("You can grant yourself an insight bonus equal to 1/2 your bloodrager level (minimum 1) on one melee attack.");
+                bp.IsClassFeature = true;
                 bp.m_Icon = TrueStrike.Icon;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Insight;
@@ -148,6 +149,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var BloodragerDestinedStrike = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedStrike", bp => {
                 bp.SetName(BloodragerDestinedStrikeAbility.Name);
                 bp.SetDescription(BloodragerDestinedStrikeAbility.Description);
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         BloodragerDestinedStrikeAbility.ToReference<BlueprintUnitFactReference>(),
@@ -165,12 +167,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Fated Bloodrager");
                 bp.SetDescription("At 4th level, you gain a +1 luck bonus to AC and on saving throws. At 8th level and every "
                     + "4 levels thereafter, this bonus increases by 1 (to a maximum of +5 at 20th level).");
+                bp.IsClassFeature = true;
                 bp.Ranks = 5;
             });
             var BloodragerDestinedFatedBloodragerBuff = Helpers.CreateBuff("BloodragerDestinedFatedBloodragerBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedFatedBloodrager.Name);
                 bp.SetDescription(BloodragerDestinedFatedBloodrager.Description);
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Stat = StatType.AC;
@@ -218,12 +222,14 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Certain Strike");
                 bp.SetDescription("At 8th level, you may reroll an attack roll once during a bloodrage. You must decide to use this ability after "
                     + "the die is rolled, but before the GM reveals the results. You must take the second result, even if it’s worse.");
+                bp.IsClassFeature = true;
             });
             var BloodragerDestinedCertainStrikeBuff = Helpers.CreateBuff("BloodragerDestinedCertainStrikeBuff", bp => {
                 //bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.m_Icon = LuckDomain.Icon;
                 bp.SetName(BloodragerDestinedCertainStrike.Name);
                 bp.SetDescription(BloodragerDestinedCertainStrike.Description);
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<ModifyD20>(c => {
                     c.RerollOnlyIfFailed = true;
                     c.Rule = RuleType.AttackRoll;
@@ -252,6 +258,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 12th level, once per day when an attack or spell that deals damage would result in your death"
                     + ", you can attempt a DC 20 Fortitude save. If you succeed, you are instead reduced to 1 hit point; if you "
                     + "succeed and already have less than 1 hit point, you instead take no damage.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddAbilityResources>(c => {
                     c.m_Resource = BloodragerDestinedDefyDeathResource.ToReference<BlueprintAbilityResourceReference>();
                     c.RestoreAmount = true;
@@ -261,6 +268,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedDefyDeath.Name);
                 bp.SetDescription(BloodragerDestinedDefyDeath.Description);
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<SurviveDeathWithSave>(c => {
                     c.DC = 20;
                     c.Type = SavingThrowType.Fortitude;
@@ -274,10 +282,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Unstoppable ");
                 bp.SetDescription("At 16th level, any critical threats you score are automatically confirmed. Any critical "
                     + "threats made against you confirm only if the second roll results in a natural 20 (or is automatically confirmed).");
+                bp.IsClassFeature = true;
             });
             var BloodragerDestinedUnstoppableBuff = Helpers.CreateBuff("BloodragerDestinedUnstoppableBuff", bp => {
                 bp.SetName(BloodragerDestinedUnstoppable.Name);
                 bp.SetDescription(BloodragerDestinedUnstoppable.Description);
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<CriticalConfirmationACBonus>(c => {
                     c.Value = new ContextValue() {
@@ -291,6 +301,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("Victory or Death");
                 bp.SetDescription("At 20th level, you are immune to paralysis and petrification, as well as to the stunned, dazed, "
                     + "and staggered conditions. You have these benefits constantly, even while not bloodraging.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddConditionImmunity>(c => {
                     c.Condition = UnitCondition.Paralyzed;
                 }));
@@ -360,6 +371,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = MageShield;
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -370,6 +382,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = Blur;
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -380,6 +393,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = ProtectionFromEnergy;
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -390,6 +404,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 var spell = FreedomOfMovement;
                 bp.SetName($"Bonus Spell — {spell.Get().Name}");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
                     c.m_Spell = spell;
@@ -403,6 +418,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     + "Your future greatness grants you the might to strike your enemies with awe.\n"
                     + BloodragerDestinedFeatSelection.Description
                     + "\nBonus Spells: Shield (7th), Blur (10th), Protection From Energy (13th), Freedom Of Movement (16th).");
+                bp.IsClassFeature = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = BloodragerClass
@@ -440,7 +456,12 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                     Helpers.CreateUIGroup(BloodragerDestinedFeatSelection, BloodragerDestinedFeatSelectionGreenrager)
                 };
             });
+            var BloodragerAberrantBloodlineWandering = BloodlineTools.CreateMixedBloodFeature("BloodragerDestinedBloodlineWandering", BloodragerDestinedBloodline, bp => {
+                bp.m_Icon = AssetLoader.LoadInternal("Abilities", "Icon_DestinedBloodline.png");
+            });
             var BloodragerDestinedBaseBuff = Helpers.CreateBuff("BloodragerDestinedBaseBuff", bp => {
+                bp.SetName("Destined Bloodrage");
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
 
@@ -460,7 +481,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             BloodlineTools.ApplyPrimalistException(BloodragerDestinedUnstoppable, 16, BloodragerDestinedBloodline);
             BloodlineTools.ApplyPrimalistException(BloodragerDestinedVictoryOrDeath, 20, BloodragerDestinedBloodline);
             if (ModSettings.AddedContent.Bloodlines.IsDisabled("DestinedBloodline")) { return; }
-            BloodlineTools.RegisterBloodragerBloodline(BloodragerDestinedBloodline);
+            BloodlineTools.RegisterBloodragerBloodline(BloodragerDestinedBloodline, BloodragerAberrantBloodlineWandering);
         }
         public static void AddSorcererDestinedBloodline() {
             var SorcererClass = Resources.GetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();
@@ -504,6 +525,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff1 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff1", bp => {
                 bp.SetName("Destined Bloodline Arcana");
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -512,6 +534,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff2 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff2", bp => {
                 bp.SetName("Destined Bloodline Arcana");
+                bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -520,6 +543,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff3 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff3", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -536,6 +560,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff5 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff5", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -544,6 +569,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff6 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff6", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -552,6 +578,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff7 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff7", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -560,6 +587,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff8 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff8", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -568,6 +596,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var SorcererDestinedBloodlineArcanaBuff9 = Helpers.CreateBuff("SorcererDestinedBloodlineArcanaBuff9", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.IsClassFeature = true;
                 bp.SetName("Destined Bloodline Arcana");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
@@ -608,6 +637,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.m_Icon = LawDomainBaseAbility.Icon;
                 bp.SetName("Touch of Destiny");
                 bp.SetDescription("");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Insight;
                     c.Stat = StatType.AdditionalAttackBonus;
@@ -698,6 +728,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererDestinedTouchOfDestiny = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedTouchOfDestiny", bp => {
                 bp.SetName(SorcererDestinedTouchOfDestinyAbility.Name);
                 bp.SetDescription(SorcererDestinedTouchOfDestinyAbility.Description);
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         SorcererDestinedTouchOfDestinyAbility.ToReference<BlueprintUnitFactReference>(),
@@ -728,6 +759,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 15th level, your ultimate destiny is drawing near. Once per day, when an attack or spell that causes "
                     + "damage would result in your death, you may attempt a DC 20 Will save. If successful, you are instead reduced to –1 hit "
                     + "points and are automatically stabilized. The bonus from your fated ability applies to this save.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<SurviveDeathWithSave>(c => {
                     c.DC = 20;
                     c.Type = SavingThrowType.Will;
@@ -747,6 +779,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during the first"
                     + "round of combat. At 7th level and every four levels thereafter, this bonus increases "
                     + "by +1, to a maximum of +5 at 19th level.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Stat = StatType.SaveFortitude;
@@ -799,6 +832,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during the first"
                     + "round of combat or when you are otherwise unaware of an attack. At 7th level and every four levels thereafter, this bonus increases "
                     + "by +1, to a maximum of +5 at 19th level.");
+                bp.IsClassFeature = true;
                 var fatedBuff = Helpers.Create<ContextActionApplyBuff>(c => {
                     c.m_Buff = SorcererDestinedFatedBuff.ToReference<BlueprintBuffReference>();
                     c.IsNotDispelable = true;
@@ -846,6 +880,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererDestinedItWasMeantToBeResourceIncrease = Helpers.CreateBlueprint<BlueprintFeature>("SorcererDestinedItWasMeantToBeResourceIncrease", bp => {
                 bp.SetName("It Was Meant To Be (+1 Uses)");
                 bp.SetDescription("It Was Meant To Be (+1 Uses)");
+                bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.AddComponent(Helpers.Create<IncreaseResourceAmount>(c => {
                     c.m_Resource = SorcererDestinedItWasMeantToBeResource.ToReference<BlueprintAbilityResourceReference>();
@@ -856,6 +891,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName("It Was Meant To Be");
                 bp.SetDescription("You may reroll any one attack roll, critical hit confirmation roll, or level check made to "
                     + "overcome spell resistance.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<ModifyD20>(c => {
                     c.RerollOnlyIfFailed = true;
                     c.RollsAmount = 1;
@@ -939,6 +975,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SorcererDestinedDestinyRealizedBuff = Helpers.CreateBuff("SorcererDestinedDestinyRealizedBuff", bp => {
                 bp.SetName("Destiny Realized");
                 bp.SetDescription("You automatically succeed at one caster level check made to overcome spell resistance.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<IgnoreSpellResistanceForSpells>(c => {
                     c.AllSpells = true;
                 }));
@@ -988,6 +1025,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 20th level, your moment of destiny is at hand. Any critical threats made against you only confirm if the second "
                     + "roll results in a natural 20 on the die. Any critical threats you score with a spell are automatically confirmed. Once per day, you "
                     + "can automatically succeed at one caster level check made to overcome spell resistance. You must use this ability before making the roll.");
+                bp.IsClassFeature = true;
                 bp.AddComponent(Helpers.Create<CriticalConfirmationACBonus>(c => {
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Simple,
@@ -1153,6 +1191,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("Your family is destined for greatness in some way. Your birth could have been foretold in prophecy, or perhaps "
                     + "it occurred during an especially auspicious event, such as a solar eclipse. Regardless of your bloodline’s origin, you have a great future ahead.\n"
                     + "Bonus Feats of the Destined Bloodline: Arcane Strike, Diehard, Endurance, Sieze The Moment, Lightning Reflexes, Maximize Spell, Skill Focus (Knowledge World), Weapon Focus.");
+                bp.IsClassFeature = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
@@ -1195,6 +1234,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var CrossbloodedDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("CrossbloodedDestinedBloodline", bp => {
                 bp.SetName(SorcererDestinedBloodline.Name);
                 bp.SetDescription(SorcererDestinedBloodline.Description);
+                bp.IsClassFeature = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
@@ -1228,6 +1268,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var SeekerDestinedBloodline = Helpers.CreateBlueprint<BlueprintProgression>("SeekerDestinedBloodline", bp => {
                 bp.SetName(SorcererDestinedBloodline.Name);
                 bp.SetDescription(SorcererDestinedBloodline.Description);
+                bp.IsClassFeature = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
                     new BlueprintProgression.ClassWithLevel {
                         m_Class = SorcererClass
