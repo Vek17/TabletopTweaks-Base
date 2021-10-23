@@ -327,6 +327,10 @@
                 "NaturesWhisperMonkStacking": {
                     "Enabled": true,
                     "Description": "Prevents Natures Whispers from stacking with Scaled Fist AC bonus. If scaled fist is present dexterity will be used for AC not charisma."
+                },
+                "RevelationBurningMagic": {
+                    "Enabled": true,
+                    "Description": "Fixes the CL scaling to be equal to oracle level."
                 }
             }
         },

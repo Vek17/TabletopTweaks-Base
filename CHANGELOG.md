@@ -1,8 +1,12 @@
+## Version 1.9.3a
+* Fixed issue with Oracle curse progression moving at the wrong rate
+* Fixed issue with alternate racial features breaking with Destinaty Beyond Birth
+
 ## Version 1.9.3
 * Added new modified version of Armor Master as a homebrew option
 * Updated icon for Aeon Bane
-* Minor fixes to nestest activatable abilities
-* Aberant bloodline should now work correctly with Mixed Blood Bloodrager
+* Minor fixes to nested activatable abilities
+* Aberrant bloodline should now work correctly with Mixed Blood Bloodrager
 * Destined bloodline should now work correctly with Mixed Blood Bloodrager
 
 ## Version 1.9.2
