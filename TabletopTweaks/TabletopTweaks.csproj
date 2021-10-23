@@ -168,6 +168,7 @@
     <Compile Include="Bugfixes\General\WeaponProperties.cs" />
     <Compile Include="Bugfixes\Items\Armor.cs" />
     <Compile Include="Bugfixes\Items\Equipment.cs" />
+    <Compile Include="Bugfixes\Items\RelicRings.cs" />
     <Compile Include="Bugfixes\Items\Weapons.cs" />
     <Compile Include="Bugfixes\TacticalCombat\Buildings.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />

@@ -682,10 +682,14 @@
                     "Enabled": true,
                     "Description": "Now works with bloodrage."
                 },
-                "MetamagicRods": {
-                    "Enabled": true,
-                    "Description": "Now default to off."
-                }
+              "MetamagicRods": {
+                "Enabled": true,
+                "Description": "Now default to off."
+              },
+              "GhostlyPathwaysRings": {
+                "Enabled": true,
+                "Description": "Some of the Stone Of Ghostly Pathways Relic Rings had the active ability from the Broken Soul Phylactery Ring. Now they don't."
+              }
             }
         },
         "Weapons": {
