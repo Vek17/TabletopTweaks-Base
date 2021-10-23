@@ -305,7 +305,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     c.Rank = cost;
                 });
                 bp.AddComponent<PseudoActivatable>(c => {
-                    c.m_BuffToWatch = weaponBuff.ToReference<BlueprintBuffReference>();
+                    c.m_Buff = weaponBuff.ToReference<BlueprintBuffReference>();
                 });
             });
             var abilityVariants = parent.GetComponent<NestedPsudoActivatableAbilities>();

@@ -1,27 +1,28 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace TabletopTweaks.NewUI {
-    public class MechanicActionBarSlotPseudoActivatableAbility : MechanicActionBarSlotSpontaneusConvertedSpell {
+    public class MechanicActionBarSlotPseudoActivatableAbility : 
+        MechanicActionBarSlotAbility,
+        IPseudoActivatableMechanicsBarSlot {
 
-        public BlueprintBuffReference BuffToWatch;
+        private BlueprintBuffReference m_BuffToWatch;
 
-        public override bool IsActive() {
-            return Unit.Descriptor.HasFact(BuffToWatch);
+        public BlueprintBuffReference BuffToWatch {
+            get => m_BuffToWatch;
+            set => m_BuffToWatch = value; 
         }
+        public bool ShouldBeActive { get; set; }
+        public AbilityData PseudoActivatableAbility => this.Ability;
 
-        public override int GetResource() {
-            return -1;
-        }
+        public override bool IsActive() => ShouldBeActive;
 
-        public override Sprite GetIcon() {
-            return base.GetForeIcon();
-        }
-
-        public override Sprite GetForeIcon() {
-            return null;
-        }
+        public Sprite ForeIconOverride { get; set; }
+        public override Sprite GetForeIcon() => ForeIconOverride;
+        public bool ShouldUpdateForeIcon { get; set; }
     }
 }
