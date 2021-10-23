@@ -186,7 +186,7 @@
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\DRRework.cs" />
-    <Compile Include="MechanicsChanges\InherentSkillPoints.cs" />
+    <Compile Include="MechanicsChanges\InherentBonuses.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
@@ -207,6 +207,9 @@
     <Compile Include="NewComponents\AddFeatureOnClassLevelExclude.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
     <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
+    <Compile Include="NewComponents\ContextArcaneSpellFailureIncrease.cs" />
+    <Compile Include="NewComponents\ContextArmorCheckPenaltyIncrease.cs" />
+    <Compile Include="NewComponents\ContextMaxDexBonusIncrease.cs" />
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\ForceACUpdate.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
@@ -214,6 +217,7 @@
     <Compile Include="NewComponents\NestedPsudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
+    <Compile Include="NewComponents\Properties\ProgressionRankProperty.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
@@ -251,6 +255,7 @@
     <Compile Include="NewComponents\AbilitySpecific\DestinedArcanaComponent.cs" />
     <Compile Include="NewComponents\IgnoreClassPrerequisites.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteSize.cs" />
+    <Compile Include="NewComponents\RecalculateOnLevelUp.cs" />
     <Compile Include="NewComponents\RecommendationWeaponCategoryFocus.cs" />
     <Compile Include="NewComponents\SavingThrowBonusAgainstAbility.cs" />
     <Compile Include="NewComponents\InitiatorSpellCritAutoconfirm.cs" />
@@ -430,7 +435,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\Abilities\Icon_AberrantBloodline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_AeonBane.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Abilities\Icon_ChannelEntropy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_DestinedBloodline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_LongArm.png">

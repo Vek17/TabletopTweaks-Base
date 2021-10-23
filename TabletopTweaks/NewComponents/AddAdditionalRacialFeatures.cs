@@ -16,6 +16,8 @@ namespace TabletopTweaks.NewComponents {
         public override void OnActivate() {
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;
             if (controller == null) { return; }
+            if (controller.State.Mode == LevelUpState.CharBuildMode.Mythic) { return; }
+            if (Owner.Descriptor.Progression.CharacterLevel > 1) { return; }
             LevelUpHelper.AddFeaturesFromProgression(controller.State, Owner, this.Features.Select(f => f.Get()).ToArray(), Owner.Progression.Race, 0);
         }
 

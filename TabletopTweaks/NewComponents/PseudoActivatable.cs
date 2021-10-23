@@ -1,6 +1,10 @@
-﻿using Kingmaker.Blueprints;
+﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.Utility;
 
 namespace TabletopTweaks.NewComponents {
 
@@ -10,5 +14,12 @@ namespace TabletopTweaks.NewComponents {
         public BlueprintBuffReference m_BuffToWatch;
 
         public BlueprintBuffReference BuffToWatch => m_BuffToWatch ?? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null);
+
+        [HarmonyPatch(typeof(AddAbilityUseTrigger), nameof(AddAbilityUseTrigger.RunAction))]
+        static class AddAbilityUseTrigger_PseudoActivatable_Patch {
+            static bool Prefix(AbilityData spell) {
+                return !spell.Blueprint.GetComponent<PseudoActivatable>();
+            }
+        }
     }
 }

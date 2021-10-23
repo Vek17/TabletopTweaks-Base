@@ -1,6 +1,20 @@
+## Version 1.9.3a
+* Fixed issue with Oracle curse progression moving at the wrong rate
+* Fixed issue with alternate racial features breaking with Destinaty Beyond Birth
+* Fixed CL scaling on Burning Magic Revelation
+
+## Version 1.9.3
+* Added new modified version of Armor Master as a homebrew option
+* Updated icon for Aeon Bane
+* Minor fixes to nested activatable abilities
+* Aberrant bloodline should now work correctly with Mixed Blood Bloodrager
+* Destined bloodline should now work correctly with Mixed Blood Bloodrager
+
 ## Version 1.9.2
 * Removed the movement impairing descriptor from staggered
 * Fixed issue with DR config not working correctly
+* Fixed issue where loremaster wouldn't always give you spell from the correct list
+* Inherent stat bonuses (like those from stat tomes) now count for feat prerequisites
 
 ## Version 1.9.1b
 * Fixed issue with Aeon Limitless gaze crashing
