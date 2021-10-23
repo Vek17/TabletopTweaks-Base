@@ -21,7 +21,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 __result = __instance.ApplyModifiersFiltered(__instance.CalculateBaseValue(__instance.BaseValue), FilterGrantsSkillpoints);
             }
         }
-        
+
         private static readonly Func<ModifiableValue.Modifier, bool> FilterIsPermanentOriginal = ModifiableValue.FilterIsPermanent;
         [PostPatchInitialize]
         static void Update_ModifiableValue_FilterIsPermanent() {

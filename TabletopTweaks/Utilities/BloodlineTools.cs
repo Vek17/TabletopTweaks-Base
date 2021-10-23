@@ -4,7 +4,6 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -172,13 +171,13 @@ namespace TabletopTweaks.Utilities {
                     .ToArray();
             }
 
-            
+
         }
         public static BlueprintFeature CreateMixedBloodFeature(string name, BlueprintProgression bloodline, Action<BlueprintFeature> init = null) {
             var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
             var wanderingBLoodline = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
                 bp.m_DisplayName = bloodline.m_DisplayName;
-                bp.m_Description = Helpers.CreateString($"{name}.description","");
+                bp.m_Description = Helpers.CreateString($"{name}.description", "");
                 bp.m_Icon = bloodline.m_Icon;
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;

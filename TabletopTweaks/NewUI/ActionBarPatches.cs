@@ -1,11 +1,9 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.Items.Slots;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UI.UnitSettings;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using System;
@@ -120,7 +118,7 @@ namespace TabletopTweaks.NewUI {
                             MechanicActionBarSlotAbility actionBarSlotAbility = new MechanicActionBarSlotAbility();
                             actionBarSlotAbility.Ability = ability.Data;
                             actionBarSlotAbility.Unit = unit;
-                            ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM((MechanicActionBarSlot)actionBarSlotAbility);
+                            ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotAbility);
                             groupAbilities.Add(actionBarSlotVm);
                         }
                     }
@@ -130,7 +128,7 @@ namespace TabletopTweaks.NewUI {
                     MechanicActionBarSlotActivableAbility activableAbility = new MechanicActionBarSlotActivableAbility();
                     activableAbility.ActivatableAbility = activatableAbility;
                     activableAbility.Unit = unit;
-                    ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM((MechanicActionBarSlot)activableAbility);
+                    ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(activableAbility);
                     groupAbilities.Add(actionBarSlotVm);
                 }
                 return false;

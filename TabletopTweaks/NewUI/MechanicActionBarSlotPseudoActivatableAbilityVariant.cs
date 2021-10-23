@@ -1,15 +1,10 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.EntitySystem;
-using Kingmaker.EntitySystem.Entities;
-using Kingmaker.PubSubSystem;
 using Kingmaker.UI.UnitSettings;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using UnityEngine;
 
 namespace TabletopTweaks.NewUI {
-    public class MechanicActionBarSlotPseudoActivatableAbilityVariant : 
+    public class MechanicActionBarSlotPseudoActivatableAbilityVariant :
         MechanicActionBarSlotSpontaneusConvertedSpell,
         IPseudoActivatableMechanicsBarSlot {
 

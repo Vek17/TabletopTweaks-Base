@@ -1,13 +1,11 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
-using System;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents {

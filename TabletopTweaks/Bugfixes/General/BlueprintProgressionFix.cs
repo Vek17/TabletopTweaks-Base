@@ -22,7 +22,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     int originalIncrease = 0;
                     while (enumerator.MoveNext()) {
                         ClassData c = enumerator.Current;
-                        if (!__instance.m_Classes.HasItem((BlueprintProgression.ClassWithLevel i) => i.Class == c.CharacterClass) 
+                        if (!__instance.m_Classes.HasItem((BlueprintProgression.ClassWithLevel i) => i.Class == c.CharacterClass)
                             && !c.Archetypes.HasItem((BlueprintArchetype a) => __instance.m_Archetypes.HasItem((BlueprintProgression.ArchetypeWithLevel i) => i.Archetype == a))) {
                             originalIncrease += c.Level;
                         }
