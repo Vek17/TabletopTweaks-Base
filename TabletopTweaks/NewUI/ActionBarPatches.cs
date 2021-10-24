@@ -1,9 +1,11 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Items.Slots;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UI.UnitSettings;
+using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using System;
@@ -114,20 +116,11 @@ namespace TabletopTweaks.NewUI {
                             unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(actionBarSlotPseudoActivatableAbility);
                             ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotPseudoActivatableAbility);
                             groupAbilities.Add(actionBarSlotVm);
-                        } else if (ability.GetComponent<NestedPseudoActivatableAbilities>() != null) {
-                            MechanicActionBarSlotPseudoActivatableAbility actionBarSlotPseudoActivatableAbility = new MechanicActionBarSlotPseudoActivatableAbility {
-                                Ability = ability.Data,
-                                Unit = unit,
-                                BuffToWatch = BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null)
-                            };
-                            unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterNestedPseudoActivatableAbilitySlot(actionBarSlotPseudoActivatableAbility);
-                            ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotPseudoActivatableAbility);
-                            groupAbilities.Add(actionBarSlotVm);
                         } else {
                             MechanicActionBarSlotAbility actionBarSlotAbility = new MechanicActionBarSlotAbility();
                             actionBarSlotAbility.Ability = ability.Data;
                             actionBarSlotAbility.Unit = unit;
-                            ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotAbility);
+                            ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM((MechanicActionBarSlot)actionBarSlotAbility);
                             groupAbilities.Add(actionBarSlotVm);
                         }
                     }
@@ -137,7 +130,7 @@ namespace TabletopTweaks.NewUI {
                     MechanicActionBarSlotActivableAbility activableAbility = new MechanicActionBarSlotActivableAbility();
                     activableAbility.ActivatableAbility = activatableAbility;
                     activableAbility.Unit = unit;
-                    ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(activableAbility);
+                    ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM((MechanicActionBarSlot)activableAbility);
                     groupAbilities.Add(actionBarSlotVm);
                 }
                 return false;

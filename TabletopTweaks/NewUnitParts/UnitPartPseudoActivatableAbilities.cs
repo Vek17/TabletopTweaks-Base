@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -9,6 +10,8 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewUI;
 
@@ -31,14 +34,14 @@ namespace TabletopTweaks.NewUnitParts {
         private Dictionary<string, HashSet<BlueprintBuffReference>> m_BuffGroups = new Dictionary<string, HashSet<BlueprintBuffReference>>();
 
         public void RegisterPseudoActivatableAbilitySlot(MechanicActionBarSlot mechanicSlot) {
-            if (!(mechanicSlot is IPseudoActivatableMechanicsBarSlot abilitySlot)) {
+            if (!(mechanicSlot is IPseudoActivatableMechanicsBarSlot abilitySlot))
                 return;
-            }
 
             var abilityBlueprint = abilitySlot.PseudoActivatableAbility.Blueprint;
             if (m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs)) {
                 slotRefs.Add(new WeakReference<MechanicActionBarSlot>(mechanicSlot));
-            } else {
+            }
+            else {
                 m_AbilitiesToMechanicSlots.Add(abilityBlueprint, new List<WeakReference<MechanicActionBarSlot>>() { new WeakReference<MechanicActionBarSlot>(mechanicSlot) });
             }
 
@@ -49,63 +52,19 @@ namespace TabletopTweaks.NewUnitParts {
             UpdateStateForAbility(abilityBlueprint);
         }
 
-        public void RegisterNestedPseudoActivatableAbilitySlot(MechanicActionBarSlot mechanicSlot) {
-            if (!(mechanicSlot is IPseudoActivatableMechanicsBarSlot abilitySlot)) {
-                return;
-            }
-
-            var abilityBlueprint = abilitySlot.PseudoActivatableAbility.Blueprint;
-            if (m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs)) {
-                slotRefs.Add(new WeakReference<MechanicActionBarSlot>(mechanicSlot));
-            } else {
-                m_AbilitiesToMechanicSlots.Add(abilityBlueprint, new List<WeakReference<MechanicActionBarSlot>>() { new WeakReference<MechanicActionBarSlot>(mechanicSlot) });
-            }
-
-            RegisterNestedPseudoActivatableAbility(abilityBlueprint);
-#if DEBUG
-            Validate();
-#endif
-            UpdateStateForAbility(abilityBlueprint);
-        }
-
         public override void OnPostLoad() {
-            foreach (var ability in this.Owner.Abilities) {
+            foreach(var ability in this.Owner.Abilities) {
                 if (ability.GetComponent<PseudoActivatable>() != null) {
                     RegisterPseudoActivatableAbility(ability.Blueprint);
-                }
-                if (ability.GetComponent<NestedPseudoActivatableAbilities>() != null) {
-                    RegisterNestedPseudoActivatableAbility(ability.Blueprint);
                 }
             }
 
             foreach (var buff in this.Owner.Buffs) {
                 if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
-                    Main.Log($"OnPostLoad: {buff.Blueprint.name}");
                     BuffActivated(buff.Blueprint);
                 }
             }
             Validate();
-        }
-
-        public void RegisterNestedPseudoActivatableAbility(BlueprintAbility abilityBlueprint) {
-            var nestedPseudoActivatableComponent = abilityBlueprint.GetComponent<NestedPseudoActivatableAbilities>();
-            if (nestedPseudoActivatableComponent == null) {
-                Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterNestedPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", which does not have a NestedPseudoActivatableAbilities component");
-                return;
-            }
-            var abilityVariants = abilityBlueprint.GetComponent<NestedPseudoActivatableAbilities>();
-            if (abilityVariants == null) {
-                Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterNestedPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", but the PseudoActivatable component has no Buff set, and the ability does not have variants.");
-                return;
-            }
-
-            foreach (var variant in abilityVariants.Variants) {
-                var variantPseudoActivatableComponent = variant.GetComponent<PseudoActivatable>();
-                if (variantPseudoActivatableComponent != null && !variantPseudoActivatableComponent.Buff.Equals(_nullBuffRef)) {
-                    RegisterToggledBuffForAbility(variant, variantPseudoActivatableComponent.Buff, variantPseudoActivatableComponent.GroupName);
-                    RegisterToggledBuffForAbility(abilityBlueprint, variantPseudoActivatableComponent.Buff, variantPseudoActivatableComponent.GroupName);
-                }
-            }
         }
 
         public void RegisterPseudoActivatableAbility(BlueprintAbility abilityBlueprint) {
@@ -179,7 +138,6 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void BuffActivated(BlueprintBuff buff) {
-            Main.Log($"BuffActivated: {buff.name}");
             var buffRef = buff.ToReference<BlueprintBuffReference>();
             m_ActiveWatchedBuffs.Add(buffRef);
             UpdateAbilitiesForBuff(buffRef);
@@ -192,21 +150,19 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         private void UpdateAbilitiesForBuff(BlueprintBuffReference buff) {
-            if (!m_BuffsToAbilities.TryGetValue(buff, out var abilities)) {
+            if (!m_BuffsToAbilities.TryGetValue(buff, out var abilities))
                 return;
-            }
 
-            foreach (var abilityBlueprint in abilities) {
+            foreach(var abilityBlueprint in abilities) {
                 UpdateStateForAbility(abilityBlueprint);
             }
         }
 
         private void UpdateStateForAbility(BlueprintAbility abilityBlueprint) {
-            if (!m_AbilitiesToBuffs.TryGetValue(abilityBlueprint, out var watchedBuffs) || !m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs)) {
+            if (!m_AbilitiesToBuffs.TryGetValue(abilityBlueprint, out var watchedBuffs) || !m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs))
                 return;
-            }
 
-            var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff)) && !abilityBlueprint.GetComponent<NestedPseudoActivatableAbilities>();
+            var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff));
             BlueprintBuffReference activeBuff = null;
             if (watchedBuffs.Count > 1) {
                 var activeBuffs = watchedBuffs.Where(b => m_ActiveWatchedBuffs.Contains(b)).ToList();
@@ -240,15 +196,15 @@ namespace TabletopTweaks.NewUnitParts {
 
         private void Validate() {
 
-            foreach (var activeBuff in m_ActiveWatchedBuffs) {
+            foreach(var activeBuff in m_ActiveWatchedBuffs) {
                 if (!this.Owner.HasFact(activeBuff)) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff \"{activeBuff.NameSafe()}\" is in active watched buffs list, but owner does not actually have that buff.");
                 }
             }
 
             foreach (var buff in this.Owner.Buffs) {
-                if (buff.SourceAbility != null
-                    && buff.SourceAbility.GetComponent<PseudoActivatable>() != null
+                if (buff.SourceAbility != null 
+                    && buff.SourceAbility.GetComponent<PseudoActivatable>() != null 
                     && buff.SourceAbility.GetComponent<PseudoActivatable>().Buff.Equals(buff.Blueprint.ToReference<BlueprintBuffReference>())
                     && !m_ActiveWatchedBuffs.Contains(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": unit has buff \"{buff.Name}\", which is toggled by pseudo activatable ability \"{buff.SourceAbility.NameSafe()}\", but this buff is not present in active watched buff list.");
@@ -256,14 +212,14 @@ namespace TabletopTweaks.NewUnitParts {
             }
 
             var abilitiesInBuffsDictionary = m_BuffsToAbilities.Values.SelectMany(x => x).ToHashSet();
-            foreach (var abilityBlueprint in abilitiesInBuffsDictionary) {
+            foreach(var abilityBlueprint in abilitiesInBuffsDictionary) {
                 if (!m_AbilitiesToBuffs.ContainsKey(abilityBlueprint)) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": ability \"{abilityBlueprint.NameSafe()}\" is in values of Buff dictionary, but is not a key in Abilities dictionary");
                 }
             }
 
             var buffsInAbilitiesDictionary = m_AbilitiesToBuffs.Values.SelectMany(x => x).ToHashSet();
-            foreach (var buff in buffsInAbilitiesDictionary) {
+            foreach(var buff in buffsInAbilitiesDictionary) {
                 if (!m_BuffsToAbilities.ContainsKey(buff)) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff \"{buff.NameSafe()}\" is in values of Abilities dictionary, but is not a key in the Buffs dictionary");
                 }
@@ -288,14 +244,14 @@ namespace TabletopTweaks.NewUnitParts {
 
             foreach (var buffGroup in m_BuffGroups) {
                 var hasBuffs = new HashSet<BlueprintBuffReference>();
-                foreach (var buff in buffGroup.Value) {
+                foreach(var buff in buffGroup.Value) {
                     if (this.Owner.HasFact(buff)) {
                         hasBuffs.Add(buff);
                     }
                 }
                 if (hasBuffs.Count > 1) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": multiple buffs are active for group {buffGroup.Key}. Active buffs: ");
-                    foreach (var activeBuff in hasBuffs) {
+                    foreach(var activeBuff in hasBuffs) {
                         Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\":  - {activeBuff.NameSafe()}");
                     }
                 }
