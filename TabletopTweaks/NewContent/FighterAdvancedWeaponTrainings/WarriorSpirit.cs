@@ -114,7 +114,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.SetName("Warrior Spirit");
                 bp.SetDescription("The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to " +
                     "unlock the weapon’s potential. Each day he gains a number of points of spiritual energy equal to " +
-                    "1 + his maximum weapon training bonus. While wielding a weapon he has weapon traiing with, he can spend 1 point of spiritual " +
+                    "1 + his maximum weapon training bonus. While wielding a weapon he has weapon training with, he can spend 1 point of spiritual " +
                     "energy to grant the weapon an enhancement bonus equal to his weapon training bonus. " +
                     "Enhancement bonuses gained by this advanced weapon training option stack with those of the weapon, to a maximum of +5. " +
                     "The fighter can also imbue the weapon with any one weapon special " +

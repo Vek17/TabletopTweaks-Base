@@ -14,7 +14,8 @@ namespace TabletopTweaks.NewComponents {
 
         public bool IsAbilityRestrictionPassed(AbilityData ability) {
             var weaponTraining = ability.Caster.Get<UnitPartWeaponTraining>();
-            var weapon = ability.Caster.Unit.GetThreatHand().Weapon;
+            var weapon = ability.Caster.Body.PrimaryHand.MaybeWeapon;
+            Main.Log($"Weapon: {weapon}");
             if (weaponTraining == null || weapon == null) { return false; }
             return weaponTraining.GetWeaponRank(weapon) > 0;
         }

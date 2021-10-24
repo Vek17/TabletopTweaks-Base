@@ -248,6 +248,10 @@
                     "Enabled": true,
                     "Description": "Treats two handed fighter's weapon training as proper weapon training."
                 },
+                "UnarmedWeaponTraining": {
+                    "Enabled": true,
+                    "Description": "Makes unarmed correctly count as the close weapon group."
+                },
                 "WeaponTrainingStacking": {
                     "Enabled": true,
                     "Description": "Prevents bonuses from multiple weapon training groups from stacking."

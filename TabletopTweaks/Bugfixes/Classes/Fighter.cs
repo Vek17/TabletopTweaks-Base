@@ -39,6 +39,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchTwoHandedWeaponTraining();
                 PatchAdvancedWeaponTraining();
                 PatchWeaponTrainingStacking();
+                PatchUnarmedWeaponTraining();
                 EnableAdvancedArmorTraining();
 
                 void PatchAdvancedWeaponTraining() {
@@ -136,6 +137,15 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             }
                         });
 
+                }
+                void PatchUnarmedWeaponTraining() {
+                    if (ModSettings.Fixes.Fighter.Base.IsDisabled("UnarmedWeaponTraining")) { return; }
+                    var EmptyHand = Resources.GetBlueprint<BlueprintWeaponType>("a8b38f6b734daa44087ec0ec2e80c1cd");
+                    var Unarmed = Resources.GetBlueprint<BlueprintWeaponType>("fcca8e6b85d19b14786ba1ab553e23ad");
+                    Unarmed.m_FighterGroupFlags |= WeaponFighterGroupFlags.Close;
+                    EmptyHand.m_FighterGroupFlags |= WeaponFighterGroupFlags.Close;
+                    Main.LogPatch("Patched", Unarmed);
+                    Main.LogPatch("Patched", EmptyHand);
                 }
                 void EnableAdvancedArmorTraining() {
                     if (ModSettings.Fixes.Fighter.Base.IsDisabled("AdvancedArmorTraining")) { return; }
