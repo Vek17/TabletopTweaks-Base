@@ -45,7 +45,7 @@ namespace TabletopTweaks.NewUnitParts {
                 m_AbilitiesToMechanicSlots.Add(abilityBlueprint, new List<WeakReference<MechanicActionBarSlot>>() { new WeakReference<MechanicActionBarSlot>(mechanicSlot) });
             }
 
-            RegisterPseudoActivatableAbility(abilityBlueprint);
+            RegisterPseudoActivatableAbility(abilitySlot.PseudoActivatableAbility);
 #if DEBUG
             Validate();
 #endif
@@ -55,7 +55,7 @@ namespace TabletopTweaks.NewUnitParts {
         public override void OnPostLoad() {
             foreach(var ability in this.Owner.Abilities) {
                 if (ability.GetComponent<PseudoActivatable>() != null) {
-                    RegisterPseudoActivatableAbility(ability.Blueprint);
+                    RegisterPseudoActivatableAbility(ability.Data);
                 }
             }
 
@@ -67,7 +67,8 @@ namespace TabletopTweaks.NewUnitParts {
             Validate();
         }
 
-        public void RegisterPseudoActivatableAbility(BlueprintAbility abilityBlueprint) {
+        public void RegisterPseudoActivatableAbility(AbilityData ability) {
+            var abilityBlueprint = ability.Blueprint;
             var pseudoActivatableComponent = abilityBlueprint.GetComponent<PseudoActivatable>();
             if (pseudoActivatableComponent == null) {
                 Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", which does not have a PseudoActivatable component");
@@ -76,16 +77,17 @@ namespace TabletopTweaks.NewUnitParts {
             if (!pseudoActivatableComponent.Buff.Equals(_nullBuffRef)) {
                 RegisterToggledBuffForAbility(abilityBlueprint, pseudoActivatableComponent.Buff, pseudoActivatableComponent.GroupName);
             } else {
-                var abilityVariants = abilityBlueprint.GetComponent<AbilityVariants>();
-                if (abilityVariants == null) {
+                var abilityVariants = ability.GetConversions();
+                if (abilityVariants.Empty()) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", but the PseudoActivatable component has no Buff set, and the ability does not have variants.");
                     return;
                 }
 
-                foreach (var variant in abilityVariants.Variants) {
-                    var variantPseudoActivatableComponent = variant.GetComponent<PseudoActivatable>();
+                foreach (var variant in abilityVariants) {
+                    var variantBlueprint = variant.Blueprint;
+                    var variantPseudoActivatableComponent = variantBlueprint.GetComponent<PseudoActivatable>();
                     if (variantPseudoActivatableComponent != null && !variantPseudoActivatableComponent.Buff.Equals(_nullBuffRef)) {
-                        RegisterToggledBuffForAbility(variant, variantPseudoActivatableComponent.Buff, variantPseudoActivatableComponent.GroupName);
+                        RegisterToggledBuffForAbility(variantBlueprint, variantPseudoActivatableComponent.Buff, variantPseudoActivatableComponent.GroupName);
                         RegisterToggledBuffForAbility(abilityBlueprint, variantPseudoActivatableComponent.Buff, variantPseudoActivatableComponent.GroupName);
                     }
                 }
