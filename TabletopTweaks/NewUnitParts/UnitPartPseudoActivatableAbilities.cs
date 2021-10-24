@@ -49,19 +49,63 @@ namespace TabletopTweaks.NewUnitParts {
             UpdateStateForAbility(abilityBlueprint);
         }
 
+        public void RegisterNestedPseudoActivatableAbilitySlot(MechanicActionBarSlot mechanicSlot) {
+            if (!(mechanicSlot is IPseudoActivatableMechanicsBarSlot abilitySlot)) {
+                return;
+            }
+
+            var abilityBlueprint = abilitySlot.PseudoActivatableAbility.Blueprint;
+            if (m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs)) {
+                slotRefs.Add(new WeakReference<MechanicActionBarSlot>(mechanicSlot));
+            } else {
+                m_AbilitiesToMechanicSlots.Add(abilityBlueprint, new List<WeakReference<MechanicActionBarSlot>>() { new WeakReference<MechanicActionBarSlot>(mechanicSlot) });
+            }
+
+            RegisterNestedPseudoActivatableAbility(abilityBlueprint);
+#if DEBUG
+            Validate();
+#endif
+            UpdateStateForAbility(abilityBlueprint);
+        }
+
         public override void OnPostLoad() {
             foreach (var ability in this.Owner.Abilities) {
                 if (ability.GetComponent<PseudoActivatable>() != null) {
                     RegisterPseudoActivatableAbility(ability.Blueprint);
                 }
+                if (ability.GetComponent<NestedPseudoActivatableAbilities>() != null) {
+                    RegisterNestedPseudoActivatableAbility(ability.Blueprint);
+                }
             }
 
             foreach (var buff in this.Owner.Buffs) {
                 if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
+                    Main.Log($"OnPostLoad: {buff.Blueprint.name}");
                     BuffActivated(buff.Blueprint);
                 }
             }
             Validate();
+        }
+
+        public void RegisterNestedPseudoActivatableAbility(BlueprintAbility abilityBlueprint) {
+            var nestedPseudoActivatableComponent = abilityBlueprint.GetComponent<NestedPseudoActivatableAbilities>();
+            if (nestedPseudoActivatableComponent == null) {
+                Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterNestedPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", which does not have a NestedPseudoActivatableAbilities component");
+                return;
+            }
+            var abilityVariants = abilityBlueprint.GetComponent<NestedPseudoActivatableAbilities>();
+            if (abilityVariants == null) {
+                Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterNestedPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", but the PseudoActivatable component has no Buff set, and the ability does not have variants.");
+                return;
+            }
+
+            foreach (var variant in abilityVariants.Variants) {
+                var variantPseudoActivatableComponent = variant.GetComponent<PseudoActivatable>();
+                if (variantPseudoActivatableComponent != null && !variantPseudoActivatableComponent.Buff.Equals(_nullBuffRef)) {
+                    RegisterToggledBuffForAbility(variant, variantPseudoActivatableComponent.Buff, variantPseudoActivatableComponent.GroupName);
+                    RegisterToggledBuffForAbility(abilityBlueprint, variantPseudoActivatableComponent.Buff, variantPseudoActivatableComponent.GroupName);
+                }
+            }
         }
 
         public void RegisterPseudoActivatableAbility(BlueprintAbility abilityBlueprint) {
@@ -135,6 +179,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void BuffActivated(BlueprintBuff buff) {
+            Main.Log($"BuffActivated: {buff.name}");
             var buffRef = buff.ToReference<BlueprintBuffReference>();
             m_ActiveWatchedBuffs.Add(buffRef);
             UpdateAbilitiesForBuff(buffRef);
@@ -161,7 +206,7 @@ namespace TabletopTweaks.NewUnitParts {
                 return;
             }
 
-            var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff));
+            var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff)) && !abilityBlueprint.GetComponent<NestedPseudoActivatableAbilities>();
             BlueprintBuffReference activeBuff = null;
             if (watchedBuffs.Count > 1) {
                 var activeBuffs = watchedBuffs.Where(b => m_ActiveWatchedBuffs.Contains(b)).ToList();

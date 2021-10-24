@@ -16,7 +16,7 @@ namespace TabletopTweaks.MechanicsChanges {
             static void Postfix(BlueprintProgression __instance, ref int __result, [NotNull] UnitDescriptor unit) {
                 if (ModSettings.Fixes.BaseFixes.IsDisabled("AlternateClassProgressions")) { return; }
                 if (!__instance.ForAllOtherClasses) { return; }
-                Main.Log($"{__instance.name} - {__result}");
+                //Main.Log($"{__instance.name} - {__result}");
                 //Old Progression logic so we can remove it from the total
                 using (List<ClassData>.Enumerator enumerator = unit.Progression.Classes.GetEnumerator()) {
                     int originalIncrease = 0;
