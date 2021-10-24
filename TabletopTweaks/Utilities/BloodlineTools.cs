@@ -289,8 +289,12 @@ namespace TabletopTweaks.Utilities {
                 bp.CanTargetSelf = true;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Special;
                 bp.AddComponent<PseudoActivatable>(c => {
+                    c.m_Type = PseudoActivatable.PseudoActivatableType.BuffToggle;
                     c.m_Buff = switchBuff.ToReference<BlueprintBuffReference>();
                     c.m_GroupName = buffGroupName;
+                });
+                bp.AddComponent<AbilityEffectToggleBuff>(c => {
+                    c.m_Buff = switchBuff.ToReference<BlueprintBuffReference>();
                 });
                 bp.AddComponent<AbilityRequirementHasBuff>(c => {
                     c.Not = true;

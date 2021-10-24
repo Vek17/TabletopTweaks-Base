@@ -1,9 +1,12 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.EntitySystem;
+using Kingmaker.PubSubSystem;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
@@ -16,7 +19,12 @@ using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewUI;
 
 namespace TabletopTweaks.NewUnitParts {
-    public class UnitPartPseudoActivatableAbilities : UnitPart {
+    public class UnitPartPseudoActivatableAbilities : 
+        UnitPart,
+        ISubscriber,
+        IUnitSubscriber,
+        IUnitGainFactHandler,
+        IUnitLostFactHandler {
 
         private static BlueprintBuffReference _nullBuffRef = BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null);
 
@@ -31,7 +39,8 @@ namespace TabletopTweaks.NewUnitParts {
 
         private HashSet<BlueprintBuffReference> m_ActiveWatchedBuffs = new HashSet<BlueprintBuffReference>();
 
-        private Dictionary<string, HashSet<BlueprintBuffReference>> m_BuffGroups = new Dictionary<string, HashSet<BlueprintBuffReference>>();
+        private Dictionary<string, HashSet<BlueprintBuffReference>> m_GroupsToBuffs = new Dictionary<string, HashSet<BlueprintBuffReference>>();
+        private Dictionary<BlueprintBuffReference, HashSet<string>> m_BuffsToGroups = new Dictionary<BlueprintBuffReference, HashSet<string>>();
 
         public void RegisterPseudoActivatableAbilitySlot(MechanicActionBarSlot mechanicSlot) {
             if (!(mechanicSlot is IPseudoActivatableMechanicsBarSlot abilitySlot))
@@ -65,6 +74,31 @@ namespace TabletopTweaks.NewUnitParts {
                 }
             }
             Validate();
+        }
+
+        public void HandleUnitGainFact(EntityFact fact) {
+            if (fact.Owner != this.Owner)
+                return;
+
+            if (fact is Ability ability) {
+                var pseudoActivatableComponent = ability.GetComponent<PseudoActivatable>();
+                if (pseudoActivatableComponent == null)
+                    return;
+                RegisterPseudoActivatableAbility(ability.Data);
+            } else if (fact is Buff buff) {
+                if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
+                    BuffActivated(buff.Blueprint);
+                }
+            }
+        }
+
+        public void HandleUnitLostFact(EntityFact fact) {
+            if (fact.Owner != this.Owner)
+                return;
+
+            if (fact is Buff buff) {
+                BuffDeactivated(buff.Blueprint);
+            }
         }
 
         public void RegisterPseudoActivatableAbility(AbilityData ability) {
@@ -105,50 +139,44 @@ namespace TabletopTweaks.NewUnitParts {
                 m_BuffsToAbilities.Add(buffRef, new HashSet<BlueprintAbility> { abilityBlueprint });
             }
             if (buffGroupName != null) {
-                if (m_BuffGroups.TryGetValue(buffGroupName, out var buffsInGroup)) {
+                if (m_GroupsToBuffs.TryGetValue(buffGroupName, out var buffsInGroup)) {
                     buffsInGroup.Add(buffRef);
                 } else {
-                    m_BuffGroups.Add(buffGroupName, new HashSet<BlueprintBuffReference> { buffRef });
+                    m_GroupsToBuffs.Add(buffGroupName, new HashSet<BlueprintBuffReference> { buffRef });
                 }
-            }
-        }
-
-        public void ToggleBuff(BlueprintBuffReference buffRef, BlueprintAbility sourceAbility, MechanicsContext context, string buffGroupName) {
-            if (!this.Owner.Descriptor.HasFact(buffRef)) {
-                if (buffGroupName != null) {
-                    if (!m_BuffGroups.TryGetValue(buffGroupName, out var buffsInGroup)) {
-                        m_BuffGroups.Add(buffGroupName, new HashSet<BlueprintBuffReference> { buffRef });
-                    } else {
-                        buffsInGroup.Add(buffRef);
-                        foreach (var buffInGroup in buffsInGroup) {
-                            if (this.Owner.Descriptor.HasFact(buffInGroup)) {
-                                this.Owner.Buffs.RemoveFact(buffInGroup);
-                                BuffDeactivated(buffInGroup);
-                            }
-                        }
-                    }
+                if (m_BuffsToGroups.TryGetValue(buffRef, out var groupsForBuff)) {
+                    groupsForBuff.Add(buffGroupName);
+                } else {
+                    m_BuffsToGroups.Add(buffRef, new HashSet<string> { buffGroupName });
                 }
-                var appliedBuff = this.Owner.Descriptor.AddBuff(buffRef, context, new TimeSpan?());
-                appliedBuff.IsFromSpell = false;
-                appliedBuff.IsNotDispelable = true;
-                appliedBuff.SourceAbility = sourceAbility;
-                BuffActivated(buffRef);
-            } else {
-                this.Owner.Buffs.RemoveFact(buffRef);
-                BuffDeactivated(buffRef);
             }
         }
 
         public void BuffActivated(BlueprintBuff buff) {
             var buffRef = buff.ToReference<BlueprintBuffReference>();
-            m_ActiveWatchedBuffs.Add(buffRef);
-            UpdateAbilitiesForBuff(buffRef);
+            if (m_ActiveWatchedBuffs.Add(buffRef)) {
+                if (m_BuffsToGroups.TryGetValue(buffRef, out var groupsForBuff)) {
+                    // add the to be removed buffs to a collection first, otherwise we'll be modifying m_ActiveWatchedBuffs while using it in the calculation
+                    var buffsToRemove = new HashSet<BlueprintBuffReference>();
+                    // double nested loop, but usually buffs are only in one group, and there should be in the order of 10 buffs in a group so this should be fine
+                    foreach(var groupName in groupsForBuff) {
+                        foreach(var buffToRemove in m_GroupsToBuffs[groupName].Where(b => !b.Equals(buffRef) && m_ActiveWatchedBuffs.Contains(b))) {
+                            buffsToRemove.Add(buffToRemove);
+                        }
+                    }
+                    foreach(var buffToRemove in buffsToRemove) {
+                        this.Owner.Buffs.RemoveFact(buffToRemove);
+                    }
+                }
+                UpdateAbilitiesForBuff(buffRef);
+            }
         }
 
         public void BuffDeactivated(BlueprintBuff buff) {
             var buffRef = buff.ToReference<BlueprintBuffReference>();
-            m_ActiveWatchedBuffs.Remove(buffRef);
-            UpdateAbilitiesForBuff(buffRef);
+            if (m_ActiveWatchedBuffs.Remove(buffRef)) {
+                UpdateAbilitiesForBuff(buffRef);
+            }
         }
 
         private void UpdateAbilitiesForBuff(BlueprintBuffReference buff) {
@@ -244,7 +272,27 @@ namespace TabletopTweaks.NewUnitParts {
                 }
             }
 
-            foreach (var buffGroup in m_BuffGroups) {
+            foreach(var buffGroup in m_GroupsToBuffs) {
+                foreach (var buffRef in buffGroup.Value) {
+                    if (!m_BuffsToGroups.ContainsKey(buffRef)) {
+                        Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff \"{buffRef.NameSafe()}\" is in group named \"{buffGroup.Key}\" in m_GroupsToBuffs, but this buff is not present as a key in m_BuffsToGroups");
+                    } else if (!m_BuffsToGroups[buffRef].Contains(buffGroup.Key)) {
+                        Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff \"{buffRef.NameSafe()}\" is in group named \"{buffGroup.Key}\" in m_GroupsToBuffs, but the groups for this buff in m_BuffsToGroups do not contain \"{buffGroup.Key}\"");
+                    }
+                }
+            }
+
+            foreach (var groupedBuff in m_BuffsToGroups) {
+                foreach (var groupName in groupedBuff.Value) {
+                    if (!m_GroupsToBuffs.ContainsKey(groupName)) {
+                        Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff group \"{groupName}\" is linked to buff \"{groupedBuff.Key.NameSafe()}\" in m_BuffsToGroups, but this group is not present as a key in m_GroupsToBuffs");
+                    } else if (!m_GroupsToBuffs[groupName].Contains(groupedBuff.Key)) {
+                        Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff group \"{groupName}\" is linked to buff \"{groupedBuff.Key.NameSafe()}\" in m_BuffsToGroups, but the buffs for this group in m_GroupsToBuffs do not contain \"{groupedBuff.Key.NameSafe()}\"");
+                    }
+                }
+            }
+
+            foreach (var buffGroup in m_GroupsToBuffs) {
                 var hasBuffs = new HashSet<BlueprintBuffReference>();
                 foreach(var buff in buffGroup.Value) {
                     if (this.Owner.HasFact(buff)) {
@@ -259,5 +307,7 @@ namespace TabletopTweaks.NewUnitParts {
                 }
             }
         }
+
+
     }
 }
