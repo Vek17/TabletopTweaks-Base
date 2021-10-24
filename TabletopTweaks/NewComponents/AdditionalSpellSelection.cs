@@ -29,9 +29,6 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public override void OnActivate() {
-            Main.Log("OnActivate Called");
-            var watch = new System.Diagnostics.Stopwatch();
-            watch.Start();
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;
             if (controller == null) { return; }
             if (SpellBook == null) { return; }
@@ -45,20 +42,16 @@ namespace TabletopTweaks.NewComponents {
             for (; i < spellSelections.Count && i < selectionCount; i++) {
                 controller.State.SpellSelections.Add(spellSelections[i]);
                 spellSelections[i].SetExtraSpells(Count, AdjustedMaxLevel);
-                Main.Log($"Added Selection {i}");
             }
             for (; i < selectionCount; i++) {
                 
                 if (i >= selectionCount) { continue; }
                 var selection = controller.State.DemandSpellSelection(SpellBook.Blueprint, SpellList);
                 selection.SetExtraSpells(Count, AdjustedMaxLevel);
-                Main.Log($"Added Selection {i}");
                 spellSelections.Add(selection);
             }
-            Main.Log($"Time MS: {watch.ElapsedMilliseconds}");
         }
         public override void OnTurnOff() {
-            Main.Log("OnTurnOff Called");
             if (spellSelections.Empty()) { return; }
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;
             if (controller == null) { return; }
