@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
@@ -16,6 +17,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var Gore1d6 = Resources.GetBlueprint<BlueprintItemWeapon>("daf4ab765feba8548b244e174e7af5be");
 
+            var SteelHeadbuttEnchant = Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"SteelHeadbuttEnchant", bp => {
+                bp.m_Description = Helpers.CreateString($"{bp.name}.description", $"Weapon uses armor enchants and material.");
+                bp.m_EnchantName = Helpers.CreateString($"{bp.name}.name", $"Steel Headbutt");
+                bp.m_Prefix = Helpers.CreateString($"{bp.name}.prefix", $"");
+                bp.m_Suffix = Helpers.CreateString($"{bp.name}.suffix", $"");
+                bp.m_EnchantmentCost = 0;
+                bp.AddComponent<ArmorEnchantsToWeapon>();
+            });
             var SteelHeadbutt1d3 = Helpers.CreateCopy(Gore1d6, bp => {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbutt1d3");
                 bp.name = "SteelHeadbutt1d3";
@@ -24,6 +33,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_DamageType.Physical.Form = PhysicalDamageForm.Bludgeoning;
                 bp.m_OverrideDamageDice = true;
                 bp.m_DamageDice = new DiceFormula(1, DiceType.D3);
+                bp.m_Enchantments = new BlueprintWeaponEnchantmentReference[] { SteelHeadbuttEnchant.ToReference<BlueprintWeaponEnchantmentReference>() };
             });
             var SteelHeadbutt1d4 = Helpers.CreateCopy(Gore1d6, bp => {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbutt1d4");
@@ -33,6 +43,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_DamageType.Physical.Form = PhysicalDamageForm.Bludgeoning;
                 bp.m_OverrideDamageDice = true;
                 bp.m_DamageDice = new DiceFormula(1, DiceType.D4);
+                bp.m_Enchantments = new BlueprintWeaponEnchantmentReference[] { SteelHeadbuttEnchant.ToReference<BlueprintWeaponEnchantmentReference>() };
             });
             var SteelHeadbuttMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttMediumEffect", bp => {
                 bp.SetName("Steel Headbutt Effect");
@@ -43,9 +54,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.AddComponent<AddSecondaryAttacks>(c => {
                     c.m_Weapon = new BlueprintItemWeaponReference[] { SteelHeadbutt1d3.ToReference<BlueprintItemWeaponReference>() };
                 });
-                bp.AddComponent<ApplyArmorEnchantsToWeapon>(c => {
-                    c.Weapon = SteelHeadbutt1d3.ToReference<BlueprintItemWeaponReference>();
-                });
             });
             var SteelHeadbuttHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttHeavyEffect", bp => {
                 bp.SetName("Steel Headbutt Effect");
@@ -55,9 +63,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.Ranks = 1;
                 bp.AddComponent<AddSecondaryAttacks>(c => {
                     c.m_Weapon = new BlueprintItemWeaponReference[] { SteelHeadbutt1d4.ToReference<BlueprintItemWeaponReference>() };
-                });
-                bp.AddComponent<ApplyArmorEnchantsToWeapon>(c => {
-                    c.Weapon = SteelHeadbutt1d4.ToReference<BlueprintItemWeaponReference>();
                 });
             });
             var SteelHeadbuttFeature = Helpers.CreateBlueprint<BlueprintFeature>("SteelHeadbuttFeature", bp => {

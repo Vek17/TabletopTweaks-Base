@@ -207,6 +207,7 @@
     <Compile Include="NewComponents\AddFeatureOnClassLevelExclude.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
     <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
+    <Compile Include="NewComponents\ArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ContextArcaneSpellFailureIncrease.cs" />
     <Compile Include="NewComponents\ContextArmorCheckPenaltyIncrease.cs" />
     <Compile Include="NewComponents\ContextMaxDexBonusIncrease.cs" />
@@ -278,6 +279,7 @@
     <Compile Include="NewComponents\AbilitySpecific\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteFeaturesFromListFormatted.cs" />
     <Compile Include="NewComponents\UpdateSlotsOnEquipmentChange.cs" />
+    <Compile Include="NewComponents\WeaponDamageMultiplierReplacement.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
@@ -383,6 +385,7 @@
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
+    <Compile Include="NewContent\WeaponEnchantments\TwoHandedDamageMultiplier.cs" />
     <Compile Include="NewEvents\ISpontaneousConversionHandler.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUI\ActionBarPatches.cs" />

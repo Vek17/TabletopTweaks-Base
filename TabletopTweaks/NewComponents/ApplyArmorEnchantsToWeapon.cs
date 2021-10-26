@@ -21,17 +21,15 @@ namespace TabletopTweaks.NewComponents {
         IUnitBuffHandler {
 
         public override void OnTurnOn() {
-            base.OnTurnOn();
-            CheckArmor();
+            UpdateEffect();
         }
 
         public override void OnTurnOff() {
-            base.OnTurnOff();
             DeactivateEnchants();
         }
 
         public override void OnActivate() {
-            CheckArmor();
+            UpdateEffect();
         }
 
         public override void OnDeactivate() {
@@ -39,30 +37,35 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void HandleBuffDidAdded(Buff buff) {
-            CheckArmor();
+            UpdateEffect();
         }
 
         public void HandleBuffDidRemoved(Buff buff) {
-            CheckArmor();
+            UpdateEffect();
         }
 
         public void HandleEquipmentSlotUpdated(ItemSlot slot, ItemEntity previousItem) {
-            CheckArmor();
+            UpdateEffect();
         }
 
         public void HandleUnitChangeActiveEquipmentSet(UnitDescriptor unit) {
-            CheckArmor();
+            UpdateEffect();
         }
 
-        private void CheckArmor() {
-            DeactivateEnchants();
+        private void UpdateEffect() {
             if (Owner.Body.IsPolymorphed) {
-                return;
+                DeactivateEnchants();
             }
             var armorEnchants = Owner.Body.Armor?.MaybeArmor?.Enchantments;
             if (armorEnchants == null) {
-                return;
+                DeactivateEnchants();
             }
+            DeactivateEnchants();
+            ApplyEnchants();
+        }
+
+        private void ApplyEnchants() {
+            var armorEnchants = Owner.Body.Armor?.MaybeArmor?.Enchantments;
 
             var primaryHandWeapon = Owner?.Body?.PrimaryHand?.MaybeItem as ItemEntityWeapon;
             var secondaryHandWeapon = Owner?.Body?.SecondaryHand?.MaybeItem as ItemEntityWeapon;
@@ -114,12 +117,12 @@ namespace TabletopTweaks.NewComponents {
             foreach (var e in m_enchants) {
                 e.Owner?.RemoveEnchantment(e);
             }
-            m_enchants = new List<ItemEnchantment>();
+            m_enchants.Clear();
         }
 
         public BlueprintItemWeaponReference Weapon;
         [JsonProperty]
-        private List<ItemEnchantment> m_enchants = new List<ItemEnchantment>();
+        private readonly List<ItemEnchantment> m_enchants = new List<ItemEnchantment>();
         private static BlueprintWeaponEnchantment[] EnhancmentBonuses = new BlueprintWeaponEnchantment[] {
             Resources.GetBlueprint<BlueprintWeaponEnchantment>("d704f90f54f813043a525f304f6c0050"), //TemporaryEnhancement1
             Resources.GetBlueprint<BlueprintWeaponEnchantment>("9e9bab3020ec5f64499e007880b37e52"), //TemporaryEnhancement2

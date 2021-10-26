@@ -22,6 +22,7 @@ namespace TabletopTweaks.NewContent {
                 Templates.AlignmentTemplates.AddResoluteTemplate();
 
                 WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
+                WeaponEnchantments.TwoHandedDamageMultiplier.AddTwoHandedDamageMultiplierEnchantment();
 
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();

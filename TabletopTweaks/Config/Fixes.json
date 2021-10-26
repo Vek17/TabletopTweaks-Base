@@ -626,6 +626,10 @@
                 "Enabled": true,
                 "Description": "All bloodline should now qualify including mutated ones."
             },
+            "CloseToTheAbyss": {
+                "Enabled": true,
+                "Description": "Fixes the magic gore's damage multiplier to be 1.5 instead of 0.5"
+            },
             "EnduringSpells": {
                 "Enabled": true,
                 "Description": "Now works on equipment enhancing effects like crusader's edge."

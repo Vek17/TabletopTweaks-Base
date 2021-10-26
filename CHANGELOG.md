@@ -1,3 +1,10 @@
+## Version 1.9.4
+* Updated handling of nested activatable abilities
+* Fixed issue where additional spell selections from spell blending/loremaster were not actually applying
+* Fixed unarmed strikes not being valid for weapon training
+* Close to the Abyss now correctly deals 1.5 strength damage instead of 0.5
+* Steel Headbutt should now more correctly use armor enchantment values
+
 ## Version 1.9.3a
 * Fixed issue with Oracle curse progression moving at the wrong rate
 * Fixed issue with alternate racial features breaking with Destinaty Beyond Birth
