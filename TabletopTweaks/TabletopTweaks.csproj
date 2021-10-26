@@ -224,7 +224,6 @@
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceEnergy.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\DamageResistance\TTAddDamageResistanceBase.cs" />
     <Compile Include="NewComponents\AddOutgoingWeaponDamageBonus.cs" />
-    <Compile Include="NewComponents\ApplyArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ArmoredMightComponent.cs" />
     <Compile Include="NewComponents\ArmorFeatureUnlock.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AttackStatReplacementEnforced.cs" />
