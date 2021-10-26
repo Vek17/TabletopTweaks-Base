@@ -118,10 +118,8 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public void Remove(EntityFact fact) {
-            Main.LogDebug($"Remove fact: {fact.Blueprint?.NameSafe()}");
             this.m_SourceFacts.Remove(fact);
             var removedCount = this.m_Chunks.RemoveAll(c => c.Source == fact);
-            Main.LogDebug($"Removed {removedCount} related chunks");
             if (!m_Cleanup)
                 RecalculateChunkStacks();
             this.RemovePartIfNecessary();
@@ -279,7 +277,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         private void RecalculateChunkStacks() {
-            Main.LogDebug($"RecalculateChunkStacks ({this.Owner.CharacterName})");
+            //Main.LogDebug($"RecalculateChunkStacks ({this.Owner.CharacterName})");
 #if DEBUG
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
@@ -348,8 +346,8 @@ namespace TabletopTweaks.NewUnitParts {
             }
 #if DEBUG
             watch.Stop();
-            DebugLogChunkStacks();
-            Main.LogDebug($"Calculated DR stacking groups in {watch.ElapsedMilliseconds} ms");
+            //Main.LogDebug($"Calculated DR stacking groups in {watch.ElapsedMilliseconds} ms");
+            //DebugLogChunkStacks();
 #endif
         }
 

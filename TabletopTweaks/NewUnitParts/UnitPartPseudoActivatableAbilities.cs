@@ -10,12 +10,14 @@ using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewEvents;
 using TabletopTweaks.NewUI;
 
 namespace TabletopTweaks.NewUnitParts {
@@ -37,6 +39,7 @@ namespace TabletopTweaks.NewUnitParts {
         private Dictionary<BlueprintBuffReference, HashSet<BlueprintAbility>> m_BuffsToAbilities =
             new Dictionary<BlueprintBuffReference, HashSet<BlueprintAbility>>();
 
+        [JsonProperty]
         private HashSet<BlueprintBuffReference> m_ActiveWatchedBuffs = new HashSet<BlueprintBuffReference>();
 
         private Dictionary<string, HashSet<BlueprintBuffReference>> m_GroupsToBuffs = new Dictionary<string, HashSet<BlueprintBuffReference>>();
@@ -63,13 +66,17 @@ namespace TabletopTweaks.NewUnitParts {
 
         public override void OnPostLoad() {
             foreach(var ability in this.Owner.Abilities) {
+                Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": processing ability \"{ability.Name}\"");
                 if (ability.GetComponent<PseudoActivatable>() != null) {
+                    Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": registering PA ability \"{ability.Name}\"");
                     RegisterPseudoActivatableAbility(ability.Data);
                 }
             }
 
             foreach (var buff in this.Owner.Buffs) {
+                Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": processing buff \"{buff.Name}\"");
                 if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
+                    Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": calling BuffActivated(\"{buff.Name}\")");
                     BuffActivated(buff.Blueprint);
                 }
             }
@@ -81,12 +88,16 @@ namespace TabletopTweaks.NewUnitParts {
                 return;
 
             if (fact is Ability ability) {
+                Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": ability \"{ability.Name}\"");
                 var pseudoActivatableComponent = ability.GetComponent<PseudoActivatable>();
                 if (pseudoActivatableComponent == null)
                     return;
+                Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": registering ability \"{ability.Name}\"");
                 RegisterPseudoActivatableAbility(ability.Data);
             } else if (fact is Buff buff) {
+                Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": buff \"{buff.Name}\"");
                 if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
+                    Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": calling BuffActivated(\"{buff.Name}\")");
                     BuffActivated(buff.Blueprint);
                 }
             }
@@ -111,7 +122,7 @@ namespace TabletopTweaks.NewUnitParts {
             if (!pseudoActivatableComponent.Buff.Equals(_nullBuffRef)) {
                 RegisterToggledBuffForAbility(abilityBlueprint, pseudoActivatableComponent.Buff, pseudoActivatableComponent.GroupName);
             } else {
-                var abilityVariants = ability.GetConversions();
+                var abilityVariants = GetAllConversionsForRealReal(ability);
                 if (abilityVariants.Empty()) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", but the PseudoActivatable component has no Buff set, and the ability does not have variants.");
                     return;
@@ -308,6 +319,19 @@ namespace TabletopTweaks.NewUnitParts {
             }
         }
 
+        // Ugly workaround to fix the event bus quirk that I've not been able to figure out.
+        // It's at the bottom of the file so maybe no-one will notice.
+        private static IEnumerable<AbilityData> GetAllConversionsForRealReal(AbilityData ability) {
+            var conversions = ability.GetConversions();
+            if (ability.Fact?.Components == null)
+                return conversions;
+            foreach(var component in ability.Fact.Components) {
+                if (component.SourceBlueprintComponent != null && component.SourceBlueprintComponent is ISpontaneousConversionHandler conversionComponent) {
+                    conversionComponent.HandleGetConversions(ability, ref conversions);
+                }
+            }
+            return conversions;
+        }
 
     }
 }
