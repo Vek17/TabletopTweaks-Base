@@ -22,17 +22,18 @@ namespace TabletopTweaks.NewComponents {
 
         public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {
             if (evt.Weapon == base.Owner) {
-                var value = evt.Initiator?.Body?.Armor?.MaybeArmor?.EnchantmentValue ?? 0;
-                if (value > 0) {
-                    evt.Enhancement = value > evt.Enhancement ? value : evt.Enhancement;
+                var bonus = evt.Initiator?.Body?.Armor?.MaybeArmor?.EnchantmentValue ?? 0;
+                if (bonus > 0) {
+                    evt.Enhancement = bonus > evt.Enhancement ? bonus : evt.Enhancement;
                 }
             }
         }
 
         public void OnEventAboutToTrigger(RuleCalculateAttackBonusWithoutTarget evt) {
             if (evt.Weapon == base.Owner) {
-                if (evt.Initiator?.Body?.Armor?.MaybeArmor?.EnchantmentValue > 0) {
-                    evt.AddModifier(evt.Initiator?.Body?.Armor?.Armor?.EnchantmentValue ?? 0, base.Fact, ModifierDescriptor.Enhancement);
+                var bonus = evt.Initiator?.Body?.Armor?.MaybeArmor?.EnchantmentValue ?? 0;
+                if (bonus > 0) {
+                    evt.AddModifier(bonus, base.Fact, ModifierDescriptor.Enhancement);
                 }
             }
         }
