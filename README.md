@@ -145,7 +145,6 @@ All fixes and added content are configurable and can be disabled by editing the 
 
     Reworks the following Mythic Paths:
         Aeon
-            Aeon Bane is now a free action to activate instead of a swift
             Aeon Bane usages now scale at 2x Mythic level + Character level
             Aeon Bane no longer grants disadvantage on spell resistance and instead correctly adds mythic rank to spell resistance checks
             Aeon Improved Bane now uses greater dispel magic rules to remove 1/4 CL buffs (where CL is defined as Character Level + Mythic Rank) instead of dispeling all buffs
@@ -153,7 +152,7 @@ All fixes and added content are configurable and can be disabled by editing the 
             Aeon Greater Bane now auto dispels one buff on the first hit
             Aeon Greater Bane now allows you to cast swift action spells as a move action
             Aeon Gaze selection is no longer limited on the first selection and all selections are available
-            Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same swift action and resouce usage
+            Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same resouce usage
             Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level
                 This takes the DC range from DC 21-35 to DC 21-40 (+2 vs Chaotic)
         Azata
