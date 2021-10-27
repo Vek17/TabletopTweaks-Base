@@ -15,7 +15,8 @@ namespace TabletopTweaks.NewComponents {
             var conversionList = conversions.ToList();
             var spellbook = Owner.DemandSpellbook(m_CharacterClass);
             if (spellbook == null) { return; }
-            if (ability.Spellbook?.Blueprint == spellbook.Blueprint) {
+            if (ability.Spellbook == null) { return; }
+            if (ability.SpellbookBlueprint == spellbook.Blueprint) {
                 for (int level = ability.SpellLevel; level > 0; level--) {
                     foreach (var spellList in spellbook.SpecialLists.Where(list => !list.IsMythic)) {
                         foreach (var spell in spellList.GetSpells(level)) {

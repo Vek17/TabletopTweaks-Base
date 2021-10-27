@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Parts;
@@ -14,7 +13,7 @@ namespace TabletopTweaks.NewComponents {
 
         public bool IsAbilityRestrictionPassed(AbilityData ability) {
             var weaponTraining = ability.Caster.Get<UnitPartWeaponTraining>();
-            var weapon = ability.Caster.Unit.GetThreatHand().Weapon;
+            var weapon = ability.Caster.Body.PrimaryHand.MaybeWeapon;
             if (weaponTraining == null || weapon == null) { return false; }
             return weaponTraining.GetWeaponRank(weapon) > 0;
         }

@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
@@ -33,6 +34,16 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
                 PatchMythicCharge();
+                PatchCloseToTheAbyss();
+            }
+            static void PatchCloseToTheAbyss() {
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("CloseToTheAbyss")) { return; }
+                var MythicDemonGore = Resources.GetBlueprint<BlueprintItemWeapon>("bd4417c15511afe42850fb4d3a6b4a32");
+                var TwoHandedDamageMultiplierEnchantment = Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TwoHandedDamageMultiplierEnchantment");
+
+                MythicDemonGore.m_Enchantments = MythicDemonGore.m_Enchantments
+                    .AppendToArray(TwoHandedDamageMultiplierEnchantment.ToReference<BlueprintWeaponEnchantmentReference>());
+                Main.LogPatch("Patched", MythicDemonGore);
             }
             static void PatchBloodlineAscendance() {
                 if (ModSettings.Fixes.MythicAbilities.IsDisabled("BloodlineAscendance")) { return; }

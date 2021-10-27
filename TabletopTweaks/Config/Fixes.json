@@ -248,6 +248,10 @@
                     "Enabled": true,
                     "Description": "Treats two handed fighter's weapon training as proper weapon training."
                 },
+                "UnarmedWeaponTraining": {
+                    "Enabled": true,
+                    "Description": "Makes unarmed correctly count as the close weapon group."
+                },
                 "WeaponTrainingStacking": {
                     "Enabled": true,
                     "Description": "Prevents bonuses from multiple weapon training groups from stacking."
@@ -621,6 +625,10 @@
             "BloodlineAscendance": {
                 "Enabled": true,
                 "Description": "All bloodline should now qualify including mutated ones."
+            },
+            "CloseToTheAbyss": {
+                "Enabled": true,
+                "Description": "Fixes the magic gore's damage multiplier to be 1.5 instead of 0.5"
             },
             "EnduringSpells": {
                 "Enabled": true,

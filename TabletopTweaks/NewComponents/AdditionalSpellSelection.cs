@@ -8,17 +8,19 @@ using Kingmaker.UI.MVVM._VM.CharGen.Phases.Spells;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.LevelUp;
+using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("070fd2a4a2cb4f198a44ae036082818c")]
     class AdditionalSpellSelection : UnitFactComponentDelegate, IUnitCompleteLevelUpHandler {
 
         private Spellbook SpellBook { get => Owner.DemandSpellbook(m_SpellCastingClass); }
-        private BlueprintSpellList SpellList { get => new ProxyBlueprintSpellList(m_SpellList ?? SpellBook?.Blueprint?.SpellList); }
+        private BlueprintSpellList SpellList { get => ProxyList(m_SpellList ?? SpellBook?.Blueprint?.SpellList); } 
         public int AdjustedMaxLevel {
             get {
                 if (!UseOffset) { return MaxSpellLevel; }
@@ -36,23 +38,35 @@ namespace TabletopTweaks.NewComponents {
                 .Select(s => s.SelectedItem?.Feature)
                 .Where(f => f == Fact.Blueprint)
                 .Count();
-            for (int i = 0; i < selectionCount; i++) {
+            int i = 0;
+            for (; i < spellSelections.Count && i < selectionCount; i++) {
+                controller.State.SpellSelections.Add(spellSelections[i]);
+                spellSelections[i].SetExtraSpells(Count, AdjustedMaxLevel);
+            }
+            for (; i < selectionCount; i++) {
+                
+                if (i >= selectionCount) { continue; }
                 var selection = controller.State.DemandSpellSelection(SpellBook.Blueprint, SpellList);
                 selection.SetExtraSpells(Count, AdjustedMaxLevel);
                 spellSelections.Add(selection);
             }
         }
-        public override void OnDeactivate() {
+        public override void OnTurnOff() {
             if (spellSelections.Empty()) { return; }
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;
             if (controller == null) { return; }
             if (SpellBook == null) { return; }
             spellSelections.ForEach(selection => controller.State.SpellSelections.Remove(selection));
-            spellSelections.Clear();
         }
 
         public void HandleUnitCompleteLevelup(UnitEntityData unit) {
             spellSelections.Clear();
+        }
+
+        private BlueprintSpellList ProxyList(BlueprintSpellList referenced) {
+            return Helpers.CreateCopy(referenced, bp => {
+                bp.name = $"{bp.name}Proxy";
+            });
         }
 
         private List<SpellSelectionData> spellSelections = new List<SpellSelectionData>();
@@ -62,25 +76,6 @@ namespace TabletopTweaks.NewComponents {
         public bool UseOffset;
         public int SpellLevelOffset;
         public int Count = 1;
-
-        private class ProxyBlueprintSpellList : BlueprintSpellList {
-            public ProxyBlueprintSpellList(BlueprintSpellList referenced) : base() {
-                AssetGuid = BlueprintGuid.NewGuid();
-                referenceList = referenced.ToReference<BlueprintSpellListReference>();
-                IsMythic = referenced.IsMythic;
-                SpellsByLevel = referenced.SpellsByLevel;
-                m_FilteredList = referenced.m_FilteredList;
-                FilterByMaxLevel = referenced.FilterByMaxLevel;
-                FilterByDescriptor = referenced.FilterByDescriptor;
-                Descriptor = referenced.Descriptor;
-                FilterBySchool = referenced.FilterBySchool;
-                ExcludeFilterSchool = referenced.ExcludeFilterSchool;
-                FilterSchool = referenced.FilterSchool;
-                FilterSchool2 = referenced.FilterSchool2;
-                m_MaxLevel = referenced.m_MaxLevel;
-            }
-            public BlueprintSpellListReference referenceList;
-        }
 
         [HarmonyPatch(typeof(SpellSelectionData), nameof(SpellSelectionData.CanSelectAnything), new Type[] { typeof(UnitDescriptor) })]
         static class SpellSelectionData_CanSelectAnything_AdditionalSpellSelection_Patch {
