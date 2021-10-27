@@ -188,6 +188,10 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 });
                 bp.AddComponent<UpdateSlotsOnEquipmentChange>();
                 bp.AddComponent<AbilityRequirementHasWeaponTrainingWithWeapon>();
+                bp.AddComponent<PseudoActivatable>(c => {
+                    c.m_Type = PseudoActivatable.PseudoActivatableType.VariantsBase;
+                    c.m_ActiveWhenVariantActive = false;
+                });
             });
 
             CreateWarriorSpiritToggle("WarriorSpiritAnarchic", Icon_WarriorSpirit_Anarchic, WarriorSpiritToggleAbility, 2, Anarchic);
@@ -277,8 +281,12 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     c.Rank = cost;
                 });
                 bp.AddComponent<PseudoActivatable>(c => {
+                    c.m_Type = PseudoActivatable.PseudoActivatableType.BuffToggle;
                     c.m_Buff = weaponBuff.ToReference<BlueprintBuffReference>();
                     c.m_GroupName = "WarriorSpirit";
+                });
+                bp.AddComponent<AbilityEffectToggleBuff>(c => {
+                    c.m_Buff = weaponBuff.ToReference<BlueprintBuffReference>();
                 });
             });
             var abilityVariants = parent.GetComponent<NestedPseudoActivatableAbilities>();
