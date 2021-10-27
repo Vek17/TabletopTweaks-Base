@@ -1,11 +1,9 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.Items.Slots;
 using Kingmaker.UI.ActionBar;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UI.UnitSettings;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using System;

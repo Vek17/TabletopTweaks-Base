@@ -1,23 +1,19 @@
-﻿using Kingmaker.Blueprints;
+﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.NewComponents;
-using TabletopTweaks.NewEvents;
 using TabletopTweaks.NewUI;
 
 namespace TabletopTweaks.NewUnitParts {
@@ -65,20 +61,8 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public override void OnPostLoad() {
-            foreach(var ability in this.Owner.Abilities) {
-                Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": processing ability \"{ability.Name}\"");
-                if (ability.GetComponent<PseudoActivatable>() != null) {
-                    Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": registering PA ability \"{ability.Name}\"");
-                    RegisterPseudoActivatableAbility(ability.Data);
-                }
-            }
-
             foreach (var buff in this.Owner.Buffs) {
-                Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": processing buff \"{buff.Name}\"");
-                if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
-                    Main.LogDebug($"UPPAA.OnPostLoad for \"{this.Owner.CharacterName}\": calling BuffActivated(\"{buff.Name}\")");
-                    BuffActivated(buff.Blueprint);
-                }
+                BuffGained(buff);
             }
             Validate();
         }
@@ -86,18 +70,23 @@ namespace TabletopTweaks.NewUnitParts {
         public void HandleUnitGainFact(EntityFact fact) {
             if (fact.Owner != this.Owner)
                 return;
+            if (fact is Buff buff) {
+                BuffGained(buff);
+            }
+        }
 
-            if (fact is Ability ability) {
-                Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": ability \"{ability.Name}\"");
-                var pseudoActivatableComponent = ability.GetComponent<PseudoActivatable>();
-                if (pseudoActivatableComponent == null)
-                    return;
-                Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": registering ability \"{ability.Name}\"");
-                RegisterPseudoActivatableAbility(ability.Data);
-            } else if (fact is Buff buff) {
-                Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": buff \"{buff.Name}\"");
-                if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
-                    Main.LogDebug($"UPPAA.HandleUnitGainFact for \"{this.Owner.CharacterName}\": calling BuffActivated(\"{buff.Name}\")");
+        private void BuffGained(Buff buff) {
+            if (m_BuffsToAbilities.ContainsKey(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
+                BuffActivated(buff.Blueprint);
+            } else {
+                var pseudoActivatableComponent = buff.SourceAbility?.GetComponent<PseudoActivatable>();
+                if (pseudoActivatableComponent != null
+                    && pseudoActivatableComponent.Type == PseudoActivatable.PseudoActivatableType.BuffToggle
+                    && pseudoActivatableComponent.Buff.Equals(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
+                    RegisterToggledBuffForAbility(
+                        buff.SourceAbility,
+                        buff.Blueprint.ToReference<BlueprintBuffReference>(),
+                        buff.SourceAbility.GetComponent<PseudoActivatable>().GroupName);
                     BuffActivated(buff.Blueprint);
                 }
             }
@@ -122,9 +111,12 @@ namespace TabletopTweaks.NewUnitParts {
             if (!pseudoActivatableComponent.Buff.Equals(_nullBuffRef)) {
                 RegisterToggledBuffForAbility(abilityBlueprint, pseudoActivatableComponent.Buff, pseudoActivatableComponent.GroupName);
             } else {
-                var abilityVariants = GetAllConversionsForRealReal(ability);
+                var abilityVariants = ability.GetConversions();
                 if (abilityVariants.Empty()) {
-                    Main.Log($"WARNING: UnitPartPseudoActivatableAbilities.RegisterPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", but the PseudoActivatable component has no Buff set, and the ability does not have variants.");
+                    Main.LogDebug($"UnitPartPseudoActivatableAbilities.RegisterPseudoActivatableAbility called for ability \"{abilityBlueprint.NameSafe()}\", but the PseudoActivatable component has no Buff set, and the ability does not have variants.");
+                    if (!m_AbilitiesToBuffs.ContainsKey(abilityBlueprint)) {
+                        m_AbilitiesToBuffs.Add(abilityBlueprint, new HashSet<BlueprintBuffReference>());
+                    }
                     return;
                 }
 
@@ -318,20 +310,5 @@ namespace TabletopTweaks.NewUnitParts {
                 }
             }
         }
-
-        // Ugly workaround to fix the event bus quirk that I've not been able to figure out.
-        // It's at the bottom of the file so maybe no-one will notice.
-        private static IEnumerable<AbilityData> GetAllConversionsForRealReal(AbilityData ability) {
-            var conversions = ability.GetConversions();
-            if (ability.Fact?.Components == null)
-                return conversions;
-            foreach(var component in ability.Fact.Components) {
-                if (component.SourceBlueprintComponent != null && component.SourceBlueprintComponent is ISpontaneousConversionHandler conversionComponent) {
-                    conversionComponent.HandleGetConversions(ability, ref conversions);
-                }
-            }
-            return conversions;
-        }
-
     }
 }

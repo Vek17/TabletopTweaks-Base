@@ -1,19 +1,17 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Blueprints.Validation;
+using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.Utility;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents {
 
     [AllowedOn(typeof(BlueprintAbility))]
     [TypeId("9b6e1ed4932a4932827c7fecb2c57427")]
-    public class PseudoActivatable : BlueprintComponent {
+    public class PseudoActivatable : UnitFactComponentDelegate {
 
         public PseudoActivatableType m_Type;
         public BlueprintBuffReference m_Buff;
@@ -22,6 +20,14 @@ namespace TabletopTweaks.NewComponents {
         public PseudoActivatableType Type => m_Type;
         public BlueprintBuffReference Buff => m_Buff ?? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null);
         public string GroupName => m_GroupName;
+
+        public override void OnTurnOn() {
+            if (this.Fact is not Ability ability) {
+                Main.Log($"WARNING: PseudoActivatable component is present on Fact \"{this.Fact?.Name}\", but this Fact is not an Ability.");
+                return;
+            }
+            this.Owner.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbility(ability.Data);
+        }
 
         public enum PseudoActivatableType {
             BuffToggle,
