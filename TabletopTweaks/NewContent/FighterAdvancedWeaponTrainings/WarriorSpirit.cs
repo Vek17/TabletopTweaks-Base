@@ -190,6 +190,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.AddComponent<AbilityRequirementHasWeaponTrainingWithWeapon>();
                 bp.AddComponent<PseudoActivatable>(c => {
                     c.m_Type = PseudoActivatable.PseudoActivatableType.VariantsBase;
+                    c.m_ActiveWhenVariantActive = false;
                 });
             });
 

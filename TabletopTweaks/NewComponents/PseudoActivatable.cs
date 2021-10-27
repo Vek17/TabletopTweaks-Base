@@ -14,12 +14,21 @@ namespace TabletopTweaks.NewComponents {
     public class PseudoActivatable : UnitFactComponentDelegate {
 
         public PseudoActivatableType m_Type;
+
+        // type BuffToggle
         public BlueprintBuffReference m_Buff;
         public string m_GroupName;
+
+        // type VariantsBase
+        public bool m_ActiveWhenVariantActive = true;
+        public bool m_UseActiveVariantForeIcon = true;
 
         public PseudoActivatableType Type => m_Type;
         public BlueprintBuffReference Buff => m_Buff ?? BlueprintReferenceBase.CreateTyped<BlueprintBuffReference>(null);
         public string GroupName => m_GroupName;
+
+        public bool ActiveWhenVariantActive => m_ActiveWhenVariantActive;
+        public bool UseActiveVariantForeIcon => m_UseActiveVariantForeIcon;
 
         public override void OnTurnOn() {
             if (this.Fact is not Ability ability) {

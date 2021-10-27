@@ -196,14 +196,23 @@ namespace TabletopTweaks.NewUnitParts {
                 return;
 
             var shouldBeActive = watchedBuffs.Any(buff => m_ActiveWatchedBuffs.Contains(buff));
-            BlueprintBuffReference activeBuff = null;
-            if (watchedBuffs.Count > 1) {
-                var activeBuffs = watchedBuffs.Where(b => m_ActiveWatchedBuffs.Contains(b)).ToList();
-                if (activeBuffs.Count == 1) {
-                    activeBuff = activeBuffs[0];
+            BlueprintBuffReference buffForForeIcon = null;
+
+            var pseudoActivatableComponent = abilityBlueprint.GetComponent<PseudoActivatable>();
+            if (pseudoActivatableComponent.m_Type == PseudoActivatable.PseudoActivatableType.VariantsBase) {
+                if (!pseudoActivatableComponent.ActiveWhenVariantActive) {
+                    shouldBeActive = false;
+                }
+                if (pseudoActivatableComponent.UseActiveVariantForeIcon) {
+                    if (watchedBuffs.Count > 1) {
+                        var activeBuffs = watchedBuffs.Where(b => m_ActiveWatchedBuffs.Contains(b)).ToList();
+                        if (activeBuffs.Count == 1) {
+                            buffForForeIcon = activeBuffs[0];
+                        }
+                    }
                 }
             }
-            UpdateSlotRefs(slotRefs, shouldBeActive, activeBuff);
+            UpdateSlotRefs(slotRefs, shouldBeActive, buffForForeIcon);
         }
 
 
