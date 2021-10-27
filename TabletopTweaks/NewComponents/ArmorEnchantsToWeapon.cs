@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
@@ -7,6 +8,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
+    [TypeId("1c41e810627b489bbdc47138903dbc86")]
     class ArmorEnchantsToWeapon : WeaponEnchantmentLogic,
         ISubscriber, IInitiatorRulebookSubscriber,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,

@@ -2,11 +2,6 @@
     "MythicReworks": {
         "Aeon": {
             "Settings": {
-                "AeonBaneAction": {
-                    "Enabled": true,
-                    "Homebrew": true,
-                    "Description": "Aeon Bane is now a free action to activate instead of a swift."
-                },
                 "AeonBaneIcon": {
                     "Enabled": true,
                     "Homebrew": true,
@@ -25,7 +20,7 @@
                 "AeonGazeActionSystem": {
                     "Enabled": true,
                     "Homebrew": true,
-                    "Description": "Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same swift action and resouce usage."
+                    "Description": "Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same resouce usage."
                 },
                 "AeonGazeDC": {
                     "Enabled": true,

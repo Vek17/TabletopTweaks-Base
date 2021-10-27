@@ -48,7 +48,7 @@ namespace TabletopTweaks.MythicReworks {
                 Main.LogHeader("Aeon Rework");
 
                 PatchAeonBaneIcon();
-                PatchAeonBaneAction();
+                //PatchAeonBaneAction();
                 PatchAeonBaneSpellResistance();
                 PatchAeonBaneUses();
                 PatchAeonImprovedBaneDispelLimit();
@@ -195,8 +195,7 @@ namespace TabletopTweaks.MythicReworks {
                         m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
                         m_MaxSpellLevel = new ContextValue(),
                         m_MaxCasterLevel = new ContextValue(),
-                        m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
-                        CheckBonus = 100,
+                        m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.None,
                         ContextBonus = new ContextValue(),
                         Schools = new SpellSchool[0],
                         OnSuccess = Helpers.CreateActionList(),

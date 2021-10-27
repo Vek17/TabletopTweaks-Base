@@ -477,6 +477,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         c.m_Class = addFeature.m_Class;
                         c.m_AdditionalClasses = addFeature.m_AdditionalClasses;
                         c.m_Archetypes = addFeature.m_Archetypes;
+                        c.m_ExcludeClass = addFeature.m_Class;
+                        c.m_AdditionalExcludeClasses = new BlueprintCharacterClassReference[0];
                         c.m_ExcludeArchetypes = new BlueprintArchetypeReference[] { ChannelerOfTheUnknownArchetype.ToReference<BlueprintArchetypeReference>() };
                         c.m_Feature = addFeature.m_Feature;
                         c.Level = addFeature.Level;

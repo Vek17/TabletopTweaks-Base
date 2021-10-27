@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewComponents {
 
         private bool IsFeatureShouldBeApplied() {
             int num = ReplaceCasterLevelOfAbility.CalculateClassLevel(m_Class, m_AdditionalClasses.Select(c => c.Get()).ToArray(), base.Owner, m_Archetypes.Select(c => c.Get()).ToArray());
-            num -= ReplaceCasterLevelOfAbility.CalculateClassLevel(m_Class, m_AdditionalClasses.Select(c => c.Get()).ToArray(), base.Owner, m_ExcludeArchetypes.Select(c => c.Get()).ToArray());
+            num -= ReplaceCasterLevelOfAbility.CalculateClassLevel(m_ExcludeClass, m_AdditionalExcludeClasses.Select(c => c.Get()).ToArray(), base.Owner, m_ExcludeArchetypes.Select(c => c.Get()).ToArray());
             return (!BeforeThisLevel || num < Level) && ((num < Level && BeforeThisLevel) || (num >= Level && !BeforeThisLevel));
         }
 
@@ -58,6 +58,8 @@ namespace TabletopTweaks.NewComponents {
         public bool BeforeThisLevel;
         public BlueprintCharacterClassReference[] m_AdditionalClasses;
         public BlueprintArchetypeReference[] m_Archetypes;
+        public BlueprintCharacterClassReference m_ExcludeClass;
+        public BlueprintCharacterClassReference[] m_AdditionalExcludeClasses;
         public BlueprintArchetypeReference[] m_ExcludeArchetypes;
     }
 }

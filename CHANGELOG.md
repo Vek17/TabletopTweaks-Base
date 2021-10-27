@@ -4,6 +4,9 @@
 * Fixed unarmed strikes not being valid for weapon training
 * Close to the Abyss now correctly deals 1.5 strength damage instead of 0.5
 * Steel Headbutt should now more correctly use armor enchantment values
+* Aeon Bane is now a swift action instead of a free
+* Aeon Gaze is now a free action instead of a swift
+* Updated Diety favored weapon mechanics to fix proficency not being granted properly in some cases
 
 ## Version 1.9.3a
 * Fixed issue with Oracle curse progression moving at the wrong rate
