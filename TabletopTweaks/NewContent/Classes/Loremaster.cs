@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.Prerequisites;
@@ -41,33 +42,32 @@ namespace TabletopTweaks.NewContent.Classes {
                 spellSecret.AddFeatures(CreateSpellSecretClasses(secret));
             }
             BlueprintFeature[] CreateSpellSecretClasses(BlueprintFeatureSelection secretSelection) {
-                return secretSelection.m_AllFeatures.Select(feature => {
-                    var secret = feature.Get() as BlueprintParametrizedFeature;
-                    var name = $"{secret.name}_TTT";
+                var secret = secretSelection.m_AllFeatures.First().Get() as BlueprintParametrizedFeature;
+                return SpellTools.SpellCastingClasses.AllClasses.Select(castingClass => {
+                    var name = $"{secretSelection.name.Replace("Selection", "").Replace("Spell","")}{castingClass.Name}_TTT";
+                    if (Regex.Matches(name, "Cleric").Count > 1 || Regex.Matches(name, "Druid").Count > 1) {
+                        return null;
+                    }
                     var spellSecret = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
-                        bp.SetName($"{secretSelection.Name} — {secret.Name}");
+                        bp.SetName($"{secretSelection.Name} — {castingClass.Name}");
                         bp.m_Description = secretSelection.m_Description;
                         bp.IsClassFeature = true;
                         bp.Groups = secret.Groups;
                         bp.HideNotAvailibleInUI = true;
                         bp.AddComponent<AdditionalSpellSelection>(c => {
-                            c.m_SpellCastingClass = secret.m_SpellcasterClass;
+                            c.m_SpellCastingClass = castingClass.ToReference<BlueprintCharacterClassReference>();
                             c.m_SpellList = secret.m_SpellList;
                             c.UseOffset = true;
                             c.Count = 1;
                         });
                         bp.AddComponent<PrerequisiteClassSpellLevel>(c => {
-                            c.m_CharacterClass = secret.GetComponent<PrerequisiteFeaturesFromList>()
-                                .m_Features
-                                .First().Get()
-                                .GetComponent<PrerequisiteClassSpellLevel>()
-                                .m_CharacterClass; ;
+                            c.m_CharacterClass = castingClass.ToReference<BlueprintCharacterClassReference>();
                             c.RequiredSpellLevel = 1;
                             c.HideInUI = true;
                         });
                     });
                     return spellSecret;
-                }).ToArray();
+                }).Where(secret => secret != null).ToArray();
             }
 
             void CreateSpellbookSelection() {

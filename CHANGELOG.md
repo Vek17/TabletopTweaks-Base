@@ -1,3 +1,6 @@
+## Version 1.9.5
+* Loremaster now supports Hunter, Skald, and Warpriest
+
 ## Version 1.9.4
 * Updated handling of nested activatable abilities
 * Fixed issue where additional spell selections from spell blending/loremaster were not actually applying
@@ -6,7 +9,7 @@
 * Steel Headbutt should now more correctly use armor enchantment values
 * Aeon Bane is now a swift action instead of a free
 * Aeon Gaze is now a free action instead of a swift
-* Updated Diety favored weapon mechanics to fix proficency not being granted properly in some cases
+* Updated Deity favored weapon mechanics to fix proficiency not being granted properly in some cases
 
 ## Version 1.9.3a
 * Fixed issue with Oracle curse progression moving at the wrong rate
