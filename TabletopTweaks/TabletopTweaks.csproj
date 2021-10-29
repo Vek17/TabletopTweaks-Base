@@ -206,6 +206,7 @@
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
     <Compile Include="NewComponents\AddFeatureOnClassLevelExclude.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
+    <Compile Include="NewComponents\AddWeaponDamageTrigger.cs" />
     <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
     <Compile Include="NewComponents\ArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ContextArcaneSpellFailureIncrease.cs" />
@@ -385,6 +386,7 @@
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
+    <Compile Include="NewContent\WeaponEnchantments\TerrifyingTremble.cs" />
     <Compile Include="NewContent\WeaponEnchantments\TwoHandedDamageMultiplier.cs" />
     <Compile Include="NewEvents\ISpontaneousConversionHandler.cs" />
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />

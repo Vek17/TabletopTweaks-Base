@@ -715,6 +715,10 @@
                     "Enabled": true,
                     "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
                 },
+                "TerrifyingTremble": {
+                    "Enabled": true,
+                    "Description": "Implements the missing on kill effect. Whenever the wielder of this weapon lands a killing blow, he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. Successful Reflex save (DC 30) halves the damage."
+                },
                 "ThunderingBurst": {
                     "Enabled": true,
                     "Description": "Fixes thundering burst to deal D10s like the description says instead of D8s."

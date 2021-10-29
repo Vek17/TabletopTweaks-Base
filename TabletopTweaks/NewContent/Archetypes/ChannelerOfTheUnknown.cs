@@ -178,7 +178,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.AddComponent<SpellDescriptorComponent>(c => {
                     c.Descriptor = new SpellDescriptorWrapper(SpellDescriptor.ChannelNegativeHarm);
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.DamageDice;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Class = new BlueprintCharacterClassReference[] { ClericClass.ToReference<BlueprintCharacterClassReference>() };
@@ -187,15 +187,15 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.m_StepLevel = 2;
                     c.m_Min = 1;
                     c.m_UseMin = true;
-                }));
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.DamageBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
                     c.m_CustomProperty = MythicChannelProperty.ToReference<BlueprintUnitPropertyReference>();
                     c.m_Progression = ContextRankProgression.AsIs;
                     c.m_Min = 0;
                     c.m_UseMin = true;
-                }));
+                });
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
                         new Conditional() {

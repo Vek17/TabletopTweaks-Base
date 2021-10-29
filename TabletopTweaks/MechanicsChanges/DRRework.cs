@@ -465,7 +465,8 @@ namespace TabletopTweaks.MechanicsChanges {
                     Resources.GetBlueprint<BlueprintFeature>("06d2f00616ad40c3b136d06dffc8f0b5"), // ColorlessRemainsBreastplate_SolidFeature
                     Resources.GetBlueprint<BlueprintFeature>("ff2d26e87b5f2bc4ba1823e242f10890"), // ForMounted_HalfplateOfSynergyFeature
                     Resources.GetBlueprint<BlueprintFeature>("e19008b823a221043b9184ef3c271db1"), // RealmProtectorFeature
-                    Resources.GetBlueprint<BlueprintFeature>("79babe38a7306ba4c81f2fa3c88d1bae")  // StuddedArmorOfTrinityFeature
+                    Resources.GetBlueprint<BlueprintFeature>("79babe38a7306ba4c81f2fa3c88d1bae"), // StuddedArmorOfTrinityFeature
+                    Resources.GetBlueprint<BlueprintFeature>("8c7de3b7d51a4b49a46990d8dbc84853")  // ThroneKeeperFeature
                 };
 
                 foreach (BlueprintUnitFact armorBlueprint in armorFactsWithPhysicalDR) {

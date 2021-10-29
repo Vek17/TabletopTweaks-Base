@@ -101,7 +101,12 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Saving_Throw",
-                Patterns = { "Saving Throw" }
+                Patterns = { 
+                    "Saving Throw",
+                    "Reflex Save",
+                    "Will Save",
+                    "Fortitude Save"
+                }
             },
             new EncyclopediaEntry {
                 Entry = "Spell_Resistance",
@@ -174,7 +179,10 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Skills",
-                Patterns = { "Skills? Checks?" }
+                Patterns = { 
+                    "Skills? Checks?",
+                    "Skills?"
+                }
             },
             new EncyclopediaEntry {
                 Entry = "Combat_Maneuvers",
@@ -277,6 +285,10 @@ namespace TabletopTweaks.Utilities {
                     "Piercing",
                     "Slashing"
                 }
+            },
+            new EncyclopediaEntry {
+                Entry = "Damage",
+                Patterns = { "damage" }
             }
         };
 

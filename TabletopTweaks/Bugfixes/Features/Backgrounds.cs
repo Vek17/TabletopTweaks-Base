@@ -29,6 +29,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.BaseFixes.IsDisabled("FixBackgroundModifiers")) { return; }
                 Main.LogHeader("Patching Backgrounds");
                 PatchMiner();
+                PatchFarmhand();
                 PatchBackgrounds();
 
                 void PatchBackgrounds() {
@@ -68,6 +69,20 @@ namespace TabletopTweaks.Bugfixes.Features {
                     });
                     var addFacts = BackgroundMiner.GetComponent<AddFacts>();
                     addFacts.m_Facts = addFacts.m_Facts.AppendToArray(EarthBreakerProficiency.ToReference<BlueprintUnitFactReference>());
+                    Main.LogPatch("Patched", BackgroundMiner);
+                }
+                void PatchFarmhand() {
+                    var KamaProficiency = Resources.GetBlueprint<BlueprintFeature>("403740e8112651141a12f0d73d793dbc");
+                    var BackgroundFarmhand = Resources.GetBlueprint<BlueprintFeature>("25b35e09665310d4faac3020f8198cfb");
+
+                    BackgroundFarmhand.AddComponent<AddBackgroundWeaponProficiency>(c => {
+                        c.Proficiency = WeaponCategory.Kama;
+                        c.StackBonusType = ModifierDescriptor.Enhancement;
+                        c.StackBonus = 1;
+                    });
+                    var addFacts = BackgroundFarmhand.GetComponent<AddFacts>();
+                    addFacts.m_Facts = addFacts.m_Facts.AppendToArray(KamaProficiency.ToReference<BlueprintUnitFactReference>());
+                    Main.LogPatch("Patched", BackgroundFarmhand);
                 }
             }
         }

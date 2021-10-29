@@ -23,6 +23,7 @@ namespace TabletopTweaks.NewContent {
 
                 WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
                 WeaponEnchantments.TwoHandedDamageMultiplier.AddTwoHandedDamageMultiplierEnchantment();
+                WeaponEnchantments.TerrifyingTremble.AddTerrifyingTrembleEnchant();
 
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();

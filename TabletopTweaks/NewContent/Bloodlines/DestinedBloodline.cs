@@ -175,7 +175,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerDestinedFatedBloodrager.Name);
                 bp.SetDescription(BloodragerDestinedFatedBloodrager.Description);
                 bp.IsClassFeature = true;
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                bp.AddComponent<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Stat = StatType.AC;
                     c.Multiplier = 1;
@@ -183,8 +183,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                });
+                bp.AddComponent<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Stat = StatType.SaveFortitude;
                     c.Multiplier = 1;
@@ -192,8 +192,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                });
+                bp.AddComponent<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Stat = StatType.SaveReflex;
                     c.Multiplier = 1;
@@ -201,8 +201,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                });
+                bp.AddComponent<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Luck;
                     c.Stat = StatType.SaveWill;
                     c.Multiplier = 1;
@@ -210,13 +210,13 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddComponent<ContextRankConfig>(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_Feature = BloodragerDestinedFatedBloodrager.ToReference<BlueprintFeatureReference>();
                     c.m_Progression = ContextRankProgression.AsIs;
-                }));
+                });
             });
             var BloodragerDestinedCertainStrike = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedCertainStrike", bp => {
                 bp.SetName("Certain Strike");

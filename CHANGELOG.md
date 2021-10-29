@@ -1,5 +1,6 @@
 ## Version 1.9.5
 * Loremaster now supports Hunter, Skald, and Warpriest
+* Terrifying Tremble's on kill effect now works
 
 ## Version 1.9.4
 * Updated handling of nested activatable abilities

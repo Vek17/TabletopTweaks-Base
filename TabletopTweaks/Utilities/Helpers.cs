@@ -107,6 +107,9 @@ namespace TabletopTweaks.Utilities {
 
         // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
         static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
+        public static LocalizedString CreateTaggedString(string key, string value) {
+            return CreateString(key, DescriptionTools.TagEncyclopediaEntries(value));
+        }
         public static LocalizedString CreateString(string key, string value) {
             // See if we used the text previously.
             // (It's common for many features to use the same localized text.
