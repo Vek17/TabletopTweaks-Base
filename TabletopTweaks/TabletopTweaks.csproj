@@ -218,9 +218,10 @@
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
+    <Compile Include="NewComponents\Properties\CompositeCustomPropertyGetter.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
-    <Compile Include="NewComponents\Properties\ProgressionRankPropertyGetter.cs" />
+    <Compile Include="NewComponents\Properties\ProgressionRankGetter.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\AbilityEffectToggleBuff.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />

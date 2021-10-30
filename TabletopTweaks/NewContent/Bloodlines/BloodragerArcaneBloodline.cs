@@ -33,11 +33,30 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             var ProtectionFromArrowsBuff = Resources.GetBlueprint<BlueprintBuff>("241ee6bd8c8767343994bce5dc1a95e0");
 
             var BloodragerArcaneProgressionProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("BloodragerArcaneProgressionProperty", bp => {
+                bp.AddComponent<CompositeCustomPropertyGetter>(c => {
+                    c.CalculationMode = CompositeCustomPropertyGetter.Mode.Highest;
+                    c.Properties = new CompositeCustomPropertyGetter.ComplexCustomProperty[] {
+                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){ 
+                            Property = new ProgressionRankGetter(){
+                                Progression = BloodragerArcaneBloodline.ToReference<BlueprintProgressionReference>(),
+                                UseMax = true,
+                                Max = 20
+                            }
+                        },
+                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){
+                            Property = new ClassLevelGetter(){
+                                m_Class = BloodragerClass.ToReference<BlueprintCharacterClassReference>()
+                            }
+                        }
+                    };
+                });
+                /*
                 bp.AddComponent<ProgressionRankPropertyGetter>(c => {
                     c.Progression = BloodragerArcaneBloodline.ToReference<BlueprintProgressionReference>();
                     c.UseMax = true;
                     c.Max = 20;
                 });
+                */
             });
 
             var ProtectionFromArrowsArcaneBloodragerBuff = Helpers.CreateBuff("ProtectionFromArrowsArcaneBloodrageBuff", bp => {
