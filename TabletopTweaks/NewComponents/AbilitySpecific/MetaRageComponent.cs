@@ -134,7 +134,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 this.m_ConvertedFrom = other;
             }
 
-            public new string Name { get  =>  $"{Blueprint.Name} — {addedMetamagic}"; }
+            public new string Name { get => $"{Blueprint.Name} — {addedMetamagic}"; }
             public BlueprintFeature MetamagicFeature { get => m_MetamagicFeature.Get(); }
 
             public BlueprintFeatureReference m_MetamagicFeature;

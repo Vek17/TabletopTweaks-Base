@@ -44,7 +44,7 @@ namespace TabletopTweaks.NewContent.Classes {
             BlueprintFeature[] CreateSpellSecretClasses(BlueprintFeatureSelection secretSelection) {
                 var secret = secretSelection.m_AllFeatures.First().Get() as BlueprintParametrizedFeature;
                 return SpellTools.SpellCastingClasses.AllClasses.Select(castingClass => {
-                    var name = $"{secretSelection.name.Replace("Selection", "").Replace("Spell","")}{castingClass.Name}_TTT";
+                    var name = $"{secretSelection.name.Replace("Selection", "").Replace("Spell", "")}{castingClass.Name}_TTT";
                     if (Regex.Matches(name, "Cleric").Count > 1 || Regex.Matches(name, "Druid").Count > 1) {
                         return null;
                     }

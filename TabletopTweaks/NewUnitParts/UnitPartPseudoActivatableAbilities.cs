@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UI.UnitSettings;
@@ -17,7 +16,7 @@ using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewUI;
 
 namespace TabletopTweaks.NewUnitParts {
-    public class UnitPartPseudoActivatableAbilities : 
+    public class UnitPartPseudoActivatableAbilities :
         UnitPart,
         ISubscriber,
         IUnitSubscriber,
@@ -48,8 +47,7 @@ namespace TabletopTweaks.NewUnitParts {
             var abilityBlueprint = abilitySlot.PseudoActivatableAbility.Blueprint;
             if (m_AbilitiesToMechanicSlots.TryGetValue(abilityBlueprint, out var slotRefs)) {
                 slotRefs.Add(new WeakReference<MechanicActionBarSlot>(mechanicSlot));
-            }
-            else {
+            } else {
                 m_AbilitiesToMechanicSlots.Add(abilityBlueprint, new List<WeakReference<MechanicActionBarSlot>>() { new WeakReference<MechanicActionBarSlot>(mechanicSlot) });
             }
 
@@ -162,12 +160,12 @@ namespace TabletopTweaks.NewUnitParts {
                     // add the to be removed buffs to a collection first, otherwise we'll be modifying m_ActiveWatchedBuffs while using it in the calculation
                     var buffsToRemove = new HashSet<BlueprintBuffReference>();
                     // double nested loop, but usually buffs are only in one group, and there should be in the order of 10 buffs in a group so this should be fine
-                    foreach(var groupName in groupsForBuff) {
-                        foreach(var buffToRemove in m_GroupsToBuffs[groupName].Where(b => !b.Equals(buffRef) && m_ActiveWatchedBuffs.Contains(b))) {
+                    foreach (var groupName in groupsForBuff) {
+                        foreach (var buffToRemove in m_GroupsToBuffs[groupName].Where(b => !b.Equals(buffRef) && m_ActiveWatchedBuffs.Contains(b))) {
                             buffsToRemove.Add(buffToRemove);
                         }
                     }
-                    foreach(var buffToRemove in buffsToRemove) {
+                    foreach (var buffToRemove in buffsToRemove) {
                         this.Owner.Buffs.RemoveFact(buffToRemove);
                     }
                 }
@@ -186,7 +184,7 @@ namespace TabletopTweaks.NewUnitParts {
             if (!m_BuffsToAbilities.TryGetValue(buff, out var abilities))
                 return;
 
-            foreach(var abilityBlueprint in abilities) {
+            foreach (var abilityBlueprint in abilities) {
                 UpdateStateForAbility(abilityBlueprint);
             }
         }
@@ -238,15 +236,15 @@ namespace TabletopTweaks.NewUnitParts {
 
         private void Validate() {
 
-            foreach(var activeBuff in m_ActiveWatchedBuffs) {
+            foreach (var activeBuff in m_ActiveWatchedBuffs) {
                 if (!this.Owner.HasFact(activeBuff)) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff \"{activeBuff.NameSafe()}\" is in active watched buffs list, but owner does not actually have that buff.");
                 }
             }
 
             foreach (var buff in this.Owner.Buffs) {
-                if (buff.SourceAbility != null 
-                    && buff.SourceAbility.GetComponent<PseudoActivatable>() != null 
+                if (buff.SourceAbility != null
+                    && buff.SourceAbility.GetComponent<PseudoActivatable>() != null
                     && buff.SourceAbility.GetComponent<PseudoActivatable>().Buff.Equals(buff.Blueprint.ToReference<BlueprintBuffReference>())
                     && !m_ActiveWatchedBuffs.Contains(buff.Blueprint.ToReference<BlueprintBuffReference>())) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": unit has buff \"{buff.Name}\", which is toggled by pseudo activatable ability \"{buff.SourceAbility.NameSafe()}\", but this buff is not present in active watched buff list.");
@@ -254,14 +252,14 @@ namespace TabletopTweaks.NewUnitParts {
             }
 
             var abilitiesInBuffsDictionary = m_BuffsToAbilities.Values.SelectMany(x => x).ToHashSet();
-            foreach(var abilityBlueprint in abilitiesInBuffsDictionary) {
+            foreach (var abilityBlueprint in abilitiesInBuffsDictionary) {
                 if (!m_AbilitiesToBuffs.ContainsKey(abilityBlueprint)) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": ability \"{abilityBlueprint.NameSafe()}\" is in values of Buff dictionary, but is not a key in Abilities dictionary");
                 }
             }
 
             var buffsInAbilitiesDictionary = m_AbilitiesToBuffs.Values.SelectMany(x => x).ToHashSet();
-            foreach(var buff in buffsInAbilitiesDictionary) {
+            foreach (var buff in buffsInAbilitiesDictionary) {
                 if (!m_BuffsToAbilities.ContainsKey(buff)) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff \"{buff.NameSafe()}\" is in values of Abilities dictionary, but is not a key in the Buffs dictionary");
                 }
@@ -284,7 +282,7 @@ namespace TabletopTweaks.NewUnitParts {
                 }
             }
 
-            foreach(var buffGroup in m_GroupsToBuffs) {
+            foreach (var buffGroup in m_GroupsToBuffs) {
                 foreach (var buffRef in buffGroup.Value) {
                     if (!m_BuffsToGroups.ContainsKey(buffRef)) {
                         Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": buff \"{buffRef.NameSafe()}\" is in group named \"{buffGroup.Key}\" in m_GroupsToBuffs, but this buff is not present as a key in m_BuffsToGroups");
@@ -306,14 +304,14 @@ namespace TabletopTweaks.NewUnitParts {
 
             foreach (var buffGroup in m_GroupsToBuffs) {
                 var hasBuffs = new HashSet<BlueprintBuffReference>();
-                foreach(var buff in buffGroup.Value) {
+                foreach (var buff in buffGroup.Value) {
                     if (this.Owner.HasFact(buff)) {
                         hasBuffs.Add(buff);
                     }
                 }
                 if (hasBuffs.Count > 1) {
                     Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\": multiple buffs are active for group {buffGroup.Key}. Active buffs: ");
-                    foreach(var activeBuff in hasBuffs) {
+                    foreach (var activeBuff in hasBuffs) {
                         Main.Log($"WARNING: UnitPartPseudoActivatableAbilities Validation Error on unit \"{Owner.CharacterName}\":  - {activeBuff.NameSafe()}");
                     }
                 }

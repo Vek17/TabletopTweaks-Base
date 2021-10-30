@@ -101,7 +101,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Saving_Throw",
-                Patterns = { 
+                Patterns = {
                     "Saving Throw",
                     "Reflex Save",
                     "Will Save",
@@ -179,7 +179,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Skills",
-                Patterns = { 
+                Patterns = {
                     "Skills? Checks?",
                     "Skills?"
                 }

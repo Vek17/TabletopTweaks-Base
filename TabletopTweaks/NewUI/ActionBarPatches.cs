@@ -43,8 +43,7 @@ namespace TabletopTweaks.NewUI {
                         Unit = selected
                     };
                     __instance.MechanicSlot.SetSlot(__instance);
-                }
-                else if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
+                } else if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
                     __instance.Selected = selected;
                     if (selected == null) {
                         return true;
@@ -134,7 +133,7 @@ namespace TabletopTweaks.NewUI {
                             MechanicActionBarSlotAbility actionBarSlotAbility = new MechanicActionBarSlotAbility();
                             actionBarSlotAbility.Ability = ability.Data;
                             actionBarSlotAbility.Unit = unit;
-                            ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM((MechanicActionBarSlot)actionBarSlotAbility);
+                            ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(actionBarSlotAbility);
                             groupAbilities.Add(actionBarSlotVm);
                         }
                     }
@@ -144,7 +143,7 @@ namespace TabletopTweaks.NewUI {
                     MechanicActionBarSlotActivableAbility activableAbility = new MechanicActionBarSlotActivableAbility();
                     activableAbility.ActivatableAbility = activatableAbility;
                     activableAbility.Unit = unit;
-                    ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM((MechanicActionBarSlot)activableAbility);
+                    ActionBarSlotVM actionBarSlotVm = new ActionBarSlotVM(activableAbility);
                     groupAbilities.Add(actionBarSlotVm);
                 }
                 return false;

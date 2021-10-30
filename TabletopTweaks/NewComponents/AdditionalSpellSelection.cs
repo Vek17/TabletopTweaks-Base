@@ -8,7 +8,6 @@ using Kingmaker.UI.MVVM._VM.CharGen.Phases.Spells;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Class.LevelUp;
-using Kingmaker.UnitLogic.Class.LevelUp.Actions;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,7 @@ namespace TabletopTweaks.NewComponents {
     class AdditionalSpellSelection : UnitFactComponentDelegate, IUnitCompleteLevelUpHandler {
 
         private Spellbook SpellBook { get => Owner.DemandSpellbook(m_SpellCastingClass); }
-        private BlueprintSpellList SpellList { get => ProxyList(m_SpellList ?? SpellBook?.Blueprint?.SpellList); } 
+        private BlueprintSpellList SpellList { get => ProxyList(m_SpellList ?? SpellBook?.Blueprint?.SpellList); }
         public int AdjustedMaxLevel {
             get {
                 if (!UseOffset) { return MaxSpellLevel; }
@@ -44,7 +43,7 @@ namespace TabletopTweaks.NewComponents {
                 spellSelections[i].SetExtraSpells(Count, AdjustedMaxLevel);
             }
             for (; i < selectionCount; i++) {
-                
+
                 if (i >= selectionCount) { continue; }
                 var selection = controller.State.DemandSpellSelection(SpellBook.Blueprint, SpellList);
                 selection.SetExtraSpells(Count, AdjustedMaxLevel);
