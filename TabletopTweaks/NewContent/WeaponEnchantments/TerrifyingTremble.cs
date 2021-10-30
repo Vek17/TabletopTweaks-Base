@@ -48,6 +48,7 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
                             ConditionsChecker = new ConditionsChecker() {
                                 Conditions = new Condition[] {
                                     new ContextConditionIsEnemy(),
+                                    new ContextConditionAlive(),
                                     new ContextConditionIsMainTarget(){
                                         Not = true
                                     }

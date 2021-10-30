@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -12,6 +13,7 @@ using System.Linq;
 using TabletopTweaks.NewEvents;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
+    [TypeId("c80e65828e09402db55cb3a190e9139e")]
     class QuickChannelComponent : UnitFactComponentDelegate, ISpontaneousConversionHandler {
         public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions) {
             var conversionList = conversions.ToList();

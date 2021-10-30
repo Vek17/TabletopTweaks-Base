@@ -73,7 +73,10 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 };
             });
             var BloodragerDestinedStrikeResourceIncrease = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedStrikeResourceIncrease", bp => {
+                bp.SetName("Destined Strike Extra Uses");
+                bp.SetDescription("");
                 bp.HideInUI = true;
+                bp.HideInCharacterSheetAndLevelUp = true;
                 bp.AddComponent(Helpers.Create<IncreaseResourceAmount>(c => {
                     c.m_Resource = BloodragerDestinedStrikeResource.ToReference<BlueprintAbilityResourceReference>();
                     c.Value = 2;

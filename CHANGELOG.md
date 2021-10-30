@@ -1,4 +1,8 @@
 ## Version 1.9.5
+* Rebuilt Metamagic rager to be less janky
+* Fixed Arcane Bloodrager polymorph effects breaking turn based mode
+
+## Version 1.9.5
 * Loremaster now supports Hunter, Skald, and Warpriest
 * Terrifying Tremble's on kill effect now works
 

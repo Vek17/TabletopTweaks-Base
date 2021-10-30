@@ -25,6 +25,7 @@ using System.Text.RegularExpressions;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.Utilities;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
 
@@ -44,26 +45,24 @@ namespace TabletopTweaks.NewContent.Archetypes {
         private static readonly BlueprintFeature ReachSpellFeat = Resources.GetBlueprint<BlueprintFeature>("46fad72f54a33dc4692d3b62eca7bb78");
         private static readonly BlueprintFeature SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
         private static readonly BlueprintFeature BolsteredSpellFeat = Resources.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
+        private static readonly BlueprintFeature CompletelyNormalSpellFeat = Resources.GetBlueprint<BlueprintFeature>("094b6278f7b570f42aeaa98379f07cf2");
 
         public static void AddMetamagicRager() {
-            var MetaRageBaseAbility1 = CreateMetaRageLevel(1);
-            var MetaRageBaseAbility2 = CreateMetaRageLevel(2);
-            var MetaRageBaseAbility3 = CreateMetaRageLevel(3);
-            var MetaRageBaseAbility4 = CreateMetaRageLevel(4);
+
             var MetaRageFeature = Helpers.CreateBlueprint<BlueprintFeature>("MetaRageFeature", bp => {
                 bp.SetName("Meta-Rage");
-                bp.SetDescription(MetaRageBaseAbility1.Description);
+                bp.SetDescription("At 5th level, a metamagic rager can sacrifice additional rounds of " +
+                    "bloodrage to apply a metamagic feat he knows to a bloodrager spell. This costs a number of rounds of bloodrage equal to twice what the spell’s " +
+                    "adjusted level would normally be with the metamagic feat applied (minimum 2 rounds). The metamagic rager does not have to be bloodraging " +
+                    "to use this ability. The metamagic effect is applied without increasing the level of the spell slot expended, though the casting time is " +
+                    "increased as normal. The metamagic rager can apply only one metamagic feat he knows in this manner with each casting.");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.m_Icon = AssetLoader.LoadInternal("Abilities", "Icon_MetaRage.png");
-                bp.AddComponent(Helpers.Create<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] {
-                        MetaRageBaseAbility1.ToReference<BlueprintUnitFactReference>(),
-                        MetaRageBaseAbility2.ToReference<BlueprintUnitFactReference>(),
-                        MetaRageBaseAbility3.ToReference<BlueprintUnitFactReference>(),
-                        MetaRageBaseAbility4.ToReference<BlueprintUnitFactReference>()
-                    };
-                }));
+                bp.AddComponent<MetaRageComponent>(c => {
+                    c.ConvertSpellbook = BloodragerSpellbook.ToReference<BlueprintSpellbookReference>();
+                    c.RequiredResource = BloodragerRageResource.ToReference<BlueprintAbilityResourceReference>();
+                });
             });
             var MetamagicRagerArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("MetamagicRagerArchetype", bp => {
                 bp.LocalizedName = Helpers.CreateString("MetamagicRagerArchetype.Name", "Metamagic Rager");
@@ -86,8 +85,12 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     }
                 };
             });
-
             PatchBloodlines(MetamagicRagerArchetype);
+            // These abilities are deprecated but are still around for save compatability
+            var MetaRageBaseAbility1 = CreateMetaRageLevel(1);
+            var MetaRageBaseAbility2 = CreateMetaRageLevel(2);
+            var MetaRageBaseAbility3 = CreateMetaRageLevel(3);
+            var MetaRageBaseAbility4 = CreateMetaRageLevel(4);
             if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return; }
             BloodragerClass.m_Archetypes = BloodragerClass.m_Archetypes.AppendToArray(MetamagicRagerArchetype.ToReference<BlueprintArchetypeReference>());
             Main.LogPatch("Added", MetamagicRagerArchetype);
@@ -326,7 +329,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 PersistentSpellFeat,
                 QuickenSpellFeat,
                 ReachSpellFeat,
-                SelectiveSpellFeat
+                SelectiveSpellFeat,
+                CompletelyNormalSpellFeat
             };
             foreach (var bloodline in basicBloodlines) {
                 BlueprintFeatureSelection MetamagicRagerFeatSelection = null;
@@ -425,7 +429,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             }
         }
 
-        [HarmonyPatch(typeof(MechanicActionBarSlotActivableAbility), "GetResource")]
+        //[HarmonyPatch(typeof(MechanicActionBarSlotActivableAbility), "GetResource")]
         static class MechanicActionBarSlotActivableAbility_Limitless_Patch {
             static void Postfix(ref int __result, MechanicActionBarSlotActivableAbility __instance) {
                 if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return; }
@@ -437,7 +441,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 }
             }
         }
-        [HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
+        //[HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
         static class AutoMetamagic_MetamagicRager_Patch {
             static bool Prefix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
                 if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return true; }

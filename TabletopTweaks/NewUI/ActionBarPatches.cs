@@ -33,7 +33,18 @@ namespace TabletopTweaks.NewUI {
                     __instance.MechanicSlot.SetSlot(__instance);
                     selected.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(__instance.MechanicSlot);
                     return false;
-                } else if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
+                } else if (spell is MetaRageComponent.MetaRageAbilityData) {
+                    __instance.Selected = selected;
+                    if (selected == null) {
+                        return true;
+                    }
+                    __instance.MechanicSlot = new MechanicActionBarSlotMetaRage {
+                        Spell = spell,
+                        Unit = selected
+                    };
+                    __instance.MechanicSlot.SetSlot(__instance);
+                }
+                else if (spell.Blueprint.GetComponent<QuickStudyComponent>()) {
                     __instance.Selected = selected;
                     if (selected == null) {
                         return true;
@@ -69,6 +80,11 @@ namespace TabletopTweaks.NewUI {
                         };
                         __instance.MechanicActionBarSlot.Unit.Ensure<UnitPartPseudoActivatableAbilities>().RegisterPseudoActivatableAbilitySlot(slot);
                         return slot;
+                    } else if (abilityData is MetaRageComponent.MetaRageAbilityData) {
+                        return new MechanicActionBarSlotMetaRage {
+                            Spell = abilityData,
+                            Unit = __instance.MechanicActionBarSlot.Unit
+                        };
                     } else if (abilityData.Blueprint.GetComponent<QuickStudyComponent>()) {
                         return new MechanicActionBarSlotQuickStudy {
                             Spell = abilityData,

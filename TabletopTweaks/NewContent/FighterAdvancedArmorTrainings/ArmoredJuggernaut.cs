@@ -47,7 +47,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 }));
             });
-
             var ArmoredJuggernautMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautMediumEffect", bp => {
                 bp.SetName("Armored Juggernaut Effect");
                 bp.SetDescription("Armored Juggernaut");
