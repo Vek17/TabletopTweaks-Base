@@ -1,3 +1,6 @@
+## Version 1.9.6a
+* Fixed Arcane Bloodrager spell effects CL for mixed blood bloodrager
+
 ## Version 1.9.6
 * Rebuilt Metamagic rager to be less janky
 * Fixed Arcane Bloodrager polymorph effects breaking turn based mode
