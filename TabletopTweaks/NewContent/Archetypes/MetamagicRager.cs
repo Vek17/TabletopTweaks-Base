@@ -428,40 +428,5 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 return $"{split[0]}{split[1]}MetamagicRagerFeatSelection";
             }
         }
-
-        //[HarmonyPatch(typeof(MechanicActionBarSlotActivableAbility), "GetResource")]
-        static class MechanicActionBarSlotActivableAbility_Limitless_Patch {
-            static void Postfix(ref int __result, MechanicActionBarSlotActivableAbility __instance) {
-                if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return; }
-                var resourceLogic = __instance.ActivatableAbility.Blueprint.GetComponent<ActivatableAbilityResourceLogic>();
-                if (resourceLogic != null && __result == 0) {
-                    if (__instance.ActivatableAbility.Owner.HasFact(resourceLogic.FreeBlueprint)) {
-                        __result = 1;
-                    }
-                }
-            }
-        }
-        //[HarmonyPatch(typeof(AutoMetamagic), "ShouldApplyTo")]
-        static class AutoMetamagic_MetamagicRager_Patch {
-            static bool Prefix(ref bool __result, AutoMetamagic c, BlueprintAbility ability, AbilityData data) {
-                if (ModSettings.AddedContent.Archetypes.IsDisabled("MetamagicRager")) { return true; }
-                BlueprintAbility parentAbility = data?.ConvertedFrom?.Blueprint ?? ability?.Parent ?? ability;
-
-                var test = (parentAbility != ability && AutoMetamagic.ShouldApplyTo(c, parentAbility, data?.ConvertedFrom))
-                    || (c?.Abilities?.HasItem((BlueprintAbilityReference r) => r.Is(ability)) ?? false)
-                    || c.IsSuitableAbility(ability, data)
-                        && (c?.Abilities?.Empty() ?? true)
-                        && (c.Descriptor == SpellDescriptor.None | ability.SpellDescriptor.HasAnyFlag(c.Descriptor))
-                        && (c.School == SpellSchool.None
-                            || ability.School == c.School)
-                        && c.MaxSpellLevel > 0
-                        && data != null
-                        && data.SpellLevel <= c.MaxSpellLevel
-                        && (!c.CheckSpellbook || ability.IsInSpellList(c.Spellbook.SpellList));
-
-                __result = test;
-                return false;
-            }
-        }
     }
 }

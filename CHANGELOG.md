@@ -1,4 +1,4 @@
-## Version 1.9.5
+## Version 1.9.6
 * Rebuilt Metamagic rager to be less janky
 * Fixed Arcane Bloodrager polymorph effects breaking turn based mode
 
