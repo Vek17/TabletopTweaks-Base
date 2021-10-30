@@ -9,8 +9,10 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using System.Collections.Generic;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Bloodlines {
@@ -19,6 +21,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
         public static void AddArcaneBloodrageReworkToggles() {
             // Arcane Bloodrage
             var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
+            var BloodragerArcaneBloodline = Resources.GetBlueprint<BlueprintProgression>("aeff0a749e20ffe4b9e2846eae29c386");
             var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
             var BloodragerArcaneSpellFeature = Resources.GetBlueprint<BlueprintFeature>("3584b932341ecf14fbaaa87bf337c2cf");
             var BloodragerArcaneSpellAbility = Resources.GetBlueprint<BlueprintAbility>("3151dfeeb202e38448d1fea1e8bc237e");
@@ -28,6 +31,15 @@ namespace TabletopTweaks.NewContent.Bloodlines {
 
             var ProtectionFromArrows = Resources.GetBlueprint<BlueprintAbility>("c28de1f98a3f432448e52e5d47c73208");
             var ProtectionFromArrowsBuff = Resources.GetBlueprint<BlueprintBuff>("241ee6bd8c8767343994bce5dc1a95e0");
+
+            var BloodragerArcaneProgressionProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("BloodragerArcaneProgressionProperty", bp => {
+                bp.AddComponent<ProgressionRankPropertyGetter>(c => {
+                    c.Progression = BloodragerArcaneBloodline.ToReference<BlueprintProgressionReference>();
+                    c.UseMax = true;
+                    c.Max = 20;
+                });
+            });
+
             var ProtectionFromArrowsArcaneBloodragerBuff = Helpers.CreateBuff("ProtectionFromArrowsArcaneBloodrageBuff", bp => {
                 bp.m_DisplayName = ProtectionFromArrows.m_DisplayName;
                 bp.m_Description = ProtectionFromArrows.m_Description;
@@ -143,7 +155,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerArcaneSpellBlurSwitchBuff,
                 "BloodragerArcaneSpell",
-                AllBloodragerArcaneSpellSwitchBuffs);
+                AllBloodragerArcaneSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellProtectionFromArrowsToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellProtectionFromArrowsToggle",
@@ -151,7 +164,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerArcaneSpellProtectionFromArrowsSwitchBuff,
                 "BloodragerArcaneSpell",
-                AllBloodragerArcaneSpellSwitchBuffs);
+                AllBloodragerArcaneSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellResistFireToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellResistFireToggle",
@@ -159,7 +173,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerArcaneSpellResistFireSwitchBuff,
                 "BloodragerArcaneSpell",
-                AllBloodragerArcaneSpellSwitchBuffs);
+                AllBloodragerArcaneSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellResistColdToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellResistColdToggle",
@@ -167,7 +182,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerArcaneSpellResistColdSwitchBuff,
                 "BloodragerArcaneSpell",
-                AllBloodragerArcaneSpellSwitchBuffs);
+                AllBloodragerArcaneSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellResistElectricityToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellResistElectricityToggle",
@@ -175,7 +191,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerArcaneSpellResistElectricitySwitchBuff,
                 "BloodragerArcaneSpell",
-                AllBloodragerArcaneSpellSwitchBuffs);
+                AllBloodragerArcaneSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellResistAcidToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellResistAcidToggle",
@@ -183,7 +200,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerArcaneSpellResistAcidSwitchBuff,
                 "BloodragerArcaneSpell",
-                AllBloodragerArcaneSpellSwitchBuffs);
+                AllBloodragerArcaneSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellResistSonicToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellResistSonicToggle",
@@ -191,7 +209,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerArcaneSpellResistSonicSwitchBuff,
                 "BloodragerArcaneSpell",
-                AllBloodragerArcaneSpellSwitchBuffs);
+                AllBloodragerArcaneSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             // Greater Arcane Bloodrage
             var BloodragerArcaneGreaterSpell = Resources.GetBlueprint<BlueprintAbility>("31dbadf586920494b87e8e95452af998");
@@ -274,7 +293,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneGreaterSpell,
                 BloodragerArcaneGreaterSpellDisplacementSwitchBuff,
                 "BloodragerArcaneSpellGreater",
-                AllBloodragerArcaneGreaterSpellSwitchBuffs);
+                AllBloodragerArcaneGreaterSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellGreaterHasteToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellGreaterHasteToggle",
@@ -282,7 +302,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneGreaterSpell,
                 BloodragerArcaneGreaterSpellHasteSwitchBuff,
                 "BloodragerArcaneSpellGreater",
-                AllBloodragerArcaneGreaterSpellSwitchBuffs);
+                AllBloodragerArcaneGreaterSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             // True Arcane Bloodrage
             var BloodragerArcaneTrueSpellAbility = Resources.GetBlueprint<BlueprintAbility>("9d4d7f56d2d87f643b5ef990ef481094");
@@ -461,7 +482,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellBeastShapeIVShamblingMoundSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueBeastShapeIVSmilodonToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueBeastShapeIVSmilodonToggle",
@@ -469,7 +491,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellBeastShapeIVSmilodonSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueBeastShapeIVWyvernToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueBeastShapeIVWyvernToggle",
@@ -477,7 +500,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellBeastShapeIVWyvernSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueFormOfTheDragonIBlackToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueFormOfTheDragonIBlackToggle",
@@ -485,7 +509,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellFormOfTheDragonIBlackSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueFormOfTheDragonIBlueToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueFormOfTheDragonIBlueToggle",
@@ -493,7 +518,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellFormOfTheDragonIBlueSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueFormOfTheDragonIBrassToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueFormOfTheDragonIBrassToggle",
@@ -501,7 +527,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellFormOfTheDragonIBrassSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueFormOfTheDragonIBronzeToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueFormOfTheDragonIBronzeToggle",
@@ -509,7 +536,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellFormOfTheDragonIBronzeSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueFormOfTheDragonICopperToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueFormOfTheDragonICopperToggle",
@@ -517,7 +545,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellFormOfTheDragonICopperSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueFormOfTheDragonIGoldToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueFormOfTheDragonIGoldToggle",
@@ -525,7 +554,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellFormOfTheDragonIGoldSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueFormOfTheDragonIGreenToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueFormOfTheDragonIGreenToggle",
@@ -533,7 +563,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellFormOfTheDragonIGreenSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
 
             BlueprintAbility BloodragerArcaneSpellTrueTransformationToggle = BloodlineTools.CreateArcaneBloodrageToggle(
                 "BloodragerArcaneSpellTrueTransformationToggle",
@@ -541,7 +572,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneTrueSpellAbility,
                 BloodragerArcaneTrueSpellTransformationSwitchBuff,
                 "BloodragerArcaneTrueSpell",
-                AllBloodragerArcaneTrueSpellSwitchBuffs);
+                AllBloodragerArcaneTrueSpellSwitchBuffs,
+                BloodragerArcaneProgressionProperty);
         }
     }
 }

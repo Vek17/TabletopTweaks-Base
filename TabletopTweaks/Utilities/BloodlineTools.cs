@@ -14,6 +14,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -269,7 +270,8 @@ namespace TabletopTweaks.Utilities {
             BlueprintAbility bloodragerArcaneSpellAbility,
             BlueprintBuff switchBuff,
             string buffGroupName,
-            List<BlueprintBuff> allToggleBuffsInGroup
+            List<BlueprintBuff> allToggleBuffsInGroup,
+            BlueprintUnitProperty casterProperty
             ) {
             var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
             var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499");
@@ -305,10 +307,12 @@ namespace TabletopTweaks.Utilities {
                     c.Concentration = new ContextValue();
                     c.SpellLevel = new ContextValue();
                     c.CasterLevel = new ContextValue() {
-                        ValueType = ContextValueType.Rank,
-                        ValueRank = Kingmaker.Enums.AbilityRankType.StatBonus
+                        ValueType = ContextValueType.CasterCustomProperty,
+                        m_CustomProperty = casterProperty.ToReference<BlueprintUnitPropertyReference>()
                     };
+                    //c.CasterLevel = 10;
                 });
+                /*
                 bp.AddContextRankConfig(c => {
                     c.m_Type = Kingmaker.Enums.AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
@@ -317,6 +321,7 @@ namespace TabletopTweaks.Utilities {
                     c.m_Min = 1;
                     c.m_UseMin = true;
                 });
+                */
             });
         }
 
@@ -346,6 +351,8 @@ namespace TabletopTweaks.Utilities {
                                 }
                             }
                     };
+                    c.Deactivated = Helpers.CreateActionList();
+                    c.NewRound = Helpers.CreateActionList();
                 });
             });
         }

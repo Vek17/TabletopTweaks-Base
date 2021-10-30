@@ -199,6 +199,7 @@
     <Compile Include="NewComponents\AbilitySpecific\AddWarriorSpiritEnchantment.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\MetaRageComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
@@ -219,7 +220,7 @@
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
-    <Compile Include="NewComponents\Properties\ProgressionRankProperty.cs" />
+    <Compile Include="NewComponents\Properties\ProgressionRankPropertyGetter.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\AbilityEffectToggleBuff.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
@@ -392,6 +393,7 @@
     <Compile Include="NewRules\RuleAttackWithWeaponPrecision.cs" />
     <Compile Include="NewUI\ActionBarPatches.cs" />
     <Compile Include="NewUI\IPseudoActivatableMechanicsBarSlot.cs" />
+    <Compile Include="NewUI\MechanicActionBarSlotMetaRage.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbility.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotPseudoActivatableAbilityVariant.cs" />
     <Compile Include="NewUI\MechanicActionBarSlotQuickStudy.cs" />
