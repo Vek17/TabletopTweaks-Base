@@ -448,6 +448,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchStalwartDefender();
                 PatchBarbariansDR();
                 PatchLichIndestructibleBonesDR();
+                PatchAspectOfOmoxDR();
                 PatchBrokenDRSettings();
                 PatchArmorMastery();
                 PatchArmoredJuggernaut();
@@ -600,6 +601,14 @@ namespace TabletopTweaks.MechanicsChanges {
                 BlueprintFeature lichIndestructibleBonesFeature = Resources.GetBlueprint<BlueprintFeature>("42274a4428cb43b40acf771a7f5ddfac");
 
                 lichIndestructibleBonesFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.AddToAllStacks = true;
+                });
+            }
+
+            static void PatchAspectOfOmoxDR() {
+                BlueprintFeature OmoxAspectFeature = Resources.GetBlueprint<BlueprintFeature>("daf030c7563b2664eb1031d91eaae7ab");
+
+                OmoxAspectFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.AddToAllStacks = true;
                 });
             }
