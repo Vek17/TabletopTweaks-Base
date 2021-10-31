@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using System;
 
-namespace TabletopTweaks.NewComponents {
+namespace TabletopTweaks.NewComponents.Properties {
 
     [TypeId("157d986776584a2da0729efd762e5598")]
     public class StalwartDRProperty : PropertyValueGetter {

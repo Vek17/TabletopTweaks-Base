@@ -19,8 +19,8 @@ using System;
 using System.Collections.Generic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
+using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {
