@@ -1,5 +1,6 @@
-## Version 1.9.7
+## Version 1.9.6b
 * Aspect of Omox DR now stacks globaly
+* TabletopTweaks should now work again on non English langagues
 
 ## Version 1.9.6a
 * Fixed Arcane Bloodrager spell effects CL for mixed blood bloodrager
