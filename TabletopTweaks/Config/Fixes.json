@@ -168,6 +168,10 @@
                 "Spellbook": {
                     "Enabled": true,
                     "Description": "Fixes spell progression to not incorrectly qualify for some features that require casting early."
+                },
+                "TemporaryHitPoints": {
+                    "Enabled": true,
+                    "Description": "Fixed bloodrager temp HP with limitless rage to use the bloodrager resource when calculating the bonus instead of the barbarian resource."
                 }
             }
         },

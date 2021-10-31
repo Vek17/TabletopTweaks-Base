@@ -50,13 +50,6 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                         }
                     };
                 });
-                /*
-                bp.AddComponent<ProgressionRankPropertyGetter>(c => {
-                    c.Progression = BloodragerArcaneBloodline.ToReference<BlueprintProgressionReference>();
-                    c.UseMax = true;
-                    c.Max = 20;
-                });
-                */
             });
 
             var ProtectionFromArrowsArcaneBloodragerBuff = Helpers.CreateBuff("ProtectionFromArrowsArcaneBloodrageBuff", bp => {

@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -40,6 +41,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             static void PatchBaseClass() {
                 PatchSpellbook();
                 PatchAbysalBulk();
+                PatchTempHP();
 
                 void PatchAbysalBulk() {
                     if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("AbysalBulk")) { return; }
@@ -114,6 +116,16 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         SpellTools.CreateSpellLevelEntry(0,4,4,3,2)
                     };
                     Main.LogPatch("Patched", BloodragerSpellPerDayTable);
+                }
+                void PatchTempHP() {
+                    if (ModSettings.Fixes.Bloodrager.Base.IsDisabled("TemporaryHitPoints")) { return; }
+                    var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
+                    var BloodragerRageResource = Resources.GetBlueprint<BlueprintAbilityResource>("4aec9ec9d9cd5e24a95da90e56c72e37");
+
+                    var tempHP = BloodragerStandartRageBuff.GetComponent<TemporaryHitPointsPerLevel>();
+                    tempHP.m_LimitlessRageResource = BloodragerRageResource.ToReference<BlueprintAbilityResourceReference>();
+
+                    Main.LogPatch("Patched", BloodragerStandartRageBuff);
                 }
             }
             static void PatchPrimalist() {

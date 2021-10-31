@@ -1,3 +1,6 @@
+## Version 1.9.7
+* Aspect of Omox DR now stacks globaly
+
 ## Version 1.9.6a
 * Fixed Arcane Bloodrager spell effects CL for mixed blood bloodrager
 
