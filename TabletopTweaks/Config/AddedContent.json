@@ -29,9 +29,14 @@
                 "Description": "A bloodrager archetype that can spend rage rounds to apply metamagic effects to thier spells."
             },
             "NatureFang": {
-                "Enabled": true,
-                "Homebrew": false,
-                "Description": "A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents."
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents."
+            },
+            "Stonelord": {
+            "Enabled": true,
+            "Homebrew": true,
+            "Description": "Enables the character to select the Stonelord Paladin archetype regardless of race."
             }
         },
         "IsExpanded": true
