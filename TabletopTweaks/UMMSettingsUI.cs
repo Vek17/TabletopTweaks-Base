@@ -66,7 +66,7 @@ namespace TabletopTweaks {
                     ("Base", Fixes.Magus.Base),
                     Fixes.Magus.Archetypes
                 );
-                SetttingUI.NestedSettingGroup("Magus", TabLevel, Fixes.Monk,
+                SetttingUI.NestedSettingGroup("Monk", TabLevel, Fixes.Monk,
                     ("Base", Fixes.Monk.Base),
                     Fixes.Monk.Archetypes
                 );
@@ -209,7 +209,8 @@ namespace TabletopTweaks {
                 if (group.Settings.Any()) { TabbedItem(level, () => UI.Div(Color.grey, 500)); }
                 group.Settings.ForEach(entry => {
                     TabbedItem(level,
-                        () => Toggle(String.Join(" ", entry.Key.SplitOnCapitals()), group.IsEnabled(entry.Key), (enabled) => group.ChangeSetting(entry.Key, enabled), UI.Width(500 - level.Spacing())),
+                        () => Toggle(String.Join(" ", entry.Key.SplitOnCapitals()), group.IsEnabled(entry.Key), (enabled) => group.ChangeSetting(entry.Key, enabled), UI.Width(430 - level.Spacing())),
+                        () => Label(entry.Value.Homebrew ? "Homebrew".yellow() : "", UI.Width(70)),
                         () => Label(entry.Value.Description.green()));
                     TabbedItem(level, () => UI.Div(Color.grey, 500));
                 });
@@ -236,7 +237,6 @@ namespace TabletopTweaks {
             options = options.AddDefaults();
             var changed = ModKit.Private.UI.CheckBox(title, value, UI.toggleStyle, options);
             if (changed) {
-                Main.Log($"Changed: {!value}");
                 action.Invoke(!value);
             }
             return changed;
@@ -244,6 +244,10 @@ namespace TabletopTweaks {
 
         public static void Label(string title) {
             GUILayout.Label(title, GUILayout.ExpandWidth(false));
+        }
+
+        public static void Label(string title, params GUILayoutOption[] options) {
+            GUILayout.Label(title, options);
         }
 
         public static IEnumerable<string> SplitOnCapitals(this string text) {

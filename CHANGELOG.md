@@ -1,3 +1,6 @@
+## Version 1.9.7
+* Added homebrew flags in the settings
+
 ## Version 1.9.6b
 * Aspect of Omox DR now stacks globaly
 * TabletopTweaks should now work again on non English langagues
