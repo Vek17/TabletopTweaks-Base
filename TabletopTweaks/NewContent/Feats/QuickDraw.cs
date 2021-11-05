@@ -42,8 +42,8 @@ namespace TabletopTweaks.NewContent.Feats {
         static class UnitViewHandsEquipment_HandleEquipmentSlotUpdated_QuickDraw_Patch {
             static bool Prefix(UnitViewHandsEquipment __instance, HandSlot slot, ItemEntity previousItem) {
                 if (!__instance.Active || __instance.GetSlotData(slot) == null) { return true; }
-                
-                if (__instance.Owner.CustomMechanicsFeature(CustomMechanicsFeature.QuickDraw) 
+
+                if (__instance.Owner.CustomMechanicsFeature(CustomMechanicsFeature.QuickDraw)
                     && __instance.InCombat
                     && (__instance.Owner.State.CanAct || __instance.IsDollRoom)
                     && slot.Active) {
@@ -74,7 +74,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     __instance.GetActionsStates(__instance.SelectedUnit).Clear();
                     __instance.GetActionsStates(__instance.SelectedUnit).Free
                         .SetPrediction(CombatAction.UsageType.ChangeWeapon, CombatAction.ActivityType.Ability, CombatAction.ActivityState.WillBeUsed, null, null);
-                    EventBus.RaiseEvent(delegate (IActionsPredictionHandler h){
+                    EventBus.RaiseEvent(delegate (IActionsPredictionHandler h) {
                         h.PredictionChanged();
                     }, true);
                     return false;

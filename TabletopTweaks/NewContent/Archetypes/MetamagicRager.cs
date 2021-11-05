@@ -291,6 +291,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 BloodlineTools.Bloodline.BloodragerAberrantBloodline,
                 BloodlineTools.Bloodline.BloodragerAbyssalBloodline,
                 BloodlineTools.Bloodline.BloodragerArcaneBloodline,
+                BloodlineTools.Bloodline.BloodragerCelestialBloodline,
                 BloodlineTools.Bloodline.BloodragerDestinedBloodline,
                 BloodlineTools.Bloodline.BloodragerFeyBloodline,
                 BloodlineTools.Bloodline.BloodragerInfernalBloodline,

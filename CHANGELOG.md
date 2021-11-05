@@ -2,6 +2,7 @@
 * Added homebrew flags in the settings
 * Fixed minor issues with AddFacts
 * Added Quick Draw
+* Celestial Bloodline now works correctly with Metamagic Rager
 
 ## Version 1.9.6b
 * Aspect of Omox DR now stacks globaly

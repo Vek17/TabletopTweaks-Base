@@ -23,7 +23,7 @@ namespace TabletopTweaks.NewComponents.Properties {
         public ComplexCustomProperty[] Properties = new ComplexCustomProperty[0];
         public Mode CalculationMode;
 
-        public enum Mode : int { 
+        public enum Mode : int {
             Sum,
             Highest,
             Lowest

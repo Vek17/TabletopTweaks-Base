@@ -36,7 +36,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.AddComponent<CompositeCustomPropertyGetter>(c => {
                     c.CalculationMode = CompositeCustomPropertyGetter.Mode.Highest;
                     c.Properties = new CompositeCustomPropertyGetter.ComplexCustomProperty[] {
-                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){ 
+                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){
                             Property = new ProgressionRankGetter(){
                                 Progression = BloodragerArcaneBloodline.ToReference<BlueprintProgressionReference>(),
                                 UseMax = true,

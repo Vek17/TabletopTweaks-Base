@@ -25,7 +25,7 @@ namespace TabletopTweaks.NewUnitParts {
         public CountableFlag GetMechanicsFeature(CustomMechanicsFeature type) {
             CountableFlag MechanicsFeature;
             MechanicsFeatures.TryGetValue(type, out MechanicsFeature);
-            if (MechanicsFeature == null) { 
+            if (MechanicsFeature == null) {
                 MechanicsFeature = new CountableFlag();
 #if DEBUG
                 MechanicsFeature.Debug = $"CustomMechanicsFeatureType: {(int)type}";
