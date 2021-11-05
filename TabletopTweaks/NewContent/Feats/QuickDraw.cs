@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Items;
 using Kingmaker.Items.Slots;
 using Kingmaker.PubSubSystem;
@@ -26,6 +27,10 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.SetDescription("You can draw a weapon as a free action instead of as a move action.");
                 bp.AddComponent<AddCustomMechanicsFeature>(c => {
                     c.Feature = CustomMechanicsFeature.QuickDraw;
+                });
+                bp.AddPrerequisite<PrerequisiteStatValue>(c => {
+                    c.Stat = Kingmaker.EntitySystem.Stats.StatType.BaseAttackBonus;
+                    c.Value = 1;
                 });
             });
 
