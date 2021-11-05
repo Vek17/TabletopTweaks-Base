@@ -21,13 +21,13 @@ namespace TabletopTweaks.NewContent.Features {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.ComponentsArray = new BlueprintComponent[0];
-                bp.AddComponent(Helpers.Create<IncreaseResourceAmountBySharedValue>(c => {
+                bp.AddComponent<IncreaseResourceAmountBySharedValue>(c => {
                     c.m_Resource = InquisitorBaneResource.ToReference<BlueprintAbilityResourceReference>();
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank
                     };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.Default;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Progression = ContextRankProgression.AsIs;
@@ -41,7 +41,7 @@ namespace TabletopTweaks.NewContent.Features {
                         .Select(x => x.ToReference<BlueprintCharacterClassReference>())
                         .ToArray();
                     c.m_ExceptClasses = true;
-                }));
+                });
             });
         }
     }

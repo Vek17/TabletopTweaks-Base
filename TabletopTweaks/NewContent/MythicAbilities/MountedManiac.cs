@@ -35,15 +35,15 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName("Mounted Maniac");
                 bp.SetDescription("");
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                bp.AddComponent<AddContextStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
                     c.Stat = StatType.CheckIntimidate;
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
                     c.m_Progression = ContextRankProgression.AsIs;
@@ -51,7 +51,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     c.m_StepLevel = 1;
                     c.m_Max = 20;
                     c.m_Min = 1;
-                }));
+                });
                 bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
             });
             var MountedManiacAbility = Helpers.CreateCopy(DazzlingDisplayAction, bp => {
@@ -135,11 +135,11 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.SetName("Mounted Maniac");
                 bp.SetDescription("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
                     "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
-                bp.AddComponent(Helpers.Create<AddFacts>(c => {
+                bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         MountedManiacActivatableAbility.ToReference<BlueprintUnitFactReference>(),
                     };
-                }));
+                });
             });
 
             if (ModSettings.AddedContent.MythicAbilities.IsDisabled("MountedManiac")) { return; }

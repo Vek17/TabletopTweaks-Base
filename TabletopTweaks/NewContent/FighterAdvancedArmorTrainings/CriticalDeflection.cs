@@ -21,14 +21,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<CriticalConfirmationACBonus>(c => {
+                bp.AddComponent<CriticalConfirmationACBonus>(c => {
                     c.Bonus = 2;
                     c.Value = new ContextValue {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
@@ -38,7 +38,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Min = 1;
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
-                }));
+                });
             });
             var CriticalDeflectionFeature = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionFeature", bp => {
                 bp.SetName("Critical Deflection");
@@ -46,7 +46,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     "confirm a critical hit. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +6 at 19th level.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<ArmorFeatureUnlock>(c => {
+                bp.AddComponent<ArmorFeatureUnlock>(c => {
                     c.NewFact = CriticalDeflectionEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] {
                         ArmorProficiencyGroup.Light,
@@ -57,7 +57,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         ArmorProficiencyGroup.HeavyShield,
                         ArmorProficiencyGroup.TowerShield
                     };
-                }));
+                });
             });
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("CriticalDeflection")) { return; }

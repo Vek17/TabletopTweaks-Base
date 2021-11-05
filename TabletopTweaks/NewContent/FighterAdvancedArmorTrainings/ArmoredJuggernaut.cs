@@ -22,7 +22,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;
                     c.MinEnhancementBonus = 1;
                     c.Alignment = DamageAlignment.Good;
@@ -34,8 +34,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.Pool = new ContextValue {
                         Value = 12
                     };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
@@ -45,7 +45,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Min = 1;
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
-                }));
+                });
             });
             var ArmoredJuggernautMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautMediumEffect", bp => {
                 bp.SetName("Armored Juggernaut Effect");
@@ -53,7 +53,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;
                     c.MinEnhancementBonus = 1;
                     c.Alignment = DamageAlignment.Good;
@@ -63,8 +63,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         ValueRank = AbilityRankType.StatBonus
                     };
                     c.Pool = new ContextValue { };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
@@ -74,7 +74,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Min = 1;
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
-                }));
+                });
             });
             var ArmoredJuggernautHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautHeavyEffect", bp => {
                 bp.SetName("Armored Juggernaut Effect");
@@ -82,7 +82,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;
                     c.MinEnhancementBonus = 1;
                     c.Alignment = DamageAlignment.Good;
@@ -92,8 +92,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         ValueRank = AbilityRankType.StatBonus
                     };
                     c.Pool = new ContextValue { };
-                }));
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                });
+                bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.Material = PhysicalDamageMaterial.Adamantite;
                     c.MinEnhancementBonus = 1;
                     c.Alignment = DamageAlignment.Good;
@@ -103,8 +103,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                         Value = 1
                     };
                     c.Pool = new ContextValue { };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
@@ -114,7 +114,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Min = 1;
                     c.m_UseMax = true;
                     c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
-                }));
+                });
             });
 
             var ArmoredJuggernautDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("ArmoredJuggernautDRProperty", bp => {
@@ -129,7 +129,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
-                bp.AddComponent(Helpers.Create<AddDamageResistancePhysical>(c => {
+                bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.Value = new ContextValue {
                         ValueType = ContextValueType.CasterCustomProperty,
                         m_CustomProperty = ArmoredJuggernautDRProperty.ToReference<BlueprintUnitPropertyReference>()
@@ -137,8 +137,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     c.m_CheckedFactMythic = BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
                     c.m_WeaponType = BlueprintReferenceBase.CreateTyped<BlueprintWeaponTypeReference>(null);
                     c.Pool = new ContextValue { };
-                }));
-                bp.AddComponent(Helpers.Create<RecalculateOnEquipmentChange>());
+                });
+                bp.AddComponent<RecalculateOnEquipmentChange>();
             });
 
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("ArmoredJuggernaut")) { return; }

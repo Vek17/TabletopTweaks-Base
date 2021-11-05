@@ -192,7 +192,7 @@ namespace TabletopTweaks.NewContent.Templates {
                         c.Pool = new ContextValue();
                     });
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.DamageDice;
                     c.m_BaseValueType = ContextRankBaseValueType.CharacterLevel;
                     c.m_Progression = ContextRankProgression.Custom;
@@ -210,7 +210,7 @@ namespace TabletopTweaks.NewContent.Templates {
                             ProgressionValue = 15
                         }
                     };
-                }));
+                });
                 bp.AddComponent<AddDamageResistancePhysical>(c => {
                     c.Alignment = dr;
                     c.BypassedByAlignment = true;

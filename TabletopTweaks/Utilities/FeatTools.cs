@@ -66,7 +66,7 @@ namespace TabletopTweaks.Utilities {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                bp.AddComponent<AddContextStatBonus>(c => {
                     c.Stat = skill1;
                     c.Multiplier = 1;
                     c.Value = new ContextValue() {
@@ -74,8 +74,8 @@ namespace TabletopTweaks.Utilities {
                         ValueRank = AbilityRankType.StatBonus,
                         Value = 2
                     };
-                }));
-                bp.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                });
+                bp.AddComponent<AddContextStatBonus>(c => {
                     c.Stat = skill2;
                     c.Multiplier = 1;
                     c.Value = new ContextValue() {
@@ -83,8 +83,8 @@ namespace TabletopTweaks.Utilities {
                         ValueRank = AbilityRankType.Default,
                         Value = 2
                     };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.BaseStat;
                     c.m_Stat = skill1;
@@ -102,8 +102,8 @@ namespace TabletopTweaks.Utilities {
                     c.m_StepLevel = 3;
                     c.m_Min = 10;
                     c.m_Max = 20;
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddComponent<ContextRankConfig>(c => {
                     c.m_Type = AbilityRankType.Default;
                     c.m_BaseValueType = ContextRankBaseValueType.BaseStat;
                     c.m_Stat = skill2;
@@ -121,10 +121,10 @@ namespace TabletopTweaks.Utilities {
                     c.m_StepLevel = 3;
                     c.m_Min = 10;
                     c.m_Max = 20;
-                }));
-                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Skills;
-                }));
+                });
                 bp.AddPrerequisite<PrerequisiteStatValue>(p => {
                     p.Stat = StatType.Intelligence;
                     p.Value = 3;

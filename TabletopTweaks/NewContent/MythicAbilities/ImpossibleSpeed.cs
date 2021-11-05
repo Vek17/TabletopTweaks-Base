@@ -22,15 +22,15 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.m_Icon = FastMovement.Icon;
                 bp.SetName("Impossible Speed");
                 bp.SetDescription("Your base land speed increases by 30 feet plus an additional 5 feet for every mythic rank.");
-                bp.AddComponent(Helpers.Create<BuffMovementSpeed>(c => {
+                bp.AddComponent<BuffMovementSpeed>(c => {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Value = 30;
                     c.ContextBonus = new ContextValue() {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
                     c.m_Progression = ContextRankProgression.MultiplyByModifier;
@@ -38,7 +38,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     c.m_StepLevel = 5;
                     c.m_Max = 20;
                     c.m_Min = 1;
-                }));
+                });
             });
             if (ModSettings.AddedContent.MythicAbilities.IsDisabled("ImpossibleSpeed")) { return; }
             FeatTools.AddAsMythicAbility(ImpossibleSpeedFeature);

@@ -97,7 +97,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     "If you have 10 or more ranks in {g|Encyclopedia:Athletics}Athletics{/g}, the bonus increases to +4 for that skill." +
                     "\nYou may sleep in light or medium armor without becoming fatigued.");
                 Endurance.RemoveComponents<AddStatBonus>();
-                Endurance.AddComponent(Helpers.Create<AddContextStatBonus>(c => {
+                Endurance.AddComponent<AddContextStatBonus>(c => {
                     c.Stat = StatType.SkillAthletics;
                     c.Multiplier = 1;
                     c.Value = new ContextValue() {
@@ -105,8 +105,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                         ValueRank = AbilityRankType.StatBonus,
                         Value = 2
                     };
-                }));
-                Endurance.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                Endurance.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.BaseStat;
                     c.m_Stat = StatType.SkillAthletics;
@@ -124,7 +124,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.m_StepLevel = 3;
                     c.m_Min = 10;
                     c.m_Max = 20;
-                }));
+                });
                 Main.LogPatch("Patched", Endurance);
             }
             static void PatchMountedCombat() {

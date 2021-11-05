@@ -45,19 +45,19 @@ namespace TabletopTweaks.NewContent.Spells {
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
                 bp.m_Icon = icon;
                 bp.ResourceAssetIds = new string[0];
-                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
+                bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Illusion;
-                }));
-                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
+                });
+                bp.AddComponent<SpellDescriptorComponent>(c => {
                     //No Descriptor?
-                }));
-                bp.AddComponent(Helpers.Create<AbilityShadowSpell>(c => {
+                });
+                bp.AddComponent<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
                     c.m_Factor = BlueprintReferenceBase.CreateTyped<BlueprintUnitPropertyReference>(null);
                     c.MaxSpellLevel = 2;
                     c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
-                }));
-                bp.AddComponent(Helpers.Create<ContextCalculateSharedValue>(c => {
+                });
+                bp.AddComponent<ContextCalculateSharedValue>(c => {
                     c.Value = new ContextDiceValue() {
                         DiceType = DiceType.One,
                         DiceCountValue = new ContextValue() {
@@ -68,8 +68,8 @@ namespace TabletopTweaks.NewContent.Spells {
                         }
                     };
                     c.Modifier = 1;
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
                     c.m_Feature = PowerfulShadows.ToReference<BlueprintFeatureReference>();
                     c.m_FeatureList = new BlueprintFeatureReference[0];
@@ -80,7 +80,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
                     c.m_Class = new BlueprintCharacterClassReference[0];
                     c.m_CustomPropertyList = new BlueprintUnitPropertyReference[0];
-                }));
+                });
             });
             if (ModSettings.AddedContent.Spells.IsDisabled("ShadowEnchantment")) { return; }
             ShadowEnchantment.AddToSpellList(SpellTools.SpellList.BardSpellList, 3);
@@ -113,18 +113,18 @@ namespace TabletopTweaks.NewContent.Spells {
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
                 bp.m_Icon = icon;
                 bp.ResourceAssetIds = new string[0];
-                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
+                bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Illusion;
-                }));
-                bp.AddComponent(Helpers.Create<SpellDescriptorComponent>(c => {
+                });
+                bp.AddComponent<SpellDescriptorComponent>(c => {
                     //No Descriptor?
-                }));
-                bp.AddComponent(Helpers.Create<AbilityShadowSpell>(c => {
+                });
+                bp.AddComponent<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
                     c.m_Factor = BlueprintReferenceBase.CreateTyped<BlueprintUnitPropertyReference>(null);
                     c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
-                }));
-                bp.AddComponent(Helpers.Create<ContextCalculateSharedValue>(c => {
+                });
+                bp.AddComponent<ContextCalculateSharedValue>(c => {
                     c.Value = new ContextDiceValue() {
                         DiceType = DiceType.One,
                         DiceCountValue = new ContextValue() {
@@ -135,8 +135,8 @@ namespace TabletopTweaks.NewContent.Spells {
                         }
                     };
                     c.Modifier = 1;
-                }));
-                bp.AddComponent(Helpers.Create<ContextRankConfig>(c => {
+                });
+                bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
                     c.m_Feature = PowerfulShadows.ToReference<BlueprintFeatureReference>();
                     c.m_FeatureList = new BlueprintFeatureReference[0];
@@ -147,7 +147,7 @@ namespace TabletopTweaks.NewContent.Spells {
                     c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
                     c.m_Class = new BlueprintCharacterClassReference[0];
                     c.m_CustomPropertyList = new BlueprintUnitPropertyReference[0];
-                }));
+                });
             });
             if (ModSettings.AddedContent.Spells.IsDisabled("ShadowEnchantmentGreater")) { return; }
             ShadowEnchantmentGreater.AddToSpellList(SpellTools.SpellList.BardSpellList, 6);

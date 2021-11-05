@@ -559,10 +559,10 @@ namespace TabletopTweaks.MechanicsChanges {
                 });
 
                 madDogPetDamageReduction.RemoveComponents<ContextRankConfig>();
-                madDogPetDamageReduction.AddComponent(Helpers.Create<ContextRankConfig>(crc => {
-                    crc.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
-                    crc.m_CustomProperty = madDogPetDRProperty.ToReference<BlueprintUnitPropertyReference>();
-                }));
+                madDogPetDamageReduction.AddContextRankConfig(c => {
+                    c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
+                    c.m_CustomProperty = madDogPetDRProperty.ToReference<BlueprintUnitPropertyReference>();
+                });
 
                 // Fix Increased Damage Reduction Rage Power not checking if the character actual has the DamageReduction class feature
                 increasedDamageReductionRagePower.AddComponent<PrerequisiteFeaturesFromListFormatted>(p => {
