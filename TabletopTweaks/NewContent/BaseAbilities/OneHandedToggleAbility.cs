@@ -3,13 +3,14 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Items;
 using Kingmaker.UI.UnitSettings.Blueprints;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewUnitParts;
 using TabletopTweaks.Utilities;
+using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
 namespace TabletopTweaks.NewContent.BaseAbilities {
     class OneHandedToggleAbility {
@@ -23,6 +24,9 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 bp.m_Icon = icon;
                 bp.SetName("Use Weapon One Handed");
                 bp.SetDescription("");
+                bp.AddComponent<AddCustomMechanicsFeature>(c => {
+                    c.Feature = CustomMechanicsFeature.UseWeaponOneHanded;
+                });
             });
             var OneHandedToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("OneHandedToggleAbility", bp => {
                 bp.m_Icon = icon;
@@ -42,11 +46,11 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 bp.m_Icon = icon;
                 bp.SetName("OneHanded Toggle Feature");
                 bp.SetDescription("You can choose to wield your weapon in one hand instead of two if possible.");
-                bp.AddComponent(Helpers.Create<AddFacts>(c => {
+                bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         OneHandedToggleAbility.ToReference<BlueprintUnitFactReference>(),
                     };
-                }));
+                });
             });
 
             if (ModSettings.AddedContent.BaseAbilities.IsDisabled("OneHandedToggle")) { return; }
@@ -57,8 +61,7 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
         static class ItemEntityWeapon_HoldInTwoHands_Patch {
             static void Postfix(ItemEntityWeapon __instance, ref bool __result) {
                 if (ModSettings.AddedContent.BaseAbilities.IsDisabled("OneHandedToggle")) { return; }
-                var OneHandedBuff = Resources.GetModBlueprint<BlueprintBuff>("OneHandedBuff");
-                if (__instance.Wielder != null && __instance.Wielder.HasFact(OneHandedBuff)) {
+                if (__instance.Wielder != null && __instance.Wielder.CustomMechanicsFeature(CustomMechanicsFeature.UseWeaponOneHanded)) {
                     if (__instance.Blueprint.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {
                         __result = false;
                     }

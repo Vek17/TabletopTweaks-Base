@@ -17,7 +17,7 @@ namespace TabletopTweaks.Bugfixes.General {
             static readonly MethodInfo RuleRollDice_op_Implicit = AccessTools.Method(typeof(RuleRollDice), "op_Implicit");
 
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                if (ModSettings.Fixes.BaseFixes.IsDisabled("FixCriticalConfirmationOn20")) { return instructions; }
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("FixCriticalConfirmation")) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
                 //Utilities.ILUtils.LogIL(codes);

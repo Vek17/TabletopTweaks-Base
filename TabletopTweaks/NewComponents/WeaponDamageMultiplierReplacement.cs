@@ -13,7 +13,6 @@ namespace TabletopTweaks.NewComponents {
         public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {
             if (evt.Weapon == base.Owner) {
                 evt.OverrideDamageBonusStatMultiplier(this.Multiplier);
-                Main.Log($"WeaponDamageMultiplierReplacement::OnEventAboutToTrigger");
             }
         }
 

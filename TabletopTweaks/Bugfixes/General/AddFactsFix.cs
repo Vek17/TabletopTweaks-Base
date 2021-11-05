@@ -9,8 +9,10 @@ namespace TabletopTweaks.Bugfixes.General {
             static void Postfix(AddFacts __instance) {
                 if (ModSettings.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 if (__instance.CasterLevel <= 0) { return; }
-                __instance?.Data?.AppliedFacts?.ForEach(f => {
-                    f.MaybeContext.m_Params = f?.MaybeContext?.Params?.Clone();
+                __instance?.Data?.AppliedFacts?.ForEach(fact => {
+                    if (fact?.MaybeContext != null) {
+                        fact.MaybeContext.m_Params = fact?.MaybeContext?.Params?.Clone();
+                    }
                 });
             }
         }
@@ -22,7 +24,10 @@ namespace TabletopTweaks.Bugfixes.General {
                 if (__instance.CasterLevel <= 0) { return; }
                 __instance?.Data?.AppliedFactRefs?.ForEach(id => {
                     var fact = __instance.Data?.Mount?.Facts?.FindById(id);
-                    fact.MaybeContext.m_Params = fact?.MaybeContext?.Params?.Clone();
+                    var m_Params = fact?.MaybeContext?.m_Params;
+                    if (fact?.MaybeContext != null) {
+                        fact.MaybeContext.m_Params = fact.MaybeContext.Params?.Clone();
+                    }
                 });
             }
         }

@@ -5,8 +5,10 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
+using Kingmaker.Localization.Shared;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -356,6 +358,20 @@ namespace TabletopTweaks.Extensions {
                 action(clone);
             }
             return clone;
+        }
+
+        public static void UpdatePrefixSuffix(this BlueprintItemEnchantment enchantment, string prefix, string sufix, Locale targetLanguage = Locale.enGB) {
+            if (LocalizationManager.CurrentLocale != targetLanguage) { return; }
+            enchantment.SetPrefix(prefix);
+            enchantment.SetSuffix(sufix);
+        }
+
+        public static void SetPrefix(this BlueprintItemEnchantment enchantment, string prefix) {
+            enchantment.m_Prefix = Helpers.CreateString($"{enchantment.name}.prefix", prefix);
+        }
+
+        public static void SetSuffix(this BlueprintItemEnchantment enchantment, string sufix) {
+            enchantment.m_Suffix = Helpers.CreateString($"{enchantment.name}.suffix", sufix);
         }
 
         public static void SetNameDescription(this BlueprintUnitFact feature, String displayName, String description) {

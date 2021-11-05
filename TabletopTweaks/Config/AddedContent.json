@@ -216,6 +216,11 @@
                 "Enabled": true,
                 "Homebrew": false,
                 "Description": "You get a +2 bonus on Knowledge (World) and Perception skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+            },
+            "QuickDraw": {
+                "Enabled": true,
+                "Homebrew": false,
+                "Description": "You can draw a weapon as a free action instead of as a move action."
             }
         },
         "IsExpanded": true

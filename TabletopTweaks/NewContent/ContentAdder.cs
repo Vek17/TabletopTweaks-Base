@@ -113,6 +113,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ImprovedChannel.AddImprovedChannel();
                 Feats.QuickChannel.AddQuickChannel();
                 Feats.ErastilsBlessing.AddErastilsBlessing();
+                Feats.QuickDraw.AddQuickDraw();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

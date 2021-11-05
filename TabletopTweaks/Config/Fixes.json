@@ -40,7 +40,7 @@
                 "Homebrew": true,
                 "Description": "Changes the skill and attack bonuses granted from backgrounds into trait bonuses."
             },
-            "FixCriticalConfirmationOn20": {
+            "FixCriticalConfirmation": {
                 "Enabled": true,
                 "Description": "Allows a natural 20 to always confirm a critical."
             },

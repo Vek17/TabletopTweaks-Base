@@ -20,6 +20,8 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
                     $"enhancement {{g|Encyclopedia:Bonus}}bonus{{/g}} on both attack and {{g|Encyclopedia:Damage}}damage rolls.");
                 bp.m_EnchantName = Helpers.CreateString($"{bp.name}.name", $"Temporary Enhancement +{enhancmentBonus}");
                 bp.m_EnchantmentCost = enhancmentBonus;
+                bp.SetPrefix("");
+                bp.SetSuffix($"+{enhancmentBonus}");
                 bp.AddComponent<WeaponEnhancementBonus>(c => {
                     c.EnhancementBonus = enhancmentBonus;
                 });
