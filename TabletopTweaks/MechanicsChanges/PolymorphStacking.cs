@@ -85,7 +85,8 @@ namespace TabletopTweaks.MechanicsChanges {
                     Resources.GetBlueprint<BlueprintBuff>("3eebb97861a3405418396e1b9866be72"), //FormOfTheDragonIGoldBreathWeaponBuff  
                     Resources.GetBlueprint<BlueprintBuff>("e8307c93669e05c4ea235a70bf5c8f98"), //FormOfTheDragonIBrassBreathWeaponBuff  
                     Resources.GetBlueprint<BlueprintBuff>("93e27994169df9c43885394dc68f137f"), //FormOfTheDragonIBlueBreathWeaponBuff  
-                    Resources.GetBlueprint<BlueprintBuff>("5d7089b61f459204993a1292d6f158f8")  //FormOfTheDragonIBlackBreathWeaponBuff  
+                    Resources.GetBlueprint<BlueprintBuff>("5d7089b61f459204993a1292d6f158f8"), //FormOfTheDragonIBlackBreathWeaponBuff  
+                    Resources.GetBlueprint<BlueprintBuff>("ee6c7f5437a57ad48aaf47320129df33")  //KitsunePolymorphBuff  
                 };
                 polymorphBuffs
                     .OrderBy(buff => buff.name)
