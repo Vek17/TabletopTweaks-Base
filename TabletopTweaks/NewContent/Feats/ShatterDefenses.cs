@@ -5,6 +5,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {
@@ -37,6 +38,9 @@ namespace TabletopTweaks.NewContent.Feats {
                     );
                     c.NewRound = Helpers.CreateActionList();
                     c.Deactivated = Helpers.CreateActionList();
+                });
+                bp.AddComponent<ForceFlatFooted>(c => {
+                    c.AgainstCaster = true;
                 });
                 bp.SetName("Shattered Defenses");
                 bp.SetDescription("An opponent you affect with Shatter Defenses is flat-footed to your attacks.");

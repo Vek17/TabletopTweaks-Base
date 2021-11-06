@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.MythicFeats {
@@ -11,6 +12,7 @@ namespace TabletopTweaks.NewContent.MythicFeats {
                 bp.m_Icon = ShatterDefenses.m_Icon;
                 bp.SetName("Shattered Defenses (Mythic)");
                 bp.SetDescription("An opponent affected by Shatter Defenses is flat-footed to all attacks.");
+                bp.AddComponent<ForceFlatFooted>();
             });
             var ShatterDefensesMythicFeat = Helpers.CreateBlueprint<BlueprintFeature>("ShatterDefensesMythicFeat", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;

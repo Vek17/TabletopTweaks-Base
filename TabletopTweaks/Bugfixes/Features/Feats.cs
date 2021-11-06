@@ -355,21 +355,6 @@ namespace TabletopTweaks.Bugfixes.Features {
             }
         }
 
-        [HarmonyPatch(typeof(RuleCheckTargetFlatFooted), "OnTrigger", new Type[] { typeof(RulebookEventContext) })]
-        static class RuleCheckTargetFlatFooted_ShatterDefenses_Patch {
-            private static readonly BlueprintBuff ShatterDefensesBuff = Resources.GetModBlueprint<BlueprintBuff>("ShatterDefensesBuff");
-            private static readonly BlueprintBuff ShatterDefensesMythicBuff = Resources.GetModBlueprint<BlueprintBuff>("ShatterDefensesMythicBuff");
-
-            static void Postfix(RuleCheckTargetFlatFooted __instance, RulebookEventContext context) {
-                if (ModSettings.Fixes.Feats.IsDisabled("ShatterDefenses")) { return; }
-                if (TacticalCombatHelper.IsActive) { return; }
-                bool HasShatterFromCaster = __instance.Target.Buffs.Enumerable
-                    .Any(buff => buff.Blueprint == ShatterDefensesBuff && buff.Context.MaybeCaster == __instance.Initiator);
-                bool HasMythicShatter = __instance.Target.Buffs.HasFact(ShatterDefensesMythicBuff);
-                __instance.IsFlatFooted |= HasShatterFromCaster || HasMythicShatter;
-            }
-        }
-
         [HarmonyPatch(typeof(MetamagicHelper), "GetBolsteredAreaEffectUnits", new Type[] { typeof(TargetWrapper) })]
         static class MetamagicHelper_GetBolsteredAreaEffectUnits_Patch {
             static void Postfix(TargetWrapper origin, ref List<UnitEntityData> __result) {

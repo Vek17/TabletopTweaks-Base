@@ -217,6 +217,7 @@
     <Compile Include="NewComponents\ContextMaxDexBonusIncrease.cs" />
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\ForceACUpdate.cs" />
+    <Compile Include="NewComponents\ForceFlatFooted.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
