@@ -85,7 +85,7 @@ namespace TabletopTweaks.NewContent {
 
                 Spells.LongArms.AddLongArms();
                 Spells.ShadowEnchantment.AddShadowEnchantment();
-                Spells.ShadowEnchantment.AddShadowEnchantmentGreater();
+                Spells.MagicalTailSpells.AddNewMagicalTailSpells();
 
                 MythicAbilities.ImpossibleSpeed.AddImpossibleSpeed();
                 MythicAbilities.ArmorMaster.AddArmorMaster();
