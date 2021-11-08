@@ -103,10 +103,10 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
                 });
             });
             var TerrifyingTrembleEnchant_TTT = Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"TerrifyingTrembleEnchant_TTT", bp => {
-                bp.m_Description = Helpers.CreateString($"{bp.name}.description", "");
-                bp.m_EnchantName = Helpers.CreateString($"{bp.name}.name", $"");
-                bp.m_Prefix = Helpers.CreateString($"{bp.name}.prefix", $"");
-                bp.m_Suffix = Helpers.CreateString($"{bp.name}.suffix", $"");
+                bp.SetName("");
+                bp.SetDescription("");
+                bp.SetPrefix("");
+                bp.SetSuffix("");
                 bp.m_EnchantmentCost = 1;
                 bp.m_IdentifyDC = 5;
                 bp.AddComponent<AddWeaponDamageTrigger>(c => {

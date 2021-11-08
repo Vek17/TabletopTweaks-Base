@@ -366,6 +366,15 @@ namespace TabletopTweaks.Extensions {
             enchantment.SetSuffix(sufix);
         }
 
+        public static void SetName(this BlueprintItemEnchantment enchantment, string name) {
+            enchantment.m_EnchantName = Helpers.CreateString(enchantment.name + ".Name", name);
+        }
+
+        public static void SetDescription(this BlueprintItemEnchantment enchantment, string description) {
+            var taggedDescription = DescriptionTools.TagEncyclopediaEntries(description);
+            enchantment.m_Description = Helpers.CreateString(enchantment.name + ".Description", taggedDescription);
+        }
+
         public static void SetPrefix(this BlueprintItemEnchantment enchantment, string prefix) {
             enchantment.m_Prefix = Helpers.CreateString($"{enchantment.name}.prefix", prefix);
         }

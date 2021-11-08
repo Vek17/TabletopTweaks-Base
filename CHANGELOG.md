@@ -3,6 +3,8 @@
 * Fixed minor issues with AddFacts
 * Added Quick Draw
 * Celestial Bloodline now works correctly with Metamagic Rager
+* Adjusted Magical Tail Feats @Balkoth
+* Kitsune polymorph is now correctly considered a polymorph
 
 ## Version 1.9.6b
 * Aspect of Omox DR now stacks globaly
