@@ -15,6 +15,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
@@ -60,6 +61,65 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchSlashingGrace();
                 PatchSpiritedCharge();
                 PatchWeaponFinesse();
+                PatchMagicalTail();
+            }
+            static void PatchMagicalTail() {
+                if (ModSettings.Fixes.Feats.IsDisabled("MagicalTail")) { return; }
+
+                BlueprintFeature magicalTail1 = Resources.GetBlueprint<BlueprintFeature>("5114829572da5a04f896a8c5b67be413");
+                BlueprintFeature magicalTail2 = Resources.GetBlueprint<BlueprintFeature>("c032f65c0bd9f6048a927fb07fc0195d"); // Abilities change for this one
+                BlueprintFeature magicalTail3 = Resources.GetBlueprint<BlueprintFeature>("d5050e13742d9b64da20921aaf7c2b2a");
+                BlueprintFeature magicalTail4 = Resources.GetBlueprint<BlueprintFeature>("342b6aed6b2eaab4786de243f0bcbcb8");
+                BlueprintFeature magicalTail5 = Resources.GetBlueprint<BlueprintFeature>("044cd84818c36854abf61064ade542a1"); // Abilites change for this one
+                BlueprintFeature magicalTail6 = Resources.GetBlueprint<BlueprintFeature>("053e37697a0d20547b06c3dbd8b71702");
+                BlueprintFeature magicalTail7 = Resources.GetBlueprint<BlueprintFeature>("041f91c25586d48469dce6b4575053f6");
+                BlueprintFeature magicalTail8 = Resources.GetBlueprint<BlueprintFeature>("df186ef345849d149bdbf4ddb45aee35");
+
+                var hideousLaughterKitsune = Resources.GetModBlueprint<BlueprintAbility>("HideousLaughterKitsune");
+                var heroismKitsune = Resources.GetModBlueprint<BlueprintAbility>("HeroismKitsune");
+
+                var magicalTailDescription = "You gain a new {g|Encyclopedia:Special_Abilities}spell-like ability{/g}, each usable twice per day," +
+                                             " from the following list, in order:\n1. vanish\n2. hideous laughter\n3. blur\n4. invisibility\n5. heroism\n6." +
+                                             " displacement\n7. confusion\n8. dominate person.\nFor example, the first time you select this {g|Encyclopedia:Feat}feat{/g}," +
+                                             " you gain vanish 2/day; the second time you select this feat, you gain hideous laughter 2/day. Your {g|Encyclopedia:Caster_Level}caster level{/g}" +
+                                             " for these {g|Encyclopedia:Spell}spells{/g} is equal to your {g|Encyclopedia:Hit_Dice}Hit Dice{/g}. The DCs for these abilities are" +
+                                             " {g|Encyclopedia:Charisma}Charisma{/g}-based.\nYou may select this feat up to eight times. Each time you take it, you gain an additional ability as described above.";
+               
+                magicalTail1.SetDescription(magicalTailDescription);
+                magicalTail2.SetDescription(magicalTailDescription);
+                magicalTail3.SetDescription(magicalTailDescription);
+                magicalTail4.SetDescription(magicalTailDescription);
+                magicalTail5.SetDescription(magicalTailDescription);
+                magicalTail6.SetDescription(magicalTailDescription);
+                magicalTail7.SetDescription(magicalTailDescription);
+                magicalTail8.SetDescription(magicalTailDescription);
+
+                BlueprintFeature v = new BlueprintFeature();
+
+                magicalTail2.RemoveComponents<AddFacts>();
+
+                magicalTail2.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                    hideousLaughterKitsune.ToReference<BlueprintUnitFactReference>()
+                };
+                });
+
+                magicalTail5.RemoveComponents<AddFacts>();
+
+                magicalTail5.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                    heroismKitsune.ToReference<BlueprintUnitFactReference>()
+                };
+                });
+
+                Main.LogPatch("Patched", magicalTail1);
+                Main.LogPatch("Patched", magicalTail2);
+                Main.LogPatch("Patched", magicalTail3);
+                Main.LogPatch("Patched", magicalTail4);
+                Main.LogPatch("Patched", magicalTail5);
+                Main.LogPatch("Patched", magicalTail6);
+                Main.LogPatch("Patched", magicalTail7);
+                Main.LogPatch("Patched", magicalTail8);
             }
 
             static void PatchCraneWing() {

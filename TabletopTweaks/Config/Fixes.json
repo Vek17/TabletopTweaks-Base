@@ -589,6 +589,11 @@
                 "Enabled": true,
                 "Description": "Now works correctly."
             },
+            "MagicalTail": {
+                "Enabled": true,
+                "Homebrew": true,
+                "Description": "Magical Tail gives Hideous Laughter at 2 and Heroism at 5 instead of sleep spells."
+            },
             "MaximizeMetamagic": {
                 "Enabled": true,
                 "Description": "Allows sticky touch spells to be maximized."
