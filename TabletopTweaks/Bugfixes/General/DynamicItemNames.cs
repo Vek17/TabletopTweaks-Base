@@ -9,13 +9,15 @@ using Kingmaker.Items;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 
 namespace TabletopTweaks.Bugfixes.General {
-    static class ItemEntityPatches {
+    static class DynamicItemNames {
         [HarmonyPatch(typeof(ItemEntity), nameof(ItemEntity.Name), MethodType.Getter)]
         static class ItemEntity_Names_Patch {
             static bool Prefix(ItemEntity __instance, ref string __result) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("DynamicItemNaming")) { return true; }
                 if (!__instance.IsIdentified) { return true; }
                 string UniqueName = __instance.Blueprint.m_DisplayNameText;
                 string DefaultName = "";
@@ -39,11 +41,12 @@ namespace TabletopTweaks.Bugfixes.General {
             }
         }
         private static string GetEnchantmentPrefixes(this IEnumerable<ItemEnchantment> enchants) {
+            var includeTemporary = ModSettings.Fixes.BaseFixes.IsEnabled("DynamicItemNamingTemporary");
             if (enchants == null || enchants.Empty()) {
                 return "";
             }
             string text = "";
-            foreach (BlueprintItemEnchantment blueprintEnchantment in enchants.Where(e => !e.IsTemporary).Select(e => e.Blueprint)) {
+            foreach (BlueprintItemEnchantment blueprintEnchantment in enchants.Where(e => includeTemporary ? true : !e.IsTemporary).Select(e => e.Blueprint)) {
                 if (!blueprintEnchantment.Prefix.IsNullOrEmpty()) {
                     text += blueprintEnchantment.Prefix + " ";
                 }
@@ -60,11 +63,12 @@ namespace TabletopTweaks.Bugfixes.General {
                 .GetEnchantmentPrefixes();
         }
         private static string GetEnchantmentSuffixes(this IEnumerable<ItemEnchantment> enchants) {
+            var includeTemporary = ModSettings.Fixes.BaseFixes.IsEnabled("DynamicItemNamingTemporary");
             if (enchants == null || enchants.Empty()) {
                 return "";
             }
             string text = "";
-            foreach (BlueprintItemEnchantment blueprintEnchantment in enchants.Where(e => !e.IsTemporary).Select(e => e.Blueprint)) {
+            foreach (BlueprintItemEnchantment blueprintEnchantment in enchants.Where(e => includeTemporary ? true : !e.IsTemporary).Select(e => e.Blueprint)) {
                 if (!blueprintEnchantment.Suffix.IsNullOrEmpty()) {
                     text += " " + blueprintEnchantment.Suffix;
                 }
@@ -115,6 +119,7 @@ namespace TabletopTweaks.Bugfixes.General {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("DynamicItemNaming")) { return; }
                 Main.LogHeader("Patching Enchant Prefixes/Suffixes");
 
                 PatchWeaponEnchants();

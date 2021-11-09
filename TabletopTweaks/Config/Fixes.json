@@ -31,6 +31,14 @@
                 "Enabled": true,
                 "Description": "Prevents most forms of damage reduction from stacking unless specifically specified"
             },
+            "DynamicItemNaming": {
+                "Enabled": true,
+                "Description": "Allows Weapon/Armor names to be modified by any additional enchants they gain outside of thier base enchants."
+            },
+            "DynamicItemNamingTemporary": {
+                "Enabled": true,
+                "Description": "Displays the names of temporary enchants as part of the equipment."
+            },
             "FeatSelections": {
                 "Enabled": true,
                 "Description": "Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type."

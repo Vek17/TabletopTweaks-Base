@@ -95,6 +95,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Stalwart
         Improved Stalwart
         Celestial Servant
+        Quick Draw
 
     Adds the following rogue talents:
         Graceful Athlete

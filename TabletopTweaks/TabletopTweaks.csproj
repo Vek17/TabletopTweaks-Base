@@ -162,7 +162,7 @@
     <Compile Include="Bugfixes\General\AddFactsFix.cs" />
     <Compile Include="Bugfixes\General\ContextRankConfigFix.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
-    <Compile Include="Bugfixes\General\ItemEntityPatches.cs" />
+    <Compile Include="Bugfixes\General\DynamicItemNames.cs" />
     <Compile Include="Bugfixes\General\ProfaneGift.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />

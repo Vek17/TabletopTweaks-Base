@@ -1,12 +1,13 @@
-## Version 1.9.7
+## Version 1.10.0
 * Added homebrew flags in the settings
 * Fixed minor issues with AddFacts
 * Added Quick Draw
 * Celestial Bloodline now works correctly with Metamagic Rager
 * Adjusted Magical Tail Feats @Balkoth
-* Kitsune polymorph is now correctly considered a polymorph
+* Kitsune polymorph is now correctly considered a polymorph @Balkoth
 * Updated string handling to support general localization (will need help from speakers to do actual localization work)
 * Shadow Enchantment should now work correctly
+* Added support for dynamic item naming
 
 ## Version 1.9.6b
 * Aspect of Omox DR now stacks globaly
