@@ -10,36 +10,48 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Localization {
+    [JsonObject(MemberSerialization.OptIn)]
     class MultiLocalizationPack {
 
         public MultiLocalizationPack() { }
+
+        public SortedDictionary<string, MultiLocaleString> Text {
+            get {
+                if (text == null) {
+                    text = new SortedDictionary<string, MultiLocaleString>();
+                    foreach (var entry in Strings) {
+                        text[entry.LocalizedText()] = entry;
+                    }
+                }
+                return text;
+            }
+        }
+        public SortedDictionary<string, MultiLocaleString> Ids {
+            get {
+                if (ids == null) {
+                    ids = new SortedDictionary<string, MultiLocaleString>();
+                    foreach (var entry in Strings) {
+                        ids[entry.Key] = entry;
+                    }
+                }
+                return ids;
+            }
+        }
 
         public void ApplyToCurrentPack() {
             LocalizationManager.CurrentPack.AddStrings(GeneratePack());
         }
 
         public void ResetCache() {
-            Ids = null;
-            Text = null;
+            ids = null;
+            text = null;
         }
 
         public bool TryGetText(string text, out MultiLocaleString result, Locale locale = Locale.enGB) {
-            if (Text == null) {
-                Text = new SortedDictionary<string, MultiLocaleString>();
-                foreach (var entry in Strings) {
-                    Text[entry.LocalizedText(locale)] = entry;
-                }
-            }
             return Text.TryGetValue(text, out result);
         }
         
         public void AddString(MultiLocaleString newString) {
-            if (Ids == null) {
-                Ids = new SortedDictionary<string, MultiLocaleString>();
-                foreach (var entry in Strings) {
-                    Ids[entry.Key] = entry;
-                }
-            }
             Ids[newString.Key] = newString;
             Text[newString.LocalizedText(LocalizationManager.CurrentLocale)] = newString;
             Strings.Add(newString);
@@ -60,8 +72,8 @@ namespace TabletopTweaks.Localization {
         [NotNull]
         [JsonProperty(PropertyName = "LocalizedStrings")]
         public List<MultiLocaleString> Strings = new List<MultiLocaleString>();
-        private SortedDictionary<string, MultiLocaleString> Text;
-        private SortedDictionary<string, MultiLocaleString> Ids;
+        private SortedDictionary<string, MultiLocaleString> text;
+        private SortedDictionary<string, MultiLocaleString> ids;
 
         [JsonObject(MemberSerialization.OptIn)]
         public class MultiLocaleString {

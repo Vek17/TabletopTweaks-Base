@@ -114,7 +114,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerStandartRageBuff,
                 ProtectionFromArrowsArcaneBloodragerBuff,
-                bp => bp.SetName("3f237943a5554da38b83a2548e01c95d", "Arcane Bloodrage: Protection From Arrows"));
+                bp => bp.SetName("b1f39d8f139d44578fc041de4596ac38", "Arcane Bloodrage: Protection From Arrows"));
 
             BlueprintBuff BloodragerArcaneSpellResistFireSwitchBuff = BloodlineTools.CreateArcaneBloodrageSwitchBuff(
                 "BloodragerArcaneSpellResistFireSwitchBuff",
@@ -149,7 +149,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 BloodragerArcaneSpellAbility,
                 BloodragerStandartRageBuff,
                 ResistSonicBuff,
-                bp => bp.SetName("176a28ad37694a148193fb38b6aeb603", "Arcane Bloodrage: Resist Sonic"));
+                bp => bp.SetName("9be6b0fb43924f69af8f1c6635c98008", "Arcane Bloodrage: Resist Sonic"));
 
             var AllBloodragerArcaneSpellSwitchBuffs = new List<BlueprintBuff>() {
                     BloodragerArcaneSpellBlurSwitchBuff,

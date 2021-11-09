@@ -115,6 +115,9 @@ namespace TabletopTweaks.Utilities {
             if (ModSettings.ModLocalizationPack.TryGetText(text.StripHTML(), out multiLocalized)) {
                 return multiLocalized.LocalizedString;
             }
+            if (ModSettings.ModLocalizationPack.Ids.TryGetValue(id, out multiLocalized)) {
+                return multiLocalized.LocalizedString;
+            }
             multiLocalized = new MultiLocalizationPack.MultiLocaleString(id, simpleName, text.StripHTML(), shouldProcess, locale);
             ModSettings.ModLocalizationPack.AddString(multiLocalized);
             return multiLocalized.LocalizedString;
@@ -146,6 +149,16 @@ namespace TabletopTweaks.Utilities {
                 low ^= ParseGuidLow(guid3);
                 high ^= ParseGuidHigh(guid3);
             }
+            return high.ToString("x16") + low.ToString("x16");
+        }
+        public static string DeriveId(string guid1, int number) {
+            // Parse into low/high 64-bit numbers, and then xor the two halves.
+            ulong low = ParseGuidLow(guid1);
+            ulong high = ParseGuidHigh(guid1);
+
+            low ^= (ulong)Math.Abs(number);
+            high ^= (ulong)Math.Abs(number);
+
             return high.ToString("x16") + low.ToString("x16");
         }
 #if false

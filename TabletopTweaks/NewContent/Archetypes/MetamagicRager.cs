@@ -160,50 +160,50 @@ namespace TabletopTweaks.NewContent.Archetypes {
         }
         private static BlueprintAbility CreateMetaRageLevel(int level) {
             var MetaRageEmpowerBuff = CreateMetamagicBuff($"MetaRageEmpowerBuff{level}", EmpowerSpellFeat, level, bp => {
-                bp.SetName("476fa7200c994c088ebed44e1207fe2e", "Meta-Rage (Empower)");
-                bp.SetDescription("fdcb36a4d0ed446b84fab01f7b80604a", $"The metamagic rager can spend {level * 2 + 4} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("476fa7200c994c088ebed44e1207fe2e", level), "Meta-Rage (Empower)");
+                bp.SetDescription(Helpers.DeriveId("fdcb36a4d0ed446b84fab01f7b80604a", level), $"The metamagic rager can spend {level * 2 + 4} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Empowered as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageExtendBuff = CreateMetamagicBuff($"MetaRageExtendBuff{level}", ExtendSpellFeat, level, bp => {
-                bp.SetName("aebef5a5a68d43ffb34470cdac90a99f", "Meta-Rage (Extend)");
-                bp.SetDescription("a5e52bcc53554316aeffb66bd6ccc2fc", $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("aebef5a5a68d43ffb34470cdac90a99f", level), "Meta-Rage (Extend)");
+                bp.SetDescription(Helpers.DeriveId("a5e52bcc53554316aeffb66bd6ccc2fc", level), $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Extended as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageMaximizeBuff = CreateMetamagicBuff($"MetaRageMaximizeBuff{level}", MaximizeSpellFeat, level, bp => {
-                bp.SetName("bb664930c29b4168b9c096384c26ad0c", "Meta-Rage (Maximize)");
-                bp.SetDescription("07d94a025ebb4333b745fb5f4b5d6bb9", $"The metamagic rager can spend {level * 2 + 6} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("bb664930c29b4168b9c096384c26ad0c", level), "Meta-Rage (Maximize)");
+                bp.SetDescription(Helpers.DeriveId("07d94a025ebb4333b745fb5f4b5d6bb9", level), $"The metamagic rager can spend {level * 2 + 6} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Maximized as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRagePersistentBuff = CreateMetamagicBuff($"MetaRagePersistentBuff{level}", PersistentSpellFeat, level, bp => {
-                bp.SetName("10906b9d8c954297aa9de52831377587", "Meta-Rage (Persistent)");
-                bp.SetDescription("aaf1493026cd4f0396470455bc3c015b", $"The metamagic rager can spend {level * 2 + 4} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("10906b9d8c954297aa9de52831377587", level), "Meta-Rage (Persistent)");
+                bp.SetDescription(Helpers.DeriveId("aaf1493026cd4f0396470455bc3c015b", level), $"The metamagic rager can spend {level * 2 + 4} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Persistent as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageQuickenBuff = CreateMetamagicBuff($"MetaRageQuickenBuff{level}", QuickenSpellFeat, level, bp => {
-                bp.SetName("cc5acb3d50b64f9eb75b6eb7bbe5b24d", "Meta-Rage (Quicken)");
-                bp.SetDescription("97bc9d57f5044da893cbf146042292fd", $"The metamagic rager can spend {level * 2 + 8} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("cc5acb3d50b64f9eb75b6eb7bbe5b24d", level), "Meta-Rage (Quicken)");
+                bp.SetDescription(Helpers.DeriveId("97bc9d57f5044da893cbf146042292fd", level), $"The metamagic rager can spend {level * 2 + 8} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Quickened as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageReachBuff = CreateMetamagicBuff($"MetaRageReachBuff{level}", ReachSpellFeat, level, bp => {
-                bp.SetName("5eff6908951f490ca24323c9b4f1a02e", "Meta-Rage (Reach)");
-                bp.SetDescription("0d7b47d505ad42dc9f872a12b4622fd3", $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("5eff6908951f490ca24323c9b4f1a02e", level), "Meta-Rage (Reach)");
+                bp.SetDescription(Helpers.DeriveId("0d7b47d505ad42dc9f872a12b4622fd3", level), $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Reach as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageSelectiveBuff = CreateMetamagicBuff($"MetaRageSelectiveBuff{level}", SelectiveSpellFeat, level, bp => {
-                bp.SetName("be60c78b5c004385abb508a903e75a52", "Meta-Rage (Selective)");
-                bp.SetDescription("1ac5456a73ab42e1921534415c165540", $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("be60c78b5c004385abb508a903e75a52", level), "Meta-Rage (Selective)");
+                bp.SetDescription(Helpers.DeriveId("1ac5456a73ab42e1921534415c165540", level), $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Selective as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
             var MetaRageBolsteredBuff = CreateMetamagicBuff($"MetaRageBolsteredBuff{level}", BolsteredSpellFeat, level, bp => {
-                bp.SetName("58bb85c5c5b947e78921edf6e48e472e", "Meta-Rage (Bolstered)");
-                bp.SetDescription("746a175e0dcb4bc193ce0efbfdc0b41b", $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                bp.SetName(Helpers.DeriveId("58bb85c5c5b947e78921edf6e48e472e", level), "Meta-Rage (Bolstered)");
+                bp.SetDescription(Helpers.DeriveId("746a175e0dcb4bc193ce0efbfdc0b41b", level), $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Bolstered as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
@@ -253,8 +253,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var MetaRageBaseAbility = Helpers.CreateBlueprint<BlueprintAbility>($"MetaRageBaseAbility{level}", bp => {
-                bp.SetName("eced06f9d3d2432da7ab81be5e0d3a6a", "Meta-Rage");
-                bp.SetDescription("9370b9f455e4477092728663c567193e", "At 5th level, a metamagic rager can sacrifice additional rounds of " +
+                bp.SetName(Helpers.DeriveId("2faa3e65c3cd4b9d8ee0bad4a60dba7b", level), "Meta-Rage");
+                bp.SetDescription(Helpers.DeriveId("593ca12b662044ce9df33da2d2b5c3c1", level), "At 5th level, a metamagic rager can sacrifice additional rounds of " +
                     "bloodrage to apply a metamagic feat he knows to a bloodrager spell. This costs a number of rounds of bloodrage equal to twice what the spell’s " +
                     "adjusted level would normally be with the metamagic feat applied (minimum 2 rounds). The metamagic rager does not have to be bloodraging " +
                     "to use this ability. The metamagic effect is applied without increasing the level of the spell slot expended, though the casting time is " +

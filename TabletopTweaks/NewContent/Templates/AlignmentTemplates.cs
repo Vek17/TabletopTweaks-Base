@@ -165,7 +165,7 @@ namespace TabletopTweaks.NewContent.Templates {
         private static BlueprintFeature CreateAlignmentTemplate(string name, DamageAlignment dr, params DamageEnergyType[] resists) {
             return Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
                 var Name = Regex.Split(name, @"(?<!^)(?=[A-Z])");
-                bp.SetName("4f37b6444d3d413f81016908be89cfbc", $"{Name[1]} {Name[0]}");
+                bp.SetName(Helpers.DeriveId("4f37b6444d3d413f81016908be89cfbc", (int)dr), $"{Name[1]} {Name[0]}");
                 bp.SetDescription("99121f1a5bc443ebbc6ea1b0e4e24817", "");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;

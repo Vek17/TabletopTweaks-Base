@@ -17,11 +17,11 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
         private static BlueprintWeaponEnchantment CreateNonStackingEnhancement(int enhancmentBonus) {
             return Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"TemporaryEnhancement{enhancmentBonus}NonStacking", bp => {
                 bp.m_EnchantmentCost = enhancmentBonus;
-                bp.SetName("a3b094b520ab4c22a2936987d7c9b62d", $"Temporary Enhancement +{enhancmentBonus}");
-                bp.SetDescription("87c767465a324c9cad24d56cd425974e", $"{{g|Encyclopedia:Attack}}Attacks{{/g}} with this weapon get +{enhancmentBonus} " +
+                bp.SetName(Helpers.DeriveId("e74c34eebd664e8b81d261df1a9de4e2", enhancmentBonus), $"Temporary Enhancement +{enhancmentBonus}");
+                bp.SetDescription(Helpers.DeriveId("87c767465a324c9cad24d56cd425974e", enhancmentBonus), $"{{g|Encyclopedia:Attack}}Attacks{{/g}} with this weapon get +{enhancmentBonus} " +
                     $"enhancement {{g|Encyclopedia:Bonus}}bonus{{/g}} on both attack and {{g|Encyclopedia:Damage}}damage rolls.");
-                bp.SetPrefix("48938db5bb0e47d5a5f506e6937b82ee", "");
-                bp.SetSuffix("0250eff007bc41bd8441d940459551cb", $"+{enhancmentBonus}");
+                bp.SetPrefix(Helpers.DeriveId("8de6ba29d79a4326a28136f6e0291f7e", enhancmentBonus), "");
+                bp.SetSuffix(Helpers.DeriveId("2bee04557fb74f3ea481449e7806e421", enhancmentBonus), $"+{enhancmentBonus}");
                 bp.AddComponent<WeaponEnhancementBonus>(c => {
                     c.EnhancementBonus = enhancmentBonus;
                 });

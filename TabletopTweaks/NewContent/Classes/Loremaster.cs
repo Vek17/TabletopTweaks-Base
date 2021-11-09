@@ -49,7 +49,8 @@ namespace TabletopTweaks.NewContent.Classes {
                         return null;
                     }
                     var spellSecret = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
-                        bp.SetName(Helpers.MergeIds("5f0dc1c78a3042cbab645385e0523e86", castingClass.AssetGuid.ToString()), $"{secretSelection.Name} — {castingClass.Name}");
+                        bp.SetName(Helpers.MergeIds("5f0dc1c78a3042cbab645385e0523e86", castingClass.AssetGuid.ToString(), secretSelection.AssetGuid.ToString()), 
+                            $"{secretSelection.Name} — {castingClass.Name}");
                         bp.SetDescription(secretSelection.m_Description);
                         bp.IsClassFeature = true;
                         bp.Groups = secret.Groups;
