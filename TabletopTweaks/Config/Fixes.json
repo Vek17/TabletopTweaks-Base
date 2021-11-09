@@ -1,746 +1,901 @@
 {
-    "NewSettingsOffByDefault": false,
-    "BaseFixes": {
+  "NewSettingsOffByDefault": false,
+  "BaseFixes": {
+    "DisableAll": false,
+    "Settings": {
+      "AlternateClassProgressions": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Progressions will not incorrectly include mythic levels, or double count some classes levels."
+      },
+      "CoupDeGrace": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Coup De Grace saving throw DC is now based on damage dealt."
+      },
+      "DamageReductionRework": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents most forms of damage reduction from stacking unless specifically specified"
+      },
+      "DisableAfterCombatDeactivationOfUnlimitedAbilities": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows abilities that have become unlimited to remain on after combat ends."
+      },
+      "DisableCannyDefenseStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents the Sword Saint and Duelest canny defense AC bonus from stacking."
+      },
+      "DisableNaturalArmorStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack."
+      },
+      "DisablePolymorphStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents multiple polymorph effects from being applied to a character at a time."
+      },
+      "DynamicItemNaming": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows Weapon/Armor names to be modified by any additional enchants they gain outside of thier base enchants."
+      },
+      "DynamicItemNamingTemporary": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Displays the names of temporary enchants as part of the equipment."
+      },
+      "FeatSelections": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type."
+      },
+      "FixBackgroundModifiers": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Changes the skill and attack bonuses granted from backgrounds into trait bonuses."
+      },
+      "FixCriticalConfirmation": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows a natural 20 to always confirm a critical."
+      },
+      "FixInherentBonuses": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows Inhernt bonuses to count for feat prerequisites."
+      },
+      "FixInherentSkillpoints": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows Inhernt bonuses to a stat now grant bonus skill points."
+      },
+      "FixMountedLongspearModifer": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Spears now grant additional damage during a mounted charge."
+      },
+      "FixPrebuffCasterLevels": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enemy buff now have the correct CL for applied buffs."
+      },
+      "FixShadowSpells": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shadow spells now are correctly treated as being from the Illusion school for all effects."
+      },
+      "MetamagicStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents extra dice from empowered metamagic from being maximized by maximize metamagic."
+      },
+      "SelectiveMetamagicNonInstantaneous": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows only instaneous effects to be treated as selective by selective metamagic."
+      },
+      "StaggeredDescriptors": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Removes the movement impairing descriptor from staggered."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Lich": {
+    "DisableAll": false,
+    "Settings": {
+      "DeathRush": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents Death Rush from triggering multiple fake attacks and procing weapon effects more often than it should."
+      },
+      "SpellbookMerging": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows Nature mage to merge with the Lich spellbook."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Trickster": {
+    "DisableAll": false,
+    "Settings": {
+      "UseMagicDevice2": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows trickster to ignore class/alignment restricitons of equipment with UMD2 trick."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Alchemist": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "Grenadier": {
         "DisableAll": false,
         "Settings": {
-            "AlternateClassProgressions": {
-                "Enabled": true,
-                "Description": "Progressions will not incorrectly include mythic levels, or double count some classes levels."
-            },
-            "CoupDeGrace": {
-                "Enabled": true,
-                "Description": "Coup De Grace saving throw DC is now based on damage dealt."
-            },
-            "DisableAfterCombatDeactivationOfUnlimitedAbilities": {
-                "Enabled": true,
-                "Description": "Allows abilities that have become unlimited to remain on after combat ends."
-            },
-            "DisableCannyDefenseStacking": {
-                "Enabled": true,
-                "Description": "Prevents the Sword Saint and Duelest canny defense AC bonus from stacking."
-            },
-            "DisableNaturalArmorStacking": {
-                "Enabled": true,
-                "Description": "Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack."
-            },
-            "DisablePolymorphStacking": {
-                "Enabled": true,
-                "Description": "Prevents multiple polymorph effects from being applied to a character at a time."
-            },
-            "DamageReductionRework": {
-                "Enabled": true,
-                "Description": "Prevents most forms of damage reduction from stacking unless specifically specified"
-            },
-            "DynamicItemNaming": {
-                "Enabled": true,
-                "Description": "Allows Weapon/Armor names to be modified by any additional enchants they gain outside of thier base enchants."
-            },
-            "DynamicItemNamingTemporary": {
-                "Enabled": true,
-                "Description": "Displays the names of temporary enchants as part of the equipment."
-            },
-            "FeatSelections": {
-                "Enabled": true,
-                "Description": "Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type."
-            },
-            "FixBackgroundModifiers": {
-                "Enabled": true,
-                "Homebrew": true,
-                "Description": "Changes the skill and attack bonuses granted from backgrounds into trait bonuses."
-            },
-            "FixCriticalConfirmation": {
-                "Enabled": true,
-                "Description": "Allows a natural 20 to always confirm a critical."
-            },
-            "FixInherentSkillpoints": {
-                "Enabled": true,
-                "Description": "Allows Inhernt bonuses to a stat now grant bonus skill points."
-            },
-            "FixInherentBonuses": {
-                "Enabled": true,
-                "Description": "Allows Inhernt bonuses to count for feat prerequisites."
-            },
-            "FixMountedLongspearModifer": {
-                "Enabled": true,
-                "Description": "Spears now grant additional damage during a mounted charge."
-            },
-            "FixPrebuffCasterLevels": {
-                "Enabled": true,
-                "Description": "Enemy buff now have the correct CL for applied buffs."
-            },
-            "FixShadowSpells": {
-                "Enabled": true,
-                "Description": "Shadow spells now are correctly treated as being from the Illusion school for all effects."
-            },
-            "MetamagicStacking": {
-                "Enabled": true,
-                "Description": "Prevents extra dice from empowered metamagic from being maximized by maximize metamagic."
-            },
-            "SelectiveMetamagicNonInstantaneous": {
-                "Enabled": true,
-                "Description": "Allows only instaneous effects to be treated as selective by selective metamagic."
-            },
-            "StaggeredDescriptors": {
-                "Enabled": true,
-                "Description": "Removes the movement impairing descriptor from staggered."
-            }
-        }
-    },
-    "Lich": {
-        "DisableAll": false,
-        "Settings": {
-            "DeathRush": {
-                "Enabled": true,
-                "Description": "Prevents Death Rush from triggering multiple fake attacks and procing weapon effects more often than it should."
-            },
-            "SpellbookMerging": {
-                "Enabled": true,
-                "Description": "Allows Nature mage to merge with the Lich spellbook."
-            }
-        }
-    },
-    "Trickster": {
-        "DisableAll": false,
-        "Settings": {
-            "UseMagicDevice2": {
-                "Enabled": true,
-                "Description": "Allows trickster to ignore class/alignment restricitons of equipment with UMD2 trick."
-            }
-        }
-    },
-    "Alchemist": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {}
+          "BrewPotions": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Removes brew potions from the archetype."
+          },
+          "PoisonResistance": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Removes posion resistiance from the archetype."
+          }
         },
-        "Archetypes": {
-            "Grenadier": {
-                "DisableAll": false,
-                "Settings": {
-                    "BrewPotions": {
-                        "Enabled": true,
-                        "Description": "Removes brew potions from the archetype."
-                    },
-                    "PoisonResistance": {
-                        "Enabled": true,
-                        "Description": "Removes posion resistiance from the archetype."
-                    }
-                }
-            }
-        }
-    },
-    "Arcanist": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "PreparedSpellUI": {
-                    "Enabled": true,
-                    "Description": "Makes arcanist spellbook behave like a prepared caster not a spontaneous one."
-                }
-            }
-        },
-        "Archetypes": {}
-    },
-    "Barbarian": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "CripplingBlows": {
-                    "Enabled": true,
-                    "Description": "Allows crippling blows to work when raging."
-                },
-                "WreckingBlows": {
-                    "Enabled": true,
-                    "Description": "Allows wrecking blows to work when raging."
-                }
-            }
-        },
-        "Archetypes": {}
-    },
-    "Bloodrager": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "AbysalBulk": {
-                    "Enabled": true,
-                    "Description": "Enables abysal bulk to not dispel existing enlarge person when rage ends."
-                },
-                "ArcaneBloodrage": {
-                    "Enabled": true,
-                    "Description": "Rebuilds the arcane bloodrager UI to be less awful."
-                },
-                "Spellbook": {
-                    "Enabled": true,
-                    "Description": "Fixes spell progression to not incorrectly qualify for some features that require casting early."
-                },
-                "TemporaryHitPoints": {
-                    "Enabled": true,
-                    "Description": "Fixed bloodrager temp HP with limitless rage to use the bloodrager resource when calculating the bonus instead of the barbarian resource."
-                }
-            }
-        },
-        "Archetypes": {
-            "Primalist": {
-                "DisableAll": false,
-                "Settings": {
-                    "FixBrokenRagePowers": {
-                        "Enabled": true,
-                        "Description": "Enables all rage powers to work with bloodrage."
-                    },
-                    "RagePowerFeatQualifications": {
-                        "Enabled": true,
-                        "Description": "Prevents primalist from qualifying for extra rage powers feat."
-                    }
-                }
-            },
-            "ReformedFiend": {
-                "DisableAll": false,
-                "Settings": {
-                    "DamageReduction": {
-                        "Enabled": true,
-                        "Description": "Fixes DR to be the correct DR/Good."
-                    },
-                    "HatredAgainstEvil": {
-                        "Enabled": true,
-                        "Description": "Hatred against evil now grants the proper bonus."
-                    }
-                }
-            }
-        }
-    },
-    "Cavalier": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "CavalierMobility": {
-                    "Enabled": true,
-                    "Description": "Allows Cavalier to ignore thier armor check penalty while mounted for mobility skill checks."
-                },
-                "CavalierMountSelection": {
-                    "Enabled": true,
-                    "Description": "Allows the Cavalier to select a wolf for a mount if they are of small size."
-                },
-                "SupremeCharge": {
-                    "Enabled": true,
-                    "Description": "Prevents Supreme Charge damage from criting and moves it into the new charage damage system."
-                }
-            }
-        },
-        "Archetypes": {
-            "Gendarme": {
-                "DisableAll": false,
-                "Settings": {
-                    "TransfixingCharge": {
-                        "Enabled": true,
-                        "Description": "Prevents Transfixing Charge damage from criting and moves it into the new charage damage system."
-                    }
-                }
-            }
-        }
-    },
-    "Fighter": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "AdvancedArmorTraining": {
-                    "Enabled": true,
-                    "Description": "Enables the fighter to take advanced armor training instead of increasing thier armor training rank."
-                },
-                "AdvancedWeaponTraining": {
-                    "Enabled": true,
-                    "Description": "Enforces the weapon training prerequisites properly."
-                },
-                "TwoHandedWeaponTraining": {
-                    "Enabled": true,
-                    "Description": "Treats two handed fighter's weapon training as proper weapon training."
-                },
-                "UnarmedWeaponTraining": {
-                    "Enabled": true,
-                    "Description": "Makes unarmed correctly count as the close weapon group."
-                },
-                "WeaponTrainingStacking": {
-                    "Enabled": true,
-                    "Description": "Prevents bonuses from multiple weapon training groups from stacking."
-                }
-            }
-        },
-        "Archetypes": {
-            "TwoHandedFighter": {
-                "DisableAll": false,
-                "Settings": {
-                    "AdvancedWeaponTraining": {
-                        "Enabled": true,
-                        "Description": "Allows two handed fighter to pick advanced weapon training feats."
-                    }
-                }
-            }
-        }
-    },
-    "Kineticist": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {}
-        },
-        "Archetypes": {}
-    },
-    "Magus": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "SpellCombatAbilityVariants": {
-                    "Enabled": true,
-                    "Description": "Lets spell combat work with spells that have variants like dimention door."
-                },
-                "SpellCombatDisableImmediatly": {
-                    "Enabled": true,
-                    "Description": "Disables spell combat immediatly when toggled off instead of having to wait until the next round."
-                }
-            }
-        },
-        "Archetypes": {
-            "SwordSaint": {
-                "DisableAll": false,
-                "Settings": {
-                    "PerfectCritical": {
-                        "Enabled": true,
-                        "Description": "Updates perfect critical's cost to 2 points of arcane pool instead of 1."
-                    }
-                }
-            }
-        }
-    },
-    "Monk": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {}
-        },
-        "Archetypes": {
-            "ZenArcher": {
-                "DisableAll": false,
-                "Settings": {
-                    "PerfectStrike": {
-                        "Enabled": true,
-                        "Description": "At level 10 a zen archer will roll 3 dice instead of 2 with perfect strike."
-                    }
-                }
-            }
-        }
-    },
-    "Oracle": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "NaturesWhisperMonkStacking": {
-                    "Enabled": true,
-                    "Description": "Prevents Natures Whispers from stacking with Scaled Fist AC bonus. If scaled fist is present dexterity will be used for AC not charisma."
-                },
-                "RevelationBurningMagic": {
-                    "Enabled": true,
-                    "Description": "Fixes the CL scaling to be equal to oracle level."
-                }
-            }
-        },
-        "Archetypes": {}
-    },
-    "Paladin": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "DivineMountTemplate": {
-                    "Enabled": true,
-                    "Description": "Updates the template gained by the paladin mount at level 9 to have all of its features."
-                }
-            }
-        },
-        "Archetypes": {}
-    },
-    "Ranger": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "FavoredEnemy": {
-                    "Enabled": true,
-                    "Description": "Favored enemy outsider now applies to ALL demons. The Demons of X are disabled unless you already have ranks, but otherwise function identicly to favored enemy outsider and you can keep picking them for compatability with existing characters."
-                }
-            }
-        },
-        "Archetypes": {
-            "EspionageExpert": {
-                "DisableAll": false,
-                "Settings": {
-                    "Trapfinding": {
-                        "Enabled": true,
-                        "Description": "Trapfinding now grants bonuses to perception and trickery."
-                    }
-                }
-            }
-        }
-    },
-    "Rogue": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "RogueTalentSelection": {
-                    "Enabled": true,
-                    "Description": "Prevents you from selecting the same talent more than once."
-                },
-                "SlipperyMind": {
-                    "Enabled": true,
-                    "Description": "Slippery mind correctly updates its save bonuses when your dexterity changes."
-                },
-                "Trapfinding": {
-                    "Enabled": true,
-                    "Description": "Trapfinding now grants bonuses to perception and trickery."
-                }
-            }
-        },
-        "Archetypes": {
-            "EldritchScoundrel": {
-                "DisableAll": false,
-                "Settings": {
-                    "RogueTalentProgression": {
-                        "Enabled": true,
-                        "Description": "Removes the level 2 rogue talent and adds in a level 4 talent."
-                    },
-                    "SneakAttackProgression": {
-                        "Enabled": true,
-                        "Description": "Removes the sneak attack dice granted at level 1."
-                    }
-                }
-            }
-        }
-    },
-    "Slayer": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "Trapfinding": {
-                    "Enabled": true,
-                    "Description": "Trapfinding now grants bonuses to perception and trickery."
-                }
-            }
-        },
-        "Archetypes": {}
-    },
-    "Witch": {
-        "DisableAll": false,
-        "Base": {
-            "DisableAll": false,
-            "Settings": {
-                "DeathCurse": {
-                    "Enabled": true,
-                    "Description": "Fixes ability descriptors."
-                },
-                "DeliciousFright": {
-                    "Enabled": true,
-                    "Description": "Fixes ability descriptors."
-                },
-                "EvilEye": {
-                    "Enabled": true,
-                    "Description": "Fixes ability descriptors."
-                },
-                "Hoarfrost": {
-                    "Enabled": true,
-                    "Description": "Fixes ability descriptors."
-                },
-                "RestlessSlumber": {
-                    "Enabled": true,
-                    "Description": "Fixes ability descriptors."
-                },
-                "Slumber": {
-                    "Enabled": true,
-                    "Description": "Fixes ability descriptors."
-                }
-            }
-        },
-        "Archetypes": {}
-    },
-    "Hellknight": {
-        "DisableAll": false,
-        "Settings": {
-            "PentamicFaith": {
-                "Enabled": true,
-                "Description": "Pentamic Faith now requires the Godclaw hellknight order not the diety."
-            }
-        }
-    },
-    "Loremaster": {
-        "DisableAll": false,
-        "Settings": {
-            "Prerequisites": {
-                "Enabled": true,
-                "Description": "Updates the prerequisites to be more strict and better match tabletop."
-            },
-            "SpellProgression": {
-                "Enabled": true,
-                "Description": "Grants spell progression at level 1. This is not retroactive."
-            },
-            "SpellSecrets": {
-                "Enabled": true,
-                "Description": "Enables spell secrets."
-            },
-            "TricksterTricks": {
-                "Enabled": true,
-                "Description": "Remvoes trickster tricks from the combat feat selection"
-            }
-        }
-    },
-    "Spells": {
-        "DisableAll": false,
-        "Settings": {
-            "BelieveInYourself": {
-                "Enabled": true,
-                "Description": "Believe in yourself now grants the correct bonus amount."
-            },
-            "BestowCurseGreater": {
-                "Enabled": true,
-                "Description": "Bestow Greater Curse now actually bestows a greater curse not a normal curse."
-            },
-            "BreakEnchantment": {
-                "Enabled": true,
-                "Description": "Break Enchantment no longer affects friendly buffs."
-            },
-            "CrusadersEdge": {
-                "Enabled": true,
-                "Description": "Crusaders Edge's nauseate effect now only procs on critical hits."
-            },
-            "DispelMagicGreater": {
-                "Enabled": true,
-                "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
-            },
-            "FixSpellFlags": {
-                "Enabled": true,
-                "Description": "Retags buffs from spells as coming from spells to allow them to be dispeled correctly."
-            },
-            "GreaterMagicWeapon": {
-                "Enabled": true,
-                "Description": "Greater Magic Weapon no longer stacks with existing enhancement bonuses."
-            },
-            "MagicalVestment": {
-                "Enabled": true,
-                "Description": "Magical Vestment now enhances your armor instead of granting a floating modifier."
-            },
-            "RemoveFear": {
-                "Enabled": true,
-                "Description": "Remove fear no longer makes you immune to fear."
-            },
-            "SecondBreath": {
-                "Enabled": true,
-                "Description": "Second Breathe now correctly restores abiltiies."
-            },
-            "ShadowConjuration": {
-                "Enabled": true,
-                "Description": "Shadow Conjuration has been added to the Wizard spell list."
-            },
-            "ShadowEvocation": {
-                "Enabled": true,
-                "Description": "Shadow Evocation can now have the correct metamagic applied."
-            },
-            "ShadowEvocationGreater": {
-                "Enabled": true,
-                "Description": "Greater Shadow Evocation can now have the correct metamagic applied."
-            },
-            "WrackingRay": {
-                "Enabled": true,
-                "Description": "Wracking Ray now deals the correct amount of ability damage."
-            }
-        }
-    },
-    "Bloodlines": {
-        "DisableAll": false,
-        "Settings": {
-            "BloodlineRestrictions": {
-                "Enabled": true,
-                "Description": "Cleans up bloodline restrictions to actually work correctly with things like Dragon disciple."
-            }
-        }
-    },
-    "Feats": {
-        "DisableAll": false,
-        "Settings": {
-            "BolsteredMetamagic": {
-                "Enabled": true,
-                "Description": "Allows sticky touch spells to be bolstered."
-            },
-            "CraneWing": {
-                "Enabled": true,
-                "Description": "Now requires a free hand to recieve the bonuses."
-            },
-            "EmpowerMetamagic": {
-                "Enabled": true,
-                "Description": "Allows sticky touch spells to be empowered."
-            },
-            "Endurance": {
-                "Enabled": true,
-                "Homebrew": true,
-                "Description": "Endurance now grants +4 Athletics if you have 10 ranks in Athletics like similar feats."
-            },
-            "FencingGrace": {
-                "Enabled": true,
-                "Description": "Now only works on one handed weapons always."
-            },
-            "IndomitableMount": {
-                "Enabled": true,
-                "Description": "Now works correctly."
-            },
-            "MagicalTail": {
-                "Enabled": true,
-                "Homebrew": true,
-                "Description": "Magical Tail gives Hideous Laughter at 2 and Heroism at 5 instead of sleep spells."
-            },
-            "MaximizeMetamagic": {
-                "Enabled": true,
-                "Description": "Allows sticky touch spells to be maximized."
-            },
-            "MountedCombat": {
-                "Enabled": true,
-                "Description": "Now works correctly."
-            },
-            "PersistantMetamagic": {
-                "Enabled": true,
-                "Description": "Allows any spell with a saving throw to be made persistant."
-            },
-            "ShatterDefenses": {
-                "Enabled": true,
-                "Description": "Now requires you to hit a shaken target once before they become flat footed."
-            },
-            "SlashingGrace": {
-                "Enabled": true,
-                "Description": "Now only works on one handed weapons always."
-            },
-            "SpiritedCharge": {
-                "Enabled": true,
-                "Description": "Bonus damage no longer can crit."
-            },
-            "VitalStrike": {
-                "Enabled": true,
-                "Description": "Bonus damage no longer can crit."
-            },
-            "WeaponFinesse": {
-                "Enabled": true,
-                "Description": "No longer makes any weapon with Fencing/Slashing grace into a finesse weapon."
-            }
-        }
-    },
-    "MythicAbilities": {
-        "DisableAll": false,
-        "Settings": {
-            "BloodlineAscendance": {
-                "Enabled": true,
-                "Description": "All bloodline should now qualify including mutated ones."
-            },
-            "CloseToTheAbyss": {
-                "Enabled": true,
-                "Description": "Fixes the magic gore's damage multiplier to be 1.5 instead of 0.5"
-            },
-            "EnduringSpells": {
-                "Enabled": true,
-                "Description": "Now works on equipment enhancing effects like crusader's edge."
-            },
-            "MythicCharge": {
-                "Enabled": true,
-                "Description": "Prevents Mythic charge from triggering multiple fake attacks and procing weapon effects more often than it should."
-            },
-            "SecondBloodline": {
-                "Enabled": true,
-                "Description": "All bloodlines now qualify for second bloodline including mutated ones."
-            },
-            "SecondBloodragerBloodline": {
-                "Enabled": true,
-                "Description": "Reformed fiend now qualifies."
-            }
-        }
-    },
-    "MythicFeats": {
-        "DisableAll": false,
-        "Settings": {
-            "ExtraFeat": {
-                "Enabled": true,
-                "Description": "Can no longer be picked more than once."
-            },
-            "ExtraMythicAbility": {
-                "Enabled": true,
-                "Description": "Can no longer be picked more than once."
-            }
-        }
-    },
-    "Crusade": {
-        "DisableAll": false,
-        "Buildings": {
-            "DisableAll": false,
-            "Settings": {
-                "TrainingGrounds": {
-                    "Enabled": true,
-                    "Description": "Now grants the correct damage bonus."
-                }
-            }
-        }
-    },
-    "Items": {
-        "DisableAll": false,
-        "Armor": {
-            "DisableAll": false,
-            "Settings": {}
-        },
-        "Equipment": {
-            "DisableAll": false,
-            "Settings": {
-                "HolySymbolofIomedae": {
-                    "Enabled": true,
-                    "Description": "Will now stay on after saving/loading or changing areas."
-                },
-                "MagiciansRing": {
-                    "Enabled": true,
-                    "Description": "Now grants +2 DC instead of +1 DC."
-                },
-                "ManglingFrenzy": {
-                    "Enabled": true,
-                    "Description": "Now works with bloodrage."
-                },
-                "MetamagicRods": {
-                    "Enabled": true,
-                    "Description": "Now default to off."
-                }
-            }
-        },
-        "Weapons": {
-            "DisableAll": false,
-            "Settings": {
-                "BladeOfTheMerciful": {
-                    "Enabled": true,
-                    "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
-                },
-                "HonorableJudgement": {
-                    "Enabled": true,
-                    "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
-                },
-                "EnergyBurst": {
-                    "Enabled": true,
-                    "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
-                },
-                "TerrifyingTremble": {
-                    "Enabled": true,
-                    "Description": "Implements the missing on kill effect. Whenever the wielder of this weapon lands a killing blow, he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. Successful Reflex save (DC 30) halves the damage."
-                },
-                "ThunderingBurst": {
-                    "Enabled": true,
-                    "Description": "Fixes thundering burst to deal D10s like the description says instead of D8s."
-                }
-            }
-        }
+        "IsExpanded": true
+      }
     }
+  },
+  "Arcanist": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "PreparedSpellUI": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Makes arcanist spellbook behave like a prepared caster not a spontaneous one."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
+  "Barbarian": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "CripplingBlows": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Allows crippling blows to work when raging."
+        },
+        "WreckingBlows": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Allows wrecking blows to work when raging."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
+  "Bloodrager": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "AbysalBulk": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Enables abysal bulk to not dispel existing enlarge person when rage ends."
+        },
+        "ArcaneBloodrage": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Rebuilds the arcane bloodrager UI to be less awful."
+        },
+        "Spellbook": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes spell progression to not incorrectly qualify for some features that require casting early."
+        },
+        "TemporaryHitPoints": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixed bloodrager temp HP with limitless rage to use the bloodrager resource when calculating the bonus instead of the barbarian resource."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "Primalist": {
+        "DisableAll": false,
+        "Settings": {
+          "FixBrokenRagePowers": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Enables all rage powers to work with bloodrage."
+          },
+          "RagePowerFeatQualifications": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Prevents primalist from qualifying for extra rage powers feat."
+          }
+        },
+        "IsExpanded": true
+      },
+      "ReformedFiend": {
+        "DisableAll": false,
+        "Settings": {
+          "DamageReduction": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes DR to be the correct DR/Good."
+          },
+          "HatredAgainstEvil": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Hatred against evil now grants the proper bonus."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Cavalier": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "CavalierMobility": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Allows Cavalier to ignore thier armor check penalty while mounted for mobility skill checks."
+        },
+        "CavalierMountSelection": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Allows the Cavalier to select a wolf for a mount if they are of small size."
+        },
+        "SupremeCharge": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents Supreme Charge damage from criting and moves it into the new charage damage system."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "Gendarme": {
+        "DisableAll": false,
+        "Settings": {
+          "TransfixingCharge": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Prevents Transfixing Charge damage from criting and moves it into the new charage damage system."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Fighter": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "AdvancedArmorTraining": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Enables the fighter to take advanced armor training instead of increasing thier armor training rank."
+        },
+        "AdvancedWeaponTraining": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Enforces the weapon training prerequisites properly."
+        },
+        "TwoHandedWeaponTraining": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Treats two handed fighter's weapon training as proper weapon training."
+        },
+        "UnarmedWeaponTraining": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Makes unarmed correctly count as the close weapon group."
+        },
+        "WeaponTrainingStacking": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents bonuses from multiple weapon training groups from stacking."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "TwoHandedFighter": {
+        "DisableAll": false,
+        "Settings": {
+          "AdvancedWeaponTraining": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Allows two handed fighter to pick advanced weapon training feats."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Kineticist": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
+  "Magus": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "SpellCombatAbilityVariants": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Lets spell combat work with spells that have variants like dimention door."
+        },
+        "SpellCombatDisableImmediatly": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Disables spell combat immediatly when toggled off instead of having to wait until the next round."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "SwordSaint": {
+        "DisableAll": false,
+        "Settings": {
+          "PerfectCritical": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Updates perfect critical's cost to 2 points of arcane pool instead of 1."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Monk": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "ZenArcher": {
+        "DisableAll": false,
+        "Settings": {
+          "PerfectStrike": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "At level 10 a zen archer will roll 3 dice instead of 2 with perfect strike."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Oracle": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "NaturesWhisperMonkStacking": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents Natures Whispers from stacking with Scaled Fist AC bonus. If scaled fist is present dexterity will be used for AC not charisma."
+        },
+        "RevelationBurningMagic": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes the CL scaling to be equal to oracle level."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
+  "Paladin": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "DivineMountTemplate": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Updates the template gained by the paladin mount at level 9 to have all of its features."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
+  "Ranger": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "FavoredEnemy": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Favored enemy outsider now applies to ALL demons. The Demons of X are disabled unless you already have ranks, but otherwise function identicly to favored enemy outsider and you can keep picking them for compatability with existing characters."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "EspionageExpert": {
+        "DisableAll": false,
+        "Settings": {
+          "Trapfinding": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Trapfinding now grants bonuses to perception and trickery."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Rogue": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "RogueTalentSelection": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents you from selecting the same talent more than once."
+        },
+        "SlipperyMind": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Slippery mind correctly updates its save bonuses when your dexterity changes."
+        },
+        "Trapfinding": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Trapfinding now grants bonuses to perception and trickery."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "EldritchScoundrel": {
+        "DisableAll": false,
+        "Settings": {
+          "RogueTalentProgression": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Removes the level 2 rogue talent and adds in a level 4 talent."
+          },
+          "SneakAttackProgression": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Removes the sneak attack dice granted at level 1."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Slayer": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "Trapfinding": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Trapfinding now grants bonuses to perception and trickery."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
+  "Witch": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "DeathCurse": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes ability descriptors."
+        },
+        "DeliciousFright": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes ability descriptors."
+        },
+        "EvilEye": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes ability descriptors."
+        },
+        "Hoarfrost": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes ability descriptors."
+        },
+        "RestlessSlumber": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes ability descriptors."
+        },
+        "Slumber": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes ability descriptors."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
+  "Hellknight": {
+    "DisableAll": false,
+    "Settings": {
+      "PentamicFaith": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Pentamic Faith now requires the Godclaw hellknight order not the diety."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Loremaster": {
+    "DisableAll": false,
+    "Settings": {
+      "Prerequisites": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Updates the prerequisites to be more strict and better match tabletop."
+      },
+      "SpellProgression": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Grants spell progression at level 1. This is not retroactive."
+      },
+      "SpellSecrets": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables spell secrets."
+      },
+      "TricksterTricks": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Remvoes trickster tricks from the combat feat selection"
+      }
+    },
+    "IsExpanded": true
+  },
+  "Spells": {
+    "DisableAll": false,
+    "Settings": {
+      "BelieveInYourself": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Believe in yourself now grants the correct bonus amount."
+      },
+      "BestowCurseGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Bestow Greater Curse now actually bestows a greater curse not a normal curse."
+      },
+      "BreakEnchantment": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Break Enchantment no longer affects friendly buffs."
+      },
+      "CrusadersEdge": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Crusaders Edge's nauseate effect now only procs on critical hits."
+      },
+      "DispelMagicGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
+      },
+      "FixSpellFlags": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Retags buffs from spells as coming from spells to allow them to be dispeled correctly."
+      },
+      "GreaterMagicWeapon": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Greater Magic Weapon no longer stacks with existing enhancement bonuses."
+      },
+      "MagicalVestment": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Magical Vestment now enhances your armor instead of granting a floating modifier."
+      },
+      "RemoveFear": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Remove fear no longer makes you immune to fear."
+      },
+      "SecondBreath": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Second Breathe now correctly restores abiltiies."
+      },
+      "ShadowConjuration": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shadow Conjuration has been added to the Wizard spell list."
+      },
+      "ShadowEvocation": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shadow Evocation can now have the correct metamagic applied."
+      },
+      "ShadowEvocationGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Greater Shadow Evocation can now have the correct metamagic applied."
+      },
+      "WrackingRay": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Wracking Ray now deals the correct amount of ability damage."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Bloodlines": {
+    "DisableAll": false,
+    "Settings": {
+      "BloodlineRestrictions": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Cleans up bloodline restrictions to actually work correctly with things like Dragon disciple."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Feats": {
+    "DisableAll": false,
+    "Settings": {
+      "BolsteredMetamagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows sticky touch spells to be bolstered."
+      },
+      "CraneWing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now requires a free hand to recieve the bonuses."
+      },
+      "EmpowerMetamagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows sticky touch spells to be empowered."
+      },
+      "Endurance": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Endurance now grants +4 Athletics if you have 10 ranks in Athletics like similar feats."
+      },
+      "FencingGrace": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now only works on one handed weapons always."
+      },
+      "IndomitableMount": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now works correctly."
+      },
+      "MagicalTail": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Magical Tail gives Hideous Laughter at 2 and Heroism at 5 instead of sleep spells."
+      },
+      "MaximizeMetamagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows sticky touch spells to be maximized."
+      },
+      "MountedCombat": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now works correctly."
+      },
+      "PersistantMetamagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allows any spell with a saving throw to be made persistant."
+      },
+      "ShatterDefenses": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now requires you to hit a shaken target once before they become flat footed."
+      },
+      "SlashingGrace": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now only works on one handed weapons always."
+      },
+      "SpiritedCharge": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Bonus damage no longer can crit."
+      },
+      "VitalStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Bonus damage no longer can crit."
+      },
+      "WeaponFinesse": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "No longer makes any weapon with Fencing/Slashing grace into a finesse weapon."
+      }
+    },
+    "IsExpanded": true
+  },
+  "MythicAbilities": {
+    "DisableAll": false,
+    "Settings": {
+      "BloodlineAscendance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "All bloodline should now qualify including mutated ones."
+      },
+      "CloseToTheAbyss": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes the magic gore's damage multiplier to be 1.5 instead of 0.5"
+      },
+      "EnduringSpells": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now works on equipment enhancing effects like crusader's edge."
+      },
+      "MythicCharge": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents Mythic charge from triggering multiple fake attacks and procing weapon effects more often than it should."
+      },
+      "SecondBloodline": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "All bloodlines now qualify for second bloodline including mutated ones."
+      },
+      "SecondBloodragerBloodline": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Reformed fiend now qualifies."
+      }
+    },
+    "IsExpanded": true
+  },
+  "MythicFeats": {
+    "DisableAll": false,
+    "Settings": {
+      "ExtraFeat": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Can no longer be picked more than once."
+      },
+      "ExtraMythicAbility": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Can no longer be picked more than once."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Crusade": {
+    "DisableAll": false,
+    "Buildings": {
+      "DisableAll": false,
+      "Settings": {
+        "TrainingGrounds": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now grants the correct damage bonus."
+        }
+      },
+      "IsExpanded": true
+    }
+  },
+  "Items": {
+    "DisableAll": false,
+    "Armor": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Equipment": {
+      "DisableAll": false,
+      "Settings": {
+        "HolySymbolofIomedae": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Will now stay on after saving/loading or changing areas."
+        },
+        "MagiciansRing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now grants +2 DC instead of +1 DC."
+        },
+        "ManglingFrenzy": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now works with bloodrage."
+        },
+        "MetamagicRods": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now default to off."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Weapons": {
+      "DisableAll": false,
+      "Settings": {
+        "BladeOfTheMerciful": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
+        "EnergyBurst": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
+        },
+        "HonorableJudgement": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
+        "TerrifyingTremble": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Implements the missing on kill effect. Whenever the wielder of this weapon lands a killing blow, he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. Successful Reflex save (DC 30) halves the damage."
+        },
+        "ThunderingBurst": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes thundering burst to deal D10s like the description says instead of D8s."
+        }
+      },
+      "IsExpanded": true
+    }
+  }
 }
