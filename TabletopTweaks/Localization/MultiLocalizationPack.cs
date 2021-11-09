@@ -106,6 +106,10 @@ namespace TabletopTweaks.Localization {
                 ProcessTemplates = shouldProcess;
                 SimpleName = simpleName;
                 Key = id;
+                SetText(locale, text);
+            }
+
+            public void SetText(Locale locale, string text) {
                 switch (locale) {
                     case Locale.enGB:
                         enGB = text;
@@ -175,6 +179,13 @@ namespace TabletopTweaks.Localization {
         static void Postfix() {
             ModSettings.ModLocalizationPack.ResetCache();
             ModSettings.ModLocalizationPack.ApplyToCurrentPack();
+        }
+    }
+    [HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init))]
+    public static class BlueprintsCache_LocalizationPatch {
+        static bool Prefix() {
+            ModSettings.ModLocalizationPack.ApplyToCurrentPack();
+            return true;
         }
     }
 }

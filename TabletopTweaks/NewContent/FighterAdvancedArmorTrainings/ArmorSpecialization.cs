@@ -22,12 +22,9 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetName("42b3df4853f040caa9eab9c73f35b1ce", "Armor Specialization");
                 bp.SetDescription("dc4ffe1bfb854d0fa0759e085ea61d80", "The fighter selects one specific type of armor with which he is proficient, such as light or heavy. " +
                     "While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor’s " +
-                    "{g|Encyclopedia:Armor_Class}armor{/g} {g|Encyclopedia:Bonus}bonus{/g}, up to a " +
-                    "maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the {g|Encyclopedia:Armor_Class}armor{/g} " +
-                    "{g|Encyclopedia:Bonus}bonus{/g} doesn’t increase " +
-                    "the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor’s base " +
-                    "{g|Encyclopedia:Armor_Class}armor{/g} {g|Encyclopedia:Bonus}bonus{/g}, " +
-                    "including other advanced armor training options. A fighter can choose this option multiple times. Each time he chooses it, he applies " +
+                    "armor bonus, up to a maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the armor " +
+                    "bonus doesn’t increase the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor’s base " +
+                    "armor bonus, including other advanced armor training options. A fighter can choose this option multiple times. Each time he chooses it, he applies " +
                     "its benefit to a different type of armor.");
                 bp.m_AllFeatures = new BlueprintFeatureReference[0];
                 bp.m_Features = new BlueprintFeatureReference[0];
@@ -63,7 +60,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var ArmorSpecializationLightFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorSpecializationLightFeature", bp => {
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("fd7f1034174b44f280b711af89eba411", "Light Armor Specialization");
-                bp.SetDescription("e2064aab13b142b2b5c01d9d264d8d4a", "The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} granted by any light armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 3.");
+                bp.SetDescription("e2064aab13b142b2b5c01d9d264d8d4a", "The AC bonus granted by any light armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 3.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent<ArmorFeatureUnlock>(c => {
@@ -101,7 +98,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var ArmorSpecializationMediumFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorSpecializationMediumFeature", bp => {
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("de27eed10e5242c9b7ce5c46f0ffd662", "Medium Armor Specialization");
-                bp.SetDescription("8ae8fad66ab94ae1bf098ef422bb5697", "The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} granted by any medium armor " +
+                bp.SetDescription("8ae8fad66ab94ae1bf098ef422bb5697", "The AC bonus granted by any medium armor " +
                     "you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 4.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
@@ -140,7 +137,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var ArmorSpecializationHeavyFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorSpecializationHeavyFeature", bp => {
                 bp.m_Icon = ArmorFocusLight.Icon;
                 bp.SetName("8e5f1de1852d456b8f3539f20eae338b", "Heavy Armor Specialization");
-                bp.SetDescription("aa53a09cb7504a358f84a67ca86bd2f9", "The {g|Encyclopedia:Armor_Class}AC{/g} {g|Encyclopedia:Bonus}bonus{/g} " +
+                bp.SetDescription("aa53a09cb7504a358f84a67ca86bd2f9", "The AC bonus " +
                     "granted by any heavy armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 5.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;

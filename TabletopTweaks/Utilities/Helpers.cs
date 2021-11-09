@@ -116,6 +116,10 @@ namespace TabletopTweaks.Utilities {
                 return multiLocalized.LocalizedString;
             }
             if (ModSettings.ModLocalizationPack.Ids.TryGetValue(id, out multiLocalized)) {
+#if DEBUG
+                multiLocalized.SetText(locale, text);
+                multiLocalized.ProcessTemplates = shouldProcess;
+#endif
                 return multiLocalized.LocalizedString;
             }
             multiLocalized = new MultiLocalizationPack.MultiLocaleString(id, simpleName, text.StripHTML(), shouldProcess, locale);

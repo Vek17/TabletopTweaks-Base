@@ -45,11 +45,11 @@ namespace TabletopTweaks.Bugfixes.Features {
                             string description = f.Description;
                             f.GetComponents<AddBackgroundWeaponProficiency>()
                                 .ForEach(c => c.StackBonusType = ModifierDescriptor.Trait);
-                            if (f.Description.Contains("competence bonus")) {
+                            if (f.Description.Contains("competence")) {
                                 description = description.Replace("competence", "trait");
                                 changed = true;
                             }
-                            if (f.Description.Contains("enhancement bonus")) {
+                            if (f.Description.Contains("enhancement")) {
                                 description = description.Replace("enhancement", "trait");
                                 changed = true;
                             }
