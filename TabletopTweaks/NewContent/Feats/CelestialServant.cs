@@ -13,8 +13,8 @@ namespace TabletopTweaks.NewContent.Feats {
             var AasimarRace = Resources.GetBlueprint<BlueprintRace>("b7f02ba92b363064fb873963bec275ee");
 
             var CelestialServant = Helpers.CreateBlueprint<BlueprintFeature>("CelestialServant", bp => {
-                bp.SetName("Celestial Servant");
-                bp.SetDescription("Your animal companion, familiar, or mount gains the celestial template and becomes a magical beast, " +
+                bp.SetName("3c57cca1bebd41ba8429f1275f68ff44", "Celestial Servant");
+                bp.SetDescription("1ff6f78d1609497bbe50863ccc22944c", "Your animal companion, familiar, or mount gains the celestial template and becomes a magical beast, " +
                     "though you may still treat it as an animal when using Handle Animal, wild empathy, or any other spells or class abilities " +
                     "that specifically affect animals.\n" +
                     "Creature gains spell resistance equal to its level + 5. It also gains:\n" +

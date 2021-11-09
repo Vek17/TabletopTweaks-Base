@@ -22,16 +22,16 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
 
             var OneHandedBuff = Helpers.CreateBuff("OneHandedBuff", bp => {
                 bp.m_Icon = icon;
-                bp.SetName("Use Weapon One Handed");
-                bp.SetDescription("");
+                bp.SetName("f2056f025a014945a101244df685d503", "Use Weapon One Handed");
+                bp.SetDescription("3d418235496c4c22bde6cde3d34f0e42", "");
                 bp.AddComponent<AddCustomMechanicsFeature>(c => {
                     c.Feature = CustomMechanicsFeature.UseWeaponOneHanded;
                 });
             });
             var OneHandedToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("OneHandedToggleAbility", bp => {
                 bp.m_Icon = icon;
-                bp.SetName("Use Weapon One Handed");
-                bp.SetDescription("You can choose to wield your weapon in one hand instead of two if possible.");
+                bp.SetName("9f815a1082c44e188aeaea2ae09a6631", "Use Weapon One Handed");
+                bp.SetDescription("099ebd968c4e455a98af1b811bf5d119", "You can choose to wield your weapon in one hand instead of two if possible.");
                 bp.m_Buff = OneHandedBuff.ToReference<BlueprintBuffReference>();
                 bp.IsOnByDefault = false;
                 bp.DoNotTurnOffOnRest = true;
@@ -44,8 +44,8 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
                 bp.m_Icon = icon;
-                bp.SetName("OneHanded Toggle Feature");
-                bp.SetDescription("You can choose to wield your weapon in one hand instead of two if possible.");
+                bp.SetName("70dd397d5a2e4732817f2dcef864974c", "OneHanded Toggle Feature");
+                bp.SetDescription("c9bbd105355f45a49cad98951252e6d0", "You can choose to wield your weapon in one hand instead of two if possible.");
                 bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         OneHandedToggleAbility.ToReference<BlueprintUnitFactReference>(),

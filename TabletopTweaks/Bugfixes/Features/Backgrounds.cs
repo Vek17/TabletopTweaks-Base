@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Features {
     class Backgrounds {
@@ -53,7 +54,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                                 changed = true;
                             }
                             if (changed) {
-                                f.SetDescription(description);
+                                f.SetDescription(Helpers.MergeIds("00df06db39104890a15801a0d018e922", f.AssetGuid.ToString()), description);
                                 Main.LogPatch("Patched", f);
                             }
                         });

@@ -16,8 +16,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
             var CriticalDeflectionEffect = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionEffect", bp => {
-                bp.SetName("Critical Deflection");
-                bp.SetDescription("Critical Deflection");
+                bp.SetName("eb5c8d4eebbb49cd9676ca3e60485a20", "Critical Deflection");
+                bp.SetDescription("8005577e6b7f49caab3d8982a5cd9e72", "Critical Deflection");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -41,8 +41,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
             });
             var CriticalDeflectionFeature = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionFeature", bp => {
-                bp.SetName("Critical Deflection");
-                bp.SetDescription("While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to " +
+                bp.SetName("4b5b9c97e2fd4dec87b7c453857573e7", "Critical Deflection");
+                bp.SetDescription("9c32cbebcdde4655b114be982b5234e0", "While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to " +
                     "confirm a critical hit. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +6 at 19th level.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;

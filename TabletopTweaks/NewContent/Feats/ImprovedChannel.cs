@@ -18,8 +18,8 @@ namespace TabletopTweaks.NewContent.Feats {
             var ExtraChannel = Resources.GetBlueprint<BlueprintFeature>("cd9f19775bd9d3343a31a065e93f0c47");
 
             var ImprovedChannel = Helpers.CreateBlueprint<BlueprintFeature>("ImprovedChannel", bp => {
-                bp.SetName("Improved Channel");
-                bp.SetDescription("Add 2 to the DC of saving throws made to resist the effects of your channel energy ability.");
+                bp.SetName("785b2118b3a74e5db4d81fe7583109e2", "Improved Channel");
+                bp.SetDescription("f123b9a1dc634cfc9c2a31a39eeb095e", "Add 2 to the DC of saving throws made to resist the effects of your channel energy ability.");
                 bp.m_Icon = ExtraChannel.Icon;
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;

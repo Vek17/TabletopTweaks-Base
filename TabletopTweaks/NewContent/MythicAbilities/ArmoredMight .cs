@@ -18,8 +18,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
                 bp.m_Icon = icon;
-                bp.SetName("Armored Might");
-                bp.SetDescription("You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.");
+                bp.SetName("dd0d278105c345269a0973eae3bcee7f", "Armored Might");
+                bp.SetDescription("4254eac11a024698b02f92482af9dfb0", "You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.");
                 bp.AddComponent(Helpers.Create<ArmoredMightComponent>());
             });
 

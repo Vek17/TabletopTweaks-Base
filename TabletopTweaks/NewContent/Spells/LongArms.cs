@@ -21,8 +21,8 @@ namespace TabletopTweaks.NewContent.Spells {
             //var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_LongArm.png");
             var LongArmBuff = Helpers.CreateBuff("LongArmBuff", bp => {
-                bp.SetName("Long Arm");
-                bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
+                bp.SetName("c35b99de777a4dfdbd9dacd2c7ba1f85", "Long Arm");
+                bp.SetDescription("be854ff961624b1aa34994a6236e0252", "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.m_Icon = icon;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -44,9 +44,9 @@ namespace TabletopTweaks.NewContent.Spells {
                 };
             });
             var LongArmAbility = Helpers.CreateBlueprint<BlueprintAbility>("LongArmAbility", bp => {
-                bp.SetName("Long Arm");
-                bp.SetDescription("Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
-                bp.LocalizedDuration = Helpers.CreateString("LongArmAbility.Duration", "1 minute/level");
+                bp.SetName("37ebef6e4fd54a6090f22f96d177815f", "Long Arm");
+                bp.SetDescription("51418a158dd04cca88ea9d660f0cfdce", "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
+                bp.LocalizedDuration = Helpers.CreateString("c564bf3d38fc45009725ea0bf1999aac", "LongArmAbility.Duration", "1 minute/level");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken;
                 bp.Range = AbilityRange.Personal;

@@ -35,7 +35,7 @@ namespace TabletopTweaks.Localization {
         
         public void AddString(MultiLocaleString newString) {
             if (Ids == null) {
-                Ids = new SortedDictionary<Guid, MultiLocaleString>();
+                Ids = new SortedDictionary<string, MultiLocaleString>();
                 foreach (var entry in Strings) {
                     Ids[entry.Key] = entry;
                 }
@@ -43,7 +43,7 @@ namespace TabletopTweaks.Localization {
             Ids[newString.Key] = newString;
             Text[newString.LocalizedText(LocalizationManager.CurrentLocale)] = newString;
             Strings.Add(newString);
-            LocalizationManager.CurrentPack.Strings[newString.Key.ToString("N")] = newString.LocalizedText(LocalizationManager.CurrentLocale);
+            LocalizationManager.CurrentPack.Strings[newString.Key] = newString.LocalizedText(LocalizationManager.CurrentLocale);
         }
 
         private LocalizationPack GeneratePack() {
@@ -52,7 +52,7 @@ namespace TabletopTweaks.Localization {
                 Strings = new Dictionary<string, string>()
             };
             foreach (var entry in Strings) {
-                pack.Strings[entry.Key.ToString("N")] = entry.LocalizedText(pack.Locale);
+                pack.Strings[entry.Key] = entry.LocalizedText(pack.Locale);
             }
             return pack;
         }
@@ -61,12 +61,12 @@ namespace TabletopTweaks.Localization {
         [JsonProperty(PropertyName = "LocalizedStrings")]
         public List<MultiLocaleString> Strings = new List<MultiLocaleString>();
         private SortedDictionary<string, MultiLocaleString> Text;
-        private SortedDictionary<Guid, MultiLocaleString> Ids;
+        private SortedDictionary<string, MultiLocaleString> Ids;
 
         [JsonObject(MemberSerialization.OptIn)]
         public class MultiLocaleString {
             [JsonProperty]
-            public Guid Key;
+            public string Key;
             [JsonProperty]
             public string SimpleName;
             [JsonProperty]
@@ -85,12 +85,12 @@ namespace TabletopTweaks.Localization {
             public string esES;
             public LocalizedString LocalizedString {
                 get => new LocalizedString {
-                    m_Key = Key.ToString("N"),
+                    m_Key = Key,
                     m_ShouldProcess = ProcessTemplates
                 };
             }
             public MultiLocaleString() { }
-            public MultiLocaleString(Guid id, string simpleName, string text, bool shouldProcess = false, Locale locale = Locale.enGB) {
+            public MultiLocaleString(string id, string simpleName, string text, bool shouldProcess = false, Locale locale = Locale.enGB) {
                 ProcessTemplates = shouldProcess;
                 SimpleName = simpleName;
                 Key = id;

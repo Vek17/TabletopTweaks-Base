@@ -11,8 +11,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
             var AdvancedWeapontrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedWeaponTrainingSelection", bp => {
-                bp.SetName("Advanced Weapon Training");
-                bp.SetDescription("Highly skilled and experienced fighters can gain advanced weapon training, learning techniques " +
+                bp.SetName("5b224b3e30154d6aa4108725992e133b", "Advanced Weapon Training");
+                bp.SetDescription("b2fcecd6c4024aa5b27bd76278558fb6", "Highly skilled and experienced fighters can gain advanced weapon training, learning techniques " +
                     "and applications of the weapon training class feature that give them special benefits in exchange for specializing " +
                     "in a smaller number of fighter weapon groups.\nBeginning at 9th level, instead of selecting an additional fighter weapon" +
                     " group, a fighter can choose an advanced weapon training option for one fighter weapon group that he previously selected with the weapon training class feature.");

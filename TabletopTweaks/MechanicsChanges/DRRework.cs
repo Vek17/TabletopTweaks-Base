@@ -634,7 +634,7 @@ namespace TabletopTweaks.MechanicsChanges {
 
                 // Fix: Artifact_AzataCloakEnchantment should stack with existing DR
                 var Artifact_AzataCloakItem = Resources.GetBlueprint<BlueprintItemEquipmentShoulders>("78cd50deada655e4cbe49765c0bbb7e4");
-                Artifact_AzataCloakItem.m_DescriptionText = Helpers.CreateString($"{Artifact_AzataCloakItem.name}.key", "Azata shares a bond with her dragon. 50% damage is redirected to Aivu. " +
+                Artifact_AzataCloakItem.m_DescriptionText = Helpers.CreateString("0a962755e682454f8f9943b9334b561e", $"{Artifact_AzataCloakItem.name}.key", "Azata shares a bond with her dragon. 50% damage is redirected to Aivu. " +
                     "In addition, Aivu gets additional DR N/Lawful where N is equal to Azata's mythic rank.");
                 BlueprintFeature Artifact_AzataCloakPetFeature = Resources.GetBlueprint<BlueprintFeature>("af6f1ca38fe54e5baf67adfb9b731ae8");
                 Artifact_AzataCloakPetFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
@@ -689,7 +689,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     newRes.IncreasedByFacts = new BlueprintUnitFactReference[] { armorMasteryBuff };
                 });
 
-                armoredJuggernautFeature.SetDescription("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
+                armoredJuggernautFeature.SetDescription("9fd71c48669a40c1a071aa9195fc988e", "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
                     "and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, " +
                     "and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. " +
                     "The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.");

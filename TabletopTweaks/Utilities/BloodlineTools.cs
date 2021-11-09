@@ -178,7 +178,7 @@ namespace TabletopTweaks.Utilities {
             var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
             var wanderingBLoodline = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
                 bp.m_DisplayName = bloodline.m_DisplayName;
-                bp.m_Description = Helpers.CreateString($"{name}.description", "");
+                bp.m_Description = Helpers.CreateString("7cc3c94af9e7438cad368c2705c81858", $"{name}.description", "");
                 bp.m_Icon = bloodline.m_Icon;
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
@@ -244,16 +244,15 @@ namespace TabletopTweaks.Utilities {
 
         public static BlueprintBuff CreateArcaneBloodrageSwitchBuff(
                 string blueprintName,
-                string displayName,
                 BlueprintAbility bloodragerArcaneSpellAbility,
                 BlueprintBuff rageBuff,
-                BlueprintBuff spellBuff
+                BlueprintBuff spellBuff,
+                Action<BlueprintBuff> init = null
                 ) {
 
-            return Helpers.CreateBuff(blueprintName, bp => {
+            var buff = Helpers.CreateBuff(blueprintName, bp => {
                 bp.m_Flags = BlueprintBuff.Flags.StayOnDeath | BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
-                bp.SetName(displayName);
                 bp.m_Description = bloodragerArcaneSpellAbility.m_Description;
                 bp.m_DescriptionShort = bloodragerArcaneSpellAbility.m_DescriptionShort;
                 bp.m_Icon = spellBuff.m_Icon;
@@ -262,6 +261,8 @@ namespace TabletopTweaks.Utilities {
                     c.m_ExtraEffectBuff = spellBuff.ToReference<BlueprintBuffReference>();
                 });
             });
+            init?.Invoke(buff);
+            return buff;
         }
 
         public static BlueprintAbility CreateArcaneBloodrageToggle(
@@ -279,7 +280,7 @@ namespace TabletopTweaks.Utilities {
                 bp.m_DisplayName = abilityToImitate.m_DisplayName;
                 bp.m_Description = abilityToImitate.m_Description;
                 bp.m_DescriptionShort = abilityToImitate.m_DescriptionShort;
-                bp.LocalizedDuration = Helpers.CreateString($"{blueprintName}.LocalizedDuration", "While Raging");
+                bp.LocalizedDuration = Helpers.CreateString("713344a72c6b41b4a13a434adcaf6faf", $"{blueprintName}.LocalizedDuration", "While Raging");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.m_Icon = abilityToImitate.m_Icon;
                 bp.DisableLog = true;
@@ -316,12 +317,10 @@ namespace TabletopTweaks.Utilities {
 
         public static BlueprintBuff CreateBloodragerTrueArcaneSpellRagePolymorphActivationBuff(
                 string blueprintName,
-                string displayName,
-                BlueprintBuff polymorphBuff) {
-            return Helpers.CreateBuff(blueprintName, bp => {
+                BlueprintBuff polymorphBuff,
+                Action<BlueprintBuff> init = null) {
+            var buff =  Helpers.CreateBuff(blueprintName, bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.IsClassFeature = true;
-                bp.SetName(displayName);
                 bp.m_Description = polymorphBuff.m_Description;
                 bp.m_Icon = polymorphBuff.m_Icon;
                 bp.AddComponent<AddFactContextActions>(c => {
@@ -344,6 +343,8 @@ namespace TabletopTweaks.Utilities {
                     c.NewRound = Helpers.CreateActionList();
                 });
             });
+            init?.Invoke(buff);
+            return buff;
         }
 
         public static class Bloodline {

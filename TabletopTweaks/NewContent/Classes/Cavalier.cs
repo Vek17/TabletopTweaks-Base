@@ -19,8 +19,8 @@ namespace TabletopTweaks.NewContent.Classes {
             var AnimalCompanionFeatureWolf = Resources.GetBlueprint<BlueprintFeature>("67a9dc42b15d0954ca4689b13e8dedea");
 
             var CavalierMobilityBuff = Helpers.CreateBuff("CavalierMobilityBuff", bp => {
-                bp.SetName("Cavalier Mobility");
-                bp.SetDescription("A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
+                bp.SetName("a46f66eedeb24c578390fd011ff34329", "Cavalier Mobility");
+                bp.SetDescription("3ad750f748b34e45b000e6522852ae4d", "A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<NegateArmorCheckSkillPenalty>(c => {
@@ -30,8 +30,8 @@ namespace TabletopTweaks.NewContent.Classes {
             });
 
             var CavalierMobilityFeature = Helpers.CreateBlueprint<BlueprintFeature>("CavalierMobilityFeature", bp => {
-                bp.SetName("Cavalier Mobility");
-                bp.SetDescription("A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
+                bp.SetName("ad97d2d03faf44b3814e5e5c3999b12e", "Cavalier Mobility");
+                bp.SetDescription("1026b6b88252415482b5bf3b57947fec", "A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent(Helpers.Create<BuffExtraEffects>(c => {

@@ -137,7 +137,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void PatchDispelMagicGreater() {
                 if (ModSettings.Fixes.Spells.IsDisabled("DispelMagicGreater")) { return; }
                 var DispelMagicGreaterTarget = Resources.GetBlueprint<BlueprintAbility>("6d490c80598f1d34bb277735b52d52c1");
-                DispelMagicGreaterTarget.SetDescription("This functions as a targeted dispel magic, but it can dispel one spell for every four caster " +
+                DispelMagicGreaterTarget.SetDescription("c1abef5b6c924efdb7416a301917ea15", "This functions as a targeted dispel magic, but it can dispel one spell for every four caster " +
                     "levels you possess, starting with the highest level spells and proceeding to lower level spells.\n" +
                     "Targeted Dispel: One object, creature, or spell is the target of the dispel magic spell. You make one dispel check (1d20 + your caster level)" +
                     " and compare that to the spell with highest caster level (DC = 11 + the spell’s caster level). If successful, that spell ends. " +

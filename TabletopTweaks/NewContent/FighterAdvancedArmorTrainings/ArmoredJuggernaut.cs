@@ -17,8 +17,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
             var ArmoredJuggernautLightEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautLightEffect", bp => {
-                bp.SetName("Armored Juggernaut Effect");
-                bp.SetDescription("Armored Juggernaut");
+                bp.SetName("304ee70cc3e94c7589e1df283b03f41c", "Armored Juggernaut Effect");
+                bp.SetDescription("d2a3a146a5544d1eb17186f2d8c44621", "Armored Juggernaut");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -48,8 +48,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
             });
             var ArmoredJuggernautMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautMediumEffect", bp => {
-                bp.SetName("Armored Juggernaut Effect");
-                bp.SetDescription("Armored Juggernaut");
+                bp.SetName("5667d2e55b3d480787e0b95baf400b75", "Armored Juggernaut Effect");
+                bp.SetDescription("2d341542313b456db6c4d2bf0a01f897", "Armored Juggernaut");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -77,8 +77,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
             });
             var ArmoredJuggernautHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautHeavyEffect", bp => {
-                bp.SetName("Armored Juggernaut Effect");
-                bp.SetDescription("Armored Juggernaut");
+                bp.SetName("588679264611485d9c9f4e0c0b20d69c", "Armored Juggernaut Effect");
+                bp.SetDescription("b6ae66099aef48159d9076d6b6736a19", "Armored Juggernaut");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -122,8 +122,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             });
 
             var ArmoredJuggernautFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautFeature", bp => {
-                bp.SetName("Armored Juggernaut");
-                bp.SetDescription("When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
+                bp.SetName("7cc8106a370647bd98f477e38c2276f0", "Armored Juggernaut");
+                bp.SetDescription("30403b099bed4cf79d1619ad891aecd3", "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, " +
                     "and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, " +
                     "and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-");
                 bp.IsClassFeature = true;

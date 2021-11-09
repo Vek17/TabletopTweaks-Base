@@ -25,8 +25,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
                 bp.m_Icon = icon;
-                bp.SetName("Armor Master (Light Armor)");
-                bp.SetDescription("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing light armor or using any shield. " +
+                bp.SetName("f97c6a87f0fe4d9f9e5a7123d7b5698f", "Armor Master (Light Armor)");
+                bp.SetDescription("34f4e101d45a4146b2c618d5555b4d3d", "You don’t take an armor check penalty or incur an arcane spell failure chance when wearing light armor or using any shield. " +
                     "In addition, the maximum Dexterity bonus of light armor doesn’t apply to you.");
                 bp.AddComponent<ArcaneArmorProficiency>(c => {
                     c.Armor = new ArmorProficiencyGroup[] {
@@ -58,8 +58,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
                 bp.m_Icon = icon;
-                bp.SetName("Armor Master (Medium Armor)");
-                bp.SetDescription("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing medium armor or using any shield. " +
+                bp.SetName("c17a53ff6a764ddfa605af2abe809212", "Armor Master (Medium Armor)");
+                bp.SetDescription("26a307b864694691aa1d00143981a62b", "You don’t take an armor check penalty or incur an arcane spell failure chance when wearing medium armor or using any shield. " +
                     "In addition, the maximum Dexterity bonus of medium armor doesn’t apply to you.");
                 bp.AddComponent(Helpers.Create<ArcaneArmorProficiency>(c => {
                     c.Armor = new ArmorProficiencyGroup[] {
@@ -94,8 +94,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
                 bp.m_Icon = icon;
-                bp.SetName("Armor Master (Heavy Armor)");
-                bp.SetDescription("You don’t take an armor check penalty or incur an arcane spell failure chance when wearing heavy armor or using any shield. " +
+                bp.SetName("6ca5f4137c0d43c8aed84e1ad5053215", "Armor Master (Heavy Armor)");
+                bp.SetDescription("21c5ebce288f4742a09d64ccce2fed2f", "You don’t take an armor check penalty or incur an arcane spell failure chance when wearing heavy armor or using any shield. " +
                     "In addition, the maximum Dexterity bonus of heavy armor doesn’t apply to you.");
                 bp.AddComponent<ArcaneArmorProficiency>(c => {
                     c.Armor = new ArmorProficiencyGroup[] {
@@ -130,8 +130,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
                 bp.m_Icon = icon;
-                bp.SetName("Armor Master");
-                bp.SetDescription("While wearing armor or wielding a shield, you reduce the armor check penalty by 1 per mythic rank " +
+                bp.SetName("5c590fb0cf7c45d3a0dc2159a05f888f", "Armor Master");
+                bp.SetDescription("958e941e1a5b4fd398b969606aefaa28", "While wearing armor or wielding a shield, you reduce the armor check penalty by 1 per mythic rank " +
                     "and increase the maximum Dexterity bonus allowed by 1 per mythic rank. " +
                     "Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank.");
                 bp.AddComponent<ContextMaxDexBonusIncrease>(c => {

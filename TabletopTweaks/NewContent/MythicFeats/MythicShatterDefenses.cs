@@ -10,14 +10,14 @@ namespace TabletopTweaks.NewContent.MythicFeats {
             var ShatterDefenses = Resources.GetBlueprint<BlueprintFeature>("61a17ccbbb3d79445b0926347ec07577");
             var ShatterDefensesMythicBuff = Helpers.CreateBuff("ShatterDefensesMythicBuff", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
-                bp.SetName("Shattered Defenses (Mythic)");
-                bp.SetDescription("An opponent affected by Shatter Defenses is flat-footed to all attacks.");
+                bp.SetName("16e17f11cdfd4546831377b38f7428b1", "Shattered Defenses (Mythic)");
+                bp.SetDescription("9c84b3539dd340ce911ca6d739922662", "An opponent affected by Shatter Defenses is flat-footed to all attacks.");
                 bp.AddComponent<ForceFlatFooted>();
             });
             var ShatterDefensesMythicFeat = Helpers.CreateBlueprint<BlueprintFeature>("ShatterDefensesMythicFeat", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
-                bp.SetName("Shatter Defenses (Mythic)");
-                bp.SetDescription("An opponent you affect with Shatter Defenses is flat-footed to all attacks, not just yours.");
+                bp.SetName("1c66f9151364472e830c48c1e4321f75", "Shatter Defenses (Mythic)");
+                bp.SetDescription("4d0bc1e66f914df29ac006ec249dcb03", "An opponent you affect with Shatter Defenses is flat-footed to all attacks, not just yours.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicFeat };

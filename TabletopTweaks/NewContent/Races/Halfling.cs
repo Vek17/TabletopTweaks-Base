@@ -37,8 +37,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Halfling Ability Modifiers");
-                bp.SetDescription("Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
+                bp.SetName("c77c3cd3ce9c4fcfb9ff30e8b44bd8bf", "Halfling Ability Modifiers");
+                bp.SetDescription("684322c723cd4ee1baca828c33a89e49", "Halflings are nimble and strong-willed, but their small stature makes them weaker than other "
                     + "races. They gain +2 Dexterity, +2 Charisma, and –2 Strength.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -67,15 +67,15 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.SetName("None");
-                bp.SetDescription("No Alternate Trait");
+                bp.SetName("2418fa53be414249a3f7036021176af0", "None");
+                bp.SetDescription("a0156738785a438c9f3a1447406f9846", "No Alternate Trait");
             });
             var HalflingBruiserFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingBruiserFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Halfling Bruiser");
-                bp.SetDescription("A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
+                bp.SetName("673b00687abd4bd5858f704b8f09ef44", "Halfling Bruiser");
+                bp.SetDescription("1c3eace7cb004b228acd81755b2f374e", "A lifetime of brutal survival, either under the heavy burdens of slavery or on the "
                     + "streets, has made some halflings more adept at taking blows than dodging them. Halflings with this racial "
                     + "trait gain +2 Constitution, +2 Charisma, and -2 Dexterity. This racial trait alters the halflings’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -105,8 +105,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Blessed");
-                bp.SetDescription("Halflings with this trait receive a +2 racial bonus on saving throws against curse effects and hexes. " +
+                bp.SetName("3a61efbb85b24f108e168dfbbaeb1d99", "Blessed");
+                bp.SetDescription("e29f063460f24e0598d3a7a379558711", "Halflings with this trait receive a +2 racial bonus on saving throws against curse effects and hexes. " +
                     "This bonus stacks with the bonus granted by halfling luck.\nThis racial trait replaces fearless.");
                 bp.AddComponent(Helpers.Create<SavingThrowBonusAgainstDescriptor>(c => {
                     c.SpellDescriptor = SpellDescriptor.Hex | SpellDescriptor.Curse;
@@ -121,8 +121,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Secretive Survivor");
-                bp.SetDescription("Halflings from poor and desperate communities, most often in big cities, must take what they need without getting caught in order to survive. " +
+                bp.SetName("9d42bf28b2e345fe8393b845f996ae40", "Secretive Survivor");
+                bp.SetDescription("679423f08b1347e4a282ea156f4cd585", "Halflings from poor and desperate communities, most often in big cities, must take what they need without getting caught in order to survive. " +
                     "They gain a +2 racial bonus on Persuasion and Stealth checks.\nThis racial trait replaces sure-footed.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.SkillPersuasion;
@@ -141,8 +141,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Underfoot");
-                bp.SetDescription("Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
+                bp.SetName("2071d52fc32c4f8289fe82602a2825b5", "Underfoot");
+                bp.SetDescription("22f03cc425644840897a325b93f9ec8b", "Halflings must train hard to effectively fight bigger opponents. Halflings with this racial trait gain a +1 dodge bonus " +
                     "to AC against foes larger than themselves.\nThis racial trait replaces halfling luck.");
                 bp.AddComponent(Helpers.Create<ACBonusAgainstSizeDifference>(c => {
                     c.Descriptor = ModifierDescriptor.Dodge;
@@ -169,8 +169,8 @@ namespace TabletopTweaks.NewContent.Races {
             HalflingRace.SetComponents(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = HalflingAbilityModifiers.ToReference<BlueprintFeatureReference>();
             }));
-            HalflingHeritageSelection.SetName("Alternate Traits");
-            HalflingHeritageSelection.SetDescription("The following alternate traits are available.");
+            HalflingHeritageSelection.SetName("c012f190e81d414183d6c7d7762a57fc", "Alternate Traits");
+            HalflingHeritageSelection.SetDescription("077d61fab9ba4a7692efc4d1e372070c", "The following alternate traits are available.");
             HalflingHeritageSelection.Group = FeatureGroup.KitsuneHeritage;
             HalflingHeritageSelection.SetFeatures(
                 HalflingNoAlternateTrait,

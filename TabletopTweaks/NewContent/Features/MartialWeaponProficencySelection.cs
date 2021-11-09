@@ -36,8 +36,8 @@ namespace TabletopTweaks.NewContent.Features {
             var ThrowingAxeProficiency = Resources.GetBlueprint<BlueprintFeature>("579ab5b0c5bbce445a5a9bee1b1fe057");
 
             var EarthBreakerProficiency = Helpers.CreateBlueprint<BlueprintFeature>("EarthBreakerProficiency", bp => {
-                bp.SetName("Weapon Proficiency (Earth Breaker)");
-                bp.SetDescription("You become proficient with earth breakers and can use them as a weapon.");
+                bp.SetName("3f2bbaf833c44323b5c0e8a22ff31446", "Weapon Proficiency (Earth Breaker)");
+                bp.SetDescription("28a8666318f046f2ae28fa91707dc3a3", "You become proficient with earth breakers and can use them as a weapon.");
                 bp.Groups = new FeatureGroup[0];
                 bp.IsClassFeature = true;
                 bp.m_Icon = ExoticWeaponProficiencySelection.Icon;
@@ -48,8 +48,8 @@ namespace TabletopTweaks.NewContent.Features {
                 });
             });
             var BardicheProficiency = Helpers.CreateBlueprint<BlueprintFeature>("BardicheProficiency", bp => {
-                bp.SetName("Weapon Proficiency (Bardiche)");
-                bp.SetDescription("You become proficient with bardiches and can use them as a weapon.");
+                bp.SetName("ca77e5566ef34ea1b3a74186ebb0d920", "Weapon Proficiency (Bardiche)");
+                bp.SetDescription("a0f598abaf934c0795b3017626cacf15", "You become proficient with bardiches and can use them as a weapon.");
                 bp.Groups = new FeatureGroup[0];
                 bp.IsClassFeature = true;
                 bp.m_Icon = ExoticWeaponProficiencySelection.Icon;
@@ -60,8 +60,8 @@ namespace TabletopTweaks.NewContent.Features {
                 });
             });
             var MartialWeaponProficencySelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("MartialWeaponProficencySelection", bp => {
-                bp.SetName("Martial Weapon Proficency Selection");
-                bp.SetDescription("");
+                bp.SetName("7ecf2c8c847741d0bd5e81cb283e3c3a", "Martial Weapon Proficency Selection");
+                bp.SetDescription("12e1ff0b0f2a42a9bdcad30d55062320", "");
                 bp.Groups = new FeatureGroup[0];
                 bp.IsClassFeature = true;
                 bp.AddFeatures(

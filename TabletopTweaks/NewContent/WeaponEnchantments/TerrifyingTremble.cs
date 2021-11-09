@@ -26,14 +26,14 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
 
             var TerrifyingTrembleAbility_TTT = Helpers.CreateBlueprint<BlueprintAbility>($"TerrifyingTrembleAbility_TTT", bp => {
                 var effects = ThunderingBlowsAbility.GetComponent<AbilitySpawnFx>();
-                bp.SetName("Terrifying Tremble");
-                bp.SetDescription("Whenever the wielder of this weapon lands a killing blow, " +
+                bp.SetName("73c8f1b5dada40219a609427f6d9fc09", "Terrifying Tremble");
+                bp.SetDescription("ef4a2cfa49154c6c85f0141102b1a100", "Whenever the wielder of this weapon lands a killing blow, " +
                     "he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. " +
                     "Successful Reflex save (DC 30) halves the damage.");
                 bp.m_Icon = TerrifyingTrembleItem.Icon;
                 bp.ResourceAssetIds = ThunderingBlowsAbility.ResourceAssetIds;
-                bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.save", $"");
-                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.duration", $"");
+                bp.LocalizedSavingThrow = Helpers.CreateString("2dc82eedd8b94e2fb97190cc163315f7", $"{bp.name}.save", $"");
+                bp.LocalizedDuration = Helpers.CreateString("3bff06e0dcc14285a4a7ef2f0bb67d41", $"{bp.name}.duration", $"");
                 bp.CanTargetEnemies = true;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
                 bp.Type = AbilityType.Special;
@@ -103,10 +103,10 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
                 });
             });
             var TerrifyingTrembleEnchant_TTT = Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"TerrifyingTrembleEnchant_TTT", bp => {
-                bp.SetName("");
-                bp.SetDescription("");
-                bp.SetPrefix("");
-                bp.SetSuffix("");
+                bp.SetName("890eba63e14944f3b82d21ce97c8b018", "");
+                bp.SetDescription("61f3cc6c615d415aabd47ecc5013a731", "");
+                bp.SetPrefix("b4f196ed912d4a4581ac6e579fb7930e", "");
+                bp.SetSuffix("7dcca32027f54a298637332f77a522c9", "");
                 bp.m_EnchantmentCost = 1;
                 bp.m_IdentifyDC = 5;
                 bp.AddComponent<AddWeaponDamageTrigger>(c => {

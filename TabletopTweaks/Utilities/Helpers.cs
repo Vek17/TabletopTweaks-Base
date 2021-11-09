@@ -107,7 +107,7 @@ namespace TabletopTweaks.Utilities {
         }
 #endif
 
-        public static LocalizedString CreateString(Guid id, string simpleName, string text, Locale locale = Locale.enGB, bool shouldProcess = false) {
+        public static LocalizedString CreateString(string id, string simpleName, string text, Locale locale = Locale.enGB, bool shouldProcess = false) {
             // See if we used the text previously.
             // (It's common for many features to use the same localized text.
             // In that case, we reuse the old entry instead of making a new one.)
@@ -131,10 +131,10 @@ namespace TabletopTweaks.Utilities {
             return HarmonyLib.AccessTools.Field(obj.GetType(), name).GetValue(obj);
         }
         // Parses the lowest 64 bits of the Guid (which corresponds to the last 16 characters).
-        static ulong ParseGuidLow(String id) => ulong.Parse(id.Substring(id.Length - 16), NumberStyles.HexNumber);
+        static ulong ParseGuidLow(string id) => ulong.Parse(id.Substring(id.Length - 16), NumberStyles.HexNumber);
         // Parses the high 64 bits of the Guid (which corresponds to the first 16 characters).
-        static ulong ParseGuidHigh(String id) => ulong.Parse(id.Substring(0, id.Length - 16), NumberStyles.HexNumber);
-        public static String MergeIds(String guid1, String guid2, String guid3 = null) {
+        static ulong ParseGuidHigh(string id) => ulong.Parse(id.Substring(0, id.Length - 16), NumberStyles.HexNumber);
+        public static string MergeIds(string guid1, string guid2, string guid3 = null) {
             // Parse into low/high 64-bit numbers, and then xor the two halves.
             ulong low = ParseGuidLow(guid1);
             ulong high = ParseGuidHigh(guid1);

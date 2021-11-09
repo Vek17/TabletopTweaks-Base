@@ -63,7 +63,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             c.Group = Prerequisite.GroupType.All;
                             c.m_Feature = FavoriteEnemy.ToReference<BlueprintFeatureReference>();
                         }));
-                        FavoriteEnemy.SetDescription("This works exactly like Favorite Enemy (Outsider) and exists for existing " +
+                        FavoriteEnemy.SetDescription("92e65731f74647eebd292c68bd7a02b4", "This works exactly like Favorite Enemy (Outsider) and exists for existing " +
                         "build compatability. If you already have this feature continue taking ranks to progress Favored Enemy Outsider properly.");
                     }
                 }
@@ -81,7 +81,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                             ValueType = ContextValueType.Rank
                         };
                     }));
-                    MasterSpyTrapfindingFeature.SetDescription("An espionage expert gets a {g|Encyclopedia:Bonus}bonus{/g} equal to 1/2 her "
+                    MasterSpyTrapfindingFeature.SetDescription("002587ec0e804e95ae0c91e144ee7ed0", "An espionage expert gets a {g|Encyclopedia:Bonus}bonus{/g} equal to 1/2 her "
                         + "level on {g|Encyclopedia:Perception}Perception checks{/g} and {g|Encyclopedia:Trickery}Trickery checks{/g}.");
                     Main.LogPatch("Patched", MasterSpyTrapfindingFeature);
                 }

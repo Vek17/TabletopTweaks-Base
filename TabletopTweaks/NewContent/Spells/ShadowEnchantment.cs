@@ -19,8 +19,8 @@ namespace TabletopTweaks.NewContent.Spells {
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
 
             var ShadowEnchantment = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantment", bp => {
-                bp.SetName("Shadow Enchantment");
-                bp.SetDescription("You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level "
+                bp.SetName("bcfb4c11fd214967bb16b4f3e3b9df18", "Shadow Enchantment");
+                bp.SetDescription("cad4bc957cbe4fbcb192b1863da4790b", "You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level "
                     + "or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment "
                     + "spell has a damaging effect, that effect is one-fifth as strong (if applicable) or only 20% likely to occur.\n"
                     + "If recognized as a shadow enchantment, a damaging spell deals only one - fifth(20 %) the normal amount of damage.\n"
@@ -93,8 +93,8 @@ namespace TabletopTweaks.NewContent.Spells {
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
 
             var ShadowEnchantmentGreater = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantmentGreater", bp => {
-                bp.SetName("Shadow Enchantment, Greater");
-                bp.SetDescription("This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, "
+                bp.SetName("9740a93009244ec6944d2761176b564f", "Shadow Enchantment, Greater");
+                bp.SetDescription("d1e129c997834ec9b1322ca697cc43d8", "This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, "
                     + "or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it’s only three-fifths (60%) as effective.");
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();

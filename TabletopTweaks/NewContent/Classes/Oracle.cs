@@ -10,8 +10,8 @@ namespace TabletopTweaks.NewContent.Classes {
     class Oracle {
         public static void AddOracleFeatures() {
             var NaturesWhispersACConversion = Helpers.CreateBlueprint<BlueprintFeature>("NaturesWhispersACConversion", bp => {
-                bp.SetName("Natures Whispers AC Conversion");
-                bp.SetDescription("");
+                bp.SetName("fcaaf44a85c14bb092b23e75b299db5d", "Natures Whispers AC Conversion");
+                bp.SetDescription("fb09ce56707e4ad191a0d5c6470e7620", "");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;

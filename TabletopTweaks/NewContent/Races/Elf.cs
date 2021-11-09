@@ -35,8 +35,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Elf Ability Modifiers");
-                bp.SetDescription("Elves are nimble, both in body and mind, but their form is frail. They gain +2 Dexterity, +2 Intelligence, and –2 Constitution.");
+                bp.SetName("3bc5959c5153418da2357db2f77bdd96", "Elf Ability Modifiers");
+                bp.SetDescription("fd735240e5ea4c77a3c0aee7ecdd83b9", "Elves are nimble, both in body and mind, but their form is frail. They gain +2 Dexterity, +2 Intelligence, and –2 Constitution.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Intelligence;
@@ -64,15 +64,15 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.SetName("None");
-                bp.SetDescription("No Alternate Trait");
+                bp.SetName("11d4a7cf92234d0cafda39842561dff3", "None");
+                bp.SetDescription("14a803e74b8b4129a9bad42f62ce843b", "No Alternate Trait");
             });
             var ElfFieraniFeature = Helpers.CreateBlueprint<BlueprintFeature>("ElfFieraniFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Fierani Elf");
-                bp.SetDescription("Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
+                bp.SetName("779d633a26fb4bcaa29bb549b16a8617", "Fierani Elf");
+                bp.SetDescription("751645ae268046a3b2805975a1ec10fc", "Having returned to Golarion to reclaim their ancestral homeland, some elves of the Fierani Forest have a closer bond "
                     + "to nature than most of their kin. Elves with this racial trait gain +2 Dexterity, +2 Wisdom, and -2 Constitution."
                     + "\nThis racial trait alters the elves’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -102,8 +102,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Arcane Focus");
-                bp.SetDescription("Some elven families have such long traditions of producing wizards (and other arcane spellcasters) that they raise their children " +
+                bp.SetName("8e14d9e9a3c64007a35b704ebcf6f91f", "Arcane Focus");
+                bp.SetDescription("66d782ae1b694e19aa19c21169837fcf", "Some elven families have such long traditions of producing wizards (and other arcane spellcasters) that they raise their children " +
                     "with the assumption each is destined to be a powerful magic-user, with little need for mundane concerns such as skill with weapons. " +
                     "Elves with this racial trait gain a +2 racial bonus on concentration checks.\nThis racial trait replaces weapon familiarity.");
                 bp.AddComponent(Helpers.Create<ConcentrationBonus>(c => {
@@ -116,8 +116,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Long Limbed");
-                bp.SetDescription("Elves with this racial trait have a base move speed of 35 feet.\nThis racial trait replaces weapon familiarity.");
+                bp.SetName("ab5bd7f92e004db797bc989190b75116", "Long Limbed");
+                bp.SetDescription("e66cf06441334f4d8f1dd31c9aeb3272", "Elves with this racial trait have a base move speed of 35 feet.\nThis racial trait replaces weapon familiarity.");
                 bp.AddComponent(Helpers.Create<BuffMovementSpeed>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Value = 5;
@@ -130,8 +130,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Moonkissed");
-                bp.SetDescription("Elves with this alternate racial trait gain a +1 racial bonus on saving throws.\nThis replaces elven immunities and keen senses.");
+                bp.SetName("bcb70c72672a4aaabdcf43bb23c5ba7f", "Moonkissed");
+                bp.SetDescription("6fe09389867d4866a160ef8942243928", "Elves with this alternate racial trait gain a +1 racial bonus on saving throws.\nThis replaces elven immunities and keen senses.");
                 bp.AddComponent(Helpers.Create<BuffAllSavesBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Value = 1;
@@ -144,8 +144,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("Vigilance");
-                bp.SetDescription("You gain a +2 dodge bonus to AC against attacks by chaotic creatures.\nThis trait replaces elven magic.");
+                bp.SetName("9b2669b7f84c475e92bc51fb5db1f6b9", "Vigilance");
+                bp.SetDescription("014a083b14654fcbb9e05b4b23b82f14", "You gain a +2 dodge bonus to AC against attacks by chaotic creatures.\nThis trait replaces elven magic.");
                 bp.AddComponent(Helpers.Create<ArmorClassBonusAgainstAlignment>(c => {
                     c.alignment = AlignmentComponent.Chaotic;
                     c.Descriptor = ModifierDescriptor.Dodge;
@@ -170,8 +170,8 @@ namespace TabletopTweaks.NewContent.Races {
             ElfRace.SetComponents(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = ElfAbilityModifiers.ToReference<BlueprintFeatureReference>();
             }));
-            ElvenHeritageSelection.SetName("Alternate Traits");
-            ElvenHeritageSelection.SetDescription("The following alternate traits are available.");
+            ElvenHeritageSelection.SetName("facb28e2e1b84c0f97f41fa02e0458ba", "Alternate Traits");
+            ElvenHeritageSelection.SetDescription("91b8cdbe23cb49f596eaf0d0b21cbce5", "The following alternate traits are available.");
             ElvenHeritageSelection.Group = FeatureGroup.KitsuneHeritage;
             ElvenHeritageSelection.SetFeatures(
                 ElfNoAlternateTrait,

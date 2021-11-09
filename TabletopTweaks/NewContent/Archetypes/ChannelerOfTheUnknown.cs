@@ -94,8 +94,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 SpellTools.Spellbook.AllSpellbooks.Add(bp);
             });
             var ChannelerOfTheUnknownProficiencies = Helpers.CreateBlueprint<BlueprintFeature>("ChannelerOfTheUnknownProficiencies", bp => {
-                bp.SetName("Channeler Of The Unknown Proficiencies");
-                bp.SetDescription("Channelers Of The Unknown are proficient with all {g|Encyclopedia:Weapon_Proficiency}simple weapons{/g}, light armor, medium armor, and shields (except tower shields).");
+                bp.SetName("a00a181b4c914713b3b9bc1e58bdb902", "Channeler Of The Unknown Proficiencies");
+                bp.SetDescription("3bc863d7f5564c3983b748ff83891e1b", "Channelers Of The Unknown are proficient with all {g|Encyclopedia:Weapon_Proficiency}simple weapons{/g}, light armor, medium armor, and shields (except tower shields).");
                 bp.m_Icon = ClericProficiencies.Icon;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[0];
@@ -110,8 +110,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var ChannelerOfTheUnknownWeaponProficiency = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ChannelerOfTheUnknownWeaponProficiency", bp => {
-                bp.SetName("Bonus Weapon Proficiency");
-                bp.SetDescription("A channeler of the unknown loses proficiency with her deity’s favored weapon. She instead gains proficiency with one martial or exotic weapon, " +
+                bp.SetName("8e31922538eb4a27be60fd6c4c0dca41", "Bonus Weapon Proficiency");
+                bp.SetDescription("b37ff7d1224e42a1bdd9f4ac8d4c1a38", "A channeler of the unknown loses proficiency with her deity’s favored weapon. She instead gains proficiency with one martial or exotic weapon, " +
                     "chosen when she first takes this archetype, which thereafter effectively functions as her holy or unholy symbol for the purposes of class abilities and spellcasting. " +
                     "Once she makes this choice, she can’t later change it.");
                 bp.m_Icon = ClericProficiencies.Icon;
@@ -121,8 +121,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.AddFeatures(ExoticWeaponProficiencySelection.AllFeatures.Select(feature => feature).ToArray());
             });
             var ChannelerOfTheUnknownPowerOfTheUnknown = Helpers.CreateBlueprint<BlueprintFeatureSelection>("ChannelerOfTheUnknownPowerOfTheUnknown", bp => {
-                bp.SetName("Power of the Unknown");
-                bp.SetDescription("A channeler of the unknown has lost the benefit of the domains granted by her deity, but the unknown entity that answers her " +
+                bp.SetName("0eb11664ebad49d7841877e50fc6a669", "Power of the Unknown");
+                bp.SetDescription("77a11bc0f7ec49e0af2a37e770f7f963", "A channeler of the unknown has lost the benefit of the domains granted by her deity, but the unknown entity that answers her " +
                     "supplications instead grants her the benefits of one domain from the following list: Darkness, Destruction, Luck, Madness, or Void. Instead " +
                     "of a single domain spell slot, the channeler of the unknown gains two domain spell slots per spell level she can cast. A channeler of the " +
                     "unknown cannot select a subdomain in place of the domain available to her.");
@@ -138,8 +138,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var ChannelerOfTheUnknownChannelEntropyAbility = Helpers.CreateBlueprint<BlueprintAbility>("ChannelerOfTheUnknownChannelEntropyAbility", bp => {
-                bp.SetName("Channel Entropy");
-                bp.SetDescription("Channeling entropy causes a burst that damages all creatures in a 30-foot radius centered on the cleric. The amount of damage " +
+                bp.SetName("1e05f72d84cb4662bc51669d23166b48", "Channel Entropy");
+                bp.SetDescription("fbff27cdc23d4aca9c9e8aa7bfae7578", "Channeling entropy causes a burst that damages all creatures in a 30-foot radius centered on the cleric. The amount of damage " +
                     "inflicted is equal to 1d6 points of damage plus 1d6 points of damage for every two cleric levels beyond 1st (2d6 at 3rd, 3d6 at 5th, and so on). " +
                     "Creatures that take damage from channeled energy receive a Will save to halve the damage. " +
                     "The DC of this save is equal to 10 + 1/2 the cleric's level + the cleric's Charisma modifier.");
@@ -301,8 +301,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var ChannelerOfTheUnknownChannelEntropyFeature = Helpers.CreateBlueprint<BlueprintFeature>("ChannelerOfTheUnknownChannelEntropyFeature", bp => {
-                bp.SetName("Channel Entropy");
-                bp.SetDescription("A channeler of the unknown can channel entropy as a cleric channels negative or positive energy, releasing a wave of twisting void that harms " +
+                bp.SetName("7e00e5efaa39405bbf88b9463e5301f0", "Channel Entropy");
+                bp.SetDescription("7e6ecbd2586347aeac839e59c2397e9c", "A channeler of the unknown can channel entropy as a cleric channels negative or positive energy, releasing a wave of twisting void that harms " +
                     "creatures in the area of effect. The amount of damage dealt is equal to that an evil cleric of her level would deal by channeling negative energy, except it " +
                     "affects living, unliving, and undead creatures alike. This functions in all other ways as a cleric’s channel energy class feature, including benefiting from feats " +
                     "that affect channel energy (such as Selective Channeling).");
@@ -318,8 +318,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var ChannelerOfTheUnknownSpontaneousCasting = Helpers.CreateBlueprint<BlueprintFeature>("ChannelerOfTheUnknownSpontaneousCasting", bp => {
-                bp.SetName("Spontaneous Casting");
-                bp.SetDescription("Instead of converting prepared spells into cure or inflict spells, a channeler of the unknown can channel stored spell energy into her domain spells.\n" +
+                bp.SetName("8e32b1e34ffb40979e743ce5ba4f5e99", "Spontaneous Casting");
+                bp.SetDescription("778527ec7f8b4936880602afad956c49", "Instead of converting prepared spells into cure or inflict spells, a channeler of the unknown can channel stored spell energy into her domain spells.\n" +
                     "She can lose a prepared spell, including a domain spell, to spontaneously cast a domain spell of the same spell level or lower.");
                 bp.m_Icon = DomainsSelection.Icon;
                 bp.Ranks = 1;
@@ -330,8 +330,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var ChannelerOfTheUnknownArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("ChannelerOfTheUnknownArchetype", bp => {
-                bp.LocalizedName = Helpers.CreateString("ChannelerOfTheUnknownArchetype.Name", "Channeler of the Unknown");
-                bp.LocalizedDescription = Helpers.CreateString("ChannelerOfTheUnknownArchetype.Description", "While most clerics who fall out of favor with their deities " +
+                bp.SetName("b385d2adca9c49f9b9812d7564b22159", "Channeler of the Unknown");
+                bp.SetDescription("3ad960155d244fa984e38fe7ce06c62c", "While most clerics who fall out of favor with their deities " +
                     "simply lose their divine connection and the powers it granted, a few continue to go through the motions of prayer and obedience, persisting " +
                     "in the habits of faith even when their faith itself has faded. Among these, an even smaller number find that while their original deity no " +
                     "longer answers their prayers, something else does: an unknown entity or force of the universe channeling its power through a trained and " +
@@ -357,8 +357,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var MysticTheurgeChannelerOfTheUnknownLevelUp = Helpers.CreateBlueprint<BlueprintFeature>("MysticTheurgeChannelerOfTheUnknownLevelUp", bp => {
-                bp.SetName("Channeler Of The Unknown");
-                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                bp.SetName("207263e724704844bddd2e81337056d0", "Channeler Of The Unknown");
+                bp.SetDescription("653eab6c9b594578bb3a1623fb5525af", "At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
                     "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
                 bp.Ranks = 10;
                 bp.HideInUI = true;
@@ -369,8 +369,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var MysticTheurgeChannelerOfTheUnknownProgression = Helpers.CreateBlueprint<BlueprintProgression>("MysticTheurgeChannelerOfTheUnknownProgression", bp => {
-                bp.SetName("Channeler Of The Unknown");
-                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                bp.SetName("7494b5e3152b488b8025b342d3243145", "Channeler Of The Unknown");
+                bp.SetDescription("bfba1429059c4f5b82c093bbeb399183", "At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
                     "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
                 bp.Ranks = 1;
                 bp.HideInUI = true;
@@ -411,8 +411,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var HellknightSigniferChannelerOfTheUnknownLevelUp = Helpers.CreateBlueprint<BlueprintFeature>("HellknightSigniferChannelerOfTheUnknownLevelUp", bp => {
-                bp.SetName("Channeler Of The Unknown");
-                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                bp.SetName("1cfdfb1089774a31b390e608dcc0d316", "Channeler Of The Unknown");
+                bp.SetDescription("635f391d8a31469f95af6a33c900be18", "At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
                     "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
                 bp.Ranks = 10;
                 bp.HideInUI = true;
@@ -423,8 +423,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var HellknightSigniferChannelerOfTheUnknownProgression = Helpers.CreateBlueprint<BlueprintProgression>("HellknightSigniferChannelerOfTheUnknownProgression", bp => {
-                bp.SetName("Channeler Of The Unknown");
-                bp.SetDescription("At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
+                bp.SetName("0ed6a3d772ac4efba0111cda17b3e077", "Channeler Of The Unknown");
+                bp.SetDescription("f9aa6aa421474062b048f4c3ce158e64", "At 1st level, the mystic theurge selects a divine {g|Encyclopedia:Spell}spellcasting{/g} class she belonged to before adding the prestige class. " +
                     "When a new mystic theurge level is gained, the character gains new spells per day and new spells known as if she had also gained a level in that spellcasting class.");
                 bp.Ranks = 1;
                 bp.HideInUI = true;

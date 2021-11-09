@@ -85,14 +85,14 @@ namespace TabletopTweaks.Bugfixes.Features {
                                              " for these {g|Encyclopedia:Spell}spells{/g} is equal to your {g|Encyclopedia:Hit_Dice}Hit Dice{/g}. The DCs for these abilities are" +
                                              " {g|Encyclopedia:Charisma}Charisma{/g}-based.\nYou may select this feat up to eight times. Each time you take it, you gain an additional ability as described above.";
                
-                magicalTail1.SetDescription(magicalTailDescription);
-                magicalTail2.SetDescription(magicalTailDescription);
-                magicalTail3.SetDescription(magicalTailDescription);
-                magicalTail4.SetDescription(magicalTailDescription);
-                magicalTail5.SetDescription(magicalTailDescription);
-                magicalTail6.SetDescription(magicalTailDescription);
-                magicalTail7.SetDescription(magicalTailDescription);
-                magicalTail8.SetDescription(magicalTailDescription);
+                magicalTail1.SetDescription("e65390260c4e4d288ac3b8ddc12fd9fd", magicalTailDescription);
+                magicalTail2.SetDescription("e41de6e0e13e4a9e9afb521ee56ad849", magicalTailDescription);
+                magicalTail3.SetDescription("2e56ed4a29bb49a5ad0cf837c810117e", magicalTailDescription);
+                magicalTail4.SetDescription("e0b0ff18b04a44628416a28a61404c51", magicalTailDescription);
+                magicalTail5.SetDescription("19494826b1ca4959b69ab9877cf89407", magicalTailDescription);
+                magicalTail6.SetDescription("eaa9688233a44b4a85f3d73334a8c283", magicalTailDescription);
+                magicalTail7.SetDescription("0639c5b7caac48ae96e4058f8aa7534c", magicalTailDescription);
+                magicalTail8.SetDescription("5d6e0b8cc4324f22904f0c4998f7e08c", magicalTailDescription);
 
                 BlueprintFeature v = new BlueprintFeature();
 
@@ -151,10 +151,9 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void PatchEndurance() {
                 if (ModSettings.Fixes.Feats.IsDisabled("Endurance")) { return; }
                 var Endurance = Resources.GetBlueprint<BlueprintFeature>("54ee847996c25cd4ba8773d7b8555174");
-                Endurance.SetDescription("Harsh conditions or long exertions do not easily tire you.\nBenefit: You gain +4 bonus on Fortitude " +
-                    "{g|Encyclopedia:Saving_Throw}saves{/g} against fatigue and exhaustion and +2 " +
-                    "{g|Encyclopedia:Bonus}bonus{/g} on {g|Encyclopedia:Athletics}Athletics checks{/g}. " +
-                    "If you have 10 or more ranks in {g|Encyclopedia:Athletics}Athletics{/g}, the bonus increases to +4 for that skill." +
+                Endurance.SetDescription("18cd8680651343d1a2a00efabcac38bf", "Harsh conditions or long exertions do not easily tire you.\nBenefit: You gain +4 bonus on Fortitude " +
+                    "saves against fatigue and exhaustion and +2 " +
+                    "bonus on Athletics checks. If you have 10 or more ranks in Athletics, the bonus increases to +4 for that skill." +
                     "\nYou may sleep in light or medium armor without becoming fatigued.");
                 Endurance.RemoveComponents<AddStatBonus>();
                 Endurance.AddComponent<AddContextStatBonus>(c => {

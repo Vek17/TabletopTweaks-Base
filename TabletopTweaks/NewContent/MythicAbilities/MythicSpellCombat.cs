@@ -20,8 +20,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.Ranks = 1;
                 bp.m_Icon = SpellCombatFeature.Icon;
-                bp.SetName("Mythic Spell Combat");
-                bp.SetDescription("The magus can use his spell combat and spellstrike abilities while casting or " +
+                bp.SetName("2b753d1d41c54b6db545bc338a2e4e81", "Mythic Spell Combat");
+                bp.SetDescription("f709c89e6be84375803daa94f2f8380f", "The magus can use his spell combat and spellstrike abilities while casting or " +
                     "using spells from a spellbook granted by a mythic class.");
                 bp.AddComponent<BroadStudyMythicComponent>(c => {
                     c.Spellbooks = new BlueprintSpellbookReference[] { TricksterWizardSpellbook.ToReference<BlueprintSpellbookReference>() };

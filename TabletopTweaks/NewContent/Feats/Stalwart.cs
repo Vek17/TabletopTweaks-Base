@@ -7,6 +7,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -41,16 +42,18 @@ namespace TabletopTweaks.NewContent.Feats {
             }
         }
 
-        private static string StalwartDescription() {
-            if (ModSettings.Fixes.BaseFixes.IsDisabled("DamageReductionRework")) {
-                return "While fighting defensively or using Combat Expertise, " +
+        private static LocalizedString StalwartDescription() {
+            var DamageReduction = Helpers.CreateString("04692524ca8942c891932da3b5da6cd7", "Stalwart.Description", "While fighting defensively or using Combat Expertise, " +
                     "you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, " +
-                    "to a maximum of DR 5/—, until the start of your next turn.";
-            } else {
-                return "While fighting defensively or using Combat Expertise, " +
+                    "to a maximum of DR 5/—, until the start of your next turn.");
+            var DamageReductionReworked = Helpers.CreateString("1cbbe9e34c094ca886595486bc6e5540", "Stalwart.DescriptionReworked", "While fighting defensively or using Combat Expertise, " +
                     "you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, " +
                     "to a maximum of DR 5/—, until the start of your next turn. This damage reduction stacks with DR you gain from class features, " +
-                    "such as the barbarian’s, but not with DR from any other source.";
+                    "such as the barbarian’s, but not with DR from any other source.");
+            if (ModSettings.Fixes.BaseFixes.IsDisabled("DamageReductionRework")) {
+                return DamageReduction;
+            } else {
+                return DamageReductionReworked;
             }
         }
 
@@ -67,8 +70,8 @@ namespace TabletopTweaks.NewContent.Feats {
 
 
             var StalwartImprovedFeature = Helpers.CreateBlueprint<BlueprintFeature>("StalwartImprovedFeature", bp => {
-                bp.SetName("Improved Stalwart");
-                bp.SetDescription("Double the DR you gain from Stalwart, to a maximum of DR 10/—.");
+                bp.SetName("2c9988d49bca49cd99bad2690637c9cd", "Improved Stalwart");
+                bp.SetDescription("eb187b13a67a4b79af4bbc2d491bb630", "Double the DR you gain from Stalwart, to a maximum of DR 10/—.");
             });
 
             var StalwartDRPropertyBlueprint = Helpers.CreateBlueprint<BlueprintUnitProperty>("StalwartDRProperty", bp => {
@@ -82,7 +85,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
 
             var StalwartBuff = Helpers.CreateBuff("StalwartBuff", bp => {
-                bp.SetName("Stalwart");
+                bp.SetName("bf5a59bc689f409a917bcf10912597e0", "Stalwart");
                 bp.SetDescription(StalwartDescription());
                 bp.m_Icon = DefensiveStanceActivatableAbility.m_Icon;
                 bp.m_Flags = BlueprintBuff.Flags.StayOnDeath;
@@ -129,7 +132,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
 
             var StalwartToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("StalwartToggleAbility", bp => {
-                bp.SetName("Stalwart");
+                bp.SetName("15a0e471b147465cbe68e5ca9806f666", "Stalwart");
                 bp.SetDescription(StalwartDescription());
                 bp.m_Icon = DefensiveStanceActivatableAbility.m_Icon;
                 bp.m_Buff = StalwartBuff.ToReference<BlueprintBuffReference>();
@@ -139,7 +142,7 @@ namespace TabletopTweaks.NewContent.Feats {
             });
 
             var StalwartFeature = Helpers.CreateBlueprint<BlueprintFeature>("StalwartFeature", bp => {
-                bp.SetName("Stalwart");
+                bp.SetName("256b46d7644c4dbab100ab55d4257307", "Stalwart");
                 bp.SetDescription(StalwartDescription());
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
