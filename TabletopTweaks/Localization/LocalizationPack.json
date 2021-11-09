@@ -35,7 +35,7 @@
         },
         {
             "Key": "fda6a12008ac40dc9d42cf138af26f20",
-            "SimpleName": "AcidResistance10Enchant.prefix",
+            "SimpleName": "AcidResistance10Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Acid Resistant",
             "ruRU": null,
@@ -46,7 +46,7 @@
         },
         {
             "Key": "63d9d3f9e9ec448e94976f7aedac6cf0",
-            "SimpleName": "AdamantineArmorHeavyEnchant.prefix",
+            "SimpleName": "AdamantineArmorHeavyEnchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Adamantine",
             "ruRU": null,
@@ -134,7 +134,7 @@
         },
         {
             "Key": "13103c339c5647fe828b03e8fa8797a3",
-            "SimpleName": "Agile.prefix",
+            "SimpleName": "Agile.Prefix",
             "ProcessTemplates": false,
             "enGB": "Agile",
             "ruRU": null,
@@ -156,7 +156,7 @@
         },
         {
             "Key": "791d2774aedd44b3a34279e4d5f04910",
-            "SimpleName": "Anarchic.prefix",
+            "SimpleName": "Anarchic.Prefix",
             "ProcessTemplates": false,
             "enGB": "Anarchic",
             "ruRU": null,
@@ -211,7 +211,7 @@
         },
         {
             "Key": "927c1232c66c454191c3ad2dfc504ba9",
-            "SimpleName": "ArcaneArmorBalancedEnchant.prefix",
+            "SimpleName": "ArcaneArmorBalancedEnchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Balanced",
             "ruRU": null,
@@ -222,7 +222,7 @@
         },
         {
             "Key": "e9423ddde54f48c79857fceb6cf38eb9",
-            "SimpleName": "ArcaneArmorInvulnerabilityEnchant.prefix",
+            "SimpleName": "ArcaneArmorInvulnerabilityEnchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Invulnerability",
             "ruRU": null,
@@ -233,7 +233,7 @@
         },
         {
             "Key": "2e640669072b45ef93958a23e2e27bed",
-            "SimpleName": "ArcaneArmorShadowEnchant.prefix",
+            "SimpleName": "ArcaneArmorShadowEnchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Shadow",
             "ruRU": null,
@@ -244,7 +244,7 @@
         },
         {
             "Key": "845ca47c40854a71818692c19e3b7cd3",
-            "SimpleName": "ArcaneArmorShadowGreaterEnchant.prefix",
+            "SimpleName": "ArcaneArmorShadowGreaterEnchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Greater Shadow",
             "ruRU": null,
@@ -662,7 +662,7 @@
         },
         {
             "Key": "5bb7e714546c4d898782c5d892ab8cee",
-            "SimpleName": "Axiomatic.prefix",
+            "SimpleName": "Axiomatic.Prefix",
             "ProcessTemplates": false,
             "enGB": "Axiomatic",
             "ruRU": null,
@@ -675,7 +675,7 @@
             "Key": "7c16079fb1daedd4fb548afec7a1bd44",
             "SimpleName": "BackgroundAcolyte.Description",
             "ProcessTemplates": true,
-            "enGB": "Acolyte adds Persuasion and Lore (Religion) to the list of her class skills. She can also use her Wisdom instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Acolyte adds Persuasion and Lore (religion) to the list of her class skills. She can also use her Wisdom instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -708,7 +708,7 @@
             "Key": "f5c5f40fc3231014e921ca653e17f951",
             "SimpleName": "BackgroundAlkenstarAlchemist.Description",
             "ProcessTemplates": true,
-            "enGB": "Alkenstar Alchemist adds Knowledge (Arcana) to the list of her class skills. She also gets a +1 bonus to damage with alchemist bombs and alchemist items.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Alkenstar Alchemist adds Knowledge (arcana) to the list of her class skills. She also gets a +1 bonus to damage with alchemist bombs and alchemist items.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -719,7 +719,7 @@
             "Key": "f66dd25288c94f64db2b4affa2edc92f",
             "SimpleName": "BackgroundAndoranDiplomat.Description",
             "ProcessTemplates": true,
-            "enGB": "Andoran Diplomat adds Persuasion to the list of her class skills. She also gains a +2 bonus on Diplomacy skill checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Andoren Diplomat adds Persuasion to the list of her class skills. She also gains a +2 bonus on Diplomacy skill checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -741,7 +741,7 @@
             "Key": "677421b2bdd222f4fb2c73a9c7613c36",
             "SimpleName": "BackgroundCheliaxianDiabolist.Description",
             "ProcessTemplates": true,
-            "enGB": "Cheliaxian Diabolist adds Knowledge (Arcana) to the list of her class skills. She also gains a +4 dodge bonus to AC against devils.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Chelaxian Diabolist adds Knowledge (arcana) to the list of her class skills. She also gains a +4 dodge bonus to AC against devils.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -763,7 +763,7 @@
             "Key": "2a154490a34e5384a95f8b6074f592e1",
             "SimpleName": "BackgroundEmissary.Description",
             "ProcessTemplates": true,
-            "enGB": "Emissary adds Persuasion and Knowledge (World) to the list of her class skills. She also becomes proficient with rapiers and bucklers.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Emissary adds Persuasion and Knowledge (world) to the list of her class skills. She also becomes proficient with rapiers and bucklers.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -774,7 +774,7 @@
             "Key": "256c58d25f4358445bf43180280165d9",
             "SimpleName": "BackgroundFarmhand.Description",
             "ProcessTemplates": true,
-            "enGB": "Farmhand adds Athletics and Lore (Nature) to the list of her class skills. She also becomes proficient with scythes and gets a +1 bonus on Fortitude saving throws.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Farmhand adds Athletics and Lore (nature) to the list of her class skills. She also becomes proficient with scythes and gets a +1 bonus on Fortitude saving throws.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -785,7 +785,7 @@
             "Key": "256bf124be339e7439a1cc653f374475",
             "SimpleName": "BackgroundGebianNecromancer.Description",
             "ProcessTemplates": true,
-            "enGB": "Gebian Necromancer adds Lore (Religion) to the list of her class skills. Gebian Necromancer's summoned undead creatures and companions get a +3 bonus to maximum Hit Points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Gebbite Necromancer adds Lore (religion) to the list of her class skills. Gebbite Necromancer's summoned undead creatures and companions get a +3 bonus to maximum Hit Points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -818,7 +818,7 @@
             "Key": "f00d82d05c748e64a999e1c800689582",
             "SimpleName": "BackgroundHealer.Description",
             "ProcessTemplates": true,
-            "enGB": "Healer adds Lore (Nature) and Lore (Religion) to the list of her class skills. She can also use her Intelligence instead of Wisdom while attempting Lore (Nature) or Lore (Religion) checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Healer adds Lore (nature) and Lore (religion) to the list of her class skills. She can also use her Intelligence instead of Wisdom while attempting Lore (nature) or Lore (religion) checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -829,7 +829,7 @@
             "Key": "ae1a8569f6334d445b32597690bda634",
             "SimpleName": "BackgroundHermit.Description",
             "ProcessTemplates": true,
-            "enGB": "Hermit adds Lore (Nature) to the list of her class skills. She also becomes proficient with clubs, greatclubs, quarterstaves and darts.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Hermit adds Lore (nature) to the list of her class skills. She also becomes proficient with clubs, greatclubs, quarterstaves and darts.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -840,7 +840,7 @@
             "Key": "ddae5852c5fb3244ea4a0be93421ba10",
             "SimpleName": "BackgroundHunter.Description",
             "ProcessTemplates": true,
-            "enGB": "Hunter adds Lore (Nature) and Perception to the list of her class skills. She also becomes proficient with shortbows and longbows.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Hunter adds Lore (nature) and Perception to the list of her class skills. She also becomes proficient with shortbows and longbows.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -873,7 +873,7 @@
             "Key": "46099cacfb774934f8387d9f92fb8f68",
             "SimpleName": "BackgroundMartialDisciple.Description",
             "ProcessTemplates": true,
-            "enGB": "Martial Disciple adds Mobility and Lore (Religion) to the list of her class skills. She also gains Improved Unarmed Strike as a background feat.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Martial Disciple adds Mobility and Lore (religion) to the list of her class skills. She also gains Improved Unarmed Strike as a background feat.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -884,7 +884,7 @@
             "Key": "1df8b82b1eada4548bd8c8f01dd9faa2",
             "SimpleName": "BackgroundMendevianOrphan.Description",
             "ProcessTemplates": true,
-            "enGB": "Mendevian Orphan adds Lore (Religion) to the list of her class skills. She also gains a +1 bonus on saving throws against demons.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Mendevian Orphan adds Lore (religion) to the list of her class skills. She also gains a +1 bonus on saving throws against demons.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -895,7 +895,7 @@
             "Key": "436837858c920a04991074aa237ff307",
             "SimpleName": "BackgroundMercenary.Description",
             "ProcessTemplates": true,
-            "enGB": "Mercenary adds Knowledge (World) to the list of her class skills. She also becomes proficient with light armor, spears, longspears and javelins.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Mercenary adds Knowledge (world) to the list of her class skills. She also becomes proficient with light armor, spears, longspears and javelins.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -928,7 +928,7 @@
             "Key": "156b5212ad84f0849b8649b72fe0ffee",
             "SimpleName": "BackgroundMwangianHunter.Description",
             "ProcessTemplates": true,
-            "enGB": "Mwangian Hunter adds Lore (Nature) and Stealth to the list of her class skills. She also becomes proficient with darts, slings, throwing axes and javelins. In addition, Mwangian Hunter gets a +1 bonus to damage with all throwing weapons.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Mwangi Hunter adds Lore (nature) and Stealth to the list of her class skills. She also becomes proficient with darts, slings, throwing axes and javelins. In addition, Mwangi Hunter gets a +1 bonus to damage with all throwing weapons.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -939,7 +939,7 @@
             "Key": "12d9bda2e3b27df4088a01811a9e9dc7",
             "SimpleName": "BackgroundNexianScholar.Description",
             "ProcessTemplates": true,
-            "enGB": "Nexian Scholar adds Knowledge (Arcana) to the list of her class skills. She also gains a +2 bonus on Knowledge (Arcana) skill checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Nexian Scholar adds Knowledge (arcana) to the list of her class skills. She also gains a +2 bonus on Knowledge (arcana) skill checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -950,7 +950,7 @@
             "Key": "33eac3316294af643811822209c5da87",
             "SimpleName": "BackgroundNomad.Description",
             "ProcessTemplates": true,
-            "enGB": "Nomad adds Lore (Nature) to the list of her class skills. She also becomes proficient with scimitars. Nomad's animal companion gets a +3 bonus to maximum Hit Points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Nomad adds Lore (nature) to the list of her class skills. She also becomes proficient with scimitars. Nomad's animal companion gets a +3 bonus to maximum Hit Points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -961,7 +961,7 @@
             "Key": "754197c3818020b4fba40f855162467a",
             "SimpleName": "BackgroundOsirionHistorian.Description",
             "ProcessTemplates": true,
-            "enGB": "Osirion Historian adds Knowledge (World) to the list of her class skills. She also gains a +2 bonus on Knowledge (World) skill checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Osirian Historian adds Knowledge (world) to the list of her class skills. She also gains a +2 bonus on Knowledge (world) skill checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -983,7 +983,7 @@
             "Key": "41d5ce8adc013b84bbcee18c1a600f31",
             "SimpleName": "BackgroundQadiranWanderer.Description",
             "ProcessTemplates": true,
-            "enGB": "Qadiran Wanderer adds Perception and Lore (Nature) to the list of her class skills. She also gains a +2 bonus on saving throws against Fatigue and Exhaustion effects.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Qadiran Wanderer adds Perception and Lore (nature) to the list of her class skills. She also gains a +2 bonus on saving throws against Fatigue and Exhaustion effects.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -1005,7 +1005,7 @@
             "Key": "9d713e99ec89ff5499c5c97ff2ee83a2",
             "SimpleName": "BackgroundScholarArcane.Description",
             "ProcessTemplates": true,
-            "enGB": "Arcane Scholar adds Use Magic Device and Knowledge (Arcana) to the list of her class skills. She also gets Scribe Scrolls as a bonus feat.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Arcane Scholar adds Use Magic Device and Knowledge (arcana) to the list of her class skills. She also gets Scribe Scrolls as a bonus feat.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -1016,7 +1016,7 @@
             "Key": "e871bfc2e49354b4990da32531e09e77",
             "SimpleName": "BackgroundScholarDivine.Description",
             "ProcessTemplates": true,
-            "enGB": "Divine Scholar adds Use Magic Device and Lore (Religion) to the list of her class skills. She also gets Brew Potions as a bonus feat.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Divine Scholar adds Use Magic Device and Lore (religion) to the list of her class skills. She also gets Brew Potions as a bonus feat.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -1082,7 +1082,7 @@
             "Key": "e6ecb34e86a73e442900c165ca7cfddd",
             "SimpleName": "BackgroundUstalavPeasant.Description",
             "ProcessTemplates": true,
-            "enGB": "Ustalav Peasant adds Athletics to the list of her class skills. She also becomes proficient with scythes. In addition Ustalav Peasant gains a +1 bonus to AC and damage while under fear effects.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Ustalavic Peasant adds Athletics to the list of her class skills. She also becomes proficient with scythes. In addition Ustalavic Peasant gains a +1 bonus to AC and damage while under fear effects.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -1093,7 +1093,7 @@
             "Key": "88c1657b2469a6d4facee928e693e87f",
             "SimpleName": "BackgroundVarisianExplorer.Description",
             "ProcessTemplates": true,
-            "enGB": "Varisian Explorer adds Trickery and Knowledge (World) to the list of her class skills. She also gains a +1 bonus on Reflex saving throws.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+            "enGB": "Varisian Explorer adds Trickery and Knowledge (world) to the list of her class skills. She also gains a +1 bonus on Reflex saving throws.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -1113,7 +1113,7 @@
         },
         {
             "Key": "e80ed9ee942c4b1ea269483d1a7b4dfd",
-            "SimpleName": "BaneAberration.prefix",
+            "SimpleName": "BaneAberration.Prefix",
             "ProcessTemplates": false,
             "enGB": "Aberration bane",
             "ruRU": null,
@@ -1124,7 +1124,7 @@
         },
         {
             "Key": "ddf9ee09496b4c2da8cdab1ee664526e",
-            "SimpleName": "BaneAnimal.prefix",
+            "SimpleName": "BaneAnimal.Prefix",
             "ProcessTemplates": false,
             "enGB": "Animal Bane",
             "ruRU": null,
@@ -1135,7 +1135,7 @@
         },
         {
             "Key": "30dba5711f9b4a0badeff8861711daae",
-            "SimpleName": "BaneConstruct.prefix",
+            "SimpleName": "BaneConstruct.Prefix",
             "ProcessTemplates": false,
             "enGB": "Construct Bane",
             "ruRU": null,
@@ -1146,7 +1146,7 @@
         },
         {
             "Key": "483d4a0d8e614304a57120592afa79d6",
-            "SimpleName": "BaneDragon.prefix",
+            "SimpleName": "BaneDragon.Prefix",
             "ProcessTemplates": false,
             "enGB": "Dragon Bane",
             "ruRU": null,
@@ -1157,7 +1157,7 @@
         },
         {
             "Key": "34c415c7fc8c4f78806142a6df2ae24e",
-            "SimpleName": "BaneEverything.prefix",
+            "SimpleName": "BaneEverything.Prefix",
             "ProcessTemplates": false,
             "enGB": "Bane",
             "ruRU": null,
@@ -1168,7 +1168,7 @@
         },
         {
             "Key": "327896460edf4662951a9f9f324fea53",
-            "SimpleName": "BaneFey.prefix",
+            "SimpleName": "BaneFey.Prefix",
             "ProcessTemplates": false,
             "enGB": "Fey Bane",
             "ruRU": null,
@@ -1179,7 +1179,7 @@
         },
         {
             "Key": "058cf7a695d949db9b8f96e46f37047f",
-            "SimpleName": "BaneHumanoidGiant.prefix",
+            "SimpleName": "BaneHumanoidGiant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Giant Bane",
             "ruRU": null,
@@ -1190,7 +1190,7 @@
         },
         {
             "Key": "7ba4f160743849b89211f0e20294679b",
-            "SimpleName": "BaneHumanoidReptilian.prefix",
+            "SimpleName": "BaneHumanoidReptilian.Prefix",
             "ProcessTemplates": false,
             "enGB": "Reptilian Humanoid Bane",
             "ruRU": null,
@@ -1201,7 +1201,7 @@
         },
         {
             "Key": "267a95f318974726ab89f0fdcd5cddfb",
-            "SimpleName": "BaneLiving.prefix",
+            "SimpleName": "BaneLiving.Prefix",
             "ProcessTemplates": false,
             "enGB": "Living Bane",
             "ruRU": null,
@@ -1212,7 +1212,7 @@
         },
         {
             "Key": "a26db876046a42769ec7df9b74ea0093",
-            "SimpleName": "BaneLycanthrope.prefix",
+            "SimpleName": "BaneLycanthrope.Prefix",
             "ProcessTemplates": false,
             "enGB": "Lycanthrope Bane",
             "ruRU": null,
@@ -1223,7 +1223,7 @@
         },
         {
             "Key": "197c5922dcd8477c9ff739c4f188c17f",
-            "SimpleName": "BaneMagicalBeast.prefix",
+            "SimpleName": "BaneMagicalBeast.Prefix",
             "ProcessTemplates": false,
             "enGB": "Magical Beast Bane",
             "ruRU": null,
@@ -1234,7 +1234,7 @@
         },
         {
             "Key": "c02182ba93f94654a408207bc91b581c",
-            "SimpleName": "BaneMonstrousHumanoid.prefix",
+            "SimpleName": "BaneMonstrousHumanoid.Prefix",
             "ProcessTemplates": false,
             "enGB": "Monstrous Humanoid Bane",
             "ruRU": null,
@@ -1245,7 +1245,7 @@
         },
         {
             "Key": "648b37b0617645eca611dc8ba360d220",
-            "SimpleName": "BaneOrcGoblin.prefix",
+            "SimpleName": "BaneOrcGoblin.Prefix",
             "ProcessTemplates": false,
             "enGB": "Orc Bane",
             "ruRU": null,
@@ -1256,7 +1256,7 @@
         },
         {
             "Key": "328c932c55d54e16b32a2ecd24ec14e7",
-            "SimpleName": "BaneOrcGoblin1d6.prefix",
+            "SimpleName": "BaneOrcGoblin1d6.Prefix",
             "ProcessTemplates": false,
             "enGB": "Goblin Bane",
             "ruRU": null,
@@ -1267,7 +1267,7 @@
         },
         {
             "Key": "7efd7928bf644aacb3168ce7bce379b6",
-            "SimpleName": "BaneOutsiderChaotic.prefix",
+            "SimpleName": "BaneOutsiderChaotic.Prefix",
             "ProcessTemplates": false,
             "enGB": "Chaotic Outsider Bane",
             "ruRU": null,
@@ -1278,7 +1278,7 @@
         },
         {
             "Key": "5cb989f2ca274d52a201bec476997544",
-            "SimpleName": "BaneOutsiderEvil.prefix",
+            "SimpleName": "BaneOutsiderEvil.Prefix",
             "ProcessTemplates": false,
             "enGB": "Evil Outsider Bane",
             "ruRU": null,
@@ -1289,7 +1289,7 @@
         },
         {
             "Key": "aa8e1c48ad3342b49f30748828925199",
-            "SimpleName": "BaneOutsiderGood.prefix",
+            "SimpleName": "BaneOutsiderGood.Prefix",
             "ProcessTemplates": false,
             "enGB": "Good Outsider Bane",
             "ruRU": null,
@@ -1300,7 +1300,7 @@
         },
         {
             "Key": "9227b68c4c414ac599f683b9592c4508",
-            "SimpleName": "BaneOutsiderLawful.prefix",
+            "SimpleName": "BaneOutsiderLawful.Prefix",
             "ProcessTemplates": false,
             "enGB": "Lawful Outsider Bane",
             "ruRU": null,
@@ -1311,7 +1311,7 @@
         },
         {
             "Key": "f140a8b22db44c4cbce651b2aaf49d66",
-            "SimpleName": "BaneOutsiderNeutral.prefix",
+            "SimpleName": "BaneOutsiderNeutral.Prefix",
             "ProcessTemplates": false,
             "enGB": "Neutral Outsider Bane",
             "ruRU": null,
@@ -1322,7 +1322,7 @@
         },
         {
             "Key": "2b5c2e9a4dba43b58e5547fdb6b52e30",
-            "SimpleName": "BanePlant.prefix",
+            "SimpleName": "BanePlant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Plant Bane",
             "ruRU": null,
@@ -1333,7 +1333,7 @@
         },
         {
             "Key": "4f1cfd445c1b486dbcff0e9a278d1a25",
-            "SimpleName": "BaneUndead.prefix",
+            "SimpleName": "BaneUndead.Prefix",
             "ProcessTemplates": false,
             "enGB": "Undead Bane",
             "ruRU": null,
@@ -1344,7 +1344,7 @@
         },
         {
             "Key": "873645317d324800b3d3eadaa64d6f61",
-            "SimpleName": "BaneVermin.prefix",
+            "SimpleName": "BaneVermin.Prefix",
             "ProcessTemplates": false,
             "enGB": "Vermin Bane",
             "ruRU": null,
@@ -1377,7 +1377,7 @@
         },
         {
             "Key": "72928fd58e63469b9dcbf3c0eb7b56b2",
-            "SimpleName": "Bleed.prefix",
+            "SimpleName": "Bleed.Prefix",
             "ProcessTemplates": false,
             "enGB": "Bleed",
             "ruRU": null,
@@ -2191,7 +2191,7 @@
         },
         {
             "Key": "37df8bdd9bcf476e82186546ba976884",
-            "SimpleName": "Brass.prefix",
+            "SimpleName": "Brass.Prefix",
             "ProcessTemplates": false,
             "enGB": "Flaming",
             "ruRU": null,
@@ -2202,7 +2202,7 @@
         },
         {
             "Key": "1a4efcc5257d463f87d26807037d27d4",
-            "SimpleName": "Brass2d8.prefix",
+            "SimpleName": "Brass2d8.Prefix",
             "ProcessTemplates": false,
             "enGB": "Greater Flaming",
             "ruRU": null,
@@ -2213,7 +2213,7 @@
         },
         {
             "Key": "1f4be1d6fc2e43f19c7fd2f7efea0801",
-            "SimpleName": "BrilliantEnergy.prefix",
+            "SimpleName": "BrilliantEnergy.Prefix",
             "ProcessTemplates": false,
             "enGB": "Brilliant Energy",
             "ruRU": null,
@@ -2642,7 +2642,7 @@
         },
         {
             "Key": "12d79d753e164726bfffdaad2434e7a9",
-            "SimpleName": "ColdResistance10Enchant.prefix",
+            "SimpleName": "ColdResistance10Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Cold Resistant",
             "ruRU": null,
@@ -2653,7 +2653,7 @@
         },
         {
             "Key": "2e696bf572ef4208b5b917976fccf3aa",
-            "SimpleName": "Corrosive.prefix",
+            "SimpleName": "Corrosive.Prefix",
             "ProcessTemplates": false,
             "enGB": "Corrosive",
             "ruRU": null,
@@ -2664,7 +2664,7 @@
         },
         {
             "Key": "f33ea993d9a746988ab208ea50cb2b95",
-            "SimpleName": "Corrosive2d6.prefix",
+            "SimpleName": "Corrosive2d6.Prefix",
             "ProcessTemplates": false,
             "enGB": "Caustic",
             "ruRU": null,
@@ -2675,7 +2675,7 @@
         },
         {
             "Key": "41dc209dad7e4059b7bd81ec98074388",
-            "SimpleName": "CorrosiveBurst.prefix",
+            "SimpleName": "CorrosiveBurst.Prefix",
             "ProcessTemplates": false,
             "enGB": "Burst",
             "ruRU": null,
@@ -2785,7 +2785,7 @@
         },
         {
             "Key": "98c714ec174648969a35f38323b8e95c",
-            "SimpleName": "Deteriorative.prefix",
+            "SimpleName": "Deteriorative.Prefix",
             "ProcessTemplates": false,
             "enGB": "Deteriorative",
             "ruRU": null,
@@ -2807,7 +2807,7 @@
         },
         {
             "Key": "7a4188c4c76b4d7da7590cee361a7b8e",
-            "SimpleName": "DisruptingWeapon.prefix",
+            "SimpleName": "DisruptingWeapon.Prefix",
             "ProcessTemplates": false,
             "enGB": "Disruption",
             "ruRU": null,
@@ -3379,7 +3379,7 @@
         },
         {
             "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
-            "SimpleName": "ElderBrass.prefix",
+            "SimpleName": "ElderBrass.Prefix",
             "ProcessTemplates": false,
             "enGB": "Elder Flaming",
             "ruRU": null,
@@ -3390,7 +3390,7 @@
         },
         {
             "Key": "843210f1c3d54f7a88e8fadb2bcbfb89",
-            "SimpleName": "ElderCorrosive.prefix",
+            "SimpleName": "ElderCorrosive.Prefix",
             "ProcessTemplates": false,
             "enGB": "Elder Greater Corrosive",
             "ruRU": null,
@@ -3401,7 +3401,7 @@
         },
         {
             "Key": "3a71bca89b1e462192704e7068812358",
-            "SimpleName": "ElderCorrosive2d6.prefix",
+            "SimpleName": "ElderCorrosive2d6.Prefix",
             "ProcessTemplates": false,
             "enGB": "Elder Caustic",
             "ruRU": null,
@@ -3412,7 +3412,7 @@
         },
         {
             "Key": "209e77a4b9854a8cbe9d3aaeb8c216d5",
-            "SimpleName": "ElderFrost.prefix",
+            "SimpleName": "ElderFrost.Prefix",
             "ProcessTemplates": false,
             "enGB": "Elder Frost",
             "ruRU": null,
@@ -3423,7 +3423,7 @@
         },
         {
             "Key": "5aada22466d64282959a8a176d9b408f",
-            "SimpleName": "ElderIce2d6.prefix",
+            "SimpleName": "ElderIce2d6.Prefix",
             "ProcessTemplates": false,
             "enGB": "Elder Freezing",
             "ruRU": null,
@@ -3434,7 +3434,7 @@
         },
         {
             "Key": "e1ee5ee7111a401c9663da5a39b33c6d",
-            "SimpleName": "ElderShock.prefix",
+            "SimpleName": "ElderShock.Prefix",
             "ProcessTemplates": false,
             "enGB": "Elder Shocking",
             "ruRU": null,
@@ -3445,7 +3445,7 @@
         },
         {
             "Key": "5d35b8d5a74a42ffab8f82210baae00f",
-            "SimpleName": "ElderShock2d6.prefix",
+            "SimpleName": "ElderShock2d6.Prefix",
             "ProcessTemplates": false,
             "enGB": "Elder Greater Shocking",
             "ruRU": null,
@@ -3467,7 +3467,7 @@
         },
         {
             "Key": "e8f4c27bc18d48e298392713f5dac3db",
-            "SimpleName": "ElectricityResistance10Enchant.prefix",
+            "SimpleName": "ElectricityResistance10Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Shock Resistant",
             "ruRU": null,
@@ -3653,6 +3653,17 @@
             "esES": null
         },
         {
+            "Key": "3142b96a095148839dbd2f83d4e96877",
+            "SimpleName": "EmptyString",
+            "ProcessTemplates": true,
+            "enGB": "",
+            "ruRU": null,
+            "deDE": null,
+            "frFR": null,
+            "zhCN": null,
+            "esES": null
+        },
+        {
             "Key": "18cd8680651343d1a2a00efabcac38bf",
             "SimpleName": "Endurance.Description",
             "ProcessTemplates": true,
@@ -3665,7 +3676,7 @@
         },
         {
             "Key": "a1deb230990e427e9629b3a5f7abe1c5",
-            "SimpleName": "EnergyResistance10n10Enchant.prefix",
+            "SimpleName": "EnergyResistance10n10Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Energy Resistant",
             "ruRU": null,
@@ -4039,7 +4050,7 @@
         },
         {
             "Key": "63ec9c8bd5cd4d80b103ed419ae41a7a",
-            "SimpleName": "FireResistance10Enchant.prefix",
+            "SimpleName": "FireResistance10Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Fire Resistant",
             "ruRU": null,
@@ -4072,7 +4083,7 @@
         },
         {
             "Key": "1af3fbd470b6453d97316c2e18b7aa4a",
-            "SimpleName": "Fortification25Enchant.prefix",
+            "SimpleName": "Fortification25Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Light Fortification",
             "ruRU": null,
@@ -4083,7 +4094,7 @@
         },
         {
             "Key": "98fe93f2945748d180e693bb46eaa2f1",
-            "SimpleName": "Fortification50Enchant.prefix",
+            "SimpleName": "Fortification50Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Fortification",
             "ruRU": null,
@@ -4094,7 +4105,7 @@
         },
         {
             "Key": "520e22cc16b346aab8aeb9b062d8df70",
-            "SimpleName": "Fortification75Enchant.prefix",
+            "SimpleName": "Fortification75Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Heavy Fortification",
             "ruRU": null,
@@ -4105,7 +4116,7 @@
         },
         {
             "Key": "dcd3a1bbec7743f2aebaf0ef9425975e",
-            "SimpleName": "Frost.prefix",
+            "SimpleName": "Frost.Prefix",
             "ProcessTemplates": false,
             "enGB": "Frost",
             "ruRU": null,
@@ -4116,7 +4127,7 @@
         },
         {
             "Key": "9249c9342dff452fa2b4639abcd9b900",
-            "SimpleName": "Frost2d8.prefix",
+            "SimpleName": "Frost2d8.Prefix",
             "ProcessTemplates": false,
             "enGB": "Greater Frost",
             "ruRU": null,
@@ -4127,7 +4138,7 @@
         },
         {
             "Key": "8cb1b6ddb61d4eb09d0428c31c88806a",
-            "SimpleName": "Furious.prefix",
+            "SimpleName": "Furious.Prefix",
             "ProcessTemplates": false,
             "enGB": "Furious",
             "ruRU": null,
@@ -4138,7 +4149,7 @@
         },
         {
             "Key": "f398dd6790174008ac7625f7dc7a991a",
-            "SimpleName": "Furyborn.prefix",
+            "SimpleName": "Furyborn.Prefix",
             "ProcessTemplates": false,
             "enGB": "Furyborn",
             "ruRU": null,
@@ -4149,7 +4160,7 @@
         },
         {
             "Key": "c4f7c820b5f648a78adc714743496d98",
-            "SimpleName": "GhostTouch.prefix",
+            "SimpleName": "GhostTouch.Prefix",
             "ProcessTemplates": false,
             "enGB": "Ghost Touch",
             "ruRU": null,
@@ -4446,7 +4457,7 @@
         },
         {
             "Key": "c1ca1c19c1944060b1e4842b6d07f647",
-            "SimpleName": "Heartseeker.prefix",
+            "SimpleName": "Heartseeker.Prefix",
             "ProcessTemplates": false,
             "enGB": "Heartseeker",
             "ruRU": null,
@@ -4479,7 +4490,7 @@
         },
         {
             "Key": "ebae158ba0504408a0cf176d9ef08174",
-            "SimpleName": "Holy.prefix",
+            "SimpleName": "Holy.Prefix",
             "ProcessTemplates": false,
             "enGB": "Holy",
             "ruRU": null,
@@ -4490,7 +4501,7 @@
         },
         {
             "Key": "997adce5e6ef47d2a8c335a11a6229ee",
-            "SimpleName": "Ice2d6.prefix",
+            "SimpleName": "Ice2d6.Prefix",
             "ProcessTemplates": false,
             "enGB": "Freezing",
             "ruRU": null,
@@ -4556,7 +4567,7 @@
         },
         {
             "Key": "3050e4c02fff47a8a50ce2c997b812d2",
-            "SimpleName": "Keen.prefix",
+            "SimpleName": "Keen.Prefix",
             "ProcessTemplates": false,
             "enGB": "Keen",
             "ruRU": null,
@@ -5315,7 +5326,7 @@
         },
         {
             "Key": "924e4b28350c47c7bf9d2e83cc444324",
-            "SimpleName": "MagicWeapon.prefix",
+            "SimpleName": "MagicWeapon.Prefix",
             "ProcessTemplates": false,
             "enGB": "Magic",
             "ruRU": null,
@@ -5370,7 +5381,7 @@
         },
         {
             "Key": "bbe1528a347b4206a9c7badb03da06e4",
-            "SimpleName": "Masterwork.prefix",
+            "SimpleName": "Masterwork.Prefix",
             "ProcessTemplates": false,
             "enGB": "Masterwork",
             "ruRU": null,
@@ -5909,7 +5920,7 @@
         },
         {
             "Key": "681d6e402fff4d1bb913caf75744d2e7",
-            "SimpleName": "MithralArmorEnchant.prefix",
+            "SimpleName": "MithralArmorEnchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Mithral",
             "ruRU": null,
@@ -6140,7 +6151,7 @@
         },
         {
             "Key": "5f1b984a389043baab41f1a8e5f17da6",
-            "SimpleName": "Necrotic.prefix",
+            "SimpleName": "Necrotic.Prefix",
             "ProcessTemplates": false,
             "enGB": "Necrotic",
             "ruRU": null,
@@ -6151,7 +6162,7 @@
         },
         {
             "Key": "a86877febf5c4c5b8653c9bb564f331f",
-            "SimpleName": "NegativeEnergyImmunty15PerEnchantment.prefix",
+            "SimpleName": "NegativeEnergyImmunty15PerEnchantment.Prefix",
             "ProcessTemplates": false,
             "enGB": "Negative Energy Blocking",
             "ruRU": null,
@@ -6162,7 +6173,7 @@
         },
         {
             "Key": "954d6b828e5b48da8d5a78dc1939343a",
-            "SimpleName": "NegativeEnergyResistance10Enchant.prefix",
+            "SimpleName": "NegativeEnergyResistance10Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Negative Energy Resistant",
             "ruRU": null,
@@ -6176,17 +6187,6 @@
             "SimpleName": "NineTailedHeirBloodlineSelection.Name",
             "ProcessTemplates": false,
             "enGB": "Nine Tailed Heir Bloodline",
-            "ruRU": null,
-            "deDE": null,
-            "frFR": null,
-            "zhCN": null,
-            "esES": null
-        },
-        {
-            "Key": "3142b96a095148839dbd2f83d4e96877",
-            "SimpleName": "EmptyString",
-            "ProcessTemplates": true,
-            "enGB": "",
             "ruRU": null,
             "deDE": null,
             "frFR": null,
@@ -6228,7 +6228,7 @@
         },
         {
             "Key": "7c6ffcfe8f31499aa39417e5aebdd29b",
-            "SimpleName": "Oversized.prefix",
+            "SimpleName": "Oversized.Prefix",
             "ProcessTemplates": false,
             "enGB": "Oversized",
             "ruRU": null,
@@ -6272,7 +6272,7 @@
         },
         {
             "Key": "92df002aeb88439bb71699fdb0c8831b",
-            "SimpleName": "PositiveEnergyResistance30Enchant.prefix",
+            "SimpleName": "PositiveEnergyResistance30Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Positive Energy Resistant",
             "ruRU": null,
@@ -6382,7 +6382,7 @@
         },
         {
             "Key": "cf4155b50e1e402497a88a30aa503bc8",
-            "SimpleName": "Radiant.prefix",
+            "SimpleName": "Radiant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Radiant",
             "ruRU": null,
@@ -6393,7 +6393,7 @@
         },
         {
             "Key": "2775f5f07fef4b73a62c50d49e0a76ae",
-            "SimpleName": "Sacrificial.prefix",
+            "SimpleName": "Sacrificial.Prefix",
             "ProcessTemplates": false,
             "enGB": "Sacrificial",
             "ruRU": null,
@@ -6624,7 +6624,7 @@
         },
         {
             "Key": "dc2e7f82782b41b0b101828d018b3513",
-            "SimpleName": "Shock.prefix",
+            "SimpleName": "Shock.Prefix",
             "ProcessTemplates": false,
             "enGB": "Shocking",
             "ruRU": null,
@@ -6635,7 +6635,7 @@
         },
         {
             "Key": "dec943572cf94beba751cd9cd93edb04",
-            "SimpleName": "SonicResistance10Enchant.prefix",
+            "SimpleName": "SonicResistance10Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Sonic Resistant",
             "ruRU": null,
@@ -7262,7 +7262,7 @@
         },
         {
             "Key": "5db0055999d24b0e99e84df7fa5f7c2c",
-            "SimpleName": "Speed.prefix",
+            "SimpleName": "Speed.Prefix",
             "ProcessTemplates": false,
             "enGB": "Speed",
             "ruRU": null,
@@ -7339,7 +7339,7 @@
         },
         {
             "Key": "23cfda52f52f49caa16d970dc0fb358f",
-            "SimpleName": "SpellResistance13Enchant.prefix",
+            "SimpleName": "SpellResistance13Enchant.Prefix",
             "ProcessTemplates": false,
             "enGB": "Spell Resistant",
             "ruRU": null,
@@ -7702,7 +7702,7 @@
         },
         {
             "Key": "2bee04557fb74f3fa481449e7806e420",
-            "SimpleName": "TemporaryEnhancement1NonStacking.suffix",
+            "SimpleName": "TemporaryEnhancement1NonStacking.Suffix",
             "ProcessTemplates": false,
             "enGB": "+1",
             "ruRU": null,
@@ -7735,7 +7735,7 @@
         },
         {
             "Key": "2bee04557fb74f3ca481449e7806e423",
-            "SimpleName": "TemporaryEnhancement2NonStacking.suffix",
+            "SimpleName": "TemporaryEnhancement2NonStacking.Suffix",
             "ProcessTemplates": false,
             "enGB": "+2",
             "ruRU": null,
@@ -7768,7 +7768,7 @@
         },
         {
             "Key": "2bee04557fb74f3da481449e7806e422",
-            "SimpleName": "TemporaryEnhancement3NonStacking.suffix",
+            "SimpleName": "TemporaryEnhancement3NonStacking.Suffix",
             "ProcessTemplates": false,
             "enGB": "+3",
             "ruRU": null,
@@ -7801,7 +7801,7 @@
         },
         {
             "Key": "2bee04557fb74f3aa481449e7806e425",
-            "SimpleName": "TemporaryEnhancement4NonStacking.suffix",
+            "SimpleName": "TemporaryEnhancement4NonStacking.Suffix",
             "ProcessTemplates": false,
             "enGB": "+4",
             "ruRU": null,
@@ -7834,7 +7834,7 @@
         },
         {
             "Key": "2bee04557fb74f3ba481449e7806e424",
-            "SimpleName": "TemporaryEnhancement5NonStacking.suffix",
+            "SimpleName": "TemporaryEnhancement5NonStacking.Suffix",
             "ProcessTemplates": false,
             "enGB": "+5",
             "ruRU": null,
@@ -7867,7 +7867,7 @@
         },
         {
             "Key": "2bee04557fb74f38a481449e7806e427",
-            "SimpleName": "TemporaryEnhancement6NonStacking.suffix",
+            "SimpleName": "TemporaryEnhancement6NonStacking.Suffix",
             "ProcessTemplates": false,
             "enGB": "+6",
             "ruRU": null,
@@ -7911,7 +7911,7 @@
         },
         {
             "Key": "e5b38696fc1f4856bfc5c32b1331a40e",
-            "SimpleName": "Thundering.prefix",
+            "SimpleName": "Thundering.Prefix",
             "ProcessTemplates": false,
             "enGB": "Thundering",
             "ruRU": null,
@@ -7999,7 +7999,7 @@
         },
         {
             "Key": "b5d307bd0a4c4849bfc0d8681032b182",
-            "SimpleName": "Ultrasound.prefix",
+            "SimpleName": "Ultrasound.Prefix",
             "ProcessTemplates": false,
             "enGB": "Ultrasound",
             "ruRU": null,
@@ -8021,7 +8021,7 @@
         },
         {
             "Key": "73bf1a7e23c140e8ac6f5f0bb4716f72",
-            "SimpleName": "Unholy.prefix",
+            "SimpleName": "Unholy.Prefix",
             "ProcessTemplates": false,
             "enGB": "Unholy",
             "ruRU": null,
@@ -8032,7 +8032,7 @@
         },
         {
             "Key": "d37d5761b951426586eb01c77f1c5c40",
-            "SimpleName": "ViciousEnchantment.prefix",
+            "SimpleName": "ViciousEnchantment.Prefix",
             "ProcessTemplates": false,
             "enGB": "Vicious",
             "ruRU": null,
@@ -8043,7 +8043,7 @@
         },
         {
             "Key": "458fb279ad304c36bb2b4aa38ffd2edc",
-            "SimpleName": "Vorpal.prefix",
+            "SimpleName": "Vorpal.Prefix",
             "ProcessTemplates": false,
             "enGB": "Vorpal",
             "ruRU": null,

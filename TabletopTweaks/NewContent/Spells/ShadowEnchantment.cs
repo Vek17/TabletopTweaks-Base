@@ -7,6 +7,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -17,7 +18,17 @@ namespace TabletopTweaks.NewContent.Spells {
             //var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_ShadowEnchantment.png");
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_ShadowEnchantment.png");
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
-
+            var ShadowEnchantmentProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("ShadowEnchantmentProperty", bp => {
+                bp.BaseValue = 20;
+                bp.AddComponent<FactRankGetter>(c => {
+                    c.m_Fact = PowerfulShadows.ToReference<BlueprintUnitFactReference>();
+                    c.Settings = new PropertySettings() {
+                        m_Progression = PropertySettings.Progression.MultiplyByModifier,
+                        m_StepLevel = 20,
+                        m_CustomProgression = new PropertySettings.CustomProgressionItem[0]
+                    };
+                });
+            });
             var ShadowEnchantment = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantment", bp => {
                 bp.SetName("bcfb4c11fd214967bb16b4f3e3b9df18", "Shadow Enchantment");
                 bp.SetDescription("cad4bc957cbe4fbcb192b1863da4790b", "You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level "
@@ -53,7 +64,7 @@ namespace TabletopTweaks.NewContent.Spells {
                 });
                 bp.AddComponent<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
-                    c.m_Factor = BlueprintReferenceBase.CreateTyped<BlueprintUnitPropertyReference>(null);
+                    c.m_Factor = ShadowEnchantmentProperty.ToReference<BlueprintUnitPropertyReference>();
                     c.MaxSpellLevel = 2;
                     c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
                 });
@@ -91,7 +102,17 @@ namespace TabletopTweaks.NewContent.Spells {
             //var icon = AssetLoader.Image2Sprite.Create($"{ModSettings.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_ShadowEnchantmentGreater.png");
             var icon = AssetLoader.LoadInternal("Abilities", "Icon_ShadowEnchantmentGreater.png");
             var PowerfulShadows = Resources.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
-
+            var ShadowEnchantmentGreaterProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("ShadowEnchantmentGreaterProperty", bp => {
+                bp.BaseValue = 60;
+                bp.AddComponent<FactRankGetter>(c => {
+                    c.m_Fact = PowerfulShadows.ToReference<BlueprintUnitFactReference>();
+                    c.Settings = new PropertySettings() {
+                        m_Progression = PropertySettings.Progression.MultiplyByModifier,
+                        m_StepLevel = 20,
+                        m_CustomProgression = new PropertySettings.CustomProgressionItem[0]
+                    };
+                });
+            });
             var ShadowEnchantmentGreater = Helpers.CreateBlueprint<BlueprintAbility>("ShadowEnchantmentGreater", bp => {
                 bp.SetName("9740a93009244ec6944d2761176b564f", "Shadow Enchantment, Greater");
                 bp.SetDescription("d1e129c997834ec9b1322ca697cc43d8", "This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, "
@@ -121,7 +142,8 @@ namespace TabletopTweaks.NewContent.Spells {
                 });
                 bp.AddComponent<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
-                    c.m_Factor = BlueprintReferenceBase.CreateTyped<BlueprintUnitPropertyReference>(null);
+                    c.m_Factor = ShadowEnchantmentGreaterProperty.ToReference<BlueprintUnitPropertyReference>();
+                    c.MaxSpellLevel = 6;
                     c.SpellList = SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>();
                 });
                 bp.AddComponent<ContextCalculateSharedValue>(c => {

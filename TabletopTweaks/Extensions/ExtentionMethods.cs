@@ -392,11 +392,11 @@ namespace TabletopTweaks.Extensions {
         }
 
         public static void SetPrefix(this BlueprintItemEnchantment enchantment, string id, string prefix) {
-            enchantment.m_Prefix = Helpers.CreateString(id, $"{enchantment.name}.prefix", prefix);
+            enchantment.m_Prefix = Helpers.CreateString(id, $"{enchantment.name}.Prefix", prefix);
         }
 
         public static void SetSuffix(this BlueprintItemEnchantment enchantment, string id, string sufix) {
-            enchantment.m_Suffix = Helpers.CreateString(id, $"{enchantment.name}.suffix", sufix);
+            enchantment.m_Suffix = Helpers.CreateString(id, $"{enchantment.name}.Suffix", sufix);
         }
 
         public static void SetNameDescription(this BlueprintUnitFact feature, string nameId, string descriptionId, string displayName, string description) {

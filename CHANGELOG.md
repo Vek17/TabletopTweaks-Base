@@ -6,6 +6,7 @@
 * Adjusted Magical Tail Feats @Balkoth
 * Kitsune polymorph is now correctly considered a polymorph
 * Updated string handling to support general localization (will need help from speakers to do actual localization work)
+* Shadow Enchantment should now work correctly
 
 ## Version 1.9.6b
 * Aspect of Omox DR now stacks globaly
