@@ -360,32 +360,32 @@ namespace TabletopTweaks.Extensions {
             return clone;
         }
 
-        public static void UpdatePrefixSuffix(this BlueprintItemEnchantment enchantment, string prefix, string sufix, Locale targetLanguage = Locale.enGB) {
+        public static void UpdatePrefixSuffix(this BlueprintItemEnchantment enchantment, string prefixId, string sufixId, string prefix, string sufix, Locale targetLanguage = Locale.enGB) {
             if (LocalizationManager.CurrentLocale != targetLanguage) { return; }
-            enchantment.SetPrefix(prefix);
-            enchantment.SetSuffix(sufix);
+            enchantment.SetPrefix(prefixId, prefix);
+            enchantment.SetSuffix(sufixId, sufix);
         }
 
-        public static void SetName(this BlueprintItemEnchantment enchantment, string name) {
-            enchantment.m_EnchantName = Helpers.CreateString(enchantment.name + ".Name", name);
+        public static void SetName(this BlueprintItemEnchantment enchantment, string id, string name) {
+            enchantment.m_EnchantName = Helpers.CreateString(Guid.Parse(id), enchantment.name + ".Name", name);
         }
 
-        public static void SetDescription(this BlueprintItemEnchantment enchantment, string description) {
+        public static void SetDescription(this BlueprintItemEnchantment enchantment, string id, string description) {
             var taggedDescription = DescriptionTools.TagEncyclopediaEntries(description);
-            enchantment.m_Description = Helpers.CreateString(enchantment.name + ".Description", taggedDescription);
+            enchantment.m_Description = Helpers.CreateString(Guid.Parse(id), enchantment.name + ".Description", description, shouldProcess: true);
         }
 
-        public static void SetPrefix(this BlueprintItemEnchantment enchantment, string prefix) {
-            enchantment.m_Prefix = Helpers.CreateString($"{enchantment.name}.prefix", prefix);
+        public static void SetPrefix(this BlueprintItemEnchantment enchantment, string id, string prefix) {
+            enchantment.m_Prefix = Helpers.CreateString(Guid.Parse(id), $"{enchantment.name}.prefix", prefix);
         }
 
-        public static void SetSuffix(this BlueprintItemEnchantment enchantment, string sufix) {
-            enchantment.m_Suffix = Helpers.CreateString($"{enchantment.name}.suffix", sufix);
+        public static void SetSuffix(this BlueprintItemEnchantment enchantment, string id, string sufix) {
+            enchantment.m_Suffix = Helpers.CreateString(Guid.Parse(id), $"{enchantment.name}.suffix", sufix);
         }
 
-        public static void SetNameDescription(this BlueprintUnitFact feature, String displayName, String description) {
-            feature.SetName(Helpers.CreateString(feature.name + ".Name", displayName));
-            feature.SetDescription(description);
+        public static void SetNameDescription(this BlueprintUnitFact feature, string nameId, string descriptionId, string displayName, string description) {
+            feature.SetName(nameId, displayName);
+            feature.SetDescription(descriptionId, description);
         }
 
         public static void SetNameDescription(this BlueprintUnitFact feature, BlueprintUnitFact other) {
@@ -397,12 +397,12 @@ namespace TabletopTweaks.Extensions {
             feature.m_DisplayName = name;
         }
 
-        public static void SetName(this BlueprintUnitFact feature, String name) {
-            feature.m_DisplayName = Helpers.CreateString(feature.name + ".Name", name);
+        public static void SetName(this BlueprintUnitFact feature, string id, string name) {
+            feature.m_DisplayName = Helpers.CreateString(Guid.Parse(id), feature.name + ".Name", name);
         }
 
-        public static void SetDescriptionUntagged(this BlueprintUnitFact feature, String description) {
-            feature.m_Description = Helpers.CreateString(feature.name + ".Description", description);
+        public static void SetDescriptionUntagged(this BlueprintUnitFact feature, string id, string description) {
+            feature.m_Description = Helpers.CreateString(Guid.Parse(id), feature.name + ".Description", description);
         }
 
         public static void SetDescription(this BlueprintUnitFact feature, LocalizedString description) {
@@ -410,9 +410,9 @@ namespace TabletopTweaks.Extensions {
             //blueprintUnitFact_set_Description(feature) = description;
         }
 
-        public static void SetDescription(this BlueprintUnitFact feature, String description) {
-            var taggedDescription = DescriptionTools.TagEncyclopediaEntries(description);
-            feature.m_Description = Helpers.CreateString(feature.name + ".Description", taggedDescription);
+        public static void SetDescription(this BlueprintUnitFact feature, string id, string description) {
+            feature.m_Description = Helpers.CreateString(Guid.Parse(id), feature.name + ".Description", description, shouldProcess: true);
+
         }
 
         public static bool HasFeatureWithId(this LevelEntry level, String id) {
@@ -427,8 +427,6 @@ namespace TabletopTweaks.Extensions {
             }
             return false;
         }
-
-        static readonly FastRef<BlueprintArchetype, Sprite> blueprintArchetype_set_Icon = Helpers.CreateFieldSetter<BlueprintArchetype, Sprite>("m_Icon");
 
         public static void FixDomainSpell(this BlueprintAbility spell, int level, string spellListId) {
             var spellList = Resources.GetBlueprint<BlueprintSpellList>(spellListId);

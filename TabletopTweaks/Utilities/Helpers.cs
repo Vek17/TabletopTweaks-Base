@@ -8,6 +8,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
+using Kingmaker.Localization.Shared;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -22,6 +23,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using TabletopTweaks.Config;
+using TabletopTweaks.Localization;
 using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 
 namespace TabletopTweaks.Utilities {
@@ -105,37 +107,19 @@ namespace TabletopTweaks.Utilities {
         }
 #endif
 
-        // All localized strings created in this mod, mapped to their localized key. Populated by CreateString.
-        static Dictionary<String, LocalizedString> textToLocalizedString = new Dictionary<string, LocalizedString>();
-        public static LocalizedString CreateTaggedString(string key, string value) {
-            return CreateString(key, DescriptionTools.TagEncyclopediaEntries(value));
-        }
-        public static LocalizedString CreateString(string key, string value) {
+        public static LocalizedString CreateString(Guid id, string simpleName, string text, Locale locale = Locale.enGB, bool shouldProcess = false) {
             // See if we used the text previously.
             // (It's common for many features to use the same localized text.
             // In that case, we reuse the old entry instead of making a new one.)
-            LocalizedString localized;
-            if (textToLocalizedString.TryGetValue(value, out localized)) {
-                return localized;
+            MultiLocalizationPack.MultiLocaleString multiLocalized;
+            if (ModSettings.ModLocalizationPack.TryGetText(text.StripHTML(), out multiLocalized)) {
+                return multiLocalized.LocalizedString;
             }
-            var strings = LocalizationManager.CurrentPack.Strings;
-            String oldValue;
-            if (strings.TryGetValue(key, out oldValue) && value != oldValue) {
-#if DEBUG
-                Main.LogDebug($"Info: duplicate localized string `{key}`, different text.");
-#endif
-            }
-            strings[key] = value;
-            localized = new LocalizedString {
-                m_Key = key
-            };
-            textToLocalizedString[value] = localized;
-            return localized;
+            multiLocalized = new MultiLocalizationPack.MultiLocaleString(id, simpleName, text.StripHTML(), shouldProcess, locale);
+            ModSettings.ModLocalizationPack.AddString(multiLocalized);
+            return multiLocalized.LocalizedString;
         }
-        public static FastRef<T, S> CreateFieldSetter<T, S>(string name) {
-            return new FastRef<T, S>(HarmonyLib.AccessTools.FieldRefAccess<T, S>(HarmonyLib.AccessTools.Field(typeof(T), name)));
-            //return new FastSetter<T, S>(HarmonyLib.FastAccess.CreateSetterHandler<T, S>(HarmonyLib.AccessTools.Field(typeof(T), name)));
-        }
+
         public static FastRef<T, S> CreateFieldGetter<T, S>(string name) {
             return new FastRef<T, S>(HarmonyLib.AccessTools.FieldRefAccess<T, S>(HarmonyLib.AccessTools.Field(typeof(T), name)));
             //return new FastGetter<T, S>(HarmonyLib.FastAccess.CreateGetterHandler<T, S>(HarmonyLib.AccessTools.Field(typeof(T), name)));

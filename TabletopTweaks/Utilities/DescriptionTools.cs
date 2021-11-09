@@ -323,7 +323,7 @@ namespace TabletopTweaks.Utilities {
             }
             return str;
         }
-        private static string StripHTML(this string str) {
+        public static string StripHTML(this string str) {
             return Regex.Replace(str, "<.*?>", string.Empty);
         }
         private static string ExcludeTagged(this string str) {

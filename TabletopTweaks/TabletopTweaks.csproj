@@ -180,6 +180,7 @@
     <Compile Include="Config\IUpdatableSettings.cs" />
     <Compile Include="Config\NestedSettingGroup.cs" />
     <Compile Include="Config\SettingGroup.cs" />
+    <Compile Include="Localization\MultiLocalizationPack.cs" />
     <Compile Include="MechanicsChanges\ActivatableAbilitySpendLogic.cs" />
     <Compile Include="MechanicsChanges\ArchetypePrerequisites .cs" />
     <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
@@ -448,6 +449,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <EmbeddedResource Include="Config\Fixes.json" />
+    <None Include="Localization\LocalizationPack.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
