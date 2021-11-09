@@ -44,8 +44,9 @@ namespace TabletopTweaks.Config {
         }
         public static void LoadLocalization() {
             JsonSerializer serializer = JsonSerializer.Create(SerializerSettings);
-            var assembly = Assembly.GetExecutingAssembly();
             var fileName = "LocalizationPack.json";
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourcePath = $"TabletopTweaks.Localization.{fileName}"; ;
             var localizationPath = $"{localizationFolder}{Path.DirectorySeparatorChar}{fileName}";
             Directory.CreateDirectory(localizationFolder);
             if (File.Exists(localizationPath)) {
@@ -59,6 +60,12 @@ namespace TabletopTweaks.Config {
                         Main.Error("Failed to localization. Settings will be rebuilt.");
                         try { File.Copy(localizationPath, ModEntry.Path + $"{Path.DirectorySeparatorChar}BROKEN_{fileName}", true); } catch { Main.Error("Failed to archive broken localization."); }
                     }
+                }
+            } else {
+                using (Stream stream = assembly.GetManifestResourceStream(resourcePath))
+                using (StreamReader streamReader = new StreamReader(stream))
+                using (JsonReader jsonReader = new JsonTextReader(streamReader)) {
+                    ModLocalizationPack = serializer.Deserialize<MultiLocalizationPack>(jsonReader);
                 }
             }
         }

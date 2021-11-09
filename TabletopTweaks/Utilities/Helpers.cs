@@ -112,18 +112,19 @@ namespace TabletopTweaks.Utilities {
             // (It's common for many features to use the same localized text.
             // In that case, we reuse the old entry instead of making a new one.)
             MultiLocalizationPack.MultiLocaleString multiLocalized;
-            if (ModSettings.ModLocalizationPack.TryGetText(text.StripHTML(), out multiLocalized)) {
+            if (ModSettings.ModLocalizationPack.TryGetText(text.StripHTML().StripEncyclopediaTags(), out multiLocalized)) {
                 return multiLocalized.LocalizedString;
             }
             if (ModSettings.ModLocalizationPack.Ids.TryGetValue(id, out multiLocalized)) {
 #if DEBUG
-                multiLocalized.SetText(locale, text);
+                multiLocalized.SetText(locale, text.StripHTML().StripEncyclopediaTags());
                 multiLocalized.ProcessTemplates = shouldProcess;
 #endif
                 return multiLocalized.LocalizedString;
             }
-            multiLocalized = new MultiLocalizationPack.MultiLocaleString(id, simpleName, text.StripHTML(), shouldProcess, locale);
+            multiLocalized = new MultiLocalizationPack.MultiLocaleString(id, simpleName, text.StripHTML().StripEncyclopediaTags(), shouldProcess, locale);
             ModSettings.ModLocalizationPack.AddString(multiLocalized);
+            Main.Log($"WARNING: Generated New Localizaed String: {id}:{simpleName}");
             return multiLocalized.LocalizedString;
         }
 

@@ -329,6 +329,9 @@ namespace TabletopTweaks.Utilities {
         public static string StripHTML(this string str) {
             return Regex.Replace(str, "<.*?>", string.Empty);
         }
+        public static string StripEncyclopediaTags(this string str) {
+            return Regex.Replace(str, "{.*?}", string.Empty);
+        }
         private static string ExcludeTagged(this string str) {
             return $"{@"(?<!{g\|Encyclopedia:\w+}[^}]*)"}{str}{@"(?![^{]*{\/g})"}";
         }
