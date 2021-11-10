@@ -44,7 +44,7 @@
         "Description": "Allows Weapon/Armor names to be modified by any additional enchants they gain outside of thier base enchants."
       },
       "DynamicItemNamingTemporary": {
-        "Enabled": true,
+        "Enabled": false,
         "Homebrew": false,
         "Description": "Displays the names of temporary enchants as part of the equipment."
       },
