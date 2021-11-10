@@ -17,11 +17,11 @@ namespace TabletopTweaks.NewContent.WeaponEnchantments {
         private static BlueprintWeaponEnchantment CreateNonStackingEnhancement(int enhancmentBonus) {
             return Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"TemporaryEnhancement{enhancmentBonus}NonStacking", bp => {
                 bp.m_EnchantmentCost = enhancmentBonus;
-                bp.SetName(Helpers.DeriveId("e74c34eebd664e8b81d261df1a9de4e2", enhancmentBonus), $"Temporary Enhancement +{enhancmentBonus}");
-                bp.SetDescription(Helpers.DeriveId("87c767465a324c9cad24d56cd425974e", enhancmentBonus), $"Attacks with this weapon get +{enhancmentBonus} " +
+                bp.SetName($"Temporary Enhancement +{enhancmentBonus}");
+                bp.SetDescription($"Attacks with this weapon get +{enhancmentBonus} " +
                     $"enhancement bonus on both attack and damage rolls.");
-                bp.SetPrefix(Helpers.DeriveId("8de6ba29d79a4326a28136f6e0291f7e", enhancmentBonus), "");
-                bp.SetSuffix(Helpers.DeriveId("2bee04557fb74f3ea481449e7806e421", enhancmentBonus), $"+{enhancmentBonus}");
+                bp.SetPrefix("");
+                bp.SetSuffix($"+{enhancmentBonus}");
                 bp.AddComponent<WeaponEnhancementBonus>(c => {
                     c.EnhancementBonus = enhancmentBonus;
                 });

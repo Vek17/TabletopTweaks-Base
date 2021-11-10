@@ -23,8 +23,8 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
-                bp.SetName("a3bfb811a0fc4849a9bf6fcace62f351", "Quick Draw");
-                bp.SetDescription("ef52eaeca7c14991a00aa0a4930ae198", "You can draw a weapon as a free action instead of as a move action.");
+                bp.SetName("Quick Draw");
+                bp.SetDescription("You can draw a weapon as a free action instead of as a move action.");
                 bp.AddComponent<AddCustomMechanicsFeature>(c => {
                     c.Feature = CustomMechanicsFeature.QuickDraw;
                 });

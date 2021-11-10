@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewContent.Templates {
 
         public static void AddCelestialTemplate() {
             var CelestialTemplate = CreateAlignmentTemplate("TemplateCelestial", DamageAlignment.Evil, DamageEnergyType.Cold, DamageEnergyType.Acid, DamageEnergyType.Electricity);
-            CelestialTemplate.SetDescription("1598b94c552849b89b1b31c755579246", "Creature gains spell resistance equal to its level +5. It also gains:\n" +
+            CelestialTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
                 "1 — 4 HD: resistance 5 to cold, acid, and electricity.\n" +
                 "5 — 10 HD: resistance 10 to cold, acid, and electricity, DR 5/evil\n" +
                 "11+ HD: resistance 15 to cold, acid, and electricity, DR 10/evil\n" +
@@ -44,8 +44,8 @@ namespace TabletopTweaks.NewContent.Templates {
                 "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var CelestialTemplateSmiteEvilResource = CreateAlignmentResource("TemplateCelestialResource");
             var CelestialTemplateSmiteEvilBuff = CreateAlignmentSmiteBuff("TemplateCelestialSmiteEvilBuff", SmiteEvilBuff, bp => {
-                bp.SetName("b0a49ba223d64bd9b89b821062a3d31f", "Smite Evil");
-                bp.SetDescription("f5682317e1244821b6f0c83fa1890ada", "Once per day, the celestial creature may smite an evil-aligned creature. As a swift action, " +
+                bp.SetName("Smite Evil");
+                bp.SetDescription("Once per day, the celestial creature may smite an evil-aligned creature. As a swift action, " +
                 "the creature chooses one target within sight to smite. If this target is evil, the creature adds its Charisma bonus (if any) to " +
                 "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             });
@@ -67,7 +67,7 @@ namespace TabletopTweaks.NewContent.Templates {
         }
         public static void AddFiendishTemplate() {
             var FiendishTemplate = CreateAlignmentTemplate("TemplateFiendish", DamageAlignment.Good, DamageEnergyType.Cold, DamageEnergyType.Fire);
-            FiendishTemplate.SetDescription("0def02a7732a4048a43c3b128d3c716c", "Creature gains spell resistance equal to its level +5. It also gains:\n" +
+            FiendishTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
                     "1 — 4 HD: resistance 5 to cold and fire.\n" +
                     "5 — 10 HD: resistance 10 to cold and fire, DR 5/good\n" +
                     "11+ HD: resistance 15 to cold and fire, DR 10/good\n" +
@@ -76,8 +76,8 @@ namespace TabletopTweaks.NewContent.Templates {
                     "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var FiendishTemplateSmiteGoodResource = CreateAlignmentResource("TemplateFiendishResource");
             var FiendishTemplateSmiteGoodBuff = CreateAlignmentSmiteBuff("TemplateFiendishSmiteGoodBuff", FiendishSmiteGoodBuff, bp => {
-                bp.SetName("b1958030d3724bd7b552c9146b9a4026", "Smite Good");
-                bp.SetDescription("37a5243d23174876ae74fbc8746fe54d", "Once per day, the fiendish creature may smite a good-aligned creature. As a swift action, " +
+                bp.SetName("Smite Good");
+                bp.SetDescription("Once per day, the fiendish creature may smite a good-aligned creature. As a swift action, " +
                 "the creature chooses one target within sight to smite. If this target is good, the creature adds its Charisma bonus (if any) to " +
                 "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             });
@@ -99,7 +99,7 @@ namespace TabletopTweaks.NewContent.Templates {
         }
         public static void AddEntropicTemplate() {
             var EntropicTemplate = CreateAlignmentTemplate("TemplateEntropic", DamageAlignment.Lawful, DamageEnergyType.Acid, DamageEnergyType.Fire);
-            EntropicTemplate.SetDescription("da04eba76efa4ae7ae98ebad33c1767a", "Creature gains spell resistance equal to its level +5. It also gains:\n" +
+            EntropicTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
                     "1 — 4 HD: resistance 5 to acid and fire.\n" +
                     "5 — 10 HD: resistance 10 to acid and fire, DR 5/lawful\n" +
                     "11+ HD: resistance 15 to acid and fire, DR 10/lawful\n" +
@@ -108,8 +108,8 @@ namespace TabletopTweaks.NewContent.Templates {
                     "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var EntropicTemplateSmiteLawResource = CreateAlignmentResource("TemplateEntropicResource");
             var EntropicTemplateSmiteLawBuff = CreateAlignmentSmiteBuff("TemplateEntropicSmiteLawBuff", FiendishSmiteGoodBuff, bp => {
-                bp.SetName("7f9d0c00ff3a42058b66d709778961ec", "Smite Law");
-                bp.SetDescription("b3cf529690e440d38e30c55612b74fc2", "Once per day, the entropic creature may smite a law-aligned creature. As a swift action, " +
+                bp.SetName("Smite Law");
+                bp.SetDescription("Once per day, the entropic creature may smite a law-aligned creature. As a swift action, " +
                 "the creature chooses one target within sight to smite. If this target is lawful, the creature adds its Charisma bonus (if any) to " +
                 "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             });
@@ -131,7 +131,7 @@ namespace TabletopTweaks.NewContent.Templates {
         }
         public static void AddResoluteTemplate() {
             var ResoluteTemplate = CreateAlignmentTemplate("TemplateResolute", DamageAlignment.Chaotic, DamageEnergyType.Acid, DamageEnergyType.Cold, DamageEnergyType.Fire);
-            ResoluteTemplate.SetDescription("046694eeb7934325b266c72a56ff7bb4", "Creature gains spell resistance equal to its level +5. It also gains:\n" +
+            ResoluteTemplate.SetDescription("Creature gains spell resistance equal to its level +5. It also gains:\n" +
                     "1 — 4 HD: resistance 5 to acid, cold and fire.\n" +
                     "5 — 10 HD: resistance 10 to acid, cold and fire, DR 5/chaotic\n" +
                     "11+ HD: resistance 15 to acid, cold and fire, DR 10/chaotic\n" +
@@ -140,8 +140,8 @@ namespace TabletopTweaks.NewContent.Templates {
                     "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             var ResoluteTemplateSmiteChaosResource = CreateAlignmentResource("TemplateResoluteResource");
             var ResoluteTemplateSmiteChaosBuff = CreateAlignmentSmiteBuff("TemplateResoluteSmiteChaosBuff", FiendishSmiteGoodBuff, bp => {
-                bp.SetName("b9ef15bb8db545999bbc08e6e877b3b4", "Smite Chaos");
-                bp.SetDescription("5539876b1fd94811b6c3b3b0f26c8d98", "Once per day, the entropic creature may smite a chaos-aligned creature. As a swift action, " +
+                bp.SetName("Smite Chaos");
+                bp.SetDescription("Once per day, the entropic creature may smite a chaos-aligned creature. As a swift action, " +
                 "the creature chooses one target within sight to smite. If this target is chaotic, the creature adds its Charisma bonus (if any) to " +
                 "attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.");
             });
@@ -165,8 +165,8 @@ namespace TabletopTweaks.NewContent.Templates {
         private static BlueprintFeature CreateAlignmentTemplate(string name, DamageAlignment dr, params DamageEnergyType[] resists) {
             return Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
                 var Name = Regex.Split(name, @"(?<!^)(?=[A-Z])");
-                bp.SetName(Helpers.DeriveId("4f37b6444d3d413f81016908be89cfbc", (int)dr), $"{Name[1]} {Name[0]}");
-                bp.SetDescription("99121f1a5bc443ebbc6ea1b0e4e24817", "");
+                bp.SetName($"{Name[1]} {Name[0]}");
+                bp.SetDescription("");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddSpellResistance>(c => {
@@ -284,8 +284,8 @@ namespace TabletopTweaks.NewContent.Templates {
             return Helpers.CreateBlueprint<BlueprintAbility>(name, bp => {
                 bp.m_DisplayName = smiteBuff.m_DisplayName;
                 bp.m_Description = smiteBuff.m_Description;
-                bp.LocalizedDuration = Helpers.CreateString("b12e3a44e37341f2ae578620965a902f", $"AlignmentSmite.Duration", "Until the target of the smite is dead");
-                bp.LocalizedSavingThrow = Helpers.CreateString("8a0eace3961d470aaef410878ba30c26", $"AlignmentSmite.SavingThrow", "");
+                bp.LocalizedDuration = Helpers.CreateString($"AlignmentSmite.Duration", "Until the target of the smite is dead");
+                bp.LocalizedSavingThrow = Helpers.CreateString($"AlignmentSmite.SavingThrow", "");
                 bp.m_Icon = SmiteEvilAbility.Icon;
                 bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Medium;

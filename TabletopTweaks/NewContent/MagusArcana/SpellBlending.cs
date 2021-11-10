@@ -15,8 +15,8 @@ namespace TabletopTweaks.NewContent.MagusArcana {
             var MagusArcanaSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("e9dc4dfc73eaaf94aae27e0ed6cc9ada");
 
             var SpellBlendingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("SpellBlendingSelection", bp => {
-                bp.SetName("d8865c460db64bbea39f360e13001f0b", "Spell Blending");
-                bp.SetDescription("09eca663d583413ab0c4a2571ae6fe66", "When a magus selects this arcana, he must select one spell from the wizard spell list that is of a " +
+                bp.SetName("Spell Blending");
+                bp.SetDescription("When a magus selects this arcana, he must select one spell from the wizard spell list that is of a " +
                     "magus spell level he can cast. He adds this spell to his spellbook and list of magus spells known as a magus spell" +
                     " of its wizard spell level. He can instead select two spells to add in this way, but both must be at least one level" +
                     " lower than the highest-level magus spell he can cast." +
@@ -30,8 +30,8 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                 bp.IsClassFeature = true;
                 bp.Ranks = 20;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.SetName("75b6a71c274b4a1bb3063ed7e5844e7e", "Spell Blending (Single)");
-                bp.SetDescription("94283c7142074646be99d0e16b4a3257", "When a magus selects this arcana, he must select one spell from the wizard spell " +
+                bp.SetName("Spell Blending (Single)");
+                bp.SetDescription("When a magus selects this arcana, he must select one spell from the wizard spell " +
                     "list that is of a magus spell level he can cast. He adds this spell to his spellbook and list of " +
                     "magus spells known as a magus spell of its wizard spell level.");
                 bp.AddComponent<AdditionalSpellSelection>(c => {
@@ -47,8 +47,8 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                 bp.IsClassFeature = true;
                 bp.Ranks = 20;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.SetName("37af12e1c892416095ba1b088150a316", "Spell Blending (Double)");
-                bp.SetDescription("d02ea4d85f594b2e88029981f3ce24ba", "When a magus selects this arcana, he must select two spells from the wizard spell " +
+                bp.SetName("Spell Blending (Double)");
+                bp.SetDescription("When a magus selects this arcana, he must select two spells from the wizard spell " +
                     "list that are one level lower of a magus spell level he can cast. He adds these spells to his spellbook and list of " +
                     "magus spells known as magus spells of thier wizard spell level.");
                 bp.AddComponent<AdditionalSpellSelection>(c => {

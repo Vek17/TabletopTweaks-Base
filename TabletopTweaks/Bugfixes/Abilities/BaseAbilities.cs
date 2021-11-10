@@ -26,7 +26,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     if (ModSettings.Fixes.BaseFixes.IsDisabled("CoupDeGrace")) { return; }
 
                     var CoupDeGraceAbility = ResourcesLibrary.TryGetBlueprint<BlueprintAbility>("32280b137ca642c45be17e2d92898758");
-                    CoupDeGraceAbility.SetDescription("f6c357fd6cf74794858ca104605cb88d", "As a full-round action, you can use a melee weapon to deliver a coup de grace " +
+                    CoupDeGraceAbility.SetDescription("As a full-round action, you can use a melee weapon to deliver a coup de grace " +
                         "to a helpless opponent.\nYou automatically hit and score a critical hit. If the defender survives the damage, he " +
                         "must make a Fortitude save (DC 10 + damage dealt) or die. A rogue also gets her extra sneak attack damage against " +
                         "a helpless opponent when delivering a coup de grace.\nDelivering a coup de grace provokes attacks of opportunity " +

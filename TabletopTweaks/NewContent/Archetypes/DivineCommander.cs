@@ -57,16 +57,16 @@ namespace TabletopTweaks.NewContent.Archetypes {
         public static void AddDivineCommander() {
 
             var DivineCommanderArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("DivineCommanderArchetype", bp => {
-                bp.SetName("a2a86630ae01402f9cf28369cf11ddee", "Divine Commander");
-                bp.SetDescription("5bda2c58787a499999a177fe5f577709", "Some warpriests are called to lead great armies and" +
+                bp.SetName("Divine Commander");
+                bp.SetDescription("Some warpriests are called to lead great armies and" +
                     " face legions of foes. These divine commanders live for war and fight for glory." +
                     " Their hearts quicken at battle cries, and they charge forth with their deity’s symbol held high." +
                     " These leaders of armies do so to promote the agenda of their faith, and lead armies of devoted followers willing to give their lives for the cause.");
             });
 
             var DivineCommanderMobilityBuff = Helpers.CreateBuff("DivineCommanderMobilityBuff", bp => {
-                bp.SetName("535bbec001d84358a9f8ca9fbac5f78c", "Divine Commander Mobility");
-                bp.SetDescription("94dbeadff36142dc8a1ff82b78c4eff6", "A divine commander does not take an armor check penalty on Mobility checks while riding his mount.");
+                bp.SetName("Divine Commander Mobility");
+                bp.SetDescription("A divine commander does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<NegateArmorCheckSkillPenalty>(c => {
@@ -76,8 +76,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderMobilityFeature = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderMobilityFeature", bp => {
-                bp.SetName("0cf7a0ec36e048b7906108f9e8dd8e66", "Divine Commander Mobility");
-                bp.SetDescription("f7f606aa12524748b51582cc615124ef", "A divine commander does not take an armor check penalty on Mobility checks while riding his mount.");
+                bp.SetName("Divine Commander Mobility");
+                bp.SetDescription("A divine commander does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent<BuffExtraEffects>(c => {
@@ -87,8 +87,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderAnimalCompanionProgression = Helpers.CreateBlueprint<BlueprintProgression>("DivineCommanderAnimalCompanionProgression", bp => {
-                bp.SetName("f8da96975a6c41fba92a6cc6d3e7a1c5", "Divine Commander Animal Companion Progression");
-                bp.SetName("459135e13443469389226379322e90ee", "");
+                bp.SetName("Divine Commander Animal Companion Progression");
+                bp.SetName("");
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -114,8 +114,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderCompanionSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("DivineCommanderCompanionSelection", bp => {
-                bp.SetName("22c7aee6985d43c8b185b0e623b8559c", "Mount");
-                bp.SetDescription("7d64795573364600a84a2462d8196163", "A divine commander gains the service of a loyal and trusty steed to carry her into battle. This mount functions " +
+                bp.SetName("Mount");
+                bp.SetDescription("A divine commander gains the service of a loyal and trusty steed to carry her into battle. This mount functions " +
                     "as a druid’s animal companion, using the divine commander’s level as her effective druid level. The creature must be one that " +
                     "she is capable of riding and must be suitable as a mount. A Medium divine commander can select a horse. A Small divine commander can select a wolf " +
                     "A divine commander does not take an armor check penalty on Mobility checks while riding this mount.");
@@ -150,8 +150,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBlessedMountCelestial = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderBlessedMountCelestial", bp => {
-                bp.SetName("12e29c2ebc0c445493b9152b7bbb93cb", "Blessed Mount — Celestial");
-                bp.SetDescription("fc57dfaeb8384157bdc6955ffc7cae91", "Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
+                bp.SetName("Blessed Mount — Celestial");
+                bp.SetDescription("Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
                     "1 — 4 HD: resistance 5 to cold, acid, and electricity.\n" +
                     "5 — 10 HD: resistance 10 to cold, acid, and electricity, DR 5/evil\n" +
                     "11+ HD: resistance 15 to cold, acid, and electricity, DR 10/evil\n" +
@@ -171,8 +171,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBlessedMountEntropic = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderBlessedMountEntropic", bp => {
-                bp.SetName("e5993e13fb594a17a81acf916e53a531", "Blessed Mount — Entropic");
-                bp.SetDescription("95df064f16604f7f82bf2b1329200658", "Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
+                bp.SetName("Blessed Mount — Entropic");
+                bp.SetDescription("Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
                     "1 — 4 HD: resistance 5 to acid and fire.\n" +
                     "5 — 10 HD: resistance 10 to acid and fire, DR 5/lawful\n" +
                     "11+ HD: resistance 15 to acid and fire, DR 10/lawful\n" +
@@ -192,8 +192,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBlessedMountFiendish = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderBlessedMountFiendish", bp => {
-                bp.SetName("0d053863f01a4ddeb595edc7be0b31aa", "Blessed Mount — Fiendish");
-                bp.SetDescription("1df6c12961a94e45a6c348d60a9e5c1a", "Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
+                bp.SetName("Blessed Mount — Fiendish");
+                bp.SetDescription("Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
                     "1 — 4 HD: resistance 5 to cold and fire.\n" +
                     "5 — 10 HD: resistance 10 to cold and fire, DR 5/good\n" +
                     "11+ HD: resistance 15 to cold and fire, DR 10/good\n" +
@@ -213,8 +213,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBlessedMountResolute = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderBlessedMountResolute", bp => {
-                bp.SetName("0d7e990a0b364390b41cdcfbf31954dd", "Blessed Mount — Resolute");
-                bp.SetDescription("24e1dc88b0dc4900962d22a4b3625510", "Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
+                bp.SetName("Blessed Mount — Resolute");
+                bp.SetDescription("Animal Companion gains spell resistance equal to its level +5. It also gains:\n" +
                     "1 — 4 HD: resistance 5 to acid, cold and fire.\n" +
                     "5 — 10 HD: resistance 10 to acid, cold and fire, DR 5/chaotic\n" +
                     "11+ HD: resistance 15 to acid, cold and fire, DR 10/chaotic\n" +
@@ -233,8 +233,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             var DivineCommanderBlessedMount = Helpers.CreateBlueprint<BlueprintFeatureSelection>("DivineCommanderBlessedMount", bp => {
-                bp.SetName("9a6c49aeaeef45ed8126646c5754297a", "Blessed Mount");
-                bp.SetDescription("5b8ca1da66d9423799a1fb9a4b104745", "At 6th level, a divine commander’s mount becomes a creature blessed by his deity. The divine commander’s mount gains either the celestial, " +
+                bp.SetName("Blessed Mount");
+                bp.SetDescription("At 6th level, a divine commander’s mount becomes a creature blessed by his deity. The divine commander’s mount gains either the celestial, " +
                     "entropic, fiendish, or resolute template, matching the alignment of the warpriest (celestial for good, entropic for chaotic, fiendish for evil, " +
                     "and resolute for lawful). If the warpriest matches more than one alignment, the divine commander can select which of the two " +
                     "templates the mount receives. Once the type of template is selected, it cannot be changed.\n" +
@@ -272,8 +272,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBattleTacticianSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("DivineCommanderBattleTacticianSelection", bp => {
-                bp.SetName("6caac84815574552b7e57d7ee165adee", "Battle Tactician — Bonus Feat");
-                bp.SetDescription("bf2f1ade55dc438cb3fb2f5484136286", "");
+                bp.SetName("Battle Tactician — Bonus Feat");
+                bp.SetDescription("");
                 bp.m_Icon = CavalierTacticianAbility.Icon;
                 bp.m_Features = CavalierTacticianFeatSelection.m_Features;
                 bp.m_AllFeatures = CavalierTacticianFeatSelection.m_AllFeatures;
@@ -283,15 +283,15 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBattleTacticianAbility = Helpers.CreateBlueprint<BlueprintAbility>("DivineCommanderBattleTacticianAbility", bp => {
-                bp.SetName("86872bfc5a5e40f7ac48fa462e56dd01", "Battle Tactician");
-                bp.SetDescription("f6d9129b90f4427d9a7653181b2a6598", "At 3rd level, a divine commander gains a teamwork feat as a bonus feat." +
+                bp.SetName("Battle Tactician");
+                bp.SetDescription("At 3rd level, a divine commander gains a teamwork feat as a bonus feat." +
                     " She must meet the prerequisites for this feat." +
                     " As a standard action, the divine commander can grant this feat to all allies within 30 feet who can see and hear her." +
                     " Allies retain the use of this bonus feat for 4 rounds, plus 1 round for every 2 levels beyond 3rd that the divine commander possesses." +
                     " Allies do not need to meet the prerequisites of this bonus feat." +
                     " The divine commander can use this ability once per day at 3rd level, plus one additional time per day at 9th and 15th levels.");
-                bp.LocalizedDuration = Helpers.CreateString("89d1a7518c6b4af4afa547d126218040", $"{bp.name}.Duration", "");
-                bp.LocalizedSavingThrow = Helpers.CreateString("d2a5e93c9612439384d4159da1e10a60", $"{bp.name}.SavingThrow", "");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "");
+                bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.SavingThrow", "");
                 bp.m_Icon = CavalierTacticianAbility.Icon;
                 bp.Type = AbilityType.Extraordinary;
                 bp.Range = AbilityRange.Personal;
@@ -342,13 +342,13 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBattleTacticianAbilitySwift = Helpers.CreateBlueprint<BlueprintAbility>("DivineCommanderBattleTacticianAbilitySwift", bp => {
-                bp.SetName("71e7766548b1445bbf580d704d47a3ba", "Battle Tactician (Swift)");
-                bp.SetDescription("7a7fb564f0984aa8bdad3afd02cf359c", "At 12th level, the divine commander gains an additional teamwork feat as a bonus feat." +
+                bp.SetName("Battle Tactician (Swift)");
+                bp.SetDescription("At 12th level, the divine commander gains an additional teamwork feat as a bonus feat." +
                     " She must meet the prerequisites for this feat." +
                     " The divine commander can grant this feat to her allies using the battle tactician ability." +
                     " Additionally, using the battle tactician ability is now a swift action.");
-                bp.LocalizedDuration = Helpers.CreateString("e4d7c239b09047e39c466a66847a95ef", $"{bp.name}.Duration", "");
-                bp.LocalizedSavingThrow = Helpers.CreateString("3dc62f8a217442408c4da8cecc639c72", $"{bp.name}.SavingThrow", "");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "");
+                bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.SavingThrow", "");
                 bp.m_Icon = CavalierTacticianAbility.Icon;
                 bp.Type = AbilityType.Extraordinary;
                 bp.Range = AbilityRange.Personal;
@@ -359,8 +359,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBattleTacticianFeature = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderBattleTacticianFeature", bp => {
-                bp.SetName("ff2c4980a3e24263ac91b81cb0ed0149", "Battle Tactician");
-                bp.SetDescription("387ac228a4be46938758e34028982e9e", DivineCommanderBattleTacticianAbility.Description);
+                bp.SetName("Battle Tactician");
+                bp.SetDescription(DivineCommanderBattleTacticianAbility.Description);
                 bp.m_Icon = CavalierTacticianAbility.Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddAbilityResources>(c => {
@@ -375,7 +375,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var DivineCommanderBattleTacticianGreaterFeature = Helpers.CreateBlueprint<BlueprintFeature>("DivineCommanderBattleTacticianGreaterFeature", bp => {
-                bp.SetName("47b2f68f7cd745d8949126c30af49156", "Greater Battle Tactician");
+                bp.SetName("Greater Battle Tactician");
                 bp.SetDescription(DivineCommanderBattleTacticianAbilitySwift.m_Description);
                 bp.m_Icon = CavalierTacticianAbility.Icon;
                 bp.IsClassFeature = true;

@@ -49,8 +49,7 @@ namespace TabletopTweaks.NewContent.Classes {
                         return null;
                     }
                     var spellSecret = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
-                        bp.SetName(Helpers.MergeIds("5f0dc1c78a3042cbab645385e0523e86", castingClass.AssetGuid.ToString(), secretSelection.AssetGuid.ToString()), 
-                            $"{secretSelection.Name} — {castingClass.Name}");
+                        bp.SetName($"{secretSelection.Name} — {castingClass.Name}");
                         bp.SetDescription(secretSelection.m_Description);
                         bp.IsClassFeature = true;
                         bp.Groups = secret.Groups;
@@ -73,8 +72,8 @@ namespace TabletopTweaks.NewContent.Classes {
 
             void CreateSpellbookSelection() {
                 var spellbookSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("LoremasterSpellbookSelectionTTT", bp => {
-                    bp.SetName("3d3c2f5427254d6fb95ae7b4fed7c7d7", "Spellbook Selection");
-                    bp.SetDescription("3d4196be2c2f468f97faf0a919e6f45e", "When a new loremaster level is gained, the character gains new spells per day as if he had " +
+                    bp.SetName("Spellbook Selection");
+                    bp.SetDescription("When a new loremaster level is gained, the character gains new spells per day as if he had " +
                         "also gained a level in a spellcasting class he belonged to before adding the prestige class. He does not, however, gain other benefits " +
                         "a character of that class would have gained, except for additional spells per day, spells known (if he is a spontaneous spellcaster), " +
                         "and an increased effective level of spellcasting. If a character had more than one spellcasting class before becoming a loremaster, " +

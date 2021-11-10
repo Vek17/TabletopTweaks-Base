@@ -20,7 +20,7 @@ namespace TabletopTweaks.Localization {
                 if (text == null) {
                     text = new SortedDictionary<string, MultiLocaleString>();
                     foreach (var entry in Strings) {
-                        text[entry.LocalizedText()] = entry;
+                        text[entry.enGB] = entry;
                     }
                 }
                 return text;
@@ -102,10 +102,10 @@ namespace TabletopTweaks.Localization {
                 };
             }
             public MultiLocaleString() { }
-            public MultiLocaleString(string id, string simpleName, string text, bool shouldProcess = false, Locale locale = Locale.enGB) {
+            public MultiLocaleString(string simpleName, string text, bool shouldProcess = false, Locale locale = Locale.enGB) {
                 ProcessTemplates = shouldProcess;
                 SimpleName = simpleName;
-                Key = id;
+                Key = Guid.NewGuid().ToString("N");
                 SetText(locale, text);
             }
 

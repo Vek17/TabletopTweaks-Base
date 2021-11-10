@@ -23,8 +23,8 @@ namespace TabletopTweaks.NewContent.Feats {
 
         public static void AddErastilsBlessing() {
             var ErastilsBlessingFeature = Helpers.CreateBlueprint<BlueprintFeature>("ErastilsBlessingFeature", bp => {
-                bp.SetName("0aa87d19c378434eac38f58cff7a93e9", "Erastil's Blessing");
-                bp.SetDescription("a028d110548e4d6ab3f09b080a2ebe62", "Your deity grants you prowess with a bow that far exceeds your own physical capabilities.\n" +
+                bp.SetName("Erastil's Blessing");
+                bp.SetDescription("Your deity grants you prowess with a bow that far exceeds your own physical capabilities.\n" +
                     "You can use your Wisdom modifier instead of your Dexterity modifier on ranged attack rolls when using a bow.");
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;

@@ -124,7 +124,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 void PatchItemBuffs() {
                     //Icy Protector
                     BlueprintBuff ProtectionOfColdBuff = Resources.GetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
-                    ProtectionOfColdBuff.SetName("12b0eed7041442769e882785744e1b4e", "Iceplant");
+                    ProtectionOfColdBuff.SetName("Iceplant");
                     ProtectionOfColdBuff.GetComponent<AddStatBonus>().Value = 4;
                     Main.LogPatch("Patched", ProtectionOfColdBuff);
                 }

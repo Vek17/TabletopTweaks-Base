@@ -12,7 +12,7 @@ namespace TabletopTweaks.NewContent.Features {
             var PerfectStrikeOwnerBuff = Resources.GetBlueprint<BlueprintBuff>("9a41e6d073b42564b9f00ad83b7d3b52");
             var PerfectStrikeZenArcherBuff = Helpers.CreateBuff("PerfectStrikeZenArcherBuff", bp => {
                 bp.SetName(PerfectStrikeOwnerBuff.m_DisplayName);
-                bp.SetDescription("33fb2463f9b047abb1b6f10de73c9a33", $"{PerfectStrikeOwnerBuff.Description}\n" +
+                bp.SetDescription($"{PerfectStrikeOwnerBuff.Description}\n" +
                     $"At 10th level, the monk can roll his attack roll three times and take the highest result.");
                 bp.m_Flags = PerfectStrikeOwnerBuff.m_Flags;
                 bp.IsClassFeature = true;
@@ -32,8 +32,8 @@ namespace TabletopTweaks.NewContent.Features {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.m_Icon = PerfectStrikeOwnerBuff.Icon;
-                bp.SetName("043835b310ab4da28b8b5a64098406e5", "Perfect Strike Upgrade");
-                bp.SetDescription("a8a1e7feb89e4f48a5b6eb7f8930e477", "At 10th level, the zen archer can roll his attack roll three times and take the" +
+                bp.SetName("Perfect Strike Upgrade");
+                bp.SetDescription("At 10th level, the zen archer can roll his attack roll three times and take the" +
                     " highest result when making a perfect strike.");
             });
         }

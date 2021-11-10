@@ -33,15 +33,15 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.HideInUI = true;
                 bp.Ranks = 20;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.SetName("c609e0ab75c147ca86f3eaa97061460c", "Animal Ally Rank");
+                bp.SetName("Animal Ally Rank");
                 bp.AddComponent<ConstrainTargetFeatureRank>(c => {
                     c.TargetFeature = AnimalCompanionRank.ToReference<BlueprintFeatureReference>();
                 });
             });
 
             var AnimalAllyProgression = Helpers.CreateBlueprint<BlueprintProgression>("AnimalAllyProgression", bp => {
-                bp.SetName("e778172d192f4304ac03fdef9b555725", "Animal Ally Progression");
-                bp.SetName("7f1188ea1c16495c86a3512100089bc7", "");
+                bp.SetName("Animal Ally Progression");
+                bp.SetName("");
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -61,8 +61,8 @@ namespace TabletopTweaks.NewContent.Feats {
             });
 
             var AnimalAllyFeatureSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AnimalAllyFeatureSelection", bp => {
-                bp.SetName("b8cf3bf417db4e92b5ecf3b7beeaccad", "Animal Ally");
-                bp.SetDescription("4ede378d89aa404daeac2bb45f2f2c92", "You gain an animal companion as if you were a druid of your character level –3. Unlike normal animals of its kind, " +
+                bp.SetName("Animal Ally");
+                bp.SetDescription("You gain an animal companion as if you were a druid of your character level –3. Unlike normal animals of its kind, " +
                     "an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level.");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;

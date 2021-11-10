@@ -15,8 +15,8 @@ namespace TabletopTweaks.NewContent.MagusArcana {
             var MagusArcanaSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("e9dc4dfc73eaaf94aae27e0ed6cc9ada");
 
             var BroadStudySelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BroadStudySelection", bp => {
-                bp.SetName("13c6c50e96cd42b68f7b23a116ab4501", "Broad Study");
-                bp.SetDescription("ab64469a139842ab8fec746b6504a126", "The magus selects another one of his spellcasting classes. The magus can use his spellstrike and " +
+                bp.SetName("Broad Study");
+                bp.SetDescription("The magus selects another one of his spellcasting classes. The magus can use his spellstrike and " +
                     "spell combat abilities while casting or using spells from the spell list of that class. This does not allow him " +
                     "to cast arcane spells from that class’s spell list without suffering the normal chances of arcane spell failure, " +
                     "unless the spell lacks somatic components.");
@@ -36,7 +36,7 @@ namespace TabletopTweaks.NewContent.MagusArcana {
                     .Where(c => c.AssetGuid != SpellTools.SpellCastingClasses.MagusClass.AssetGuid)
                     .Select(characterClass => {
                         var spellSecret = Helpers.CreateBlueprint<BlueprintFeature>($"BroadStudy{characterClass.name}", bp => {
-                            bp.SetName(Helpers.MergeIds("a4a08dadb3814cf29a66d698d2d02da3", characterClass.AssetGuid.ToString()), $"Broad Study — {characterClass.Name}");
+                            bp.SetName($"Broad Study — {characterClass.Name}");
                             bp.m_Description = selection.m_Description;
                             bp.IsClassFeature = true;
                             bp.Groups = selection.Groups;

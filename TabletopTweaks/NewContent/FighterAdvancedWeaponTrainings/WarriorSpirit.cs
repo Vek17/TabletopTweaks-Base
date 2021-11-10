@@ -102,8 +102,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
 
             var WarriorSpiritDurationBuff = Helpers.CreateBuff("WarriorSpiritDurationBuff", bp => {
                 bp.IsClassFeature = true;
-                bp.SetName("e6803517e0644244ab96dde1f008f262", "Warrior Spirit");
-                bp.SetDescription("4c9319ecc51743a487d04723cf279365", "");
+                bp.SetName("Warrior Spirit");
+                bp.SetDescription("");
                 bp.Ranks = 1;
                 bp.m_Icon = Icon_WarriorSpirit_Activation;
             });
@@ -111,8 +111,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             var WarriorSpiritToggleAbility = Helpers.CreateBlueprint<BlueprintAbility>("WarriorSpiritToggleAbility", bp => {
                 var effect1 = WeaponBondSwitchAbility.GetComponents<AbilitySpawnFx>().ToArray()[0];
                 var effect2 = WeaponBondSwitchAbility.GetComponents<AbilitySpawnFx>().ToArray()[1];
-                bp.SetName("c5bb910c69f845c5841eca97741c620c", "Warrior Spirit");
-                bp.SetDescription("509177dbc214426bbc5cb38ddcc3531f", "The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to " +
+                bp.SetName("Warrior Spirit");
+                bp.SetDescription("The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to " +
                     "unlock the weapon’s potential. Each day he gains a number of points of spiritual energy equal to " +
                     "1 + his maximum weapon training bonus. While wielding a weapon he has weapon training with, he can spend 1 point of spiritual " +
                     "energy to grant the weapon an enhancement bonus equal to his weapon training bonus. " +
@@ -120,7 +120,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     "The fighter can also imbue the weapon with any one weapon special " +
                     "ability with an equivalent enhancement bonus less than or equal to his maximum bonus by reducing the granted enhancement " +
                     "bonus by the amount of the equivalent enhancement bonus. These bonuses last for 1 minute.");
-                bp.LocalizedDuration = Helpers.CreateString("73253facc9d14264b92bc2f8b7b63611", $"{bp.name}.LocalizedDuration", "1 Minute");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.LocalizedDuration", "1 Minute");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.m_Icon = Icon_WarriorSpirit_Activation;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
@@ -266,7 +266,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                 bp.m_DisplayName = weaponBuff.m_DisplayName;
                 bp.m_Description = weaponBuff.m_Description;
                 bp.m_DescriptionShort = weaponBuff.m_DescriptionShort;
-                bp.LocalizedDuration = Helpers.CreateString("f5a869f4d728422183d9013d987ea584", $"{bp.name}.LocalizedDuration", "1 Minute");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.LocalizedDuration", "1 Minute");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.m_Icon = weaponBuff.m_Icon;
                 bp.m_Parent = parent.ToReference<BlueprintAbilityReference>();

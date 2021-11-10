@@ -11,8 +11,8 @@ namespace TabletopTweaks.NewContent.Feats {
             var SelectionMercy = Resources.GetBlueprint<BlueprintFeatureSelection>("02b187038a8dce545bb34bbfb346428d");
 
             var ExtraMercy = FeatTools.CreateExtraSelectionFeat("ExtraMercy", SelectionMercy, bp => {
-                bp.SetName("ebf7d3880bcf48cabc7c81021a6ea98f", "Extra Mercy");
-                bp.SetDescription("efee389212f643c88a7203453ab5461e", "Select one additional mercy for which you qualify. " +
+                bp.SetName("Extra Mercy");
+                bp.SetDescription("Select one additional mercy for which you qualify. " +
                     "When you use lay on hands to heal damage to one target, it also receives the additional effects of this mercy.");
                 bp.AddPrerequisite(Helpers.Create<PrerequisiteNoFeature>(c => {
                     c.m_Feature = bp.ToReference<BlueprintFeatureReference>();

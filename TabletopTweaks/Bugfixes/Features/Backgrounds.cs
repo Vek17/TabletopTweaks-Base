@@ -54,7 +54,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                                 changed = true;
                             }
                             if (changed) {
-                                f.SetDescription(Helpers.MergeIds("00df06db39104890a15801a0d018e922", f.AssetGuid.ToString()), description);
+                                f.SetDescription(description);
                                 Main.LogPatch("Patched", f);
                             }
                         });

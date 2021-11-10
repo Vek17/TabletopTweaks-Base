@@ -95,7 +95,7 @@ namespace TabletopTweaks.MythicReworks {
                 AeonBaneFeature.AddComponent(Helpers.Create<AddFeatureOnApply>(c => {
                     c.m_Feature = AeonBaneIncreaseResourceFeature.ToReference<BlueprintFeatureReference>();
                 }));
-                AeonBaneFeature.SetDescription("0e2b38298ca841419f4d5fae7ead40f9", "At 4th rank, Aeon gains an ability to make his weapons and spells especially deadly " +
+                AeonBaneFeature.SetDescription("At 4th rank, Aeon gains an ability to make his weapons and spells especially deadly " +
                     "against his enemies. For a number of rounds per day equal to twice your mythic rank plus your character level, " +
                     "you can make any weapon you wield count as having Bane quality, your spells gain a bonus equal to your mythic rank " +
                     "to caster level checks to overcome spell resistance, and every hit you make with weapons or spells dispel effects " +

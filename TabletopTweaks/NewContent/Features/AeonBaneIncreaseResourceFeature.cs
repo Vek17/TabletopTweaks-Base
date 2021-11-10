@@ -16,8 +16,8 @@ namespace TabletopTweaks.NewContent.Features {
             var AeonBaneFeature = Resources.GetBlueprint<BlueprintFeature>("0b25e8d8b0488c84c9b5714e9ca0a204");
             var AeonBaneIncreaseResourceFeature = Helpers.CreateBlueprint<BlueprintFeature>("AeonBaneIncreaseResourceFeature", bp => {
                 bp.HideInUI = true;
-                bp.SetName("4aede49df8884d4badd38bb61ddf86d3", "Aeon Bane Increase Resource Feature");
-                bp.SetDescription("676ed790cdd442158ce48a9005bcb705", "");
+                bp.SetName("Aeon Bane Increase Resource Feature");
+                bp.SetDescription("");
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.ComponentsArray = new BlueprintComponent[0];

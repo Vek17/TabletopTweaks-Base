@@ -16,8 +16,8 @@ namespace TabletopTweaks.NewContent.Feats {
             var ShatterDefensesDisplayBuff = Helpers.CreateBuff("ShatterDefensesDisplayBuff", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
                 bp.Stacking = StackingType.Prolong;
-                bp.SetName("56668b2c5f96451fb57b458d35902072", "Shattered Defenses");
-                bp.SetDescription("20806d2952534a0d8d2b82eb5fbcabcc", "An opponent you affect with Shatter Defenses is flat-footed to your attacks.");
+                bp.SetName("Shattered Defenses");
+                bp.SetDescription("An opponent you affect with Shatter Defenses is flat-footed to your attacks.");
             });
             var ShatterDefensesBuff = Helpers.CreateBuff("ShatterDefensesBuff", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
@@ -42,8 +42,8 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<ForceFlatFooted>(c => {
                     c.AgainstCaster = true;
                 });
-                bp.SetName("47e6903401314707aaae3d41615905a8", "Shattered Defenses");
-                bp.SetDescription("ac61fae2e3e44490945f8f21f6edcde8", "An opponent you affect with Shatter Defenses is flat-footed to your attacks.");
+                bp.SetName("Shattered Defenses");
+                bp.SetDescription("An opponent you affect with Shatter Defenses is flat-footed to your attacks.");
             });
         }
     }

@@ -8,8 +8,8 @@ namespace TabletopTweaks.NewContent.Features {
     class LongspearChargeBuff {
         public static void AddLongspearChargeBuff() {
             var LongspearChargeBuff = Helpers.CreateBuff("LongspearChargeBuff", bp => {
-                bp.SetName("75390bf5d4f14875bdd892e2cc95ed31", "Longspear Charge");
-                bp.SetDescription("596d14a699a845809553331365596d1a", "");
+                bp.SetName("Longspear Charge");
+                bp.SetDescription("");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent(Helpers.Create<AddOutgoingWeaponDamageBonus>(c => {
                     c.BonusDamageMultiplier = 1;

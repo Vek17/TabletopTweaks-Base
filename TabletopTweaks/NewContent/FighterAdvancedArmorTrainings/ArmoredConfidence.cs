@@ -17,8 +17,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 
             var ArmoredConfidenceLightEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceLightEffect", bp => {
-                bp.SetName("72dff16ed4b14191bbcf9c342faff470", "Armored Confidence Effect");
-                bp.SetDescription("a83e7da48b054131a850b123ef37ba73", "Armored Confidence");
+                bp.SetName("Armored Confidence Effect");
+                bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -49,8 +49,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             });
 
             var ArmoredConfidenceMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceMediumEffect", bp => {
-                bp.SetName("29ef19504e494b539bbdd24c4d303939", "Armored Confidence Effect");
-                bp.SetDescription("df8b292ec59d4386801c7137fe3ae085", "Armored Confidence");
+                bp.SetName("Armored Confidence Effect");
+                bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -80,8 +80,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
             });
             var ArmoredConfidenceHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceHeavyEffect", bp => {
-                bp.SetName("0a5ec5d20de841c99e8576f2f0f5a5f1", "Armored Confidence Effect");
-                bp.SetDescription("853927924f15441f9830b77317a97550", "Armored Confidence");
+                bp.SetName("Armored Confidence Effect");
+                bp.SetDescription("Armored Confidence");
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -111,8 +111,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
             });
             var ArmoredConfidenceFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredConfidenceFeature", bp => {
-                bp.SetName("f99844388f5e4801afd0a34a0558037b", "Armored Confidence");
-                bp.SetDescription("a84dd053560046d599258a2038fa1d92", "While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
+                bp.SetName("Armored Confidence");
+                bp.SetDescription("While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: " +
                     "+1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter " +
                     "levels thereafter, to a maximum of +4 at 19th level.");
                 bp.IsClassFeature = true;

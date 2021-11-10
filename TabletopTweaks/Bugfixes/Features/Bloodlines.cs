@@ -145,14 +145,14 @@ namespace TabletopTweaks.Bugfixes.Features {
             var EldritchScionBloodlineSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("94c29f69cdc34594a6a4677441ed7375");
 
             // Fix Names
-            BloodOfDragonsSelection.SetName("bb24bf5757984e44a71a87c5d038e912", "Dragon Disciple Bloodline");
-            DragonheirDragonSelection.SetName("f4493143725d477babe26faa349fc6a3", "Dragonheir Scion Bloodline");
-            SorcererBloodlineSelection.SetName("34c1188d727c4ca39f23b517ae311c7b", "Sorcerer Bloodline");
-            BloodragerBloodlineSelection.SetName("f67a11c0867146988f1592e0789ea409", "Bloodrager Bloodline");
-            SeekerBloodlineSelection.SetName("3ec21cab53fa43e6990e6c2e5ee70c99", "Seeker Bloodline");
-            SageBloodlineProgression.SetName("c89ec96a8c4d4041b12c761692057733", "Sage Bloodline");
-            NineTailedHeirBloodlineSelection.SetName("897c6fca6b0946a8a8931a7cfd61406e", "Nine Tailed Heir Bloodline");
-            EldritchScionBloodlineSelection.SetName("3e9f5fed32424255be751a7630ba02bb", "Eldritch Scion Bloodline");
+            BloodOfDragonsSelection.SetName("Dragon Disciple Bloodline");
+            DragonheirDragonSelection.SetName("Dragonheir Scion Bloodline");
+            SorcererBloodlineSelection.SetName("Sorcerer Bloodline");
+            BloodragerBloodlineSelection.SetName("Bloodrager Bloodline");
+            SeekerBloodlineSelection.SetName("Seeker Bloodline");
+            SageBloodlineProgression.SetName("Sage Bloodline");
+            NineTailedHeirBloodlineSelection.SetName("Nine Tailed Heir Bloodline");
+            EldritchScionBloodlineSelection.SetName("Eldritch Scion Bloodline");
             FixRequisiteName(1, AbyssalBloodlineRequisiteFeature);
             FixRequisiteName(1, ArcaneBloodlineRequisiteFeature);
             FixRequisiteName(1, CelestialBloodlineRequisiteFeature);
@@ -366,11 +366,11 @@ namespace TabletopTweaks.Bugfixes.Features {
             void FixRequisiteName(int length, BlueprintFeature feature) {
                 string[] split = Regex.Split(feature.name, @"(?<!^)(?=[A-Z])");
                 if (length == 1) {
-                    feature.SetName(Helpers.MergeIds("5931bac3e2d641b6aa912a0bc4266eff", feature.AssetGuid.ToString()), $"{split[0]} {split[1]}");
+                    feature.SetName($"{split[0]} {split[1]}");
                 } else {
-                    feature.SetName(Helpers.MergeIds("5931bac3e2d641b6aa912a0bc4266eff", feature.AssetGuid.ToString()), $"{split[0]} {split[2]} — {split[1]}");
+                    feature.SetName($"{split[0]} {split[2]} — {split[1]}");
                 }
-                feature.SetDescription("2b136627cb754b3c878c5d5dfc349c36", "Bloodline Requisite Feature");
+                feature.SetDescription("Bloodline Requisite Feature");
                 Main.LogPatch("Patched", feature);
             }
             void AddRequisiteFeature(BlueprintProgression bloodline, params BlueprintFeature[] requisites) {

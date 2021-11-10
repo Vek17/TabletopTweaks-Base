@@ -26,8 +26,8 @@ namespace TabletopTweaks.NewContent.Feats {
             var Scimitar = Resources.GetBlueprint<BlueprintWeaponType>("d9fbec4637d71bd4ebc977628de3daf3");
 
             var DervishDance = Helpers.CreateBlueprint<BlueprintFeature>("DervishDance", bp => {
-                bp.SetName("0065c91a74c94b168af461d49fd4d73b", "Dervish Dance");
-                bp.SetDescription("6960599f3a75462ea56b356bd5625e43", "When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier " +
+                bp.SetName("Dervish Dance");
+                bp.SetDescription("When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier " +
                     "on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that " +
                     "require such a weapon (such as a duelist’s precise strike ability). The scimitar must be for a creature of your size. You cannot " +
                     "use this feat if you are carrying a weapon or shield (other than a buckler) in your off hand.");

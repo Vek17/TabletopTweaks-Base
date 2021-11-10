@@ -178,7 +178,7 @@ namespace TabletopTweaks.Utilities {
             var BloodragerClass = Resources.GetBlueprint<BlueprintCharacterClass>("d77e67a814d686842802c9cfd8ef8499").ToReference<BlueprintCharacterClassReference>();
             var wanderingBLoodline = Helpers.CreateBlueprint<BlueprintFeature>(name, bp => {
                 bp.m_DisplayName = bloodline.m_DisplayName;
-                bp.m_Description = Helpers.CreateString("7cc3c94af9e7438cad368c2705c81858", $"{name}.description", "");
+                bp.SetName("");
                 bp.m_Icon = bloodline.m_Icon;
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
@@ -280,7 +280,7 @@ namespace TabletopTweaks.Utilities {
                 bp.m_DisplayName = abilityToImitate.m_DisplayName;
                 bp.m_Description = abilityToImitate.m_Description;
                 bp.m_DescriptionShort = abilityToImitate.m_DescriptionShort;
-                bp.LocalizedDuration = Helpers.CreateString("713344a72c6b41b4a13a434adcaf6faf", $"{blueprintName}.LocalizedDuration", "While Raging");
+                bp.LocalizedDuration = Helpers.CreateString($"{blueprintName}.LocalizedDuration", "While Raging");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.m_Icon = abilityToImitate.m_Icon;
                 bp.DisableLog = true;

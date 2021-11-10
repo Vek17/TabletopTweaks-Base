@@ -18,8 +18,8 @@ namespace TabletopTweaks.NewContent.Feats {
             var ExtraChannel = Resources.GetBlueprint<BlueprintFeature>("cd9f19775bd9d3343a31a065e93f0c47");
 
             var QuickChannel = Helpers.CreateBlueprint<BlueprintFeature>("QuickChannel", bp => {
-                bp.SetName("1151320732684521a0e1f00bc43ca734", "Quick Channel");
-                bp.SetDescription("14c5a2dd1c6641ec8f11c4770b1a2d75", "You may channel energy as a move action by spending 2 daily uses of that ability.");
+                bp.SetName("Quick Channel");
+                bp.SetDescription("You may channel energy as a move action by spending 2 daily uses of that ability.");
                 bp.m_Icon = SelectiveChannel.Icon;
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;

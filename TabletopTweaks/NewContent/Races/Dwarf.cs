@@ -36,8 +36,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.HideInUI = true;
                 bp.Ranks = 1;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.SetName("e9f071c568014d9cbd0c945b7272461f", "Dwarf Ability Modifiers");
-                bp.SetDescription("54f8a00877ac43898460e2b2c9ab3114", "Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
+                bp.SetName("Dwarf Ability Modifiers");
+                bp.SetDescription("Dwarves are both tough and wise, but also a bit gruff. They gain +2 Constitution, +2 Wisdom, and –2 Charisma.");
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -66,15 +66,15 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.SetName("e095f08673f3496ea10a3fc57f65b4f5", "None");
-                bp.SetDescription("20c3711c002b4a2f8d1e7beee4c470c7", "No Alternate Trait");
+                bp.SetName("None");
+                bp.SetDescription("No Alternate Trait");
             });
             var DwarfStoutheartFeature = Helpers.CreateBlueprint<BlueprintFeature>("DwarfStoutheartFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("376fc07aa9ce4a6e8eb884ebf55825ba", "Stoutheart Dwarf");
-                bp.SetDescription("4e65351931cd4a7693e094a724e7c2fb", "Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
+                bp.SetName("Stoutheart Dwarf");
+                bp.SetDescription("Not all dwarves are as standoffish and distrusting as their peers, though they can be seen as foolhardy and brash by "
                     + "their kin. Dwarves with this racial trait gain +2 Constitution, +2 Charisma, and -2 Intelligence."
                     + "\nThis racial trait alters the dwarves’ ability score modifiers.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
@@ -104,8 +104,8 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
-                bp.SetName("bf91efe239e04c8fb99a10e814bb1f8b", "Stoic Negotiator");
-                bp.SetDescription("b5c93e8cd55a49358c74ab915ed8ccf8", "Some dwarves use their unwavering stubbornness to get what they want in negotiations and other business matters. " +
+                bp.SetName("Stoic Negotiator");
+                bp.SetDescription("Some dwarves use their unwavering stubbornness to get what they want in negotiations and other business matters. " +
                     "They gain a +2 racial bonus on Persuasion checks and Persuasion is a class skill for them.\nThis racial trait replaces defensive training, hatred.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
@@ -136,8 +136,8 @@ namespace TabletopTweaks.NewContent.Races {
             DwarfRace.SetComponents(Helpers.Create<AddFeatureOnApply>(c => {
                 c.m_Feature = DwarfAbilityModifiers.ToReference<BlueprintFeatureReference>();
             }));
-            DwarfHeritageSelection.SetName("0f7da22307924df8b660cb0e6bd7c451", "Alternate Traits");
-            DwarfHeritageSelection.SetDescription("f22811e7d03f46b8aa366d6e552061cf", "The following alternate traits are available.");
+            DwarfHeritageSelection.SetName("Alternate Traits");
+            DwarfHeritageSelection.SetDescription("The following alternate traits are available.");
             DwarfHeritageSelection.Group = FeatureGroup.KitsuneHeritage;
             DwarfHeritageSelection.SetFeatures(
                 DwarfNoAlternateTrait,

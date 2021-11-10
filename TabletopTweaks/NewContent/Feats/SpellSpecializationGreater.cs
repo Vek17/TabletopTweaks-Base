@@ -23,8 +23,8 @@ namespace TabletopTweaks.NewContent.Feats {
             var GreaterElementalFocusSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("1c17446a3eb744f438488711b792ca4d");
 
             var SpellSpecializationGreater = Helpers.CreateBlueprint<BlueprintFeature>("SpellSpecializationGreater", bp => {
-                bp.SetName("c406b4f3551340d2ada147a93ad18c38", "Greater Spell Specialization");
-                bp.SetDescription("67213cd72fa6440585c504b4cd5c1d19", "By sacrificing a prepared spell of the same or higher level than your specialized spell, " +
+                bp.SetName("Greater Spell Specialization");
+                bp.SetDescription("By sacrificing a prepared spell of the same or higher level than your specialized spell, " +
                     "you may spontaneously cast your specialized spell. The specialized spell is treated as its normal level, " +
                     "regardless of the spell slot used to cast it. You may add a metamagic feat to the spell by increasing the " +
                     "spell slot and casting time, just like a cleric spontaneously casting a cure or inflict spell with a metamagic feat.");

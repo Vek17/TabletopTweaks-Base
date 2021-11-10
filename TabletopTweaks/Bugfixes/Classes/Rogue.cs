@@ -42,7 +42,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
                             ValueType = ContextValueType.Rank
                         };
                     }));
-                    Trapfinding.SetDescription("f674bf23b998429a9a4393b14d37be16", "A rogue adds 1/2 her level on Perception checks and Trickery checks.");
+                    Trapfinding.SetDescription("A rogue adds 1/2 her level on Perception checks and Trickery checks.");
                     Main.LogPatch("Patched", Trapfinding);
                 }
                 void PatchRogueTalentSelection() {

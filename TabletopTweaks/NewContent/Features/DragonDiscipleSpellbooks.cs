@@ -22,7 +22,7 @@ namespace TabletopTweaks.NewContent.Features {
             var AccursedWitchArchetype = Resources.GetBlueprint<BlueprintArchetype>("c5f6e53e71059fb4d802ce81a277a12d");
 
             var DragonDiscipleSageSorcerer = Helpers.CreateBlueprint<BlueprintFeatureReplaceSpellbook>("DragonDiscipleSageSorcerer", bp => {
-                bp.SetName("7c1f83b0fe8f493faa4fdb2128860679", "Sorcerer");
+                bp.SetName("Sorcerer");
                 bp.m_Description = DragonDiscipleSpellbookSelection.m_Description;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.DragonDiscipleSpellbook };
                 bp.IsClassFeature = true;
@@ -37,7 +37,7 @@ namespace TabletopTweaks.NewContent.Features {
                 });
             });
             var DragonDiscipleEmpyrealSorcerer = Helpers.CreateBlueprint<BlueprintFeatureReplaceSpellbook>("DragonDiscipleEmpyrealSorcerer", bp => {
-                bp.SetName("3f4cabd86690461fb4dd33b1e0b78918", "Sorcerer");
+                bp.SetName("Sorcerer");
                 bp.m_Description = DragonDiscipleSpellbookSelection.m_Description;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.DragonDiscipleSpellbook };
                 bp.IsClassFeature = true;
@@ -52,7 +52,7 @@ namespace TabletopTweaks.NewContent.Features {
                 });
             });
             var DragonDiscipleUnletteredArcanist = Helpers.CreateBlueprint<BlueprintFeatureReplaceSpellbook>("DragonDiscipleUnletteredArcanist", bp => {
-                bp.SetName("fb83c570e5104ef7aef13d7cd4fbcee8", "Arcanist");
+                bp.SetName("Arcanist");
                 bp.m_Description = DragonDiscipleSpellbookSelection.m_Description;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.DragonDiscipleSpellbook };
                 bp.IsClassFeature = true;
@@ -67,7 +67,7 @@ namespace TabletopTweaks.NewContent.Features {
                 });
             });
             var DragonDiscipleNatureMage = Helpers.CreateBlueprint<BlueprintFeatureReplaceSpellbook>("DragonDiscipleNatureMage", bp => {
-                bp.SetName("2e361c2b950b489896d2950ad572d257", "Arcanist");
+                bp.SetName("Arcanist");
                 bp.m_Description = DragonDiscipleSpellbookSelection.m_Description;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.DragonDiscipleSpellbook };
                 bp.IsClassFeature = true;
@@ -82,7 +82,7 @@ namespace TabletopTweaks.NewContent.Features {
                 });
             });
             var DragonDiscipleAccursedWitch = Helpers.CreateBlueprint<BlueprintFeatureReplaceSpellbook>("DragonDiscipleAccursedWitch", bp => {
-                bp.SetName("ab03aa907f424fa1941162ae02834080", "Witch");
+                bp.SetName("Witch");
                 bp.m_Description = DragonDiscipleSpellbookSelection.m_Description;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.DragonDiscipleSpellbook };
                 bp.IsClassFeature = true;
