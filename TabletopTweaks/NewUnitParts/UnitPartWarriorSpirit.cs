@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
+    [TypeId("c65d3ab938594a878575db0698ee4c42")]
     class UnitPartWarriorSpirit : UnitPart {
         public void AddEntry(EntityFact source, int cost, params BlueprintWeaponEnchantmentReference[] enchants) {
             ClearSelectedEnchants(source);

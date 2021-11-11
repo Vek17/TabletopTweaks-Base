@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
@@ -12,6 +13,7 @@ using System.Reflection;
 using static TabletopTweaks.NewUnitParts.CustomStatTypes;
 
 namespace TabletopTweaks.NewUnitParts {
+    [TypeId("c1da168c6373462692d30ba02c6d9f75")]
     class UnitPartCustomStats : OldStyleUnitPart {
 
         public ModifiableValue GetCustomStat(CustomStatType type) {

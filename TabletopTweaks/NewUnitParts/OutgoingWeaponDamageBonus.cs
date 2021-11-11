@@ -1,9 +1,11 @@
-﻿using Kingmaker.RuleSystem;
+﻿using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 
 namespace TabletopTweaks.NewUnitParts {
+    [TypeId("2650cdce91414bca861097beed5f27b3")]
     class OutgoingWeaponDamageBonus : UnitPart {
 
         public void AddBonus(RuleCalculateDamage evt, BaseDamage additionalDamage) {

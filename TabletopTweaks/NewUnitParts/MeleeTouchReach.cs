@@ -1,17 +1,14 @@
-﻿using HarmonyLib;
+﻿using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.Utility;
 using System;
 
 namespace TabletopTweaks.NewUnitParts {
     // Marked Obsolete on 2021-11-11
     [Obsolete("use UnitPartCustomStats instead", true)]
+    [TypeId("9dd776fc7fe0476d813eab4b4af45b83")]
     class MeleeTouchReach : UnitPart {
         public int Reach = 0;
         public ModifiableValue TouchValue {
