@@ -17,7 +17,6 @@ using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewUI;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("49345c288edf44e9bd9187612ed53c66")]
     public class UnitPartPseudoActivatableAbilities :
         UnitPart,
         ISubscriber,

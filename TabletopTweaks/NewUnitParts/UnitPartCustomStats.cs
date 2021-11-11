@@ -13,7 +13,6 @@ using System.Reflection;
 using static TabletopTweaks.NewUnitParts.CustomStatTypes;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("c1da168c6373462692d30ba02c6d9f75")]
     class UnitPartCustomStats : OldStyleUnitPart {
 
         public ModifiableValue GetCustomStat(CustomStatType type) {

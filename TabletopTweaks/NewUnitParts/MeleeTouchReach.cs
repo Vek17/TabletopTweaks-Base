@@ -8,7 +8,6 @@ using System;
 namespace TabletopTweaks.NewUnitParts {
     // Marked Obsolete on 2021-11-11
     [Obsolete("use UnitPartCustomStats instead", true)]
-    [TypeId("9dd776fc7fe0476d813eab4b4af45b83")]
     class MeleeTouchReach : UnitPart {
         public int Reach = 0;
         public ModifiableValue TouchValue {

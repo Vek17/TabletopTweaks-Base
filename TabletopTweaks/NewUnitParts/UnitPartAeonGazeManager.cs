@@ -10,7 +10,6 @@ using System.Linq;
 using TabletopTweaks.MechanicsChanges;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("cbb3b43ab725484e81a261e0b64d07d8")]
     class UnitPartAeonGazeManager : OldStyleUnitPart {
 
         public void AddEntry(EntityFact source) {

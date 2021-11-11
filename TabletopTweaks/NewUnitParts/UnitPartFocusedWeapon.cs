@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("3b0fbcfaa73c47bcbe76f0726843af1f")]
     class UnitPartFocusedWeapon : UnitPart {
         public void AddEntry(WeaponCategory? category, EntityFact source) {
             if (category == null) {

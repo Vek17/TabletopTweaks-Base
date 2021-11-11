@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("fb0cad608f694d1b9235500492f78c75")]
     class UnitPartCustomMechanicsFeatures : OldStyleUnitPart {
 
         public void AddMechanicsFeature(CustomMechanicsFeature type) {

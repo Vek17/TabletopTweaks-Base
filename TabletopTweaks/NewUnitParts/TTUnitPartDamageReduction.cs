@@ -23,7 +23,6 @@ using System.Text;
 using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("e91e5bf5568944dd96967dfac962d156")]
     public class TTUnitPartDamageReduction :
         OldStyleUnitPart,
         IUnitApplyDamageReduction,

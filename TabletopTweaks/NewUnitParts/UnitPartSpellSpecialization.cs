@@ -16,7 +16,6 @@ using TabletopTweaks.Config;
 using UnityEngine;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("a22552b3ad9c49fe81b7027160f6a281")]
     class UnitPartSpellSpecialization : OldStyleUnitPart {
         public void AddEntry(BlueprintAbilityReference spell, EntityFact source) {
             SpellSpecializationEntry item = new SpellSpecializationEntry {

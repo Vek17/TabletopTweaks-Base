@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("0338c9405e7f4596be61987ef5103591")]
     class UnitPartPrecisionCritical : UnitPart {
 
         public int GetMultiplier() {

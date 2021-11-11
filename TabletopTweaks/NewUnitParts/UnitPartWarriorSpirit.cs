@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("c65d3ab938594a878575db0698ee4c42")]
     class UnitPartWarriorSpirit : UnitPart {
         public void AddEntry(EntityFact source, int cost, params BlueprintWeaponEnchantmentReference[] enchants) {
             ClearSelectedEnchants(source);

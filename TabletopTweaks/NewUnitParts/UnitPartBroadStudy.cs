@@ -11,7 +11,6 @@ using System.Linq;
 using TabletopTweaks.Config;
 
 namespace TabletopTweaks.NewUnitParts {
-    [TypeId("74337314acc44e8fb6c2381ea3ba39cd")]
     class UnitPartBroadStudy : OldStyleUnitPart {
 
         public void AddEntry(BlueprintCharacterClassReference characterClass, EntityFact source) {
