@@ -259,7 +259,6 @@
     <Compile Include="NewComponents\Prerequisites\PrerequisiteStatBonus.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteStatValues.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickStudyComponent.cs" />
-    <Compile Include="NewComponents\AddTouchReach.cs" />
     <Compile Include="NewComponents\AbilitySpecific\DestinedArcanaComponent.cs" />
     <Compile Include="NewComponents\IgnoreClassPrerequisites.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteSize.cs" />
@@ -408,6 +407,7 @@
     <Compile Include="NewUnitParts\UnitPartAeonGazeManager.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
     <Compile Include="NewUnitParts\UnitPartCustomMechanicsFeatures.cs" />
+    <Compile Include="NewUnitParts\UnitPartCustomStats.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />
     <Compile Include="NewUnitParts\MeleeTouchReach.cs" />
     <Compile Include="NewUnitParts\OutgoingWeaponDamageBonus.cs" />

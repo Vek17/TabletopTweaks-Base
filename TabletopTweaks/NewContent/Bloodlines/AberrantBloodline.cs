@@ -23,6 +23,7 @@ using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.Utilities;
+using static TabletopTweaks.NewUnitParts.CustomStatTypes;
 
 namespace TabletopTweaks.NewContent.Bloodlines {
     public static class AberrantBloodline {
@@ -515,7 +516,8 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetDescription("At 3rd level, your reach increases by 5 feet whenever you are making a melee touch attack. "
                     + "This ability does not otherwise increase your threatened area. At 11th level, this bonus to your reach "
                     + "increases to 10 feet. At 17th level, this bonus to your reach increases to 15 feet.");
-                bp.AddComponent<AddTouchReach>(c => {
+                bp.AddComponent<AddStatBonus>(c => {
+                    c.Stat = CustomStatType.MeleeTouchReach.Stat();
                     c.Value = 5;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                 });

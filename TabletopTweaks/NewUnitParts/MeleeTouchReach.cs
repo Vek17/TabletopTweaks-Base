@@ -10,6 +10,8 @@ using Kingmaker.Utility;
 using System;
 
 namespace TabletopTweaks.NewUnitParts {
+    // Marked Obsolete on 2021-11-11
+    [Obsolete("use UnitPartCustomStats instead", true)]
     class MeleeTouchReach : UnitPart {
         public int Reach = 0;
         public ModifiableValue TouchValue {
@@ -36,16 +38,10 @@ namespace TabletopTweaks.NewUnitParts {
                 base.Owner.Remove<MeleeTouchReach>();
             }
         }
+        public override void OnTurnOn() {
+            base.Owner.Remove<MeleeTouchReach>();
+        }
 
         private ModifiableValue m_touchRange;
-
-        [HarmonyPatch(typeof(AbilityData), "GetApproachDistance", new Type[] { typeof(UnitEntityData) })]
-        static class BlueprintAbility_GetRange_Patch {
-            static void Postfix(ref float __result, AbilityData __instance) {
-                if (__instance.Blueprint.Range == AbilityRange.Touch && !__instance.HasMetamagic(Metamagic.Reach) && __instance.Caster.Unit.Get<MeleeTouchReach>() != null) {
-                    __result += __instance.Caster.Unit.Get<MeleeTouchReach>().GetModifiedValue().Feet().Meters;
-                }
-            }
-        }
     }
 }

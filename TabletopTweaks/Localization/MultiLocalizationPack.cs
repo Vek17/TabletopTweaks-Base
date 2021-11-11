@@ -165,6 +165,12 @@ namespace TabletopTweaks.Localization {
                 }
                 return ProcessTemplates ? DescriptionTools.TagEncyclopediaEntries(result) :  result;
             }
+            public override string ToString() {
+                return this.LocalizedText(LocalizationManager.CurrentLocale);
+            }
+            public override int GetHashCode() {
+                return Key.GetHashCode() ^ enGB.GetHashCode();
+            }
         }
     }
     [HarmonyPatch(typeof(StartGameLoader), nameof(StartGameLoader.LoadPackTOC))]

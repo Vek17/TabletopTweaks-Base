@@ -160,6 +160,7 @@ namespace TabletopTweaks.Bugfixes.General {
                     WeaponEnchants.Corrosive.UpdatePrefixSuffix("Corrosive", "");
                     WeaponEnchants.Corrosive2d6.UpdatePrefixSuffix("Caustic", "");
                     WeaponEnchants.CorrosiveBurst.UpdatePrefixSuffix("Burst", "");
+                    WeaponEnchants.CruelEnchantment.UpdatePrefixSuffix("Cruel", "");
                     WeaponEnchants.Deteriorative.UpdatePrefixSuffix("Deteriorative", "");
                     WeaponEnchants.DisruptingWeapon.UpdatePrefixSuffix("Disruption", "");
                     WeaponEnchants.Disruption.UpdatePrefixSuffix("Disruption", "");
@@ -314,6 +315,7 @@ namespace TabletopTweaks.Bugfixes.General {
             public static BlueprintWeaponEnchantment Corrosive => Resources.GetBlueprint<BlueprintWeaponEnchantment>("633b38ff1d11de64a91d490c683ab1c8");
             public static BlueprintWeaponEnchantment Corrosive2d6 => Resources.GetBlueprint<BlueprintWeaponEnchantment>("2becfef47bec13940b9ee71f1b14d2dd");
             public static BlueprintWeaponEnchantment CorrosiveBurst => Resources.GetBlueprint<BlueprintWeaponEnchantment>("0cf34703e67e37b40905845ca14b1380");
+            public static BlueprintWeaponEnchantment CruelEnchantment => Resources.GetBlueprint<BlueprintWeaponEnchantment>("629c383ffb407224398bb71d1bd95d14");
             public static BlueprintWeaponEnchantment Deteriorative => Resources.GetBlueprint<BlueprintWeaponEnchantment>("bbe55d6e76b973d41bf5abeed643861d");
             public static BlueprintWeaponEnchantment DisruptingWeapon => Resources.GetBlueprint<BlueprintWeaponEnchantment>("7a41c4df836a0e34daa6e82c2bad8a85");
             public static BlueprintWeaponEnchantment Disruption => Resources.GetBlueprint<BlueprintWeaponEnchantment>("0f20d79b7049c0f4ca54ca3d1ea44baa");
