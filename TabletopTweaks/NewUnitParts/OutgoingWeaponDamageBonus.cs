@@ -1,5 +1,4 @@
-﻿using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.RuleSystem;
+﻿using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;

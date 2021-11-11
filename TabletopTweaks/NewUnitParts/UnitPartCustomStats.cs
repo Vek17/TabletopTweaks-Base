@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
@@ -26,13 +25,13 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public readonly Dictionary<CustomStatType, ModifiableValue> CustomStats = new Dictionary<CustomStatType, ModifiableValue>();
-        
+
         //[HarmonyPatch(typeof(CharacterStats), nameof(CharacterStats.GetStat), new Type[] { typeof(StatType) })]
         [HarmonyPatch]
         static class CharacterStats_GetStat_CustomStatType_Patch {
             static MethodBase TargetMethod() {
                 return AccessTools.GetDeclaredMethods(typeof(CharacterStats))
-                    .Where(method => method.ReturnType == typeof(ModifiableValue) 
+                    .Where(method => method.ReturnType == typeof(ModifiableValue)
                     && method.Name.Equals(nameof(CharacterStats.GetStat)))
                     .First();
             }

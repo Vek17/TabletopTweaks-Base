@@ -13,7 +13,7 @@ namespace TabletopTweaks.NewComponents {
             var Caster = Context?.MaybeCaster;
             if (!AgainstCaster) {
                 evt.ForceFlatFooted = true;
-            } else if(Caster == evt.Initiator) {
+            } else if (Caster == evt.Initiator) {
                 evt.ForceFlatFooted = true;
             }
         }

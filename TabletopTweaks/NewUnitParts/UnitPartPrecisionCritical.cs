@@ -1,5 +1,4 @@
-﻿using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.EntitySystem;
+﻿using Kingmaker.EntitySystem;
 using Kingmaker.UnitLogic;
 using System;
 using System.Collections.Generic;

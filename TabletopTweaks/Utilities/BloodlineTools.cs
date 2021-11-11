@@ -319,7 +319,7 @@ namespace TabletopTweaks.Utilities {
                 string blueprintName,
                 BlueprintBuff polymorphBuff,
                 Action<BlueprintBuff> init = null) {
-            var buff =  Helpers.CreateBuff(blueprintName, bp => {
+            var buff = Helpers.CreateBuff(blueprintName, bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.m_Description = polymorphBuff.m_Description;
                 bp.m_Icon = polymorphBuff.m_Icon;

@@ -19,7 +19,6 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Items {
     static class Weapons {

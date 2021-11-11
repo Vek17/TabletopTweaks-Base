@@ -1,5 +1,4 @@
-﻿using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.EntitySystem;
+﻿using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic;

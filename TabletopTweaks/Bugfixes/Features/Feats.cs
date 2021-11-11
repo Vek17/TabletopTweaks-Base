@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using Kingmaker.Armies.TacticalCombat;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -84,7 +83,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                                              " you gain vanish 2/day; the second time you select this feat, you gain hideous laughter 2/day. Your {g|Encyclopedia:Caster_Level}caster level{/g}" +
                                              " for these {g|Encyclopedia:Spell}spells{/g} is equal to your {g|Encyclopedia:Hit_Dice}Hit Dice{/g}. The DCs for these abilities are" +
                                              " {g|Encyclopedia:Charisma}Charisma{/g}-based.\nYou may select this feat up to eight times. Each time you take it, you gain an additional ability as described above.";
-               
+
                 magicalTail1.SetDescription(magicalTailDescription);
                 magicalTail2.SetDescription(magicalTailDescription);
                 magicalTail3.SetDescription(magicalTailDescription);

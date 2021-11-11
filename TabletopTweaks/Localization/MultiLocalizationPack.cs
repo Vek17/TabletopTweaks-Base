@@ -50,7 +50,7 @@ namespace TabletopTweaks.Localization {
         public bool TryGetText(string text, out MultiLocaleString result, Locale locale = Locale.enGB) {
             return Text.TryGetValue(text, out result);
         }
-        
+
         public void AddString(MultiLocaleString newString) {
             Ids[newString.Key] = newString;
             Text[newString.LocalizedText(LocalizationManager.CurrentLocale)] = newString;
@@ -163,7 +163,7 @@ namespace TabletopTweaks.Localization {
                 if (string.IsNullOrEmpty(result)) {
                     result = enGB;
                 }
-                return ProcessTemplates ? DescriptionTools.TagEncyclopediaEntries(result) :  result;
+                return ProcessTemplates ? DescriptionTools.TagEncyclopediaEntries(result) : result;
             }
             public override string ToString() {
                 return this.LocalizedText(LocalizationManager.CurrentLocale);
@@ -174,7 +174,7 @@ namespace TabletopTweaks.Localization {
         }
     }
     [HarmonyPatch(typeof(StartGameLoader), nameof(StartGameLoader.LoadPackTOC))]
-    public static class StartGameLoader_LocalizationPatch{
+    public static class StartGameLoader_LocalizationPatch {
         static void Postfix() {
             ModSettings.ModLocalizationPack.ApplyToCurrentPack();
             ModSettings.SaveLocalization("LocalizationPack.Json", ModSettings.ModLocalizationPack);

@@ -288,7 +288,7 @@ namespace TabletopTweaks.Utilities {
             },
             new EncyclopediaEntry {
                 Entry = "Damage",
-                Patterns = { 
+                Patterns = {
                     "damage",
                     "damage rolls?"
                 }
