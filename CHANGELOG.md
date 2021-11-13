@@ -1,3 +1,6 @@
+## Version 1.10.1
+* Fixes to Warrior Spirit save loading
+
 ## Version 1.10.0
 * Added homebrew flags in the settings
 * Fixed minor issues with AddFacts

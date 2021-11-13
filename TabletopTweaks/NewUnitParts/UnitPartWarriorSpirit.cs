@@ -5,6 +5,7 @@ using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -63,12 +64,14 @@ namespace TabletopTweaks.NewUnitParts {
         private void TryRemove() {
             if (!SelectedEnchants.Any()) { this.RemoveSelf(); }
         }
-
         private readonly List<WarriorSpiritSelectedEntry> SelectedEnchants = new List<WarriorSpiritSelectedEntry>();
+        [JsonProperty]
         private readonly List<WarriorSpiritActiveEntry> ActiveEnchants = new List<WarriorSpiritActiveEntry>();
 
         public class WarriorSpiritActiveEntry {
+            [JsonProperty]
             public string EnchantmentID;
+            [JsonProperty]
             public EntityRef<ItemEntity> Item;
         }
         public class WarriorSpiritSelectedEntry {
