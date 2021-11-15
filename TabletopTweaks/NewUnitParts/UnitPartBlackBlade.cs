@@ -1,5 +1,11 @@
-﻿using Kingmaker.EntitySystem.Stats;
+﻿using Kingmaker;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Designers;
+using Kingmaker.EntitySystem;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Items;
 using Kingmaker.UnitLogic;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,25 +13,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartBlackBlade : UnitPart {
+    class UnitPartBlackBlade : OldStyleUnitPart {
         public UnitPartBlackBlade() {
-            Ego = new ModifiableValue(Owner.Stats, CustomStatTypes.CustomStatType.BlackBladeEgo.Stat()) { 
-                BaseValue = 5
-            };
-            Intelligence = new ModifiableValueAttributeStat(Owner.Stats, StatType.Intelligence) {
-                BaseValue = 11
-            };
-            Wisdom = new ModifiableValueAttributeStat(Owner.Stats, StatType.Wisdom) {
-                BaseValue = 7
-            };
-            Charisma = new ModifiableValueAttributeStat(Owner.Stats, StatType.Charisma) {
-                BaseValue = 7
-            };
         }
 
-        public readonly ModifiableValue Ego;
-        public readonly ModifiableValueAttributeStat Intelligence;
-        public readonly ModifiableValueAttributeStat Wisdom;
-        public readonly ModifiableValueAttributeStat Charisma;
+        public void AddBlackBlade(BlueprintItem ItemToGive) {
+            var valid = Game.Instance.Player.PartyCharacters.AsEnumerable().Append(Game.Instance.Player.MainCharacter.Value).Select(u => u.Value).ToList();
+            Main.Log($"Owner: {Owner.Unit.UniqueId}:{Owner.CharacterName} - {valid.Contains(Owner)}");
+            if (!BlackBlade.IsEmpty || !valid.Contains(Owner)) {
+                return; 
+            }
+            ItemsCollection inventory = GameHelper.GetPlayerCharacter().Inventory;
+            ItemEntity itemEntity = ItemToGive.CreateEntity();
+            itemEntity.Identify();
+            BlackBlade = inventory.Add(itemEntity);
+        }
+
+        public bool IsBlackBlade(ItemEntity item) {
+            return item == BlackBlade;
+        }
+
+        [JsonProperty]
+        private EntityRef<ItemEntity> BlackBlade = new EntityRef<ItemEntity>();
     }
 }

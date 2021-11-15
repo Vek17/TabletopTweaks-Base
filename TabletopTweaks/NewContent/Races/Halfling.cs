@@ -114,7 +114,7 @@ namespace TabletopTweaks.NewContent.Races {
                     c.Value = 2;
                     c.Bonus = new ContextValue();
                 }));
-                bp.AddTraitReplacment(HalflingLuck);
+                bp.AddTraitReplacment(Fearless);
                 bp.AddSelectionCallback(HalflingHeritageSelection);
             });
             var HalflingSecretiveSurvivorFeature = Helpers.CreateBlueprint<BlueprintFeature>("HalflingSecretiveSurvivorFeature", bp => {

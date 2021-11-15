@@ -70,7 +70,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var Icon_TransferArcana = AssetLoader.LoadInternal("Abilities", "Icon_TransferArcana.png");
             var Icon_BlackBladeStrike = AssetLoader.LoadInternal("Abilities", "Icon_BlackBladeStrike.png");
             var Icon_ElementalAttunment = AssetLoader.LoadInternal("Abilities", "Icon_ElementalAttunment.png");
-            var Icon_WarriorSpirit_Bane = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Bane.png");
+            var Icon_WarriorSpirit_GhostTouch = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_GhostTouch.png");
             var Icon_WarriorSpirit_Flaming = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Flaming.png");
             var Icon_WarriorSpirit_Frost = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Frost.png");
             var Icon_WarriorSpirit_Shock = AssetLoader.LoadInternal("Abilities", "Icon_WarriorSpirit_Shock.png");
@@ -78,7 +78,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
 
             var BlackBladeEnchantment = Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"BlackBladeEnchantment", bp => {
                 bp.SetName("Black Blade");
-                bp.SetDescription("A black blade's enhancement bonus scales with a Bladebound's level. It is +1 at level 3 and increases by 1 every 4 levels thereafter.");
+                bp.SetDescription("A black blade's enhancement bonus scales with its owners bladebound level. It is +1 at level 3 and increases by 1 every 4 levels thereafter.");
                 bp.SetPrefix("");
                 bp.SetSuffix("");
                 bp.WeaponFxPrefab = Unholy.WeaponFxPrefab;
@@ -100,6 +100,31 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeScimitar = CreateBlackBlade(ScimitarPlus5, BlackBladeEnchantment);
             var BlackBladeShortSword = CreateBlackBlade(ShortSwordPlus5, BlackBladeEnchantment);
             var BlackBladeSickle = CreateBlackBlade(SicklePlus5, BlackBladeEnchantment);
+
+            var BlackBladeSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("BlackBladeSelection", bp => {
+                bp.SetName("Black Blade Selection");
+                bp.SetDescription("At 3rd level, the bladebound magus’ gains a powerful sentient weapon called a black blade, " +
+                    "whose weapon type is chosen by the magus. A magus with this class feature cannot take the familiar magus arcana, " +
+                    "and cannot have a familiar of any kind, even from another class.");
+                //bp.m_Icon = OtherworldlyCompanionFiendish.Icon;
+                bp.Groups = new FeatureGroup[0];
+                bp.IsClassFeature = true;
+                bp.AddFeatures(
+                    BlackBladeBastardSword,
+                    BlackBladeBattleAx,
+                    BlackBladeDuelingSword,
+                    BlackBladeDwarvenWarAx,
+                    BlackBladeFalcata,
+                    BlackBladeHandAxe,
+                    BlackBladeKama,
+                    BlackBladeKukuri,
+                    BlackBladeLongSword,
+                    BlackBladeRapier,
+                    BlackBladeScimitar,
+                    BlackBladeShortSword,
+                    BlackBladeSickle
+                );
+            });
 
             var BladeBoundArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("BladeBoundArchetype", bp => {
                     bp.SetName("Bladebound");
@@ -180,6 +205,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.m_IsSpendResource = true;
                     c.Amount = 1;
                 });
+                bp.AddComponent<AbilityRequirementHasBlackBlade>();
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList();
                     c.Actions.Actions = new GameAction[] {
@@ -347,7 +373,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 BlackBladeArcanePool, 2,
                 BlackBladeEnergyAttunementForce,
                 BlackBladeEnergyAttunementBuff,
-                Icon_WarriorSpirit_Bane
+                Icon_WarriorSpirit_GhostTouch
             );
             var BlackBladeEnergyAttunementBaseAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeEnergyAttunementBaseAbility", bp => {
                 bp.SetName("Energy Attunement");
@@ -442,6 +468,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         })
                     );
                 });
+                bp.AddComponent<AbilityRequirementHasBlackBlade>();
             });
             var BlackBladeTransferArcana = Helpers.CreateBlueprint<BlueprintFeature>("BlackBladeTransferArcana", bp => {
                 bp.SetName(BlackBladeTransferArcanaAbility.m_DisplayName);
@@ -486,6 +513,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.m_IsSpendResource = true;
                     c.Amount = 1;
                 });
+                bp.AddComponent<AbilityRequirementHasBlackBlade>();
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList();
                     c.Actions.Actions = new GameAction[] {
@@ -536,7 +564,11 @@ namespace TabletopTweaks.NewContent.Archetypes {
 
             var BlackBladeBaseStats = Helpers.CreateBlueprint<BlueprintFeature>("BlackBladeBaseStats", bp => {
                 bp.SetName("Black Blade Base Stats");
-                bp.SetDescription("");
+                bp.SetDescription("The Black Blade starts with the following stats:\n" +
+                    "Ego: 5\n" +
+                    "Int: 11\n" +
+                    "Wis: 7\n" +
+                    "Cha: 7");
                 bp.Ranks = 1;
                 //bp.m_Icon = SlayerSwiftStudyTargetFeature.Icon;
                 bp.IsClassFeature = true;
@@ -563,7 +595,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
             var BlackBladeStatIncrease = Helpers.CreateBlueprint<BlueprintFeature>("BlackBladeMentalIncrease", bp => {
                 bp.SetName("Black Blade Stat Increase");
-                bp.SetDescription("The Black Blade's mental stats increases by 1.");
+                bp.SetDescription("The Black Blade's mental stats increase by 1.");
                 bp.Ranks = 8;
                 //bp.m_Icon = SlayerSwiftStudyTargetFeature.Icon;
                 bp.IsClassFeature = true;
@@ -659,6 +691,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             };
             BladeBoundArchetype.AddFeatures = new LevelEntry[] {
                 Helpers.CreateLevelEntry(1, BlackBladeProgression),
+                Helpers.CreateLevelEntry(3, BlackBladeSelection)
             };
             if (ModSettings.AddedContent.Archetypes.IsDisabled("BladeBound")) { return; }
 
@@ -684,7 +717,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var EnergyAttunement = Helpers.CreateBlueprint<BlueprintAbility>(name, bp => {
                 bp.SetName(DisplayName);
                 bp.SetDescription("");
-                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 minute");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 round");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.Range = AbilityRange.Personal;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
@@ -700,6 +733,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.RequiredBuff = buff.ToReference<BlueprintBuffReference>();
                     c.Not = true;
                 });
+                bp.AddComponent<AbilityRequirementHasBlackBlade>();
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList();
                     c.Actions.Actions = new GameAction[] {
@@ -730,7 +764,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             return EnergyAttunement;
         }
 
-        private static BlueprintItemWeapon CreateBlackBlade(BlueprintItemWeapon baseWeapon, BlueprintWeaponEnchantment enchant) {
+        private static BlueprintFeature CreateBlackBlade(BlueprintItemWeapon baseWeapon, BlueprintWeaponEnchantment enchant) {
             var LexiconAssemble_BE = Resources.GetBlueprint<BlueprintDialog>("9df5b313d792a424392ae64647e36969");
             var BlackBlade = Helpers.CreateCopy(baseWeapon, bp => {
                 bp.name = $"BlackBlade{baseWeapon.Category}";
@@ -750,7 +784,17 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             Resources.AddBlueprint(BlackBlade);
-            return BlackBlade;
+            var BlackBladeFeature = Helpers.CreateBlueprint<BlueprintFeature>($"{BlackBlade.name}Feature", bp => {
+                bp.SetName($"Black Blade — {baseWeapon.Category}");
+                bp.SetDescription($"Your Black Blade takes the form of a {baseWeapon.Category}.");
+                bp.Ranks = 1;
+                //bp.m_Icon = SlayerSwiftStudyTargetFeature.Icon;
+                bp.IsClassFeature = true;
+                bp.AddComponent<AddBlackBlade>(c => {
+                    c.BlackBlade = BlackBlade.ToReference<BlueprintItemWeaponReference>();
+                });
+            });
+            return BlackBladeFeature;
         }
     }
 }

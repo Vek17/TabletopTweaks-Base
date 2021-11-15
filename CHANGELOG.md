@@ -1,5 +1,6 @@
 ## Version 1.10.1
 * Fixes to Warrior Spirit save loading
+* Chinese localization from @1onepower
 
 ## Version 1.10.0
 * Added homebrew flags in the settings

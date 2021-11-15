@@ -7448,15 +7448,15 @@
       "esES": null
     },
     {
-      "Key": "19310cd2f3e547f588dc8c4bf040f7ff",
-      "SimpleName": "SteelHeadbuttFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter’s Strength modifier. Treat this attack as a weapon attack made using the same special material and echantment bonus (if any) as the armor.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhcn": "当战士穿着中甲或者重甲时，他在全轮攻击中加上一记头槌。这个头槌使用战士的最高BAB-5。头槌将会在战士穿着中甲时造成1d3点伤害，或者在他穿着重甲时造成1d4点伤害(对于小体型战士则分别是1d2和1d3)，再加上等同于战士1/2力量调整值的伤害。这次攻击视为武器攻击，并使用和他盔甲一样的特殊材料(如果有的话)。盔甲的增强加值不会调整头槌的伤害。",
-      "esES": null
+        "Key": "19310cd2f3e547f588dc8c4bf040f7ff",
+        "SimpleName": "SteelHeadbuttFeature.Description",
+        "ProcessTemplates": true,
+        "enGB": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter’s Strength modifier. Treat this attack as a weapon attack made using the same special material and enchantment bonus (if any) as the armor.",
+        "ruRU": null,
+        "deDE": null,
+        "frFR": null,
+        "zhcn": "当战士穿着中甲或者重甲时，他在全轮攻击中加上一记头槌。这个头槌使用战士的最高BAB-5。头槌将会在战士穿着中甲时造成1d3点伤害，或者在他穿着重甲时造成1d4点伤害(对于小体型战士则分别是1d2和1d3)，再加上等同于战士1/2力量调整值的伤害。这次攻击视为武器攻击，并使用和他盔甲一样的特殊材料(如果有的话)。盔甲的增强加值不会调整头槌的伤害。",
+        "esES": null
     },
     {
       "Key": "c1d4efb32180421e9fe24660d0800a1e",

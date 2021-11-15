@@ -71,7 +71,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                     "This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals " +
                     "1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, " +
                     "respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter’s Strength modifier. Treat this attack as a " +
-                    "weapon attack made using the same special material and echantment bonus (if any) as the armor.");
+                    "weapon attack made using the same special material and enchantment bonus (if any) as the armor.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent<ArmorFeatureUnlock>(c => {

@@ -23,7 +23,6 @@ namespace TabletopTweaks.NewActions {
                 return; 
             }
             RuleSavingThrow TransferSave = new RuleSavingThrow(Caster, SavingThrowType.Will, SaveDC.Calculate(base.Context));
-            Main.Log($"Save Property: {SaveDC.Calculate(base.Context)}");
             base.Context.TriggerRule(TransferSave);
             if (!TransferSave.IsPassed) {
                 using (base.AbilityContext.GetDataScope(base.Target)) {

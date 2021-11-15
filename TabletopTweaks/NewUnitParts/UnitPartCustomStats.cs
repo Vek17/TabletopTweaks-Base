@@ -19,7 +19,6 @@ namespace TabletopTweaks.NewUnitParts {
             foreach (var stat in CustomStats) {
                 stat.Value.m_Stats = Owner.Stats;
             }
-            Main.Log("UnitPartCustomStats::OnTurnOn");
         }
 
         private void UpdateOwner(ModifiableValue stat) {

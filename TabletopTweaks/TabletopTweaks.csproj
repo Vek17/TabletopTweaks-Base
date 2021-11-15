@@ -201,6 +201,8 @@
     <Compile Include="NewComponents\AbilityShowIfCasterWeaponTrainingRank.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\AbilityRequirementHasBlackBlade.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\AddBlackBlade.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AddWarriorSpiritEnchantment.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
