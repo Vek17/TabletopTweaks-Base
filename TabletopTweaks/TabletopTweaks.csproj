@@ -163,6 +163,7 @@
     <Compile Include="Bugfixes\General\ContextRankConfigFix.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
     <Compile Include="Bugfixes\General\DynamicItemNames.cs" />
+    <Compile Include="Bugfixes\General\MountedCombatFixes.cs" />
     <Compile Include="Bugfixes\General\ProfaneGift.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
@@ -192,7 +193,9 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="NewActions\ContextActionApplyWeaponEnchant.cs" />
     <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
+    <Compile Include="NewActions\ContextActionTransferArcana.cs" />
     <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
     <Compile Include="NewComponents\AbilityRequirementHasWeaponTrainingWithWeapon.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterWeaponTrainingRank.cs" />
@@ -205,8 +208,10 @@
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeElementalAttunement.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
+    <Compile Include="NewComponents\AddContextWeaponDamageBonus.cs" />
     <Compile Include="NewComponents\AddCustomMechanicsFeature.cs" />
     <Compile Include="NewComponents\AddFeatureOnClassLevelExclude.cs" />
     <Compile Include="NewComponents\AdditionalSpellSelection.cs" />
@@ -226,6 +231,7 @@
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
     <Compile Include="NewComponents\Properties\ProgressionRankGetter.cs" />
+    <Compile Include="NewComponents\Properties\StatValueGetter.cs" />
     <Compile Include="NewComponents\PseudoActivatable.cs" />
     <Compile Include="NewComponents\AbilityEffectToggleBuff.cs" />
     <Compile Include="NewComponents\RecalculateOnEquipmentChange.cs" />
@@ -285,11 +291,14 @@
     <Compile Include="NewComponents\AbilitySpecific\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteFeaturesFromListFormatted.cs" />
     <Compile Include="NewComponents\UpdateSlotsOnEquipmentChange.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeEnhancementBonus.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeStrike.cs" />
     <Compile Include="NewComponents\WeaponDamageMultiplierReplacement.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
     <Compile Include="NewContent\ArcanistExploits\MetamagicKnowledge.cs" />
+    <Compile Include="NewContent\Archetypes\BladeBound.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
     <Compile Include="MythicReworks\Aeon.cs" />
@@ -405,6 +414,7 @@
     <Compile Include="NewUI\MechanicActionBarSlotQuickStudy.cs" />
     <Compile Include="NewUnitParts\TTUnitPartDamageReduction.cs" />
     <Compile Include="NewUnitParts\UnitPartAeonGazeManager.cs" />
+    <Compile Include="NewUnitParts\UnitPartBlackBlade.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
     <Compile Include="NewUnitParts\UnitPartCustomMechanicsFeatures.cs" />
     <Compile Include="NewUnitParts\UnitPartCustomStats.cs" />
@@ -462,10 +472,16 @@
     <Content Include="Assets\Abilities\Icon_AeonBane.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBladeStrike.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Abilities\Icon_ChannelEntropy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_DestinedBloodline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_ElementalAttunment.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_LongArm.png">
@@ -559,6 +575,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_WarriorSpirit_Unholy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_SpellResistance.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_TransferArcana.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_ArmoredMight.png">

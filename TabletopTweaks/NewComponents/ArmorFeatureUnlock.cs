@@ -45,24 +45,7 @@ namespace TabletopTweaks.NewComponents {
         public void HandleUnitChangeActiveEquipmentSet(UnitDescriptor unit) {
             Update();
         }
-        /*
-        private void CheckEligibility() {
-            RemoveFact();
-            if (Owner.Body.IsPolymorphed) { return; }
-            var Armor = Owner.Body?.Armor?.MaybeArmor;
-            var Shield = Owner.Body?.SecondaryHand?.MaybeShield?.ArmorComponent;
-            if (Armor != null
-                && (RequiredArmor.Contains(Armor.Blueprint.ProficiencyGroup) == !Invert)) {
-                AddFact();
-                return;
-            };
-            if (Shield != null
-                && (RequiredArmor.Contains(Shield.Blueprint.ProficiencyGroup) == !Invert)) {
-                AddFact();
-                return;
-            };
-        }
-        */
+
         private bool ShouldApply() {
             if (Owner.Body.IsPolymorphed) { return false; }
             var Armor = Owner.Body?.Armor?.MaybeArmor;

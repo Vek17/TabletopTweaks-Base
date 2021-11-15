@@ -153,11 +153,11 @@ namespace TabletopTweaks.NewContent.Bloodlines {
                 bp.SetName(BloodragerDestinedStrikeAbility.m_DisplayName);
                 bp.SetDescription(BloodragerDestinedStrikeAbility.m_Description);
                 bp.IsClassFeature = true;
-                bp.AddComponent(Helpers.Create<AddFacts>(c => {
+                bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         BloodragerDestinedStrikeAbility.ToReference<BlueprintUnitFactReference>(),
                     };
-                }));
+                });
                 bp.AddComponent<AddAbilityResources>(c => {
                     c.m_Resource = BloodragerDestinedStrikeResource.ToReference<BlueprintAbilityResourceReference>();
                     c.RestoreAmount = true;
