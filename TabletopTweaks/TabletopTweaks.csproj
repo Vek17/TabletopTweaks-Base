@@ -205,6 +205,8 @@
     <Compile Include="NewComponents\AbilitySpecific\AddBlackBlade.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AddWarriorSpiritEnchantment.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\BlackBladeEffect.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\ItemEntityRestrictionBlackBlade.cs" />
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\MetaRageComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
+    <Compile Include="NewComponents\NewBaseTypes\ItemEntityRestriction.cs" />
     <Compile Include="NewComponents\Properties\CompositeCustomPropertyGetter.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
@@ -293,7 +296,6 @@
     <Compile Include="NewComponents\AbilitySpecific\TrainedGraceComponent.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteFeaturesFromListFormatted.cs" />
     <Compile Include="NewComponents\UpdateSlotsOnEquipmentChange.cs" />
-    <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeEnhancementBonus.cs" />
     <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeStrike.cs" />
     <Compile Include="NewComponents\WeaponDamageMultiplierReplacement.cs" />
     <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
@@ -484,6 +486,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_ElementalAttunment.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_LifeDrinkerBase.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_LifeDrinkerBlade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_LifeDrinkerSelf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_LifeDrinkerShared.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_LongArm.png">

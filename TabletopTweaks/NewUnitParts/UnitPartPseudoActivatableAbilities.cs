@@ -202,7 +202,7 @@ namespace TabletopTweaks.NewUnitParts {
                     shouldBeActive = false;
                 }
                 if (pseudoActivatableComponent.UseActiveVariantForeIcon) {
-                    if (watchedBuffs.Count > 1) {
+                    if (watchedBuffs.Count >= 1) {
                         var activeBuffs = watchedBuffs.Where(b => m_ActiveWatchedBuffs.Contains(b)).ToList();
                         if (activeBuffs.Count == 1) {
                             buffForForeIcon = activeBuffs[0];

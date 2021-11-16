@@ -49,11 +49,12 @@ namespace TabletopTweaks.NewComponents {
             if (this.TargetKilledByThisDamage && (!WasTargetAlive || !IsDead)) {
                 return;
             }
-            this.RunAction(evt.Target);
+            this.RunAction(CastOnSelf ? evt.Initiator : evt.Target);
         }
 
         private bool WasTargetAlive;
         public bool TargetKilledByThisDamage;
+        public bool CastOnSelf;
         public ActionList Actions;
     }
 }

@@ -13,9 +13,10 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
 
         public bool IsAbilityRestrictionPassed(AbilityData ability) {
             var BlackBlade = ability.Caster.Get<UnitPartBlackBlade>();
-            var weapon = ability.Caster.Body.PrimaryHand.MaybeWeapon;
-            if (BlackBlade == null || weapon == null) { return false; }
-            return BlackBlade.IsBlackBlade(weapon);
+            var primaryWeapon = ability.Caster.Body.PrimaryHand?.MaybeWeapon;
+            var secondaryWeapon = ability.Caster.Body.SecondaryHand?.MaybeWeapon;
+            if (BlackBlade == null || (primaryWeapon == null && secondaryWeapon == null)) { return false; }
+            return BlackBlade.IsBlackBlade(primaryWeapon) || BlackBlade.IsBlackBlade(secondaryWeapon);
         }
     }
 }

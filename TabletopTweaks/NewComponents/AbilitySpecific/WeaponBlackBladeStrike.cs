@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.PubSubSystem;
@@ -9,14 +10,9 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
     class WeaponBlackBladeStrike : WeaponEnchantmentLogic, IInitiatorRulebookHandler<RuleCalculateWeaponStats>, 
         IRulebookHandler<RuleCalculateWeaponStats>, ISubscriber, IInitiatorRulebookSubscriber {
 
-        public override void OnTurnOn() {
-            bonus = CalculateModifier();
-        }
-
         private int CalculateModifier() {
-            var MagusClass = Resources.GetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
-            var MagusLevel = Owner?.Wielder?.Progression?.GetClassLevel(MagusClass) ?? 0;
-            var bonus = MagusLevel switch {
+            var rank = WeilderProperty.Get().GetInt(base.Owner.Wielder);
+            var bonus = rank switch {
                 >= 5 and <= 8 => 2,
                 >= 9 and <= 12 => 3,
                 >= 13 and <= 16 => 4,
@@ -27,12 +23,12 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         }
 
         public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {
-            evt.AddDamageModifier(bonus, base.Fact);
+            evt.AddDamageModifier(CalculateModifier(), base.Fact);
         }
 
         public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
         }
 
-        private int bonus;
+        public BlueprintUnitPropertyReference WeilderProperty;
     }
 }

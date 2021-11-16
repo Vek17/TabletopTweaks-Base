@@ -20,7 +20,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         public void HandleUnitAfterLevelUp(UnitEntityData unit, LevelUpController controller) {
             //Main.Log($"Mode: {controller.State.Mode}");
             var part = base.Owner.Ensure<UnitPartBlackBlade>();
-            part.AddBlackBlade(BlackBlade);
+            part.AddBlackBlade(BlackBlade, base.Context, base.Fact);
         }
 
         public BlueprintItemWeaponReference BlackBlade;
