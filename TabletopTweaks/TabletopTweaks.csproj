@@ -224,6 +224,7 @@
     <Compile Include="NewComponents\ArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ContextArcaneSpellFailureIncrease.cs" />
     <Compile Include="NewComponents\ContextArmorCheckPenaltyIncrease.cs" />
+    <Compile Include="NewComponents\ContextIncreaseResourceAmount.cs" />
     <Compile Include="NewComponents\ContextMaxDexBonusIncrease.cs" />
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\ForceACUpdate.cs" />

@@ -25,7 +25,9 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.UnitLogic.Mechanics.Properties;
+using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
+using System.Linq;
 using System.Text.RegularExpressions;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -42,6 +44,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
         public static void AddBladeBound() {
             var MagusClass = Resources.GetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
             var MagusArcanaSelection = Resources.GetBlueprint<BlueprintFeature>("e9dc4dfc73eaaf94aae27e0ed6cc9ada");
+            var ArcanePoolFeature = Resources.GetBlueprint<BlueprintFeature>("3ce9bb90749c21249adc639031d5eed1");
             var ArcanePoolResourse = Resources.GetBlueprint<BlueprintAbilityResource>("effc3e386331f864e9e06d19dc218b37");
             var Alertness = Resources.GetBlueprint<BlueprintFeature>("1c04fe9a13a22bc499ffac03e6f79153");
             var Unholy = Resources.GetBlueprint<BlueprintWeaponEnchantment>("d05753b8df780fc4bb55b318f06af453");
@@ -137,6 +140,55 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     "but as a black blade becomes more aware, its true motivations manifest, and as does its " +
                     "ability to influence its wielder with its ever-increasing ego.");
             });
+            var BladeBoundArcanePool = Helpers.CreateBlueprint<BlueprintFeature>("BladeBoundArcanePool", bp => {
+                bp.SetName(ArcanePoolFeature.m_DisplayName);
+                bp.SetDescription("Instead of the normal arcane pool amount, the bladebound magus’s arcane pool has a number of points " +
+                    "equal to 1/3 his level (minimum 1) plus his Intelligence bonus.");
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.m_Icon = ArcanePoolFeature.Icon;
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        ArcanePoolFeature.ToReference<BlueprintUnitFactReference>(),
+                    };
+                });
+                bp.AddComponent<ContextIncreaseResourceAmount>(c => {
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.DamageBonus
+                    };
+                    c.Subtract = true;
+                    c.m_Resource = ArcanePoolResourse.ToReference<BlueprintAbilityResourceReference>();
+                });
+                bp.AddComponent<ContextIncreaseResourceAmount>(c => {
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                    c.m_Resource = ArcanePoolResourse.ToReference<BlueprintAbilityResourceReference>();
+                });
+                bp.AddContextRankConfig(c => {
+                    c.m_Type = AbilityRankType.DamageBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                    c.m_Progression = ContextRankProgression.Div2;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { MagusClass.ToReference<BlueprintCharacterClassReference>() };
+                    c.Archetype = BladeBoundArchetype.ToReference<BlueprintArchetypeReference>();
+                    c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
+                });
+                bp.AddContextRankConfig(c => {
+                    c.m_Type = AbilityRankType.StatBonus;
+                    c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                    c.m_Progression = ContextRankProgression.DivStep;
+                    c.m_StepLevel = 3;
+                    c.m_Min = 1;
+                    c.m_UseMin = true;
+                    c.m_Class = new BlueprintCharacterClassReference[] { MagusClass.ToReference<BlueprintCharacterClassReference>() };
+                    c.Archetype = BladeBoundArchetype.ToReference<BlueprintArchetypeReference>();
+                    c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
+                });
+            });
             var BlackBladeArcanePool = Helpers.CreateBlueprint<BlueprintAbilityResource>("BlackBladeArcanePool", bp => {
                 bp.m_Min = 1;
                 bp.m_MaxAmount = new BlueprintAbilityResource.Amount {
@@ -154,6 +206,18 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     StartingIncrease = 1
                 };
             });
+            var BlackBladeArcanePoolFeature = Helpers.CreateBlueprint<BlueprintFeature>("BlackBladeArcanePoolFeature", bp => {
+                bp.SetName("Black Blade Arcane Pool");
+                bp.SetDescription("A black blade has an arcane pool with a number of points equal to 1 + its Intelligence bonus.");
+                bp.IsClassFeature = true;
+                bp.AddComponent<AddAbilityResources>(c => {
+                    c.m_Resource = BlackBladeArcanePool.ToReference<BlueprintAbilityResourceReference>();
+                    c.RestoreAmount = true;
+                });
+                bp.IsClassFeature = true;
+                bp.Ranks = 1;
+                bp.m_Icon = ArcanePoolFeature.Icon;
+            });
             var BlackBladeProgression = Helpers.CreateBlueprint<BlueprintProgression>("BlackBladeProgression", bp => {
                 bp.SetName("Black Blade");
                 bp.SetDescription("At level 3 the Bladebound will gain a black blade that will grow stronger along side them.");
@@ -168,10 +232,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 };
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeatureRankIncrease = new BlueprintFeatureReference();
-                bp.AddComponent<AddAbilityResources>(c => {
-                    c.m_Resource = BlackBladeArcanePool.ToReference<BlueprintAbilityResourceReference>();
-                    c.RestoreAmount = true;
-                });
             });
             var BlackBladeProgressionProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("BlackBladeProgressionProperty", bp => {
                 bp.AddComponent<ProgressionRankGetter>(c => {
@@ -948,7 +1008,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             BlackBladeProgression.LevelEntries = new LevelEntry[] {
-                Helpers.CreateLevelEntry(3, BlackBladeBaseStats, Alertness, BlackBladeStrike),
+                Helpers.CreateLevelEntry(3, BlackBladeBaseStats, Alertness, BlackBladeStrike, BlackBladeArcanePoolFeature),
                 Helpers.CreateLevelEntry(5, BlackBladeStatIncrease, BlackBladeEgoIncrease3, BlackBladeEnergyAttunement),
                 Helpers.CreateLevelEntry(7, BlackBladeStatIncrease, BlackBladeEgoIncrease2),
                 Helpers.CreateLevelEntry(9, BlackBladeStatIncrease, BlackBladeEgoIncrease2),
@@ -964,22 +1024,19 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 Helpers.CreateUIGroup(BlackBladeStrike, BlackBladeEnergyAttunement, BlackBladeTransferArcana, BlackBladeSpellDefense, BlackBladeLifeDrinker)
             };
             BladeBoundArchetype.RemoveFeatures = new LevelEntry[] {
+                Helpers.CreateLevelEntry(1, ArcanePoolFeature),
                 Helpers.CreateLevelEntry(3, MagusArcanaSelection)
             };
             BladeBoundArchetype.AddFeatures = new LevelEntry[] {
-                Helpers.CreateLevelEntry(1, BlackBladeProgression),
+                Helpers.CreateLevelEntry(1, BladeBoundArcanePool, BlackBladeProgression),
                 Helpers.CreateLevelEntry(3, BlackBladeSelection)
             };
             if (ModSettings.AddedContent.Archetypes.IsDisabled("BladeBound")) { return; }
 
             MagusClass.m_Archetypes = MagusClass.m_Archetypes.AppendToArray(BladeBoundArchetype.ToReference<BlueprintArchetypeReference>());
-            /*
-            MagusClass.Progression.UIGroups = WarpriestClass.Progression.UIGroups.AppendToArray(
-                Helpers.CreateUIGroup(DivineCommanderCompanionSelection, DivineCommanderBlessedMount),
-                Helpers.CreateUIGroup(DivineCommanderBattleTacticianFeature, DivineCommanderBattleTacticianGreaterFeature),
-                Helpers.CreateUIGroup(DivineCommanderBattleTacticianSelection)
-            );
-            */
+            MagusClass.Progression.UIGroups
+                .Where(group => group.Features.Contains(ArcanePoolFeature))
+                .ForEach(group => group.m_Features.Add(BladeBoundArcanePool.ToReference<BlueprintFeatureBaseReference>()));
             Main.LogPatch("Added", BladeBoundArchetype);
         }
 
