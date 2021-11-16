@@ -17,10 +17,10 @@ namespace TabletopTweaks.NewActions {
         public override void RunAction() {
             var Caster = base.Context.MaybeCaster;
             if (Caster == null) { return; }
-            if (Caster.Resources.ContainsResource(m_sourceResource) 
-                && Caster.Resources.ContainsResource(m_destinationResource) 
-                && !Caster.Resources.HasEnoughResource(m_sourceResource, m_sourceAmount)) { 
-                return; 
+            if (Caster.Resources.ContainsResource(m_sourceResource)
+                && Caster.Resources.ContainsResource(m_destinationResource)
+                && !Caster.Resources.HasEnoughResource(m_sourceResource, m_sourceAmount)) {
+                return;
             }
             RuleSavingThrow TransferSave = new RuleSavingThrow(Caster, SavingThrowType.Will, SaveDC.Calculate(base.Context));
             base.Context.TriggerRule(TransferSave);

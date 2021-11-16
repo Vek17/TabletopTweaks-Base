@@ -1,5 +1,4 @@
-﻿using System;
-using Kingmaker.Blueprints.JsonSystem;
+﻿using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Validation;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;

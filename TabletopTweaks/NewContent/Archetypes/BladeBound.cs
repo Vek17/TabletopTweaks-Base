@@ -88,7 +88,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.WeaponFxPrefab = Unholy.WeaponFxPrefab;
                 bp.m_EnchantmentCost = 0;
                 bp.m_IdentifyDC = 0;
-                //bp.AddComponent<WeaponBlackBladeEnhancementBonus>();
             });
 
             var BlackBladeBastardSword = CreateBlackBlade(BastardSwordPlus5, BlackBladeEnchantment);
@@ -131,12 +130,12 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
 
             var BladeBoundArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("BladeBoundArchetype", bp => {
-                    bp.SetName("Bladebound");
-                    bp.SetDescription("A select group of magi are called to carry a black blade, a sentient " +
-                        "weapon of often unknown and possibly unknowable purpose. These weapons become " +
-                        "valuable tools and allies, as both the magus and weapon typically crave arcane power, " +
-                        "but as a black blade becomes more aware, its true motivations manifest, and as does its " +
-                        "ability to influence its wielder with its ever-increasing ego.");
+                bp.SetName("Bladebound");
+                bp.SetDescription("A select group of magi are called to carry a black blade, a sentient " +
+                    "weapon of often unknown and possibly unknowable purpose. These weapons become " +
+                    "valuable tools and allies, as both the magus and weapon typically crave arcane power, " +
+                    "but as a black blade becomes more aware, its true motivations manifest, and as does its " +
+                    "ability to influence its wielder with its ever-increasing ego.");
             });
             var BlackBladeArcanePool = Helpers.CreateBlueprint<BlueprintAbilityResource>("BlackBladeArcanePool", bp => {
                 bp.m_Min = 1;
@@ -181,7 +180,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.Max = 20;
                 });
             });
-            
+
             var BlackBladeEgoProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("BlackBladeEgoProperty", bp => {
                 bp.AddComponent<StatValueGetter>(c => {
                     c.Stat = CustomStatType.BlackBladeEgo.Stat();
@@ -229,7 +228,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeStrikeAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeStrikeAbility", bp => {
                 bp.SetName(BlackBladeStrikeBuff.m_DisplayName);
                 bp.SetDescription(BlackBladeStrikeBuff.Description);
-                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration","1 minute");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 minute");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.Range = AbilityRange.Personal;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
@@ -362,10 +361,10 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.m_Icon = Icon_ElementalAttunment;
             });
             var BlackBladeEnergyAttunementColdAbility = CreateEnergyAttunement(
-                "BlackBladeEnergyAttunementColdAbility", 
-                "Energy Attunement — Cold", 
-                BlackBladeArcanePool, 1, 
-                BlackBladeEnergyAttunementCold, 
+                "BlackBladeEnergyAttunementColdAbility",
+                "Energy Attunement — Cold",
+                BlackBladeArcanePool, 1,
+                BlackBladeEnergyAttunementCold,
                 BlackBladeEnergyAttunementBuff,
                 Icon_WarriorSpirit_Frost
             );
@@ -752,7 +751,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<TemporaryHitPointsFromAbilityValue>(c => {
-                    c.Value = new ContextValue() { 
+                    c.Value = new ContextValue() {
                         ValueType = ContextValueType.CasterCustomProperty,
                         m_CustomProperty = BlackBladeEgoProperty.ToReference<BlueprintUnitPropertyReference>()
                     };
@@ -985,10 +984,10 @@ namespace TabletopTweaks.NewContent.Archetypes {
         }
 
         private static BlueprintAbility CreateEnergyAttunement(
-            string name, 
-            string DisplayName, 
-            BlueprintAbilityResource resource, int cost, 
-            BlueprintWeaponEnchantment enchant, 
+            string name,
+            string DisplayName,
+            BlueprintAbilityResource resource, int cost,
+            BlueprintWeaponEnchantment enchant,
             BlueprintBuff buff,
             Sprite icon = null) {
 

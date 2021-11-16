@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using Kingmaker.Controllers.Combat;
+﻿using Kingmaker.Controllers.Combat;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Parts;

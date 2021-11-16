@@ -5,10 +5,7 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TabletopTweaks.NewComponents.NewBaseTypes {
     [AllowedOn(typeof(BlueprintItemEquipment), false)]

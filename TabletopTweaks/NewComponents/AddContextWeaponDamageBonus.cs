@@ -19,6 +19,6 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public ModifierDescriptor Descriptor;
-        public ContextValue Value = 0; 
+        public ContextValue Value = 0;
     }
 }

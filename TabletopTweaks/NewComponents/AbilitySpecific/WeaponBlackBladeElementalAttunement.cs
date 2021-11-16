@@ -1,5 +1,4 @@
-﻿using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Items.Ecnchantments;
+﻿using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;

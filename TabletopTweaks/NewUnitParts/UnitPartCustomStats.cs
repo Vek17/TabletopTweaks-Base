@@ -50,7 +50,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
         [JsonProperty]
         public readonly Dictionary<CustomStatType, ModifiableValue> CustomStats = new Dictionary<CustomStatType, ModifiableValue>();
-       
+
         //[HarmonyPatch(typeof(CharacterStats), nameof(CharacterStats.GetStat), new Type[] { typeof(StatType) })]
         [HarmonyPatch]
         static class CharacterStats_GetStat_CustomStatType_Patch {

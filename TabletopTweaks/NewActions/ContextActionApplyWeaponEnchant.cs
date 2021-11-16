@@ -1,16 +1,12 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Owlcat.Runtime.Core.Logging;
 using System;
-using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewActions {
     [TypeId("891df14e8a9b4f72a28dd2b7a8c2de08")]

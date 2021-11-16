@@ -3,18 +3,12 @@ using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers;
 using Kingmaker.EntitySystem;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Properties;
-using Kingmaker.Utility;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TabletopTweaks.NewUnitParts {
     class UnitPartBlackBlade : OldStyleUnitPart {

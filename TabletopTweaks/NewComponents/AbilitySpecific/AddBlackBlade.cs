@@ -11,7 +11,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
     class AddBlackBlade : UnitFactComponentDelegate, IUnitLevelUpHandler {
 
         public override void OnTurnOn() {
-            
+
         }
 
         public void HandleUnitBeforeLevelUp(UnitEntityData unit) {
