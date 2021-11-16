@@ -12,6 +12,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -269,6 +270,9 @@ namespace TabletopTweaks.NewContent.Templates {
                         ValueShared = AbilitySharedValue.DamageBonus
                     };
                 });
+                bp.AddComponent<RemoveBuffIfCasterIsMissing>(c => {
+                    c.RemoveOnCasterDeath = true;
+                });
                 //bp.AddComponent<UniqueBuff>();
             });
             init?.Invoke(smiteBuff);
@@ -325,14 +329,14 @@ namespace TabletopTweaks.NewContent.Templates {
                         }
                     );
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
                     c.m_Progression = ContextRankProgression.AsIs;
                     c.m_Stat = StatType.Charisma;
                     c.m_Min = 0;
                     c.m_UseMin = true;
-                }));
+                });
                 bp.AddComponent<ContextCalculateSharedValue>(c => {
                     c.ValueType = AbilitySharedValue.StatBonus;
                     c.Value = new ContextDiceValue() {
@@ -344,11 +348,11 @@ namespace TabletopTweaks.NewContent.Templates {
                     };
                     c.Modifier = 1;
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.DamageBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.CharacterLevel;
                     c.m_Progression = ContextRankProgression.AsIs;
-                }));
+                });
                 bp.AddComponent<ContextCalculateSharedValue>(c => {
                     c.ValueType = AbilitySharedValue.DamageBonus;
                     c.Value = new ContextDiceValue() {

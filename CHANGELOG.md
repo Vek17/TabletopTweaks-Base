@@ -1,6 +1,9 @@
 ## Version 1.10.1
-* Fixes to Warrior Spirit save loading
 * Chinese localization from @1onepower
+* Fixes to Warrior Spirit save loading issues
+* Halfing alternate racial trait blessed now removes the correct trait
+* Added Blade Bound Magus archetype
+    * A Magus archetype which sacrifices some of thier arcane pool for a unique weapon that scales along side them
 
 ## Version 1.10.0
 * Added homebrew flags in the settings

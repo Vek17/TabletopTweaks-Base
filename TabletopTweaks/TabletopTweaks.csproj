@@ -197,6 +197,7 @@
     <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
     <Compile Include="NewActions\ContextActionTransferArcana.cs" />
     <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
+    <Compile Include="NewComponents\AbilityRequirementHasResource.cs" />
     <Compile Include="NewComponents\AbilityRequirementHasWeaponTrainingWithWeapon.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterWeaponTrainingRank.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
@@ -477,7 +478,13 @@
     <Content Include="Assets\Abilities\Icon_AeonBane.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_BlackBladeStrike.png">
+    <Content Include="Assets\Abilities\Icon_BlackBlade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_BlackBladeStrike.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_SpellDefense.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_ChannelEntropy.png">
@@ -486,19 +493,34 @@
     <Content Include="Assets\Abilities\Icon_DestinedBloodline.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_ElementalAttunment.png">
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Base.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_LifeDrinkerBase.png">
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Cold.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_LifeDrinkerBlade.png">
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Electricity.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_LifeDrinkerSelf.png">
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Fire.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_LifeDrinkerShared.png">
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Force.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Sonic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerBase.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerBlade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerSelf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerShared.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_LongArm.png">
@@ -594,10 +616,7 @@
     <Content Include="Assets\Abilities\Icon_WarriorSpirit_Unholy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_SpellResistance.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Abilities\Icon_TransferArcana.png">
+    <Content Include="Assets\Abilities\Icon_BlackBlade_TransferArcana.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_ArmoredMight.png">

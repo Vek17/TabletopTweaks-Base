@@ -20,10 +20,12 @@ namespace TabletopTweaks.NewComponents {
         }
 
         public void CalculateMaxResourceAmount(BlueprintAbilityResource resource, ref int bonus) {
-            if (Subtract) {
-                bonus -= Value.Calculate(base.Context);
-            } else {
-                bonus += Value.Calculate(base.Context);
+            if (base.Fact.Active && resource == m_Resource.Get()) {
+                if (Subtract) {
+                    bonus -= Value.Calculate(base.Context);
+                } else {
+                    bonus += Value.Calculate(base.Context);
+                }
             }
         }
 

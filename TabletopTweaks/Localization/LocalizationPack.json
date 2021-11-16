@@ -52,7 +52,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精金",
+      "zhCN": "精金",
       "esES": null
     },
     {
@@ -63,7 +63,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "选择一项进阶防具训练",
+      "zhCN": "选择一项进阶防具训练",
       "esES": null
     },
     {
@@ -74,7 +74,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "7级起，每当战士本该获取额外一级的防具训练时，他可以转而获得一项进阶防具训练作为替代。注意，即使你在7级时如此做，你也能获得穿甲时不降低移动速度的能力。",
+      "zhCN": "7级起，每当战士本该获取额外一级的防具训练时，他可以转而获得一项进阶防具训练作为替代。注意，即使你在7级时如此做，你也能获得穿甲时不降低移动速度的能力。",
       "esES": null
     },
     {
@@ -85,7 +85,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "进阶防具训练",
+      "zhCN": "进阶防具训练",
       "esES": null
     },
     {
@@ -96,7 +96,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "9级起，每当你本该可以选择将武器训练应用于一个新的武器类别时，你可以选择一项进阶武器训练作为替代。",
+      "zhCN": "9级起，每当你本该可以选择将武器训练应用于一个新的武器类别时，你可以选择一项进阶武器训练作为替代。",
       "esES": null
     },
     {
@@ -107,7 +107,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "进阶防具训练",
+      "zhCN": "进阶防具训练",
       "esES": null
     },
     {
@@ -118,7 +118,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "4级神话等级时，御衡者获得使他的武器变得特别致命的能力。每日角色等级+2*神话等级轮，你可以使得你装备的任何武器对任何敌人都视作有破敌的效果。此外，在御衡者破敌激活期间，你的法术穿透额外获得等同神话等级的加值，你对所有受到你的物理命中或法术伤害的敌人施放解除魔法，以角色等级作为施法者等级。最后，如果你有审判官的破敌职业能力，在审判官破敌激活期间，你也获得相同的法术穿透和解除魔法能力。",
+      "zhCN": "4级神话等级时，御衡者获得使他的武器变得特别致命的能力。每日角色等级+2*神话等级轮，你可以使得你装备的任何武器对任何敌人都视作有破敌的效果。此外，在御衡者破敌激活期间，你的法术穿透额外获得等同神话等级的加值，你对所有受到你的物理命中或法术伤害的敌人施放解除魔法，以角色等级作为施法者等级。最后，如果你有审判官的破敌职业能力，在审判官破敌激活期间，你也获得相同的法术穿透和解除魔法能力。",
       "esES": null
     },
     {
@@ -129,7 +129,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "御衡者破敌使用次数提升",
+      "zhCN": "御衡者破敌使用次数提升",
       "esES": null
     },
     {
@@ -140,7 +140,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "灵巧",
+      "zhCN": "灵巧",
       "esES": null
     },
     {
@@ -151,7 +151,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "直至制裁目标死亡。",
+      "zhCN": "直至制裁目标死亡。",
       "esES": null
     },
     {
@@ -162,7 +162,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "无序",
+      "zhCN": "无序",
       "esES": null
     },
     {
@@ -173,7 +173,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得动物伙伴，如同你是你的人物等级-3的德鲁伊。动物伙伴的等级、能力、专长可以正常随你的人物等级成长。",
+      "zhCN": "你获得动物伙伴，如同你是你的人物等级-3的德鲁伊。动物伙伴的等级、能力、专长可以正常随你的人物等级成长。",
       "esES": null
     },
     {
@@ -184,7 +184,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物盟友",
+      "zhCN": "动物盟友",
       "esES": null
     },
     {
@@ -195,7 +195,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物盟友升级进程",
+      "zhCN": "动物盟友升级进程",
       "esES": null
     },
     {
@@ -206,7 +206,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物盟友等级",
+      "zhCN": "动物盟友等级",
       "esES": null
     },
     {
@@ -217,7 +217,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "平衡",
+      "zhCN": "平衡",
       "esES": null
     },
     {
@@ -228,7 +228,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "坚韧",
+      "zhCN": "坚韧",
       "esES": null
     },
     {
@@ -239,7 +239,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "暗影",
+      "zhCN": "暗影",
       "esES": null
     },
     {
@@ -250,7 +250,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等暗影",
+      "zhCN": "高等暗影",
       "esES": null
     },
     {
@@ -261,7 +261,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血承",
+      "zhCN": "奥术血承",
       "esES": null
     },
     {
@@ -272,7 +272,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥能师可以选择获得魔宠以替代一项奥能技艺。",
+      "zhCN": "奥能师可以选择获得魔宠以替代一项奥能技艺。",
       "esES": null
     },
     {
@@ -283,7 +283,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "魔宠",
+      "zhCN": "魔宠",
       "esES": null
     },
     {
@@ -294,7 +294,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥能师可以选择获得一个造物专长以替代一项奥能技艺。他需要满足先决条件。",
+      "zhCN": "奥能师可以选择获得一个造物专长以替代一项奥能技艺。他需要满足先决条件。",
       "esES": null
     },
     {
@@ -305,7 +305,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "造物精通",
+      "zhCN": "造物精通",
       "esES": null
     },
     {
@@ -316,7 +316,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥能师可以选择获得一个超魔专长以替代一项奥能技艺。他需要满足先决条件。",
+      "zhCN": "奥能师可以选择获得一个超魔专长以替代一项奥能技艺。他需要满足先决条件。",
       "esES": null
     },
     {
@@ -327,7 +327,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔学识",
+      "zhCN": "超魔学识",
       "esES": null
     },
     {
@@ -338,7 +338,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "以一个会触发借机攻击的整轮动作，奥能师可以消耗一点奥能点，将一个已经准备的法术替换为任何他已知的、但没有准备的同等级法术。",
+      "zhCN": "以一个会触发借机攻击的整轮动作，奥能师可以消耗一点奥能点，将一个已经准备的法术替换为任何他已知的、但没有准备的同等级法术。",
       "esES": null
     },
     {
@@ -349,7 +349,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "快速研读",
+      "zhCN": "快速研读",
       "esES": null
     },
     {
@@ -360,7 +360,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "当战士穿甲时，可以在威吓检定上获得取决于他所穿甲类型的加值：轻甲+1，中甲+2，重甲+3。这个加值在7级以及之后的每4级都会增加1点，但无论何种盔甲都以4点为最高。",
+      "zhCN": "当战士穿甲时，可以在威吓检定上获得取决于他所穿甲类型的加值：轻甲+1，中甲+2，重甲+3。这个加值在7级以及之后的每4级都会增加1点，但无论何种盔甲都以4点为最高。",
       "esES": null
     },
     {
@@ -371,7 +371,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "自信着甲",
+      "zhCN": "自信着甲",
       "esES": null
     },
     {
@@ -382,18 +382,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "自信着甲状态",
-      "esES": null
-    },
-    {
-      "Key": "9fd71c48669a40c1a071aa9195fc988e",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhcn": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
+      "zhCN": "自信着甲状态",
       "esES": null
     },
     {
@@ -404,7 +393,18 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。",
+      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。",
+      "esES": null
+    },
+    {
+      "Key": "9fd71c48669a40c1a071aa9195fc988e",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
       "esES": null
     },
     {
@@ -415,7 +415,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "盔甲主宰",
+      "zhCN": "盔甲主宰",
       "esES": null
     },
     {
@@ -426,7 +426,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "盔甲主宰状态",
+      "zhCN": "盔甲主宰状态",
       "esES": null
     },
     {
@@ -437,7 +437,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的盔甲带来的护甲AC提高一半，但不能超过(1+神话等级)/2。",
+      "zhCN": "你的盔甲带来的护甲AC提高一半，但不能超过(1+神话等级)/2。",
       "esES": null
     },
     {
@@ -448,7 +448,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超凡护甲",
+      "zhCN": "超凡护甲",
       "esES": null
     },
     {
@@ -459,7 +459,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你完全忽略重甲的最高敏捷调整、鉴定减值和奥术失败率。",
+      "zhCN": "你完全忽略重甲的最高敏捷调整、鉴定减值和奥术失败率。",
       "esES": null
     },
     {
@@ -470,7 +470,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神话护甲大师(重甲)",
+      "zhCN": "神话护甲大师(重甲)",
       "esES": null
     },
     {
@@ -481,7 +481,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的盔甲最高敏捷调整提高神话等级点，鉴定减值降低神话等级点，奥术失败率降低5%每神话等级。鉴定减值和奥术失败率最低降低为0。",
+      "zhCN": "你的盔甲最高敏捷调整提高神话等级点，鉴定减值降低神话等级点，奥术失败率降低5%每神话等级。鉴定减值和奥术失败率最低降低为0。",
       "esES": null
     },
     {
@@ -492,7 +492,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神话护甲大师",
+      "zhCN": "神话护甲大师",
       "esES": null
     },
     {
@@ -503,7 +503,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你完全忽略轻甲的最高敏捷调整、鉴定减值和奥术失败率。",
+      "zhCN": "你完全忽略轻甲的最高敏捷调整、鉴定减值和奥术失败率。",
       "esES": null
     },
     {
@@ -514,7 +514,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神话护甲大师(轻甲)",
+      "zhCN": "神话护甲大师(轻甲)",
       "esES": null
     },
     {
@@ -525,7 +525,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你完全忽略中甲的最高敏捷调整、鉴定减值和奥术失败率。",
+      "zhCN": "你完全忽略中甲的最高敏捷调整、鉴定减值和奥术失败率。",
       "esES": null
     },
     {
@@ -536,7 +536,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神话护甲大师(中甲)",
+      "zhCN": "神话护甲大师(中甲)",
       "esES": null
     },
     {
@@ -547,7 +547,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "重甲掌握",
+      "zhCN": "重甲掌握",
       "esES": null
     },
     {
@@ -558,7 +558,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你穿的重甲的AC加值提高每四个战士等级一点，最高5点。",
+      "zhCN": "你穿的重甲的AC加值提高每四个战士等级一点，最高5点。",
       "esES": null
     },
     {
@@ -569,7 +569,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "轻甲掌握",
+      "zhCN": "轻甲掌握",
       "esES": null
     },
     {
@@ -580,7 +580,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你穿的轻甲的AC加值提高每四个战士等级一点，最高3点。",
+      "zhCN": "你穿的轻甲的AC加值提高每四个战士等级一点，最高3点。",
       "esES": null
     },
     {
@@ -591,7 +591,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "中甲掌握",
+      "zhCN": "中甲掌握",
       "esES": null
     },
     {
@@ -602,7 +602,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你穿的中甲的AC加值提高每四个战士等级一点，最高4点。",
+      "zhCN": "你穿的中甲的AC加值提高每四个战士等级一点，最高4点。",
       "esES": null
     },
     {
@@ -613,7 +613,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战士选择一种盔甲。当穿着他所选盔甲时，战士在盔甲的护甲加值上加上四分之一他的战士等级，轻甲最多不能超过+3，中甲最多不能超过+4，重甲最多不能超过+5。战士可以多次选择该进阶盔甲训练，每次他选择时，他都能将该选项的效果应用在一个不同的盔甲类型上。",
+      "zhCN": "战士选择一种盔甲。当穿着他所选盔甲时，战士在盔甲的护甲加值上加上四分之一他的战士等级，轻甲最多不能超过+3，中甲最多不能超过+4，重甲最多不能超过+5。战士可以多次选择该进阶盔甲训练，每次他选择时，他都能将该选项的效果应用在一个不同的盔甲类型上。",
       "esES": null
     },
     {
@@ -624,7 +624,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "盔甲掌握",
+      "zhCN": "盔甲掌握",
       "esES": null
     },
     {
@@ -635,7 +635,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "护甲训练",
+      "zhCN": "护甲训练",
       "esES": null
     },
     {
@@ -646,7 +646,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "护甲训练-移除盔甲移动速度减值",
+      "zhCN": "护甲训练-移除盔甲移动速度减值",
       "esES": null
     },
     {
@@ -657,7 +657,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "灵使的命运和全格拉利昂最可爱的龙[此条目翻译由爱乌提供]紧密相连。任何时候灵使受到伤害，50%伤害由爱乌代为承受。此外，爱乌获得等同灵使神话等级的Dr/守序。",
+      "zhCN": "灵使的命运和全格拉利昂最可爱的龙[此条目翻译由爱乌提供]紧密相连。任何时候灵使受到伤害，50%伤害由爱乌代为承受。此外，爱乌获得等同灵使神话等级的Dr/守序。",
       "esES": null
     },
     {
@@ -668,7 +668,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "公正",
+      "zhCN": "公正",
       "esES": null
     },
     {
@@ -679,7 +679,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "侍祭将交涉和学识(宗教)加入本职技能列表。她也能用感知替代魅力进行交涉鉴定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "侍祭将交涉和学识(宗教)加入本职技能列表。她也能用感知替代魅力进行交涉鉴定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -690,7 +690,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "杂耍艺人将巧手和灵巧加入本职技能列表。她还会擅长飞斧。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "杂耍艺人将巧手和灵巧加入本职技能列表。她还会擅长飞斧。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -701,7 +701,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "阿尔多瑞剑客将沟通加入本职技能列表。她还会擅长决斗剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "阿尔多瑞剑客将沟通加入本职技能列表。她还会擅长决斗剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -712,7 +712,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥肯斯塔炼金师将知识（神秘）加入本职技能列表。她还会在用炼金炸弹和炼金物品造成的伤害上获得+1加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "奥肯斯塔炼金师将知识（神秘）加入本职技能列表。她还会在用炼金炸弹和炼金物品造成的伤害上获得+1加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -723,7 +723,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "安多安外交官将沟通加入本职技能列表。她还会在交涉技能检定上获得+2加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "安多安外交官将沟通加入本职技能列表。她还会在交涉技能检定上获得+2加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -734,7 +734,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "赏金猎人将{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、木棒、轻型硬头锤和重型硬头锤。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "赏金猎人将{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、木棒、轻型硬头锤和重型硬头锤。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -745,7 +745,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "切利亚克斯魔鬼学者将{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在对抗魔鬼时的{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}上获得+4闪避加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "切利亚克斯魔鬼学者将{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在对抗魔鬼时的{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}上获得+4闪避加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -756,7 +756,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "侍臣将{g|Encyclopedia:Persuasion}沟通{/g}和{g|Encyclopedia:Trickery}巧手{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长细剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "侍臣将{g|Encyclopedia:Persuasion}沟通{/g}和{g|Encyclopedia:Trickery}巧手{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长细剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -767,7 +767,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "特使将{g|Encyclopedia:Persuasion}沟通{/g}和{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长细剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "特使将{g|Encyclopedia:Persuasion}沟通{/g}和{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长细剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -778,7 +778,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "农民将{g|Encyclopedia:Athletics}运动{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长巨镰，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "农民将{g|Encyclopedia:Athletics}运动{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长巨镰，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -789,7 +789,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "盖布死灵师将{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她召唤的不死生物和伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "盖布死灵师将{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她召唤的不死生物和伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -800,7 +800,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "角斗士将{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、三叉戟、短剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "角斗士将{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、三叉戟、短剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -811,7 +811,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "卫兵将沟通加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、短剑和轻弩。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "卫兵将沟通加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、短剑和轻弩。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -822,7 +822,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "医师将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还可以在尝试学识（自然）和学识（宗教）{g|Encyclopedia:Check}检定{/g}时，使用{g|Encyclopedia:Intelligence}智力属性{/g}替代{g|Encyclopedia:Wisdom}感知属性{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "医师将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还可以在尝试学识（自然）和学识（宗教）{g|Encyclopedia:Check}检定{/g}时，使用{g|Encyclopedia:Intelligence}智力属性{/g}替代{g|Encyclopedia:Wisdom}感知属性{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -833,7 +833,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "隐士将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长木棒、巨木棒、木棍和飞镖。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "隐士将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长木棒、巨木棒、木棍和飞镖。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -844,7 +844,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "猎人将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Perception}察觉{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长短弓和长弓。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "猎人将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Perception}察觉{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长短弓和长弓。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -855,7 +855,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "领袖将{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长细剑、长剑、巨剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "领袖将{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长细剑、长剑、巨剑和小圆盾。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -866,7 +866,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "伐木工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长手斧、战斧和巨斧，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "伐木工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长手斧、战斧和巨斧，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -877,7 +877,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "习武者将{g|Encyclopedia:Mobility}灵巧{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会获得精通徒手击打作为背景{g|Encyclopedia:Feat}专长{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "习武者将{g|Encyclopedia:Mobility}灵巧{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会获得精通徒手击打作为背景{g|Encyclopedia:Feat}专长{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -888,7 +888,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "蒙蒂维孤儿将{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在对抗恶魔时的{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "蒙蒂维孤儿将{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在对抗恶魔时的{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -899,7 +899,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "雇佣兵将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、矛、长矛和标枪。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "雇佣兵将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻型盔甲、矛、长矛和标枪。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -910,7 +910,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "矿工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻十字镐、重十字镐，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "矿工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻十字镐、重十字镐，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -921,7 +921,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "劫匪将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长匕首、拳匕和飞镖。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "劫匪将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长匕首、拳匕和飞镖。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -932,7 +932,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "莽迹猎人将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长飞镖、投石索、飞斧和标枪。此外，莽迹猎人在用所有投掷武器造成的伤害获得+1加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "莽迹猎人将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长飞镖、投石索、飞斧和标枪。此外，莽迹猎人在用所有投掷武器造成的伤害获得+1加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -943,7 +943,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奈克斯学术家将{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在知识（神秘）技能{g|Encyclopedia:Check}检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "奈克斯学术家将{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在知识（神秘）技能{g|Encyclopedia:Check}检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -954,7 +954,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "游民将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长弯刀。游民的动物伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "游民将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长弯刀。游民的动物伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -965,7 +965,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "欧西里昂历史学家将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在知识（世界）技能{g|Encyclopedia:Check}检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "欧西里昂历史学家将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在知识（世界）技能{g|Encyclopedia:Check}检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -976,7 +976,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "扒手将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在{g|Encyclopedia:Initiative}先攻检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "扒手将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在{g|Encyclopedia:Initiative}先攻检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -987,7 +987,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "卡蒂拉游民将{g|Encyclopedia:Perception}察觉{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在对抗疲劳和力竭效应的{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "卡蒂拉游民将{g|Encyclopedia:Perception}察觉{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在对抗疲劳和力竭效应的{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -998,7 +998,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "河域诸国亡命徒将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长短剑和匕首。此外，河域诸国亡命徒对抗{g|Encyclopedia:Attack_Of_Opportunity}借机攻击{/g}的{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}会获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "河域诸国亡命徒将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长短剑和匕首。此外，河域诸国亡命徒对抗{g|Encyclopedia:Attack_Of_Opportunity}借机攻击{/g}的{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}会获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1009,7 +1009,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥法学者将{g|Encyclopedia:Use_Magic_Device}使用魔法装置{/g}和{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会获得抄录卷轴作为额外{g|Encyclopedia:Feat}专长{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "奥法学者将{g|Encyclopedia:Use_Magic_Device}使用魔法装置{/g}和{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会获得抄录卷轴作为额外{g|Encyclopedia:Feat}专长{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1020,7 +1020,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神圣学者将{g|Encyclopedia:Use_Magic_Device}使用魔法装置{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会获得调制药水作为额外{g|Encyclopedia:Feat}专长{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "神圣学者将{g|Encyclopedia:Use_Magic_Device}使用魔法装置{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会获得调制药水作为额外{g|Encyclopedia:Feat}专长{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1031,7 +1031,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1042,7 +1042,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1053,7 +1053,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "讲师",
+      "zhCN": "讲师",
       "esES": null
     },
     {
@@ -1064,7 +1064,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "镣铐群岛海盗将{g|Encyclopedia:Mobility}灵巧{/g}和{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长弯刀。此外，镣铐群岛海盗对抗绊摔的{g|Encyclopedia:CMD}战技防御（CMD）{/g}会获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "镣铐群岛海盗将{g|Encyclopedia:Mobility}灵巧{/g}和{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长弯刀。此外，镣铐群岛海盗对抗绊摔的{g|Encyclopedia:CMD}战技防御（CMD）{/g}会获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1075,7 +1075,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "铁匠将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻锤、战锤，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "铁匠将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长轻锤、战锤，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1086,7 +1086,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "乌斯塔拉夫农民将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长巨镰。此外，乌斯塔拉夫农民在处于恐惧效应下时，{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}和{g|Encyclopedia:Damage}伤害{/g}会获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "乌斯塔拉夫农民将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长巨镰。此外，乌斯塔拉夫农民在处于恐惧效应下时，{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}和{g|Encyclopedia:Damage}伤害{/g}会获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1097,7 +1097,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "瓦里西亚探索者将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在反射{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "瓦里西亚探索者将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在反射{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1108,7 +1108,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "蛇龙王之地勇士将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长手斧、战斧和巨斧。此外，蛇龙王之地勇士获得5点寒冷抗性。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": "蛇龙王之地勇士将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长手斧、战斧和巨斧。此外，蛇龙王之地勇士获得5点寒冷抗性。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
@@ -1119,7 +1119,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异怪破敌",
+      "zhCN": "异怪破敌",
       "esES": null
     },
     {
@@ -1130,7 +1130,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物破敌",
+      "zhCN": "动物破敌",
       "esES": null
     },
     {
@@ -1141,7 +1141,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "构装体破敌",
+      "zhCN": "构装体破敌",
       "esES": null
     },
     {
@@ -1152,7 +1152,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙类破敌",
+      "zhCN": "龙类破敌",
       "esES": null
     },
     {
@@ -1163,7 +1163,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "破敌",
+      "zhCN": "破敌",
       "esES": null
     },
     {
@@ -1174,7 +1174,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "妖精破敌",
+      "zhCN": "妖精破敌",
       "esES": null
     },
     {
@@ -1185,7 +1185,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "巨人破敌",
+      "zhCN": "巨人破敌",
       "esES": null
     },
     {
@@ -1196,7 +1196,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "爬行类破敌",
+      "zhCN": "爬行类破敌",
       "esES": null
     },
     {
@@ -1207,7 +1207,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "活物破敌",
+      "zhCN": "活物破敌",
       "esES": null
     },
     {
@@ -1218,7 +1218,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "狼人破敌",
+      "zhCN": "狼人破敌",
       "esES": null
     },
     {
@@ -1229,7 +1229,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "魔法兽破敌",
+      "zhCN": "魔法兽破敌",
       "esES": null
     },
     {
@@ -1240,7 +1240,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "类人生物破敌",
+      "zhCN": "类人生物破敌",
       "esES": null
     },
     {
@@ -1251,7 +1251,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "兽人破敌",
+      "zhCN": "兽人破敌",
       "esES": null
     },
     {
@@ -1262,7 +1262,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "地精破敌",
+      "zhCN": "地精破敌",
       "esES": null
     },
     {
@@ -1273,7 +1273,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "混乱异界生物破敌",
+      "zhCN": "混乱异界生物破敌",
       "esES": null
     },
     {
@@ -1284,7 +1284,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "邪恶异界生物破敌",
+      "zhCN": "邪恶异界生物破敌",
       "esES": null
     },
     {
@@ -1295,7 +1295,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "善良异界生物破敌",
+      "zhCN": "善良异界生物破敌",
       "esES": null
     },
     {
@@ -1306,7 +1306,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "守序异界生物破敌",
+      "zhCN": "守序异界生物破敌",
       "esES": null
     },
     {
@@ -1317,7 +1317,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "中立异界生物破敌",
+      "zhCN": "中立异界生物破敌",
       "esES": null
     },
     {
@@ -1328,7 +1328,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "植物破敌",
+      "zhCN": "植物破敌",
       "esES": null
     },
     {
@@ -1339,7 +1339,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "不死生物破敌",
+      "zhCN": "不死生物破敌",
       "esES": null
     },
     {
@@ -1350,7 +1350,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "虫类破敌",
+      "zhCN": "虫类破敌",
       "esES": null
     },
     {
@@ -1361,7 +1361,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你擅长新月战斧，可以把它们当作武器使用。",
+      "zhCN": "你擅长新月战斧，可以把它们当作武器使用。",
       "esES": null
     },
     {
@@ -1372,7 +1372,843 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "武器擅长(新月战斧)",
+      "zhCN": "武器擅长(新月战斧)",
+      "esES": null
+    },
+    {
+      "Key": "783def5309c14182ab5b24fcb5a0f292",
+      "SimpleName": "BlackBladeArcanePoolFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "A black blade has an arcane pool with a number of points equal to 1 + its Intelligence bonus.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a61c279e5b964e54accaa233474fe0f2",
+      "SimpleName": "BlackBladeArcanePoolFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Black Blade Arcane Pool",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c65fd8c6b5c04ac8899d406b5cb33dbf",
+      "SimpleName": "BlackBladeBaseStats.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade starts with the following stats:\nEgo: 5\nInt: 11\nWis: 7\nCha: 7",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4e0be5ec27a848d0aeaa8ae2aa5497bd",
+      "SimpleName": "BlackBladeBaseStats.Name",
+      "ProcessTemplates": false,
+      "enGB": "Black Blade Base Stats",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6598fc983f0c4acfb7dc6d814842cbc8",
+      "SimpleName": "BlackBladeBastardSword.Description",
+      "ProcessTemplates": false,
+      "enGB": "A black blade's enhancement bonus increases as it gains levels. It is +1 at level 3 and increases by 1 every 4 levels thereafter. A black blade cannot be wielded by anyone other than its owner.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fd36ff92e2784d76b4673b68e7bc78c7",
+      "SimpleName": "BlackBladeBastardSword.Name",
+      "ProcessTemplates": false,
+      "enGB": "Black Blade",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d5af325d5e064faab9c51104b8d3980a",
+      "SimpleName": "BlackBladeBastardSwordFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Bastard Sword.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "326e284ac75241bf91ae8c4fda5e097b",
+      "SimpleName": "BlackBladeBastardSwordFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bastard Sword",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1b973c56f90d487db98fdfe1525c8bca",
+      "SimpleName": "BlackBladeBattleaxeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Battleaxe.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e6b4d0d34dd746728cf1b943af00f233",
+      "SimpleName": "BlackBladeBattleaxeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Battleaxe",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e95c3cc628094c1dad74782864fd5f0b",
+      "SimpleName": "BlackBladeDuelingSwordFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Dueling Sword.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "75ef7726bab2459eb08383e465c4c61e",
+      "SimpleName": "BlackBladeDuelingSwordFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Dueling Sword",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b2e20aa4f5ef4884a27615f077985983",
+      "SimpleName": "BlackBladeDwarvenWaraxeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Dwarven Waraxe.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5aba11e22391403fa6fe330c0d344305",
+      "SimpleName": "BlackBladeDwarvenWaraxeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Dwarven Waraxe",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7904b162b81b4db987797bc242d1f873",
+      "SimpleName": "BlackBladeEgoIncrease2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's ego increases by 2.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1f43fffacbe542b3a5828298b1a282e0",
+      "SimpleName": "BlackBladeEgoIncrease2.Name",
+      "ProcessTemplates": false,
+      "enGB": "Black Blade Ego Increase",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4333b2daa3f646fd801b73918b1c1a85",
+      "SimpleName": "BlackBladeEgoIncrease3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's ego increases by 3.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "39bd3f6a86894af993f0893590983801",
+      "SimpleName": "BlackBladeEgoIncrease4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's ego increases by 4.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ac47c442370f4aef84567144534451a9",
+      "SimpleName": "BlackBladeEnergyAttunementBaseAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 5th level, as a free action, a wielder can spend a point of his black blade’s arcane pool to have it deal one of the following types of damage instead of weapon damage: cold, electricity, or fire. He can spend 2 points from the black blade’s arcane pool to deal sonic or force damage instead of weapon damage. This effect lasts until the start of the wielder’s next turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "799426b8ead546fba5b855edbcca8ef1",
+      "SimpleName": "BlackBladeEnergyAttunementBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 5th level, as a free action, the wielder can spend a point of his black blade’s arcane pool to have it deal one of the following types of damage instead of weapon damage: cold, electricity, or fire. He can spend 2 points from the black blade’s arcane pool to deal sonic or force damage instead of weapon damage. This effect lasts until the start of the wielder’s next turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "20d7ef7dcdfc4782aedf3dfbdd5f51f1",
+      "SimpleName": "BlackBladeEnergyAttunementCold.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's damage is converted into cold damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "badc67d94a9a4cc581a5f741d01fda9a",
+      "SimpleName": "BlackBladeEnergyAttunementCold.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Attunement",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1c5c6060eb91478184c629d65b68a8d0",
+      "SimpleName": "BlackBladeEnergyAttunementColdAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 round",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8b718813a01d42509f1d30cfb6901620",
+      "SimpleName": "BlackBladeEnergyAttunementColdAbilityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Attunement — Cold",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "169feca53b4b47a59b92a0c8c82cf60e",
+      "SimpleName": "BlackBladeEnergyAttunementElectricity.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's damage is converted into electricity damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "20ea72decf19432ca915d599482191a0",
+      "SimpleName": "BlackBladeEnergyAttunementElectricityAbilityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Attunement — Electricity",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8d3d2fa764f44671b0e07b4d9efa8884",
+      "SimpleName": "BlackBladeEnergyAttunementFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's damage is converted into fire damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b4ed36421264450c97ab7f841467e63d",
+      "SimpleName": "BlackBladeEnergyAttunementFireAbilityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Attunement — Fire",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f764608a70774e47b5c299643229a17c",
+      "SimpleName": "BlackBladeEnergyAttunementForce.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's damage is converted into force damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "53970e21224c4459b6da76ea743468d2",
+      "SimpleName": "BlackBladeEnergyAttunementForceAbilityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Attunement — Force",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "284a67b69a654df490f5fe5feb4f6094",
+      "SimpleName": "BlackBladeEnergyAttunementSonic.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's damage is converted into sonic damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "54bf62d6aa2c411da5c4ea46201fb2dc",
+      "SimpleName": "BlackBladeEnergyAttunementSonicAbilityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Attunement — Sonic",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f6dfaf9c22af4baa9759a1736a1d2fed",
+      "SimpleName": "BlackBladeFalcataFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Falcata.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7ea87044b09a48188e7054f980a0965b",
+      "SimpleName": "BlackBladeFalcataFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Falcata",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2925ac94a37e4f089f8f03cf6fde33ef",
+      "SimpleName": "BlackBladeHandaxeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Handaxe.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "33339c8e10a4449e9d1223c393243ba0",
+      "SimpleName": "BlackBladeHandaxeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Handaxe",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4215a6e2bc3948cd86acf4aa27aefe9e",
+      "SimpleName": "BlackBladeKamaFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Kama.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4dc3eecca2e545b980d0e31e7ac6493b",
+      "SimpleName": "BlackBladeKamaFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Kama",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0e6c6021b8ff4a5aa6769724507e378b",
+      "SimpleName": "BlackBladeKukriFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Kukri.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ae37d410c95d437cbcd8a4bb2e203c8d",
+      "SimpleName": "BlackBladeKukriFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Kukri",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e420e53550e6497e8f7d0cf856dd8f2c",
+      "SimpleName": "BlackBladeLifeDrinkerBase.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 19th level, each time the wielder kills a living creature with the black blade, he can pick one of the following effects: \nBlade - The Black Blade restores 2 points to its arcane pool.\nShared - The Black Blade restores 1 point to its arcane pool and the magus restores 1 point to his arcane pool\nWielder - The Wielder gains a number of temporary hit points equal to the black blade’s ego (these temporary hit points last until spent or 1 minute, whichever is shorter).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2ab7897f4ebb4916a1c65ece3106505b",
+      "SimpleName": "BlackBladeLifeDrinkerBase.Name",
+      "ProcessTemplates": false,
+      "enGB": "Life Drinker",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d1a87f8a05d844dba690776b5dcb9065",
+      "SimpleName": "BlackBladeLifeDrinkerBladeBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Life Drinker — Blade",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7a7dd77686b54c43a76d2d5383034079",
+      "SimpleName": "BlackBladeLifeDrinkerBladeEnchantment.Description",
+      "ProcessTemplates": true,
+      "enGB": "Each time the wielder kills a living creature with the black blade, the black blade restores 2 points of its arcane pool.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "00fcb29701c14f7ca08b6d1d2d85aca9",
+      "SimpleName": "BlackBladeLifeDrinkerSharedBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Life Drinker — Shared",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "22c9797c758c46ed9098420b4bc5291c",
+      "SimpleName": "BlackBladeLifeDrinkerSharedEnchantment.Description",
+      "ProcessTemplates": true,
+      "enGB": "Each time the wielder kills a living creature with the black blade, the black blade restores 1 point to its arcane pool and the weilder restores 1 point to his arcane pool.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "15829ed347fa481ca60f9ccabdd083db",
+      "SimpleName": "BlackBladeLifeDrinkerTempHPBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Life Drinker Temp HP",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "efcc9df64256450d9d2510e802824053",
+      "SimpleName": "BlackBladeLifeDrinkerWielderBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Life Drinker — Wielder",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2e5cb692743949c19f32f4a0e304b547",
+      "SimpleName": "BlackBladeLifeDrinkerWielderEnchantment.Description",
+      "ProcessTemplates": true,
+      "enGB": "Each time the wielder kills a living creature with the black blade, the wielder gains a number of temporary hit points equal to the black blade’s ego (these temporary hit points last until spent or 1 minute, whichever is shorter).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1e03d37da44d45038d0223a7a01b6e5f",
+      "SimpleName": "BlackBladeLongswordFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Longsword.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "226a6da2314b4274ac34b64c4da84aca",
+      "SimpleName": "BlackBladeLongswordFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Longsword",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2125f92fa0934a4e8fd92ee6487642e5",
+      "SimpleName": "BlackBladeMentalIncrease.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade's mental stats increase by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "03ebc3f9f73c40d8abae22811a8825fe",
+      "SimpleName": "BlackBladeMentalIncrease.Name",
+      "ProcessTemplates": false,
+      "enGB": "Black Blade Stat Increase",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1ffaf3f1a81d401f890e3a34e1ec6df7",
+      "SimpleName": "BlackBladeProgression.Description",
+      "ProcessTemplates": true,
+      "enGB": "At level 3 the you will gain a black blade that will grow stronger along side you.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e12e5566f5a4465db78a4f0dab4f2729",
+      "SimpleName": "BlackBladeRapierFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Rapier.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d25045b657c941818a5aeae42dec0e42",
+      "SimpleName": "BlackBladeRapierFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Rapier",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "eb9ee781607e4949b79c57425f6a0e74",
+      "SimpleName": "BlackBladeScimitarFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Scimitar.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7d171dd80ac246f18d64dda29487487b",
+      "SimpleName": "BlackBladeScimitarFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Scimitar",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bc2fe915d91e4c8fa60ce8167e760999",
+      "SimpleName": "BlackBladeSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, the bladebound magus’ gains a powerful sentient weapon called a black blade, whose weapon type is chosen by the magus. A magus with this class feature cannot take the familiar magus arcana, and cannot have a familiar of any kind, even from another class.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "27f6ea536b124b72ab75c26efc86980c",
+      "SimpleName": "BlackBladeSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Black Blade Selection",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6b858e681e474cf79ff2a6718e0b7c51",
+      "SimpleName": "BlackBladeShortswordFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Shortsword.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "91c83edfc20345a79cd4e4d3ec438900",
+      "SimpleName": "BlackBladeShortswordFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Shortsword",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "303bb50cc97e4f5fb11cb0cbdf17ffd0",
+      "SimpleName": "BlackBladeSickleFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Sickle.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "22eb65de3bb440fda64db29e106fc5b3",
+      "SimpleName": "BlackBladeSickleFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Sickle",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
+      "SimpleName": "BlackBladeSpellDefenseBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "A wielder of a black bladk of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4121e76996ab45cf81e7c46e6cdd387f",
+      "SimpleName": "BlackBladeSpellDefenseBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Spell Defense",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3f31495dfc16495e891fda8c417fc31e",
+      "SimpleName": "BlackBladeStrikeAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "As a free action, the magus can spend a point from the black blade’s arcane pool to grant the black blade a +1 bonus on damage rolls for 1 minute. For every four levels beyond 1st, this ability gives the black blade another +1 on damage rolls.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d708ca59591947f287e97e05c2d7366a",
+      "SimpleName": "BlackBladeStrikeAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 minute",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "46406f09eb0a41ffa5538dacc0b73d3f",
+      "SimpleName": "BlackBladeStrikeBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "As a free action, the magus can spend a point from the black blade’s arcane pool to grant the black blade a +1 bonus on damage rolls for 1 minute. For every four levels beyond 1st, this ability gives the black blade another +1 on damage rolls.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8c0cd64abd064b5eb6c8e32fcb58c661",
+      "SimpleName": "BlackBladeStrikeEnchantment.Description",
+      "ProcessTemplates": true,
+      "enGB": "The Black Blade gains a +1 bonus on damage rolls. For every four levels beyond 1st, this bonus increases by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fbb46843904f45589fa79ed1a7881f66",
+      "SimpleName": "BlackBladeStrikeEnchantment.Name",
+      "ProcessTemplates": false,
+      "enGB": "Black Blade Strike",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2a9668d3658442118e8526ad38b4e1c6",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 13th level a magus can attempt to siphon points from his black blade’s arcane pool into his own arcane pool. Doing so takes a full-round action and the magus must succeed at a Will saving throw with a DC equal to the black blade’s ego. If the magus succeeds, he regains 1 point to his arcane pool for every 2 points he saps from his black blade. If he fails the saving throw, the magus becomes fatigued. If he is fatigued, he becomes exhausted instead. He cannot use this ability if he is exhausted.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "add3b25fd1214142995be3b8965b0bc8",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "be7ec24353a644c69635ebecdb91711f",
+      "SimpleName": "BladeBoundArcanePool.Description",
+      "ProcessTemplates": true,
+      "enGB": "Instead of the normal arcane pool amount, the bladebound magus’s arcane pool has a number of points equal to 1/3 his level (minimum 1) plus his Intelligence bonus.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5b127763a1de4562b73dc20f0917438f",
+      "SimpleName": "BladeBoundArchetype.Description",
+      "ProcessTemplates": true,
+      "enGB": "A select group of magi are called to carry a black blade, a sentient weapon of often unknown and possibly unknowable purpose. These weapons become valuable tools and allies, as both the magus and weapon typically crave arcane power, but as a black blade becomes more aware, its true motivations manifest, and as does its ability to influence its wielder with its ever-increasing ego.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "80369ee2e6b84fcc8935e2acfacb6e73",
+      "SimpleName": "BladeBoundArchetype.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bladebound",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1383,7 +2219,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "流血",
+      "zhCN": "流血",
       "esES": null
     },
     {
@@ -1394,7 +2230,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "血承前置要求",
+      "zhCN": "血承前置要求",
       "esES": null
     },
     {
@@ -1405,7 +2241,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "血承",
+      "zhCN": "血承",
       "esES": null
     },
     {
@@ -1416,7 +2252,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙脉术士血承",
+      "zhCN": "龙脉术士血承",
       "esES": null
     },
     {
@@ -1427,7 +2263,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "4级起，你的所有近战攻击触及范围增大5尺。",
+      "zhCN": "4级起，你的所有近战攻击触及范围增大5尺。",
       "esES": null
     },
     {
@@ -1438,7 +2274,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异常肢体",
+      "zhCN": "异常肢体",
       "esES": null
     },
     {
@@ -1449,7 +2285,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异怪血承狂暴",
+      "zhCN": "异怪血承狂暴",
       "esES": null
     },
     {
@@ -1460,7 +2296,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的血液中蕴含着外来者和异怪的污染。当你处于血怒时，你身上的腐败会以异常而可怕的方式显现出来。\n额外专长：战斗反射、钢铁意志、精通徒手打击、精通阴招、精通先攻、精通缴械、顽石强韧。\n额外法术：变巨术、识破隐形、移位术、刺石术。",
+      "zhCN": "你的血液中蕴含着外来者和异怪的污染。当你处于血怒时，你身上的腐败会以异常而可怕的方式显现出来。\n额外专长：战斗反射、钢铁意志、精通徒手打击、精通阴招、精通先攻、精通缴械、顽石强韧。\n额外法术：变巨术、识破隐形、移位术、刺石术。",
       "esES": null
     },
     {
@@ -1471,7 +2307,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异怪血承",
+      "zhCN": "异怪血承",
       "esES": null
     },
     {
@@ -1482,7 +2318,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外专长：战斗反射、钢铁意志、精通徒手打击、精通阴招、精通先攻、精通缴械、顽石强韧。",
+      "zhCN": "额外专长：战斗反射、钢铁意志、精通徒手打击、精通阴招、精通先攻、精通缴械、顽石强韧。",
       "esES": null
     },
     {
@@ -1493,7 +2329,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外专长",
+      "zhCN": "额外专长",
       "esES": null
     },
     {
@@ -1504,7 +2340,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "20级时，你的身体构造完全变成了非自然的形态。你获得100%护命、60尺盲视和可叠加的Dr 1/-。即使你不在血怒中也获得这些好处。",
+      "zhCN": "20级时，你的身体构造完全变成了非自然的形态。你获得100%护命、60尺盲视和可叠加的Dr 1/-。即使你不在血怒中也获得这些好处。",
       "esES": null
     },
     {
@@ -1515,7 +2351,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "化身异怪",
+      "zhCN": "化身异怪",
       "esES": null
     },
     {
@@ -1526,7 +2362,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "8级时，你免疫反胃和恶心。",
+      "zhCN": "8级时，你免疫反胃和恶心。",
       "esES": null
     },
     {
@@ -1537,7 +2373,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异怪强韧",
+      "zhCN": "异怪强韧",
       "esES": null
     },
     {
@@ -1548,7 +2384,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "16级时，你免疫疾病、疲劳、力竭、恍惚和任何毒素效果。",
+      "zhCN": "16级时，你免疫疾病、疲劳、力竭、恍惚和任何毒素效果。",
       "esES": null
     },
     {
@@ -1559,7 +2395,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异怪抗力",
+      "zhCN": "异怪抗力",
       "esES": null
     },
     {
@@ -1570,7 +2406,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -1581,7 +2417,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -1592,7 +2428,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -1603,7 +2439,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -1614,7 +2450,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外法术：变巨术",
+      "zhCN": "额外法术：变巨术",
       "esES": null
     },
     {
@@ -1625,7 +2461,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级起，当你造成重击时，目标必须成功进行强韧豁免（DC = 10 + 1/2你的血脉狂怒者等级 + 你的体质调整值），否则恍惚1轮。这个效果与恍惚重击专长可以独立生效，目标必须对每个效果进行单独豁免。",
+      "zhCN": "1级起，当你造成重击时，目标必须成功进行强韧豁免（DC = 10 + 1/2你的血脉狂怒者等级 + 你的体质调整值），否则恍惚1轮。这个效果与恍惚重击专长可以独立生效，目标必须对每个效果进行单独豁免。",
       "esES": null
     },
     {
@@ -1636,7 +2472,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "恍惚打击",
+      "zhCN": "恍惚打击",
       "esES": null
     },
     {
@@ -1647,7 +2483,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "12级起，你的内部构造开始变换移动，你获得50%护命。",
+      "zhCN": "12级起，你的内部构造开始变换移动，你获得50%护命。",
       "esES": null
     },
     {
@@ -1658,7 +2494,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异常构造",
+      "zhCN": "异常构造",
       "esES": null
     },
     {
@@ -1669,7 +2505,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "4级起，每当你进入血怒，你可以视同处于变巨术的效果下。",
+      "zhCN": "4级起，每当你进入血怒，你可以视同处于变巨术的效果下。",
       "esES": null
     },
     {
@@ -1680,7 +2516,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "壮硕魔躯",
+      "zhCN": "壮硕魔躯",
       "esES": null
     },
     {
@@ -1691,7 +2527,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等奥术血怒：加速术",
+      "zhCN": "高等奥术血怒：加速术",
       "esES": null
     },
     {
@@ -1702,7 +2538,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：朦胧术",
+      "zhCN": "奥术血怒：朦胧术",
       "esES": null
     },
     {
@@ -1713,7 +2549,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "处于血怒中",
+      "zhCN": "处于血怒中",
       "esES": null
     },
     {
@@ -1724,7 +2560,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：防护箭矢",
+      "zhCN": "奥术血怒：防护箭矢",
       "esES": null
     },
     {
@@ -1735,7 +2571,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：抵抗酸蚀",
+      "zhCN": "奥术血怒：抵抗酸蚀",
       "esES": null
     },
     {
@@ -1746,7 +2582,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：抵抗寒冷",
+      "zhCN": "奥术血怒：抵抗寒冷",
       "esES": null
     },
     {
@@ -1757,7 +2593,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：抵抗电击",
+      "zhCN": "奥术血怒：抵抗电击",
       "esES": null
     },
     {
@@ -1768,7 +2604,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：抵抗火焰",
+      "zhCN": "奥术血怒：抵抗火焰",
       "esES": null
     },
     {
@@ -1779,7 +2615,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：抵抗音波",
+      "zhCN": "奥术血怒：抵抗音波",
       "esES": null
     },
     {
@@ -1790,7 +2626,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：动物形态IV",
+      "zhCN": "奥术血怒：动物形态IV",
       "esES": null
     },
     {
@@ -1801,7 +2637,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：动物形态IV",
+      "zhCN": "奥术血怒：动物形态IV",
       "esES": null
     },
     {
@@ -1812,7 +2648,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：动物形态IV",
+      "zhCN": "奥术血怒：动物形态IV",
       "esES": null
     },
     {
@@ -1823,7 +2659,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：龙形I",
+      "zhCN": "奥术血怒：龙形I",
       "esES": null
     },
     {
@@ -1834,7 +2670,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：龙形I",
+      "zhCN": "奥术血怒：龙形I",
       "esES": null
     },
     {
@@ -1845,7 +2681,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：龙形I",
+      "zhCN": "奥术血怒：龙形I",
       "esES": null
     },
     {
@@ -1856,7 +2692,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：龙形I",
+      "zhCN": "奥术血怒：龙形I",
       "esES": null
     },
     {
@@ -1867,7 +2703,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：龙形I",
+      "zhCN": "奥术血怒：龙形I",
       "esES": null
     },
     {
@@ -1878,7 +2714,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：龙形I",
+      "zhCN": "奥术血怒：龙形I",
       "esES": null
     },
     {
@@ -1889,7 +2725,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术血怒：龙形I",
+      "zhCN": "奥术血怒：龙形I",
       "esES": null
     },
     {
@@ -1900,7 +2736,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "血怒者血承",
+      "zhCN": "血怒者血承",
       "esES": null
     },
     {
@@ -1911,7 +2747,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级起，每日至多3次，以自由动作，你能够使你的1次近战攻击获得洞察加值，数值等同于你的血脉狂怒者等级的1/2（最低为1）。12级起，该能力的每日使用次数提升至5次。",
+      "zhCN": "1级起，每日至多3次，以自由动作，你能够使你的1次近战攻击获得洞察加值，数值等同于你的血脉狂怒者等级的1/2（最低为1）。12级起，该能力的每日使用次数提升至5次。",
       "esES": null
     },
     {
@@ -1922,7 +2758,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运打击",
+      "zhCN": "命运打击",
       "esES": null
     },
     {
@@ -1933,7 +2769,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "血脉中的某种力量使你命中注定会成就伟业。当你处于血怒时，身上所散发出的伟大气息能够让大多数传说中的生物显得渺小而平凡，你未来的伟大赐予你令对手拜服的力量。\n额外专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。\n额外法术：护盾术、朦胧术、抵抗能量、行动自如。",
+      "zhCN": "血脉中的某种力量使你命中注定会成就伟业。当你处于血怒时，身上所散发出的伟大气息能够让大多数传说中的生物显得渺小而平凡，你未来的伟大赐予你令对手拜服的力量。\n额外专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。\n额外法术：护盾术、朦胧术、抵抗能量、行动自如。",
       "esES": null
     },
     {
@@ -1944,7 +2780,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运血承",
+      "zhCN": "命运血承",
       "esES": null
     },
     {
@@ -1955,7 +2791,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "8级起，每次血怒限1次，你可以重掷一次攻击检定。",
+      "zhCN": "8级起，每次血怒限1次，你可以重掷一次攻击检定。",
       "esES": null
     },
     {
@@ -1966,7 +2802,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "可靠打击",
+      "zhCN": "可靠打击",
       "esES": null
     },
     {
@@ -1977,7 +2813,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "12级起，每日1次，当一次造成伤害的攻击或法术会导致你的死亡时，你可以尝试一次DC为20的强韧豁免。若成功，你的生命值降至1点作为替代；若你检定成功，并且生命值已经低于1点，就不会受到伤害。",
+      "zhCN": "12级起，每日1次，当一次造成伤害的攻击或法术会导致你的死亡时，你可以尝试一次DC为20的强韧豁免。若成功，你的生命值降至1点作为替代；若你检定成功，并且生命值已经低于1点，就不会受到伤害。",
       "esES": null
     },
     {
@@ -1988,7 +2824,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "挑战死亡",
+      "zhCN": "挑战死亡",
       "esES": null
     },
     {
@@ -1999,7 +2835,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "4级起，你的AC以及豁免检定获得+1幸运加值。8级以及之后每4个等级，这个加值都会增加1点（最高为20级时的+5点）。",
+      "zhCN": "4级起，你的AC以及豁免检定获得+1幸运加值。8级以及之后每4个等级，这个加值都会增加1点（最高为20级时的+5点）。",
       "esES": null
     },
     {
@@ -2010,7 +2846,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运血怒者",
+      "zhCN": "命运血怒者",
       "esES": null
     },
     {
@@ -2021,7 +2857,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。",
+      "zhCN": "额外专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。",
       "esES": null
     },
     {
@@ -2032,7 +2868,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -2043,7 +2879,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外法术：朦胧术",
+      "zhCN": "额外法术：朦胧术",
       "esES": null
     },
     {
@@ -2054,7 +2890,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -2065,7 +2901,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外法术：防护能量",
+      "zhCN": "额外法术：防护能量",
       "esES": null
     },
     {
@@ -2076,7 +2912,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -2087,7 +2923,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外法术：行动自如",
+      "zhCN": "额外法术：行动自如",
       "esES": null
     },
     {
@@ -2098,7 +2934,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
       "esES": null
     },
     {
@@ -2109,7 +2945,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外法术：护盾术",
+      "zhCN": "额外法术：护盾术",
       "esES": null
     },
     {
@@ -2120,7 +2956,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "给予你下一次近战攻击1/2血怒者等级的洞察加值。",
+      "zhCN": "给予你下一次近战攻击1/2血怒者等级的洞察加值。",
       "esES": null
     },
     {
@@ -2131,7 +2967,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运打击",
+      "zhCN": "命运打击",
       "esES": null
     },
     {
@@ -2142,7 +2978,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运打击额外使用次数",
+      "zhCN": "命运打击额外使用次数",
       "esES": null
     },
     {
@@ -2153,7 +2989,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "16级起，任何由你做出的重击威胁自动确认，任何对你造成的重击威胁只有在确认检定投出20才能确认。",
+      "zhCN": "16级起，任何由你做出的重击威胁自动确认，任何对你造成的重击威胁只有在确认检定投出20才能确认。",
       "esES": null
     },
     {
@@ -2164,7 +3000,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "无人能挡",
+      "zhCN": "无人能挡",
       "esES": null
     },
     {
@@ -2175,7 +3011,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "20级起，你免疫麻痹、石化、震慑、晕眩和恍惚。即便没有处于血怒之时，你也会一直获得这些效果。",
+      "zhCN": "20级起，你免疫麻痹、石化、震慑、晕眩和恍惚。即便没有处于血怒之时，你也会一直获得这些效果。",
       "esES": null
     },
     {
@@ -2186,7 +3022,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "不胜则亡",
+      "zhCN": "不胜则亡",
       "esES": null
     },
     {
@@ -2197,7 +3033,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "炽焰",
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -2208,7 +3044,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等炽焰",
+      "zhCN": "高等炽焰",
       "esES": null
     },
     {
@@ -2219,7 +3055,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "光能",
+      "zhCN": "光能",
       "esES": null
     },
     {
@@ -2230,7 +3066,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：奥能师",
+      "zhCN": "奥术扩展：奥能师",
       "esES": null
     },
     {
@@ -2241,7 +3077,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：吟游诗人",
+      "zhCN": "奥术扩展：吟游诗人",
       "esES": null
     },
     {
@@ -2252,7 +3088,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：血怒者",
+      "zhCN": "奥术扩展：血怒者",
       "esES": null
     },
     {
@@ -2263,7 +3099,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：牧师",
+      "zhCN": "奥术扩展：牧师",
       "esES": null
     },
     {
@@ -2274,7 +3110,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：德鲁伊",
+      "zhCN": "奥术扩展：德鲁伊",
       "esES": null
     },
     {
@@ -2285,7 +3121,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：猎人",
+      "zhCN": "奥术扩展：猎人",
       "esES": null
     },
     {
@@ -2296,7 +3132,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：审判官",
+      "zhCN": "奥术扩展：审判官",
       "esES": null
     },
     {
@@ -2307,7 +3143,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：先知",
+      "zhCN": "奥术扩展：先知",
       "esES": null
     },
     {
@@ -2318,7 +3154,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：圣武士",
+      "zhCN": "奥术扩展：圣武士",
       "esES": null
     },
     {
@@ -2329,7 +3165,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：游侠",
+      "zhCN": "奥术扩展：游侠",
       "esES": null
     },
     {
@@ -2340,7 +3176,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：奥法暴徒",
+      "zhCN": "奥术扩展：奥法暴徒",
       "esES": null
     },
     {
@@ -2351,7 +3187,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "魔战士选择他已有的另一个施法职业，他可以用这个职业的法术进行法术战斗或法术打击。",
+      "zhCN": "魔战士选择他已有的另一个施法职业，他可以用这个职业的法术进行法术战斗或法术打击。",
       "esES": null
     },
     {
@@ -2362,7 +3198,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展",
+      "zhCN": "奥术扩展",
       "esES": null
     },
     {
@@ -2373,7 +3209,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：萨满",
+      "zhCN": "奥术扩展：萨满",
       "esES": null
     },
     {
@@ -2384,7 +3220,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：歌者",
+      "zhCN": "奥术扩展：歌者",
       "esES": null
     },
     {
@@ -2395,7 +3231,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：术士",
+      "zhCN": "奥术扩展：术士",
       "esES": null
     },
     {
@@ -2406,7 +3242,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：战斗祭祀",
+      "zhCN": "奥术扩展：战斗祭祀",
       "esES": null
     },
     {
@@ -2417,7 +3253,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：巫师",
+      "zhCN": "奥术扩展：巫师",
       "esES": null
     },
     {
@@ -2428,7 +3264,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术扩展：法师",
+      "zhCN": "奥术扩展：法师",
       "esES": null
     },
     {
@@ -2439,7 +3275,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "骑将在骑乘时忽略护甲对灵巧技能的减值。",
+      "zhCN": "骑将在骑乘时忽略护甲对灵巧技能的减值。",
       "esES": null
     },
     {
@@ -2450,7 +3286,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "灵巧骑术",
+      "zhCN": "灵巧骑术",
       "esES": null
     },
     {
@@ -2461,7 +3297,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "骑将在骑乘时忽略护甲对灵巧技能的减值。",
+      "zhCN": "骑将在骑乘时忽略护甲对灵巧技能的减值。",
       "esES": null
     },
     {
@@ -2472,7 +3308,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "天界血承",
+      "zhCN": "天界血承",
       "esES": null
     },
     {
@@ -2483,7 +3319,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的动物伙伴获得天界模板。",
+      "zhCN": "你的动物伙伴获得天界模板。",
       "esES": null
     },
     {
@@ -2494,7 +3330,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "天界仆从",
+      "zhCN": "天界仆从",
       "esES": null
     },
     {
@@ -2505,7 +3341,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "尽管他们也曾投身于某种特定的信仰，但有些牧师却因为种种原因失去了与神的精神联系。他们中的一部分仍在继续祷告和传教，尽管他们已经断绝了和信仰的联系，甚至信仰本身也已经不再存在。这些人中的一部分意识到他们的信仰已经不再依附于任何特定实体，而是系于无尽飘渺的多元宇宙本身。此变体来自Mod: TableTopTweaks，译者：1onepower。",
+      "zhCN": "尽管他们也曾投身于某种特定的信仰，但有些牧师却因为种种原因失去了与神的精神联系。他们中的一部分仍在继续祷告和传教，尽管他们已经断绝了和信仰的联系，甚至信仰本身也已经不再存在。这些人中的一部分意识到他们的信仰已经不再依附于任何特定实体，而是系于无尽飘渺的多元宇宙本身。此变体来自Mod: TableTopTweaks，译者：1onepower。",
       "esES": null
     },
     {
@@ -2516,7 +3352,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师",
+      "zhCN": "熵化导能师",
       "esES": null
     },
     {
@@ -2527,7 +3363,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师不能引导正能量或负能量，取而代之的是引导熵化能量。这种能量对范围内任何生物造成标准导能伤害。伤害为1d6外加超过1的每两个职业等级额外1d6，可以通过10+1/2职业等级+魅力调整值的意志豁免减半。",
+      "zhCN": "熵化导能师不能引导正能量或负能量，取而代之的是引导熵化能量。这种能量对范围内任何生物造成标准导能伤害。伤害为1d6外加超过1的每两个职业等级额外1d6，可以通过10+1/2职业等级+魅力调整值的意志豁免减半。",
       "esES": null
     },
     {
@@ -2538,7 +3374,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "引导熵化能量",
+      "zhCN": "引导熵化能量",
       "esES": null
     },
     {
@@ -2549,7 +3385,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师不能引导正能量或负能量，取而代之的是引导熵化能量。这种能量对范围内任何生物造成标准导能伤害。伤害为1d6外加超过1的每两个职业等级额外1d6，可以通过10+1/2职业等级+魅力调整值的意志豁免减半。",
+      "zhCN": "熵化导能师不能引导正能量或负能量，取而代之的是引导熵化能量。这种能量对范围内任何生物造成标准导能伤害。伤害为1d6外加超过1的每两个职业等级额外1d6，可以通过10+1/2职业等级+魅力调整值的意志豁免减半。",
       "esES": null
     },
     {
@@ -2560,7 +3396,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师只能选择一个领域，并且只能从如下列表选择：黑暗、破坏、幸运、疯狂。但熵化导能师在每个等级上获得两个领域法术位。",
+      "zhCN": "熵化导能师只能选择一个领域，并且只能从如下列表选择：黑暗、破坏、幸运、疯狂。但熵化导能师在每个等级上获得两个领域法术位。",
       "esES": null
     },
     {
@@ -2571,7 +3407,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "混沌潮汐",
+      "zhCN": "混沌潮汐",
       "esES": null
     },
     {
@@ -2582,7 +3418,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师擅长简单武器、轻型和中型盔甲，以及非塔盾的盾牌。",
+      "zhCN": "熵化导能师擅长简单武器、轻型和中型盔甲，以及非塔盾的盾牌。",
       "esES": null
     },
     {
@@ -2593,7 +3429,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师擅长",
+      "zhCN": "熵化导能师擅长",
       "esES": null
     },
     {
@@ -2604,7 +3440,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师不能像正常牧师一样将任何法术转换为同环治疗或伤害法术。取而代之的是可以将任何法术转换为同环或低环的领域法术。",
+      "zhCN": "熵化导能师不能像正常牧师一样将任何法术转换为同环治疗或伤害法术。取而代之的是可以将任何法术转换为同环或低环的领域法术。",
       "esES": null
     },
     {
@@ -2615,7 +3451,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师自发施法",
+      "zhCN": "熵化导能师自发施法",
       "esES": null
     },
     {
@@ -2626,7 +3462,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "作为擅长神祗偏好武器擅长的替代，熵化导能师擅长任何一种他选择的军用或异种武器。",
+      "zhCN": "作为擅长神祗偏好武器擅长的替代，熵化导能师擅长任何一种他选择的军用或异种武器。",
       "esES": null
     },
     {
@@ -2637,7 +3473,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师额外擅长",
+      "zhCN": "熵化导能师额外擅长",
       "esES": null
     },
     {
@@ -2648,7 +3484,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "寒冷抗力",
+      "zhCN": "寒冷抗力",
       "esES": null
     },
     {
@@ -2659,7 +3495,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "酸蚀",
+      "zhCN": "酸蚀",
       "esES": null
     },
     {
@@ -2670,7 +3506,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等酸蚀",
+      "zhCN": "高等酸蚀",
       "esES": null
     },
     {
@@ -2681,7 +3517,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "酸爆",
+      "zhCN": "酸爆",
       "esES": null
     },
     {
@@ -2692,7 +3528,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "以一个整轮动作，你可以使用一把近战武器试图处决一个处于无助状态的目标。你无需进行攻击检定和重击确认检定就命中一次重击，除去受到的伤害之外，对方须做DC为（10+此次重击造成的伤害）的强韧豁免检定，若失败则立即死亡，无视再生效果。(此条与原版不同，因为在TTT设置中开启了修复致命一击)",
+      "zhCN": "以一个整轮动作，你可以使用一把近战武器试图处决一个处于无助状态的目标。你无需进行攻击检定和重击确认检定就命中一次重击，除去受到的伤害之外，对方须做DC为（10+此次重击造成的伤害）的强韧豁免检定，若失败则立即死亡，无视再生效果。(此条与原版不同，因为在TTT设置中开启了修复致命一击)",
       "esES": null
     },
     {
@@ -2703,7 +3539,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "重击偏转",
+      "zhCN": "重击偏转",
       "esES": null
     },
     {
@@ -2714,7 +3550,18 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "当你穿甲或持盾时，你对抗重击确认检定的AC额外提升2，在7/11/15/19级各额外加1。",
+      "zhCN": "当你穿甲或持盾时，你对抗重击确认检定的AC额外提升2，在7/11/15/19级各额外加1。",
+      "esES": null
+    },
+    {
+      "Key": "27f641bf570a41f29ffb841ef2dee5be",
+      "SimpleName": "CruelEnchantment.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Cruel",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2725,7 +3572,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战士获得(1+主手武器增强加值)的盾牌AC，即使没有持盾。如果你对此武器的训练有+4，盾牌AC额外+1。",
+      "zhCN": "战士获得(1+主手武器增强加值)的盾牌AC，即使没有持盾。如果你对此武器的训练有+4，盾牌AC额外+1。",
       "esES": null
     },
     {
@@ -2736,7 +3583,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "防御式武器训练",
+      "zhCN": "防御式武器训练",
       "esES": null
     },
     {
@@ -2747,7 +3594,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "当你持有一把弯刀且另一手空置时，你用敏捷取代力量作为伤害调整值。此外你将弯刀视为刺击而非挥砍武器。",
+      "zhCN": "当你持有一把弯刀且另一手空置时，你用敏捷取代力量作为伤害调整值。此外你将弯刀视为刺击而非挥砍武器。",
       "esES": null
     },
     {
@@ -2758,7 +3605,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "致命舞步",
+      "zhCN": "致命舞步",
       "esES": null
     },
     {
@@ -2769,7 +3616,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运血脉前置需求",
+      "zhCN": "命运血脉前置需求",
       "esES": null
     },
     {
@@ -2780,7 +3627,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运血脉",
+      "zhCN": "命运血脉",
       "esES": null
     },
     {
@@ -2791,7 +3638,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等活物破敌",
+      "zhCN": "高等活物破敌",
       "esES": null
     },
     {
@@ -2802,7 +3649,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "这个法术如同解除魔法（目标），但你每有4CL，就可以尝试解除一项效果，从目标身上最高级的法术开始向下顺序尝试。",
+      "zhCN": "这个法术如同解除魔法（目标），但你每有4CL，就可以尝试解除一项效果，从目标身上最高级的法术开始向下顺序尝试。",
       "esES": null
     },
     {
@@ -2813,7 +3660,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "瓦解",
+      "zhCN": "瓦解",
       "esES": null
     },
     {
@@ -2824,7 +3671,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "圣战指挥官坐骑成长",
+      "zhCN": "圣战指挥官坐骑成长",
       "esES": null
     },
     {
@@ -2835,7 +3682,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "圣战指挥官是战斗祭祀和骑将的混合体，以征服与胜利作为自己荣耀神祇的方式，她以神的名义统御军团，并亲自冲锋在前。圣徽飘扬、战吼震天时，圣战指挥官常常骑着骏马身先士卒，引领着圣教军取得一场又一场光荣的胜利。此变体来自Mod: TableTopTweaks，译者：1onepower。",
+      "zhCN": "圣战指挥官是战斗祭祀和骑将的混合体，以征服与胜利作为自己荣耀神祇的方式，她以神的名义统御军团，并亲自冲锋在前。圣徽飘扬、战吼震天时，圣战指挥官常常骑着骏马身先士卒，引领着圣教军取得一场又一场光荣的胜利。此变体来自Mod: TableTopTweaks，译者：1onepower。",
       "esES": null
     },
     {
@@ -2846,7 +3693,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "圣战指挥官",
+      "zhCN": "圣战指挥官",
       "esES": null
     },
     {
@@ -2857,7 +3704,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级时圣战指挥官额外获得一个团队专长，她必须满足先决条件。以一个标准动作，圣战指挥官可以将此专长分享给30尺内所有盟友，持续4轮，超过3的职业等级每两级提供额外一轮持续时间。3/9/15级圣战指挥官每日可使用1/2/3次此能力。",
+      "zhCN": "3级时圣战指挥官额外获得一个团队专长，她必须满足先决条件。以一个标准动作，圣战指挥官可以将此专长分享给30尺内所有盟友，持续4轮，超过3的职业等级每两级提供额外一轮持续时间。3/9/15级圣战指挥官每日可使用1/2/3次此能力。",
       "esES": null
     },
     {
@@ -2868,7 +3715,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战场战术家",
+      "zhCN": "战场战术家",
       "esES": null
     },
     {
@@ -2879,7 +3726,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "12级起，你再获得一个团队专长。此外，你可以以迅捷动作使用战场战术家能力。",
+      "zhCN": "12级起，你再获得一个团队专长。此外，你可以以迅捷动作使用战场战术家能力。",
       "esES": null
     },
     {
@@ -2890,7 +3737,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战场战术家：迅捷",
+      "zhCN": "战场战术家：迅捷",
       "esES": null
     },
     {
@@ -2901,7 +3748,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级时圣战指挥官额外获得一个团队专长，她必须满足先决条件。以一个标准动作，圣战指挥官可以将此专长分享给30尺内所有盟友，持续4轮，超过3的职业等级每两级提供额外一轮持续时间。3/9/15级圣战指挥官每日可使用1/2/3次此能力。",
+      "zhCN": "3级时圣战指挥官额外获得一个团队专长，她必须满足先决条件。以一个标准动作，圣战指挥官可以将此专长分享给30尺内所有盟友，持续4轮，超过3的职业等级每两级提供额外一轮持续时间。3/9/15级圣战指挥官每日可使用1/2/3次此能力。",
       "esES": null
     },
     {
@@ -2912,7 +3759,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等战场战术家",
+      "zhCN": "高等战场战术家",
       "esES": null
     },
     {
@@ -2923,7 +3770,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战场战术家：额外专长",
+      "zhCN": "战场战术家：额外专长",
       "esES": null
     },
     {
@@ -2934,7 +3781,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "6级时，圣战指挥官的坐骑被她的信念所保佑，根据她的阵营，坐骑获得某一阵营的简单模板。如果圣战指挥官在两个阵营轴都非中立，她可以任选其一。",
+      "zhCN": "6级时，圣战指挥官的坐骑被她的信念所保佑，根据她的阵营，坐骑获得某一阵营的简单模板。如果圣战指挥官在两个阵营轴都非中立，她可以任选其一。",
       "esES": null
     },
     {
@@ -2945,7 +3792,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神眷坐骑",
+      "zhCN": "神眷坐骑",
       "esES": null
     },
     {
@@ -2956,7 +3803,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、酸、电抗\n5级: 10点寒、酸、电抗, DR 5/邪恶\n11级: 15点寒、酸、电抗, DR 10/邪恶\n辟邪斩: 每日一次，此天界生物可以制裁邪恶生物，以一个迅捷动作，选择视野范围内的一个邪恶生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、酸、电抗\n5级: 10点寒、酸、电抗, DR 5/邪恶\n11级: 15点寒、酸、电抗, DR 10/邪恶\n辟邪斩: 每日一次，此天界生物可以制裁邪恶生物，以一个迅捷动作，选择视野范围内的一个邪恶生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -2967,7 +3814,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神眷坐骑：天界",
+      "zhCN": "神眷坐骑：天界",
       "esES": null
     },
     {
@@ -2978,7 +3825,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点火、酸抗\n5级: 10点火、酸抗, DR 5/守序\n11级: 15点火、酸抗, DR 10/守序\n制裁守序: 每日一次，此熵化生物可以制裁守序生物，以一个迅捷动作，选择视野范围内的一个守序生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点火、酸抗\n5级: 10点火、酸抗, DR 5/守序\n11级: 15点火、酸抗, DR 10/守序\n制裁守序: 每日一次，此熵化生物可以制裁守序生物，以一个迅捷动作，选择视野范围内的一个守序生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -2989,7 +3836,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神眷坐骑：熵化",
+      "zhCN": "神眷坐骑：熵化",
       "esES": null
     },
     {
@@ -3000,7 +3847,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火抗\n5级: 10点寒、火抗, DR 5/善良\n11级: 15点寒、火抗, DR 10/善良\n制裁善良: 每日一次，此炼狱生物可以制裁善良生物，以一个迅捷动作，选择视野范围内的一个善良生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火抗\n5级: 10点寒、火抗, DR 5/善良\n11级: 15点寒、火抗, DR 10/善良\n制裁善良: 每日一次，此炼狱生物可以制裁善良生物，以一个迅捷动作，选择视野范围内的一个善良生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -3011,7 +3858,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神眷坐骑：炼狱",
+      "zhCN": "神眷坐骑：炼狱",
       "esES": null
     },
     {
@@ -3022,7 +3869,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火、酸抗\n5级: 10点寒、火、酸抗, DR 5/混乱\n11级: 15点寒、火、酸抗, DR 10/混乱\n制裁混乱: 每日一次，此秩序生物可以制裁混乱生物，以一个迅捷动作，选择视野范围内的一个混乱生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火、酸抗\n5级: 10点寒、火、酸抗, DR 5/混乱\n11级: 15点寒、火、酸抗, DR 10/混乱\n制裁混乱: 每日一次，此秩序生物可以制裁混乱生物，以一个迅捷动作，选择视野范围内的一个混乱生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -3033,7 +3880,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神眷坐骑：秩序",
+      "zhCN": "神眷坐骑：秩序",
       "esES": null
     },
     {
@@ -3044,7 +3891,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "圣战指挥官在1级时获得动物伙伴，以职业等级作为德鲁伊等级。",
+      "zhCN": "圣战指挥官在1级时获得动物伙伴，以职业等级作为德鲁伊等级。",
       "esES": null
     },
     {
@@ -3055,7 +3902,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "坐骑",
+      "zhCN": "坐骑",
       "esES": null
     },
     {
@@ -3066,7 +3913,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "圣战指挥官在骑乘时，忽略任何盔甲对灵巧的减值。",
+      "zhCN": "圣战指挥官在骑乘时，忽略任何盔甲对灵巧的减值。",
       "esES": null
     },
     {
@@ -3077,7 +3924,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神圣骑手",
+      "zhCN": "神圣骑手",
       "esES": null
     },
     {
@@ -3088,7 +3935,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "圣战指挥官在骑乘时，忽略任何盔甲对灵巧的减值。",
+      "zhCN": "圣战指挥官在骑乘时，忽略任何盔甲对灵巧的减值。",
       "esES": null
     },
     {
@@ -3099,7 +3946,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：黑龙",
+      "zhCN": "龙族血承：黑龙",
       "esES": null
     },
     {
@@ -3110,7 +3957,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：蓝龙",
+      "zhCN": "龙族血承：蓝龙",
       "esES": null
     },
     {
@@ -3121,7 +3968,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：黄铜龙",
+      "zhCN": "龙族血承：黄铜龙",
       "esES": null
     },
     {
@@ -3132,7 +3979,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：青铜龙",
+      "zhCN": "龙族血承：青铜龙",
       "esES": null
     },
     {
@@ -3143,7 +3990,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：赤铜龙",
+      "zhCN": "龙族血承：赤铜龙",
       "esES": null
     },
     {
@@ -3154,7 +4001,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：金龙",
+      "zhCN": "龙族血承：金龙",
       "esES": null
     },
     {
@@ -3165,7 +4012,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：绿龙",
+      "zhCN": "龙族血承：绿龙",
       "esES": null
     },
     {
@@ -3176,7 +4023,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：红龙",
+      "zhCN": "龙族血承：红龙",
       "esES": null
     },
     {
@@ -3187,7 +4034,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：银龙",
+      "zhCN": "龙族血承：银龙",
       "esES": null
     },
     {
@@ -3198,7 +4045,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承：白龙",
+      "zhCN": "龙族血承：白龙",
       "esES": null
     },
     {
@@ -3209,7 +4056,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "巫师",
+      "zhCN": "巫师",
       "esES": null
     },
     {
@@ -3220,7 +4067,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "术士",
+      "zhCN": "术士",
       "esES": null
     },
     {
@@ -3231,7 +4078,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥能师",
+      "zhCN": "奥能师",
       "esES": null
     },
     {
@@ -3242,7 +4089,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "龙族血承",
+      "zhCN": "龙族血承",
       "esES": null
     },
     {
@@ -3253,7 +4100,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "矮人获得+2体质，+2感知和-2魅力。",
+      "zhCN": "矮人获得+2体质，+2感知和-2魅力。",
       "esES": null
     },
     {
@@ -3264,7 +4111,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "矮人属性调整",
+      "zhCN": "矮人属性调整",
       "esES": null
     },
     {
@@ -3275,7 +4122,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "有以下种族替换特性可选",
+      "zhCN": "有以下种族替换特性可选",
       "esES": null
     },
     {
@@ -3286,7 +4133,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "种族替换特性",
+      "zhCN": "种族替换特性",
       "esES": null
     },
     {
@@ -3297,7 +4144,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "不替换种族特性",
+      "zhCN": "不替换种族特性",
       "esES": null
     },
     {
@@ -3308,7 +4155,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "不替换种族特性",
+      "zhCN": "不替换种族特性",
       "esES": null
     },
     {
@@ -3319,7 +4166,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "一些矮人利用他们固执的天性在谈判和其他商业事务中得到他们想要的东西。交涉设为本职技能并获得+2天赋加值。这个特性取代防御训练和世代血仇。",
+      "zhCN": "一些矮人利用他们固执的天性在谈判和其他商业事务中得到他们想要的东西。交涉设为本职技能并获得+2天赋加值。这个特性取代防御训练和世代血仇。",
       "esES": null
     },
     {
@@ -3330,7 +4177,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "坚毅谈判者",
+      "zhCN": "坚毅谈判者",
       "esES": null
     },
     {
@@ -3341,7 +4188,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "不是所有的矮人都和同族一样冷漠，但他们的直率和热心肠也常常被认为是莽撞。获得+2体质，+2魅力和-2智力。这取代矮人属性调整。",
+      "zhCN": "不是所有的矮人都和同族一样冷漠，但他们的直率和热心肠也常常被认为是莽撞。获得+2体质，+2魅力和-2智力。这取代矮人属性调整。",
       "esES": null
     },
     {
@@ -3352,7 +4199,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "坚定矮人",
+      "zhCN": "坚定矮人",
       "esES": null
     },
     {
@@ -3363,7 +4210,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你擅长裂地锤，可以把它们作为武器。",
+      "zhCN": "你擅长裂地锤，可以把它们作为武器。",
       "esES": null
     },
     {
@@ -3374,7 +4221,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "武器擅长（裂地锤）",
+      "zhCN": "武器擅长（裂地锤）",
       "esES": null
     },
     {
@@ -3385,7 +4232,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "古炽焰",
+      "zhCN": "古炽焰",
       "esES": null
     },
     {
@@ -3396,7 +4243,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "古高等烈酸",
+      "zhCN": "古高等烈酸",
       "esES": null
     },
     {
@@ -3407,7 +4254,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "古烈酸",
+      "zhCN": "古烈酸",
       "esES": null
     },
     {
@@ -3418,7 +4265,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "古寒霜",
+      "zhCN": "古寒霜",
       "esES": null
     },
     {
@@ -3429,7 +4276,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "古冰寒",
+      "zhCN": "古冰寒",
       "esES": null
     },
     {
@@ -3440,7 +4287,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "古雷鸣",
+      "zhCN": "古雷鸣",
       "esES": null
     },
     {
@@ -3451,7 +4298,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "古高等雷鸣",
+      "zhCN": "古高等雷鸣",
       "esES": null
     },
     {
@@ -3462,7 +4309,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥法后继者血承",
+      "zhCN": "奥法后继者血承",
       "esES": null
     },
     {
@@ -3473,7 +4320,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "音波抗力",
+      "zhCN": "音波抗力",
       "esES": null
     },
     {
@@ -3484,7 +4331,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "元素血脉：空气",
+      "zhCN": "元素血脉：空气",
       "esES": null
     },
     {
@@ -3495,7 +4342,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "元素血脉：大地",
+      "zhCN": "元素血脉：大地",
       "esES": null
     },
     {
@@ -3506,7 +4353,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "元素血脉：火焰",
+      "zhCN": "元素血脉：火焰",
       "esES": null
     },
     {
@@ -3517,7 +4364,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "元素血脉：流水",
+      "zhCN": "元素血脉：流水",
       "esES": null
     },
     {
@@ -3528,7 +4375,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精灵获得+2敏捷，+2智力和-2体质。",
+      "zhCN": "精灵获得+2敏捷，+2智力和-2体质。",
       "esES": null
     },
     {
@@ -3539,7 +4386,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精灵属性调整",
+      "zhCN": "精灵属性调整",
       "esES": null
     },
     {
@@ -3550,7 +4397,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "有些精灵家族有很长的培育奥术施法者的历史，接受这种教育的精灵往往不会受到足够多的战斗技法训练。你的专注检定获得+2种族加值，但不获得精灵武器熟练。",
+      "zhCN": "有些精灵家族有很长的培育奥术施法者的历史，接受这种教育的精灵往往不会受到足够多的战斗技法训练。你的专注检定获得+2种族加值，但不获得精灵武器熟练。",
       "esES": null
     },
     {
@@ -3561,7 +4408,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥术专攻",
+      "zhCN": "奥术专攻",
       "esES": null
     },
     {
@@ -3572,7 +4419,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "有些菲拉尼森林中的精灵与自然有更深的联系，他们返回格拉利昂并试图夺回祖先的家乡。你获得+2敏捷，+2感知和-2体质。这取代精灵属性调整。",
+      "zhCN": "有些菲拉尼森林中的精灵与自然有更深的联系，他们返回格拉利昂并试图夺回祖先的家乡。你获得+2敏捷，+2感知和-2体质。这取代精灵属性调整。",
       "esES": null
     },
     {
@@ -3583,7 +4430,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "菲拉尼精灵",
+      "zhCN": "菲拉尼精灵",
       "esES": null
     },
     {
@@ -3594,7 +4441,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的基础移动速度提升5尺，但失去精灵武器熟练。",
+      "zhCN": "你的基础移动速度提升5尺，但失去精灵武器熟练。",
       "esES": null
     },
     {
@@ -3605,7 +4452,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "长跑者",
+      "zhCN": "长跑者",
       "esES": null
     },
     {
@@ -3616,7 +4463,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在所有豁免检定获得+1种族加值，但失去精灵免疫和敏锐直觉。",
+      "zhCN": "你在所有豁免检定获得+1种族加值，但失去精灵免疫和敏锐直觉。",
       "esES": null
     },
     {
@@ -3627,7 +4474,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "月吻者",
+      "zhCN": "月吻者",
       "esES": null
     },
     {
@@ -3638,7 +4485,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你面对混乱生物的攻击时获得+2闪避AC，失去精灵魔力。",
+      "zhCN": "你面对混乱生物的攻击时获得+2闪避AC，失去精灵魔力。",
       "esES": null
     },
     {
@@ -3649,7 +4496,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "警觉",
+      "zhCN": "警觉",
       "esES": null
     },
     {
@@ -3660,7 +4507,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "",
+      "zhCN": "",
       "esES": null
     },
     {
@@ -3671,7 +4518,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你对抗疲劳和力竭的强韧豁免获得+4加值，运动获得+2加值。如果你的运动至少有10级，改为+4运动。",
+      "zhCN": "你对抗疲劳和力竭的强韧豁免获得+4加值，运动获得+2加值。如果你的运动至少有10级，改为+4运动。",
       "esES": null
     },
     {
@@ -3682,7 +4529,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "能量抗力",
+      "zhCN": "能量抗力",
       "esES": null
     },
     {
@@ -3693,7 +4540,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你用感知取代敏捷作为用弓进行远程攻击的攻击调整值。",
+      "zhCN": "你用感知取代敏捷作为用弓进行远程攻击的攻击调整值。",
       "esES": null
     },
     {
@@ -3704,7 +4551,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "猎手祝福",
+      "zhCN": "猎手祝福",
       "esES": null
     },
     {
@@ -3715,7 +4562,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外魔战士奥秘，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外魔战士奥秘，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3726,7 +4573,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外魔战士奥秘",
+      "zhCN": "额外魔战士奥秘",
       "esES": null
     },
     {
@@ -3737,7 +4584,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外魔战士奥秘，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外魔战士奥秘，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3748,7 +4595,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外魔战士奥秘（奥法后继者）",
+      "zhCN": "额外魔战士奥秘（奥法后继者）",
       "esES": null
     },
     {
@@ -3759,7 +4606,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外魔战士奥秘，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外魔战士奥秘，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3770,7 +4617,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外魔战士奥秘（巫战士）",
+      "zhCN": "额外魔战士奥秘（巫战士）",
       "esES": null
     },
     {
@@ -3781,7 +4628,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外奥能技艺，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外奥能技艺，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3792,7 +4639,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外奥能技艺",
+      "zhCN": "额外奥能技艺",
       "esES": null
     },
     {
@@ -3803,7 +4650,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外科研发现，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外科研发现，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3814,7 +4661,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外医学发现",
+      "zhCN": "额外医学发现",
       "esES": null
     },
     {
@@ -3825,7 +4672,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外科研发现，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外科研发现，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3836,7 +4683,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外医学发现",
+      "zhCN": "额外医学发现",
       "esES": null
     },
     {
@@ -3847,7 +4694,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外巫术，你需要满足先决条件。此专长可选择多次。不能用此专长获取游荡精魂巫术。",
+      "zhCN": "你获得一项额外巫术，你需要满足先决条件。此专长可选择多次。不能用此专长获取游荡精魂巫术。",
       "esES": null
     },
     {
@@ -3858,7 +4705,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外巫术(萨满)",
+      "zhCN": "额外巫术(萨满)",
       "esES": null
     },
     {
@@ -3869,7 +4716,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外巫术，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外巫术，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3880,7 +4727,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外巫术(巫师)",
+      "zhCN": "额外巫术(巫师)",
       "esES": null
     },
     {
@@ -3891,7 +4738,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的气海池增大2点，此专长可选择多次。",
+      "zhCN": "你的气海池增大2点，此专长可选择多次。",
       "esES": null
     },
     {
@@ -3902,7 +4749,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外气海池",
+      "zhCN": "额外气海池",
       "esES": null
     },
     {
@@ -3913,7 +4760,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外救赎，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外救赎，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3924,7 +4771,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外救赎",
+      "zhCN": "额外救赎",
       "esES": null
     },
     {
@@ -3935,7 +4782,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得3点额外奥能点，此专长可选择多次。",
+      "zhCN": "你获得3点额外奥能点，此专长可选择多次。",
       "esES": null
     },
     {
@@ -3946,7 +4793,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外奥能点",
+      "zhCN": "额外奥能点",
       "esES": null
     },
     {
@@ -3957,7 +4804,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外启示，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外启示，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3968,7 +4815,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外启示",
+      "zhCN": "额外启示",
       "esES": null
     },
     {
@@ -3979,7 +4826,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外游荡者天赋，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外游荡者天赋，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -3990,7 +4837,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外游荡者天赋",
+      "zhCN": "额外游荡者天赋",
       "esES": null
     },
     {
@@ -4001,7 +4848,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外游荡者天赋(林妖诡术师)",
+      "zhCN": "额外游荡者天赋(林妖诡术师)",
       "esES": null
     },
     {
@@ -4012,7 +4859,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得一项额外杀手绝技，你需要满足先决条件。此专长可选择多次。",
+      "zhCN": "你获得一项额外杀手绝技，你需要满足先决条件。此专长可选择多次。",
       "esES": null
     },
     {
@@ -4023,7 +4870,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外杀手绝技",
+      "zhCN": "额外杀手绝技",
       "esES": null
     },
     {
@@ -4034,7 +4881,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "来自TableTopTweaks: 这一选择项的效果与宿敌（异界生物）完全相同，你不能在选新宿敌时选择它。这是一个占位符，作用是避免破坏一个已经选择了此宿敌的存档。",
+      "zhCN": "来自TableTopTweaks: 这一选择项的效果与宿敌（异界生物）完全相同，你不能在选新宿敌时选择它。这是一个占位符，作用是避免破坏一个已经选择了此宿敌的存档。",
       "esES": null
     },
     {
@@ -4045,7 +4892,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "妖精血承",
+      "zhCN": "妖精血承",
       "esES": null
     },
     {
@@ -4056,7 +4903,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "火焰抗力",
+      "zhCN": "火焰抗力",
       "esES": null
     },
     {
@@ -4067,7 +4914,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战士选择一类武器，他可以使用战斗祭祀的神圣武器的武器骰替代原本的武器伤害骰，以战士等级作为战斗祭祀等级。",
+      "zhCN": "战士选择一类武器，他可以使用战斗祭祀的神圣武器的武器骰替代原本的武器伤害骰，以战士等级作为战斗祭祀等级。",
       "esES": null
     },
     {
@@ -4078,7 +4925,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "专注武器",
+      "zhCN": "专注武器",
       "esES": null
     },
     {
@@ -4089,7 +4936,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "轻型护命",
+      "zhCN": "轻型护命",
       "esES": null
     },
     {
@@ -4100,7 +4947,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "护命",
+      "zhCN": "护命",
       "esES": null
     },
     {
@@ -4111,7 +4958,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等护命",
+      "zhCN": "高等护命",
       "esES": null
     },
     {
@@ -4122,7 +4969,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "寒霜",
+      "zhCN": "寒霜",
       "esES": null
     },
     {
@@ -4133,7 +4980,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等寒霜",
+      "zhCN": "高等寒霜",
       "esES": null
     },
     {
@@ -4144,7 +4991,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "狂怒",
+      "zhCN": "狂怒",
       "esES": null
     },
     {
@@ -4155,7 +5002,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "狂怒",
+      "zhCN": "狂怒",
       "esES": null
     },
     {
@@ -4166,7 +5013,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "幽冥",
+      "zhCN": "幽冥",
       "esES": null
     },
     {
@@ -4177,7 +5024,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "侏儒获得+2体质，+2魅力和-2力量。",
+      "zhCN": "侏儒获得+2体质，+2魅力和-2力量。",
       "esES": null
     },
     {
@@ -4188,7 +5035,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "侏儒属性调整",
+      "zhCN": "侏儒属性调整",
       "esES": null
     },
     {
@@ -4199,7 +5046,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "有些侏儒不像同辈一样幽默，但他们在艺术作品上有非凡天赋。你转而获得+2体质，+2智力和-2力量。",
+      "zhCN": "有些侏儒不像同辈一样幽默，但他们在艺术作品上有非凡天赋。你转而获得+2体质，+2智力和-2力量。",
       "esES": null
     },
     {
@@ -4210,7 +5057,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "侏儒艺术家",
+      "zhCN": "侏儒艺术家",
       "esES": null
     },
     {
@@ -4221,7 +5068,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "这些侏儒的死灵系法术获得+1DC，这一特性取代侏儒魔法。",
+      "zhCN": "这些侏儒的死灵系法术获得+1DC，这一特性取代侏儒魔法。",
       "esES": null
     },
     {
@@ -4232,7 +5079,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "凶狠魔法",
+      "zhCN": "凶狠魔法",
       "esES": null
     },
     {
@@ -4243,7 +5090,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你获得+2巧手和灵巧，这一特性取代敏锐感官和苦心孤诣。",
+      "zhCN": "你获得+2巧手和灵巧，这一特性取代敏锐感官和苦心孤诣。",
       "esES": null
     },
     {
@@ -4254,7 +5101,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "好奇",
+      "zhCN": "好奇",
       "esES": null
     },
     {
@@ -4265,7 +5112,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "有些侏儒比他们看起来的要聪明得多，并且一生投身于追寻无尽的知识。你转而获得+2魅力，+2智力和-2力量。",
+      "zhCN": "有些侏儒比他们看起来的要聪明得多，并且一生投身于追寻无尽的知识。你转而获得+2魅力，+2智力和-2力量。",
       "esES": null
     },
     {
@@ -4276,7 +5123,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "敏锐侏儒",
+      "zhCN": "敏锐侏儒",
       "esES": null
     },
     {
@@ -4287,7 +5134,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你对抗毒素和疾病的豁免获得+4加值，这一特性取代苦心孤诣。",
+      "zhCN": "你对抗毒素和疾病的豁免获得+4加值，这一特性取代苦心孤诣。",
       "esES": null
     },
     {
@@ -4298,7 +5145,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "恐惧症",
+      "zhCN": "恐惧症",
       "esES": null
     },
     {
@@ -4309,7 +5156,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "这些侏儒的变化系法术获得+1DC，这一特性取代侏儒魔法。",
+      "zhCN": "这些侏儒的变化系法术获得+1DC，这一特性取代侏儒魔法。",
       "esES": null
     },
     {
@@ -4320,7 +5167,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "实用主义魔法",
+      "zhCN": "实用主义魔法",
       "esES": null
     },
     {
@@ -4331,7 +5178,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "用敏捷取代力量作为运动调整值。如果你已经有另一个效果可以使用敏捷作为运动调整值，不会获得两倍调整值。",
+      "zhCN": "用敏捷取代力量作为运动调整值。如果你已经有另一个效果可以使用敏捷作为运动调整值，不会获得两倍调整值。",
       "esES": null
     },
     {
@@ -4342,7 +5189,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "灵巧运动",
+      "zhCN": "灵巧运动",
       "esES": null
     },
     {
@@ -4353,7 +5200,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "半身人获得+2敏捷，+2魅力和-2力量。",
+      "zhCN": "半身人获得+2敏捷，+2魅力和-2力量。",
       "esES": null
     },
     {
@@ -4364,7 +5211,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "半身人属性调整",
+      "zhCN": "半身人属性调整",
       "esES": null
     },
     {
@@ -4375,7 +5222,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在对抗诅咒法术和巫术时豁免获得+2种族加值，这个特性取代无畏。",
+      "zhCN": "你在对抗诅咒法术和巫术时豁免获得+2种族加值，这个特性取代无畏。",
       "esES": null
     },
     {
@@ -4386,7 +5233,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "受祝福者",
+      "zhCN": "受祝福者",
       "esES": null
     },
     {
@@ -4397,7 +5244,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "一些半身人经过了一生的艰苦劳作甚至奴役，为了在这种条件下生存，他们锻炼出的力量已经显著高于同辈。你转而获得+2体质，+2魅力和-2敏捷。",
+      "zhCN": "一些半身人经过了一生的艰苦劳作甚至奴役，为了在这种条件下生存，他们锻炼出的力量已经显著高于同辈。你转而获得+2体质，+2魅力和-2敏捷。",
       "esES": null
     },
     {
@@ -4408,7 +5255,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "粗鲁半身人",
+      "zhCN": "粗鲁半身人",
       "esES": null
     },
     {
@@ -4419,7 +5266,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "有些半身人在特别贫穷和绝望的环境中长大，生存逼迫他们锻炼出了一些非同寻常的技俩。你获得+2交涉和隐匿。这一特性取代锐足。",
+      "zhCN": "有些半身人在特别贫穷和绝望的环境中长大，生存逼迫他们锻炼出了一些非同寻常的技俩。你获得+2交涉和隐匿。这一特性取代锐足。",
       "esES": null
     },
     {
@@ -4430,7 +5277,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "秘密求生者",
+      "zhCN": "秘密求生者",
       "esES": null
     },
     {
@@ -4441,7 +5288,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "半身人为了有效的与比他大的生物战斗而努力锻炼。在面对比他大的生物时，他的AC得到+1闪避加值，对抗践踏的反射豁免检定+1。这个特性取代半身人幸运。",
+      "zhCN": "半身人为了有效的与比他大的生物战斗而努力锻炼。在面对比他大的生物时，他的AC得到+1闪避加值，对抗践踏的反射豁免检定+1。这个特性取代半身人幸运。",
       "esES": null
     },
     {
@@ -4452,7 +5299,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "低位防守",
+      "zhCN": "低位防守",
       "esES": null
     },
     {
@@ -4463,7 +5310,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "觅心",
+      "zhCN": "觅心",
       "esES": null
     },
     {
@@ -4474,7 +5321,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级时，秘术师选择一个他已有的神术施法职业，将你的秘术师等级加在原职业的SCL上。",
+      "zhCN": "1级时，秘术师选择一个他已有的神术施法职业，将你的秘术师等级加在原职业的SCL上。",
       "esES": null
     },
     {
@@ -4485,7 +5332,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级时，秘术师选择一个他已有的神术施法职业，将你的秘术师等级加在原职业的SCL上。",
+      "zhCN": "1级时，秘术师选择一个他已有的神术施法职业，将你的秘术师等级加在原职业的SCL上。",
       "esES": null
     },
     {
@@ -4496,7 +5343,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神圣",
+      "zhCN": "神圣",
       "esES": null
     },
     {
@@ -4507,7 +5354,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等寒霜",
+      "zhCN": "高等寒霜",
       "esES": null
     },
     {
@@ -4518,7 +5365,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的基础移动速度额外提高30+5*神话等级。",
+      "zhCN": "你的基础移动速度额外提高30+5*神话等级。",
       "esES": null
     },
     {
@@ -4529,7 +5376,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "非凡神速",
+      "zhCN": "非凡神速",
       "esES": null
     },
     {
@@ -4540,7 +5387,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "抵抗你的能量引导效果的豁免DC+2。",
+      "zhCN": "抵抗你的能量引导效果的豁免DC+2。",
       "esES": null
     },
     {
@@ -4551,7 +5398,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精通导能",
+      "zhCN": "精通导能",
       "esES": null
     },
     {
@@ -4562,7 +5409,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "地狱血承",
+      "zhCN": "地狱血承",
       "esES": null
     },
     {
@@ -4573,7 +5420,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "锐锋",
+      "zhCN": "锐锋",
       "esES": null
     },
     {
@@ -4584,7 +5431,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1分钟/CL",
+      "zhCN": "1分钟/CL",
       "esES": null
     },
     {
@@ -4595,7 +5442,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的所有近战攻击的触及范围提升5尺。",
+      "zhCN": "你的所有近战攻击的触及范围提升5尺。",
       "esES": null
     },
     {
@@ -4606,7 +5453,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "长臂咒",
+      "zhCN": "长臂咒",
       "esES": null
     },
     {
@@ -4617,7 +5464,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "持矛冲锋",
+      "zhCN": "持矛冲锋",
       "esES": null
     },
     {
@@ -4628,7 +5475,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 奥能师",
+      "zhCN": "牧师法表 - 奥能师",
       "esES": null
     },
     {
@@ -4639,7 +5486,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 吟游诗人",
+      "zhCN": "牧师法表 - 吟游诗人",
       "esES": null
     },
     {
@@ -4650,7 +5497,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 血怒者",
+      "zhCN": "牧师法表 - 血怒者",
       "esES": null
     },
     {
@@ -4661,7 +5508,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 德鲁伊",
+      "zhCN": "牧师法表 - 德鲁伊",
       "esES": null
     },
     {
@@ -4672,7 +5519,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 猎人",
+      "zhCN": "牧师法表 - 猎人",
       "esES": null
     },
     {
@@ -4683,7 +5530,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 审判官",
+      "zhCN": "牧师法表 - 审判官",
       "esES": null
     },
     {
@@ -4694,7 +5541,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 魔战士",
+      "zhCN": "牧师法表 - 魔战士",
       "esES": null
     },
     {
@@ -4705,7 +5552,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 先知",
+      "zhCN": "牧师法表 - 先知",
       "esES": null
     },
     {
@@ -4716,7 +5563,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 圣武士",
+      "zhCN": "牧师法表 - 圣武士",
       "esES": null
     },
     {
@@ -4727,7 +5574,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 游侠",
+      "zhCN": "牧师法表 - 游侠",
       "esES": null
     },
     {
@@ -4738,7 +5585,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 游荡者",
+      "zhCN": "牧师法表 - 游荡者",
       "esES": null
     },
     {
@@ -4749,7 +5596,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 萨满",
+      "zhCN": "牧师法表 - 萨满",
       "esES": null
     },
     {
@@ -4760,7 +5607,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 歌者",
+      "zhCN": "牧师法表 - 歌者",
       "esES": null
     },
     {
@@ -4771,7 +5618,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 术士",
+      "zhCN": "牧师法表 - 术士",
       "esES": null
     },
     {
@@ -4782,7 +5629,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 战斗祭祀",
+      "zhCN": "牧师法表 - 战斗祭祀",
       "esES": null
     },
     {
@@ -4793,7 +5640,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 巫师",
+      "zhCN": "牧师法表 - 巫师",
       "esES": null
     },
     {
@@ -4804,7 +5651,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "牧师法表 - 法师",
+      "zhCN": "牧师法表 - 法师",
       "esES": null
     },
     {
@@ -4815,7 +5662,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 奥能师",
+      "zhCN": "德鲁伊法表 - 奥能师",
       "esES": null
     },
     {
@@ -4826,7 +5673,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 吟游诗人",
+      "zhCN": "德鲁伊法表 - 吟游诗人",
       "esES": null
     },
     {
@@ -4837,7 +5684,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 血怒者",
+      "zhCN": "德鲁伊法表 - 血怒者",
       "esES": null
     },
     {
@@ -4848,7 +5695,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 牧师",
+      "zhCN": "德鲁伊法表 - 牧师",
       "esES": null
     },
     {
@@ -4859,7 +5706,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 猎人",
+      "zhCN": "德鲁伊法表 - 猎人",
       "esES": null
     },
     {
@@ -4870,7 +5717,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 审判官",
+      "zhCN": "德鲁伊法表 - 审判官",
       "esES": null
     },
     {
@@ -4881,7 +5728,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 魔战士",
+      "zhCN": "德鲁伊法表 - 魔战士",
       "esES": null
     },
     {
@@ -4892,7 +5739,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 先知",
+      "zhCN": "德鲁伊法表 - 先知",
       "esES": null
     },
     {
@@ -4903,7 +5750,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 圣武士",
+      "zhCN": "德鲁伊法表 - 圣武士",
       "esES": null
     },
     {
@@ -4914,7 +5761,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 游侠",
+      "zhCN": "德鲁伊法表 - 游侠",
       "esES": null
     },
     {
@@ -4925,7 +5772,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 游荡者",
+      "zhCN": "德鲁伊法表 - 游荡者",
       "esES": null
     },
     {
@@ -4936,7 +5783,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 萨满",
+      "zhCN": "德鲁伊法表 - 萨满",
       "esES": null
     },
     {
@@ -4947,7 +5794,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 歌者",
+      "zhCN": "德鲁伊法表 - 歌者",
       "esES": null
     },
     {
@@ -4958,7 +5805,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 术士",
+      "zhCN": "德鲁伊法表 - 术士",
       "esES": null
     },
     {
@@ -4969,7 +5816,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 战斗祭祀",
+      "zhCN": "德鲁伊法表 - 战斗祭祀",
       "esES": null
     },
     {
@@ -4980,7 +5827,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 巫师",
+      "zhCN": "德鲁伊法表 - 巫师",
       "esES": null
     },
     {
@@ -4991,7 +5838,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "德鲁伊法表 - 法师",
+      "zhCN": "德鲁伊法表 - 法师",
       "esES": null
     },
     {
@@ -5002,7 +5849,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "选择另一个你已有的施法职业，在该职业上获得等同博学士等级的SCL。",
+      "zhCN": "选择另一个你已有的施法职业，在该职业上获得等同博学士等级的SCL。",
       "esES": null
     },
     {
@@ -5013,7 +5860,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法术书选择",
+      "zhCN": "法术书选择",
       "esES": null
     },
     {
@@ -5024,7 +5871,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 奥能师",
+      "zhCN": "法师法表 - 奥能师",
       "esES": null
     },
     {
@@ -5035,7 +5882,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 吟游诗人",
+      "zhCN": "法师法表 - 吟游诗人",
       "esES": null
     },
     {
@@ -5046,7 +5893,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 血怒者",
+      "zhCN": "法师法表 - 血怒者",
       "esES": null
     },
     {
@@ -5057,7 +5904,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 牧师",
+      "zhCN": "法师法表 - 牧师",
       "esES": null
     },
     {
@@ -5068,7 +5915,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 德鲁伊",
+      "zhCN": "法师法表 - 德鲁伊",
       "esES": null
     },
     {
@@ -5079,7 +5926,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 猎人",
+      "zhCN": "法师法表 - 猎人",
       "esES": null
     },
     {
@@ -5090,7 +5937,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 审判官",
+      "zhCN": "法师法表 - 审判官",
       "esES": null
     },
     {
@@ -5101,7 +5948,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 魔战士",
+      "zhCN": "法师法表 - 魔战士",
       "esES": null
     },
     {
@@ -5112,7 +5959,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 先知",
+      "zhCN": "法师法表 - 先知",
       "esES": null
     },
     {
@@ -5123,7 +5970,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 圣武士",
+      "zhCN": "法师法表 - 圣武士",
       "esES": null
     },
     {
@@ -5134,7 +5981,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 游侠",
+      "zhCN": "法师法表 - 游侠",
       "esES": null
     },
     {
@@ -5145,7 +5992,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 游荡者",
+      "zhCN": "法师法表 - 游荡者",
       "esES": null
     },
     {
@@ -5156,7 +6003,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 萨满",
+      "zhCN": "法师法表 - 萨满",
       "esES": null
     },
     {
@@ -5167,7 +6014,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 歌者",
+      "zhCN": "法师法表 - 歌者",
       "esES": null
     },
     {
@@ -5178,7 +6025,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 术士",
+      "zhCN": "法师法表 - 术士",
       "esES": null
     },
     {
@@ -5189,7 +6036,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 战斗祭祀",
+      "zhCN": "法师法表 - 战斗祭祀",
       "esES": null
     },
     {
@@ -5200,7 +6047,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 巫师",
+      "zhCN": "法师法表 - 巫师",
       "esES": null
     },
     {
@@ -5211,7 +6058,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法师法表 - 法师",
+      "zhCN": "法师法表 - 法师",
       "esES": null
     },
     {
@@ -5222,7 +6069,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在施法上受过特别的训练。你在知识(神秘)和使用魔法物品上获得+2加值，如果这两项技能均有至少10级，改为+4。",
+      "zhCN": "你在施法上受过特别的训练。你在知识(神秘)和使用魔法物品上获得+2加值，如果这两项技能均有至少10级，改为+4。",
       "esES": null
     },
     {
@@ -5233,7 +6080,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "奥法本能",
+      "zhCN": "奥法本能",
       "esES": null
     },
     {
@@ -5244,7 +6091,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5255,7 +6102,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5266,7 +6113,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5277,7 +6124,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5288,7 +6135,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5299,7 +6146,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5310,7 +6157,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5321,7 +6168,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的类法术能力，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -5332,7 +6179,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "魔法",
+      "zhCN": "魔法",
       "esES": null
     },
     {
@@ -5343,7 +6190,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "军用武器擅长选择",
+      "zhCN": "军用武器擅长选择",
       "esES": null
     },
     {
@@ -5354,7 +6201,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "20级时，你在所有技能鉴定上获得+4加值。",
+      "zhCN": "20级时，你在所有技能鉴定上获得+4加值。",
       "esES": null
     },
     {
@@ -5365,7 +6212,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "通才大师",
+      "zhCN": "通才大师",
       "esES": null
     },
     {
@@ -5376,7 +6223,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "谍报专家在察觉和巧手上获得职业等级一半的加值。",
+      "zhCN": "谍报专家在察觉和巧手上获得职业等级一半的加值。",
       "esES": null
     },
     {
@@ -5387,7 +6234,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精制品",
+      "zhCN": "精制品",
       "esES": null
     },
     {
@@ -5398,7 +6245,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔对于许多血脉狂怒者来说都十分难以使用，仅有少数人具有以某种方式引导血怒，并将自身的魔法推至极限的能力。此变体来自Mod: TableTopTweaks，译者：1onepower。",
+      "zhCN": "超魔对于许多血脉狂怒者来说都十分难以使用，仅有少数人具有以某种方式引导血怒，并将自身的魔法推至极限的能力。此变体来自Mod: TableTopTweaks，译者：1onepower。",
       "esES": null
     },
     {
@@ -5409,7 +6256,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者",
+      "zhCN": "超魔狂怒者",
       "esES": null
     },
     {
@@ -5420,7 +6267,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
+      "zhCN": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
       "esES": null
     },
     {
@@ -5431,7 +6278,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
+      "zhCN": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
       "esES": null
     },
     {
@@ -5442,7 +6289,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
+      "zhCN": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
       "esES": null
     },
     {
@@ -5453,7 +6300,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
+      "zhCN": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。此外，当超魔狂怒者选取血脉专长时，可以选择获取一个超魔专长作为替代。",
       "esES": null
     },
     {
@@ -5464,7 +6311,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得强效超魔。",
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -5475,7 +6322,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：增效",
+      "zhCN": "超魔狂怒：增效",
       "esES": null
     },
     {
@@ -5486,7 +6333,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得增效超魔。",
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得增效超魔。",
       "esES": null
     },
     {
@@ -5497,7 +6344,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得增效超魔。",
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得增效超魔。",
       "esES": null
     },
     {
@@ -5508,7 +6355,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得增效超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得增效超魔。",
       "esES": null
     },
     {
@@ -5519,7 +6366,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过1环的血怒者法术获得强效超魔。",
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过1环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -5530,7 +6377,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：强效",
+      "zhCN": "超魔狂怒：强效",
       "esES": null
     },
     {
@@ -5541,7 +6388,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过2环的血怒者法术获得强效超魔。",
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过2环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -5552,7 +6399,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过3环的血怒者法术获得强效超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过3环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -5563,7 +6410,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过4环的血怒者法术获得强效超魔。",
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过4环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -5574,7 +6421,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得延时超魔。",
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -5585,7 +6432,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：延时",
+      "zhCN": "超魔狂怒：延时",
       "esES": null
     },
     {
@@ -5596,7 +6443,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得延时超魔。",
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -5607,7 +6454,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得延时超魔。",
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -5618,7 +6465,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得延时超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -5629,7 +6476,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。",
+      "zhCN": "5级起，超魔狂怒者能够通过牺牲血怒的额外轮数的方式，来将他已知的超魔专长应用至血脉狂怒者法术上。血怒的消耗轮数等同于正常应用超魔专长时调整的法术等级的两倍（最低2轮，即使有“偏好超魔”神话能力）。超魔狂怒者并不需要进入血怒便能使用该能力，应用超魔效果也不会增加被消耗的法术位等级，但仍会如任何自发施法者超魔一样使用整轮施法。超魔狂怒者每次施法时仅能以此方式将一个他已知的超魔专长应用至法术上。",
       "esES": null
     },
     {
@@ -5640,7 +6487,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒",
+      "zhCN": "超魔狂怒",
       "esES": null
     },
     {
@@ -5651,7 +6498,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过1环的血怒者法术获得极效超魔。",
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过1环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -5662,7 +6509,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：极效",
+      "zhCN": "超魔狂怒：极效",
       "esES": null
     },
     {
@@ -5673,7 +6520,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过2环的血怒者法术获得极效超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过2环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -5684,7 +6531,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过3环的血怒者法术获得极效超魔。",
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过3环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -5695,7 +6542,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用14轮每日血怒轮数，使一个不超过4环的血怒者法术获得极效超魔。",
+      "zhCN": "超魔狂怒者可以使用14轮每日血怒轮数，使一个不超过4环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -5706,7 +6553,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过1环的血怒者法术获得顽强超魔。",
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过1环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -5717,7 +6564,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：顽强",
+      "zhCN": "超魔狂怒：顽强",
       "esES": null
     },
     {
@@ -5728,7 +6575,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过2环的血怒者法术获得顽强超魔。",
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过2环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -5739,7 +6586,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过3环的血怒者法术获得顽强超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过3环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -5750,7 +6597,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过4环的血怒者法术获得顽强超魔。",
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过4环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -5761,7 +6608,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过1环的血怒者法术获得瞬发超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过1环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -5772,7 +6619,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：瞬发",
+      "zhCN": "超魔狂怒：瞬发",
       "esES": null
     },
     {
@@ -5783,7 +6630,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过2环的血怒者法术获得瞬发超魔。",
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过2环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -5794,7 +6641,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用14轮每日血怒轮数，使一个不超过3环的血怒者法术获得瞬发超魔。",
+      "zhCN": "超魔狂怒者可以使用14轮每日血怒轮数，使一个不超过3环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -5805,7 +6652,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用16轮每日血怒轮数，使一个不超过4环的血怒者法术获得瞬发超魔。",
+      "zhCN": "超魔狂怒者可以使用16轮每日血怒轮数，使一个不超过4环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -5816,7 +6663,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得及远超魔。",
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -5827,7 +6674,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：及远",
+      "zhCN": "超魔狂怒：及远",
       "esES": null
     },
     {
@@ -5838,7 +6685,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得及远超魔。",
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -5849,7 +6696,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得及远超魔。",
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -5860,7 +6707,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得及远超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -5871,7 +6718,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得甄选超魔。",
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -5882,7 +6729,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒：甄选",
+      "zhCN": "超魔狂怒：甄选",
       "esES": null
     },
     {
@@ -5893,7 +6740,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得甄选超魔。",
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -5904,7 +6751,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得甄选超魔。",
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -5915,7 +6762,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得甄选超魔。",
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -5926,7 +6773,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "秘银",
+      "zhCN": "秘银",
       "esES": null
     },
     {
@@ -5937,7 +6784,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
+      "zhCN": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
       "esES": null
     },
     {
@@ -5948,7 +6795,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
+      "zhCN": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
       "esES": null
     },
     {
@@ -5959,7 +6806,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
+      "zhCN": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
       "esES": null
     },
     {
@@ -5970,7 +6817,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "疯狂骑手",
+      "zhCN": "疯狂骑手",
       "esES": null
     },
     {
@@ -5981,7 +6828,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
+      "zhCN": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
       "esES": null
     },
     {
@@ -5992,7 +6839,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级时，秘术师选择一个他已有的神术施法职业，他将秘术师等级加在该职业的SCL上。",
+      "zhCN": "1级时，秘术师选择一个他已有的神术施法职业，他将秘术师等级加在该职业的SCL上。",
       "esES": null
     },
     {
@@ -6003,7 +6850,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化导能师",
+      "zhCN": "熵化导能师",
       "esES": null
     },
     {
@@ -6014,7 +6861,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级时，秘术师选择一个他已有的神术施法职业，他将秘术师等级加在该职业的SCL上。",
+      "zhCN": "1级时，秘术师选择一个他已有的神术施法职业，他将秘术师等级加在该职业的SCL上。",
       "esES": null
     },
     {
@@ -6025,7 +6872,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "魔战士可以用任何道途法术书的法术施展法术战斗。",
+      "zhCN": "魔战士可以用任何道途法术书的法术施展法术战斗。",
       "esES": null
     },
     {
@@ -6036,7 +6883,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神话法术战斗",
+      "zhCN": "神话法术战斗",
       "esES": null
     },
     {
@@ -6047,7 +6894,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "12级时，自然之牙可以选择进阶杀手绝技以替代杀手绝技。",
+      "zhCN": "12级时，自然之牙可以选择进阶杀手绝技以替代杀手绝技。",
       "esES": null
     },
     {
@@ -6058,7 +6905,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "进阶杀手绝技",
+      "zhCN": "进阶杀手绝技",
       "esES": null
     },
     {
@@ -6069,7 +6916,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "自然之牙是对那些破坏自然、猎杀动物，或是传播疾病的人最残忍的德鲁伊。她为了更强大的复仇力量，甚至放弃了一部分与自然的链接。此变体来自Mod: TableTopTweaks，译者：1onepower。",
+      "zhCN": "自然之牙是对那些破坏自然、猎杀动物，或是传播疾病的人最残忍的德鲁伊。她为了更强大的复仇力量，甚至放弃了一部分与自然的链接。此变体来自Mod: TableTopTweaks，译者：1onepower。",
       "esES": null
     },
     {
@@ -6080,7 +6927,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "自然之牙",
+      "zhCN": "自然之牙",
       "esES": null
     },
     {
@@ -6091,7 +6938,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在1级时，自然之牙获得研究目标的能力，将德鲁伊等级视为杀手等级。",
+      "zhCN": "在1级时，自然之牙获得研究目标的能力，将德鲁伊等级视为杀手等级。",
       "esES": null
     },
     {
@@ -6102,7 +6949,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "研究目标",
+      "zhCN": "研究目标",
       "esES": null
     },
     {
@@ -6113,7 +6960,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "7级时，自然之牙可以以迅捷动作研究目标。",
+      "zhCN": "7级时，自然之牙可以以迅捷动作研究目标。",
       "esES": null
     },
     {
@@ -6124,7 +6971,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在学识(自然)和察觉上获得+2加值，如果这两项技能都至少有10级，改为+4。",
+      "zhCN": "你在学识(自然)和察觉上获得+2加值，如果这两项技能都至少有10级，改为+4。",
       "esES": null
     },
     {
@@ -6135,7 +6982,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "自然传承",
+      "zhCN": "自然传承",
       "esES": null
     },
     {
@@ -6146,7 +6993,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "自然低语AC转换",
+      "zhCN": "自然低语AC转换",
       "esES": null
     },
     {
@@ -6157,7 +7004,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "负能",
+      "zhCN": "负能",
       "esES": null
     },
     {
@@ -6168,7 +7015,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "负向能量免疫",
+      "zhCN": "负向能量免疫",
       "esES": null
     },
     {
@@ -6179,7 +7026,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "负向能量抗力",
+      "zhCN": "负向能量抗力",
       "esES": null
     },
     {
@@ -6190,7 +7037,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "九尾裔血承",
+      "zhCN": "九尾裔血承",
       "esES": null
     },
     {
@@ -6201,7 +7048,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "单手持用武器",
+      "zhCN": "单手持用武器",
       "esES": null
     },
     {
@@ -6212,7 +7059,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "如果你仅持用一把非轻型的单手武器，默认效果是你双手握持它。在加载TableTopTweaks后，许多需要你空出一只手的能力*真的*需要你空出一只手。激活此能力以强制单手握持你的武器，你会因此只能将1倍调整值应用在伤害上而不是1.5倍。",
+      "zhCN": "如果你仅持用一把非轻型的单手武器，默认效果是你双手握持它。在加载TableTopTweaks后，许多需要你空出一只手的能力*真的*需要你空出一只手。激活此能力以强制单手握持你的武器，你会因此只能将1倍调整值应用在伤害上而不是1.5倍。",
       "esES": null
     },
     {
@@ -6223,7 +7070,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "单手握持武器",
+      "zhCN": "单手握持武器",
       "esES": null
     },
     {
@@ -6234,7 +7081,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "越型",
+      "zhCN": "越型",
       "esES": null
     },
     {
@@ -6245,7 +7092,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你可以重投一次失手的攻击检定，你需要在攻击前声明使用此能力。你每日的可用次数等同武僧等级，外加每四个非武僧的等级一次。",
+      "zhCN": "你可以重投一次失手的攻击检定，你需要在攻击前声明使用此能力。你每日的可用次数等同武僧等级，外加每四个非武僧的等级一次。",
       "esES": null
     },
     {
@@ -6256,7 +7103,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "10级时，你使用完美打击时可以骰3次并取最高的结果。",
+      "zhCN": "10级时，你使用完美打击时可以骰3次并取最高的结果。",
       "esES": null
     },
     {
@@ -6267,7 +7114,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等完美打击",
+      "zhCN": "高等完美打击",
       "esES": null
     },
     {
@@ -6278,7 +7125,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "正向能量抗力",
+      "zhCN": "正向能量抗力",
       "esES": null
     },
     {
@@ -6289,7 +7136,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每当你确认一次重击，将所有精准伤害的伤害骰乘二，不随武器重击倍率增加。",
+      "zhCN": "每当你确认一次重击，将所有精准伤害的伤害骰乘二，不随武器重击倍率增加。",
       "esES": null
     },
     {
@@ -6300,7 +7147,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精准重击",
+      "zhCN": "精准重击",
       "esES": null
     },
     {
@@ -6311,7 +7158,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在4级和之后的每4级，原怒者可以选择放弃一项血脉能力，换取任选的两项狂暴特技，你需要满足这些特技的先决条件。你可以在使用原怒者狂暴并应用这些特技时将原怒者等级视作野蛮人等级来计算特技的效果，但在其他任何时候，原怒者等级不视作野蛮人等级，也不视作可狂暴职业的等级，例如在选择某些专长时。",
+      "zhCN": "在4级和之后的每4级，原怒者可以选择放弃一项血脉能力，换取任选的两项狂暴特技，你需要满足这些特技的先决条件。你可以在使用原怒者狂暴并应用这些特技时将原怒者等级视作野蛮人等级来计算特技的效果，但在其他任何时候，原怒者等级不视作野蛮人等级，也不视作可狂暴职业的等级，例如在选择某些专长时。",
       "esES": null
     },
     {
@@ -6322,7 +7169,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "原怒者狂暴",
+      "zhCN": "原怒者狂暴",
       "esES": null
     },
     {
@@ -6333,7 +7180,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "冻皮",
+      "zhCN": "冻皮",
       "esES": null
     },
     {
@@ -6344,7 +7191,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你可以消耗两次导能次数，以移动动作引导能量。",
+      "zhCN": "你可以消耗两次导能次数，以移动动作引导能量。",
       "esES": null
     },
     {
@@ -6355,7 +7202,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "快速导能",
+      "zhCN": "快速导能",
       "esES": null
     },
     {
@@ -6366,7 +7213,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你可以以自由动作切换或拔出武器。",
+      "zhCN": "你可以以自由动作切换或拔出武器。",
       "esES": null
     },
     {
@@ -6377,7 +7224,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "快速拔刀",
+      "zhCN": "快速拔刀",
       "esES": null
     },
     {
@@ -6388,7 +7235,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "光亮",
+      "zhCN": "光亮",
       "esES": null
     },
     {
@@ -6399,7 +7246,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "残忍",
+      "zhCN": "残忍",
       "esES": null
     },
     {
@@ -6410,7 +7257,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "贤者血承",
+      "zhCN": "贤者血承",
       "esES": null
     },
     {
@@ -6421,7 +7268,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在知识(神秘)和知识(世界)上获得+2加值，如果这两项技能都至少有10级，改为+4。",
+      "zhCN": "你在知识(神秘)和知识(世界)上获得+2加值，如果这两项技能都至少有10级，改为+4。",
       "esES": null
     },
     {
@@ -6432,7 +7279,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "学者",
+      "zhCN": "学者",
       "esES": null
     },
     {
@@ -6443,7 +7290,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "探寻者血承",
+      "zhCN": "探寻者血承",
       "esES": null
     },
     {
@@ -6454,7 +7301,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在学识(自然)和学识(宗教)上获得+2加值，如果这两项技能都至少有10级，改为+4。",
+      "zhCN": "你在学识(自然)和学识(宗教)上获得+2加值，如果这两项技能都至少有10级，改为+4。",
       "esES": null
     },
     {
@@ -6465,7 +7312,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "自给自足",
+      "zhCN": "自给自足",
       "esES": null
     },
     {
@@ -6476,7 +7323,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "蛇族血承",
+      "zhCN": "蛇族血承",
       "esES": null
     },
     {
@@ -6487,7 +7334,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你使用阴影位面的能量施展一个半真半假的惑控系法术，它来自法师法术表不高于2环。法术如常造成伤害或其他效果，除非目标通过意志豁免检定。成功的意志豁免会使得法术只能造成20%的原有伤害，或只有20%的可能性产生原本的效果(具体是哪一种削弱取决于惑控法术本身的性质)。免疫心智效果的生物无需进行鉴定自动成功。若意志豁免失败，对方须正常承受该惑控法术，但仍可以对该法术进行法术抗力检定和豁免检定(如惑控法术本身允许魔抗和/或豁免)。法术DC和法术穿透调整值使用的是阴影惑控的数值，而非该惑控法术(比如，享受幻术DC增益，不享受惑控学派DC增益)。",
+      "zhCN": "你使用阴影位面的能量施展一个半真半假的惑控系法术，它来自法师法术表不高于2环。法术如常造成伤害或其他效果，除非目标通过意志豁免检定。成功的意志豁免会使得法术只能造成20%的原有伤害，或只有20%的可能性产生原本的效果(具体是哪一种削弱取决于惑控法术本身的性质)。免疫心智效果的生物无需进行鉴定自动成功。若意志豁免失败，对方须正常承受该惑控法术，但仍可以对该法术进行法术抗力检定和豁免检定(如惑控法术本身允许魔抗和/或豁免)。法术DC和法术穿透调整值使用的是阴影惑控的数值，而非该惑控法术(比如，享受幻术DC增益，不享受惑控学派DC增益)。",
       "esES": null
     },
     {
@@ -6498,7 +7345,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "阴影惑控",
+      "zhCN": "阴影惑控",
       "esES": null
     },
     {
@@ -6509,7 +7356,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "此法术效果近乎于阴影惑控，但可以使用不高于5环的惑控法术。此外即使生物通过意志豁免不相信此幻术，法术能造成60%的原有伤害，或有60%的可能性产生原本的效果(具体是哪一种削弱取决于惑控法术本身的性质)。",
+      "zhCN": "此法术效果近乎于阴影惑控，但可以使用不高于5环的惑控法术。此外即使生物通过意志豁免不相信此幻术，法术能造成60%的原有伤害，或有60%的可能性产生原本的效果(具体是哪一种削弱取决于惑控法术本身的性质)。",
       "esES": null
     },
     {
@@ -6520,7 +7367,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等阴影惑控",
+      "zhCN": "高等阴影惑控",
       "esES": null
     },
     {
@@ -6531,7 +7378,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "受到你的粉碎防御影响的敌人对你的攻击视为措手不及。",
+      "zhCN": "受到你的粉碎防御影响的敌人对你的攻击视为措手不及。",
       "esES": null
     },
     {
@@ -6542,7 +7389,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "受到你的粉碎防御影响的敌人对你的攻击视为措手不及。",
+      "zhCN": "受到你的粉碎防御影响的敌人对你的攻击视为措手不及。",
       "esES": null
     },
     {
@@ -6553,7 +7400,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "粉碎防御",
+      "zhCN": "粉碎防御",
       "esES": null
     },
     {
@@ -6564,7 +7411,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "受到你的粉碎防御影响的敌人对所有攻击视为措手不及。",
+      "zhCN": "受到你的粉碎防御影响的敌人对所有攻击视为措手不及。",
       "esES": null
     },
     {
@@ -6575,7 +7422,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神话粉碎防御",
+      "zhCN": "神话粉碎防御",
       "esES": null
     },
     {
@@ -6586,7 +7433,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "受到你的粉碎防御影响的敌人对所有攻击视为措手不及。",
+      "zhCN": "受到你的粉碎防御影响的敌人对所有攻击视为措手不及。",
       "esES": null
     },
     {
@@ -6597,7 +7444,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "神话粉碎防御",
+      "zhCN": "神话粉碎防御",
       "esES": null
     },
     {
@@ -6608,7 +7455,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在运动和灵巧上获得+2加值，如果这两项技能都至少有10级，改为+4。",
+      "zhCN": "你在运动和灵巧上获得+2加值，如果这两项技能都至少有10级，改为+4。",
       "esES": null
     },
     {
@@ -6619,7 +7466,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "短跑健将",
+      "zhCN": "短跑健将",
       "esES": null
     },
     {
@@ -6630,7 +7477,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "震电",
+      "zhCN": "震电",
       "esES": null
     },
     {
@@ -6641,7 +7488,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "音波抗力",
+      "zhCN": "音波抗力",
       "esES": null
     },
     {
@@ -6652,7 +7499,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级起，你可以用标准动作发射酸性射线进行远程接触攻击。造成1d6伤害，每两个术士职业等级提高1d6。每日使用次数为3+魅力调整值。",
+      "zhCN": "1级起，你可以用标准动作发射酸性射线进行远程接触攻击。造成1d6伤害，每两个术士职业等级提高1d6。每日使用次数为3+魅力调整值。",
       "esES": null
     },
     {
@@ -6663,7 +7510,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级起，你可以用标准动作发射酸性射线进行远程接触攻击。造成1d6伤害，每两个术士职业等级提高1d6。每日使用次数为3+魅力调整值。",
+      "zhCN": "1级起，你可以用标准动作发射酸性射线进行远程接触攻击。造成1d6伤害，每两个术士职业等级提高1d6。每日使用次数为3+魅力调整值。",
       "esES": null
     },
     {
@@ -6674,7 +7521,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "酸性射线",
+      "zhCN": "酸性射线",
       "esES": null
     },
     {
@@ -6685,7 +7532,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "15级起你获得等同术士等级+10的法术抗力。",
+      "zhCN": "15级起你获得等同术士等级+10的法术抗力。",
       "esES": null
     },
     {
@@ -6696,7 +7543,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异界抗力",
+      "zhCN": "异界抗力",
       "esES": null
     },
     {
@@ -6707,7 +7554,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在你的血统中，有一个外来和怪异的污点。你趋向于使用奇怪的方式思考，从大多数人所不希望的角度接近问题。随着时间的推移，这个污点在你的外形上得以显现。\n额外专长可选列表：战斗施法、精通缴械、精通阴招、精通先攻、精通徒手打击、钢铁意志、法术延时、技能专攻。\n",
+      "zhCN": "在你的血统中，有一个外来和怪异的污点。你趋向于使用奇怪的方式思考，从大多数人所不希望的角度接近问题。随着时间的推移，这个污点在你的外形上得以显现。\n额外专长可选列表：战斗施法、精通缴械、精通阴招、精通先攻、精通徒手打击、钢铁意志、法术延时、技能专攻。\n",
       "esES": null
     },
     {
@@ -6718,7 +7565,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "任何时候你的变化学派法术视为应用了法术延时超魔，但不能再应用一次延时超魔。",
+      "zhCN": "任何时候你的变化学派法术视为应用了法术延时超魔，但不能再应用一次延时超魔。",
       "esES": null
     },
     {
@@ -6729,7 +7576,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异怪血承奥法",
+      "zhCN": "异怪血承奥法",
       "esES": null
     },
     {
@@ -6740,7 +7587,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "来自血承的额外本职技能",
+      "zhCN": "来自血承的额外本职技能",
       "esES": null
     },
     {
@@ -6751,7 +7598,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "本职技能：知识（世界）",
+      "zhCN": "本职技能：知识（世界）",
       "esES": null
     },
     {
@@ -6762,7 +7609,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "7级和之后的每6级，术士从血承专长列表中选择一项专长，需要满足先决条件。",
+      "zhCN": "7级和之后的每6级，术士从血承专长列表中选择一项专长，需要满足先决条件。",
       "esES": null
     },
     {
@@ -6773,7 +7620,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "血承专长选择",
+      "zhCN": "血承专长选择",
       "esES": null
     },
     {
@@ -6784,7 +7631,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "20级时你获得100%护命，60尺盲视和Dr 5/-。",
+      "zhCN": "20级时你获得100%护命，60尺盲视和Dr 5/-。",
       "esES": null
     },
     {
@@ -6795,7 +7642,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级起你的所有近战攻击触及范围增大5尺。11级时增大10尺，17级时增大15尺。",
+      "zhCN": "3级起你的所有近战攻击触及范围增大5尺。11级时增大10尺，17级时增大15尺。",
       "esES": null
     },
     {
@@ -6806,7 +7653,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "异常肢体",
+      "zhCN": "异常肢体",
       "esES": null
     },
     {
@@ -6817,7 +7664,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：弱智术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：弱智术",
       "esES": null
     },
     {
@@ -6828,7 +7675,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：摄心目光",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：摄心目光",
       "esES": null
     },
     {
@@ -6839,7 +7686,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：高等变形术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：高等变形术",
       "esES": null
     },
     {
@@ -6850,7 +7697,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：心灵屏障",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：心灵屏障",
       "esES": null
     },
     {
@@ -6861,7 +7708,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：变化形体",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：变化形体",
       "esES": null
     },
     {
@@ -6872,7 +7719,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：变巨术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：变巨术",
       "esES": null
     },
     {
@@ -6883,7 +7730,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：识破隐形",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：识破隐形",
       "esES": null
     },
     {
@@ -6894,7 +7741,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：闪现术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：闪现术",
       "esES": null
     },
     {
@@ -6905,7 +7752,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术：岩突",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：岩突",
       "esES": null
     },
     {
@@ -6916,7 +7763,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "9级起，你的身体构造开始变换移动，使敌人难以命中你的要害，你获得25%护命。13级时改为50%护命。",
+      "zhCN": "9级起，你的身体构造开始变换移动，使敌人难以命中你的要害，你获得25%护命。13级时改为50%护命。",
       "esES": null
     },
     {
@@ -6927,7 +7774,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "术士血承",
+      "zhCN": "术士血承",
       "esES": null
     },
     {
@@ -6938,7 +7785,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的家族注定以某种方式成就伟业。你的出生可能为预言提及，或者也许你出生在一次拥有特殊前兆的事件当中。比如一次日蚀。无论你的血统来源，你都拥有伟大的未来。\n血承专长列表：奥术打击，顽强，坚忍，抓准时机，闪电反射，法术极效，技能专攻(知识：世界)，武器专攻。",
+      "zhCN": "你的家族注定以某种方式成就伟业。你的出生可能为预言提及，或者也许你出生在一次拥有特殊前兆的事件当中。比如一次日蚀。无论你的血统来源，你都拥有伟大的未来。\n血承专长列表：奥术打击，顽强，坚忍，抓准时机，闪电反射，法术极效，技能专攻(知识：世界)，武器专攻。",
       "esES": null
     },
     {
@@ -6949,7 +7796,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每当你施放一个只能选择自身为目标的法术后，1轮内你的所有豁免获得等同该法术环级的幸运加值。",
+      "zhCN": "每当你施放一个只能选择自身为目标的法术后，1轮内你的所有豁免获得等同该法术环级的幸运加值。",
       "esES": null
     },
     {
@@ -6960,7 +7807,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运血承奥法",
+      "zhCN": "命运血承奥法",
       "esES": null
     },
     {
@@ -6971,7 +7818,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "来自命运血承的额外本职技能",
+      "zhCN": "来自命运血承的额外本职技能",
       "esES": null
     },
     {
@@ -6982,7 +7829,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在20级，你命运的时刻就在眼前。任何你的法术重击威胁确认自动成功，任何针对你的重击威胁只有投出20才能确认。每天1次，你在对抗法术抗力的施法者等级检定中直接投出20。",
+      "zhCN": "在20级，你命运的时刻就在眼前。任何你的法术重击威胁确认自动成功，任何针对你的重击威胁只有投出20才能确认。每天1次，你在对抗法术抗力的施法者等级检定中直接投出20。",
       "esES": null
     },
     {
@@ -6993,7 +7840,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在穿透法术抗力的检定上总是投出20。你每日可以使用1次。",
+      "zhCN": "你在穿透法术抗力的检定上总是投出20。你每日可以使用1次。",
       "esES": null
     },
     {
@@ -7004,7 +7851,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在穿透法术抗力的检定上总是投出20。",
+      "zhCN": "你在穿透法术抗力的检定上总是投出20。",
       "esES": null
     },
     {
@@ -7015,7 +7862,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "天命所归",
+      "zhCN": "天命所归",
       "esES": null
     },
     {
@@ -7026,7 +7873,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级开始，你在每次战斗突袭轮和第一轮，所有豁免和AC获得+1幸运加值。在7级以及之后每4级，此加值再+1。19级时达到最大值+5。",
+      "zhCN": "3级开始，你在每次战斗突袭轮和第一轮，所有豁免和AC获得+1幸运加值。在7级以及之后每4级，此加值再+1。19级时达到最大值+5。",
       "esES": null
     },
     {
@@ -7037,7 +7884,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级开始，你在每次战斗突袭轮和第一轮，所有豁免和AC获得+1幸运加值。在7级以及之后每4级，此加值再+1。19级时达到最大值+5。",
+      "zhCN": "3级开始，你在每次战斗突袭轮和第一轮，所有豁免和AC获得+1幸运加值。在7级以及之后每4级，此加值再+1。19级时达到最大值+5。",
       "esES": null
     },
     {
@@ -7048,7 +7895,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "宿命",
+      "zhCN": "宿命",
       "esES": null
     },
     {
@@ -7059,7 +7906,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "7级和之后的每6级，术士从血承专长列表中选择一项专长，需要满足先决条件。",
+      "zhCN": "7级和之后的每6级，术士从血承专长列表中选择一项专长，需要满足先决条件。",
       "esES": null
     },
     {
@@ -7070,7 +7917,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "9级开始，你能够重投一次攻击检定，重击确认判定，或者对抗法术抗性的施法者等级检定。17级时，你可以每日使用两次。",
+      "zhCN": "9级开始，你能够重投一次攻击检定，重击确认判定，或者对抗法术抗性的施法者等级检定。17级时，你可以每日使用两次。",
       "esES": null
     },
     {
@@ -7081,7 +7928,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "9级开始，你能够重投一次攻击检定，重击确认判定，或者对抗法术抗性的施法者等级检定。17级时，你可以每日使用两次。",
+      "zhCN": "9级开始，你能够重投一次攻击检定，重击确认判定，或者对抗法术抗性的施法者等级检定。17级时，你可以每日使用两次。",
       "esES": null
     },
     {
@@ -7092,7 +7939,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你能够重投一次攻击检定，重击确认判定，或者对抗法术抗性的施法者等级检定。",
+      "zhCN": "你能够重投一次攻击检定，重击确认判定，或者对抗法术抗性的施法者等级检定。",
       "esES": null
     },
     {
@@ -7103,7 +7950,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命中注定",
+      "zhCN": "命中注定",
       "esES": null
     },
     {
@@ -7114,7 +7961,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命中注定：额外使用次数",
+      "zhCN": "命中注定：额外使用次数",
       "esES": null
     },
     {
@@ -7125,7 +7972,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7136,7 +7983,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7147,7 +7994,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7158,7 +8005,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7169,7 +8016,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7180,7 +8027,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7191,7 +8038,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7202,7 +8049,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7213,7 +8060,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级和之后的每2级，术士从血承中学习一个额外法术",
+      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
       "esES": null
     },
     {
@@ -7224,7 +8071,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1级开始，你能够用标准动作碰触一个生物，使它在攻击、技能、属性、豁免检定时获得等同于术士等级一半的洞察加值，持续1轮。你能够每天使用此能力次数为3+魅力修正。",
+      "zhCN": "1级开始，你能够用标准动作碰触一个生物，使它在攻击、技能、属性、豁免检定时获得等同于术士等级一半的洞察加值，持续1轮。你能够每天使用此能力次数为3+魅力修正。",
       "esES": null
     },
     {
@@ -7235,7 +8082,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "命运之触",
+      "zhCN": "命运之触",
       "esES": null
     },
     {
@@ -7246,7 +8093,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "在15级时，你的最终命运近在咫尺。每天1次，当一次攻击或者法术将你伤害致死时，你能够通过一次DC20的意志豁免。如果成功，你的生命值只减少到-1并且伤势自动稳定。你的「宿命」能力提供的加值在此次豁免中同样生效。",
+      "zhCN": "在15级时，你的最终命运近在咫尺。每天1次，当一次攻击或者法术将你伤害致死时，你能够通过一次DC20的意志豁免。如果成功，你的生命值只减少到-1并且伤势自动稳定。你的「宿命」能力提供的加值在此次豁免中同样生效。",
       "esES": null
     },
     {
@@ -7257,7 +8104,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "触及命运",
+      "zhCN": "触及命运",
       "esES": null
     },
     {
@@ -7268,7 +8115,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "追击",
+      "zhCN": "追击",
       "esES": null
     },
     {
@@ -7279,7 +8126,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "选择一个法师表的法术，添加到魔战士法术表的同环级。",
+      "zhCN": "选择一个法师表的法术，添加到魔战士法术表的同环级。",
       "esES": null
     },
     {
@@ -7290,7 +8137,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "混合奥法（1个法术）",
+      "zhCN": "混合奥法（1个法术）",
       "esES": null
     },
     {
@@ -7301,7 +8148,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "选择两个法师表的法术，添加到魔战士法术表的同环级，这些法术需要低于你已掌握的最高环级。",
+      "zhCN": "选择两个法师表的法术，添加到魔战士法术表的同环级，这些法术需要低于你已掌握的最高环级。",
       "esES": null
     },
     {
@@ -7312,7 +8159,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "混合奥法（2个低环法术）",
+      "zhCN": "混合奥法（2个低环法术）",
       "esES": null
     },
     {
@@ -7323,7 +8170,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "选择法师表的法术，添加到魔战士法术表的同环级。你可以选择一个法术，或者两个低于你已掌握的最高环级的法术。",
+      "zhCN": "选择法师表的法术，添加到魔战士法术表的同环级。你可以选择一个法术，或者两个低于你已掌握的最高环级的法术。",
       "esES": null
     },
     {
@@ -7334,7 +8181,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "混合奥法",
+      "zhCN": "混合奥法",
       "esES": null
     },
     {
@@ -7345,7 +8192,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "法术抗力",
+      "zhCN": "法术抗力",
       "esES": null
     },
     {
@@ -7356,7 +8203,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "任何时候，你可以牺牲一个同环或更高环的法术位来自发施放你专精的法术，此法术仍然视作原环级，即使你用更高环的法术位来施展。你可以对此法术应用超魔专长，但需要的法术位最低等级也会相应提高，且需要整轮来施法。",
+      "zhCN": "任何时候，你可以牺牲一个同环或更高环的法术位来自发施放你专精的法术，此法术仍然视作原环级，即使你用更高环的法术位来施展。你可以对此法术应用超魔专长，但需要的法术位最低等级也会相应提高，且需要整轮来施法。",
       "esES": null
     },
     {
@@ -7367,7 +8214,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等法术专精",
+      "zhCN": "高等法术专精",
       "esES": null
     },
     {
@@ -7378,7 +8225,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "当你使用防御式攻击或寓守于攻时，你可以失去其AC加值，代之以获得等量的Dr/-。",
+      "zhCN": "当你使用防御式攻击或寓守于攻时，你可以失去其AC加值，代之以获得等量的Dr/-。",
       "esES": null
     },
     {
@@ -7389,7 +8236,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "当你使用防御式攻击或寓守于攻时，你可以失去其AC加值，代之以获得等量的Dr/-。",
+      "zhCN": "当你使用防御式攻击或寓守于攻时，你可以失去其AC加值，代之以获得等量的Dr/-。",
       "esES": null
     },
     {
@@ -7400,7 +8247,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "坚毅",
+      "zhCN": "坚毅",
       "esES": null
     },
     {
@@ -7411,7 +8258,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你从坚毅获得的Dr翻倍，但以10/-封顶。",
+      "zhCN": "你从坚毅获得的Dr翻倍，但以10/-封顶。",
       "esES": null
     },
     {
@@ -7422,7 +8269,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精通坚毅",
+      "zhCN": "精通坚毅",
       "esES": null
     },
     {
@@ -7433,7 +8280,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "武器使用你的盔甲的增强和材质",
+      "zhCN": "武器使用你的盔甲的增强和材质",
       "esES": null
     },
     {
@@ -7444,19 +8291,19 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "钢铁头槌",
+      "zhCN": "钢铁头槌",
       "esES": null
     },
     {
-        "Key": "19310cd2f3e547f588dc8c4bf040f7ff",
-        "SimpleName": "SteelHeadbuttFeature.Description",
-        "ProcessTemplates": true,
-        "enGB": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter’s Strength modifier. Treat this attack as a weapon attack made using the same special material and enchantment bonus (if any) as the armor.",
-        "ruRU": null,
-        "deDE": null,
-        "frFR": null,
-        "zhcn": "当战士穿着中甲或者重甲时，他在全轮攻击中加上一记头槌。这个头槌使用战士的最高BAB-5。头槌将会在战士穿着中甲时造成1d3点伤害，或者在他穿着重甲时造成1d4点伤害(对于小体型战士则分别是1d2和1d3)，再加上等同于战士1/2力量调整值的伤害。这次攻击视为武器攻击，并使用和他盔甲一样的特殊材料(如果有的话)。盔甲的增强加值不会调整头槌的伤害。",
-        "esES": null
+      "Key": "19310cd2f3e547f588dc8c4bf040f7ff",
+      "SimpleName": "SteelHeadbuttFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter’s base attack bonus – 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter’s Strength modifier. Treat this attack as a weapon attack made using the same special material and enchantment bonus (if any) as the armor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "当战士穿着中甲或者重甲时，他在全轮攻击中加上一记头槌。这个头槌使用战士的最高BAB-5。头槌将会在战士穿着中甲时造成1d3点伤害，或者在他穿着重甲时造成1d4点伤害(对于小体型战士则分别是1d2和1d3)，再加上等同于战士1/2力量调整值的伤害。这次攻击视为武器攻击，并使用和他盔甲一样的特殊材料(如果有的话)。盔甲的增强加值不会调整头槌的伤害。",
+      "esES": null
     },
     {
       "Key": "c1d4efb32180421e9fe24660d0800a1e",
@@ -7466,7 +8313,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "钢铁头槌效果",
+      "zhCN": "钢铁头槌效果",
       "esES": null
     },
     {
@@ -7477,7 +8324,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你在知识(世界)和察觉上获得+2加值，如果这两项技能都至少有10级，改为+4。",
+      "zhCN": "你在知识(世界)和察觉上获得+2加值，如果这两项技能都至少有10级，改为+4。",
       "esES": null
     },
     {
@@ -7488,7 +8335,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "街头智慧",
+      "zhCN": "街头智慧",
       "esES": null
     },
     {
@@ -7499,7 +8346,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "4级时，每当剑圣确认重击，他可以消耗两点奥能点，使武器的重击倍率提升1。",
+      "zhCN": "4级时，每当剑圣确认重击，他可以消耗两点奥能点，使武器的重击倍率提升1。",
       "esES": null
     },
     {
@@ -7510,7 +8357,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、酸、电抗\n5级: 10点寒、酸、电抗, DR 5/邪恶\n11级: 15点寒、酸、电抗, DR 10/邪恶\n辟邪斩: 每日一次，此天界生物可以制裁邪恶生物，以一个迅捷动作，选择视野范围内的一个邪恶生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、酸、电抗\n5级: 10点寒、酸、电抗, DR 5/邪恶\n11级: 15点寒、酸、电抗, DR 10/邪恶\n辟邪斩: 每日一次，此天界生物可以制裁邪恶生物，以一个迅捷动作，选择视野范围内的一个邪恶生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7521,7 +8368,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "天界模板",
+      "zhCN": "天界模板",
       "esES": null
     },
     {
@@ -7532,7 +8379,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每日一次，此天界生物可以制裁邪恶生物，以一个迅捷动作，选择视野范围内的一个邪恶生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "每日一次，此天界生物可以制裁邪恶生物，以一个迅捷动作，选择视野范围内的一个邪恶生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7543,7 +8390,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "制裁邪恶",
+      "zhCN": "制裁邪恶",
       "esES": null
     },
     {
@@ -7554,7 +8401,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点火、酸抗\n5级: 10点火、酸抗, DR 5/守序\n11级: 15点火、酸抗, DR 10/守序\n制裁守序: 每日一次，此熵化生物可以制裁守序生物，以一个迅捷动作，选择视野范围内的一个守序生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点火、酸抗\n5级: 10点火、酸抗, DR 5/守序\n11级: 15点火、酸抗, DR 10/守序\n制裁守序: 每日一次，此熵化生物可以制裁守序生物，以一个迅捷动作，选择视野范围内的一个守序生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7565,7 +8412,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "熵化模板",
+      "zhCN": "熵化模板",
       "esES": null
     },
     {
@@ -7576,7 +8423,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每日一次，此熵化生物可以制裁守序生物，以一个迅捷动作，选择视野范围内的一个守序生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "每日一次，此熵化生物可以制裁守序生物，以一个迅捷动作，选择视野范围内的一个守序生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7587,7 +8434,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "制裁守序",
+      "zhCN": "制裁守序",
       "esES": null
     },
     {
@@ -7598,7 +8445,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火抗\n5级: 10点寒、火抗, DR 5/善良\n11级: 15点寒、火抗, DR 10/善良\n制裁善良: 每日一次，此炼狱生物可以制裁善良生物，以一个迅捷动作，选择视野范围内的一个善良生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火抗\n5级: 10点寒、火抗, DR 5/善良\n11级: 15点寒、火抗, DR 10/善良\n制裁善良: 每日一次，此炼狱生物可以制裁善良生物，以一个迅捷动作，选择视野范围内的一个善良生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7609,7 +8456,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "炼狱模板",
+      "zhCN": "炼狱模板",
       "esES": null
     },
     {
@@ -7620,7 +8467,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每日一次，此炼狱生物可以制裁善良生物，以一个迅捷动作，选择视野范围内的一个善良生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "每日一次，此炼狱生物可以制裁善良生物，以一个迅捷动作，选择视野范围内的一个善良生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7631,7 +8478,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "制裁善良",
+      "zhCN": "制裁善良",
       "esES": null
     },
     {
@@ -7642,7 +8489,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火、酸抗\n5级: 10点寒、火、酸抗, DR 5/混乱\n11级: 15点寒、火、酸抗, DR 10/混乱\n制裁混乱: 每日一次，此秩序生物可以制裁混乱生物，以一个迅捷动作，选择视野范围内的一个混乱生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "动物伙伴获得等同其等级+5的法术抗力，此外：\n1级: 5点寒、火、酸抗\n5级: 10点寒、火、酸抗, DR 5/混乱\n11级: 15点寒、火、酸抗, DR 10/混乱\n制裁混乱: 每日一次，此秩序生物可以制裁混乱生物，以一个迅捷动作，选择视野范围内的一个混乱生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7653,7 +8500,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "秩序模板",
+      "zhCN": "秩序模板",
       "esES": null
     },
     {
@@ -7664,7 +8511,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每日一次，此秩序生物可以制裁混乱生物，以一个迅捷动作，选择视野范围内的一个混乱生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
+      "zhCN": "每日一次，此秩序生物可以制裁混乱生物，以一个迅捷动作，选择视野范围内的一个混乱生物，获得等同此动物伙伴魅力加值(如为加值)的攻击加值，和等同此动物伙伴等级的伤害加值。",
       "esES": null
     },
     {
@@ -7675,7 +8522,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "制裁混乱",
+      "zhCN": "制裁混乱",
       "esES": null
     },
     {
@@ -7686,7 +8533,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "使用此武器的攻击和伤害检定获得+1加值。",
+      "zhCN": "使用此武器的攻击和伤害检定获得+1加值。",
       "esES": null
     },
     {
@@ -7697,7 +8544,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "临时增强+1",
+      "zhCN": "临时增强+1",
       "esES": null
     },
     {
@@ -7708,7 +8555,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "+1",
+      "zhCN": "+1",
       "esES": null
     },
     {
@@ -7719,7 +8566,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "使用此武器的攻击和伤害检定获得+2加值。",
+      "zhCN": "使用此武器的攻击和伤害检定获得+2加值。",
       "esES": null
     },
     {
@@ -7730,7 +8577,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "临时增强+2",
+      "zhCN": "临时增强+2",
       "esES": null
     },
     {
@@ -7741,7 +8588,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "+2",
+      "zhCN": "+2",
       "esES": null
     },
     {
@@ -7752,7 +8599,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "使用此武器的攻击和伤害检定获得+3加值。",
+      "zhCN": "使用此武器的攻击和伤害检定获得+3加值。",
       "esES": null
     },
     {
@@ -7763,7 +8610,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "临时增强+3",
+      "zhCN": "临时增强+3",
       "esES": null
     },
     {
@@ -7774,7 +8621,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "+3",
+      "zhCN": "+3",
       "esES": null
     },
     {
@@ -7785,7 +8632,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "使用此武器的攻击和伤害检定获得+4加值。",
+      "zhCN": "使用此武器的攻击和伤害检定获得+4加值。",
       "esES": null
     },
     {
@@ -7796,7 +8643,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "临时增强+4",
+      "zhCN": "临时增强+4",
       "esES": null
     },
     {
@@ -7807,7 +8654,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "+4",
+      "zhCN": "+4",
       "esES": null
     },
     {
@@ -7818,7 +8665,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "使用此武器的攻击和伤害检定获得+5加值。",
+      "zhCN": "使用此武器的攻击和伤害检定获得+5加值。",
       "esES": null
     },
     {
@@ -7829,7 +8676,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "临时增强+5",
+      "zhCN": "临时增强+5",
       "esES": null
     },
     {
@@ -7840,7 +8687,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "+5",
+      "zhCN": "+5",
       "esES": null
     },
     {
@@ -7851,7 +8698,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "使用此武器的攻击和伤害检定获得+6加值。",
+      "zhCN": "使用此武器的攻击和伤害检定获得+6加值。",
       "esES": null
     },
     {
@@ -7862,7 +8709,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "临时增强+6",
+      "zhCN": "临时增强+6",
       "esES": null
     },
     {
@@ -7873,7 +8720,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "+6",
+      "zhCN": "+6",
       "esES": null
     },
     {
@@ -7884,7 +8731,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每当此武器的持用者杀死生物，对周围10尺所有生物造成等同他的运动等级的伤害，DC30的反射豁免减半此伤害。",
+      "zhCN": "每当此武器的持用者杀死生物，对周围10尺所有生物造成等同他的运动等级的伤害，DC30的反射豁免减半此伤害。",
       "esES": null
     },
     {
@@ -7895,7 +8742,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "恐怖震波",
+      "zhCN": "恐怖震波",
       "esES": null
     },
     {
@@ -7906,7 +8753,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每当这把+5裂地锤的持用者杀死生物，对周围10尺所有生物造成等同他的运动等级的伤害，DC30的反射豁免减半此伤害。",
+      "zhCN": "每当这把+5裂地锤的持用者杀死生物，对周围10尺所有生物造成等同他的运动等级的伤害，DC30的反射豁免减半此伤害。",
       "esES": null
     },
     {
@@ -7917,7 +8764,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "雷鸣",
+      "zhCN": "雷鸣",
       "esES": null
     },
     {
@@ -7928,7 +8775,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "当战士使用已训练的武器娴熟可选武器，以敏捷作为攻击调整值且以力量作为伤害调整值时，你将武器训练对攻击和伤害的增值都翻倍。",
+      "zhCN": "当战士使用已训练的武器娴熟可选武器，以敏捷作为攻击调整值且以力量作为伤害调整值时，你将武器训练对攻击和伤害的增值都翻倍。",
       "esES": null
     },
     {
@@ -7939,7 +8786,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "庖丁解牛",
+      "zhCN": "庖丁解牛",
       "esES": null
     },
     {
@@ -7950,7 +8797,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "任何时候，如果你使用投掷类武器时以敏捷作为攻击调整值且力量作为伤害调整值，你的武器训练在攻击加值和伤害加值上的效果都翻倍。",
+      "zhCN": "任何时候，如果你使用投掷类武器时以敏捷作为攻击调整值且力量作为伤害调整值，你的武器训练在攻击加值和伤害加值上的效果都翻倍。",
       "esES": null
     },
     {
@@ -7961,7 +8808,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "精通投掷",
+      "zhCN": "精通投掷",
       "esES": null
     },
     {
@@ -7972,7 +8819,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "游荡者将职业等级的一半加在察觉和巧手上。",
+      "zhCN": "游荡者将职业等级的一半加在察觉和巧手上。",
       "esES": null
     },
     {
@@ -7983,7 +8830,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "造成的伤害应用1.5倍属性调整值。",
+      "zhCN": "造成的伤害应用1.5倍属性调整值。",
       "esES": null
     },
     {
@@ -7994,7 +8841,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "额外伤害调整值",
+      "zhCN": "额外伤害调整值",
       "esES": null
     },
     {
@@ -8005,7 +8852,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "高等雷鸣",
+      "zhCN": "高等雷鸣",
       "esES": null
     },
     {
@@ -8016,7 +8863,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "亡者血承",
+      "zhCN": "亡者血承",
       "esES": null
     },
     {
@@ -8027,7 +8874,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "污邪",
+      "zhCN": "污邪",
       "esES": null
     },
     {
@@ -8038,7 +8885,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "恶毒",
+      "zhCN": "恶毒",
       "esES": null
     },
     {
@@ -8049,7 +8896,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "斩首",
+      "zhCN": "斩首",
       "esES": null
     },
     {
@@ -8060,7 +8907,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "勇士之魂",
+      "zhCN": "勇士之魂",
       "esES": null
     },
     {
@@ -8071,7 +8918,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战士每天获得等同于1+他的武器训练加值的精神能量。当装备训练的武器时，他可以消耗1点精神能量来使武器额外获得等同于他武器训练加值的增强加值，这个增强加值与武器自身的增强加值叠加但最高+5。战士也可以不直接给予武器增强加值而是给予武器特殊属性，用特殊属性等效增强加值替换你本应给予的增强加值同额数值。该能力的增强加值持续1分钟。",
+      "zhCN": "战士每天获得等同于1+他的武器训练加值的精神能量。当装备训练的武器时，他可以消耗1点精神能量来使武器额外获得等同于他武器训练加值的增强加值，这个增强加值与武器自身的增强加值叠加但最高+5。战士也可以不直接给予武器增强加值而是给予武器特殊属性，用特殊属性等效增强加值替换你本应给予的增强加值同额数值。该能力的增强加值持续1分钟。",
       "esES": null
     },
     {
@@ -8082,7 +8929,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1分钟",
+      "zhCN": "1分钟",
       "esES": null
     }
   ]
