@@ -1,282 +1,268 @@
-## 使用此MOD时请勿向Owlcat官方提交BUG反馈。如果你必须这么做，请注明你使用了这个mod。
+## 使用此MOD时请勿向Owlcat官方提交BUG反馈。如果你必须这么做，请务必注明你使用了这个mod。
 
-TabletopTweaks的设计目的是进行内容性更新，以更好地还原桌面Pathfinder游戏的规则，其最主要的功能是修复被错误应用的战斗系统规则。
-此外，此MOD新增了一部分桌游中有、原游戏中未加入、且非常适合电子游戏环境的资源。
+TabletopTweaks的设计目的是进行内容性更新，以更好地还原桌面Pathfinder游戏的规则，其最主要的功能是修复被错误应用的战斗系统规则。此外，此MOD新增了一部分桌游中有、原游戏中未加入、且非常适合电子游戏环境的资源。
+
 注意：此MOD可以在存档中途加入，或在存档中途更新版本。但一旦加入后，不能移除，否则存档会损坏。如果你决定不再想要一部分功能，可以在UMM设置中关闭。由于此MOD绝大部分的功能都可以在设置中关闭，无法移除的特性应该不至于带来太大困扰。
 修改此MOD的设置后需要完全重启游戏，更改才会生效。
 
 此MOD由1onepower翻译，你可以在[B站](https://space.bilibili.com/383719917?spm_id_from=333.1007.0.0)关注我。
-欢迎所有同好加入最大的中文CRPG社区之一：[拥王者吧](https://tieba.baidu.com/f?kw=%E6%8B%A5%E7%8E%8B%E8%80%85&fr=index)，或我们的中文[discord](https://discord.gg/VHEMVrvgaw)。
+
+欢迎所有同好加入最大的中文CRPG社区之一：[拥王者吧](https://tieba.baidu.com/f?kw=%E6%8B%A5%E7%8E%8B%E8%80%85&fr=index)，或我们的中文[discord: Owlcat Games Pathfinder Adventures Chinese Commuity](https://discord.gg/VHEMVrvgaw)。
+
 如果你可以用英语交流，也欢迎加入Owlcat官方的[discord](https://discord.gg/bQVwsP7cky)
-再次特别感谢此MOD的作者@Vek17，制作了如此优秀的内容
+
+再次特别感谢MOD原作者@Vek17
 
 **如何安装**
 
-1. 下载 [Unity Mod Manager](https://github.com/newman55/unity-mod-manager), 确保其版本至少为0.23.0。注意，任何非官方的盗版、克隆版MOD加载器(如"DUMM")，以及任何汉化过的UMM加载器都是不受支持的，造成对存档的任何破坏其责任自负。
+1. 下载 [Unity Mod Manager](https://github.com/newman55/unity-mod-manager), 确保其版本至少为0.23.0。注意，任何非官方的盗版、克隆版MOD加载器(如"DUMM")，以及任何汉化过的UMM加载器都是不受支持的，造成对存档的任何破坏其责任自负。请不要在使用非官方MOD加载器时向Owlcat或MOD作者提交BUG反馈。
 2. 运行UMM，找到Pathfinder: Wrath of the Righteous，如果UMM没能自动找到游戏路径，请手动设置路径。
 3. 在release里下载此MOD的发行包(一个zip压缩文件)
 4. 将zip文件拖到UMM内安装。
 
 **功能列表:(汉化暂时未完)**
 
-    Adds One Handed Weapon toggle
+    添加了强制单手持用武器的功能
     
-    Adds The following bloodlines:
-        Aberrant Sorcerer Bloodline
-        Destined Sorcerer Bloodline
-        Aberrant Bloodrager Bloodline
-        Destined Bloodrager Bloodline
+    添加了如下血承:
+        异怪血承（术士）
+        命运血承（术士）
+        异怪血承（血怒者）
+        命运血承（血怒者）
     
-    Adds the following spells:
-        Long Arm
-        Shadow Enchantment
-        Shadow Enchantment Greater
+    添加了如下法术:
+        长臂咒
+        阴影惑控
+        高等阴影惑控
     
-    Adds the following mythic abilities:
-        Impossible Speed
-        Armor Master
-        Armored Might
-        Mounted Maniac
-        Mythic Spell Combat
-        Precision Critical
+    添加了如下神话能力:
+        非凡神速
+        神话护甲大师
+        超凡护甲
+        疯狂骑手
+        神话法术战斗
+        精准重击
 
-    Adds the following mythic feats:
-        Shatter Defenses (Mythic)
+    添加了如下神话专长:
+        神话粉碎防御
     
-    Adds the following arcanist exploits:
-        Quick Study
-        Familiar
-        Metamagic Knowledge
-        Item Crafting
+    添加了如下奥能师发现:
+        快速研读
+        魔宠
+        造物专精
+        超魔学识
     
-    Adds the following magus arcana:
-        Broad Study
-        Spell Blending
+    添加了如下魔战士奥秘:
+        奥术拓展
+        混合奥法
 
-    Adds the following advanced weapon trainings:
-        Trained Grace
-        Trained Throw
-        Defensive Weapon Training
-        Focused Weapon
-        Warrior Spirit
+    添加了如下进阶武器训练:
+        庖丁解牛
+        精通投掷
+        防御式武器训练
+        专注武器
+        勇士之魂
 
-    Adds the following advanced armor trainings:
-        Armored Confidence
-        Armored Juggernaut
-        Armor Specialization
-        Critical Deflection
-        Steel Headbut
+    添加了如下进阶防具训练:
+        自信着甲
+        盔甲主宰
+        盔甲专精
+        重击偏转
+        钢铁头槌
         
-    Adds the following archetypes:
-        Bloodrager - Metamagic Rager
-        Warpriest - Divine Commander
-        Druid - Nature Fang
-        Cleric - Channeler of the Unknown
+    添加了如下子职业:
+        血怒者 - 超魔狂怒者（可以消耗血怒轮数以施展超魔）
+        战斗祭祀 - 圣战指挥官（以祝福换取坐骑）
+        德鲁伊 - 自然之牙（以野性变身换取杀手绝技和研究目标）
+        牧师 - 熵化导能师（只能引导同时伤害死物和活物的特殊能量）
 
-    Adds the following feats:
-        Dervish Dance
-        Graceful Athlete
-        Magical Aptitude
-        Scholar
-        Self-Sufficent
-        Shingle Runner
-        Street Smarts
-        Extra Reservoir
-        Extra Ki
-        Extra Hex
-        Extra Arcanist Exploit
-        Extra Arcana
-        Extra Rogue Talent
-        Extra Slayer Talent
-        Extra Revelation
-        Extra Discovery
-        Extra Mercy
-        Nature Soul
-        Animal Ally
-        Greater Spell Specialization
-        Erastil's Blessing
-        Stalwart
-        Improved Stalwart
-        Celestial Servant
-        Quick Draw
+    添加了如下专长：
+        致命舞步
+        灵巧运动
+        奥法本能
+        学者
+        自给自足
+        短跑健将
+        街头智慧
+        额外奥能源泉
+        额外气海
+        额外巫术
+        额外奥能师发现
+        额外魔战士奥秘
+        额外游荡者天赋
+        额外杀手绝技
+        额外启示
+        额外科研发现
+        额外医学发现
+        额外救赎
+        自然传承
+        动物盟友
+        高等法术专精
+        猎手祝福
+        坚毅
+        精通坚毅
+        天界仆从
+        快速拔刀
 
-    Adds the following rogue talents:
-        Graceful Athlete
+    添加了如下游荡者天赋:
+        灵巧运动
 
-    Adds the following racial traits:
-        added dwarf stoutheart trait
-        added dwarf stoic negotiator trait
-        added elf arcane focus trait
-        added elf long limbed trait
-        added elf moon kissed trait
-        added elf vigilance trait
-        added gnome keen trait
-        added gnome fell magic trait
-        added gnome utilitarian magic trait
-        added gnome inquisitive trait
-        added gnome nosophobia trait
-        added halfling blessed trait
-        added halfling secretive survivor trait
-        added halfling underfoot trait
+    添加了如下种族替换特性:
+        矮人：坚定矮人、坚毅谈判者
+        精灵：奥术专攻、长跑者、月吻者、警觉
+        侏儒：敏锐侏儒、凶狠魔法、实用主义法师、好奇、恐惧症
+        半身人：受祝福者、秘密求生者、低位防守
 
-    Adds the following backgrounds:
-        Lecturer
+    添加了如下背景:
+        讲师
 
-    Enables the following data mined content:
-        Cauldron Witch Archetype
-        Elemental Master Archetype
+    开启了如下游戏文件中有（甚至已有汉化），但不能选择的子职业：
+        炼药巫师
+        元素大师
     
-    Contains the following changes/fixes:
-        Disables Natural Armor Stacking
-        Disables Polymorph Stacking
-        Disables Canny Defense Stacking
-        Disables Monk AC Stacking with other untyped of same source
-        Enables activatable abilities like rage to persist after combat if the limitless feature is present
-        fixes temporary hp not updating properly when damage is taken
-        Natural 20s now are always a success when rolled during critical confirmation
-        Limited fixes to shadow spells
-        Longspears now fill the roll of lances for mounted bonus damage
-        Vital Strike no longer crits incorrectly
-        Empower and Maximize no longer stack incorrectly
-        Skills points properly increase from permanant bonuses
-        Selective now only works on instaneous effects
-        Coup De Grace now scales properly (Thanks @Perunq)
-        Class specific feat selections should now have the correct feats
-        The Holy Symbol of Iomedae no longer turns itself off
-        Profane ascention now works corectly for dexterity and strength based characters
-        DR Rules now more closely follow the tabletop rules
-        Favorite Metamagic Bolster can now be picked
+    包含了如下修复，以贴合桌游规则:
+        多个天生防御加值不能叠加而是取最高，除非它们明确注明能叠加(如霜护冻皮)
+        不能同时有多个变形/变身/化身效果
+        决斗家和剑圣的防御加值不叠加
+        麟甲之拳和自然之语的防御加值不叠加
+        如果你的某个职业能力的使用次数是无限，在战斗后不会自动关闭(如狂暴)
+        有临时生命值时，现在总是可以正确显示到底还有多少剩余生命值
+        投出20时你总是可以确认重击，即使AB+20低于AC
+        部分修复了阴影法术的BUG
+        现在长矛在骑冲时可以正确算作矛类了
+        修复了多个重击、要害打击、骑冲、和其他一些原因的伤害翻倍是乘算的BUG，现在都是加算了
+        修复了多个强效、极效、增效的两两叠加时计算不正确的BUG
+        现在在智力属性上获得永久性加值(如智力书、神药)可以增加技能点数了
+        修复了甄选可以应用于一些本不该能应用的法术的BUG
+        致命一击现在会随着你造成的伤害提高DC（感谢@Perunq的贡献）
+        选择专长列表时的分类标识符做了多个修复
+        艾奥梅黛的圣徽不再需要每次都手动打开了
+        亵渎晋升的逻辑调整了，现在能更好识别你需要什么了
+        Dr的叠加进行了多个调整，以符合桌面规则
+        神话能力偏好超魔现在可以选所有超魔了
 
-    Reworks the following Mythic Paths:
-        Aeon
-            Aeon Bane usages now scale at 2x Mythic level + Character level
-            Aeon Bane no longer grants disadvantage on spell resistance and instead correctly adds mythic rank to spell resistance checks
-            Aeon Improved Bane now uses greater dispel magic rules to remove 1/4 CL buffs (where CL is defined as Character Level + Mythic Rank) instead of dispeling all buffs
-            Aeon Greater Bane damage is now rolled into the main weapon attack instead of a separate instance
-            Aeon Greater Bane now auto dispels one buff on the first hit
-            Aeon Greater Bane now allows you to cast swift action spells as a move action
-            Aeon Gaze selection is no longer limited on the first selection and all selections are available
-            Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same resouce usage
-            Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level
-                This takes the DC range from DC 21-35 to DC 21-40 (+2 vs Chaotic)
-        Azata
-            Performance usages now scale at Mythic Level + Character Level
-            Favorable Magic now works on reoccurring saves
-            Azata songs can now be started outside of combat
+    调整了如下神话道途的能力:
+        御衡者
+            破敌的使用次数现在是2*神话等级+角色等级
+            修复了御衡者破敌反而会使你法穿投两次取低的BUG
+            现在御衡者破敌使你额外获得神话等级的法穿加值
+            精通御衡者破敌现在自动在每次击中时附带高等解除魔法，以神话等级+角色等级为CL。而不是直接移除所有BUFF
+            高等御衡者破敌的伤害现在是附伤而不是独立一次伤害判定
+            高等御衡者破敌现在直接移除所有BUFF
+            现在你可以正确用移动动作施展本回合第二个迅捷动作了
+            御衡者凝视现在直接可以选择所有选项了
+            现在可以同时激活多个御衡者凝视，但会消耗多次每日使用次数
+            御衡者凝视DC从15+2*神话等级改为10+2*神话等级+角色等级/2
+        灵使
+            演艺轮数可以随角色等级+神话等级而增加了
+            演艺可以在战斗外开启了
+            使对方豁免重投的能力和另一个令对方重投的效果正确叠加了
 
-    Alchemist
-        Grenadier
-            No longer gets brew potions
-            No longer gets poision resistance
-    Arcansit
-        Fixed consume spells minimum resources
-    Bloodrager
-        Fixes abyssal bulk blood rage feature
-        Fixes spells per day to prevent premature qualification of prerequisites
-        Fixed limitless rage not granting extra temp hp
-        Rebuilt Arcane Bloodrage to work better
-        Primalist
-            Prevents qualification of Extra Rage power feat
-            All Rage powers should now work
-        Reformed Fiend
-            Fixes Hatred Against Evil
-    Cavalier
-        Adds cavalier mobility feature
-        Fixes base mount selection
-        Fixes supreme charge
-        Gendarme
-            Fixes transfixing charge
-    Dragon Disciple
-        Spellbooks now work:
-            Stigmitized Witch
-            Sage Sorcerer
-            Empyreal Sorcerer
-            Unlettered Arcansist
-            Bature Mage
-    Fighter
-        Advanced Weapon Training Feat now properly repects prerequisites
-        Two Handed Weapon Training now works with all Weapon Training effects
-        Two Handed Fighter
-            Can now take Advanced Weapon Training feats
-    Hellknight
-        Pentamic Faith now requires the Godclaw Order instead of the Diety
-    Kineticist
-        Elemental Engine
-            Fixes bug preventing this from being selectable
-    Lich
-        Enabled merging for exploiter wizard and nature mage
-    Loremaster
-        Spell Secrets now work
-        Prerequisites have been fixed
-        Trickster feats removed from selection
-        No longer causes you to lose a caster level
-        The following classes can now progress thier spellbook with loremaster
-            Hunter
-            Warpriest
-            Crossblooded Sorcerer
-            Espionage Expert
-            Nature Mage
-    Magus
-        Spell combat now works with abilities that have variants
-        Sword Saint
-            Perfect Critical now correctly costs 2 points of pool instead of 1
-    Monk
-        Zen Archer
-            Perfect Strike now upgrades at level 10
-    Oracle
-        Natures Whispers no longer stacks with Scaled Fist
-        Curses should no progress at the correct rate
-    Ranger
-        Reverts favorable enemy outsider to work on all outsiders
-        Espionage Expert
-            Trapfinding now addes 1/2 class level to trickery as well as perception
-    Rogue
-        Fixes rogue talents being able to be picked more than once
-        Trapfinding now addes 1/2 class level to trickery as well as perception
-        Slippery mind now properly updates on stat change
-        Eldritch Scoundrel
-            Fixes sneak attack progression
-    Slayer
-        Fixes studied target bonus
-        Trapfinding now addes 1/2 class level to trickery as well as perception
-    Witch
-        Fixes hex casting stat for:
-            Evil eye
-        Fixes hex descriptors for
-            Death Curse
-            Delicious Fright
-            Evil Eye
-            Hoarfrost
-            Restless Slumber
-    Spells
-        Updates to better match tabletop versions:
-            Angelic Aspect Greater
-            Magical Vestment
-        Fixes:
-            Believe in Yourself
-            Bestow Curse Greater
-            Break Enchantment
-            Ode to Miraculous Magic
-            Crusader's Edge
-            Second Breath
-    Bloodlines
-        Fixes bloodline prerequisites to prevent impossible stacking
-        Fixed dragon disciple bloodline rules to prevent impossible stacking
-        Enabled dragonhier scion progression with dragon disciple
-    Feats
-        Crane wing now requires a free hand
-        Slashing grace now always requires a free hand
-        Fencing grace now always requires a free hand
-        Mounted Combat now works properly
-        Indomitable Mount now works properly
-        Spirited Charage now works properly
-        Persistant metatmagic can now be applied to spells
-        Empower metatmagic can now be applied to touch spells
-        Maximize metatmagic can now be applied to touch spells
-        Bolster metatmagic can now be applied to touch spells
-        Bolster metatmagic splash damage should not longer hit you (unless you targeted a friendly)
-    Mythic Abilities
-        Bloodline Ascendance now works with mutated bloodlines
-        Enduring spells now works with temporary item enhancement spells
-        Second bloodline is now available to mutated bloodlines
-        Second bloodrager bloodline now works with reformed fiend
+    炼金术士
+        掷弹兵
+            不再获得调制药水专长，与桌面保持一致
+            不再获得毒素抗力，与桌面保持一致
+    奥能师
+        修复了转耗法术和调整环级效果的互动
+    血怒者
+        修复了深渊血承不提供巨化魔躯这一血承能力的BUG
+        修复了血怒者每日可用法术次数，现在可以在满足前置条件时正确计算你掌握的环级
+        修复了无限狂怒后狂怒获得的临时生命值不正确的BUG
+        重做了奥术血脉的逻辑
+        原怒者
+            不能选择额外狂暴特技作为专长了
+            修复了部分狂暴特技不生效的BUG
+        自新魔士
+            修复了憎恨邪恶无效的BUG
+    骑将
+        增加了骑将灵巧职业能力
+        修改了坐骑可用的选择[译注：没看出改了啥]
+        修复了非近卫骑20级大招不生效的BUG
+        近卫骑兵
+            修复了近卫骑20级大招和重击是乘算的BUG
+    龙脉术士
+        现在可以正确继承所有自发奥术职业所有变体的法术书
+    战士
+        修复了进阶武训没有前置条件的BUG
+        修复了部分进阶武训不能在双手武器训练上生效的BUG
+        修复了双手武器战士不能选进阶武训作为额外专长的BUG
+    地狱骑士
+        戒律"信念"现在只要求你是神爪骑士团，不再要求你信仰神爪
+    操念使
+        元素极念使
+            修复了某些时候兼职后不能选择此变体的BUG
+    巫妖
+        现在可以正确继承所有9环奥术职业所有变体的法术书
+    博学士
+        现在可以正确扩表了
+        修复了先决条件显示不正确的BUG
+        修复了可以选择诡术大师道途专属专长的BUG
+        修复了丢失施法者等级成长的BUG
+        修复了部分新增变体不能进博学士的BUG
+        调整：现在以下职业也可以进博学士了：
+            猎人
+            战斗祭祀
+    魔战士
+        修复了法术战斗不能使用有折叠展开项的法术的BUG
+        剑圣
+            完美重击现在消耗2点奥能点
+    武僧
+        禅宗射手
+            极意击现在能和桌面一样在10级升级为3骰了
+    先知
+        自然低语和麟拳AC不叠加
+        修复了高等级再兼职先知时诅咒跳过低等级效果的BUG
+    游侠
+        恢复了“异界生物”宿敌种类，对几乎所有恶魔都生效
+        谍报专家
+            现在能正确获得1/2职业等级的巧手加值，而不是只有察觉
+    游荡者
+        修复“战斗特技”和“专长”游荡者天赋可以选择多次的BUG
+        现在能正确获得1/2职业等级的巧手加值，而不是只有察觉
+        修复了临时的敏捷调整值不能正确反应在心智灵活的加值上的BUG
+        奥法暴徒
+            修复了偷袭骰总数和规则书不一致的BUG
+    杀手
+        修复了研究目标的加值[译注：不知道这是个什么BUG]
+        现在能正确获得1/2职业等级的巧手加值，而不是只有察觉
+    巫师
+        修复了以下巫术施法主属性应用不正确的BUG：
+            邪眼
+        修复了以下巫术的效果没有正确的标识符的BUG：
+            死咒
+            品尝恐惧
+            邪眼
+            白霜
+            噩梦沉眠
+    法术
+        修改了如下法术和其他加值错误叠加的BUG:
+            高等天使之貌
+            魔化防具
+        修复了如下不正确生效的法术:
+            自信之心[灵使]
+            高等降咒
+            破除结界
+            奇迹颂诗[灵使]
+            圣战之刃[译注：细节见修复游侠宿敌条目]
+            重焕光彩[灵使]
+    血承
+        修复了选择新血承的前置条件，避免了选择多个血承职业获得多血承的BUG
+        修复了龙脉术士前置条件里的逻辑BUG，避免了选择多个血承职业获得多血承
+        修复了龙之贵胄的血脉不满足龙脉术士条件的BUG[译注：但只是战士不能进龙脉，龙脉还要会施法]
+    专长
+        白鹤亮翅现在需要空出一只手了
+        优雅刺击现在需要空出一只手了
+        优雅挥砍现在需要空出一只手了
+        修复了骑乘战斗专长不生效的BUG
+        修复了不屈坐骑专长不生效的BUG
+        修复了奋力冲锋可以不骑乘生效的BUG
+        修复了顽强超魔不能加给某些法术的BUG
+        修复了极效超魔不能加给近身接触攻击法术的BUG
+        修复了强效超魔不能加给近身接触攻击法术的BUG
+        修复了增效超魔不能加给近身接触攻击法术的BUG
+        修复了增效超魔对自己造成伤害的BUG
+    神话能力
+        修复了巅峰血承对混血术士生效不正确的BUG
+        修复了第二血承对混血术士生效不正确的BUG
+        持久法术现在对物品提供的临时效果正确生效
+        修复了血怒者第二血承对自新魔士生效不正确的BUG
