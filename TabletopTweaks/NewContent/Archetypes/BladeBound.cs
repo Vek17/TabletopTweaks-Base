@@ -506,7 +506,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeSpellDefenseBuff = Helpers.CreateBuff("BlackBladeSpellDefenseBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName("Spell Defense");
-                bp.SetDescription("A wielder of a black bladk of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; " +
+                bp.SetDescription("A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; " +
                     "he then gains SR equal to his black blade’s ego until the start of his next turn.");
                 bp.IsClassFeature = true;
                 bp.m_Icon = Icon_BlackBlade_SpellDefense;
