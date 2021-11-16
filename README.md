@@ -69,6 +69,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Warpriest - Divine Commander
         Druid - Nature Fang
         Cleric - Channeler of the Unknown
+        Magus - Bladebound
 
     Adds the following feats:
         Dervish Dance
