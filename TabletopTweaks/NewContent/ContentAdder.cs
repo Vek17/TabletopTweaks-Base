@@ -73,6 +73,7 @@ namespace TabletopTweaks.NewContent {
                 //Features to support existing archetypes
                 Archetypes.MadDog.AddMadDogFeatures();
                 //New archetypes
+                Archetypes.BladeBound.AddBlackBlade(); //Comes before all archetypes that use black blade
                 Archetypes.BladeBound.AddBladeBound();
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
