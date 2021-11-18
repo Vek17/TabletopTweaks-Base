@@ -14,7 +14,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [AllowMultipleComponents]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("dc2527466a094a85bcd325f7425dbf13")]
-    class DamageGraceEnforced : UnitFactComponentDelegate,
+    class DamageGraceTTT : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,
         ISubscriber,

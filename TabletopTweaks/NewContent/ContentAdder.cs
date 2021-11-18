@@ -70,6 +70,7 @@ namespace TabletopTweaks.NewContent {
                 //Features to support existing clases
                 Classes.Cavalier.AddCavalierFeatures();
                 Classes.Oracle.AddOracleFeatures();
+                Classes.Magus.AddMagusFeatures();
                 //Features to support existing archetypes
                 Archetypes.MadDog.AddMadDogFeatures();
                 //New archetypes

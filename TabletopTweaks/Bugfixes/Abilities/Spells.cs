@@ -299,7 +299,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     .AddAction(Helpers.Create<ContextActionPartyMembers>(a => {
                         a.Action = new ActionList() {
                             Actions = new GameAction[] {
-                                Helpers.Create<ContextRestoreResourcesFixed>(a => {
+                                Helpers.Create<ContextRestoreResourcesTTT>(a => {
                                     a.m_IsFullRestoreAllResources = true;
                                 })
                             }

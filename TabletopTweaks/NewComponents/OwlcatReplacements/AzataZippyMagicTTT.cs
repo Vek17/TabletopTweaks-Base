@@ -17,7 +17,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("39daf11ada364bbab00b4ff8a92dba1d")]
-    class AzataZippyMagicComponent : UnitFactComponentDelegate,
+    class AzataZippyMagicTTT : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCastSpell>,
         IRulebookHandler<RuleCastSpell>,
         ISubscriber,

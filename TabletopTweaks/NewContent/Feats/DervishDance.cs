@@ -35,14 +35,14 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.AddComponent(Helpers.Create<AttackStatReplacementEnforced>(c => {
+                bp.AddComponent(Helpers.Create<AttackStatReplacementTTT>(c => {
                     c.ReplacementStat = StatType.Dexterity;
                     c.m_WeaponTypes = new BlueprintWeaponTypeReference[] {
                         Scimitar.ToReference<BlueprintWeaponTypeReference>()
                     };
                     c.CheckWeaponTypes = true;
                 }));
-                bp.AddComponent(Helpers.Create<DamageGraceEnforced>(c => {
+                bp.AddComponent(Helpers.Create<DamageGraceTTT>(c => {
                     c.Category = WeaponCategory.Scimitar;
                 }));
                 bp.AddComponent(Helpers.Create<PrerequisiteStatValue>(c => {

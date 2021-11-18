@@ -30,7 +30,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
-                bp.AddComponent<AttackStatReplacementEnforced>(c => {
+                bp.AddComponent<AttackStatReplacementTTT>(c => {
                     c.ReplacementStat = StatType.Wisdom;
                     c.SubCategory = WeaponSubCategory.Ranged;
                     c.CheckWeaponTypes = true;

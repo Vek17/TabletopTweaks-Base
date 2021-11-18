@@ -355,6 +355,11 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
+        "AddMissingArcaneWeaponEffects": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Adds: Flaming Burst, Icy Burst, Shocking Burst enchant options."
+        },
         "SpellCombatAbilityVariants": {
           "Enabled": true,
           "Homebrew": false,

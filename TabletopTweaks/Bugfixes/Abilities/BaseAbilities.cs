@@ -32,7 +32,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         "a helpless opponent when delivering a coup de grace.\nDelivering a coup de grace provokes attacks of opportunity " +
                         "from threatening opponents.\nYou can’t deliver a coup de grace against a creature that is immune to critical hits.");
                     CoupDeGraceAbility.ReplaceComponents<AbilityEffectRunAction>(
-                        Helpers.Create<CoupDeGraceComponent>(c => {
+                        Helpers.Create<CoupDeGraceTTT>(c => {
                             c.Actions = Helpers.CreateActionList(new GameAction[] {
                                 Helpers.Create<ContextActionProvokeAttackOfOpportunity>(a => a.ApplyToCaster = true)
                             });

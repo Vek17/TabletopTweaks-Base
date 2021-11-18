@@ -210,6 +210,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 minute");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Special;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
                 bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Immediate;
                 bp.ActionType = UnitCommand.CommandType.Free;
@@ -428,6 +429,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", "");
                 bp.m_Icon = Icon_BlackBlade_TransferArcana;
                 bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Supernatural;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Omni;
                 bp.ActionType = UnitCommand.CommandType.Standard;
@@ -523,6 +525,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 round");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Special;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Immediate;
                 bp.ActionType = UnitCommand.CommandType.Free;
@@ -574,6 +577,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 round");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Supernatural;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Immediate;
                 bp.ActionType = UnitCommand.CommandType.Free;
@@ -594,7 +598,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
                 bp.CanTargetSelf = true;
                 bp.ActionType = UnitCommand.CommandType.Free;
-                bp.Type = AbilityType.Special;
+                bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Touch;
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
@@ -645,7 +649,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.DisableLog = true;
                 bp.m_Parent = BlackBladeLifeDrinkerBase.ToReference<BlueprintAbilityReference>();
                 bp.ActionType = UnitCommand.CommandType.Free;
-                bp.Type = AbilityType.Special;
+                bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Personal;
                 bp.ActionType = UnitCommand.CommandType.Free;
                 bp.m_Icon = BlackBladeLifeDrinkerBladeBuff.Icon;
@@ -667,7 +671,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
                 bp.CanTargetSelf = true;
                 bp.ActionType = UnitCommand.CommandType.Free;
-                bp.Type = AbilityType.Special;
+                bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Touch;
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
@@ -724,7 +728,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.DisableLog = true;
                 bp.m_Parent = BlackBladeLifeDrinkerBase.ToReference<BlueprintAbilityReference>();
                 bp.ActionType = UnitCommand.CommandType.Free;
-                bp.Type = AbilityType.Special;
+                bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Personal;
                 bp.ActionType = UnitCommand.CommandType.Free;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
@@ -760,7 +764,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
                 bp.CanTargetSelf = true;
                 bp.ActionType = UnitCommand.CommandType.Free;
-                bp.Type = AbilityType.Special;
+                bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Touch;
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
@@ -817,7 +821,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.DisableLog = true;
                 bp.m_Parent = BlackBladeLifeDrinkerBase.ToReference<BlueprintAbilityReference>();
                 bp.ActionType = UnitCommand.CommandType.Free;
-                bp.Type = AbilityType.Special;
+                bp.Type = AbilityType.Supernatural;
                 bp.Range = AbilityRange.Personal;
                 bp.ActionType = UnitCommand.CommandType.Free;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerSelf;
@@ -1061,6 +1065,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 round");
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Supernatural;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Immediate;
                 bp.ActionType = UnitCommand.CommandType.Free;
@@ -1113,7 +1118,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
                 bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Name", "Black Blade");
                 bp.m_DescriptionText = Helpers.CreateString($"{bp.name}.Description", "A black blade's enhancement bonus increases as it gains levels. " +
-                    "It is +1 at level 3 and increases by 1 every 4 levels thereafter. A black blade cannot be wielded by anyone other than its owner.");
+                    "It is +1 at level 3, +2 at level 5, +3 at level 9, +4 at level 13, and +5 at level 17. " +
+                    "A black blade cannot be wielded by anyone other than its owner.");
                 bp.m_Enchantments = new BlueprintWeaponEnchantmentReference[] { enchant.ToReference<BlueprintWeaponEnchantmentReference>() };
                 bp.m_Destructible = false;
                 bp.m_IsNotable = true;

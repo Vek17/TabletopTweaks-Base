@@ -18,7 +18,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("5da9ff47fe484e0faadd0330ec998a95")]
     [AllowedOn(typeof(BlueprintAbility))]
     //This is brought to you by Perunq
-    public class CoupDeGraceComponent : AbilityCustomLogic {
+    public class CoupDeGraceTTT : AbilityCustomLogic {
         [UsedImplicitly]
         public override IEnumerator<AbilityDeliveryTarget> Deliver(AbilityExecutionContext context, TargetWrapper target) {
             UnitEntityData caster = context.MaybeCaster;

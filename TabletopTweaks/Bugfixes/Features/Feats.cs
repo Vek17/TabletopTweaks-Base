@@ -137,14 +137,14 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.IsDisabled("FencingGrace")) { return; }
 
                 var FencingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("47b352ea0f73c354aba777945760b441");
-                FencingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
+                FencingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceTTT>());
                 Main.LogPatch("Patched", FencingGrace);
             }
             static void PatchSlashingGrace() {
                 if (ModSettings.Fixes.Feats.IsDisabled("SlashingGrace")) { return; }
 
                 var SlashingGrace = Resources.GetBlueprint<BlueprintParametrizedFeature>("697d64669eb2c0543abb9c9b07998a38");
-                SlashingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceEnforced>());
+                SlashingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceTTT>());
                 Main.LogPatch("Patched", SlashingGrace);
             }
             static void PatchEndurance() {
@@ -190,7 +190,7 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 var MountedCombat = Resources.GetBlueprint<BlueprintFeature>("f308a03bea0d69843a8ed0af003d47a9");
                 var MountedCombatCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
-                MountedCombat.AddComponent(Helpers.Create<MountedCombatFixed>(c => {
+                MountedCombat.AddComponent(Helpers.Create<MountedCombatTTT>(c => {
                     c.m_CooldownBuff = MountedCombatCooldownBuff.ToReference<BlueprintBuffReference>();
                 }));
                 Main.LogPatch("Patched", MountedCombat);
@@ -200,7 +200,7 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 var IndomitableMount = Resources.GetBlueprint<BlueprintFeature>("68e814f1f3ce55942a52c1dd536eaa5b");
                 var IndomitableMountCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("34762bab68ec86c45a15884b9a9929fc");
-                IndomitableMount.AddComponent(Helpers.Create<IndomitableMountFixed>(c => {
+                IndomitableMount.AddComponent(Helpers.Create<IndomitableMountTTT>(c => {
                     c.m_CooldownBuff = IndomitableMountCooldownBuff.ToReference<BlueprintBuffReference>();
                 }));
                 Main.LogPatch("Patched", IndomitableMount);
@@ -405,7 +405,7 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 var WeaponFinesse = Resources.GetBlueprint<BlueprintFeature>("90e54424d682d104ab36436bd527af09");
 
-                WeaponFinesse.ReplaceComponents<AttackStatReplacement>(Helpers.Create<AttackStatReplacementEnforced>(c => {
+                WeaponFinesse.ReplaceComponents<AttackStatReplacement>(Helpers.Create<AttackStatReplacementTTT>(c => {
                     c.ReplacementStat = StatType.Dexterity;
                     c.SubCategory = WeaponSubCategory.Finessable;
                 }));

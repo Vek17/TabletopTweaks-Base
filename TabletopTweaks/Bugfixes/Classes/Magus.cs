@@ -1,9 +1,11 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Parts;
 using System;
 using TabletopTweaks.Config;
@@ -27,6 +29,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchBase() {
                 PatchSpellCombatDisableImmediatly();
+                PatchArcaneWeaponProperties();
 
                 void PatchSpellCombatDisableImmediatly() {
                     if (ModSettings.Fixes.Magus.Base.IsDisabled("SpellCombatDisableImmediatly")) { return; }
@@ -39,6 +42,22 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     Main.LogPatch("Patched", SpellCombatAbility);
                     Main.LogPatch("Patched", SpellStrikeAbility);
+                }
+                void PatchArcaneWeaponProperties() {
+                    if (ModSettings.Fixes.Magus.Base.IsDisabled("AddMissingArcaneWeaponEffects")) { return; }
+
+                    var ArcaneWeaponFlamingBurstChoice_TTT = Resources.GetModBlueprint<BlueprintActivatableAbility>("ArcaneWeaponFlamingBurstChoice_TTT");
+                    var ArcaneWeaponIcyBurstChoice_TTT = Resources.GetModBlueprint<BlueprintActivatableAbility>("ArcaneWeaponIcyBurstChoice_TTT");
+                    var ArcaneWeaponShockingBurstChoice_TTT = Resources.GetModBlueprint<BlueprintActivatableAbility>("ArcaneWeaponShockingBurstChoice_TTT");
+                    var ArcaneWeaponPlus3 = Resources.GetBlueprint<BlueprintFeature>("70be888059f99a245a79d6d61b90edc5");
+
+                    var AddFacts = ArcaneWeaponPlus3.GetComponent<AddFacts>();
+                    AddFacts.m_Facts = AddFacts.m_Facts.AppendToArray(
+                        ArcaneWeaponFlamingBurstChoice_TTT.ToReference<BlueprintUnitFactReference>(),
+                        ArcaneWeaponIcyBurstChoice_TTT.ToReference<BlueprintUnitFactReference>(),
+                        ArcaneWeaponShockingBurstChoice_TTT.ToReference<BlueprintUnitFactReference>()
+                    );
+                    Main.LogPatch("Patched", ArcaneWeaponPlus3);
                 }
             }
             static void PatchSwordSaint() {

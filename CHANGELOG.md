@@ -1,3 +1,6 @@
+## Version 1.10.2
+* Fixed some incorrect ability types for Black Blade
+
 ## Version 1.10.1
 * Chinese localization from @1onepower
 * Fixes to Warrior Spirit save loading issues

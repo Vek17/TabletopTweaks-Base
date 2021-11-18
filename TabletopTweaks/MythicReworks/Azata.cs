@@ -67,10 +67,10 @@ namespace TabletopTweaks.MythicReworks {
             static void PatchFavorableMagic() {
                 if (ModSettings.Homebrew.MythicReworks.Azata.IsDisabled("FavorableMagic")) { return; }
                 var FavorableMagicFeature = Resources.GetBlueprint<BlueprintFeature>("afcee6925a6eadf43820d12e0d966ebe");
-                var fixedComponent = new AzataFavorableMagicComponent();
+                var fixedComponent = new AzataFavorableMagicTTT();
 
                 FavorableMagicFeature.SetComponents(
-                    Helpers.Create<AzataFavorableMagicComponent>()
+                    Helpers.Create<AzataFavorableMagicTTT>()
                 //Helpers.Create<AzataFavorableMagic>()
                 );
                 Main.LogPatch("Patched", FavorableMagicFeature);
@@ -79,7 +79,7 @@ namespace TabletopTweaks.MythicReworks {
             static void PatchZippyMagicFeature() {
                 if (ModSettings.Homebrew.MythicReworks.Azata.IsDisabled("ZippyMagic")) { return; }
                 var ZippyMagicFeature = Resources.GetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
-                var ZippyMagic = new AzataZippyMagicComponent();
+                var ZippyMagic = new AzataZippyMagicTTT();
 
                 ZippyMagicFeature.RemoveComponents<AddAbilityUseTrigger>();
                 ZippyMagicFeature.ReplaceComponents<DublicateSpellComponent>(ZippyMagic);

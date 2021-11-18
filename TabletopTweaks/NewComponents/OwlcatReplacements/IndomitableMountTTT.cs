@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
-    class IndomitableMountFixed : UnitFactComponentDelegate, IGlobalRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IGlobalSubscriber {
+    class IndomitableMountTTT : UnitFactComponentDelegate, IGlobalRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IGlobalSubscriber {
 
         public BlueprintBuff CooldownBuff {
             get {
