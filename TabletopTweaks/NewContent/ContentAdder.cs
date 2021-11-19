@@ -118,6 +118,8 @@ namespace TabletopTweaks.NewContent {
                 Feats.QuickChannel.AddQuickChannel();
                 Feats.ErastilsBlessing.AddErastilsBlessing();
                 Feats.QuickDraw.AddQuickDraw();
+                Feats.UndersizedMount.AddUndersizedMount();
+                Feats.TrickRiding.AddTrickRiding();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

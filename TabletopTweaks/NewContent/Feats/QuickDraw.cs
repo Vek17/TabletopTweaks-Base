@@ -19,7 +19,6 @@ namespace TabletopTweaks.NewContent.Feats {
         public static void AddQuickDraw() {
             var QuickDraw = Helpers.CreateBlueprint<BlueprintFeature>("QuickDraw", bp => {
                 bp.IsClassFeature = true;
-                bp.HideInUI = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };

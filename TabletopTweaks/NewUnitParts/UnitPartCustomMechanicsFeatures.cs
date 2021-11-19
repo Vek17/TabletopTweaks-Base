@@ -41,7 +41,8 @@ namespace TabletopTweaks.NewUnitParts {
         public enum CustomMechanicsFeature : int {
             QuickDraw,
             UseWeaponOneHanded,
-
+            UndersizedMount,
+            MountedSkirmisher
         }
     }
     static class CustomMechanicsFeaturesExtentions {

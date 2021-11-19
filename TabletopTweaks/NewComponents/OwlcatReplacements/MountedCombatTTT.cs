@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Stats;
@@ -16,11 +17,26 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
 
         public BlueprintBuff CooldownBuff {
             get {
-                BlueprintBuffReference cooldownBuff = this.m_CooldownBuff;
-                if (cooldownBuff == null) {
+                if (m_CooldownBuff == null) {
                     return null;
                 }
-                return cooldownBuff.Get();
+                return m_CooldownBuff.Get();
+            }
+        }
+        public BlueprintFeature TrickRidingFeature {
+            get {
+                if (m_TrickRidingFeature == null) {
+                    return null;
+                }
+                return m_TrickRidingFeature.Get();
+            }
+        }
+        public BlueprintBuff TrickRidingCooldownBuff {
+            get {
+                if (m_TrickRidingCooldownBuff == null) {
+                    return null;
+                }
+                return m_TrickRidingCooldownBuff.Get();
             }
         }
 
@@ -40,21 +56,33 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
             if (!evt.IsHit) {
                 return;
             }
-            if (Owner.HasFact(CooldownBuff)) {
+            var hasTrickRiding = Owner.HasFact(TrickRidingFeature);
+            var hasTrickRidingCooldown = Owner.HasFact(TrickRidingCooldownBuff);
+            var hasMountedCombatCooldown = Owner.HasFact(CooldownBuff);
+
+            if (hasMountedCombatCooldown && !hasTrickRiding) {
                 return;
             }
-            int dc = evt.D20 + evt.AttackBonus;
-            bool success = GameHelper.TriggerSkillCheck(new RuleSkillCheck(base.Owner, StatType.SkillMobility, dc), null, false).Success;
-            GameHelper.ApplyBuff(Owner, CooldownBuff, new Rounds?(1.Rounds()));
+            if (hasMountedCombatCooldown && hasTrickRidingCooldown) {
+                return;
+            }
+            Main.Log($"IsHit: {evt.IsHit} - {evt.Result}");
+            bool success = GameHelper.TriggerSkillCheck(new RuleSkillCheck(base.Owner, StatType.SkillMobility, evt.Roll), null, false).Success;
+            if (!hasMountedCombatCooldown) {
+                GameHelper.ApplyBuff(Owner, CooldownBuff, new Rounds?(1.Rounds()));
+            } else {
+                GameHelper.ApplyBuff(Owner, TrickRidingCooldownBuff, new Rounds?(1.Rounds()));
+            }
             if (success) {
                 evt.AutoMiss = true;
-                Main.LogDebug("MountedCombat - Result");
-                Main.LogDebug($"IsAutomiss: {evt.AutoMiss}");
             }
         }
 
         [SerializeField]
-        [FormerlySerializedAs("CooldownBuff")]
         public BlueprintBuffReference m_CooldownBuff;
+        [SerializeField]
+        public BlueprintFeatureReference m_TrickRidingFeature;
+        [SerializeField]
+        public BlueprintBuffReference m_TrickRidingCooldownBuff;
     }
 }

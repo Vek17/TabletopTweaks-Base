@@ -226,6 +226,16 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "You get a +2 bonus on Knowledge (World) and Perception skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "TrickRiding": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can make a check using Mounted Combat to negate a hit on your mount twice per round instead of just once."
+      },
+      "UndersizedMount": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can ride creatures equal to your own size category instead of only creatures larger than you."
       }
     },
     "IsExpanded": true

@@ -1,5 +1,7 @@
 ## Version 1.10.2
 * Fixed some incorrect ability types for Black Blade
+* Added Undersized Mount
+* Added Trick Riding
 
 ## Version 1.10.1
 * Chinese localization from @1onepower

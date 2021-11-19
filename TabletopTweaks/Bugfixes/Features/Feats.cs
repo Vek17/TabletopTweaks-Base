@@ -188,21 +188,28 @@ namespace TabletopTweaks.Bugfixes.Features {
             static void PatchMountedCombat() {
                 if (ModSettings.Fixes.Feats.IsDisabled("MountedCombat")) { return; }
 
-                var MountedCombat = Resources.GetBlueprint<BlueprintFeature>("f308a03bea0d69843a8ed0af003d47a9");
+                var MountedCombatBuff = Resources.GetBlueprint<BlueprintBuff>("5008df9965da43c593c98ed7e6cacfc6");
                 var MountedCombatCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
-                MountedCombat.AddComponent(Helpers.Create<MountedCombatTTT>(c => {
+                var TrickRiding = Resources.GetBlueprint<BlueprintFeature>("5008df9965da43c593c98ed7e6cacfc6");
+                var TrickRidingCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
+                MountedCombatBuff.RemoveComponents<MountedCombat>();
+                MountedCombatBuff.RemoveComponents<MountedCombatTTT>();
+                MountedCombatBuff.AddComponent<MountedCombatTTT>(c => {
                     c.m_CooldownBuff = MountedCombatCooldownBuff.ToReference<BlueprintBuffReference>();
-                }));
-                Main.LogPatch("Patched", MountedCombat);
+                    c.m_TrickRidingCooldownBuff = TrickRidingCooldownBuff.ToReference<BlueprintBuffReference>();
+                    c.m_TrickRidingFeature = TrickRiding.ToReference<BlueprintFeatureReference>();
+                });
+                Main.LogPatch("Patched", MountedCombatBuff);
             }
             static void PatchIndomitableMount() {
                 if (ModSettings.Fixes.Feats.IsDisabled("IndomitableMount")) { return; }
 
                 var IndomitableMount = Resources.GetBlueprint<BlueprintFeature>("68e814f1f3ce55942a52c1dd536eaa5b");
                 var IndomitableMountCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("34762bab68ec86c45a15884b9a9929fc");
-                IndomitableMount.AddComponent(Helpers.Create<IndomitableMountTTT>(c => {
+                IndomitableMount.RemoveComponents<IndomitableMount>();
+                IndomitableMount.AddComponent<IndomitableMountTTT>(c => {
                     c.m_CooldownBuff = IndomitableMountCooldownBuff.ToReference<BlueprintBuffReference>();
-                }));
+                });
                 Main.LogPatch("Patched", IndomitableMount);
             }
             static void PatchPersistantMetamagic() {

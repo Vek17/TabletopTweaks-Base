@@ -346,6 +346,8 @@
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\CelestialServant.cs" />
+    <Compile Include="NewContent\Feats\TrickRiding.cs" />
+    <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />
@@ -630,6 +632,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="MechanicsChanges\MountedCombatModifiers.cs" />
+    <Content Include="Assets\Feats\Icon_TrickRiding.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_UndersizedMount.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" AfterTargets="BeforeClean">
