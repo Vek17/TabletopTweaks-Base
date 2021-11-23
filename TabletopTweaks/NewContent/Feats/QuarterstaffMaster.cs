@@ -53,6 +53,7 @@ namespace TabletopTweaks.NewContent.Feats {
     static class QuarterstaffOneHanded {
         static void Postfix(ItemEntityWeapon __instance, ref bool __result) {
             if (ModSettings.AddedContent.BaseAbilities.IsDisabled("OneHandedToggle")) { return; }
+            if (ModSettings.AddedContent.Feats.IsDisabled("QuarterstaffMasterFeat")) { return; }
             var quarterstaff = Resources.GetBlueprint<BlueprintWeaponType>("629736dabac7f9f4a819dc854eaed2d6");
             var qstaffmaster = Resources.GetModBlueprint<BlueprintFeature>("QuarterstaffMasterFeat");
             if (__instance.Wielder != null && __instance.Wielder.CustomMechanicsFeature(CustomMechanicsFeature.UseWeaponOneHanded)) {
