@@ -2,6 +2,7 @@
 * Fixed some incorrect ability types for Black Blade
 * Added Undersized Mount
 * Added Trick Riding
+* Cleanups for dynamic item naming
 
 ## Version 1.10.1
 * Chinese localization from @1onepower

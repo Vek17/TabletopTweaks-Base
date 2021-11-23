@@ -89,7 +89,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                                 new ContextConditionAlignment(){
                                     Alignment = AlignmentComponent.Chaotic
                                 },
-                                 new ContextConditionAlignment(){
+                                new ContextConditionAlignment(){
                                     Alignment = AlignmentComponent.Lawful,
                                     CheckCaster = true
                                 }

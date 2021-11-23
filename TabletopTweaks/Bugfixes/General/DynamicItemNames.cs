@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
@@ -9,6 +10,7 @@ using Kingmaker.Items;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 
@@ -16,6 +18,7 @@ namespace TabletopTweaks.Bugfixes.General {
     static class DynamicItemNames {
         [HarmonyPatch(typeof(ItemEntity), nameof(ItemEntity.Name), MethodType.Getter)]
         static class ItemEntity_Names_Patch {
+            static Regex EnhancementPatten = new Regex(@"\+\d");
             static bool Prefix(ItemEntity __instance, ref string __result) {
                 if (ModSettings.Fixes.BaseFixes.IsDisabled("DynamicItemNaming")) { return true; }
                 if (!__instance.IsIdentified) { return true; }
@@ -31,9 +34,22 @@ namespace TabletopTweaks.Bugfixes.General {
                     default:
                         return true;
                 }
+                /*
                 string name = UniqueName.IsNullOrEmpty() ?
                             __instance.GetEnchantmentPrefixes() + DefaultName + __instance.GetEnchantmentSuffixes() :
                             __instance.GetCustomEnchantmentPrefixes() + UniqueName + __instance.GetCustomEnchantmentSuffixes();
+                */
+                string name = null;
+                if (UniqueName.IsNullOrEmpty()) {
+                    name = __instance.GetEnchantmentPrefixes() + DefaultName + __instance.GetEnchantmentSuffixes();
+                } else {
+                    var suffixes = __instance.GetCustomEnchantmentSuffixes();
+                    if (EnhancementPatten.Match(suffixes).Success) {
+                        name = __instance.GetCustomEnchantmentPrefixes() + Regex.Replace(UniqueName, @"\+\d", "") + suffixes;
+                    } else {
+                        name = __instance.GetCustomEnchantmentPrefixes() + UniqueName + suffixes;
+                    }
+                }
                 if (!name.IsNullOrEmpty()) {
                     __result = name;
                 }
@@ -78,6 +94,7 @@ namespace TabletopTweaks.Bugfixes.General {
         private static string GetEnchantmentSuffixes(this ItemEntity item) {
             string text = item.Enchantments
                 .Where(e => e.GetComponent<WeaponEnhancementBonus>() == null)
+                .Where(e => e.GetComponent<ArmorEnhancementBonus>() == null)
                 .GetEnchantmentSuffixes();
             int totalEnhancment = item.GetItemEnhancementBonus();
             if (totalEnhancment > 0) {
@@ -88,6 +105,7 @@ namespace TabletopTweaks.Bugfixes.General {
         private static string GetCustomEnchantmentSuffixes(this ItemEntity item) {
             string text = item.Enchantments
                 .Where(e => e.GetComponent<WeaponEnhancementBonus>() == null)
+                .Where(e => e.GetComponent<ArmorEnhancementBonus>() == null)
                 .Where(e => !item.Blueprint.Enchantments.Contains(e.Blueprint))
                 .GetEnchantmentSuffixes();
             int totalEnhancment = item.GetItemEnhancementBonus();
@@ -100,7 +118,7 @@ namespace TabletopTweaks.Bugfixes.General {
         private static int GetItemEnhancementBonus(this ItemEntity item) {
             ItemEntityWeapon weapon = item as ItemEntityWeapon;
             if (weapon != null) { return weapon.GetWeaponEnhancementBonus(); }
-            int bonus = 0;
+            int bonus = GameHelper.GetItemEnhancementBonus(item);
             return bonus;
         }
         private static int GetWeaponEnhancementBonus(this ItemEntityWeapon item) {

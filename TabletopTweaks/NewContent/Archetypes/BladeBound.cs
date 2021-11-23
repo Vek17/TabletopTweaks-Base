@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Ecnchantments;
@@ -111,7 +112,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.SetDescription("At 3rd level, the bladebound magus’ gains a powerful sentient weapon called a black blade, " +
                     "whose weapon type is chosen by the magus. A magus with this class feature cannot take the familiar magus arcana, " +
                     "and cannot have a familiar of any kind, even from another class.");
-                //bp.m_Icon = OtherworldlyCompanionFiendish.Icon;
+                bp.m_Icon = Icon_BlackBlade;
                 bp.Groups = new FeatureGroup[0];
                 bp.IsClassFeature = true;
                 bp.AddFeatures(
@@ -129,6 +130,10 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     BlackBladeShortSword,
                     BlackBladeSickle
                 );
+                bp.AddComponent<NoSelectionIfAlreadyHasFeature>(c => {
+                    c.m_Features = new BlueprintFeatureReference[0];
+                    c.AnyFeatureFromSelection = true;
+                });
             });
             var BlackBladeArcanePool = Helpers.CreateBlueprint<BlueprintAbilityResource>("BlackBladeArcanePool", bp => {
                 bp.m_Min = 1;
