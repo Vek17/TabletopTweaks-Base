@@ -1,5 +1,4 @@
-﻿using System;
-using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers;
 using Kingmaker.Enums;
@@ -10,11 +9,11 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs;
 
 namespace TabletopTweaks.NewComponents {
-    class QuarterstaffDefenseComponent : UnitFactComponentDelegate, 
-        IUnitActiveEquipmentSetHandler, 
-        IGlobalSubscriber, 
-        ISubscriber, 
-        IUnitEquipmentHandler, 
+    class QuarterstaffDefenseComponent : UnitFactComponentDelegate,
+        IUnitActiveEquipmentSetHandler,
+        IGlobalSubscriber,
+        ISubscriber,
+        IUnitEquipmentHandler,
         IUnitBuffHandler {
         public override void OnTurnOn() {
             base.OnTurnOn();

@@ -1,13 +1,10 @@
-﻿using System;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.Localization.Shared;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Archetypes {
@@ -32,7 +29,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.Groups = new FeatureGroup[0];
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] { 
+                    c.m_Facts = new BlueprintUnitFactReference[] {
                         LightArmorProficiency.ToReference<BlueprintUnitFactReference>(),
                         SimpleWeaponProficiency.ToReference<BlueprintUnitFactReference>()
                     };
@@ -60,16 +57,16 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var StaffMagusArchetype = Helpers.CreateBlueprint<BlueprintArchetype>("StaffMagus", bp => {
                 bp.SetName("Staff Magus");
                 bp.SetDescription("While most magi use a one-handed weapon as their melee implement of choice, one group of magi uses the quarterstaff instead. These lightly armored magi use staves for both defense and inflicting their spells upon enemies. Skilled in manipulating these weapons with one hand or two, they eventually learn how to use arcane staves as well, and are just as formidable in combat as their sword-swinging brethren. ");
-                bp.RemoveFeatures = new LevelEntry[] { 
+                bp.RemoveFeatures = new LevelEntry[] {
                     Helpers.CreateLevelEntry(1, MagusProficiencies),
                     Helpers.CreateLevelEntry(7, MagusMediumArmor),
                     Helpers.CreateLevelEntry(13, MagusHeavyArmor)
                 };
-                bp.AddFeatures = new LevelEntry[] { 
+                bp.AddFeatures = new LevelEntry[] {
                     Helpers.CreateLevelEntry(1, StaffMagusProficiencies),
                     Helpers.CreateLevelEntry(7, QuarterstaffDefense),
                     Helpers.CreateLevelEntry(13, QuarterstaffDefenseImproved)
-                };            
+                };
             });
             MagusClass.m_Archetypes = MagusClass.m_Archetypes.AppendToArray(StaffMagusArchetype.ToReference<BlueprintArchetypeReference>());
             Main.LogPatch("Added", StaffMagusArchetype);
