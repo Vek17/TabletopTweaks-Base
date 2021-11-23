@@ -82,6 +82,7 @@ namespace TabletopTweaks.NewContent {
                 Archetypes.DivineCommander.AddDivineCommander();
                 Archetypes.NatureFang.AddNatureFang();
                 Archetypes.ChannelerOfTheUnknown.AddChannelerOfTheUnknown();
+                Archetypes.StaffMagus.AddStaffMagus();
                 //Features to support existing prestige clases
                 Classes.Loremaster.AddLoremasterFeatures();
 
@@ -120,6 +121,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.QuickDraw.AddQuickDraw();
                 Feats.UndersizedMount.AddUndersizedMount();
                 Feats.TrickRiding.AddTrickRiding();
+                Feats.QuarterstaffMaster.AddQuarterstaffMaster();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

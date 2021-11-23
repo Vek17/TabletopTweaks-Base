@@ -210,6 +210,7 @@
     <Compile Include="NewComponents\AbilitySpecific\ItemEntityRestrictionBlackBlade.cs" />
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\MetaRageComponent.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\QuarterstaffDefenseComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
@@ -331,6 +332,7 @@
     <Compile Include="NewContent\Archetypes\NatureFang.cs" />
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Archetypes\StaffMagus.cs" />
     <Compile Include="NewContent\Bloodlines\BloodragerArcaneBloodline.cs" />
     <Compile Include="NewContent\Backgrounds\Lecturer.cs" />
     <Compile Include="NewContent\Classes\Cavalier.cs" />
@@ -346,6 +348,7 @@
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\CelestialServant.cs" />
+    <Compile Include="NewContent\Feats\QuarterstaffMaster.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
