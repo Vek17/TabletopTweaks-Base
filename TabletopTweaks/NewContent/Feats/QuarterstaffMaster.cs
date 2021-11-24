@@ -21,7 +21,7 @@ using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 namespace TabletopTweaks.NewContent.Feats {
     class QuarterstaffMaster {
         public static void AddQuarterstaffMaster() {
-            if (ModSettings.AddedContent.Feats.IsDisabled("QuarterstaffMasterFeat")) ;
+            if (ModSettings.AddedContent.Feats.IsDisabled("QuarterstaffMasterFeat")) return;
             BlueprintParametrizedFeature WeaponFocus = Resources.GetBlueprint<BlueprintParametrizedFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e");
 
             var QuarterstaffMasterFeat = Helpers.CreateBlueprint<BlueprintFeature>("QuarterstaffMasterFeat", bp => {
