@@ -10,6 +10,7 @@ using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents.Prerequisites;
+using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     static class Loremaster {
@@ -26,6 +27,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchSpellProgression();
                 PatchSpellSecrets();
                 PatchTricksterTricks();
+                PatchSpellSpecialization();
 
                 void PatchPrerequisites() {
                     if (ModSettings.Fixes.Loremaster.IsDisabled("Prerequisites")) { return; }
@@ -110,13 +112,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     LoremasterProgression.LevelEntries = LoremasterProgression.LevelEntries
                         .Where(entry => entry.Level != 1)
-                        .Append(new LevelEntry {
-                            m_Features = new List<BlueprintFeatureBaseReference>() {
-                                LoremasterSpellbookSelectionTTT.ToReference<BlueprintFeatureBaseReference>(),
-                                LoremasterSecretSelection.ToReference<BlueprintFeatureBaseReference>()
-                            },
-                            Level = 1
-                        }).ToArray();
+                        .Append(Helpers.CreateLevelEntry(1, LoremasterSpellbookSelectionTTT, LoremasterSecretSelection)).ToArray();
                     Main.LogPatch("Patched", LoremasterProgression);
                 }
 
@@ -160,6 +156,16 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         TricksterImprovedImprovedImprovedCriticalImproved
                     );
                     Main.LogPatch("Patched", LoremasterCombatFeatSelection);
+                }
+
+                void PatchSpellSpecialization() {
+                    if (ModSettings.Fixes.Loremaster.IsDisabled("SpellSpecialization")) { return; }
+
+                    var LoremasterClass = Resources.GetBlueprint<BlueprintCharacterClass>("4a7c05adfbaf05446a6bf664d28fb103");
+                    var SpellSpecializationProgression = Resources.GetBlueprint<BlueprintProgression>("fe9220cdc16e5f444a84d85d5fa8e3d5");
+
+                    SpellSpecializationProgression.AddClass(LoremasterClass);
+                    Main.LogPatch("Patched", SpellSpecializationProgression);
                 }
             }
         }

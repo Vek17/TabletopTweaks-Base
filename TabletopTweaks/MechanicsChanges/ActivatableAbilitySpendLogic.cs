@@ -82,7 +82,19 @@ namespace TabletopTweaks.MechanicsChanges {
                     return false;
                 }
                 __instance.Fact.TurnOffImmediately();
-                return true;
+                return false;
+            }
+            static void Postfix(ActivatableAbilityResourceLogic __instance) {
+                if (!__instance.RequiredResource) { return; }
+                if (__instance.SpendType.IsCustomSpendType()) {
+                    if (!__instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, __instance.SpendType.CustomValue())) {
+                        __instance.Fact.TurnOffImmediately();
+                    }
+                } else {
+                    if (!__instance.Owner.Resources.HasEnoughResource(__instance.RequiredResource, 1)) {
+                        __instance.Fact.TurnOffImmediately();
+                    }
+                }
             }
         }
 

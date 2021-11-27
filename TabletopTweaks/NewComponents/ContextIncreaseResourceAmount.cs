@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic.Mechanics;
 namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [TypeId("d4fdb55c61b64258b40be8a6ca49980d")]
-    class ContextIncreaseResourceAmount : UnitFactComponentDelegate, IResourceAmountBonusHandler, IUnitSubscriber, ISubscriber {
+    public class ContextIncreaseResourceAmount : UnitFactComponentDelegate, IResourceAmountBonusHandler, IUnitSubscriber, ISubscriber {
 
         public BlueprintAbilityResource Resource {
             get {

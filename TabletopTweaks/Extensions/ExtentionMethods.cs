@@ -146,7 +146,16 @@ namespace TabletopTweaks.Extensions {
 
         public static string StringJoin<T>(this IEnumerable<T> array, Func<T, string> map, string separator = " ") => string.Join(separator, array.Select(map));
 
+        public static void AddClass(this BlueprintProgression progression, BlueprintCharacterClass characterClass) {
+            if (progression.m_Classes.Any(a => a.m_Class.Get() == characterClass)) { return; }
+            progression.m_Classes = progression.m_Classes.AppendToArray(
+                new BlueprintProgression.ClassWithLevel() {
+                    m_Class = characterClass.ToReference<BlueprintCharacterClassReference>(),
+                });
+        }
+
         public static void AddArchetype(this BlueprintProgression progression, BlueprintArchetype archetype) {
+            if (progression.m_Archetypes.Any(a => a.m_Archetype.Get() == archetype)) { return; }
             progression.m_Archetypes = progression.m_Archetypes.AppendToArray(
                 new BlueprintProgression.ArchetypeWithLevel() {
                     m_Archetype = archetype.ToReference<BlueprintArchetypeReference>(),

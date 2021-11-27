@@ -9,6 +9,7 @@ using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
+using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
@@ -28,6 +29,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 PatchManglingFrenzy();
                 PatchMetamagicRods();
                 PatchHolySymbolofIomedae();
+                PatchHalfOfThePair();
 
                 void PatchMagiciansRing() {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("MagiciansRing")) { return; }
@@ -35,6 +37,22 @@ namespace TabletopTweaks.Bugfixes.Items {
                     var RingOfTheSneakyWizardFeature = Resources.GetBlueprint<BlueprintFeature>("d848f1f1b31b3e143ba4aeeecddb17f4");
                     RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
                     Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
+                }
+
+                void PatchHalfOfThePair() {
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("HalfOfThePair")) { return; }
+
+                    var HalfOfPairedPendantArea = Resources.GetBlueprint<BlueprintAbilityAreaEffect>("8187fd9306b8c4f46824fbba9808f458");
+                    HalfOfPairedPendantArea
+                        .GetComponent<AbilityAreaEffectRunAction>()
+                        .Round = Helpers.CreateActionList();
+                    HalfOfPairedPendantArea.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .ForEach(c => c.ToCaster = false);
+                    HalfOfPairedPendantArea.FlattenAllActions()
+                        .OfType<ContextActionRemoveBuff>()
+                        .ForEach(c => c.ToCaster = false);
+                    Main.LogPatch("Patched", HalfOfPairedPendantArea);
                 }
 
                 void PatchHolySymbolofIomedae() {

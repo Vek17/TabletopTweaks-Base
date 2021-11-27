@@ -3,6 +3,8 @@
 * Added Undersized Mount
 * Added Trick Riding
 * Cleanups for dynamic item naming
+* Magus now gets its missing "Burst" enchantments
+* Activatabilies should now correctly turn off when they run out of charges
 
 ## Version 1.10.1
 * Chinese localization from @1onepower
