@@ -90,6 +90,8 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
             });
 
             var WarriorSpiritResourceIncrease = Helpers.CreateBlueprint<BlueprintFeature>("WarriorSpiritResourceIncrease", bp => {
+                bp.SetName("");
+                bp.SetDescription("");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[0];
