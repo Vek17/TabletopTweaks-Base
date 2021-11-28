@@ -2,12 +2,16 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -43,12 +47,32 @@ namespace TabletopTweaks.Bugfixes.Items {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("HalfOfThePair")) { return; }
 
                     var HalfOfPairedPendantArea = Resources.GetBlueprint<BlueprintAbilityAreaEffect>("8187fd9306b8c4f46824fbba9808f458");
+                    var HalfOfPairedPendantBuff = Resources.GetBlueprint<BlueprintBuff>("066229a41ae97d6439fea81ebf141528");
+                    var HalfOfPairedPendantPersonalBuff = Resources.GetBlueprint<BlueprintBuff>("71a14bfc21b64ad4bbb916a7ad58effb");
                     HalfOfPairedPendantArea
                         .GetComponent<AbilityAreaEffectRunAction>()
                         .Round = Helpers.CreateActionList();
+                    HalfOfPairedPendantArea
+                        .GetComponent<AbilityAreaEffectRunAction>()
+                        .UnitEnter
+                        .Actions
+                        .OfType<Conditional>()
+                        .FirstOrDefault()
+                        .ConditionsChecker
+                        .Conditions = new Condition[] {
+                            new ContextConditionHasFact() {
+                                m_Fact = HalfOfPairedPendantBuff.ToReference<BlueprintUnitFactReference>(),
+                            },
+                            new ContextConditionIsCaster() {
+                                Not = true
+                            }
+                        };
                     HalfOfPairedPendantArea.FlattenAllActions()
                         .OfType<ContextActionApplyBuff>()
-                        .ForEach(c => c.ToCaster = false);
+                        .ForEach(c => { 
+                            c.ToCaster = false;
+                            c.AsChild = false;
+                        });
                     HalfOfPairedPendantArea.FlattenAllActions()
                         .OfType<ContextActionRemoveBuff>()
                         .ForEach(c => c.ToCaster = false);
