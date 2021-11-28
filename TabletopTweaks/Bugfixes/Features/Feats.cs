@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -58,6 +59,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchMaximizeMetamagic();
                 PatchShatterDefenses();
                 PatchSlashingGrace();
+                PatchSpellSpecialization();
                 PatchSpiritedCharge();
                 PatchWeaponFinesse();
                 PatchMagicalTail();
@@ -383,6 +385,17 @@ namespace TabletopTweaks.Bugfixes.Features {
                     );
                 });
                 Main.LogPatch("Patched", ShatterDefenses);
+            }
+            static void PatchSpellSpecialization() {
+                if (ModSettings.Fixes.Feats.IsDisabled("SpellSpecialization")) { return; }
+
+                var SpellSpecializationProgression = Resources.GetBlueprint<BlueprintProgression>("fe9220cdc16e5f444a84d85d5fa8e3d5");
+
+                Game.Instance.BlueprintRoot.Progression.CharacterClasses.ForEach(characterClass => {
+                    SpellSpecializationProgression.AddClass(characterClass);
+                });
+                //SpellSpecializationProgression.AddClass(LoremasterClass);
+                Main.LogPatch("Patched", SpellSpecializationProgression);
             }
             static void PatchSpiritedCharge() {
                 if (ModSettings.Fixes.Feats.IsDisabled("SpiritedCharge")) { return; }

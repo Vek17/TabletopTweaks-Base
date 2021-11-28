@@ -596,11 +596,6 @@
         "Homebrew": false,
         "Description": "Enables spell secrets."
       },
-      "SpellSpecialization": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Enables spell sepecialization selection on loremaster levels."
-      },
       "TricksterTricks": {
         "Enabled": true,
         "Homebrew": false,
@@ -758,6 +753,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now only works on one handed weapons always."
+      },
+      "SpellSpecialization": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables spell sepecialization selection on all classes."
       },
       "SpiritedCharge": {
         "Enabled": true,

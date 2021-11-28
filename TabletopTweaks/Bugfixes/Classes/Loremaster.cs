@@ -27,7 +27,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 PatchSpellProgression();
                 PatchSpellSecrets();
                 PatchTricksterTricks();
-                PatchSpellSpecialization();
 
                 void PatchPrerequisites() {
                     if (ModSettings.Fixes.Loremaster.IsDisabled("Prerequisites")) { return; }
@@ -156,16 +155,6 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         TricksterImprovedImprovedImprovedCriticalImproved
                     );
                     Main.LogPatch("Patched", LoremasterCombatFeatSelection);
-                }
-
-                void PatchSpellSpecialization() {
-                    if (ModSettings.Fixes.Loremaster.IsDisabled("SpellSpecialization")) { return; }
-
-                    var LoremasterClass = Resources.GetBlueprint<BlueprintCharacterClass>("4a7c05adfbaf05446a6bf664d28fb103");
-                    var SpellSpecializationProgression = Resources.GetBlueprint<BlueprintProgression>("fe9220cdc16e5f444a84d85d5fa8e3d5");
-
-                    SpellSpecializationProgression.AddClass(LoremasterClass);
-                    Main.LogPatch("Patched", SpellSpecializationProgression);
                 }
             }
         }

@@ -24,13 +24,13 @@ namespace TabletopTweaks.NewContent.Classes {
                 bp.m_EnchantmentCost = 1;
             });
             Resources.AddBlueprint(FlamingBurst_ArcaneWeapon_TTT);
-            var IcyBurst_ArcaneWeapon_TTT = Helpers.CreateCopy(FlamingBurst, bp => {
+            var IcyBurst_ArcaneWeapon_TTT = Helpers.CreateCopy(IcyBurst, bp => {
                 bp.name = "IcyBurst_ArcaneWeapon_TTT";
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
                 bp.m_EnchantmentCost = 1;
             });
             Resources.AddBlueprint(IcyBurst_ArcaneWeapon_TTT);
-            var ShockingBurst_ArcaneWeapon_TTT = Helpers.CreateCopy(FlamingBurst, bp => {
+            var ShockingBurst_ArcaneWeapon_TTT = Helpers.CreateCopy(ShockingBurst, bp => {
                 bp.name = "ShockingBurst_ArcaneWeapon_TTT";
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
                 bp.m_EnchantmentCost = 1;
@@ -80,7 +80,7 @@ namespace TabletopTweaks.NewContent.Classes {
                 bp.WeightInGroup = 1;
                 bp.DeactivateImmediately = true;
                 bp.Group = ActivatableAbilityGroup.ArcaneWeaponProperty;
-                bp.m_Buff = ArcaneWeaponFlamingBurstBuff_TTT.ToReference<BlueprintBuffReference>();
+                bp.m_Buff = ArcaneWeaponIcyBurstBuff_TTT.ToReference<BlueprintBuffReference>();
             });
 
             var ArcaneWeaponShockingBurstBuff_TTT = Helpers.CreateBuff("ArcaneWeaponShockingBurstBuff_TTT", bp => {
@@ -103,7 +103,7 @@ namespace TabletopTweaks.NewContent.Classes {
                 bp.WeightInGroup = 1;
                 bp.DeactivateImmediately = true;
                 bp.Group = ActivatableAbilityGroup.ArcaneWeaponProperty;
-                bp.m_Buff = ArcaneWeaponFlamingBurstBuff_TTT.ToReference<BlueprintBuffReference>();
+                bp.m_Buff = ArcaneWeaponShockingBurstBuff_TTT.ToReference<BlueprintBuffReference>();
             });
         }
     }
