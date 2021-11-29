@@ -226,6 +226,10 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.Amount = 1;
                 });
                 bp.AddComponent<AbilityRequirementHasBlackBlade>();
+                bp.AddComponent<AbilityRequirementHasBuff>(c => {
+                    c.RequiredBuff = BlackBladeStrikeBuff.ToReference<BlueprintBuffReference>();
+                    c.Not = true;
+                });
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList();
                     c.Actions.Actions = new GameAction[] {
