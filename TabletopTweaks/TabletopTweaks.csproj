@@ -189,6 +189,7 @@
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="MechanicsChanges\DRRework.cs" />
+    <Compile Include="MechanicsChanges\HeightenSpellFix.cs" />
     <Compile Include="MechanicsChanges\InherentBonuses.cs" />
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
