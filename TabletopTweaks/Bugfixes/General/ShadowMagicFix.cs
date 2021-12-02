@@ -3,6 +3,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.RuleSystem.Rules.Abilities;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Parts;
 using System;
@@ -11,6 +13,19 @@ using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.General {
     class ShadowMagicFix {
+        [HarmonyPatch(typeof(AutoMetamagic), nameof(AutoMetamagic.ShouldApplyTo), new Type[] { 
+            typeof(AutoMetamagic),
+            typeof(BlueprintAbility),
+            typeof(AbilityData)
+        })]
+        static class AutoMetamagic_ShouldApplyTo_Shadow_Patch {
+            static void Postfix(AutoMetamagic c, BlueprintAbility ability, AbilityData data, ref bool __result) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("FixShadowSpells")) { return; }
+                if (data?.ConvertedFrom?.Blueprint?.GetComponent<AbilityShadowSpell>() != null) {
+                    __result |= AutoMetamagic.ShouldApplyTo(c, data.ConvertedFrom.Blueprint, data.ConvertedFrom);
+                }
+            }
+        }
         [HarmonyPatch(typeof(IncreaseSpellDescriptorDC), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAbilityParams) })]
         static class IncreaseSpellDescriptorDC_OnEventAboutToTrigger_Shadow_Patch {
             static bool Prefix(IncreaseSpellDescriptorDC __instance, RuleCalculateAbilityParams evt) {
