@@ -59,6 +59,8 @@ namespace TabletopTweaks.NewContent {
                 Features.LongspearChargeBuff.AddLongspearChargeBuff();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
                 Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
+                Features.ArcaneTricksterSpellbooks.AddArcaneTricksterSpellbooks();
+                Features.EldritchKnightSpellbooks.AddEldritchKnightSpellbooks();
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();

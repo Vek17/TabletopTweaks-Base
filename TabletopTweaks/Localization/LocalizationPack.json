@@ -265,6 +265,17 @@
       "esES": null
     },
     {
+      "Key": "b194a14001754ebb9f4e66ce9a3c9883",
+      "SimpleName": "ArcaneTricksterSkald.Name",
+      "ProcessTemplates": false,
+      "enGB": "Skald",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "cdf2be31681f440c8e1e308c9d2ca5b1",
       "SimpleName": "ArcanistExploitFamiliar.Description",
       "ProcessTemplates": true,
@@ -4299,6 +4310,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古高等雷鸣",
+      "esES": null
+    },
+    {
+      "Key": "8e4ee5aa-4d70-4f49-ae60-744fee7b4515",
+      "SimpleName": "EldritchKnightSkald.Name",
+      "ProcessTemplates": false,
+      "enGB": "Skald",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

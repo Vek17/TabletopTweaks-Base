@@ -141,6 +141,8 @@
   <ItemGroup>
     <Compile Include="Bugfixes\Abilities\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Classes\Alchemist.cs" />
+    <Compile Include="Bugfixes\Classes\EldritchKnight.cs" />
+    <Compile Include="Bugfixes\Classes\ArcaneTrickster.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
@@ -348,6 +350,8 @@
     <Compile Include="NewContent\Feats\CelestialServant.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
+    <Compile Include="NewContent\Features\ArcaneTricksterSpellbooks.cs" />
+    <Compile Include="NewContent\Features\EldritchKnightSpellbooks.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />
