@@ -7,6 +7,7 @@
 * Activatabilies should now correctly turn off when they run out of charges
 * Half of the Pair should now more accurately update with range changes
 * Phantasmal Mage metamagic should now work correctly with shadow spells
+* Minor fixes to Zippy magic tweaks
 
 ## Version 1.10.1
 * Chinese localization from @1onepower

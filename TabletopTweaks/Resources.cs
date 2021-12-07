@@ -27,13 +27,13 @@ namespace TabletopTweaks {
             return value as T;
         }
         public static T GetBlueprint<T>(string id) where T : SimpleBlueprint {
-            var assetId = new BlueprintGuid(System.Guid.Parse(id));
+            var assetId = BlueprintGuid.Parse(id);
             return GetBlueprint<T>(assetId);
         }
         public static T GetBlueprint<T>(BlueprintGuid id) where T : SimpleBlueprint {
             SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(id);
             T value = asset as T;
-            if (value == null) { Main.Log($"COULD NOT LOAD: {id} - {typeof(T)}"); }
+            if (value == null) { Main.Error($"COULD NOT LOAD: {id} - {typeof(T)}"); }
             return value;
         }
         public static void AddBlueprint([NotNull] SimpleBlueprint blueprint) {

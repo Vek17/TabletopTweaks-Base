@@ -79,10 +79,9 @@ namespace TabletopTweaks.MythicReworks {
             static void PatchZippyMagicFeature() {
                 if (ModSettings.Homebrew.MythicReworks.Azata.IsDisabled("ZippyMagic")) { return; }
                 var ZippyMagicFeature = Resources.GetBlueprint<BlueprintFeature>("30b4200f897ba25419ba3a292aed4053");
-                var ZippyMagic = new AzataZippyMagicTTT();
 
-                ZippyMagicFeature.RemoveComponents<AddAbilityUseTrigger>();
-                ZippyMagicFeature.ReplaceComponents<DublicateSpellComponent>(ZippyMagic);
+                ZippyMagicFeature.RemoveComponents<DublicateSpellComponent>();
+                ZippyMagicFeature.AddComponent<AzataZippyMagicTTT>();
                 Main.LogPatch("Patched", ZippyMagicFeature);
                 PatchCureWoundsDamage();
                 PatchInflictWoundsDamage();
