@@ -97,6 +97,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Improved Stalwart
         Celestial Servant
         Quick Draw
+        Undersized Mount
+        Trick Riding
 
     Adds the following rogue talents:
         Graceful Athlete
@@ -216,6 +218,7 @@ All fixes and added content are configurable and can be disabled by editing the 
             Nature Mage
     Magus
         Spell combat now works with abilities that have variants
+        Burst enchantments are now available
         Sword Saint
             Perfect Critical now correctly costs 2 points of pool instead of 1
     Monk
@@ -237,6 +240,9 @@ All fixes and added content are configurable and can be disabled by editing the 
     Slayer
         Fixes studied target bonus
         Trapfinding now addes 1/2 class level to trickery as well as perception
+    Sorcerer
+        Crossblooded
+            Now takes the missing -2 will save penalty
     Witch
         Fixes hex casting stat for:
             Evil eye
