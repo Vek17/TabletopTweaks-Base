@@ -90,6 +90,10 @@ namespace TabletopTweaks {
                     ("Base", Fixes.Slayer.Base),
                     Fixes.Slayer.Archetypes
                 );
+                SetttingUI.NestedSettingGroup("Sorcerer", TabLevel, Fixes.Sorcerer,
+                    ("Base", Fixes.Slayer.Base),
+                    Fixes.Sorcerer.Archetypes
+                );
                 SetttingUI.NestedSettingGroup("Witch", TabLevel, Fixes.Witch,
                     ("Base", Fixes.Witch.Base),
                     Fixes.Witch.Archetypes

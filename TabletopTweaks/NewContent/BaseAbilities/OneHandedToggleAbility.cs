@@ -33,7 +33,7 @@ namespace TabletopTweaks.NewContent.BaseAbilities {
                 bp.SetName("Use Weapon One Handed");
                 bp.SetDescription("You can choose to wield your weapon in one hand instead of two if possible.");
                 bp.m_Buff = OneHandedBuff.ToReference<BlueprintBuffReference>();
-                bp.IsOnByDefault = true;
+                bp.IsOnByDefault = false;
                 bp.DoNotTurnOffOnRest = true;
                 bp.DeactivateImmediately = true;
                 bp.AddComponent(Helpers.CreateCopy(FightDefensivelyToggleAbility.GetComponent<ActionPanelLogic>()));

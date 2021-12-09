@@ -527,6 +527,27 @@
     },
     "Archetypes": {}
   },
+  "Sorcerer": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "Crossblooded": {
+        "DisableAll": false,
+        "Settings": {
+          "Drawbacks": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Crossblooded sorcerers now take the -2 will saving throw penalty that they were missing."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
   "Witch": {
     "DisableAll": false,
     "Base": {

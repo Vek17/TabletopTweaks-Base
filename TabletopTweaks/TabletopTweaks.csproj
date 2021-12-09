@@ -154,6 +154,7 @@
     <Compile Include="Bugfixes\Classes\Oracle.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
+    <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />

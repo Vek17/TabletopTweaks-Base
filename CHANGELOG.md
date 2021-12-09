@@ -8,6 +8,7 @@
 * Half of the Pair should now more accurately update with range changes
 * Phantasmal Mage metamagic should now work correctly with shadow spells
 * Minor fixes to Zippy magic tweaks
+* Crossblooded sorcerer now takes the missing -2 will save pentalty from tabletop
 
 ## Version 1.10.1
 * Chinese localization from @1onepower
