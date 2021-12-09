@@ -1,3 +1,6 @@
+## Version 1.10.3
+* Haramaki now counts as light armor for effects that depend on it
+
 ## Version 1.10.2
 * Fixed some incorrect ability types for Black Blade
 * Added Undersized Mount
@@ -8,7 +11,7 @@
 * Half of the Pair should now more accurately update with range changes
 * Phantasmal Mage metamagic should now work correctly with shadow spells
 * Minor fixes to Zippy magic tweaks
-* Crossblooded sorcerer now takes the missing -2 will save pentalty from tabletop
+* Crossblooded sorcerer now takes the missing -2 will save penalty from tabletop
 
 ## Version 1.10.1
 * Chinese localization from @1onepower

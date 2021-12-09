@@ -868,7 +868,13 @@
     "DisableAll": false,
     "Armor": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "Haramaki": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Haramaki are now counted as light armor properly."
+        }
+      },
       "IsExpanded": true
     },
     "Equipment": {
