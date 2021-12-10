@@ -1,11 +1,13 @@
-﻿using Kingmaker.Controllers.Combat;
+﻿using HarmonyLib;
+using Kingmaker.Controllers.Combat;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.Bugfixes.General {
     class MountedCombatFixes {
-        //[HarmonyPatch(typeof(UnitCombatState), nameof(UnitCombatState.IsFullAttackRestrictedBecauseOfMoveAction), MethodType.Getter)]
+        // Need to fix cursor UI somehow
+        [HarmonyPatch(typeof(UnitCombatState), nameof(UnitCombatState.IsFullAttackRestrictedBecauseOfMoveAction), MethodType.Getter)]
         static class UnitCombatState_IsFullAttackRestrictedBecauseOfMoveAction_Mounted_Patch {
             static void Postfix(UnitCombatState __instance, ref bool __result) {
                 var riderPart = __instance.Unit.Get<UnitPartRider>();

@@ -1984,7 +1984,7 @@
       "Key": "22c9797c758c46ed9098420b4bc5291c",
       "SimpleName": "BlackBladeLifeDrinkerSharedEnchantment.Description",
       "ProcessTemplates": true,
-      "enGB": "Each time the wielder kills a living creature with the black blade, the black blade restores 1 point to its arcane pool and the weilder restores 1 point to his arcane pool.",
+      "enGB": "Each time the wielder kills a living creature with the black blade, the black blade restores 1 point to its arcane pool and the wielder restores 1 point to his arcane pool.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,

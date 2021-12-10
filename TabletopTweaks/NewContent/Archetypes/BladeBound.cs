@@ -700,7 +700,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerSharedEnchantment = Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"BlackBladeLifeDrinkerSharedEnchantment", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("Each time the wielder kills a living creature with the black blade, " +
-                    "the black blade restores 1 point to its arcane pool and the weilder restores 1 point to his arcane pool.");
+                    "the black blade restores 1 point to its arcane pool and the wielder restores 1 point to his arcane pool.");
                 bp.SetPrefix("");
                 bp.SetSuffix("");
                 bp.m_EnchantmentCost = 0;
