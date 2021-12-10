@@ -272,7 +272,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "焰爆",
       "esES": null
     },
     {
@@ -283,7 +283,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "焰爆武器在重击时额外造成1d10的火焰伤害。你的武器重击倍率比2每高1，此伤害额外提高1d10。",
       "esES": null
     },
     {
@@ -294,7 +294,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥法武器增强: 焰爆",
       "esES": null
     },
     {
@@ -305,7 +305,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "冰爆",
       "esES": null
     },
     {
@@ -316,7 +316,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "冰爆武器在重击时额外造成1d10的火焰伤害。你的武器重击倍率比2每高1，此伤害额外提高1d10。",
       "esES": null
     },
     {
@@ -327,7 +327,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥法武器增强: 冰爆",
       "esES": null
     },
     {
@@ -338,7 +338,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "电爆",
       "esES": null
     },
     {
@@ -349,7 +349,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "电爆武器在重击时额外造成1d10的火焰伤害。你的武器重击倍率比2每高1，此伤害额外提高1d10。",
       "esES": null
     },
     {
@@ -360,7 +360,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥法武器增强: 电爆",
       "esES": null
     },
     {
@@ -1537,7 +1537,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "黑刃的增强加值随剑缚者的职业等级提高而提高。在3级时为+1，5级时为+2，9级时为+3，13级时为+4，17级时为+5。黑刃不能被剑缚者本人之外的角色装备。",
       "esES": null
     },
     {
@@ -2197,7 +2197,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "17级起，魔战士以一个自由动作，从黑刃奥能池中消耗1点，直到他下回合开始前，他会获得等同于黑刃觉醒度的法术抗力。",
       "esES": null
     },
     {
@@ -3682,7 +3682,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "混血术士在每个等级上的已知法术都比通常术士少一种，这也使她获取每个新环级法术的等级都比通常术士推迟一级。\n此外，混血术士体内充斥着两种相互排斥的能量，她仅仅试图保持专注和精神平稳都需要付出莫大的努力，在外力干涉下更是无比脆弱。混血术士在所有意志豁免检定上承受-2的减值。",
       "esES": null
     },
     {
@@ -3693,7 +3693,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "混血之殇",
       "esES": null
     },
     {
@@ -4650,7 +4650,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -5497,7 +5497,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "使用你的人物等级作为决定你的坐骑的等效德鲁伊等级。",
       "esES": null
     },
     {
@@ -5508,7 +5508,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "骑术大师",
       "esES": null
     },
     {
@@ -5519,7 +5519,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "骑术大师等级",
       "esES": null
     },
     {
@@ -6245,7 +6245,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以提高你的所有近战接触法术的触及范围5尺，若如此做你的AC承受-2减值直至你下一回合开始。",
       "esES": null
     },
     {
@@ -6256,7 +6256,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "法术突刺",
       "esES": null
     },
     {
@@ -6267,7 +6267,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "法术突刺",
       "esES": null
     },
     {
@@ -6278,7 +6278,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以提高你的所有近战接触法术的触及范围5尺，若如此做你的AC承受-2减值直至你下一回合开始。",
       "esES": null
     },
     {
@@ -7059,7 +7059,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "如果你的坐骑在本回合移动的距离不超过它1个移动动作能移动的距离，你在本回合内仍然可以进行一次整轮攻击。",
       "esES": null
     },
     {
@@ -7070,7 +7070,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "骑乘散兵",
       "esES": null
     },
     {
@@ -9072,7 +9072,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你每轮可以至多两次应用专长骑乘战斗来避免攻击。",
       "esES": null
     },
     {
@@ -9083,7 +9083,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "诡计骑手",
       "esES": null
     },
     {
@@ -9094,7 +9094,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "诡计骑手：冷却中",
       "esES": null
     },
     {
@@ -9149,7 +9149,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以骑乘与你的体型相当的生物，而不是只能骑乘更小的。",
       "esES": null
     },
     {
@@ -9160,7 +9160,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "灵巧骑术",
       "esES": null
     },
     {
