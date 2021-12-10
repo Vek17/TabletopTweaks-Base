@@ -120,6 +120,9 @@ namespace TabletopTweaks.NewContent {
                 Feats.QuickDraw.AddQuickDraw();
                 Feats.UndersizedMount.AddUndersizedMount();
                 Feats.TrickRiding.AddTrickRiding();
+                Feats.MountedSkirmisher.AddMountedSkirmisher();
+                Feats.LungingSpellTouch.AddLungingSpellTouch();
+                Feats.HorseMaster.AddHorseMaster();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

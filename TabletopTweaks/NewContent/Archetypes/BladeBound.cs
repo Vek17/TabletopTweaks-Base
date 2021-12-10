@@ -602,6 +602,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerBladeEnchantAbility = Helpers.CreateBlueprint<BlueprintAbility>($"BlackBladeLifeDrinkerBladeEnchantAbility", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("");
+                bp.DisableLog = true;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerBlade;
                 bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", $"");
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
@@ -675,6 +676,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerSharedEnchantAbility = Helpers.CreateBlueprint<BlueprintAbility>($"BlackBladeLifeDrinkerSharedEnchantAbility", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("");
+                bp.DisableLog = true;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
                 bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", $"");
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
@@ -768,6 +770,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerWielderEnchantAbility = Helpers.CreateBlueprint<BlueprintAbility>($"BlackBladeLifeDrinkerWielderEnchantAbility", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("");
+                bp.DisableLog = true;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerSelf;
                 bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", $"");
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");

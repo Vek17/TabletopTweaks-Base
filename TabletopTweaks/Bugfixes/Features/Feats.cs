@@ -63,6 +63,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchSpiritedCharge();
                 PatchWeaponFinesse();
                 PatchMagicalTail();
+                PatchLunge();
             }
             static void PatchMagicalTail() {
                 if (ModSettings.Fixes.Feats.IsDisabled("MagicalTail")) { return; }
@@ -430,6 +431,15 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.SubCategory = WeaponSubCategory.Finessable;
                 }));
                 Main.LogPatch("Patched", WeaponFinesse);
+            }
+            static void PatchLunge() {
+                if (ModSettings.Fixes.Feats.IsDisabled("Lunge")) { return; }
+
+                var LungeFeature = Resources.GetBlueprint<BlueprintFeature>("d41d5bd9a775d7245929256d58a3e03e");
+
+                LungeFeature.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
+                FeatTools.AddAsFeat(LungeFeature);
+                Main.LogPatch("Patched", LungeFeature);
             }
         }
 

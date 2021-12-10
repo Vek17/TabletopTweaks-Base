@@ -1,5 +1,14 @@
 ## Version 1.10.3
 * Haramaki now counts as light armor for effects that depend on it
+* You can no longer full attack after moving while mounted
+* Lunge is now selectable as a feat
+    * You can increase the reach of your melee attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before any attacks are made.
+* Added Lunging Spell Touch Feat
+    * You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn.
+* Added Mounted Skirmisher Feat
+    * If your mount moves its speed or less, you can still take a full-attack action.
+* Added Horse Master Feat
+    * Use your character level to determine your effective druid level for determining the powers and abilities of your mount.
 
 ## Version 1.10.2
 * Fixed some incorrect ability types for Black Blade
