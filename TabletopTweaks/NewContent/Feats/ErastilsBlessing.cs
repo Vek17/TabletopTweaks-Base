@@ -59,6 +59,11 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.Stat = StatType.Wisdom;
                     c.MinimalValue = 16;
                 }));
+                bp.AddComponent(Helpers.Create<RecommendationNoFeatFromGroup(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        ZenArcherZenArcheryFeature.ToReference<BlueprintUnitFactReference>()
+                    };
+                }));
                 bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Attack | FeatureTag.Ranged;
                 });
