@@ -1,5 +1,5 @@
 ## Version 1.10.3
-* Haramaki now counts as light armor for effects that depend on it
+* Haramaki now counts as light armor for effects that depend on it (can still be equiped without proficency)
 * Selective metamagic now requires 10 ranks of knowledge arcana
 * Spells that are not valid for selective metamagic can no longer be made selective
 * You can no longer full attack after moving while mounted

@@ -99,6 +99,10 @@ All fixes and added content are configurable and can be disabled by editing the 
         Quick Draw
         Undersized Mount
         Trick Riding
+        Mounted Skirmisher
+        Horse Master
+        Lounge
+        Lunging Spell Touch
 
     Adds the following rogue talents:
         Graceful Athlete
@@ -146,6 +150,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Profane ascention now works corectly for dexterity and strength based characters
         DR Rules now more closely follow the tabletop rules
         Favorite Metamagic Bolster can now be picked
+        You can no longer full attack after moving while mounted
+        Haramaki now counts as light armor for effects that depend on it (can still be equiped without proficency)
 
     Reworks the following Mythic Paths:
         Aeon
