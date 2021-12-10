@@ -775,6 +775,11 @@
         "Homebrew": false,
         "Description": "Allows any spell with a saving throw to be made persistant."
       },
+      "SelectivePrerequisites": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now requires 10 ranks of knowledge arcana."
+      },
       "ShatterDefenses": {
         "Enabled": true,
         "Homebrew": false,

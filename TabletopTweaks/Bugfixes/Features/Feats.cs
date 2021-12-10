@@ -2,6 +2,7 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -64,6 +65,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchWeaponFinesse();
                 PatchMagicalTail();
                 PatchLunge();
+                PatchSelectiveMetamagicPrerequisites();
             }
             static void PatchMagicalTail() {
                 if (ModSettings.Fixes.Feats.IsDisabled("MagicalTail")) { return; }
@@ -440,6 +442,16 @@ namespace TabletopTweaks.Bugfixes.Features {
                 LungeFeature.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
                 FeatTools.AddAsFeat(LungeFeature);
                 Main.LogPatch("Patched", LungeFeature);
+            }
+            static void PatchSelectiveMetamagicPrerequisites() {
+                if (ModSettings.Fixes.Feats.IsDisabled("SelectivePrerequisites")) { return; }
+
+                var SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
+                SelectiveSpellFeat.AddPrerequisite<PrerequisiteStatValue>(c => {
+                    c.Stat = StatType.SkillKnowledgeArcana;
+                    c.Value = 10;
+                });
+                Main.LogPatch("Patched", SelectiveSpellFeat);
             }
         }
 
