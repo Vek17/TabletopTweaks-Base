@@ -5490,6 +5490,39 @@
       "esES": null
     },
     {
+      "Key": "54f5916110b94ca6879d83b3d04e7334",
+      "SimpleName": "HorseMaster.Description",
+      "ProcessTemplates": true,
+      "enGB": "Use your character level to determine your effective druid level for determining the powers and abilities of your mount.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "33e808c0e37f4a0588af82d804ebd740",
+      "SimpleName": "HorseMaster.Name",
+      "ProcessTemplates": false,
+      "enGB": "Horse Master",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "908dadd310404ac39cf5f43eb8b9a4d1",
+      "SimpleName": "HorseMasterRank.Name",
+      "ProcessTemplates": false,
+      "enGB": "Horse Master Rank",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "997adce5e6ef47d2a8c335a11a6229ee",
       "SimpleName": "Ice2d6.Prefix",
       "ProcessTemplates": false,
@@ -6202,6 +6235,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 法师",
+      "esES": null
+    },
+    {
+      "Key": "8f493f90a31c42c5a6a37f9043a30016",
+      "SimpleName": "LungingSpellTouchAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8de78fd5c657446ca01f915bd4ae8dd1",
+      "SimpleName": "LungingSpellTouchAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lunging Spell Touch",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "878c82a734714e16b20c00882930b15b",
+      "SimpleName": "LungingSpellTouchBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lunging Spell Touch Buff",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f938f99fbef241d78bba18d43543547e",
+      "SimpleName": "LungingSpellTouchFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6972,6 +7049,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
+      "esES": null
+    },
+    {
+      "Key": "59514dd625c04b7e84e118fb09a328c1",
+      "SimpleName": "MountedSkirmisher.Description",
+      "ProcessTemplates": true,
+      "enGB": "If your mount moves its speed or less, you can still take a full-attack action.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "dbe8181368a94049b3dc03fce72953af",
+      "SimpleName": "MountedSkirmisher.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mounted Skirmisher",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
