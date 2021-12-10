@@ -65,6 +65,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchWeaponFinesse();
                 PatchMagicalTail();
                 PatchLunge();
+                PatchSelectiveMetamagic();
                 PatchSelectiveMetamagicPrerequisites();
             }
             static void PatchMagicalTail() {
@@ -325,6 +326,35 @@ namespace TabletopTweaks.Bugfixes.Features {
                             Main.LogPatch("Enabled Maximize Metamagic", spell);
                         }
                     };
+                }
+            }
+            static void PatchSelectiveMetamagic() {
+                if (ModSettings.Fixes.Feats.IsDisabled("SelectiveMetamagic")) { return; }
+
+                var SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
+                var spells = SpellTools.SpellList.AllSpellLists
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .ToArray();
+                Main.LogPatch("Updating", SelectiveSpellFeat);
+                foreach (var spell in spells) {
+                    bool isAoE = spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityTargetsAround>());
+                    isAoE |= spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Cone 
+                        || v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Line);
+                    if (isAoE) {
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Selective)) {
+                            spell.AvailableMetamagic |= Metamagic.Selective;
+                            Main.LogPatch("Enabled Selective Metamagic", spell);
+                        }
+                    } else {
+                        if (spell.AvailableMetamagic.HasMetamagic(Metamagic.Selective)) {
+                            spell.AvailableMetamagic &= ~Metamagic.Selective;
+                            Main.LogPatch("Disabled Selective Metamagic", spell);
+                        }
+                    }
                 }
             }
             static void PatchShatterDefenses() {

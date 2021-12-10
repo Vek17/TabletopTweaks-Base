@@ -775,6 +775,11 @@
         "Homebrew": false,
         "Description": "Allows any spell with a saving throw to be made persistant."
       },
+      "SelectiveMetamagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Retags selective spells to exclude non instantaneous spells."
+      },
       "SelectivePrerequisites": {
         "Enabled": true,
         "Homebrew": false,

@@ -1,5 +1,7 @@
 ## Version 1.10.3
 * Haramaki now counts as light armor for effects that depend on it
+* Selective metamagic now requires 10 ranks of knowledge arcana
+* Spells that are not valid for selective metamagic can no longer be made selective
 * You can no longer full attack after moving while mounted
 * Lunge is now selectable as a feat
     * You can increase the reach of your melee attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before any attacks are made.
