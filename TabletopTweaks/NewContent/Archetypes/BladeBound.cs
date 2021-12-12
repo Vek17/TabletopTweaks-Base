@@ -602,6 +602,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerBladeEnchantAbility = Helpers.CreateBlueprint<BlueprintAbility>($"BlackBladeLifeDrinkerBladeEnchantAbility", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("");
+                bp.DisableLog = true;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerBlade;
                 bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", $"");
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
@@ -675,6 +676,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerSharedEnchantAbility = Helpers.CreateBlueprint<BlueprintAbility>($"BlackBladeLifeDrinkerSharedEnchantAbility", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("");
+                bp.DisableLog = true;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
                 bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", $"");
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
@@ -700,7 +702,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerSharedEnchantment = Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"BlackBladeLifeDrinkerSharedEnchantment", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("Each time the wielder kills a living creature with the black blade, " +
-                    "the black blade restores 1 point to its arcane pool and the weilder restores 1 point to his arcane pool.");
+                    "the black blade restores 1 point to its arcane pool and the wielder restores 1 point to his arcane pool.");
                 bp.SetPrefix("");
                 bp.SetSuffix("");
                 bp.m_EnchantmentCost = 0;
@@ -768,6 +770,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var BlackBladeLifeDrinkerWielderEnchantAbility = Helpers.CreateBlueprint<BlueprintAbility>($"BlackBladeLifeDrinkerWielderEnchantAbility", bp => {
                 bp.SetName("Life Drinker");
                 bp.SetDescription("");
+                bp.DisableLog = true;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerSelf;
                 bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", $"");
                 bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");

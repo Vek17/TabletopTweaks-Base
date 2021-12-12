@@ -97,6 +97,12 @@ All fixes and added content are configurable and can be disabled by editing the 
         Improved Stalwart
         Celestial Servant
         Quick Draw
+        Undersized Mount
+        Trick Riding
+        Mounted Skirmisher
+        Horse Master
+        Lounge
+        Lunging Spell Touch
 
     Adds the following rogue talents:
         Graceful Athlete
@@ -144,6 +150,8 @@ All fixes and added content are configurable and can be disabled by editing the 
         Profane ascention now works corectly for dexterity and strength based characters
         DR Rules now more closely follow the tabletop rules
         Favorite Metamagic Bolster can now be picked
+        You can no longer full attack after moving while mounted
+        Haramaki now counts as light armor for effects that depend on it (can still be equiped without proficency)
 
     Reworks the following Mythic Paths:
         Aeon
@@ -216,6 +224,7 @@ All fixes and added content are configurable and can be disabled by editing the 
             Nature Mage
     Magus
         Spell combat now works with abilities that have variants
+        Burst enchantments are now available
         Sword Saint
             Perfect Critical now correctly costs 2 points of pool instead of 1
     Monk
@@ -237,6 +246,9 @@ All fixes and added content are configurable and can be disabled by editing the 
     Slayer
         Fixes studied target bonus
         Trapfinding now addes 1/2 class level to trickery as well as perception
+    Sorcerer
+        Crossblooded
+            Now takes the missing -2 will save penalty
     Witch
         Fixes hex casting stat for:
             Evil eye

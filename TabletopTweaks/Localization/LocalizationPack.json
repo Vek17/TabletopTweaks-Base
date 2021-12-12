@@ -275,6 +275,104 @@
       "zhCN": null,
       "esES": null
     },
+      "Key": "a69aa7ef4a14421fafc038e50b3afb3a",
+      "SimpleName": "ArcaneWeaponFlamingBurstBuff_TTT.Name",
+      "ProcessTemplates": false,
+      "enGB": "Flaming Burst",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "焰爆",
+      "esES": null
+    },
+    {
+      "Key": "994e8779ffc845f4b4d6481042636147",
+      "SimpleName": "ArcaneWeaponFlamingBurstChoice_TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "A flaming burst weapon explodes with flame upon striking a successful critical hit. The fire does not harm the wielder. A flaming burst weapon deals an extra 1d10 points of fire damage on a successful critical hit. Add an extra 1d10 points of fire damage for every critical multiplier beyond 2.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "焰爆武器在重击时额外造成1d10的火焰伤害。你的武器重击倍率比2每高1，此伤害额外提高1d10。",
+      "esES": null
+    },
+    {
+      "Key": "8a3d6f8d1691485e91ff610029e2b40a",
+      "SimpleName": "ArcaneWeaponFlamingBurstChoice_TTT.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Weapon — Flaming Burst",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "奥法武器增强: 焰爆",
+      "esES": null
+    },
+    {
+      "Key": "febf944d3321464dad43c96b31c71c9f",
+      "SimpleName": "ArcaneWeaponIcyBurstBuff_TTT.Name",
+      "ProcessTemplates": false,
+      "enGB": "Icy Burst",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "冰爆",
+      "esES": null
+    },
+    {
+      "Key": "21f38852a06d443e884b5e730970dfd0",
+      "SimpleName": "ArcaneWeaponIcyBurstChoice_TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "A icy burst weapon explodes with ice upon striking a successful critical hit. The cold does not harm the wielder. An icy burst weapon deals an extra 1d10 points of cold damage on a successful critical hit. Add an extra 1d10 points of cold damage for every critical multiplier beyond 2.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "冰爆武器在重击时额外造成1d10的火焰伤害。你的武器重击倍率比2每高1，此伤害额外提高1d10。",
+      "esES": null
+    },
+    {
+      "Key": "d15b43de231a4ca6816aafb64e607ec6",
+      "SimpleName": "ArcaneWeaponIcyBurstChoice_TTT.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Weapon — Icy Burst",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "奥法武器增强: 冰爆",
+      "esES": null
+    },
+    {
+      "Key": "ea5387871f1545cfa9e8076db2f68d1b",
+      "SimpleName": "ArcaneWeaponShockingBurstBuff_TTT.Name",
+      "ProcessTemplates": false,
+      "enGB": "Shocking Burst",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "电爆",
+      "esES": null
+    },
+    {
+      "Key": "30e8093c930948d5ac3c2feacb92e06f",
+      "SimpleName": "ArcaneWeaponShockingBurstChoice_TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "A shocking burst weapon explodes with electricity upon striking a successful critical hit. The electricity does not harm the wielder. A shocking burst weapon deals an extra 1d10 points of electricity damage on a successful critical hit. Add an extra 1d10 points of electricity damage for every critical multiplier beyond 2.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "电爆武器在重击时额外造成1d10的火焰伤害。你的武器重击倍率比2每高1，此伤害额外提高1d10。",
+      "esES": null
+    },
+    {
+      "Key": "17b3a44f61234a59b426e96d0651cc1c",
+      "SimpleName": "ArcaneWeaponShockingBurstChoice_TTT.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Weapon — Shocking Burst",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "奥法武器增强: 电爆",
+      "esES": null
+    },
     {
       "Key": "cdf2be31681f440c8e1e308c9d2ca5b1",
       "SimpleName": "ArcanistExploitFamiliar.Description",
@@ -1035,10 +1133,10 @@
       "esES": null
     },
     {
-      "Key": "ffefe480122242e1b53c6ac2e9836219",
+      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1046,10 +1144,10 @@
       "esES": null
     },
     {
-      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
+      "Key": "ffefe480122242e1b53c6ac2e9836219",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1394,7 +1492,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃有独立于魔战士本人的奥法池点数，为1+黑刃的智力调整值。",
+      "zhCN": "黑刃有独立于魔战士本人的奥法池点数，为1+黑刃的智力调整值。",
       "esES": null
     },
     {
@@ -1405,7 +1503,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃奥法池",
+      "zhCN": "黑刃奥法池",
       "esES": null
     },
     {
@@ -1416,7 +1514,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的初始属性如下：\n觉醒度：5\n智力：11\n感知：7\n魅力：7",
+      "zhCN": "黑刃的初始属性如下：\n觉醒度：5\n智力：11\n感知：7\n魅力：7",
       "esES": null
     },
     {
@@ -1427,7 +1525,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃基础属性",
+      "zhCN": "黑刃基础属性",
       "esES": null
     },
     {
@@ -1438,7 +1536,18 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的增强加值随你的魔战士等级而提高，在3级时为+1，此后每升4级，额外加1。黑刃不能由其他角色持用。",
+      "zhCN": "黑刃的增强加值随你的魔战士等级而提高，在3级时为+1，此后每升4级，额外加1。黑刃不能由其他角色持用。",
+      "esES": null
+    },
+    {
+      "Key": "ee7640da43f849bfa35b8decf9ffbce6",
+      "SimpleName": "BlackBladeBastardSword.Description",
+      "ProcessTemplates": false,
+      "enGB": "A black blade's enhancement bonus increases as it gains levels. It is +1 at level 3, +2 at level 5, +3 at level 9, +4 at level 13, and +5 at level 17. A black blade cannot be wielded by anyone other than its owner.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "黑刃的增强加值随剑缚者的职业等级提高而提高。在3级时为+1，5级时为+2，9级时为+3，13级时为+4，17级时为+5。黑刃不能被剑缚者本人之外的角色装备。",
       "esES": null
     },
     {
@@ -1449,7 +1558,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃",
+      "zhCN": "黑刃",
       "esES": null
     },
     {
@@ -1460,7 +1569,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出重剑的形态。",
+      "zhCN": "你的黑刃呈现出重剑的形态。",
       "esES": null
     },
     {
@@ -1471,7 +1580,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "重剑",
+      "zhCN": "重剑",
       "esES": null
     },
     {
@@ -1482,7 +1591,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出战斧的形态。",
+      "zhCN": "你的黑刃呈现出战斧的形态。",
       "esES": null
     },
     {
@@ -1493,7 +1602,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "战斧",
+      "zhCN": "战斧",
       "esES": null
     },
     {
@@ -1504,7 +1613,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出决斗剑的形态。",
+      "zhCN": "你的黑刃呈现出决斗剑的形态。",
       "esES": null
     },
     {
@@ -1515,7 +1624,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "决斗剑",
+      "zhCN": "决斗剑",
       "esES": null
     },
     {
@@ -1526,7 +1635,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出矮人战斧的形态。",
+      "zhCN": "你的黑刃呈现出矮人战斧的形态。",
       "esES": null
     },
     {
@@ -1537,7 +1646,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "矮人战斧",
+      "zhCN": "矮人战斧",
       "esES": null
     },
     {
@@ -1548,7 +1657,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃的觉醒度提升2。",
+      "zhCN": "你的黑刃的觉醒度提升2。",
       "esES": null
     },
     {
@@ -1559,7 +1668,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃觉醒度提升",
+      "zhCN": "黑刃觉醒度提升",
       "esES": null
     },
     {
@@ -1570,7 +1679,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃的觉醒度提升3。",
+      "zhCN": "你的黑刃的觉醒度提升3。",
       "esES": null
     },
     {
@@ -1581,7 +1690,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃的觉醒度提升4。",
+      "zhCN": "你的黑刃的觉醒度提升4。",
       "esES": null
     },
     {
@@ -1592,7 +1701,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "5级时，黑刃可以消耗1点奥能池点数，直到魔战士的下一轮，黑刃的所有伤害转为某种他选定的元素伤害。也可以消耗2点奥能池点数，并转为造成力场或音波伤害。",
+      "zhCN": "5级时，黑刃可以消耗1点奥能池点数，直到魔战士的下一轮，黑刃的所有伤害转为某种他选定的元素伤害。也可以消耗2点奥能池点数，并转为造成力场或音波伤害。",
       "esES": null
     },
     {
@@ -1603,7 +1712,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "5级时，黑刃可以消耗1点奥能池点数，直到魔战士的下一轮，黑刃的所有伤害转为某种他选定的元素伤害。也可以消耗2点奥能池点数，并转为造成力场或音波伤害。",
+      "zhCN": "5级时，黑刃可以消耗1点奥能池点数，直到魔战士的下一轮，黑刃的所有伤害转为某种他选定的元素伤害。也可以消耗2点奥能池点数，并转为造成力场或音波伤害。",
       "esES": null
     },
     {
@@ -1614,7 +1723,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的伤害转化为寒冷伤害。",
+      "zhCN": "黑刃的伤害转化为寒冷伤害。",
       "esES": null
     },
     {
@@ -1625,7 +1734,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "能量调谐",
+      "zhCN": "能量调谐",
       "esES": null
     },
     {
@@ -1636,7 +1745,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1轮",
+      "zhCN": "1轮",
       "esES": null
     },
     {
@@ -1647,7 +1756,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "能量调谐：寒冷",
+      "zhCN": "能量调谐：寒冷",
       "esES": null
     },
     {
@@ -1658,7 +1767,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的伤害转化为电击伤害。",
+      "zhCN": "黑刃的伤害转化为电击伤害。",
       "esES": null
     },
     {
@@ -1669,7 +1778,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "能量调谐：雷电",
+      "zhCN": "能量调谐：雷电",
       "esES": null
     },
     {
@@ -1680,7 +1789,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的伤害转化为火焰伤害。",
+      "zhCN": "黑刃的伤害转化为火焰伤害。",
       "esES": null
     },
     {
@@ -1691,7 +1800,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "能量调谐：火焰",
+      "zhCN": "能量调谐：火焰",
       "esES": null
     },
     {
@@ -1702,7 +1811,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的伤害转化为力场伤害。",
+      "zhCN": "黑刃的伤害转化为力场伤害。",
       "esES": null
     },
     {
@@ -1713,7 +1822,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "能量调谐：力场",
+      "zhCN": "能量调谐：力场",
       "esES": null
     },
     {
@@ -1724,7 +1833,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的伤害转化为音波伤害。",
+      "zhCN": "黑刃的伤害转化为音波伤害。",
       "esES": null
     },
     {
@@ -1735,7 +1844,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "能量调谐：音波",
+      "zhCN": "能量调谐：音波",
       "esES": null
     },
     {
@@ -1746,7 +1855,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出反曲剑的形态。",
+      "zhCN": "你的黑刃呈现出反曲剑的形态。",
       "esES": null
     },
     {
@@ -1757,7 +1866,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "反曲剑",
+      "zhCN": "反曲剑",
       "esES": null
     },
     {
@@ -1768,7 +1877,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出手斧的形态。",
+      "zhCN": "你的黑刃呈现出手斧的形态。",
       "esES": null
     },
     {
@@ -1779,7 +1888,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "手斧",
+      "zhCN": "手斧",
       "esES": null
     },
     {
@@ -1790,7 +1899,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出单镰的形态。",
+      "zhCN": "你的黑刃呈现出单镰的形态。",
       "esES": null
     },
     {
@@ -1801,7 +1910,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "单镰",
+      "zhCN": "单镰",
       "esES": null
     },
     {
@@ -1812,7 +1921,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出反曲刀的形态。",
+      "zhCN": "你的黑刃呈现出反曲刀的形态。",
       "esES": null
     },
     {
@@ -1823,7 +1932,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "反曲刀",
+      "zhCN": "反曲刀",
       "esES": null
     },
     {
@@ -1834,7 +1943,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "19级时，每当你使用黑刃杀死一个活物，你可以从以下效果中选择其一：\n黑刃的奥法池恢复2点;\n魔战士和黑刃的奥法池各恢复1点;\n魔战士获得等同黑刃觉醒度的临时生命值，持续1分钟。",
+      "zhCN": "19级时，每当你使用黑刃杀死一个活物，你可以从以下效果中选择其一：\n黑刃的奥法池恢复2点;\n魔战士和黑刃的奥法池各恢复1点;\n魔战士获得等同黑刃觉醒度的临时生命值，持续1分钟。",
       "esES": null
     },
     {
@@ -1845,7 +1954,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "饮血刃",
+      "zhCN": "饮血刃",
       "esES": null
     },
     {
@@ -1856,7 +1965,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "饮血刃：剑魂",
+      "zhCN": "饮血刃：剑魂",
       "esES": null
     },
     {
@@ -1867,7 +1976,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每当你使用黑刃杀死一个活物，黑刃的奥法池恢复2点。",
+      "zhCN": "每当你使用黑刃杀死一个活物，黑刃的奥法池恢复2点。",
       "esES": null
     },
     {
@@ -1878,18 +1987,18 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "饮血刃：共生",
+      "zhCN": "饮血刃：共生",
       "esES": null
     },
     {
       "Key": "22c9797c758c46ed9098420b4bc5291c",
       "SimpleName": "BlackBladeLifeDrinkerSharedEnchantment.Description",
       "ProcessTemplates": true,
-      "enGB": "Each time the wielder kills a living creature with the black blade, the black blade restores 1 point to its arcane pool and the weilder restores 1 point to his arcane pool.",
+      "enGB": "Each time the wielder kills a living creature with the black blade, the black blade restores 1 point to its arcane pool and the wielder restores 1 point to his arcane pool.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每当你使用黑刃杀死一个活物，魔战士和黑刃的奥法池各恢复1点。",
+      "zhCN": "每当你使用黑刃杀死一个活物，魔战士和黑刃的奥法池各恢复1点。",
       "esES": null
     },
     {
@@ -1900,7 +2009,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "临时生命值(饮血刃)",
+      "zhCN": "临时生命值(饮血刃)",
       "esES": null
     },
     {
@@ -1911,7 +2020,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "饮血刃：血盾",
+      "zhCN": "饮血刃：血盾",
       "esES": null
     },
     {
@@ -1922,7 +2031,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "每当你使用黑刃杀死一个活物，魔战士获得等同黑刃觉醒度的临时生命值，持续1分钟。",
+      "zhCN": "每当你使用黑刃杀死一个活物，魔战士获得等同黑刃觉醒度的临时生命值，持续1分钟。",
       "esES": null
     },
     {
@@ -1933,7 +2042,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出长剑的形态。",
+      "zhCN": "你的黑刃呈现出长剑的形态。",
       "esES": null
     },
     {
@@ -1944,7 +2053,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "长剑",
+      "zhCN": "长剑",
       "esES": null
     },
     {
@@ -1955,7 +2064,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃的所有精神属性提升1。",
+      "zhCN": "黑刃的所有精神属性提升1。",
       "esES": null
     },
     {
@@ -1966,7 +2075,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃属性提升",
+      "zhCN": "黑刃属性提升",
       "esES": null
     },
     {
@@ -1977,7 +2086,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级起，你会获得一把强力且具有自我意识的武器，它会随你的成长而成长。",
+      "zhCN": "3级起，你会获得一把强力且具有自我意识的武器，它会随你的成长而成长。",
       "esES": null
     },
     {
@@ -1988,7 +2097,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出细剑的形态。",
+      "zhCN": "你的黑刃呈现出细剑的形态。",
       "esES": null
     },
     {
@@ -1999,7 +2108,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "细剑",
+      "zhCN": "细剑",
       "esES": null
     },
     {
@@ -2010,7 +2119,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出弯刀的形态。",
+      "zhCN": "你的黑刃呈现出弯刀的形态。",
       "esES": null
     },
     {
@@ -2021,7 +2130,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "弯刀",
+      "zhCN": "弯刀",
       "esES": null
     },
     {
@@ -2032,7 +2141,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "3级时，剑缚魔战士会获得一把强力且拥有自我意识的武器，名为黑刃。它的武器类型由魔战士本人决定。拥有此能力的魔战士不能取得魔战士奥能中的「魔宠」奥秘，也不能以任何方式得到魔宠，即使是从别的职业而来。",
+      "zhCN": "3级时，剑缚魔战士会获得一把强力且拥有自我意识的武器，名为黑刃。它的武器类型由魔战士本人决定。拥有此能力的魔战士不能取得魔战士奥能中的「魔宠」奥秘，也不能以任何方式得到魔宠，即使是从别的职业而来。",
       "esES": null
     },
     {
@@ -2043,7 +2152,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃形态选择",
+      "zhCN": "黑刃形态选择",
       "esES": null
     },
     {
@@ -2054,7 +2163,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出短剑的形态。",
+      "zhCN": "你的黑刃呈现出短剑的形态。",
       "esES": null
     },
     {
@@ -2065,7 +2174,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "短剑",
+      "zhCN": "短剑",
       "esES": null
     },
     {
@@ -2076,7 +2185,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "你的黑刃呈现出镰刀的形态。",
+      "zhCN": "你的黑刃呈现出镰刀的形态。",
       "esES": null
     },
     {
@@ -2087,7 +2196,18 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "镰刀",
+      "zhCN": "镰刀",
+      "esES": null
+    },
+    {
+      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
+      "SimpleName": "BlackBladeSpellDefenseBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "17级起，魔战士以一个自由动作，从黑刃奥能池中消耗1点，直到他下回合开始前，他会获得等同于黑刃觉醒度的法术抗力。",
       "esES": null
     },
     {
@@ -2098,7 +2218,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "17级起，魔战士以一个自由动作，从黑刃奥能池中消耗1点，直到他下回合开始前，他会获得等同于黑刃觉醒度的法术抗力。",
+      "zhCN": "17级起，魔战士以一个自由动作，从黑刃奥能池中消耗1点，直到他下回合开始前，他会获得等同于黑刃觉醒度的法术抗力。",
       "esES": null
     },
     {
@@ -2109,7 +2229,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "剑破万法",
+      "zhCN": "剑破万法",
       "esES": null
     },
     {
@@ -2120,7 +2240,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "以一个自由动作，魔战士可以从黑刃的奥能池中消耗掉1点，并让黑刃因此在伤害骰上获得+1加值，持续1分钟。你在1级后每有4个魔战士等级，此能力给予黑刃的伤害骰加值再+1。",
+      "zhCN": "以一个自由动作，魔战士可以从黑刃的奥能池中消耗掉1点，并让黑刃因此在伤害骰上获得+1加值，持续1分钟。你在1级后每有4个魔战士等级，此能力给予黑刃的伤害骰加值再+1。",
       "esES": null
     },
     {
@@ -2131,7 +2251,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "1分钟",
+      "zhCN": "1分钟",
       "esES": null
     },
     {
@@ -2142,7 +2262,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "以一个自由动作，魔战士可以从黑刃的奥能池中消耗掉1点，并让黑刃因此在伤害骰上获得+1加值，持续1分钟。你在1级后每有4个魔战士等级，此能力给予黑刃的伤害骰加值再+1。",
+      "zhCN": "以一个自由动作，魔战士可以从黑刃的奥能池中消耗掉1点，并让黑刃因此在伤害骰上获得+1加值，持续1分钟。你在1级后每有4个魔战士等级，此能力给予黑刃的伤害骰加值再+1。",
       "esES": null
     },
     {
@@ -2153,7 +2273,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃在伤害骰上获得+1加值。你在1级后每有4个魔战士等级，此能力给予黑刃的伤害骰加值再+1。",
+      "zhCN": "黑刃在伤害骰上获得+1加值。你在1级后每有4个魔战士等级，此能力给予黑刃的伤害骰加值再+1。",
       "esES": null
     },
     {
@@ -2164,7 +2284,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "黑刃击",
+      "zhCN": "黑刃击",
       "esES": null
     },
     {
@@ -2175,7 +2295,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "13级起，以一个整轮动作，魔战士可以尝试从黑刃的奥能池中抽取奥能点，每抽取2点，他就能恢复1点自身的奥能点。若想这么做，魔战士必须通过DC等同黑刃觉醒度的意志检定，否则无法成功并陷入疲劳。如已经疲劳则改为力竭，如已经力竭，无法使用此能力。",
+      "zhCN": "13级起，以一个整轮动作，魔战士可以尝试从黑刃的奥能池中抽取奥能点，每抽取2点，他就能恢复1点自身的奥能点。若想这么做，魔战士必须通过DC等同黑刃觉醒度的意志检定，否则无法成功并陷入疲劳。如已经疲劳则改为力竭，如已经力竭，无法使用此能力。",
       "esES": null
     },
     {
@@ -2186,7 +2306,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "秘法转换",
+      "zhCN": "秘法转换",
       "esES": null
     },
     {
@@ -2197,7 +2317,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "剑缚魔战士的奥能池只有1/3魔战士等级+智力调整值的奥能点。",
+      "zhCN": "剑缚魔战士的奥能池只有1/3魔战士等级+智力调整值的奥能点。",
       "esES": null
     },
     {
@@ -2208,7 +2328,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "有这么一群受选的魔战士，他们受命背负著名为黑刃的武具。这些武具默默无闻，有着智慧与不为人知的目的。对魔战士而言，这些武具既是甚有价值的工具，同时也是同伴──因为，剑和剑士，都同样渴求着奥法的力量。可是，当黑刃变的更加聪慧时，它的真正目的便会昭然若现，甚至它会用逐渐滋长的自我意识来影响持有者的意志。",
+      "zhCN": "有这么一群受选的魔战士，他们受命背负著名为黑刃的武具。这些武具默默无闻，有着智慧与不为人知的目的。对魔战士而言，这些武具既是甚有价值的工具，同时也是同伴──因为，剑和剑士，都同样渴求着奥法的力量。可是，当黑刃变的更加聪慧时，它的真正目的便会昭然若现，甚至它会用逐渐滋长的自我意识来影响持有者的意志。",
       "esES": null
     },
     {
@@ -2219,7 +2339,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "剑缚者",
+      "zhCN": "剑缚者",
       "esES": null
     },
     {
@@ -3565,6 +3685,28 @@
       "esES": null
     },
     {
+      "Key": "804e8cc2e4874822a7beeb8c2f9f5618",
+      "SimpleName": "CrossbloodedDrawbacks.Description",
+      "ProcessTemplates": true,
+      "enGB": "A crossblooded sorcerer has one fewer spell known at each level than regular sorcerer.\nFurthermore, the conflicting urges created by the divergent nature of the crossblooded sorcerer’s dual heritage forces her to constantly take some mental effort just to remain focused on her current situation and needs. This leaves her with less mental resolve to deal with external threats. A crossblooded sorcerer always takes a -2 penalty on Will saves.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "混血术士在每个等级上的已知法术都比通常术士少一种，这也使她获取每个新环级法术的等级都比通常术士推迟一级。\n此外，混血术士体内充斥着两种相互排斥的能量，她仅仅试图保持专注和精神平稳都需要付出莫大的努力，在外力干涉下更是无比脆弱。混血术士在所有意志豁免检定上承受-2的减值。",
+      "esES": null
+    },
+    {
+      "Key": "aafe4813df0840efa05abdfbd8377705",
+      "SimpleName": "CrossbloodedDrawbacks.Name",
+      "ProcessTemplates": false,
+      "enGB": "Crossblooded Drawbacks",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "混血之殇",
+      "esES": null
+    },
+    {
       "Key": "27f641bf570a41f29ffb841ef2dee5be",
       "SimpleName": "CruelEnchantment.Prefix",
       "ProcessTemplates": false,
@@ -3572,7 +3714,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhcn": "残忍",
+      "zhCN": "残忍",
       "esES": null
     },
     {
@@ -4529,7 +4671,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -5369,6 +5511,39 @@
       "esES": null
     },
     {
+      "Key": "54f5916110b94ca6879d83b3d04e7334",
+      "SimpleName": "HorseMaster.Description",
+      "ProcessTemplates": true,
+      "enGB": "Use your character level to determine your effective druid level for determining the powers and abilities of your mount.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "使用你的人物等级作为决定你的坐骑的等效德鲁伊等级。",
+      "esES": null
+    },
+    {
+      "Key": "33e808c0e37f4a0588af82d804ebd740",
+      "SimpleName": "HorseMaster.Name",
+      "ProcessTemplates": false,
+      "enGB": "Horse Master",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "骑术大师",
+      "esES": null
+    },
+    {
+      "Key": "908dadd310404ac39cf5f43eb8b9a4d1",
+      "SimpleName": "HorseMasterRank.Name",
+      "ProcessTemplates": false,
+      "enGB": "Horse Master Rank",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "骑术大师等级",
+      "esES": null
+    },
+    {
       "Key": "997adce5e6ef47d2a8c335a11a6229ee",
       "SimpleName": "Ice2d6.Prefix",
       "ProcessTemplates": false,
@@ -6081,6 +6256,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 法师",
+      "esES": null
+    },
+    {
+      "Key": "8f493f90a31c42c5a6a37f9043a30016",
+      "SimpleName": "LungingSpellTouchAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "你可以提高你的所有近战接触法术的触及范围5尺，若如此做你的AC承受-2减值直至你下一回合开始。",
+      "esES": null
+    },
+    {
+      "Key": "8de78fd5c657446ca01f915bd4ae8dd1",
+      "SimpleName": "LungingSpellTouchAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lunging Spell Touch",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "法术突刺",
+      "esES": null
+    },
+    {
+      "Key": "878c82a734714e16b20c00882930b15b",
+      "SimpleName": "LungingSpellTouchBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lunging Spell Touch Buff",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "法术突刺",
+      "esES": null
+    },
+    {
+      "Key": "f938f99fbef241d78bba18d43543547e",
+      "SimpleName": "LungingSpellTouchFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "你可以提高你的所有近战接触法术的触及范围5尺，若如此做你的AC承受-2减值直至你下一回合开始。",
       "esES": null
     },
     {
@@ -6851,6 +7070,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "你的骑乘冲锋有着难以想象的威势。当你骑乘冲锋时，你对周围30尺的所有敌人尝试打击士气，并将神话阶层加在沟通检定上。",
+      "esES": null
+    },
+    {
+      "Key": "59514dd625c04b7e84e118fb09a328c1",
+      "SimpleName": "MountedSkirmisher.Description",
+      "ProcessTemplates": true,
+      "enGB": "If your mount moves its speed or less, you can still take a full-attack action.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "如果你的坐骑在本回合移动的距离不超过它1个移动动作能移动的距离，你在本回合内仍然可以进行一次整轮攻击。",
+      "esES": null
+    },
+    {
+      "Key": "dbe8181368a94049b3dc03fce72953af",
+      "SimpleName": "MountedSkirmisher.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mounted Skirmisher",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "骑乘散兵",
       "esES": null
     },
     {
@@ -8845,6 +9086,39 @@
       "esES": null
     },
     {
+      "Key": "35df2502010e4b0c90e8e9c78cc28a83",
+      "SimpleName": "TrickRiding.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can make a check using Mounted Combat to negate a hit on your mount twice per round instead of just once.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "你每轮可以至多两次应用专长骑乘战斗来避免攻击。",
+      "esES": null
+    },
+    {
+      "Key": "d8f4aaef862d48ad8364b602c703a025",
+      "SimpleName": "TrickRiding.Name",
+      "ProcessTemplates": false,
+      "enGB": "Trick Riding",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "诡计骑手",
+      "esES": null
+    },
+    {
+      "Key": "e792248adf1d4f65a2dca7136f115145",
+      "SimpleName": "TrickRidingCooldownBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Trick Riding Cooldown",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "诡计骑手：冷却中",
+      "esES": null
+    },
+    {
       "Key": "2f046fabf52b4a39a09a2259c5f4a7c7",
       "SimpleName": "TwoHandedDamageMultiplierEnchantment.Description",
       "ProcessTemplates": true,
@@ -8886,6 +9160,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "亡者血承",
+      "esES": null
+    },
+    {
+      "Key": "8578ec2b7609403f9a369449be1d7cc4",
+      "SimpleName": "UndersizedMount.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can ride creatures equal to your own size category instead of only creatures larger than you.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "你可以骑乘与你的体型相当的生物，而不是只能骑乘更小的。",
+      "esES": null
+    },
+    {
+      "Key": "fd7ce96fd5654dc4bc8da027c48f2b92",
+      "SimpleName": "UndersizedMount.Name",
+      "ProcessTemplates": false,
+      "enGB": "Undersized Mount",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "灵巧骑术",
       "esES": null
     },
     {

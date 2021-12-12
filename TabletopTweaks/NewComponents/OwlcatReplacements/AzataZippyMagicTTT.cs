@@ -27,38 +27,31 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         }
 
         private bool isValidTrigger(RuleCastSpell evt) {
-            return !evt.IsSpellFailed &&
-                    !evt.Spell.IsAOE &&
-                    !evt.Spell.Blueprint.GetComponents<AbilityEffectStickyTouch>().Any() &&
-                    !evt.Spell.Blueprint.GetComponents<BlockSpellDuplicationComponent>().Any();
+            return evt.Success
+                && !evt.IsDuplicateSpellApplied
+                && !evt.Spell.IsAOE
+                && !evt.Spell.Blueprint.GetComponents<AbilityEffectStickyTouch>().Any()
+                && !evt.Spell.Blueprint.GetComponents<BlockSpellDuplicationComponent>().Any();
         }
 
         void IRulebookHandler<RuleCastSpell>.OnEventDidTrigger(RuleCastSpell evt) {
             if (!isValidTrigger(evt)) {
                 return;
             }
-            if (!m_GeneratedRules.Contains(evt)) {
-                AbilityData spell = evt.Spell;
-                UnitEntityData newTarget = GetNewTarget(spell, evt.SpellTarget.Unit);
-                if (newTarget != null) {
-                    RuleCastSpell ruleCastSpell = new RuleCastSpell(spell, new TargetWrapper(newTarget));
-                    m_GeneratedRules.Add(ruleCastSpell);
-                    Rulebook.Trigger<RuleCastSpell>(ruleCastSpell);
-                    m_GeneratedRules.Remove(ruleCastSpell);
-                }
+            AbilityData spell = evt.Spell;
+            UnitEntityData newTarget = this.GetNewTarget(spell, evt.SpellTarget.Unit);
+            if (newTarget == null) {
+                return;
             }
-            if (evt.SpellTarget.Unit.Group.IsEnemy(Owner)) {
-                DiceFormula dice = new DiceFormula(2, DiceType.D6);
-                int mythicLevel = evt.Spell.Caster.Unit.Progression.MythicLevel;
-                RuleDealDamage ruleDealDamage = new RuleDealDamage(evt.Spell.Caster, evt.SpellTarget.Unit, new EnergyDamage(dice, mythicLevel, DamageEnergyType.Divine));
-                Rulebook.Trigger<RuleDealDamage>(ruleDealDamage);
-            }
+            Rulebook.Trigger<RuleCastSpell>(new RuleCastSpell(spell, newTarget) {
+                IsDuplicateSpellApplied = true
+            });
         }
 
         private UnitEntityData GetNewTarget(AbilityData data, UnitEntityData baseTarget) {
             List<UnitEntityData> list = EntityBoundsHelper.FindUnitsInRange(baseTarget.Position, m_FeetsRadius.Feet().Meters);
             list.Remove(baseTarget);
-            list.Remove(Owner);
+            list.Remove(base.Owner);
             list.RemoveAll((UnitEntityData x) => x.Faction != baseTarget.Faction || !data.CanTarget(x));
             if (list.Count <= 0) {
                 return null;
@@ -68,7 +61,5 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
 
         [SerializeField]
         private int m_FeetsRadius = 30;
-
-        private HashSet<RuleCastSpell> m_GeneratedRules = new HashSet<RuleCastSpell>();
     }
 }

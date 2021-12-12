@@ -177,10 +177,20 @@
         "Homebrew": false,
         "Description": "Add 2 to the DC of saving throws made to resist the effects of your channel energy ability."
       },
+      "LungingSpellTouch": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn."
+      },
       "MagicalAptitude": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "You get a +2 bonus on Knowledge (Arcana) and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "MountedSkirmisher": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "If your mount moves its speed or less, you can still take a full-attack action."
       },
       "NatureSoul": {
         "Enabled": true,

@@ -1,3 +1,17 @@
+## Version 1.10.3
+* Haramaki now counts as light armor for effects that depend on it (can still be equiped without proficency)
+* Selective metamagic now requires 10 ranks of knowledge arcana
+* Spells that are not valid for selective metamagic can no longer be made selective
+* You can no longer full attack after moving while mounted
+* Lunge is now selectable as a feat
+    * You can increase the reach of your melee attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before any attacks are made.
+* Added Lunging Spell Touch Feat
+    * You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn.
+* Added Mounted Skirmisher Feat
+    * If your mount moves its speed or less, you can still take a full-attack action.
+* Added Horse Master Feat
+    * Use your character level to determine your effective druid level for determining the powers and abilities of your mount.
+
 ## Version 1.10.2
 * Fixed some incorrect ability types for Black Blade
 * Added Undersized Mount
@@ -7,6 +21,8 @@
 * Activatabilies should now correctly turn off when they run out of charges
 * Half of the Pair should now more accurately update with range changes
 * Phantasmal Mage metamagic should now work correctly with shadow spells
+* Minor fixes to Zippy magic tweaks
+* Crossblooded sorcerer now takes the missing -2 will save penalty from tabletop
 
 ## Version 1.10.1
 * Chinese localization from @1onepower

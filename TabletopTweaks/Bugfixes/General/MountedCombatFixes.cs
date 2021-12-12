@@ -1,13 +1,19 @@
-﻿using Kingmaker.Controllers.Combat;
+﻿using HarmonyLib;
+using Kingmaker.Controllers.Combat;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Parts;
+using TabletopTweaks.Config;
+using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.Bugfixes.General {
     class MountedCombatFixes {
-        //[HarmonyPatch(typeof(UnitCombatState), nameof(UnitCombatState.IsFullAttackRestrictedBecauseOfMoveAction), MethodType.Getter)]
+        // Need to fix cursor UI somehow
+        [HarmonyPatch(typeof(UnitCombatState), nameof(UnitCombatState.IsFullAttackRestrictedBecauseOfMoveAction), MethodType.Getter)]
         static class UnitCombatState_IsFullAttackRestrictedBecauseOfMoveAction_Mounted_Patch {
             static void Postfix(UnitCombatState __instance, ref bool __result) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("MountedActions")) { return; }
+                if (__instance.Unit.CustomMechanicsFeature(UnitPartCustomMechanicsFeatures.CustomMechanicsFeature.MountedSkirmisher)) { return; }
                 var riderPart = __instance.Unit.Get<UnitPartRider>();
                 if (riderPart?.SaddledUnit?.CombatState != null) {
                     __result |= riderPart.SaddledUnit.CombatState.IsFullAttackRestrictedBecauseOfMoveAction;

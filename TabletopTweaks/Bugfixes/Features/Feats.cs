@@ -2,6 +2,7 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -63,6 +64,9 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchSpiritedCharge();
                 PatchWeaponFinesse();
                 PatchMagicalTail();
+                PatchLunge();
+                PatchSelectiveMetamagic();
+                PatchSelectiveMetamagicPrerequisites();
             }
             static void PatchMagicalTail() {
                 if (ModSettings.Fixes.Feats.IsDisabled("MagicalTail")) { return; }
@@ -324,6 +328,35 @@ namespace TabletopTweaks.Bugfixes.Features {
                     };
                 }
             }
+            static void PatchSelectiveMetamagic() {
+                if (ModSettings.Fixes.Feats.IsDisabled("SelectiveMetamagic")) { return; }
+
+                var SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
+                var spells = SpellTools.SpellList.AllSpellLists
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .ToArray();
+                Main.LogPatch("Updating", SelectiveSpellFeat);
+                foreach (var spell in spells) {
+                    bool isAoE = spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityTargetsAround>());
+                    isAoE |= spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Cone 
+                        || v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Line);
+                    if (isAoE) {
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Selective)) {
+                            spell.AvailableMetamagic |= Metamagic.Selective;
+                            Main.LogPatch("Enabled Selective Metamagic", spell);
+                        }
+                    } else {
+                        if (spell.AvailableMetamagic.HasMetamagic(Metamagic.Selective)) {
+                            spell.AvailableMetamagic &= ~Metamagic.Selective;
+                            Main.LogPatch("Disabled Selective Metamagic", spell);
+                        }
+                    }
+                }
+            }
             static void PatchShatterDefenses() {
                 if (ModSettings.Fixes.Feats.IsDisabled("ShatterDefenses")) { return; }
 
@@ -430,6 +463,25 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.SubCategory = WeaponSubCategory.Finessable;
                 }));
                 Main.LogPatch("Patched", WeaponFinesse);
+            }
+            static void PatchLunge() {
+                if (ModSettings.Fixes.Feats.IsDisabled("Lunge")) { return; }
+
+                var LungeFeature = Resources.GetBlueprint<BlueprintFeature>("d41d5bd9a775d7245929256d58a3e03e");
+
+                LungeFeature.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
+                FeatTools.AddAsFeat(LungeFeature);
+                Main.LogPatch("Patched", LungeFeature);
+            }
+            static void PatchSelectiveMetamagicPrerequisites() {
+                if (ModSettings.Fixes.Feats.IsDisabled("SelectivePrerequisites")) { return; }
+
+                var SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
+                SelectiveSpellFeat.AddPrerequisite<PrerequisiteStatValue>(c => {
+                    c.Stat = StatType.SkillKnowledgeArcana;
+                    c.Value = 10;
+                });
+                Main.LogPatch("Patched", SelectiveSpellFeat);
             }
         }
 

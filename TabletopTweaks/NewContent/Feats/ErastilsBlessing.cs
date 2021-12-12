@@ -14,14 +14,15 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {
     class ErastilsBlessing {
-        private static readonly BlueprintFeature ErastilFeature = Resources.GetBlueprint<BlueprintFeature>("afc775188deb7a44aa4cbde03512c671");
-        private static readonly BlueprintFeature WeaponFocus = Resources.GetBlueprint<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e");
-        private static readonly BlueprintWeaponType CompositeLongbow = Resources.GetBlueprint<BlueprintWeaponType>("1ac79088a7e5dde46966636a3ac71c35");
-        private static readonly BlueprintWeaponType CompositeShortbow = Resources.GetBlueprint<BlueprintWeaponType>("011f6f86a0b16df4bbf7f40878c3e80b");
-        private static readonly BlueprintWeaponType Longbow = Resources.GetBlueprint<BlueprintWeaponType>("7a1211c05ec2c46428f41e3c0db9423f");
-        private static readonly BlueprintWeaponType Shortbow = Resources.GetBlueprint<BlueprintWeaponType>("99ce02fb54639b5439d07c99c55b8542");
-
         public static void AddErastilsBlessing() {
+            var ErastilFeature = Resources.GetBlueprint<BlueprintFeature>("afc775188deb7a44aa4cbde03512c671");
+            var WeaponFocus = Resources.GetBlueprint<BlueprintFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e");
+            var ZenArcherZenArcheryFeature = Resources.GetBlueprint<BlueprintFeature>("379c0da9f384e7547a70c259445377f5");
+            var CompositeLongbow = Resources.GetBlueprint<BlueprintWeaponType>("1ac79088a7e5dde46966636a3ac71c35");
+            var CompositeShortbow = Resources.GetBlueprint<BlueprintWeaponType>("011f6f86a0b16df4bbf7f40878c3e80b");
+            var Longbow = Resources.GetBlueprint<BlueprintWeaponType>("7a1211c05ec2c46428f41e3c0db9423f");
+            var Shortbow = Resources.GetBlueprint<BlueprintWeaponType>("99ce02fb54639b5439d07c99c55b8542");
+
             var ErastilsBlessingFeature = Helpers.CreateBlueprint<BlueprintFeature>("ErastilsBlessingFeature", bp => {
                 bp.SetName("Erastil's Blessing");
                 bp.SetDescription("Your deity grants you prowess with a bow that far exceeds your own physical capabilities.\n" +
@@ -47,18 +48,23 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.ParameterType = FeatureParameterType.WeaponCategory;
                     c.WeaponCategory = WeaponCategory.Longbow;
                 });
-                bp.AddComponent(Helpers.Create<RecommendationBaseAttackPart>(c => {
+                bp.AddComponent<RecommendationBaseAttackPart>(c => {
                     c.MinPart = 0.7f;
-                }));
-                bp.AddComponent(Helpers.Create<RecommendationStatComparison>(c => {
+                });
+                bp.AddComponent<RecommendationStatComparison>(c => {
                     c.HigherStat = StatType.Wisdom;
                     c.LowerStat = StatType.Dexterity;
                     c.Diff = 2;
-                }));
-                bp.AddComponent(Helpers.Create<RecommendationStatMiminum>(c => {
+                });
+                bp.AddComponent<RecommendationStatMiminum>(c => {
                     c.Stat = StatType.Wisdom;
                     c.MinimalValue = 16;
-                }));
+                });
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        ZenArcherZenArcheryFeature.ToReference<BlueprintUnitFactReference>()
+                    };
+                });
                 bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Attack | FeatureTag.Ranged;
                 });

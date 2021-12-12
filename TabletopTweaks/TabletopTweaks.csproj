@@ -156,6 +156,7 @@
     <Compile Include="Bugfixes\Classes\Oracle.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
+    <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
@@ -348,6 +349,9 @@
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\CelestialServant.cs" />
+    <Compile Include="NewContent\Feats\HorseMaster.cs" />
+    <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
+    <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Features\ArcaneTricksterSpellbooks.cs" />
@@ -632,10 +636,16 @@
     <Content Include="Assets\Feats\Icon_ArmorMaster.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_LungingSpellTouch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_MountedManiac.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="MechanicsChanges\MountedCombatModifiers.cs" />
+    <Content Include="Assets\Feats\Icon_MountedSkirmisher.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_TrickRiding.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
