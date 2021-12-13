@@ -76,6 +76,7 @@ namespace TabletopTweaks.NewContent {
                 //New archetypes
                 Archetypes.BladeBound.AddBlackBlade(); //Comes before all archetypes that use black blade
                 Archetypes.BladeBound.AddBladeBound();
+                Archetypes.BladeAdept.AddBladeAdept();
                 Archetypes.CauldronWitch.AddCauldrenWitch();
                 Archetypes.ElementalMaster.AddElementalMaster();
                 Archetypes.MetamagicRager.AddMetamagicRager();

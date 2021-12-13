@@ -43,16 +43,20 @@ using static TabletopTweaks.NewUnitParts.CustomStatTypes;
 namespace TabletopTweaks.NewContent.Archetypes {
     static class BladeBound {
         public static void AddBlackBlade() {
-            var MagusClass = Resources.GetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
-            var MagusArcanaSelection = Resources.GetBlueprint<BlueprintFeature>("e9dc4dfc73eaaf94aae27e0ed6cc9ada");
+            //var MagusClass = Resources.GetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");
+            var MagusClass = Resources.GetBlueprintReference<BlueprintCharacterClassReference>("45a4607686d96a1498891b3286121780");
+            var BladeBoundArchetype = Resources.GetModBlueprintReference<BlueprintArchetypeReference>("BladeBoundArchetype");
+            var ArcanistClass = Resources.GetBlueprintReference<BlueprintCharacterClassReference>("52dbfd8505e22f84fad8d702611f60b7");
+            var BladeAdeptArchetype = Resources.GetModBlueprintReference<BlueprintArchetypeReference>("BladeAdeptArchetype");
+
             var ArcanePoolFeature = Resources.GetBlueprint<BlueprintFeature>("3ce9bb90749c21249adc639031d5eed1");
             var ArcanePoolResourse = Resources.GetBlueprint<BlueprintAbilityResource>("effc3e386331f864e9e06d19dc218b37");
+            var ArcanistArcaneReservoirResource = Resources.GetBlueprint<BlueprintAbilityResource>("cac948cbbe79b55459459dd6a8fe44ce");
             var Alertness = Resources.GetBlueprint<BlueprintFeature>("1c04fe9a13a22bc499ffac03e6f79153");
             var Unholy = Resources.GetBlueprint<BlueprintWeaponEnchantment>("d05753b8df780fc4bb55b318f06af453");
             var SpellResistanceBuff = Resources.GetBlueprint<BlueprintBuff>("50a77710a7c4914499d0254e76a808e5");
             var Fatigued = Resources.GetBlueprint<BlueprintBuff>("e6f2fc5d73d88064583cb828801212f4");
             var Exhausted = Resources.GetBlueprint<BlueprintBuff>("46d1b9cc3d0fd36469a471b047d773a2");
-            //var SpellResistanceBuff = Resources.GetBlueprint<BlueprintBuff>("50a77710a7c4914499d0254e76a808e5");
 
             var BastardSwordPlus5 = Resources.GetBlueprint<BlueprintItemWeapon>("91a4b3f6b4b53ae4fb3095cba86a38ca");
             var BattleAxPlus5 = Resources.GetBlueprint<BlueprintItemWeapon>("bf20773f9c880144d989e4a6f41071c7");
@@ -427,8 +431,9 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.m_Icon = BlackBladeEnergyAttunementBaseAbility.Icon;
             });
 
+            
             var BlackBladeTransferArcanaAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeTransferArcanaAbility", bp => {
-                bp.SetName("Transfer Arcana");
+                bp.SetName("Transfer Arcana — Magus");
                 bp.SetDescription("At 13th level a magus can attempt to siphon points from his black blade’s arcane pool " +
                     "into his own arcane pool. Doing so takes a full-round action and the magus must succeed at a Will saving throw with " +
                     "a DC equal to the black blade’s ego. If the magus succeeds, he regains 1 point to his arcane pool for every 2 points " +
@@ -494,10 +499,114 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         })
                     );
                 });
+                bp.AddComponent<AbilityShowIfCasterHasArchetype>(c => {
+                    c.Class = MagusClass;
+                    c.Archetype = BladeBoundArchetype;
+                });
                 bp.AddComponent<AbilityRequirementHasBlackBlade>();
                 bp.AddComponent<AbilityRequirementHasResource>(c => {
                     c.Amount = 2;
                     c.Resource = BlackBladeArcanePool.ToReference<BlueprintAbilityResourceReference>();
+                });
+            });
+            var BlackBladeTransferArcanaArcanistAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeTransferArcanaArcanistAbility", bp => {
+                bp.SetName("Transfer Arcana — Arcanist");
+                bp.SetDescription("At 13th level a magus can attempt to siphon points from his black blade’s arcane pool " +
+                    "into his own arcane reservoir. Doing so takes a full-round action and the arcanist must succeed at a Will saving throw with " +
+                    "a DC equal to the black blade’s ego. If the arcanist succeeds, he regains 1 point to his arcane reservoir for every 2 points " +
+                    "he saps from his black blade. If he fails the saving throw, the magus becomes fatigued. If he is " +
+                    "fatigued, he becomes exhausted instead. He cannot use this ability if he is exhausted.");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 round");
+                bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", "");
+                bp.m_Icon = Icon_BlackBlade_TransferArcana;
+                bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Supernatural;
+                bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
+                bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Omni;
+                bp.ActionType = UnitCommand.CommandType.Standard;
+                bp.m_IsFullRoundAction = true;
+                bp.AddComponent<ContextSetAbilityParams>(c => {
+                    c.DC = new ContextValue();
+                    c.Concentration = new ContextValue();
+                    c.SpellLevel = new ContextValue();
+                    c.CasterLevel = new ContextValue();
+                    c.DC = new ContextValue() {
+                        ValueType = ContextValueType.CasterCustomProperty,
+                        m_CustomProperty = BlackBladeEgoProperty.ToReference<BlueprintUnitPropertyReference>()
+                    };
+                    c.Add10ToDC = false;
+                });
+                bp.AddComponent<AbilityEffectRunAction>(c => {
+                    c.Actions = Helpers.CreateActionList(
+                        Helpers.Create<ContextActionTransferArcana>(a => {
+                            a.m_sourceResource = BlackBladeArcanePool.ToReference<BlueprintAbilityResourceReference>();
+                            a.m_sourceAmount = 2;
+                            a.m_destinationResource = ArcanistArcaneReservoirResource.ToReference<BlueprintAbilityResourceReference>();
+                            a.m_destinationAmount = 1;
+                            a.SaveDC = new ContextValue() {
+                                ValueType = ContextValueType.CasterCustomProperty,
+                                m_CustomProperty = BlackBladeEgoProperty.ToReference<BlueprintUnitPropertyReference>()
+                            };
+                            a.FailedActions = Helpers.CreateActionList(
+                                new Conditional {
+                                    ConditionsChecker = new ConditionsChecker {
+                                        Conditions = new Condition[] {
+                                            Helpers.Create<ContextConditionHasFact>(c => {
+                                                c.m_Fact = Fatigued.ToReference<BlueprintUnitFactReference>();
+                                                c.Not = true;
+                                            })
+                                        }
+                                    },
+                                    IfTrue = Helpers.CreateActionList(
+                                        Helpers.Create<ContextActionApplyBuff>(c => {
+                                            c.m_Buff = Fatigued.ToReference<BlueprintBuffReference>();
+                                            c.Permanent = true;
+                                            c.DurationValue = new ContextDurationValue();
+                                        })
+                                    ),
+                                    IfFalse = Helpers.CreateActionList(
+                                        Helpers.Create<ContextActionApplyBuff>(c => {
+                                            c.m_Buff = Exhausted.ToReference<BlueprintBuffReference>();
+                                            c.Permanent = true;
+                                            c.DurationValue = new ContextDurationValue();
+                                        })
+                                    )
+                                }
+                            );
+                        })
+                    );
+                });
+                bp.AddComponent<AbilityShowIfCasterHasArchetype>(c => {
+                    c.Class = ArcanistClass;
+                    c.Archetype = BladeAdeptArchetype;
+                });
+                bp.AddComponent<AbilityRequirementHasBlackBlade>();
+                bp.AddComponent<AbilityRequirementHasResource>(c => {
+                    c.Amount = 2;
+                    c.Resource = BlackBladeArcanePool.ToReference<BlueprintAbilityResourceReference>();
+                });
+            });
+            var BlackBladeTransferArcanaBaseAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeTransferArcanaBaseAbility", bp => {
+                bp.SetName("Transfer Arcana");
+                bp.SetDescription("At 13th level a magus can attempt to siphon points from his black blade’s arcane pool " +
+                    "into his own arcane pool. Doing so takes a full-round action and the magus must succeed at a Will saving throw with " +
+                    "a DC equal to the black blade’s ego. If the magus succeeds, he regains 1 point to his arcane pool for every 2 points " +
+                    "he saps from his black blade. If he fails the saving throw, the magus becomes fatigued. If he is " +
+                    "fatigued, he becomes exhausted instead. He cannot use this ability if he is exhausted.");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", "1 round");
+                bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", "");
+                bp.m_Icon = Icon_BlackBlade_TransferArcana;
+                bp.Range = AbilityRange.Personal;
+                bp.Type = AbilityType.Supernatural;
+                bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
+                bp.Animation = UnitAnimationActionCastSpell.CastAnimationStyle.Omni;
+                bp.ActionType = UnitCommand.CommandType.Standard;
+                bp.m_IsFullRoundAction = true;
+                bp.AddComponent<AbilityVariants>(c => {
+                    c.m_Variants = new BlueprintAbilityReference[] {
+                        BlackBladeTransferArcanaAbility.ToReference<BlueprintAbilityReference>(),
+                        BlackBladeTransferArcanaArcanistAbility.ToReference<BlueprintAbilityReference>()
+                    };
                 });
             });
             var BlackBladeTransferArcana = Helpers.CreateBlueprint<BlueprintFeature>("BlackBladeTransferArcana", bp => {
@@ -506,7 +615,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
-                        BlackBladeTransferArcanaAbility.ToReference<BlueprintUnitFactReference>(),
+                        BlackBladeTransferArcanaBaseAbility.ToReference<BlueprintUnitFactReference>(),
                     };
                 });
                 bp.IsClassFeature = true;
@@ -721,7 +830,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
             var BlackBladeLifeDrinkerSharedBuff = Helpers.CreateBuff($"BlackBladeLifeDrinkerSharedBuff", bp => {
                 bp.Ranks = 1;
-                bp.SetName("Life Drinker — Shared");
+                bp.SetName("Life Drinker — Shared (Magus)");
                 bp.SetDescription(BlackBladeLifeDrinkerSharedEnchantment.m_Description);
                 bp.IsClassFeature = true;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
@@ -732,7 +841,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             });
             var BlackBladeLifeDrinkerSharedAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeLifeDrinkerSharedAbility", bp => {
                 bp.SetName(BlackBladeLifeDrinkerSharedBuff.m_DisplayName);
-                bp.SetDescription(BlackBladeLifeDrinkerSharedEnchantment.m_Description);
+                bp.SetDescription(BlackBladeLifeDrinkerSharedBuff.m_Description);
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
@@ -744,6 +853,10 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.ActionType = UnitCommand.CommandType.Free;
                 bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
                 bp.AddComponent<AbilityRequirementHasBlackBlade>();
+                bp.AddComponent<AbilityShowIfCasterHasArchetype>(c => {
+                    c.Class = MagusClass;
+                    c.Archetype = BladeBoundArchetype;
+                });
                 bp.AddComponent<PseudoActivatable>(c => {
                     c.m_Type = PseudoActivatable.PseudoActivatableType.BuffToggle;
                     c.m_Buff = BlackBladeLifeDrinkerSharedBuff.ToReference<BlueprintBuffReference>();
@@ -753,6 +866,92 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.m_Buff = BlackBladeLifeDrinkerSharedBuff.ToReference<BlueprintBuffReference>();
                 });
             });
+
+            var BlackBladeLifeDrinkerSharedArcanistEnchantAbility = Helpers.CreateBlueprint<BlueprintAbility>($"BlackBladeLifeDrinkerSharedArcanistEnchantAbility", bp => {
+                bp.SetName("Life Drinker");
+                bp.SetDescription("");
+                bp.DisableLog = true;
+                bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
+                bp.LocalizedSavingThrow = Helpers.CreateString($"{bp.name}.Save", $"");
+                bp.LocalizedDuration = Helpers.CreateString($"{bp.name}.Duration", $"");
+                bp.CanTargetSelf = true;
+                bp.ActionType = UnitCommand.CommandType.Free;
+                bp.Type = AbilityType.Supernatural;
+                bp.Range = AbilityRange.Touch;
+                bp.AddComponent<AbilityEffectRunAction>(c => {
+                    c.Actions = Helpers.CreateActionList(
+                        Helpers.Create<ContextRestoreResource>(a => {
+                            a.m_Resource = BlackBladeArcanePool.ToReference<BlueprintAbilityResourceReference>();
+                            a.ContextValueRestoration = true;
+                            a.Value = 1;
+                        }),
+                        Helpers.Create<ContextRestoreResource>(a => {
+                            a.m_Resource = ArcanistArcaneReservoirResource.ToReference<BlueprintAbilityResourceReference>();
+                            a.ContextValueRestoration = true;
+                            a.Value = 1;
+                        })
+                    );
+                });
+            });
+            var BlackBladeLifeDrinkerSharedArcanistEnchantment = Helpers.CreateBlueprint<BlueprintWeaponEnchantment>($"BlackBladeLifeDrinkerSharedArcanistEnchantment", bp => {
+                bp.SetName("Life Drinker");
+                bp.SetDescription("Each time the wielder kills a living creature with the black blade, " +
+                    "the black blade restores 1 point to its arcane pool and the wielder restores 1 point to his arcane reservoir.");
+                bp.SetPrefix("");
+                bp.SetSuffix("");
+                bp.m_EnchantmentCost = 0;
+                bp.m_IdentifyDC = 0;
+                bp.AddComponent<AddWeaponDamageTrigger>(c => {
+                    c.Actions = Helpers.CreateActionList(
+                        new ContextActionCastSpell() {
+                            m_Spell = BlackBladeLifeDrinkerSharedEnchantAbility.ToReference<BlueprintAbilityReference>(),
+                            DC = new ContextValue(),
+                            SpellLevel = new ContextValue()
+                        }
+                    );
+                    c.CastOnSelf = true;
+                    c.TargetKilledByThisDamage = true;
+                });
+            });
+            var BlackBladeLifeDrinkerSharedArcanistBuff = Helpers.CreateBuff($"BlackBladeLifeDrinkerSharedArcanistBuff", bp => {
+                bp.Ranks = 1;
+                bp.SetName("Life Drinker — Shared (Arcanist)");
+                bp.SetDescription(BlackBladeLifeDrinkerSharedArcanistEnchantment.m_Description);
+                bp.IsClassFeature = true;
+                bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
+                bp.AddComponent<BlackBladeEffect>(c => {
+                    c.LifeDrinker = true;
+                    c.Enchantment = BlackBladeLifeDrinkerSharedEnchantment.ToReference<BlueprintWeaponEnchantmentReference>();
+                });
+            });
+            var BlackBladeLifeDrinkerSharedArcanistAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeLifeDrinkerSharedArcanistAbility", bp => {
+                bp.SetName(BlackBladeLifeDrinkerSharedArcanistBuff.m_DisplayName);
+                bp.SetDescription(BlackBladeLifeDrinkerSharedArcanistBuff.m_Description);
+                bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
+                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
+                bp.DisableLog = true;
+                bp.m_Parent = BlackBladeLifeDrinkerBase.ToReference<BlueprintAbilityReference>();
+                bp.ActionType = UnitCommand.CommandType.Free;
+                bp.Type = AbilityType.Supernatural;
+                bp.Range = AbilityRange.Personal;
+                bp.ActionType = UnitCommand.CommandType.Free;
+                bp.m_Icon = Icon_BlackBlade_LifeDrinkerShared;
+                bp.AddComponent<AbilityRequirementHasBlackBlade>();
+                bp.AddComponent<AbilityShowIfCasterHasArchetype>(c => {
+                    c.Class = ArcanistClass;
+                    c.Archetype = BladeAdeptArchetype;
+                });
+                bp.AddComponent<PseudoActivatable>(c => {
+                    c.m_Type = PseudoActivatable.PseudoActivatableType.BuffToggle;
+                    c.m_Buff = BlackBladeLifeDrinkerSharedArcanistBuff.ToReference<BlueprintBuffReference>();
+                    c.m_GroupName = "BlackBladeLifeDrinker";
+                });
+                bp.AddComponent<AbilityEffectToggleBuff>(c => {
+                    c.m_Buff = BlackBladeLifeDrinkerSharedArcanistBuff.ToReference<BlueprintBuffReference>();
+                });
+            });
+
             var BlackBladeLifeDrinkerTempHPBuff = Helpers.CreateBuff($"BlackBladeLifeDrinkerTempHPBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName("Life Drinker Temp HP");
@@ -850,6 +1049,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             BlackBladeLifeDrinkerBase.GetComponent<AbilityVariants>().m_Variants = new BlueprintAbilityReference[] {
                 BlackBladeLifeDrinkerBladeAbility.ToReference<BlueprintAbilityReference>(),
                 BlackBladeLifeDrinkerSharedAbility.ToReference<BlueprintAbilityReference>(),
+                BlackBladeLifeDrinkerSharedArcanistAbility.ToReference<BlueprintAbilityReference>(),
                 BlackBladeLifeDrinkerWielderAbility.ToReference<BlueprintAbilityReference>(),
             };
 

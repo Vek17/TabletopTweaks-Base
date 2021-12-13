@@ -3,41 +3,46 @@
   "Archetypes": {
     "DisableAll": false,
     "Settings": {
-        "BladeBound": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "A select group of magi are called to carry a black blade—a sentient weapon of often unknown and possibly unknowable purpose. These weapons become valuable tools and allies, as both the magus and weapon typically crave arcane power, but as a black blade becomes more aware, its true motivations manifest, and as does its ability to influence its wielder with its ever-increasing ego."
-        },
-        "CauldronWitchArchetype": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "Enables an incomplete archetype from Owlcat."
-        },
-        "ChannelerOfTheUnknown": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "Aa fallen cleric archetype that has a unique domain selection, can convert all spells into domain spells, and gets a unique form of channeling that damages ALL things."
-        },
-        "DivineCommander": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "A warpriest/cavalier hybrid archetype who trades blessings and some bonus feats for a divine mount and the tactician ability."
-        },
-        "ElementalMasterArchetype": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "Enables an incomplete archetype from Owlcat."
-        },
-        "MetamagicRager": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "A bloodrager archetype that can spend rage rounds to apply metamagic effects to thier spells."
-        },
-        "NatureFang": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents."
-        }
+      "BladeAdept": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A small number of arcanists learn to use blades as part of their spellcasting and in combat. While these blade adepts are not as capable with a sword as a true master duelist, their combination of swordplay and arcane power makes them quite deadly."
+      },
+      "BladeBound": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A select group of magi are called to carry a black blade—a sentient weapon of often unknown and possibly unknowable purpose. These weapons become valuable tools and allies, as both the magus and weapon typically crave arcane power, but as a black blade becomes more aware, its true motivations manifest, and as does its ability to influence its wielder with its ever-increasing ego."
+      },
+      "CauldronWitchArchetype": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables an incomplete archetype from Owlcat."
+      },
+      "ChannelerOfTheUnknown": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Aa fallen cleric archetype that has a unique domain selection, can convert all spells into domain spells, and gets a unique form of channeling that damages ALL things."
+      },
+      "DivineCommander": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A warpriest/cavalier hybrid archetype who trades blessings and some bonus feats for a divine mount and the tactician ability."
+      },
+      "ElementalMasterArchetype": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables an incomplete archetype from Owlcat."
+      },
+      "MetamagicRager": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A bloodrager archetype that can spend rage rounds to apply metamagic effects to thier spells."
+      },
+      "NatureFang": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents."
+      }
     },
     "IsExpanded": true
   },

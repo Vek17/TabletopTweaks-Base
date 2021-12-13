@@ -196,7 +196,7 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 var MountedCombatBuff = Resources.GetBlueprint<BlueprintBuff>("5008df9965da43c593c98ed7e6cacfc6");
                 var MountedCombatCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
-                var TrickRiding = Resources.GetBlueprint<BlueprintFeature>("5008df9965da43c593c98ed7e6cacfc6");
+                var TrickRiding = Resources.GetModBlueprint<BlueprintFeature>("TrickRiding");
                 var TrickRidingCooldownBuff = Resources.GetBlueprint<BlueprintBuff>("5c9ef8224acdbab4fbaf59c710d0ef23");
                 MountedCombatBuff.RemoveComponents<MountedCombat>();
                 MountedCombatBuff.RemoveComponents<MountedCombatTTT>();

@@ -200,6 +200,8 @@
     <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
     <Compile Include="NewComponents\AbilityRequirementHasResource.cs" />
     <Compile Include="NewComponents\AbilityRequirementHasWeaponTrainingWithWeapon.cs" />
+    <Compile Include="NewComponents\AbilityRestoreArcanistSpell.cs" />
+    <Compile Include="NewComponents\AbilityShowIfCasterHasArchetype.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterWeaponTrainingRank.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AberrantArcanaExtendComponent.cs" />
     <Compile Include="NewComponents\AbilityShowIfCasterCanCastSpells.cs" />
@@ -305,6 +307,7 @@
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
     <Compile Include="NewContent\ArcanistExploits\MetamagicKnowledge.cs" />
+    <Compile Include="NewContent\Archetypes\BladeAdept.cs" />
     <Compile Include="NewContent\Archetypes\BladeBound.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />

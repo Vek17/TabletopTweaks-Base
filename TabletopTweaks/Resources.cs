@@ -8,9 +8,6 @@ namespace TabletopTweaks {
     static class Resources {
         public static readonly Dictionary<BlueprintGuid, SimpleBlueprint> ModBlueprints = new Dictionary<BlueprintGuid, SimpleBlueprint>();
 
-        internal static object GetBlueprint<T>() {
-            throw new NotImplementedException();
-        }
 #if false
         public static IEnumerable<T> GetBlueprints<T>() where T : BlueprintScriptableObject {
             if (blueprints == null) {
@@ -21,10 +18,22 @@ namespace TabletopTweaks {
             return blueprints.Concat(ResourcesLibrary.s_LoadedBlueprints.Values).OfType<T>().Distinct();
         }
 #endif
+        public static T GetModBlueprintReference<T>(string name) where T : BlueprintReferenceBase {
+            BlueprintGuid? assetId = ModSettings.Blueprints.GetGUID(name);
+            var reference = Activator.CreateInstance<T>();
+            reference.deserializedGuid = assetId ?? BlueprintGuid.Empty;
+            return reference;
+        }
         public static T GetModBlueprint<T>(string name) where T : SimpleBlueprint {
             var assetId = ModSettings.Blueprints.GetGUID(name);
             ModBlueprints.TryGetValue(assetId, out var value);
             return value as T;
+        }
+        public static T GetBlueprintReference<T>(string id) where T : BlueprintReferenceBase {
+            var assetId = BlueprintGuid.Parse(id);
+            var reference = Activator.CreateInstance<T>();
+            reference.deserializedGuid = assetId;
+            return reference;
         }
         public static T GetBlueprint<T>(string id) where T : SimpleBlueprint {
             var assetId = BlueprintGuid.Parse(id);
