@@ -720,6 +720,11 @@
   "Feats": {
     "DisableAll": false,
     "Settings": {
+      "AlliedSpellcaster": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents Allied Spellcaster from applying globally."
+      },
       "BolsteredMetamagic": {
         "Enabled": true,
         "Homebrew": false,

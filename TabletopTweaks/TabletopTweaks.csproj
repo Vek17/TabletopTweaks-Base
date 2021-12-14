@@ -237,6 +237,7 @@
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\NewBaseTypes\ItemEntityRestriction.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\AlliedSpellcasterTTT.cs" />
     <Compile Include="NewComponents\Properties\CompositeCustomPropertyGetter.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />

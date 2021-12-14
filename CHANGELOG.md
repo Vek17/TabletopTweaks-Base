@@ -1,6 +1,6 @@
 ## Version 1.10.4
 * Fix for trick riding not working properly in all cases
-* 
+* Allied Spellcaster no longer applies globally
 
 ## Version 1.10.3
 * Haramaki now counts as light armor for effects that depend on it (can still be equiped without proficency)

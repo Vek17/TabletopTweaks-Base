@@ -49,6 +49,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Initialized = true;
 
                 Main.LogHeader("Patching Feats");
+                PatchAlliedSpellcaster();
                 PatchCraneWing();
                 PatchEndurance();
                 PatchFencingGrace();
@@ -68,6 +69,20 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchSelectiveMetamagic();
                 PatchSelectiveMetamagicPrerequisites();
             }
+
+            static void PatchAlliedSpellcaster() {
+                if (ModSettings.Fixes.Feats.IsDisabled("AlliedSpellcaster")) { return; }
+
+                var AlliedSpellcaster = Resources.GetBlueprint<BlueprintFeature>("9093ceeefe9b84746a5993d619d7c86f");
+                AlliedSpellcaster.RemoveComponents<AlliedSpellcaster>();
+                AlliedSpellcaster.AddComponent<AlliedSpellcasterTTT>(c => {
+                    c.m_AlliedSpellcasterFact = AlliedSpellcaster.ToReference<BlueprintUnitFactReference>();
+                    c.Radius = 5;
+                });
+
+                Main.LogPatch("Patched", AlliedSpellcaster);
+            }
+
             static void PatchMagicalTail() {
                 if (ModSettings.Fixes.Feats.IsDisabled("MagicalTail")) { return; }
 
