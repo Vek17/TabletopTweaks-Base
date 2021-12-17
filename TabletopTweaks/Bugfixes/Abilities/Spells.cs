@@ -40,7 +40,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchRemoveFear();
-                PatchSecondBreath();
                 PatchShadowConjuration();
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
@@ -287,25 +286,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
                 RemoveFearBuff.AddComponent(suppressFear);
                 Main.LogPatch("Patched", RemoveFearBuff);
-            }
-
-            static void PatchSecondBreath() {
-                if (ModSettings.Fixes.Spells.IsDisabled("SecondBreath")) { return; }
-                var SecondBreath = Resources.GetBlueprint<BlueprintAbility>("d7e6f8a0369530341b50987d3ebdfe57");
-                SecondBreath.Range = AbilityRange.Personal;
-                SecondBreath.CanTargetFriends = true;
-                SecondBreath.GetComponent<AbilityEffectRunAction>().Actions = new ActionList();
-                SecondBreath.GetComponent<AbilityEffectRunAction>()
-                    .AddAction(Helpers.Create<ContextActionPartyMembers>(a => {
-                        a.Action = new ActionList() {
-                            Actions = new GameAction[] {
-                                Helpers.Create<ContextRestoreResourcesTTT>(a => {
-                                    a.m_IsFullRestoreAllResources = true;
-                                })
-                            }
-                        };
-                    }));
-                Main.LogPatch("Patched", SecondBreath);
             }
 
             static void PatchShadowConjuration() {

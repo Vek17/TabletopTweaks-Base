@@ -678,11 +678,6 @@
         "Homebrew": false,
         "Description": "Remove fear no longer makes you immune to fear."
       },
-      "SecondBreath": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Second Breathe now correctly restores abiltiies."
-      },
       "ShadowConjuration": {
         "Enabled": true,
         "Homebrew": false,

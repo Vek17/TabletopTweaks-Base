@@ -156,20 +156,6 @@ namespace TabletopTweaks.MythicReworks {
                 if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonGreaterBaneDamage")) { return; }
                 var AeonGreaterBaneBuff = Resources.GetBlueprint<BlueprintBuff>("cdcc13884252b2c4d8dac57cb5f46555");
                 AeonGreaterBaneBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>(c => c.Action.Actions.OfType<ContextActionDealDamage>().Any());
-                AeonGreaterBaneBuff.AddComponent(Helpers.Create<AdditionalDiceOnAttack>(c => {
-                    c.OnHit = true;
-                    c.InitiatorConditions = new ConditionsChecker();
-                    c.TargetConditions = new ConditionsChecker();
-                    c.Value = new ContextDiceValue() {
-                        DiceType = DiceType.D6,
-                        DiceCountValue = 2,
-                        BonusValue = 0
-                    };
-                    c.DamageType = new DamageTypeDescription() {
-                        Type = DamageType.Energy,
-                        Energy = DamageEnergyType.Divine
-                    };
-                }));
                 Main.LogPatch("Patched", AeonGreaterBaneBuff);
             }
             static void PatchAeonGreaterBaneDispel() {
