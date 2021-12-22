@@ -730,6 +730,11 @@
         "Homebrew": false,
         "Description": "Now requires a free hand to recieve the bonuses."
       },
+      "DestructiveDispel": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat."
+      },
       "EmpowerMetamagic": {
         "Enabled": true,
         "Homebrew": false,

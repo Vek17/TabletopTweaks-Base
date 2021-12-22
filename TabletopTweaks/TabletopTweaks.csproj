@@ -209,6 +209,7 @@
     <Compile Include="NewComponents\AbilitySpecific\AddWarriorSpiritEnchantment.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonGazeResouceLogic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\BlackBladeEffect.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\DestructiveDispelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\ItemEntityRestrictionBlackBlade.cs" />
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\MetaRageComponent.cs" />

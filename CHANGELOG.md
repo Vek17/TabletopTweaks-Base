@@ -1,3 +1,6 @@
+## Version 1.10.5
+* Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
+
 ## Version 1.10.4
 * Now works with 1.1.6e
 * Fix for trick riding not working properly in all cases

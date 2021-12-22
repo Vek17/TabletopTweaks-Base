@@ -51,6 +51,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogHeader("Patching Feats");
                 PatchAlliedSpellcaster();
                 PatchCraneWing();
+                PatchDestructiveDispel();
                 PatchEndurance();
                 PatchFencingGrace();
                 PatchIndomitableMount();
@@ -81,6 +82,19 @@ namespace TabletopTweaks.Bugfixes.Features {
                 });
 
                 Main.LogPatch("Patched", AlliedSpellcaster);
+            }
+
+            static void PatchDestructiveDispel() {
+                if (ModSettings.Fixes.Feats.IsDisabled("DestructiveDispel")) { return; }
+
+                var DestructiveDispel = Resources.GetBlueprint<BlueprintFeature>("d298e64e14398e848a54db5a2619ba42");
+                var Actions = DestructiveDispel.FlattenAllActions().OfType<ContextActionConditionalSaved>().ToArray();
+                DestructiveDispel.SetComponents();
+                DestructiveDispel.AddComponent<DestructiveDispelComponent>(c => {
+                    c.ActionOnTarget = Helpers.CreateActionList(Actions);
+                });
+
+                Main.LogPatch("Patched", DestructiveDispel);
             }
 
             static void PatchMagicalTail() {
