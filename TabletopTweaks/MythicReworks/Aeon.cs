@@ -112,43 +112,45 @@ namespace TabletopTweaks.MythicReworks {
                     .Actions
                     .OfType<Conditional>()
                     .ForEach(conditional => {
-                        conditional.IfTrue.Actions =
                         conditional.IfTrue.Actions
-                            .Where(a => !(a is ContextActionDispelMagic))
-                            .Append(CreateDispelMagicAction())
-                            .ToArray();
+                            .OfType<ContextActionDispelMagic>()
+                            .ForEach(a => {
+                                a.m_StopAfterCountRemoved = true;
+                                a.m_CountToRemove = new ContextValue() {
+                                    ValueType = ContextValueType.Shared,
+                                    ValueShared = AbilitySharedValue.StatBonus
+                                };
+                            });
                     });
                 AeonBaneBuff.GetComponent<AddAbilityUseTrigger>()
                     .Action
                     .Actions
                     .OfType<Conditional>()
                     .ForEach(conditional => {
-                        conditional.IfTrue.Actions =
                         conditional.IfTrue.Actions
-                            .Where(a => !(a is ContextActionDispelMagic))
-                            .Append(CreateDispelMagicAction())
-                            .ToArray();
+                            .OfType<ContextActionDispelMagic>()
+                            .ForEach(a => {
+                                a.m_StopAfterCountRemoved = true;
+                                a.m_CountToRemove = new ContextValue() {
+                                    ValueType = ContextValueType.Shared,
+                                    ValueShared = AbilitySharedValue.StatBonus
+                                };
+                            });
                     });
-
-                static ContextActionDispelMagicCapped CreateDispelMagicAction() {
-                    return new ContextActionDispelMagicCapped() {
-                        m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
-                        m_MaxSpellLevel = new ContextValue(),
-                        m_MaxCasterLevel = new ContextValue(),
-                        m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel,
-                        ContextBonus = new ContextValue() {
-                            ValueType = ContextValueType.Shared
+                AeonBaneBuff.AddComponent<ContextCalculateSharedValue>(c => {
+                    c.ValueType = AbilitySharedValue.StatBonus;
+                    c.Value = new ContextDiceValue() {
+                        DiceType = DiceType.One,
+                        DiceCountValue = new ContextValue() {
+                            ValueType = ContextValueType.Rank
                         },
-                        DispelLimitDividend = new ContextValue() {
-                            ValueType = ContextValueType.Shared
+                        BonusValue = new ContextValue() {
+                            ValueType = ContextValueType.Rank,
+                            ValueRank = Kingmaker.Enums.AbilityRankType.DamageDice
                         },
-                        DispelLimitDivisor = 4,
-                        Schools = new SpellSchool[0],
-                        OnSuccess = Helpers.CreateActionList(),
-                        OnFail = Helpers.CreateActionList(),
-                        OnlyTargetEnemyBuffs = true
                     };
-                }
+                    c.Modifier = 0.25;
+                });
 
                 Main.LogPatch("Patched", AeonBaneBuff);
             }
@@ -165,31 +167,9 @@ namespace TabletopTweaks.MythicReworks {
                 AeonGreaterBaneBuff.GetComponents<AddInitiatorAttackWithWeaponTrigger>()
                     .Where(action => action.Action.Actions.OfType<ContextActionDispelMagic>().Any())
                     .First().OnlyOnFirstHit = true;
-                AeonGreaterBaneBuff.GetComponents<AddInitiatorAttackWithWeaponTrigger>()
-                    .Where(action => action.Action.Actions.OfType<ContextActionDispelMagic>().Any())
-                    .ForEach(action => {
-                        action.Action.Actions =
-                        action.Action.Actions
-                            .Where(a => !(a is ContextActionDispelMagic))
-                            .Append(CreateDispelMagicAction())
-                            .ToArray();
-                    });
-
-                static ContextActionDispelMagic CreateDispelMagicAction() {
-                    return new ContextActionDispelMagic() {
-                        m_StopAfterFirstRemoved = true,
-                        m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
-                        m_MaxSpellLevel = new ContextValue(),
-                        m_MaxCasterLevel = new ContextValue(),
-                        m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.None,
-                        ContextBonus = new ContextValue(),
-                        Schools = new SpellSchool[0],
-                        OnSuccess = Helpers.CreateActionList(),
-                        OnFail = Helpers.CreateActionList(),
-                        OnlyTargetEnemyBuffs = true
-                    };
-                }
-
+                AeonGreaterBaneBuff.FlattenAllActions()
+                    .OfType<ContextActionDispelMagic>()
+                    .ForEach(c => c.m_BuffType = ContextActionDispelMagic.BuffType.FromSpells);
                 Main.LogPatch("Patched", AeonGreaterBaneBuff);
             }
             static void PatchAeonGazeDC() {

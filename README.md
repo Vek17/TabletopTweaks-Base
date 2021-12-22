@@ -152,6 +152,7 @@ All fixes and added content are configurable and can be disabled by editing the 
         Favorite Metamagic Bolster can now be picked
         You can no longer full attack after moving while mounted
         Haramaki now counts as light armor for effects that depend on it (can still be equiped without proficency)
+        Allied Spellcaster no longer applies globally
 
     Reworks the following Mythic Paths:
         Aeon

@@ -195,7 +195,6 @@
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewActions\ContextActionApplyWeaponEnchant.cs" />
-    <Compile Include="NewActions\ContextActionDispelMagicCapped.cs" />
     <Compile Include="NewActions\ContextActionTransferArcana.cs" />
     <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
     <Compile Include="NewComponents\AbilityRequirementHasResource.cs" />

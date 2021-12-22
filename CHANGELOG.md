@@ -1,4 +1,5 @@
 ## Version 1.10.4
+* Now works with 1.1.6e
 * Fix for trick riding not working properly in all cases
 * Allied Spellcaster no longer applies globally
 * Fixed Aeon Greater Bane applying twice
