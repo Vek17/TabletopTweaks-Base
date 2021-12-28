@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem;
+using Kingmaker.PubSubSystem;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.UnitSettings;
 using Kingmaker.UnitLogic;
@@ -12,10 +13,11 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
+using TabletopTweaks.NewEvents;
 using UnityEngine;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartSpellSpecialization : OldStyleUnitPart {
+    class UnitPartSpellSpecialization : OldStyleUnitPart, ISpontaneousConversionHandler, IUnitSubscriber {
         public void AddEntry(BlueprintAbilityReference spell, EntityFact source) {
             SpellSpecializationEntry item = new SpellSpecializationEntry {
                 Spell = spell,
@@ -73,6 +75,44 @@ namespace TabletopTweaks.NewUnitParts {
             return conversionSpells;
         }
 
+        public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions) {
+            if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
+            List<AbilityData> list = conversions.ToList();
+            UnitPartSpellSpecialization spellSpecialization = ability.Caster.Get<UnitPartSpellSpecialization>();
+            if (spellSpecialization == null || !spellSpecialization.IsGreater() || spellSpecialization.HasEntry(ability)) {
+                return;
+            }
+            if (ability.Spellbook != null) {
+                var specializationConversions = spellSpecialization.GenerateConversions(ability);
+                foreach (var conversion in specializationConversions) {
+                    List<SpontaneousConversionAbilityData> convertedData = new List<SpontaneousConversionAbilityData>();
+                    AbilityVariants variantComponent = conversion.Blueprint.GetComponent<AbilityVariants>();
+                    if (variantComponent != null) {
+                        foreach (var variant in variantComponent.Variants) {
+                            convertedData.Add(new SpontaneousConversionAbilityData(variant, conversion.Caster, null, conversion.SpellbookBlueprint, conversion) {
+                                DecorationBorderNumber = conversion.DecorationBorderNumber,
+                                DecorationColorNumber = conversion.DecorationColorNumber,
+                                MetamagicData = conversion.MetamagicData?.Clone(),
+                                m_ConvertedFrom = ability
+                            });
+                        }
+                    } else {
+                        convertedData.Add(new SpontaneousConversionAbilityData(conversion.Blueprint, conversion.Caster, null, conversion.SpellbookBlueprint) {
+                            DecorationBorderNumber = conversion.DecorationBorderNumber,
+                            DecorationColorNumber = conversion.DecorationColorNumber,
+                            MetamagicData = conversion.MetamagicData?.Clone(),
+                            m_ConvertedFrom = ability
+                        });
+                    }
+
+                    foreach (var convertAbility in convertedData) {
+                        AbilityData.AddAbilityUnique(ref list, convertAbility);
+                    }
+                }
+            }
+            conversions = list;
+        }
+
         private readonly List<SpellSpecializationEntry> Spells = new List<SpellSpecializationEntry>();
         private readonly List<GreaterSpellSpecializationEntry> Greater = new List<GreaterSpellSpecializationEntry>();
 
@@ -83,47 +123,6 @@ namespace TabletopTweaks.NewUnitParts {
 
         private class GreaterSpellSpecializationEntry {
             public EntityFact Source;
-        }
-
-        [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.GetConversions))]
-        static class AbilityData_GetConversions_SpellSpecializationGreater_Patch {
-            static void Postfix(AbilityData __instance, ref IEnumerable<AbilityData> __result) {
-                if (ModSettings.AddedContent.Feats.IsDisabled("SpellSpecializationGreater")) { return; }
-                List<AbilityData> list = __result.ToList();
-                UnitPartSpellSpecialization spellSpecialization = __instance.Caster.Get<UnitPartSpellSpecialization>();
-                if (spellSpecialization == null || !spellSpecialization.IsGreater() || spellSpecialization.HasEntry(__instance)) {
-                    return;
-                }
-                if (__instance.Spellbook != null) {
-                    var conversions = spellSpecialization.GenerateConversions(__instance);
-                    foreach (var conversion in conversions) {
-                        List<SpontaneousConversionAbilityData> convertedData = new List<SpontaneousConversionAbilityData>();
-                        AbilityVariants variantComponent = conversion.Blueprint.GetComponent<AbilityVariants>();
-                        if (variantComponent != null) {
-                            foreach (var variant in variantComponent.Variants) {
-                                convertedData.Add(new SpontaneousConversionAbilityData(variant, conversion.Caster, null, conversion.SpellbookBlueprint, conversion) {
-                                    DecorationBorderNumber = conversion.DecorationBorderNumber,
-                                    DecorationColorNumber = conversion.DecorationColorNumber,
-                                    MetamagicData = conversion.MetamagicData?.Clone(),
-                                    m_ConvertedFrom = __instance
-                                });
-                            }
-                        } else {
-                            convertedData.Add(new SpontaneousConversionAbilityData(conversion.Blueprint, conversion.Caster, null, conversion.SpellbookBlueprint) {
-                                DecorationBorderNumber = conversion.DecorationBorderNumber,
-                                DecorationColorNumber = conversion.DecorationColorNumber,
-                                MetamagicData = conversion.MetamagicData?.Clone(),
-                                m_ConvertedFrom = __instance
-                            });
-                        }
-
-                        foreach (var ability in convertedData) {
-                            AbilityData.AddAbilityUnique(ref list, ability);
-                        }
-                    }
-                }
-                __result = list;
-            }
         }
 
         [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.RequireFullRoundAction), MethodType.Getter)]
