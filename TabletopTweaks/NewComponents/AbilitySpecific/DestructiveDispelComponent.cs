@@ -18,6 +18,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         }
 
         public void OnEventDidTrigger(RuleDispelMagic evt) {
+            if (evt.Initiator.IsAlly(evt.Target)) { return; }
             MechanicsContext maybeContext = base.Fact.MaybeContext;
             if (maybeContext != null && evt.Success && (this.TriggerOnAreaEffectsDispell || evt.AreaEffect == null)) {
                 using (maybeContext.GetDataScope(evt.Target)) {
