@@ -20,13 +20,13 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
 
         public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {
             if (IsValidWeapon(evt.Weapon)) {
-                var classLevel = this.Owner.Progression.GetClassLevel(CheckedClass);
+                var classLevel = FighterWeaponTrainingProperty.Get().GetInt(this.Owner);
                 DiceFormula? formula = classLevel switch {
                     >= 1 and < 6 => new DiceFormula(1, DiceType.D6),
                     >= 6 and < 10 => new DiceFormula(1, DiceType.D8),
                     >= 10 and < 15 => new DiceFormula(1, DiceType.D10),
                     >= 15 and < 20 => new DiceFormula(2, DiceType.D6),
-                    20 => new DiceFormula(2, DiceType.D8),
+                    >= 20 => new DiceFormula(2, DiceType.D8),
                     _ => null
                 };
                 evt.WeaponDamageDiceOverride = formula;
@@ -46,6 +46,6 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
         }
 
-        public BlueprintCharacterClassReference CheckedClass;
+        public BlueprintUnitPropertyReference FighterWeaponTrainingProperty;
     }
 }

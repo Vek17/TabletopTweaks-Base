@@ -14,6 +14,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
     class CriticalDeflection {
         public static void AddCriticalDeflection() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+            var FighterArmorTrainingProperty = Resources.GetModBlueprintReference<BlueprintUnitPropertyReference>("FighterArmorTrainingProperty");
 
             var CriticalDeflectionEffect = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionEffect", bp => {
                 bp.SetName("Critical Deflection");
@@ -30,14 +31,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
+                    c.m_CustomProperty = FighterArmorTrainingProperty;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 7;
                     c.m_StepLevel = 4;
                     c.m_Max = 4;
                     c.m_Min = 1;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 });
             });
             var CriticalDeflectionFeature = Helpers.CreateBlueprint<BlueprintFeature>("CriticalDeflectionFeature", bp => {

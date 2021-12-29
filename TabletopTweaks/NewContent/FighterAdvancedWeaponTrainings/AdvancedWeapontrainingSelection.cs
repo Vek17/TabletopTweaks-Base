@@ -2,13 +2,34 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
     class AdvancedWeapontrainingSelection {
         public static void AddAdvancedWeaponTrainingSelection() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+            var FighterTrainingFakeLevel = Resources.GetModBlueprintReference<BlueprintUnitFactReference>("FighterTrainingFakeLevel");
+
+            var FighterWeaponTrainingProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("FighterWeaponTrainingProperty", bp => {
+                bp.AddComponent<CompositeCustomPropertyGetter>(c => {
+                    c.CalculationMode = CompositeCustomPropertyGetter.Mode.Sum;
+                    c.Properties = new CompositeCustomPropertyGetter.ComplexCustomProperty[] {
+                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){
+                            Property = new FactRankGetter(){
+                                m_Fact = FighterTrainingFakeLevel
+                            }
+                        },
+                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){
+                            Property = new ClassLevelGetter(){
+                                m_Class = FighterClass.ToReference<BlueprintCharacterClassReference>()
+                            }
+                        }
+                    };
+                });
+            });
             var AdvancedWeaponTraining1 = Resources.GetBlueprint<BlueprintFeatureSelection>("3aa4cbdd4af5ba54888b0dc7f07f80c4");
             var AdvancedWeapontrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>("AdvancedWeaponTrainingSelection", bp => {
                 bp.SetName("Advanced Weapon Training");

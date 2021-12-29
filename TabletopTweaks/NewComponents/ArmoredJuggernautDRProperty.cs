@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
@@ -17,12 +18,7 @@ namespace TabletopTweaks.NewComponents {
                 return 0;
 
             var armorProficiencyGroup = unit.Body.Armor.Armor.Blueprint.ProficiencyGroup;
-
-            int fighterLevel = 0;
-            foreach (ClassData classData in unit.Descriptor.Progression.Classes) {
-                if (classData.CharacterClass.Equals(FighterClass))
-                    fighterLevel += classData.Level;
-            }
+            int fighterLevel = FighterArmorTrainingProperty.Get().GetInt(unit);
 
             if (fighterLevel == 0)
                 return 0;
@@ -50,5 +46,7 @@ namespace TabletopTweaks.NewComponents {
                 return 0;
             }
         }
+
+        public BlueprintUnitPropertyReference FighterArmorTrainingProperty;
     }
 }

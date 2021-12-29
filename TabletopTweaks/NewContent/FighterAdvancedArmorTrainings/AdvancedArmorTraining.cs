@@ -3,10 +3,12 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using System;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
@@ -15,7 +17,25 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
             var FighterFeatSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("41c8486641f7d6d4283ca9dae4147a9f");
+            var FighterTrainingFakeLevel = Resources.GetModBlueprintReference<BlueprintUnitFactReference>("FighterTrainingFakeLevel");
 
+            var FighterArmorTrainingProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("FighterArmorTrainingProperty", bp => {
+                bp.AddComponent<CompositeCustomPropertyGetter>(c => {
+                    c.CalculationMode = CompositeCustomPropertyGetter.Mode.Sum;
+                    c.Properties = new CompositeCustomPropertyGetter.ComplexCustomProperty[] {
+                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){
+                            Property = new FactRankGetter(){
+                                m_Fact = FighterTrainingFakeLevel
+                            }
+                        },
+                        new CompositeCustomPropertyGetter.ComplexCustomProperty(){
+                            Property = new ClassLevelGetter(){
+                                m_Class = FighterClass.ToReference<BlueprintCharacterClassReference>()
+                            }
+                        }
+                    };
+                });
+            });
             var ArmorTrainingSpeedFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmorTrainingSpeedFeature", bp => {
                 bp.Ranks = 5;
                 bp.SetName("Armor Training Speed");

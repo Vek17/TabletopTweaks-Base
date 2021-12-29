@@ -40,6 +40,13 @@ namespace TabletopTweaks.NewContent {
                 MagusArcana.SpellBlending.AddSpellBlending();
                 MagusArcana.BroadStudy.AddBroadStudy();
 
+                Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
+                Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
+                Features.LongspearChargeBuff.AddLongspearChargeBuff();
+                Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
+                Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
+                Features.FighterTrainingFakeLevel.AddFighterTrainingFakeLevel();
+
                 FighterAdvancedWeaponTrainings.AdvancedWeapontrainingSelection.AddAdvancedWeaponTrainingSelection();
                 FighterAdvancedWeaponTrainings.DefensiveWeaponTraining.AddDefensiveWeaponTraining();
                 FighterAdvancedWeaponTrainings.FocusedWeapon.AddFocusedWeapon();
@@ -53,12 +60,6 @@ namespace TabletopTweaks.NewContent {
                 FighterAdvancedArmorTrainings.ArmorSpecialization.AddArmorSpecialization();
                 FighterAdvancedArmorTrainings.CriticalDeflection.AddCriticalDeflection();
                 FighterAdvancedArmorTrainings.SteelHeadbutt.AddSteelHeadbutt();
-
-                Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
-                Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
-                Features.LongspearChargeBuff.AddLongspearChargeBuff();
-                Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
-                Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();
@@ -83,6 +84,7 @@ namespace TabletopTweaks.NewContent {
                 Archetypes.DivineCommander.AddDivineCommander();
                 Archetypes.NatureFang.AddNatureFang();
                 Archetypes.ChannelerOfTheUnknown.AddChannelerOfTheUnknown();
+                Archetypes.Myrmidarch.AddMyrmidarch();
                 //Features to support existing prestige clases
                 Classes.Loremaster.AddLoremasterFeatures();
 

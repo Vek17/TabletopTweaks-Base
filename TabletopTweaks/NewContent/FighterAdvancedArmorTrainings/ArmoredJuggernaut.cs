@@ -15,6 +15,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
     class ArmoredJuggernaut {
         public static void AddArmoredJuggernaut() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+            var FighterArmorTrainingProperty = Resources.GetModBlueprintReference<BlueprintUnitPropertyReference>("FighterArmorTrainingProperty");
 
             var ArmoredJuggernautLightEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautLightEffect", bp => {
                 bp.SetName("Armored Juggernaut Effect");
@@ -37,14 +38,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
+                    c.m_CustomProperty = FighterArmorTrainingProperty;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 11;
                     c.m_StepLevel = 4;
                     c.m_Max = 1;
                     c.m_Min = 1;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 });
             });
             var ArmoredJuggernautMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautMediumEffect", bp => {
@@ -66,14 +67,14 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
+                    c.m_CustomProperty = FighterArmorTrainingProperty;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 7;
                     c.m_StepLevel = 4;
                     c.m_Max = 2;
                     c.m_Min = 1;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 });
             });
             var ArmoredJuggernautHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautHeavyEffect", bp => {
@@ -106,19 +107,21 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
+                    c.m_CustomProperty = FighterArmorTrainingProperty;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 7;
                     c.m_StepLevel = 4;
                     c.m_Max = 2;
                     c.m_Min = 1;
                     c.m_UseMax = true;
-                    c.m_Class = new BlueprintCharacterClassReference[] { FighterClass.ToReference<BlueprintCharacterClassReference>() };
                 });
             });
 
             var ArmoredJuggernautDRProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("ArmoredJuggernautDRProperty", bp => {
-                bp.AddComponent(Helpers.Create<ArmoredJuggernautDRProperty>());
+                bp.AddComponent<ArmoredJuggernautDRProperty>(c => {
+                    c.FighterArmorTrainingProperty = FighterArmorTrainingProperty;
+                });
             });
 
             var ArmoredJuggernautFeature = Helpers.CreateBlueprint<BlueprintFeature>("ArmoredJuggernautFeature", bp => {

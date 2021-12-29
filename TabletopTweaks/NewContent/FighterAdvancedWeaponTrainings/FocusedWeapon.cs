@@ -13,6 +13,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
     class FocusedWeapon {
         public static void AddFocusedWeapon() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
+            var FighterWeaponTrainingProperty = Resources.GetModBlueprintReference<BlueprintUnitPropertyReference>("FighterWeaponTrainingProperty");
             var WeaponFinesse = Resources.GetBlueprint<BlueprintFeature>("90e54424d682d104ab36436bd527af09");
             var WeaponFocus = Resources.GetBlueprint<BlueprintParametrizedFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e");
 
@@ -24,7 +25,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
                     "A focused weapon deals 1d6 damage, this increases to 1d8 at level 6, 1d10 at level 10, 2d6 at level 15, and 2d8 at level 20");
                 bp.m_Icon = WeaponFinesse.Icon;
                 bp.AddComponent<FocusedWeaponDamageComponent>(c => {
-                    c.CheckedClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
+                    c.FighterWeaponTrainingProperty = FighterWeaponTrainingProperty;
                 });
             });
             var FocusedWeaponToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>("FocusedWeaponToggleAbility", bp => {

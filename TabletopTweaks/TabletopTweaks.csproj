@@ -333,6 +333,7 @@
     <Compile Include="NewComponents\OwlcatReplacements\SuppressBuffsPersistant.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
     <Compile Include="NewContent\Archetypes\ChannelerOfTheUnknown.cs" />
+    <Compile Include="NewContent\Archetypes\Myrmidarch.cs" />
     <Compile Include="NewContent\Archetypes\NatureFang.cs" />
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
@@ -356,6 +357,7 @@
     <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
+    <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />
