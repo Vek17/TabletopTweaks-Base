@@ -56,6 +56,9 @@ namespace TabletopTweaks.NewContent.Archetypes {
             var ArmorTrainingSelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArmorTrainingSelection");
             var FighterTrainingFakeLevel = Resources.GetModBlueprintReference<BlueprintFeatureBaseReference>("FighterTrainingFakeLevel");
 
+            var ArcaneMediumArmor = Resources.GetBlueprintReference<BlueprintFeatureBaseReference>("b24897e082896654c8dd64c8fb677363");
+            var ArcaneHeavyArmor = Resources.GetBlueprintReference<BlueprintFeatureBaseReference>("447ca91389e5c9246acb2c640d63f4da");
+
             var MyrmidarchSpellLevels = Helpers.CreateBlueprint<BlueprintSpellsTable>("MyrmidarchSpellLevels", bp => {
                 bp.Levels = SwordSaintSpellLevels.Levels.Select(level => SpellTools.CreateSpellLevelEntry(level.Count)).ToArray();
             });
@@ -262,10 +265,18 @@ namespace TabletopTweaks.NewContent.Archetypes {
             if (ModSettings.AddedContent.Archetypes.IsDisabled("ChannelerOfTheUnknown")) { return; }
             MagusClass.m_Archetypes = MagusClass.m_Archetypes.AppendToArray(MyrmidarchArchetype.ToReference<BlueprintArchetypeReference>());
             /*
-            MagusClass.Progression.UIGroups
-                .Where(group => group.Features.Contains(ArcanePoolFeature))
-                .ForEach(group => group.m_Features.Add(BladeBoundArcanePool.ToReference<BlueprintFeatureBaseReference>()));
+            MagusClass.Progression.UIGroups.Where(group => group.m_Features.Contains(ArcaneMediumArmor)).ForEach(group => {
+                group.m_Features.Add(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
+                group.m_Features.Add(ArmorTrainingSelection.ToReference<BlueprintFeatureBaseReference>());
+                group.m_Features.Add(ArmorMastery.ToReference<BlueprintFeatureBaseReference>());
+            });
             */
+            MagusClass.Progression.UIGroups = MagusClass.Progression.UIGroups.AppendToArray(
+                Helpers.CreateUIGroup(WeaponTrainingSelection),
+                //Helpers.CreateUIGroup(WeaponTrainingRankUpSelection),
+                Helpers.CreateUIGroup(ArmorTraining, ArmorTrainingSelection, ArmorMastery),
+                Helpers.CreateUIGroup(MyrmidarchFighterTraining, MyrmidarchFighterTrainingUpgrade)
+            );
             Main.LogPatch("Added", MyrmidarchArchetype);
             /*
             // Add to Mystic Theurge

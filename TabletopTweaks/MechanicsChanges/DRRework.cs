@@ -452,6 +452,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchBrokenDRSettings();
                 PatchArmorMastery();
                 PatchArmoredJuggernaut();
+                PatchThroneKeeper();
             }
 
             static void PatchArmorDR() {
@@ -693,6 +694,26 @@ namespace TabletopTweaks.MechanicsChanges {
                     "and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, " +
                     "and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. " +
                     "The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.");
+            }
+
+            static void PatchThroneKeeper() {
+
+                var ThroneKeeperFeature = Resources.GetBlueprintReference<BlueprintUnitFactReference>("8c7de3b7d51a4b49a46990d8dbc84853");  // ThroneKeeperFeature
+
+                BlueprintUnitFactReference[] adamantineArmorFeatures = new BlueprintUnitFactReference[] {
+                    Resources.GetBlueprint<BlueprintFeature>("e93a376547629e2478d6f50e5f162efb").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorLightFeature
+                    Resources.GetBlueprint<BlueprintFeature>("74a80c42774045f4d916dc0d990b7738").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorMediumFeature
+                    Resources.GetBlueprint<BlueprintFeature>("dbbf704bfcc78854ab149597ef9aae7c").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorHeavyFeature
+                };
+
+                BlueprintUnitFactReference armorMasteryBuff = Resources.GetBlueprint<BlueprintBuff>("0794e96a6c5da8f41979d809bb4a9a8c").ToReference<BlueprintUnitFactReference>();
+
+                adamantineArmorFeatures.ForEach(feature => {
+                    var component = feature.Get().GetComponent<TTAddDamageResistancePhysical>();
+                    if (component) {
+                        component.IncreasedByFacts = component.IncreasedByFacts.AppendToArray(ThroneKeeperFeature);
+                    }
+                });
             }
         }
     }

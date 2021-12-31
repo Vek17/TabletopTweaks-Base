@@ -76,9 +76,11 @@ namespace TabletopTweaks.Extensions {
         }
 
         public static T[] AppendToArray<T>(this T[] array, T value) {
-            var len = array.Length;
+            var len = array?.Length ?? 0;
             var result = new T[len + 1];
-            Array.Copy(array, result, len);
+            if (len > 0) {
+                Array.Copy(array, result, len);
+            }
             result[len] = value;
             return result;
         }
