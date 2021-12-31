@@ -109,7 +109,7 @@ namespace TabletopTweaks.Bugfixes.General {
                 .Where(e => !item.Blueprint.Enchantments.Contains(e.Blueprint))
                 .GetEnchantmentSuffixes();
             int totalEnhancment = item.GetItemEnhancementBonus();
-            int baseEnhancment = item.GetWeaponBlueprintEnhancementBonus();
+            int baseEnhancment = item.GetBlueprintEnhancementBonus();
             if (totalEnhancment > baseEnhancment) {
                 text += $" +{totalEnhancment}";
             }
@@ -124,9 +124,24 @@ namespace TabletopTweaks.Bugfixes.General {
         private static int GetWeaponEnhancementBonus(this ItemEntityWeapon item) {
             return GameHelper.GetItemEnhancementBonus(item);
         }
+
+        private static int GetBlueprintEnhancementBonus(this ItemEntity item) {
+            ItemEntityWeapon weapon = item as ItemEntityWeapon;
+            ItemEntityArmor armor = item as ItemEntityArmor;
+            if (weapon != null) { return item.GetWeaponBlueprintEnhancementBonus(); }
+            if (armor != null) { return item.GetArmorBlueprintEnhancementBonus(); }
+            return 0;
+        }
+
         private static int GetWeaponBlueprintEnhancementBonus(this ItemEntity item) {
             ItemEntityWeapon weapon = item as ItemEntityWeapon;
             if (weapon != null) { return GameHelper.GetWeaponEnhancementBonus(weapon.Blueprint); }
+            return 0;
+        }
+
+        private static int GetArmorBlueprintEnhancementBonus(this ItemEntity item) {
+            ItemEntityArmor armor = item as ItemEntityArmor;
+            if (armor != null) { return GameHelper.GetArmorEnhancementBonus(armor.Blueprint); }
             return 0;
         }
 
