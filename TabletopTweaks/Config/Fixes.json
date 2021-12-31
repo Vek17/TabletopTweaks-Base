@@ -38,6 +38,11 @@
         "Homebrew": false,
         "Description": "Prevents multiple polymorph effects from being applied to a character at a time."
       },
+      "DisplaySpellbookInTooltips": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Updates spell tooltips to include what spellbook the spell is in."
+      },
       "DynamicItemNaming": {
         "Enabled": true,
         "Homebrew": false,
@@ -374,6 +379,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Disables spell combat immediatly when toggled off instead of having to wait until the next round."
+        },
+        "SpellCombatSpellbookRestrictions": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents spells that are not in the magus spellbook from working with spell combat."
         }
       },
       "IsExpanded": true

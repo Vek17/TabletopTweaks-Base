@@ -44,12 +44,12 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         public bool IsBroadStudy(AbilityData spell) {
-            var Spellbook = spell?.Spellbook?.Blueprint;
+            var Spellbook = spell?.Spellbook;
             if (Spellbook == null) { return false; }
             return Classes.Any(c => {
                 Spellbook book = Owner?.DemandSpellbook(c.CharacterClass);
-                return book?.Blueprint?.AssetGuid == Spellbook.AssetGuid
-                || spell.IsInSpellList(book.Blueprint.SpellList);
+                return book == Spellbook;
+                //|| spell.IsInSpellList(book.Blueprint.SpellList);
             });
         }
 
