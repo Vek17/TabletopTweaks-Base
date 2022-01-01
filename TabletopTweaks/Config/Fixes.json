@@ -703,6 +703,11 @@
         "Homebrew": false,
         "Description": "Greater Shadow Evocation can now have the correct metamagic applied."
       },
+      "Starlight": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Starlight no longer is affected by true sight."
+      },
       "WrackingRay": {
         "Enabled": true,
         "Homebrew": false,

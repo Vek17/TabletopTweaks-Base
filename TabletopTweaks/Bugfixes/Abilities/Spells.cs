@@ -43,6 +43,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchShadowConjuration();
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
+                PatchStarlight();
                 PatchWrachingRay();
                 PatchFromSpellFlags();
             }
@@ -299,6 +300,13 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     | Metamagic.Selective
                     | Metamagic.Bolstered;
                 Main.LogPatch("Patched", ShadowEvocationGreater);
+            }
+
+            static void PatchStarlight() {
+                if (ModSettings.Fixes.Spells.IsDisabled("Starlight")) { return; }
+                var StarlightAllyBuff = Resources.GetBlueprint<BlueprintBuff>("f4ead47adc2ca2744a00efd4e088ecb2");
+                StarlightAllyBuff.GetComponent<AddConcealment>().Descriptor = ConcealmentDescriptor.InitiatorIsBlind;
+                Main.LogPatch("Patched", StarlightAllyBuff);
             }
 
             static void PatchWrachingRay() {
