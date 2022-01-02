@@ -5,8 +5,9 @@
 * Expanded metamagic rod fixes to more unique rods
 * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
 * Starlight is no longer affected by true sight as it is not an illusion effect
-* Updated Horsemaster prerequisites
+* Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
 * Added Abundant Bombs mythic ability
+* Added Abundant Incense mythic ability
 
 ## Version 1.10.4
 * Now works with 1.1.6e

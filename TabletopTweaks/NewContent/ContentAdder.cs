@@ -101,6 +101,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.MythicSpellCombat.AddMythicSpellCombat();
                 MythicAbilities.PrecisionCritical.AddPrecisionCritical();
                 MythicAbilities.AbundantBombs.AddAbundantBombs();
+                MythicAbilities.AbundantIncense.AddAbundantIncense();
 
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
 

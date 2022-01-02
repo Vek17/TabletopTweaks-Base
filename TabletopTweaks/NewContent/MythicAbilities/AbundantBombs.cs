@@ -15,7 +15,8 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
 
             var AbundantBombsFeature = Helpers.CreateBlueprint<BlueprintFeature>("AbundantBombsFeature", bp => {
                 bp.SetName("Abundant Bombs");
-                bp.SetDescription("You can throw additional bombs per day equal to twice your mythic rank.");
+                bp.SetDescription("You've leaned a way to increase the number of bombs you can use in a day." +
+                    "\nYou can throw a number of additional bombs per day equal to twice your mythic rank.");
                 bp.m_Icon = AlchemistBombsFeature.Icon;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
@@ -32,6 +33,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     c.m_Progression = ContextRankProgression.MultiplyByModifier;
                     c.m_StepLevel = 2;
                 });
+                bp.AddPrerequisiteFeature(AlchemistBombsFeature);
             });
 
             if (ModSettings.AddedContent.MythicAbilities.IsDisabled("AbundantBombs")) { return; }
