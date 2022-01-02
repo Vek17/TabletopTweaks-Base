@@ -409,6 +409,11 @@
         "Homebrew": true,
         "Description": "You can use incense fog for an additional number of rounds equal to your mythic rank."
       },
+      "AbundantLayOnHands": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Lay on Hands a number of additional times per day equal to your mythic rank."
+      },
       "ArmoredMight": {
         "Enabled": true,
         "Homebrew": false,

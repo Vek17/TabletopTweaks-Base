@@ -11,12 +11,12 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
     static class AbundantBombs {
         public static void AddAbundantBombs() {
             var AlchemistBombsFeature = Resources.GetBlueprint<BlueprintFeature>("c59b2f256f5a70a4d896568658315b7d");
-            var AlchemistBombsResource = Resources.GetBlueprint<BlueprintAbilityResource>("1633025edc9d53f4691481b48248edd7");
+            var AlchemistBombsResource = Resources.GetBlueprintReference<BlueprintAbilityResourceReference>("1633025edc9d53f4691481b48248edd7");
 
             var AbundantBombsFeature = Helpers.CreateBlueprint<BlueprintFeature>("AbundantBombsFeature", bp => {
                 bp.SetName("Abundant Bombs");
-                bp.SetDescription("You've leaned a way to increase the number of bombs you can use in a day." +
-                    "\nYou can throw a number of additional bombs per day equal to twice your mythic rank.");
+                bp.SetDescription("You've leaned a way to increase the number of bombs you can use in a day.\n" +
+                    "Benefit: You can throw a number of additional bombs per day equal to twice your mythic rank.");
                 bp.m_Icon = AlchemistBombsFeature.Icon;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
@@ -26,7 +26,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank
                     };
-                    c.m_Resource = AlchemistBombsResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_Resource = AlchemistBombsResource;
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;

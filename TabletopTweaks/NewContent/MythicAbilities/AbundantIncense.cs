@@ -13,7 +13,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
         public static void AddAbundantIncense() {
             var IncenseFogFeature = Resources.GetBlueprint<BlueprintFeature>("7614401346b64a8409f7b8c367db488f");
             var IncenseFogToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("b62231e54e07068419a420f2988157b3");
-            var IncenseFogResource = Resources.GetBlueprint<BlueprintAbilityResource>("d03d97aac38e798479b81dfa9eda55c6");
+            var IncenseFogResource = Resources.GetBlueprintReference<BlueprintAbilityResourceReference>("d03d97aac38e798479b81dfa9eda55c6");
 
             var AbundantIncenseFeature = Helpers.CreateBlueprint<BlueprintFeature>("AbundantIncenseFeature", bp => {
                 bp.SetName("Abundant Incense");
@@ -28,7 +28,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank
                     };
-                    c.m_Resource = IncenseFogResource.ToReference<BlueprintAbilityResourceReference>();
+                    c.m_Resource = IncenseFogResource;
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
