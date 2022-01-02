@@ -229,7 +229,6 @@
     <Compile Include="NewComponents\ArmorEnchantsToWeapon.cs" />
     <Compile Include="NewComponents\ContextArcaneSpellFailureIncrease.cs" />
     <Compile Include="NewComponents\ContextArmorCheckPenaltyIncrease.cs" />
-    <Compile Include="NewComponents\ContextIncreaseResourceAmount.cs" />
     <Compile Include="NewComponents\ContextMaxDexBonusIncrease.cs" />
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
     <Compile Include="NewComponents\ForceACUpdate.cs" />
@@ -359,6 +358,7 @@
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />

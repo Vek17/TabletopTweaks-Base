@@ -399,6 +399,11 @@
   "MythicAbilities": {
     "DisableAll": false,
     "Settings": {
+      "AbundantBombs": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can throw additional bombs per day equal to twice your mythic rank."
+      },
       "ArmoredMight": {
         "Enabled": true,
         "Homebrew": false,

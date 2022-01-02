@@ -1196,15 +1196,15 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         ArcanePoolFeature.ToReference<BlueprintUnitFactReference>(),
                     };
                 });
-                bp.AddComponent<ContextIncreaseResourceAmount>(c => {
+                bp.AddComponent<IncreaseResourceAmountBySharedValue>(c => {
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.DamageBonus
                     };
-                    c.Subtract = true;
+                    c.Decrease = true;
                     c.m_Resource = ArcanePoolResourse.ToReference<BlueprintAbilityResourceReference>();
                 });
-                bp.AddComponent<ContextIncreaseResourceAmount>(c => {
+                bp.AddComponent<IncreaseResourceAmountBySharedValue>(c => {
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus

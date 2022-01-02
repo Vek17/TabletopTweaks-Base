@@ -100,6 +100,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.MountedManiac.AddMountedManiac();
                 MythicAbilities.MythicSpellCombat.AddMythicSpellCombat();
                 MythicAbilities.PrecisionCritical.AddPrecisionCritical();
+                MythicAbilities.AbundantBombs.AddAbundantBombs();
 
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
 
