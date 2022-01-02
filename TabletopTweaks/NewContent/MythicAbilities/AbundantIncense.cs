@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -11,13 +12,14 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
     static class AbundantIncense {
         public static void AddAbundantIncense() {
             var IncenseFogFeature = Resources.GetBlueprint<BlueprintFeature>("7614401346b64a8409f7b8c367db488f");
+            var IncenseFogToggleAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("b62231e54e07068419a420f2988157b3");
             var IncenseFogResource = Resources.GetBlueprint<BlueprintAbilityResource>("d03d97aac38e798479b81dfa9eda55c6");
 
             var AbundantIncenseFeature = Helpers.CreateBlueprint<BlueprintFeature>("AbundantIncenseFeature", bp => {
                 bp.SetName("Abundant Incense");
                 bp.SetDescription("You've learned a way to increase the number of rounds per day you can use Incense Fog.\n" +
                     "Benefit: The number of rounds per day you can use Incense Fog increases by a number of rounds equal to your mythic rank.");
-                bp.m_Icon = IncenseFogFeature.Icon;
+                bp.m_Icon = IncenseFogToggleAbility.Icon;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;

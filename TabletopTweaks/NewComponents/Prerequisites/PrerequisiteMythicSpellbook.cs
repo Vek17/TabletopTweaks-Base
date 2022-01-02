@@ -14,9 +14,9 @@ namespace TabletopTweaks.NewComponents.Prerequisites {
 
         public override string GetUITextInternal(UnitDescriptor unit) {
             if (RequiredSpellLevel > 0) {
-                return $"Can cast spells of level {RequiredSpellLevel} or higher from spellbook";
+                return $"Can cast spells of level {RequiredSpellLevel} or higher from mythic spellbook";
             }
-            return $"Has spellbook";
+            return $"Has mythic spellbook";
         }
 
         public int RequiredSpellLevel;
