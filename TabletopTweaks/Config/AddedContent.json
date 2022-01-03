@@ -456,7 +456,7 @@
       },
       "SecondPatron": {
         "Enabled": true,
-        "Homebrew": false,
+        "Homebrew": true,
         "Description": "You select a second patron, gaining all its benifits."
       }
     },
