@@ -8,6 +8,8 @@
 * Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
 * Added Abundant Bombs mythic ability
 * Added Abundant Incense mythic ability
+* Added Abundant Lay On Hands mythic ability
+* Added Abundant Fervor mythic ability
 
 ## Version 1.10.4
 * Now works with 1.1.6e

@@ -359,6 +359,7 @@
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
