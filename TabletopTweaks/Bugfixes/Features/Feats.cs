@@ -371,7 +371,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 Main.LogPatch("Updating", SelectiveSpellFeat);
                 foreach (var spell in spells) {
                     bool isAoE = spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityTargetsAround>());
-                    isAoE |= spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Cone 
+                    isAoE |= spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Cone
                         || v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Line);
                     if (isAoE) {
                         if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Selective)) {

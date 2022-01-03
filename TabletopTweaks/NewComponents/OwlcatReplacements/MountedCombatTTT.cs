@@ -9,7 +9,6 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("6529138e5e96494f958a758ee21e451e")]

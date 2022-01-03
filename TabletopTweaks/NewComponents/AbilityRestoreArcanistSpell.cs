@@ -1,20 +1,9 @@
-﻿using HarmonyLib;
-using JetBrains.Annotations;
-using Kingmaker;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Spells;
+﻿using Kingmaker;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
-using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using TabletopTweaks.NewEvents;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("3d768a2d4890495c8a76167a1c411c60")]

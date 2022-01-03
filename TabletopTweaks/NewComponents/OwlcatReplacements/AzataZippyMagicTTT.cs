@@ -2,11 +2,9 @@
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Controllers.Optimization;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Abilities;
-using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;

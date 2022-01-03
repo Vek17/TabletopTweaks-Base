@@ -71,7 +71,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddPrerequisite<PrerequisitePet>();
             });
-            
+
             if (ModSettings.AddedContent.Feats.IsDisabled("NatureSoul")) { return; }
             FeatTools.AddAsFeat(HorseMaster);
             CavalierProgression.LevelEntries
@@ -88,12 +88,11 @@ namespace TabletopTweaks.NewContent.Feats {
                 .AppendToArray(Helpers.LevelEntry(4, ExpertTrainer));
 
             SaveGameFix.AddUnitPatch((unit) => {
-                if (unit.Progression.GetClassLevel(CavalierClass) >= 4 
+                if (unit.Progression.GetClassLevel(CavalierClass) >= 4
                 && !unit.Progression.GetClassData(CavalierClass).Archetypes
-                    .Any(achetype => achetype == BeastRiderArchetype 
-                        || achetype == DiscipleOfThePikeArchetype 
-                        || achetype == KnightOfTheWallArchetype)) 
-                {
+                    .Any(achetype => achetype == BeastRiderArchetype
+                        || achetype == DiscipleOfThePikeArchetype
+                        || achetype == KnightOfTheWallArchetype)) {
                     if (!unit.HasFact(ExpertTrainer)) {
                         if (unit.AddFact(ExpertTrainer) != null) {
                             Main.Log($"Added: {ExpertTrainer.name} To: {unit.CharacterName}");

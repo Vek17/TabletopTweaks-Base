@@ -3,7 +3,6 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 
 namespace TabletopTweaks.NewComponents {

@@ -10,7 +10,6 @@ using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
@@ -69,7 +68,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                         };
                     HalfOfPairedPendantArea.FlattenAllActions()
                         .OfType<ContextActionApplyBuff>()
-                        .ForEach(c => { 
+                        .ForEach(c => {
                             c.ToCaster = false;
                             c.AsChild = false;
                         });

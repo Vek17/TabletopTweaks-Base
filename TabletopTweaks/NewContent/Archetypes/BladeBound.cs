@@ -4,13 +4,11 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
@@ -431,7 +429,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.m_Icon = BlackBladeEnergyAttunementBaseAbility.Icon;
             });
 
-            
+
             var BlackBladeTransferArcanaAbility = Helpers.CreateBlueprint<BlueprintAbility>("BlackBladeTransferArcanaAbility", bp => {
                 bp.SetName("Transfer Arcana — Magus");
                 bp.SetDescription("At 13th level a magus can attempt to siphon points from his black blade’s arcane pool " +
@@ -1233,7 +1231,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
                 });
             });
-            
+
             BladeBoundArchetype.RemoveFeatures = new LevelEntry[] {
                 Helpers.CreateLevelEntry(1, ArcanePoolFeature),
                 Helpers.CreateLevelEntry(3, MagusArcanaSelection)

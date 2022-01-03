@@ -13,7 +13,7 @@ using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.General {
     class ShadowMagicFix {
-        [HarmonyPatch(typeof(AutoMetamagic), nameof(AutoMetamagic.ShouldApplyTo), new Type[] { 
+        [HarmonyPatch(typeof(AutoMetamagic), nameof(AutoMetamagic.ShouldApplyTo), new Type[] {
             typeof(AutoMetamagic),
             typeof(BlueprintAbility),
             typeof(AbilityData)

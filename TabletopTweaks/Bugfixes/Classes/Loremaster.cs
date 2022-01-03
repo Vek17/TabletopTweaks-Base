@@ -5,7 +5,6 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
-using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;

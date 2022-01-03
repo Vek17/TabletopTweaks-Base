@@ -1,41 +1,17 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
-using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Abilities.Components.Base;
-using Kingmaker.UnitLogic.Commands.Base;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.UnitLogic.Mechanics.Properties;
-using Kingmaker.Utility;
-using Kingmaker.Visual.Animation.Kingmaker.Actions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
-using static TabletopTweaks.NewUnitParts.CustomStatTypes;
 
 namespace TabletopTweaks.NewContent.Archetypes {
     static class Myrmidarch {
-        
+
         public static void AddMyrmidarch() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var MagusClass = Resources.GetBlueprint<BlueprintCharacterClass>("45a4607686d96a1498891b3286121780");

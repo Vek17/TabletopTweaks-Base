@@ -14,9 +14,9 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var LayOnHandsResource = Resources.GetBlueprintReference<BlueprintAbilityResourceReference>("9dedf41d995ff4446a181f143c3db98c");
 
             var AbundantLayOnHandsFeature = Helpers.CreateBlueprint<BlueprintFeature>("AbundantLayOnHandsFeature", bp => {
-                bp.SetName("Abundant Lay on Hands");
+                bp.SetName("Abundant Lay On Hands");
                 bp.SetDescription("You've learned a way to increase the number of uses of your Lay on Hands ability.\n" +
-                    "Benefit: You can use Lay on Hands a number of additional times per day equal to your mythic rank.");
+                    "Benefit: You can use Lay On Hands a number of additional times per day equal to your mythic rank.");
                 bp.m_Icon = LayOnHandsFeature.Icon;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
