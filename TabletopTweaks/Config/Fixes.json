@@ -147,7 +147,13 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "MutagenStacking": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents the stacking of mutagens. Only one may be active at a time."
+        }
+      },
       "IsExpanded": true
     },
     "Archetypes": {
