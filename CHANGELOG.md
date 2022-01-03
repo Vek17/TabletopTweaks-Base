@@ -10,6 +10,7 @@
 * Added Abundant Incense mythic ability
 * Added Abundant Lay On Hands mythic ability
 * Added Abundant Fervor mythic ability
+* Added Harmonious Mage mythic ability
 * Added Second Patron mythic ability
 
 ## Version 1.10.4

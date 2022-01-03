@@ -434,6 +434,11 @@
         "Homebrew": true,
         "Description": "Alternate versrion of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank."
       },
+      "HarmoniousMage": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your wizardly studies have moved beyond the concept of opposition schools. Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two."
+      },
       "ImpossibleSpeed": {
         "Enabled": true,
         "Homebrew": false,
