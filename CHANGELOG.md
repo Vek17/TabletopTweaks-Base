@@ -1,9 +1,9 @@
 ## Version 1.10.5
 * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
+* Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
+* Expanded metamagic rod fixes to more unique rods
 * Magus spell combat/strike is now properly restricted to magus spells
 * Spell tooltips now display what spellbook they are from
-* Expanded metamagic rod fixes to more unique rods
-* Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
 * Starlight is no longer affected by true sight as it is not an illusion effect
 * Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
 * Added Abundant Bombs mythic ability
