@@ -3,7 +3,9 @@
   "NewBlueprints": {
     "AberrantBloodlineRequisiteFeature": "2ded002a-790f-4727-8b20-ad73b9c0adf0",
     "AbundantBombsFeature": "b1932809-31c3-4a5e-a83b-fd94d9bfa01f",
+    "AbundantFervorFeature": "571c4b99-ef3d-47e2-928b-5087dab6cb2b",
     "AbundantIncenseFeature": "911a9b3a-0582-4864-a6f8-ad05ebd991ce",
+    "AbundantLayOnHandsFeature": "045bc1c4-7fa2-44ae-98cd-5c617dfeb924",
     "AdvancedArmorTraining1": "c1e7a208-b5a5-44f5-8071-af88a61ab842",
     "AdvancedArmorTraining2": "7743a11f-8414-49b4-9352-24ac1de82edd",
     "AdvancedArmorTraining3": "59cb9654-de71-4739-9b4d-6a384d32dd3a",
@@ -579,6 +581,7 @@
     "QuickChannel": "47f9d5d7-8cdf-4cda-8687-66cfd9fa8498",
     "QuickDraw": "b7b65e54-2278-4145-8590-31fa48b785e9",
     "Scholar": "6be1a070-d6c7-4d3c-95c6-1e502bdf7ff9",
+    "SecondPatronFeature": "24afc8be-7a96-4e5a-939b-2a199ba60682",
     "SeekerAberrantBloodline": "65128d5d-9d27-4c7a-9a1d-7bbefb021c96",
     "SeekerDestinedBloodline": "1a62c90a-bfa8-426f-8f6c-7962cb162447",
     "Self-Sufficient": "15b614ff-3f90-4f83-98d7-ad7777e22e9d",

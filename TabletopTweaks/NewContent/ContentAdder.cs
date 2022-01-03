@@ -104,6 +104,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.AbundantFervor.AddAbundantFervor();
                 MythicAbilities.AbundantIncense.AddAbundantIncense();
                 MythicAbilities.AbundantLayOnHands.AddAbundantLayOnHands();
+                MythicAbilities.SecondPatron.AddSecondPatron();
 
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
 

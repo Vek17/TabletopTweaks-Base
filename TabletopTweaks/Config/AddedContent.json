@@ -453,6 +453,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. These dice are only doubled, not multiplied by the weapon�s critical modifier."
+      },
+      "SecondPatron": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You select a second patron, gaining all its benifits."
       }
     },
     "IsExpanded": true

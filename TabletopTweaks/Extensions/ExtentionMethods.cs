@@ -199,6 +199,18 @@ namespace TabletopTweaks.Extensions {
             selection.m_AllFeatures = selection.m_AllFeatures.OrderBy(feature => feature.Get().Name).ToArray();
             selection.m_Features = selection.m_Features.OrderBy(feature => feature.Get().Name).ToArray();
         }
+        public static void AddFeatures(this BlueprintFeatureSelection selection, params BlueprintFeatureReference[] features) {
+            foreach (var feature in features) {
+                if (!selection.m_AllFeatures.Contains(feature)) {
+                    selection.m_AllFeatures = selection.m_AllFeatures.AppendToArray(feature);
+                }
+                if (!selection.m_Features.Contains(feature)) {
+                    selection.m_Features = selection.m_Features.AppendToArray(feature);
+                }
+            }
+            selection.m_AllFeatures = selection.m_AllFeatures.OrderBy(feature => feature.Get().Name).ToArray();
+            selection.m_Features = selection.m_Features.OrderBy(feature => feature.Get().Name).ToArray();
+        }
         public static void AddPrerequisiteFeature(this BlueprintFeature obj, BlueprintFeature feature) {
             obj.AddPrerequisiteFeature(feature, GroupType.All);
         }
