@@ -5,7 +5,7 @@ using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.MythicFeats {
-    class MythicShatterDefenses {
+    static class MythicShatterDefenses {
         public static void AddMythicShatterDefenses() {
             var ShatterDefenses = Resources.GetBlueprint<BlueprintFeature>("61a17ccbbb3d79445b0926347ec07577");
             var ShatterDefensesMythicBuff = Helpers.CreateBuff("ShatterDefensesMythicBuff", bp => {

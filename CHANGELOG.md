@@ -1,19 +1,24 @@
 ## Version 1.10.5
-* Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
-* Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
-* Expanded metamagic rod fixes to more unique rods
-* Magus spell combat/strike is now properly restricted to magus spells
-* Spell tooltips now display what spellbook they are from
-* Starlight is no longer affected by true sight as it is not an illusion effect
-* Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
-* Added Abundant Bombs mythic ability
-* Added Abundant Incense mythic ability
-* Added Abundant Lay On Hands mythic ability
-* Added Abundant Fervor mythic ability
-* Added Harmonious Mage mythic ability
-* Added Second Patron mythic ability
-* Added Dispel Focus feat
-* Added Greater Dispel Focus feat
+* Game Adjustments
+    * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
+    * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
+    * Expanded metamagic rod fixes to more unique rods
+    * Magus spell combat/strike is now properly restricted to magus spells
+    * Spell tooltips now display what spellbook they are from
+    * Starlight is no longer affected by true sight as it is not an illusion effect
+    * Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
+* Added Mythic Abilities
+    * Abundant Bombs
+    * Abundant Incense
+    * Abundant Lay On Hands
+    * Abundant Fervor
+    * Harmonious Mage
+    * Second Patron
+* Added Mythic Feats
+    * Combat Reflexes (Mythic)
+* Added Feats
+    * Dispel Focus
+    * Greater Dispel Focus
 
 ## Version 1.10.4
 * Now works with 1.1.6e

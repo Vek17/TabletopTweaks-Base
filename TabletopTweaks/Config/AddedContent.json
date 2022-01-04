@@ -475,6 +475,11 @@
   "MythicFeats": {
     "DisableAll": false,
     "Settings": {
+      "MythicCombatReflexes": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can make any number of additional attacks of opportunity per round."
+      },
       "MythicShatterDefenses": {
         "Enabled": true,
         "Homebrew": false,
