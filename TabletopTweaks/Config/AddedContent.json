@@ -480,6 +480,11 @@
         "Homebrew": false,
         "Description": "You can make any number of additional attacks of opportunity per round."
       },
+      "MythicIntimidatingProwess": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain a bonus on Intimidate checks equal to your mythic rank."
+      },
       "MythicShatterDefenses": {
         "Enabled": true,
         "Homebrew": false,

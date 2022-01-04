@@ -368,6 +368,7 @@
     <Compile Include="NewContent\MythicAbilities\HarmoniousMage.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatReflexes.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicIntimidatingProwess.cs" />
     <Compile Include="NewContent\MythicFeats\MythicWarriorPriest.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />

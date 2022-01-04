@@ -17,13 +17,13 @@ namespace TabletopTweaks.NewContent.MythicFeats {
             var WarriorPriestMythicFeature = Helpers.CreateBlueprint<BlueprintFeature>("WarriorPriestMythicFeature", bp => {
                 bp.m_Icon = WarriorPriest.m_Icon;
                 bp.SetName("Warrior Priest (Mythic)");
-                bp.SetDescription("You gain a bonus equal to half your tier both on initiative checks and on concentration checks.");
+                bp.SetDescription("You gain a bonus equal to half your mythic rank both on initiative checks and on concentration checks.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicFeat };
                 bp.AddComponent<AddContextStatBonus>(c => {
                     c.Stat = StatType.Initiative;
-                    c.Descriptor = ModifierDescriptor.Feat;
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank
                     };
