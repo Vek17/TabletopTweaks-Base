@@ -5,7 +5,7 @@ using TabletopTweaks.Localization;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks.Config {
-    class ModSettings {
+    static class ModSettings {
         public static ModEntry ModEntry;
         public static Fixes Fixes;
         public static AddedContent AddedContent;
