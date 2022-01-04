@@ -32,7 +32,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.WizardFeat };
                 bp.AddComponent<SpellSpecializationGreaterComponent>();
                 bp.AddComponent<RecommendationHasFeature>(c => {
                     c.m_Feature = SpellSpecializationProgression.ToReference<BlueprintUnitFactReference>();
@@ -61,6 +61,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 .Features
                 .Append(SpellSpecializationFirst)
                 .ForEach(feature => feature.AddComponent<SpellSpecializationParametrizedExtension>());
+            FeatTools.AddAsFeat(SpellSpecializationGreater);
             FeatTools.AddAsFeat(SpellSpecializationGreater);
         }
     }

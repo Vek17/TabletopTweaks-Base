@@ -1,11 +1,13 @@
 ﻿using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using System.Text;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
+    [TypeId("1cdf85e299bf474d89e2ce827aa6ecbf")]
     class PrerequisiteSpellBookType : Prerequisite {
         public override bool CheckInternal(FeatureSelectionState selectionState, UnitDescriptor unit, LevelUpState state) {
             int? casterTypeSpellLevel = this.GetCasterTypeSpellLevel(unit);

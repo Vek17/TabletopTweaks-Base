@@ -117,6 +117,11 @@
         "Homebrew": false,
         "Description": "When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls."
       },
+      "DispelFocus": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. Also adds greater dispel focus."
+      },
       "ErastilsBlessing": {
         "Enabled": true,
         "Homebrew": false,

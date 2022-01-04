@@ -231,6 +231,7 @@
     <Compile Include="NewComponents\ContextArmorCheckPenaltyIncrease.cs" />
     <Compile Include="NewComponents\ContextMaxDexBonusIncrease.cs" />
     <Compile Include="NewComponents\CustomSpecialSlotAmount.cs" />
+    <Compile Include="NewComponents\ContextDispelBonusOnType.cs" />
     <Compile Include="NewComponents\ForceACUpdate.cs" />
     <Compile Include="NewComponents\ForceFlatFooted.cs" />
     <Compile Include="NewComponents\HasFactFeatureUnlock.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\NewBaseTypes\ItemEntityRestriction.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AlliedSpellcasterTTT.cs" />
+    <Compile Include="NewComponents\Prerequisites\PrerequisiteSpellKnown.cs" />
     <Compile Include="NewComponents\Properties\CompositeCustomPropertyGetter.cs" />
     <Compile Include="NewComponents\Properties\MadDogPetDRProperty.cs" />
     <Compile Include="NewComponents\Properties\CompositePropertyGetter.cs" />
@@ -352,6 +354,7 @@
     <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\CelestialServant.cs" />
+    <Compile Include="NewContent\Feats\DispelFocus.cs" />
     <Compile Include="NewContent\Feats\HorseMaster.cs" />
     <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
     <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
@@ -642,6 +645,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_ArmorMaster.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_DispelFocus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_GreaterDispelFocus.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_LungingSpellTouch.png">

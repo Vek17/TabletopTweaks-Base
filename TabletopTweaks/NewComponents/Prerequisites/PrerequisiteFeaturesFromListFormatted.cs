@@ -1,10 +1,12 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.UnitLogic;
 using System.Text;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
+    [TypeId("41005dacdb6742e09ae8176f55ac2f3d")]
     class PrerequisiteFeaturesFromListFormatted : PrerequisiteFeaturesFromList {
         public override string GetUITextInternal(UnitDescriptor unit) {
             StringBuilder stringBuilder = new StringBuilder();

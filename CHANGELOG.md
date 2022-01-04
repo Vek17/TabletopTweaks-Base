@@ -12,6 +12,8 @@
 * Added Abundant Fervor mythic ability
 * Added Harmonious Mage mythic ability
 * Added Second Patron mythic ability
+* Added Dispel Focus feat
+* Added Greater Dispel Focus feat
 
 ## Version 1.10.4
 * Now works with 1.1.6e

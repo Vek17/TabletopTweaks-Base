@@ -132,6 +132,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.MountedSkirmisher.AddMountedSkirmisher();
                 Feats.LungingSpellTouch.AddLungingSpellTouch();
                 Feats.HorseMaster.AddHorseMaster();
+                Feats.DispelFocus.AddDispelFocus();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();
