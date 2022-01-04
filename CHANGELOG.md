@@ -16,6 +16,7 @@
     * Second Patron
 * Added Mythic Feats
     * Combat Reflexes (Mythic)
+    * Warrior Priest (Mythic)
 * Added Feats
     * Dispel Focus
     * Greater Dispel Focus

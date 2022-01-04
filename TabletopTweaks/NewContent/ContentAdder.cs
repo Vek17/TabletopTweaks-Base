@@ -109,6 +109,7 @@ namespace TabletopTweaks.NewContent {
 
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
                 MythicFeats.MythicCombatReflexes.AddMythicCombatReflexes();
+                MythicFeats.MythicWarriorPriest.AddMythicWarriorPriest();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 

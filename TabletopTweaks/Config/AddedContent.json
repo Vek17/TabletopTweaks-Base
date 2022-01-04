@@ -484,6 +484,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "An opponent you affect with Shatter Defenses is flat-footed to all attacks, not just yours."
+      },
+      "MythicWarriorPriest": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain a bonus equal to half your tier both on initiative checks and on concentration checks."
       }
     },
     "IsExpanded": true
