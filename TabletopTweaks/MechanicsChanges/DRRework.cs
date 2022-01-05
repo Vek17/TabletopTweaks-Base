@@ -448,6 +448,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchStalwartDefender();
                 PatchBarbariansDR();
                 PatchLichIndestructibleBonesDR();
+                PatchAngelUnbrokenDR();
                 PatchAspectOfOmoxDR();
                 PatchBrokenDRSettings();
                 PatchArmorMastery();
@@ -602,6 +603,14 @@ namespace TabletopTweaks.MechanicsChanges {
                 BlueprintFeature lichIndestructibleBonesFeature = Resources.GetBlueprint<BlueprintFeature>("42274a4428cb43b40acf771a7f5ddfac");
 
                 lichIndestructibleBonesFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.AddToAllStacks = true;
+                });
+            }
+
+            static void PatchAngelUnbrokenDR() {
+                BlueprintBuff AngelUnbrokenEffectBuff = Resources.GetBlueprint<BlueprintBuff>("2249da3de0da48f19bc205de2d7fc97f");
+
+                AngelUnbrokenEffectBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
                     newRes.AddToAllStacks = true;
                 });
             }

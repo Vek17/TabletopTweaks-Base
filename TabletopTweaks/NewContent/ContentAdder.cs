@@ -107,14 +107,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.HarmoniousMage.AddHarmoniousMage();
                 MythicAbilities.SecondPatron.AddSecondPatron();
 
-                MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
-                MythicFeats.MythicCombatReflexes.AddMythicCombatReflexes();
-                MythicFeats.MythicWarriorPriest.AddMythicWarriorPriest();
-                MythicFeats.MythicIntimidatingProwess.AddMythicIntimidatingProwess();
-                MythicFeats.TitanStrike.AddTitanStrike();
-
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
-
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();
                 Feats.SelfSufficient.AddSelfSufficient();
@@ -137,6 +130,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.LungingSpellTouch.AddLungingSpellTouch();
                 Feats.HorseMaster.AddHorseMaster();
                 Feats.DispelFocus.AddDispelFocus();
+                Feats.TwoWeaponDefense.AddTwoWeaponDefense();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();
@@ -148,6 +142,13 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraRevelation.AddExtraRevelation();
                 Feats.ExtraDiscovery.AddExtraDiscovery();
                 Feats.ExtraMercy.AddExtraMercy();
+
+                MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
+                MythicFeats.MythicCombatReflexes.AddMythicCombatReflexes();
+                MythicFeats.MythicWarriorPriest.AddMythicWarriorPriest();
+                MythicFeats.MythicIntimidatingProwess.AddMythicIntimidatingProwess();
+                MythicFeats.TitanStrike.AddTitanStrike();
+                MythicFeats.MythicTwoWeaponDefense.AddMythicTwoWeaponDefense();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }

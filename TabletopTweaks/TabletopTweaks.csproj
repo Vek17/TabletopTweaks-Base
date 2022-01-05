@@ -218,6 +218,7 @@
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
     <Compile Include="NewComponents\AbilitySpecific\TitanStrikeComponent.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\TwoWeaponDefenseComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeElementalAttunement.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
@@ -360,6 +361,7 @@
     <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
     <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
+    <Compile Include="NewContent\Feats\TwoWeaponDefense.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
@@ -370,6 +372,7 @@
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatReflexes.cs" />
     <Compile Include="NewContent\MythicFeats\MythicIntimidatingProwess.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicTwoWeaponDefense.cs" />
     <Compile Include="NewContent\MythicFeats\MythicWarriorPriest.cs" />
     <Compile Include="NewContent\MythicFeats\TitanStrike.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
@@ -669,6 +672,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_TrickRiding.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_TwoWeaponDefense.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_UndersizedMount.png">

@@ -207,6 +207,11 @@
         "Homebrew": false,
         "Description": "You get a +2 bonus on all Lore (Nature) checks and Perception checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
       },
+      "TwoWeaponDefense": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively this shield bonus increases to +2."
+      },
       "QuickChannel": {
         "Enabled": true,
         "Homebrew": false,
@@ -489,6 +494,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "An opponent you affect with Shatter Defenses is flat-footed to all attacks, not just yours."
+      },
+      "MythicTwoWeaponDefense": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When using Two-Weapon Defense, you apply the highest enhancement bonus from your two weapons to the shield bonus granted by that feat."
       },
       "MythicWarriorPriest": {
         "Enabled": true,

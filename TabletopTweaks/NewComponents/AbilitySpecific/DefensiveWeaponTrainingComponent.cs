@@ -1,4 +1,5 @@
-﻿using Kingmaker.Designers;
+﻿using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
 using Kingmaker.Items;
@@ -9,6 +10,7 @@ using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
+    [TypeId("9f0ac1baab294739912163ea4b318c28")]
     class DefensiveWeaponTrainingComponent : UnitFactComponentDelegate,
         IUnitActiveEquipmentSetHandler,
         IGlobalSubscriber,
