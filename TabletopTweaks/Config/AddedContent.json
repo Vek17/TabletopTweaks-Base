@@ -494,6 +494,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "You gain a bonus equal to half your tier both on initiative checks and on concentration checks."
+      },
+      "TitanStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your unarmed strike deals damage as if you were one size category larger. You also gain a +1 bonus for each size category that your target is larger than you on the following: bull rush, drag, grapple, overrun, sunder, and trip combat maneuver checks and the DC of your Stunning Fist."
       }
     },
     "IsExpanded": true

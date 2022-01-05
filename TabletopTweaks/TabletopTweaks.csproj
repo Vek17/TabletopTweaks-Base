@@ -217,6 +217,7 @@
     <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\TitanStrikeComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeElementalAttunement.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
@@ -370,6 +371,7 @@
     <Compile Include="NewContent\MythicFeats\MythicCombatReflexes.cs" />
     <Compile Include="NewContent\MythicFeats\MythicIntimidatingProwess.cs" />
     <Compile Include="NewContent\MythicFeats\MythicWarriorPriest.cs" />
+    <Compile Include="NewContent\MythicFeats\TitanStrike.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
     <Compile Include="NewContent\Feats\ExtraArcana.cs" />

@@ -111,6 +111,7 @@ namespace TabletopTweaks.NewContent {
                 MythicFeats.MythicCombatReflexes.AddMythicCombatReflexes();
                 MythicFeats.MythicWarriorPriest.AddMythicWarriorPriest();
                 MythicFeats.MythicIntimidatingProwess.AddMythicIntimidatingProwess();
+                MythicFeats.TitanStrike.AddTitanStrike();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
 

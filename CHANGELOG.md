@@ -16,6 +16,8 @@
     * Second Patron
 * Added Mythic Feats
     * Combat Reflexes (Mythic)
+    * Intimidating Prowess (Mythic)
+    * Titan Strike
     * Warrior Priest (Mythic)
 * Added Feats
     * Dispel Focus
