@@ -36,8 +36,7 @@ namespace TabletopTweaks.MechanicsChanges {
             WeaponFocus = 3128,
             WeaponFocusGreater = 3129,
             SpellFocus = 3130,
-            SpellFocusGreater = 3131,
-            Smite = 3132
+            SpellFocusGreater = 3131
         }
 
         private static class FilterAdjustments {
@@ -98,7 +97,6 @@ namespace TabletopTweaks.MechanicsChanges {
             InsertAfter((ModifierDescriptor)Untyped.WeaponFocusGreater, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.SpellFocus, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.SpellFocusGreater, ModifierDescriptor.UntypedStackable);
-            InsertAfter((ModifierDescriptor)Untyped.Smite, ModifierDescriptor.UntypedStackable);
 
             void InsertBefore(ModifierDescriptor value, ModifierDescriptor before) {
                 ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
@@ -160,7 +158,6 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Untyped.WeaponFocusGreater:
                     case (ModifierDescriptor)Untyped.SpellFocus:
                     case (ModifierDescriptor)Untyped.SpellFocusGreater:
-                    case (ModifierDescriptor)Untyped.Smite:
                         __result = "Other";
                         break;
                     default:

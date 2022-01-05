@@ -2,12 +2,19 @@
 * Game Adjustments
     * Angel Unbroken DR should now stacks with all other DR
     * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
-    * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
-    * Expanded metamagic rod fixes to more unique rods
-    * Magus spell combat/strike is now properly restricted to magus spells
-    * Spell tooltips now display what spellbook they are from
+    * Expanded Arsenal can no longer be used to stack spell focus feats to increase DC
+    * Magus spell combat/strike is now properly restricted to magus spells instead of the magus spell list
+    * More of the unique metamagic rods will no longer default to active
+    * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
     * Starlight is no longer affected by true sight as it is not an illusion effect
     * Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
+* UI Tweaks
+    * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
+    * Spell tooltips now display what spellbook they are from
+* Added Feats
+    * Dispel Focus
+    * Greater Dispel Focus
+    * Two-Weapon Defense
 * Added Mythic Abilities
     * Abundant Bombs
     * Abundant Incense
@@ -21,10 +28,6 @@
     * Titan Strike
     * Two-Weapon Defense (Mythic)
     * Warrior Priest (Mythic)
-* Added Feats
-    * Dispel Focus
-    * Greater Dispel Focus
-    * Two-Weapon Defense
 
 ## Version 1.10.4
 * Now works with 1.1.6e

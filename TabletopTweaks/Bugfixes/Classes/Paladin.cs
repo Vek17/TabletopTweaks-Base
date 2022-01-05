@@ -2,9 +2,13 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System.Linq;
 using TabletopTweaks.Config;
+using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Bugfixes.Classes {
     class Paladin {
@@ -20,6 +24,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
             }
             static void PatchBase() {
                 PatchDivineMount();
+                PatchSmiteAttackBonus();
 
                 void PatchDivineMount() {
                     if (ModSettings.Fixes.Paladin.Base.IsDisabled("DivineMountTemplate")) { return; }
@@ -30,6 +35,22 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (addFeatureToPet != null) {
                         addFeatureToPet.m_Feature = TemplateCelestial.ToReference<BlueprintFeatureReference>();
                     }
+                    Main.LogPatch("Patched", PaladinDivineMount11Feature);
+                }
+                void PatchSmiteAttackBonus() {
+                    if (ModSettings.Fixes.Paladin.Base.IsDisabled("SmiteAttackBonus")) { return; }
+
+                    var SmiteChaosBuff = Resources.GetBlueprint<BlueprintBuff>("161051816b1530843a8096167be9b8a7");
+                    var SmiteEvilBuff = Resources.GetBlueprint<BlueprintBuff>("b6570b8cbb32eaf4ca8255d0ec3310b0");
+                    var AuraOfJusticeSmiteEvilBuff = Resources.GetBlueprint<BlueprintBuff>("ac3c66782859eb84692a8782320ffd2c");
+
+                    SmiteChaosBuff.GetComponent<AttackBonusAgainstTarget>().Descriptor = (ModifierDescriptor)Untyped.Charisma;
+                    SmiteEvilBuff.GetComponent<AttackBonusAgainstTarget>().Descriptor = (ModifierDescriptor)Untyped.Charisma;
+                    AuraOfJusticeSmiteEvilBuff.GetComponent<AttackBonusAgainstTarget>().Descriptor = (ModifierDescriptor)Untyped.Charisma;
+
+                    Main.LogPatch("Patched", SmiteChaosBuff);
+                    Main.LogPatch("Patched", SmiteEvilBuff);
+                    Main.LogPatch("Patched", AuraOfJusticeSmiteEvilBuff);
                 }
             }
 

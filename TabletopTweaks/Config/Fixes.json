@@ -458,6 +458,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Updates the template gained by the paladin mount at level 9 to have all of its features."
+        },
+        "SmiteAttackBonus": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "The attack bonus from Smite Evil/Smite Chaos/Mark of Justice will no longer stack."
         }
       },
       "IsExpanded": true
