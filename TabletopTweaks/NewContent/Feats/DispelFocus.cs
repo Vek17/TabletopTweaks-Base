@@ -30,6 +30,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.m_Spell = DispelMagic;
                 });
             });
+
             var DispelFocusGreaterFeature = Helpers.CreateBlueprint<BlueprintFeature>("DispelFocusGreaterFeature", bp => {
                 bp.SetName("Greater Dispel Focus");
                 bp.SetDescription("Whenever you attempt a dispel check based on your " +
@@ -51,6 +52,7 @@ namespace TabletopTweaks.NewContent.Feats {
 
             if (ModSettings.AddedContent.Feats.IsDisabled("DispelFocus")) { return; }
             FeatTools.AddAsFeat(DispelFocusFeature);
+            if (ModSettings.AddedContent.Feats.IsDisabled("DispelFocusGreater")) { return; }
             FeatTools.AddAsFeat(DispelFocusGreaterFeature);
         }
     }

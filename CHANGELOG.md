@@ -1,6 +1,6 @@
 ## Version 1.11.0
 * Game Adjustments
-    * Angel Unbroken DR should now stack with all other DR
+    * Angel Unbroken DR should now stacks with all other DR
     * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
     * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
     * Expanded metamagic rod fixes to more unique rods

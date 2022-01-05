@@ -120,7 +120,12 @@
       "DispelFocus": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. Also adds greater dispel focus."
+        "Description": "Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check."
+      },
+      "DispelFocusGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus."
       },
       "ErastilsBlessing": {
         "Enabled": true,
