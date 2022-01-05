@@ -41,7 +41,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             WitchPatronSelection.m_AllFeatures
                 .Select(feature => feature.Get())
                 .OfType<BlueprintProgression>()
-                .ForEach(patron => { 
+                .ForEach(patron => {
                     patron.GiveFeaturesForPreviousLevels = true;
                     Main.LogPatch("Patched", patron);
                 });

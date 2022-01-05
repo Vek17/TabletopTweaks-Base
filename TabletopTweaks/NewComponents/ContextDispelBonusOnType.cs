@@ -1,6 +1,4 @@
-﻿using System;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Spells;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.PubSubSystem;

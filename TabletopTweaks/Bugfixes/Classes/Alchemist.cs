@@ -78,7 +78,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     void AddBuffRemoval(BlueprintBuff mutagen, BlueprintBuff[] mutagenBuffs) {
                         var addFactContextActions = mutagen.GetComponent<AddFactContextActions>();
                         foreach (var buff in mutagenBuffs.Where(b => b != mutagen)) {
-                            var removeBuff = new ContextActionRemoveBuff() { 
+                            var removeBuff = new ContextActionRemoveBuff() {
                                 m_Buff = buff.ToReference<BlueprintBuffReference>(),
                             };
                             var conditional = new Conditional() {

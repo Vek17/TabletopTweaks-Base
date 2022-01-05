@@ -9,12 +9,12 @@ using Kingmaker.UnitLogic.Mechanics;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("4a2247bdf0cf4b139863f0136abd4af8")]
-    class TitanStrikeComponent : UnitFactComponentDelegate, 
-        IInitiatorRulebookHandler<RuleCalculateWeaponStats>, 
+    class TitanStrikeComponent : UnitFactComponentDelegate,
+        IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,
-        IInitiatorRulebookHandler<RuleCalculateCMB>, 
+        IInitiatorRulebookHandler<RuleCalculateCMB>,
         IRulebookHandler<RuleCalculateCMB>,
-        IGlobalRulebookHandler<RuleSavingThrow>, 
+        IGlobalRulebookHandler<RuleSavingThrow>,
         IRulebookHandler<RuleSavingThrow>,
         ISubscriber, IInitiatorRulebookSubscriber, IGlobalSubscriber {
 
