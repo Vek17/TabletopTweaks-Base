@@ -131,6 +131,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.HorseMaster.AddHorseMaster();
                 Feats.DispelFocus.AddDispelFocus();
                 Feats.TwoWeaponDefense.AddTwoWeaponDefense();
+                Feats.VarisianTattoo.AddVarisianTattoo();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

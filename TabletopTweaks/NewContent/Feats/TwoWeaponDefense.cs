@@ -1,6 +1,8 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents.AbilitySpecific;
@@ -27,6 +29,9 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<TwoWeaponDefenseComponent>(c => {
                     c.m_FightDefensivelyBuff = FightDefensivelyBuff;
                     c.m_MythicBlueprint = TwoWeaponDefenseMythicFeature;
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Defense;
                 });
                 bp.AddPrerequisite<PrerequisiteStatValue>(c => {
                     c.Stat = Kingmaker.EntitySystem.Stats.StatType.Dexterity;

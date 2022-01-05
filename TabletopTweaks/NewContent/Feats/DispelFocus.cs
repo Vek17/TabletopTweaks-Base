@@ -1,5 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -27,6 +29,9 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.Bonus = 2;
                     c.Type = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel;
                 });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Magic;
+                });
                 bp.AddPrerequisite<PrerequisiteSpellKnown>(c => {
                     c.m_Spell = DispelMagic;
                 });
@@ -45,6 +50,9 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<ContextDispelBonusOnType>(c => {
                     c.Bonus = 2;
                     c.Type = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel;
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Magic;
                 });
                 bp.AddPrerequisite<PrerequisiteSpellKnown>(c => {
                     c.m_Spell = DispelMagic;

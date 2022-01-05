@@ -266,6 +266,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "You can ride creatures equal to your own size category instead of only creatures larger than you."
+      },
+      "VarisianTattoo": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Select a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level."
       }
     },
     "IsExpanded": true

@@ -19,6 +19,8 @@
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.
     * Two-Weapon Defense
         * When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively or using the total defense action, this shield bonus increases to +2.
+    * Varisian Tattoo
+        * Select a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level.
 * Added Mythic Abilities
     * Abundant Bombs
         * You can throw a number of additional bombs per day equal to twice your mythic rank.
