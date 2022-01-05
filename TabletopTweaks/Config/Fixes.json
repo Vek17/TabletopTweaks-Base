@@ -669,6 +669,11 @@
         "Homebrew": false,
         "Description": "Break Enchantment no longer affects friendly buffs."
       },
+      "ChainLightning": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Chain Lightning now respect the 20 CL max for damage dice."
+      },
       "CrusadersEdge": {
         "Enabled": true,
         "Homebrew": false,

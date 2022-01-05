@@ -34,6 +34,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
                 PatchBreakEnchantment();
+                PatchChainLightning();
                 PatchCrusadersEdge();
                 PatchDispelMagicGreater();
                 PatchMagicalVestment();
@@ -124,6 +125,18 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         //dispel.m_MaxSpellLevel.Value = 10;
                     });
                 Main.LogPatch("Patched", BreakEnchantment);
+            }
+
+            static void PatchChainLightning() {
+                if (ModSettings.Fixes.Spells.IsDisabled("ChainLightning")) { return; }
+                var ChainLightning = Resources.GetBlueprint<BlueprintAbility>("645558d63604747428d55f0dd3a4cb58");
+                ChainLightning
+                    .FlattenAllActions()
+                    .OfType<ContextActionDealDamage>()
+                    .ForEach(damage => {
+                        damage.Value.DiceCountValue.ValueRank = AbilityRankType.DamageDice;
+                    });
+                Main.LogPatch("Patched", ChainLightning);
             }
 
             static void PatchCrusadersEdge() {

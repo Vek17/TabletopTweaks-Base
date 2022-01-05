@@ -15,7 +15,8 @@ namespace TabletopTweaks.NewContent.Feats {
 
             var DispelFocusFeature = Helpers.CreateBlueprint<BlueprintFeature>("DispelFocusFeature", bp => {
                 bp.SetName("Dispel Focus");
-                bp.SetDescription("Whenever you attempt a dispel check based on your " +
+                bp.SetDescription("You are skilled at the art of dispelling.\n" +
+                    "Whenever you attempt a dispel check based on your " +
                     "caster level, you gain a +2 bonus on the check.");
                 bp.m_Icon = Icon_DispelFocus;
                 bp.IsClassFeature = true;
@@ -33,7 +34,8 @@ namespace TabletopTweaks.NewContent.Feats {
 
             var DispelFocusGreaterFeature = Helpers.CreateBlueprint<BlueprintFeature>("DispelFocusGreaterFeature", bp => {
                 bp.SetName("Greater Dispel Focus");
-                bp.SetDescription("Whenever you attempt a dispel check based on your " +
+                bp.SetDescription("You are a master of the art of dispelling.\n" +
+                    "Whenever you attempt a dispel check based on your " +
                     "caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.");
                 bp.m_Icon = Icon_GreaterDispelFocus;
                 bp.IsClassFeature = true;

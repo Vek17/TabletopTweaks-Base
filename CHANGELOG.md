@@ -1,6 +1,7 @@
 ## Version 1.11.0
 * Game Adjustments
     * Angel Unbroken DR should now stacks with all other DR
+    * Chain Lightning now respects the CL 20 cap for its damage dice
     * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
     * Expanded Arsenal can no longer be used to stack spell focus feats to increase DC
     * Magus spell combat/strike is now properly restricted to magus spells instead of the magus spell list
@@ -13,21 +14,35 @@
     * Spell tooltips now display what spellbook they are from
 * Added Feats
     * Dispel Focus
+        * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus on the check.
     * Greater Dispel Focus
+        * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.
     * Two-Weapon Defense
+        * When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively or using the total defense action, this shield bonus increases to +2.
 * Added Mythic Abilities
     * Abundant Bombs
-    * Abundant Incense
-    * Abundant Lay On Hands
+        * You can throw a number of additional bombs per day equal to twice your mythic rank.
     * Abundant Fervor
+        * You can use Fervor a number of additional times per day equal to your mythic rank.
+    * Abundant Incense
+        * The number of rounds per day you can use Incense Fog increases by a number of rounds equal to your mythic rank.
+    * Abundant Lay On Hands
+        * You can use Lay On Hands a number of additional times per day equal to your mythic rank.
     * Harmonious Mage
+        * Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.
     * Second Patron
+        * You select a second patron, gaining all its benifits.
 * Added Mythic Feats
     * Combat Reflexes (Mythic)
+        * You can make any number of additional attacks of opportunity per round.
     * Intimidating Prowess (Mythic)
+        * You gain a bonus on Intimidate checks equal to your mythic rank.
     * Titan Strike
+        * Your unarmed strike deals damage as if you were one size category larger. You also gain a +1 bonus for each size category that your target is larger than you on the following: bull rush, drag, grapple, overrun, sunder, and trip combat maneuver checks and the DC of your Stunning Fist.
     * Two-Weapon Defense (Mythic)
+        * When using Two-Weapon Defense, you apply the highest enhancement bonus from your two weapons to the shield bonus granted by that feat.
     * Warrior Priest (Mythic)
+        * You gain a bonus equal to half your mythic rank both on initiative checks and on concentration checks.
 
 ## Version 1.10.4
 * Now works with 1.1.6e
