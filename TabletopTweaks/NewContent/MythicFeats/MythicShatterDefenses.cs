@@ -17,7 +17,8 @@ namespace TabletopTweaks.NewContent.MythicFeats {
             var ShatterDefensesMythicFeat = Helpers.CreateBlueprint<BlueprintFeature>("ShatterDefensesMythicFeat", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
                 bp.SetName("Shatter Defenses (Mythic)");
-                bp.SetDescription("An opponent you affect with Shatter Defenses is flat-footed to all attacks, not just yours.");
+                bp.SetDescription("Your dazzling attacks leave your opponents flummoxed and bewildered, unable to attack you or to defend themselves effectively.\n" +
+                    "An opponent you affect with Shatter Defenses is flat-footed to all attacks, not just yours.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicFeat };

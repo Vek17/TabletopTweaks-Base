@@ -17,7 +17,8 @@ namespace TabletopTweaks.NewContent.MythicFeats {
             var WarriorPriestMythicFeature = Helpers.CreateBlueprint<BlueprintFeature>("WarriorPriestMythicFeature", bp => {
                 bp.m_Icon = WarriorPriest.m_Icon;
                 bp.SetName("Warrior Priest (Mythic)");
-                bp.SetDescription("You gain a bonus equal to half your mythic rank both on initiative checks and on concentration checks.");
+                bp.SetDescription("Your faith speeds you in battle and further strengthens your mind and confidence.\n" +
+                    "You gain a bonus equal to half your mythic rank both on initiative checks and on concentration checks.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicFeat };

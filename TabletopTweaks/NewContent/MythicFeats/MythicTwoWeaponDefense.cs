@@ -11,7 +11,8 @@ namespace TabletopTweaks.NewContent.MythicFeats {
 
             var TwoWeaponDefenseMythicFeature = Helpers.CreateBlueprint<BlueprintFeature>("TwoWeaponDefenseMythicFeature", bp => {
                 bp.SetName("Two-Weapon Defense (Mythic)");
-                bp.SetDescription("When using Two-Weapon Defense, you apply the highest enhancement " +
+                bp.SetDescription("Your graceful flow between attack and defense makes you difficult to hit.\n" +
+                    "When using Two-Weapon Defense, you apply the highest enhancement " +
                     "bonus from your two weapons to the shield bonus granted by that feat.");
                 bp.m_Icon = Icon_TwoWeaponDefense;
                 bp.IsClassFeature = true;

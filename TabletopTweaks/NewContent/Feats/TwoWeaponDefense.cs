@@ -16,7 +16,8 @@ namespace TabletopTweaks.NewContent.Feats {
 
             var TwoWeaponDefenseFeature = Helpers.CreateBlueprint<BlueprintFeature>("TwoWeaponDefenseFeature", bp => {
                 bp.SetName("Two-Weapon Defense");
-                bp.SetDescription("When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), " +
+                bp.SetDescription("You are skilled at defending yourself while dual-wielding.\n" +
+                    "When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), " +
                     "you gain a +1 shield bonus to your AC. When you are fighting defensively this shield bonus increases to +2.");
                 bp.m_Icon = Icon_TwoWeaponDefense;
                 bp.IsClassFeature = true;

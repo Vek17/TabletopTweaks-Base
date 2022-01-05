@@ -16,7 +16,8 @@ namespace TabletopTweaks.NewContent.MythicFeats {
             var IntimidatingProwessMythicFeature = Helpers.CreateBlueprint<BlueprintFeature>("IntimidatingProwessMythicFeature", bp => {
                 bp.m_Icon = IntimidatingProwess.m_Icon;
                 bp.SetName("Intimidating Prowess (Mythic)");
-                bp.SetDescription("You gain a bonus on Intimidate checks equal to your mythic rank.");
+                bp.SetDescription("Your mythic stature makes others uneasy.\n" +
+                    "You gain a bonus on Intimidate checks equal to your mythic rank.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicFeat };

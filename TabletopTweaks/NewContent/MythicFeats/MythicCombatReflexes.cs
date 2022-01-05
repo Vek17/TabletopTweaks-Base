@@ -13,7 +13,8 @@ namespace TabletopTweaks.NewContent.MythicFeats {
             var CombatReflexesMythicFeature = Helpers.CreateBlueprint<BlueprintFeature>("CombatReflexesMythicFeature", bp => {
                 bp.m_Icon = CombatReflexes.m_Icon;
                 bp.SetName("Combat Reflexes (Mythic)");
-                bp.SetDescription("You can make any number of additional attacks of opportunity per round.");
+                bp.SetDescription("You strike viciously whenever your foe gives you an opening.\n" +
+                    "You can make any number of additional attacks of opportunity per round.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicFeat };
