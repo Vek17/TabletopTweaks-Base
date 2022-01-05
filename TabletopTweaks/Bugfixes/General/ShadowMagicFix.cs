@@ -92,7 +92,7 @@ namespace TabletopTweaks.Bugfixes.General {
                 if ((num1 | num4) == 0) {
                     return false;
                 }
-                evt.AddBonusDC(__instance.BonusDC * num3);
+                evt.AddBonusDC(__instance.BonusDC * num3, __instance.Descriptor);
                 return false;
             }
         }

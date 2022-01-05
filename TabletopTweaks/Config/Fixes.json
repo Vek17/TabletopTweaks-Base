@@ -883,6 +883,11 @@
   "MythicFeats": {
     "DisableAll": false,
     "Settings": {
+      "ExpandedArsenal": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "No longer allows stacking of spell focuses to increase DC, you can only benifit from spell focus once."
+      },
       "ExtraFeat": {
         "Enabled": true,
         "Homebrew": false,

@@ -33,7 +33,11 @@ namespace TabletopTweaks.MechanicsChanges {
             Wisdom = 3125,
             Charisma = 3126,
             WeaponTraining = 3127,
-            WeaponFocus = 3128
+            WeaponFocus = 3128,
+            WeaponFocusGreater = 3129,
+            SpellFocus = 3130,
+            SpellFocusGreater = 3131,
+            Smite = 3132
         }
 
         private static class FilterAdjustments {
@@ -91,6 +95,10 @@ namespace TabletopTweaks.MechanicsChanges {
             InsertAfter((ModifierDescriptor)Untyped.Charisma, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.WeaponTraining, ModifierDescriptor.UntypedStackable);
             InsertAfter((ModifierDescriptor)Untyped.WeaponFocus, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.WeaponFocusGreater, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.SpellFocus, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.SpellFocusGreater, ModifierDescriptor.UntypedStackable);
+            InsertAfter((ModifierDescriptor)Untyped.Smite, ModifierDescriptor.UntypedStackable);
 
             void InsertBefore(ModifierDescriptor value, ModifierDescriptor before) {
                 ModifierDescriptorComparer.SortedValues = ModifierDescriptorComparer
@@ -149,6 +157,13 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Untyped.Charisma:
                     case (ModifierDescriptor)Untyped.WeaponTraining:
                     case (ModifierDescriptor)Untyped.WeaponFocus:
+                    case (ModifierDescriptor)Untyped.WeaponFocusGreater:
+                    case (ModifierDescriptor)Untyped.SpellFocus:
+                    case (ModifierDescriptor)Untyped.SpellFocusGreater:
+                    case (ModifierDescriptor)Untyped.Smite:
+                        __result = "Other";
+                        break;
+                    default:
                         __result = "Other";
                         break;
                 }
