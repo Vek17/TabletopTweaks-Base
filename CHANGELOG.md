@@ -39,6 +39,8 @@
         * You can make any number of additional attacks of opportunity per round.
     * Intimidating Prowess (Mythic)
         * You gain a bonus on Intimidate checks equal to your mythic rank.
+    * Manyshot (Mythic)
+        * When making a full-attack action with a bow and using Manyshot, you fire two arrows with both your first and second attacks, instead of just your first attack.
     * Titan Strike
         * Your unarmed strike deals damage as if you were one size category larger. You also gain a +1 bonus for each size category that your target is larger than you on the following: bull rush, drag, grapple, overrun, sunder, and trip combat maneuver checks and the DC of your Stunning Fist.
     * Two-Weapon Defense (Mythic)

@@ -500,6 +500,11 @@
         "Homebrew": false,
         "Description": "You gain a bonus on Intimidate checks equal to your mythic rank."
       },
+      "MythicManyshot": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When making a full-attack action with a bow and using Manyshot, you fire two arrows with both your first and second attacks, instead of just your first attack."
+      },
       "MythicShatterDefenses": {
         "Enabled": true,
         "Homebrew": false,

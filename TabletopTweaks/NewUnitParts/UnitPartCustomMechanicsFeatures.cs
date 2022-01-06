@@ -42,7 +42,8 @@ namespace TabletopTweaks.NewUnitParts {
             QuickDraw,
             UseWeaponOneHanded,
             UndersizedMount,
-            MountedSkirmisher
+            MountedSkirmisher,
+            ManyshotMythic
         }
     }
     static class CustomMechanicsFeaturesExtentions {

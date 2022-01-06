@@ -373,6 +373,7 @@
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatReflexes.cs" />
     <Compile Include="NewContent\MythicFeats\MythicIntimidatingProwess.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicManyshot.cs" />
     <Compile Include="NewContent\MythicFeats\MythicTwoWeaponDefense.cs" />
     <Compile Include="NewContent\MythicFeats\MythicWarriorPriest.cs" />
     <Compile Include="NewContent\MythicFeats\TitanStrike.cs" />

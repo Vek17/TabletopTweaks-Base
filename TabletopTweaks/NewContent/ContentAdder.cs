@@ -150,6 +150,7 @@ namespace TabletopTweaks.NewContent {
                 MythicFeats.MythicIntimidatingProwess.AddMythicIntimidatingProwess();
                 MythicFeats.TitanStrike.AddTitanStrike();
                 MythicFeats.MythicTwoWeaponDefense.AddMythicTwoWeaponDefense();
+                MythicFeats.MythicManyshot.AddMythicManyshot();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }
