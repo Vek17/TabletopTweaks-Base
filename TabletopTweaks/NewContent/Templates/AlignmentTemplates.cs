@@ -26,6 +26,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
+using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.NewContent.Templates {
     static class AlignmentTemplates {
@@ -225,7 +226,7 @@ namespace TabletopTweaks.NewContent.Templates {
                     };
                     c.Pool = new ContextValue();
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.DamageBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.CharacterLevel;
                     c.m_Progression = ContextRankProgression.Custom;
@@ -243,7 +244,7 @@ namespace TabletopTweaks.NewContent.Templates {
                             ProgressionValue = 10
                         }
                     };
-                }));
+                });
             });
         }
         private static BlueprintBuff CreateAlignmentSmiteBuff(string name, BlueprintBuff buffEffects, Action<BlueprintBuff> init = null) {
@@ -255,7 +256,7 @@ namespace TabletopTweaks.NewContent.Templates {
                 bp.FxOnStart = buffEffects.FxOnStart;
                 bp.FxOnRemove = buffEffects.FxOnRemove;
                 bp.AddComponent<AttackBonusAgainstTarget>(c => {
-                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.Descriptor = (ModifierDescriptor)Untyped.Charisma;
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Shared,
                         ValueShared = AbilitySharedValue.StatBonus
