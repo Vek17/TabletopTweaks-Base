@@ -24,8 +24,11 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 using (maybeContext.GetDataScope(evt.Target)) {
                     int dc = 10 + ((evt.CasterLevel + evt.Bonus) / 2) + getHighestStatBonus(evt.Initiator, StatType.Intelligence, StatType.Wisdom, StatType.Charisma);
                     RuleSavingThrow ruleSavingThrow = base.Context.TriggerRule<RuleSavingThrow>(new RuleSavingThrow(evt.Target, SavingThrowType.Fortitude, dc));
-
-                    ActionOnTarget.Run();
+                    if (ruleSavingThrow.IsPassed) {
+                        SaveSuccees.Run();
+                    } else {
+                        SaveFailed.Run();
+                    }
                 }
             }
         }
@@ -46,6 +49,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         [InfoBox("Use this bool if you want to trigger action on a caster of an AOE effect. Eg: Ember cast Grease, Nenio dispells it -> Ember is target, hence received 1d6 damage ")]
         public bool TriggerOnAreaEffectsDispell;
 
-        public ActionList ActionOnTarget;
+        public ActionList SaveFailed;
+        public ActionList SaveSuccees;
     }
 }

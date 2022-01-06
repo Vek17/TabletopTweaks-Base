@@ -88,10 +88,30 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.IsDisabled("DestructiveDispel")) { return; }
 
                 var DestructiveDispel = Resources.GetBlueprint<BlueprintFeature>("d298e64e14398e848a54db5a2619ba42");
-                var Actions = DestructiveDispel.FlattenAllActions().OfType<ContextActionConditionalSaved>().ToArray();
+                var Sickened = Resources.GetBlueprintReference<BlueprintBuffReference>("4e42460798665fd4cb9173ffa7ada323");
+                var Stunned = Resources.GetBlueprintReference<BlueprintBuffReference>("09d39b38bb7c6014394b6daced9bacd3");
+
+                //var Actions = DestructiveDispel.FlattenAllActions().OfType<ContextActionConditionalSaved>().ToArray();
                 DestructiveDispel.SetComponents();
                 DestructiveDispel.AddComponent<DestructiveDispelComponent>(c => {
-                    c.ActionOnTarget = Helpers.CreateActionList(Actions);
+                    c.SaveSuccees = Helpers.CreateActionList(
+                        new ContextActionApplyBuff() { 
+                            m_Buff = Sickened,
+                            DurationValue = new ContextDurationValue() { 
+                                DiceCountValue = new ContextValue(),
+                                BonusValue = 1
+                            }
+                        }
+                    );
+                    c.SaveFailed = Helpers.CreateActionList(
+                        new ContextActionApplyBuff() {
+                            m_Buff = Stunned,
+                            DurationValue = new ContextDurationValue() {
+                                DiceCountValue = new ContextValue(),
+                                BonusValue = 1
+                            }
+                        }
+                    );
                 });
 
                 Main.LogPatch("Patched", DestructiveDispel);
