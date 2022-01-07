@@ -91,7 +91,6 @@ namespace TabletopTweaks.Bugfixes.Features {
                 var Sickened = Resources.GetBlueprintReference<BlueprintBuffReference>("4e42460798665fd4cb9173ffa7ada323");
                 var Stunned = Resources.GetBlueprintReference<BlueprintBuffReference>("09d39b38bb7c6014394b6daced9bacd3");
 
-                //var Actions = DestructiveDispel.FlattenAllActions().OfType<ContextActionConditionalSaved>().ToArray();
                 DestructiveDispel.SetComponents();
                 DestructiveDispel.AddComponent<DestructiveDispelComponent>(c => {
                     c.SaveSuccees = Helpers.CreateActionList(

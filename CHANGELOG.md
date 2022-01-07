@@ -32,6 +32,8 @@
         * You can use Lay On Hands a number of additional times per day equal to your mythic rank.
     * Harmonious Mage
         * Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.
+    * Impossible Blessing
+        * You gain one more blessing, ignoring all blessing prerequisites.
     * Second Patron
         * You select a second patron, gaining all its benifits.
 * Added Mythic Feats

@@ -26,6 +26,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
+                bp.Mode = SelectionMode.OnlyNew;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
                 bp.AddFeatures(WitchPatronSelection.m_AllFeatures);
                 bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
