@@ -689,6 +689,11 @@
         "Homebrew": false,
         "Description": "Retags buffs from spells as coming from spells to allow them to be dispeled correctly."
       },
+      "Geniekind": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Geniekind no longer causes excessive damage instances to trigger when attacking."
+      },
       "GreaterMagicWeapon": {
         "Enabled": true,
         "Homebrew": false,

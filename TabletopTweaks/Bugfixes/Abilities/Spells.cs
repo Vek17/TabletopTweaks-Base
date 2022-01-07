@@ -4,7 +4,10 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
+using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -37,6 +40,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchChainLightning();
                 PatchCrusadersEdge();
                 PatchDispelMagicGreater();
+                PatchGeniekind();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchRemoveFear();
@@ -156,6 +160,41 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     "If not, compare the same result to the spell with the next highest caster level. Repeat this process until you have dispelled " +
                     "one spell affecting the target, or you have failed to dispel every spell.");
                 Main.LogPatch("Patched", DispelMagicGreaterTarget);
+            }
+
+            static void PatchGeniekind() {
+                if (ModSettings.Fixes.Spells.IsDisabled("Geniekind")) { return; }
+                var GeniekindDjinniBuff = Resources.GetBlueprint<BlueprintBuff>("082caf8c1005f114ba6375a867f638cf");
+                var GeniekindEfreetiBuff = Resources.GetBlueprint<BlueprintBuff>("d47f45f29c4cfc0469f3734d02545e0b");
+                var GeniekindMaridBuff = Resources.GetBlueprint<BlueprintBuff>("4f37fc07fe2cf7f4f8076e79a0a3bfe9");
+                var GeniekindShaitanBuff = Resources.GetBlueprint<BlueprintBuff>("1d498104f8e35e246b5d8180b0faed43");
+
+                ReplaceComponents(GeniekindDjinniBuff);
+                ReplaceComponents(GeniekindEfreetiBuff);
+                ReplaceComponents(GeniekindMaridBuff);
+                ReplaceComponents(GeniekindShaitanBuff);
+
+                void ReplaceComponents(BlueprintBuff GeniekindBuff) {
+                    Main.LogPatch("Patched", GeniekindBuff);
+                    var EnergyType = GeniekindBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
+                    GeniekindBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    GeniekindBuff.AddComponent<AdditionalDiceOnAttack>(c => {
+                        c.OnHit = true;
+                        c.CheckWeaponRangeType = true;
+                        c.RangeType = WeaponRangeType.Melee;
+                        c.InitiatorConditions = new ConditionsChecker();
+                        c.TargetConditions = new ConditionsChecker();
+                        c.Value = new ContextDiceValue() {
+                            DiceType = DiceType.D6,
+                            DiceCountValue = 1,
+                            BonusValue = 0
+                        };
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Energy,
+                            Energy = EnergyType
+                        };
+                    });
+                }
             }
 
             static void PatchMagicalVestment() {
