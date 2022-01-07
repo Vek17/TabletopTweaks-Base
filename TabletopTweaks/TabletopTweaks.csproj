@@ -222,6 +222,7 @@
     <Compile Include="NewComponents\AbilitySpecific\WeaponBlackBladeElementalAttunement.cs" />
     <Compile Include="NewComponents\ACBonusAgainstSizeDifference.cs" />
     <Compile Include="NewComponents\AddAdditionalRacialFeatures.cs" />
+    <Compile Include="NewComponents\AddAdditionalWeaponDamage.cs" />
     <Compile Include="NewComponents\AddContextWeaponDamageBonus.cs" />
     <Compile Include="NewComponents\AddCustomMechanicsFeature.cs" />
     <Compile Include="NewComponents\AddFeatureOnClassLevelExclude.cs" />

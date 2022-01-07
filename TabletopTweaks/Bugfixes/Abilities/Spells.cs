@@ -21,6 +21,7 @@ using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewActions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
@@ -169,10 +170,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
                 var EnergyType = FirebrandBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
                 FirebrandBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
-                FirebrandBuff.AddComponent<AdditionalDiceOnAttack>(c => {
-                    c.OnHit = true;
-                    c.InitiatorConditions = new ConditionsChecker();
-                    c.TargetConditions = new ConditionsChecker();
+                FirebrandBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
                     c.Value = new ContextDiceValue() {
                         DiceType = DiceType.D6,
                         DiceCountValue = 1,
@@ -201,12 +199,9 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 void ReplaceComponents(BlueprintBuff GeniekindBuff) {
                     var EnergyType = GeniekindBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
                     GeniekindBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
-                    GeniekindBuff.AddComponent<AdditionalDiceOnAttack>(c => {
-                        c.OnHit = true;
+                    GeniekindBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
                         c.CheckWeaponRangeType = true;
                         c.RangeType = WeaponRangeType.Melee;
-                        c.InitiatorConditions = new ConditionsChecker();
-                        c.TargetConditions = new ConditionsChecker();
                         c.Value = new ContextDiceValue() {
                             DiceType = DiceType.D6,
                             DiceCountValue = 1,
