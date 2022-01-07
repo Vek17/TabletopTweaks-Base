@@ -578,38 +578,7 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {
-        "DeathCurse": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Fixes ability descriptors."
-        },
-        "DeliciousFright": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Fixes ability descriptors."
-        },
-        "EvilEye": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Fixes ability descriptors."
-        },
-        "Hoarfrost": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Fixes ability descriptors."
-        },
-        "RestlessSlumber": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Fixes ability descriptors."
-        },
-        "Slumber": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Fixes ability descriptors."
-        }
-      },
+      "Settings": {},
       "IsExpanded": true
     },
     "Archetypes": {}
