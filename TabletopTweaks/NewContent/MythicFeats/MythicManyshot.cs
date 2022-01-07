@@ -2,14 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.EntitySystem.Entities;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.RuleSystem.Rules;
-using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;

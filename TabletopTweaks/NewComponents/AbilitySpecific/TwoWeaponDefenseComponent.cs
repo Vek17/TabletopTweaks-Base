@@ -66,9 +66,9 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
             var primaryWeapon = base.Owner.Body.PrimaryHand.MaybeWeapon;
             var secondaryWeapon = base.Owner.Body.SecondaryHand.MaybeWeapon;
             if (primaryWeapon == null || secondaryWeapon == null
-                || primaryWeapon.Blueprint.IsNatural || secondaryWeapon.Blueprint.IsNatural 
-                || primaryWeapon == base.Owner.Body.EmptyHandWeapon || secondaryWeapon == base.Owner.Body.EmptyHandWeapon) { 
-                return; 
+                || primaryWeapon.Blueprint.IsNatural || secondaryWeapon.Blueprint.IsNatural
+                || primaryWeapon == base.Owner.Body.EmptyHandWeapon || secondaryWeapon == base.Owner.Body.EmptyHandWeapon) {
+                return;
             }
             int bonus = 1;
             if (Owner.HasFact(FightDefensivelyBuff)) {

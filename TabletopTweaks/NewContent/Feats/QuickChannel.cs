@@ -27,7 +27,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                //bp.AddComponent<QuickChannelComponent>();
                 bp.AddComponent<AbilityActionTypeConversion>(c => {
                     c.ResourceMultiplier = 2;
                     c.ActionType = UnitCommand.CommandType.Move;

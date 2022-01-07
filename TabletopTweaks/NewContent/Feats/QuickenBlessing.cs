@@ -3,10 +3,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.Designers.Mechanics.Recommendations;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Commands.Base;
-using Kingmaker.Utility;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -132,7 +129,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 CreateQuickenedBlessing("Water", WaterBlessingFeature, WaterBlessingMinorAbility, WaterBlessingMajorAbility),
                 CreateQuickenedBlessing("Weather", WeatherBlessingFeature, WeatherBlessingMinorAbility, WeatherBlessingMajorAbility)
             );
-            
+
             if (ModSettings.AddedContent.Feats.IsDisabled("QuickenBlessing")) { return; }
             FeatTools.AddAsFeat(QuickenBlessing);
         }

@@ -94,9 +94,9 @@ namespace TabletopTweaks.Bugfixes.Features {
                 DestructiveDispel.SetComponents();
                 DestructiveDispel.AddComponent<DestructiveDispelComponent>(c => {
                     c.SaveSuccees = Helpers.CreateActionList(
-                        new ContextActionApplyBuff() { 
+                        new ContextActionApplyBuff() {
                             m_Buff = Sickened,
-                            DurationValue = new ContextDurationValue() { 
+                            DurationValue = new ContextDurationValue() {
                                 DiceCountValue = new ContextValue(),
                                 BonusValue = 1
                             }
