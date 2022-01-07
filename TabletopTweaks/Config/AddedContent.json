@@ -227,6 +227,11 @@
         "Homebrew": false,
         "Description": "You can draw a weapon as a free action instead of as a move action."
       },
+      "QuickenBlessing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead."
+      },
       "Scholar": {
         "Enabled": true,
         "Homebrew": false,

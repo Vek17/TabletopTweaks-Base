@@ -135,6 +135,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.DispelFocus.AddDispelFocus();
                 Feats.TwoWeaponDefense.AddTwoWeaponDefense();
                 Feats.VarisianTattoo.AddVarisianTattoo();
+                Feats.QuickenBlessing.AddQuickenBlessing();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

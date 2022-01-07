@@ -32,7 +32,6 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 Resources.GetBlueprintReference<BlueprintAbilityReference>("542a9661ed997ff418322ff7376bab8c"),    // DeathBlessingMinorAbility,
                 Resources.GetBlueprintReference<BlueprintAbilityReference>("b4bf40373f371074a87fc6ce554287be"),    // DestructionBlessingMajorAbility,
                 Resources.GetBlueprintReference<BlueprintAbilityReference>("15559878dd3ac2943b17a5d52ffe6b8a"),    // DestructionBlessingMinorAbility,
-                Resources.GetBlueprintReference<BlueprintAbilityReference>("a9858668656a56f41a87652d2cd235c0"),    // DivineHuntersBlessingAbility,
                 Resources.GetBlueprintReference<BlueprintAbilityReference>("3313addb536171f4d86bb133ec51b008"),    // EarthBlessingMajorAbility,
                 Resources.GetBlueprintReference<BlueprintAbilityReference>("4cfa41e8557d3c54d9af27af6964bd7e"),    // EarthBlessingMinorAbility,
                 Resources.GetBlueprintReference<BlueprintAbilityReference>("c9bbd75a934c6b44fbd2b2a0da9b687f"),    // EvilBlessingMajorAbility,

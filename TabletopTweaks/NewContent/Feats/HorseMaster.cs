@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
 using System.Collections.Generic;
@@ -70,6 +71,9 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.Value = 6;
                 });
                 bp.AddPrerequisite<PrerequisitePet>();
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.ClassSpecific;
+                });
             });
 
             if (ModSettings.AddedContent.Feats.IsDisabled("NatureSoul")) { return; }

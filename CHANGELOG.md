@@ -17,6 +17,8 @@
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus on the check.
     * Greater Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.
+    * Quicken Blessing
+        * Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.
     * Two-Weapon Defense
         * When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively or using the total defense action, this shield bonus increases to +2.
     * Varisian Tattoo

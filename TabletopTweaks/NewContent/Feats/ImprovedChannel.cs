@@ -30,9 +30,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.BonusDC = 2;
                     c.ModifierDescriptor = ModifierDescriptor.UntypedStackable;
                 });
-                bp.AddComponent(Helpers.Create<PureRecommendation>(c => {
-                    c.Priority = RecommendationPriority.Good;
-                }));
                 bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.ClassSpecific;
                 }));
