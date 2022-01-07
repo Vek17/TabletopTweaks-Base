@@ -684,6 +684,11 @@
         "Homebrew": false,
         "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
       },
+      "Firebrand": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Firebrand no longer causes excessive damage instances to trigger when attacking."
+      },
       "FixSpellFlags": {
         "Enabled": true,
         "Homebrew": false,

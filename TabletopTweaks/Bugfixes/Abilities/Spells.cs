@@ -40,6 +40,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchChainLightning();
                 PatchCrusadersEdge();
                 PatchDispelMagicGreater();
+                PatchFirebrand();
                 PatchGeniekind();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
@@ -162,6 +163,29 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", DispelMagicGreaterTarget);
             }
 
+            static void PatchFirebrand() {
+                if (ModSettings.Fixes.Spells.IsDisabled("Firebrand")) { return; }
+                var FirebrandBuff = Resources.GetBlueprint<BlueprintBuff>("c6cc1c5356db4674dbd2be20ea205c86");
+
+                var EnergyType = FirebrandBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
+                FirebrandBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                FirebrandBuff.AddComponent<AdditionalDiceOnAttack>(c => {
+                    c.OnHit = true;
+                    c.InitiatorConditions = new ConditionsChecker();
+                    c.TargetConditions = new ConditionsChecker();
+                    c.Value = new ContextDiceValue() {
+                        DiceType = DiceType.D6,
+                        DiceCountValue = 1,
+                        BonusValue = 0
+                    };
+                    c.DamageType = new DamageTypeDescription() {
+                        Type = DamageType.Energy,
+                        Energy = EnergyType
+                    };
+                });
+                Main.LogPatch("Patched", FirebrandBuff);
+            }
+
             static void PatchGeniekind() {
                 if (ModSettings.Fixes.Spells.IsDisabled("Geniekind")) { return; }
                 var GeniekindDjinniBuff = Resources.GetBlueprint<BlueprintBuff>("082caf8c1005f114ba6375a867f638cf");
@@ -175,7 +199,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 ReplaceComponents(GeniekindShaitanBuff);
 
                 void ReplaceComponents(BlueprintBuff GeniekindBuff) {
-                    Main.LogPatch("Patched", GeniekindBuff);
                     var EnergyType = GeniekindBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
                     GeniekindBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
                     GeniekindBuff.AddComponent<AdditionalDiceOnAttack>(c => {
@@ -194,6 +217,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                             Energy = EnergyType
                         };
                     });
+                    Main.LogPatch("Patched", GeniekindBuff);
                 }
             }
 
