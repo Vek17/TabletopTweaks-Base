@@ -106,6 +106,7 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.AbundantLayOnHands.AddAbundantLayOnHands();
                 MythicAbilities.HarmoniousMage.AddHarmoniousMage();
                 MythicAbilities.SecondPatron.AddSecondPatron();
+                MythicAbilities.EnhancedBlessings.AddEnhancedBlessings();
                 MythicAbilities.ImpossibleBlessing.AddImpossibleBlessing();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();

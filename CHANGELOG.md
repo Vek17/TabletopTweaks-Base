@@ -30,6 +30,8 @@
         * The number of rounds per day you can use Incense Fog increases by a number of rounds equal to your mythic rank.
     * Abundant Lay On Hands
         * You can use Lay On Hands a number of additional times per day equal to your mythic rank.
+    * Enhanced Blessings
+        * The effects from your blessings now last twice as long.
     * Harmonious Mage
         * Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.
     * Impossible Blessing
