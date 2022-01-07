@@ -365,6 +365,7 @@
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />

@@ -419,6 +419,11 @@
   "MythicAbilities": {
     "DisableAll": false,
     "Settings": {
+      "AbundantBlessing": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Blessings a number of additional times per day equal to your mythic rank."
+      },
       "AbundantBombs": {
         "Enabled": true,
         "Homebrew": true,
@@ -466,7 +471,7 @@
       },
       "ImpossibleBlessing": {
         "Enabled": true,
-        "Homebrew": false,
+        "Homebrew": true,
         "Description": "You gain one more blessing, ignoring all blessing prerequisites."
       },
       "ImpossibleSpeed": {

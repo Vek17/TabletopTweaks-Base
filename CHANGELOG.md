@@ -22,6 +22,8 @@
     * Varisian Tattoo
         * Select a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level.
 * Added Mythic Abilities
+    * Abundant Blessing
+        * You can use Blessings a number of additional times per day equal to your mythic rank.
     * Abundant Bombs
         * You can throw a number of additional bombs per day equal to twice your mythic rank.
     * Abundant Fervor
