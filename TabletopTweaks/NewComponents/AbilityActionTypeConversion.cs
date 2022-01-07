@@ -25,7 +25,7 @@ namespace TabletopTweaks.NewComponents {
         public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions) {
             var conversionList = conversions.ToList();
             var MatchesDescriptors = CheckDescriptors && Descriptors.HasAnyFlag(ability.Blueprint.SpellDescriptor);
-            if (Abilities.Contains(ability.Blueprint) || (MatchesDescriptors && (!BlockAoE || !ability.IsAOE))) {
+            if (Abilities.Contains(ability.Blueprint) || (MatchesDescriptors && (RequireAoE ? ability.IsAOE : !ability.IsAOE))) {
                 CustomSpeedAbilityData swiftAbility = new CustomSpeedAbilityData(ability, null) {
                     MetamagicData = ability.MetamagicData ?? new MetamagicData(),
                     OverridenResourceLogic = new AbilityResourceLogic() {
@@ -33,7 +33,7 @@ namespace TabletopTweaks.NewComponents {
                         m_IsSpendResource = ability.ResourceLogic.IsSpendResource,
                         Amount = ability.ResourceLogic.CalculateCost(ability) * ResourceMultiplier,
                     },
-                    CustomActionType = UnitCommand.CommandType.Swift
+                    CustomActionType = ActionType
                 };
                 AbilityData.AddAbilityUnique(ref conversionList, swiftAbility);
                 conversions = conversionList;
@@ -45,7 +45,7 @@ namespace TabletopTweaks.NewComponents {
         public BlueprintAbilityReference[] m_Abilities = new BlueprintAbilityReference[0];
         public SpellDescriptorWrapper Descriptors;
         public bool CheckDescriptors;
-        public bool BlockAoE;
+        public bool RequireAoE;
 
         [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.RuntimeActionType), MethodType.Getter)]
         static class AbilityData_RuntimeActionType_QuickChannel_Patch {

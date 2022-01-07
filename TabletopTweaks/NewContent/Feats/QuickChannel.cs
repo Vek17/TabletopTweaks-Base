@@ -2,13 +2,15 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents.AbilitySpecific;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Feats {
@@ -25,7 +27,14 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.AddComponent<QuickChannelComponent>();
+                //bp.AddComponent<QuickChannelComponent>();
+                bp.AddComponent<AbilityActionTypeConversion>(c => {
+                    c.ResourceMultiplier = 2;
+                    c.ActionType = UnitCommand.CommandType.Move;
+                    c.Descriptors = SpellDescriptor.ChannelNegativeHarm | SpellDescriptor.ChannelNegativeHeal | SpellDescriptor.ChannelPositiveHarm | SpellDescriptor.ChannelPositiveHeal;
+                    c.CheckDescriptors = true;
+                    c.RequireAoE = true;
+                });
                 bp.AddComponent(Helpers.Create<PureRecommendation>(c => {
                     c.Priority = RecommendationPriority.Good;
                 }));

@@ -215,7 +215,6 @@
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\MetaRageComponent.cs" />
     <Compile Include="NewComponents\AbilityActionTypeConversion.cs" />
-    <Compile Include="NewComponents\AbilitySpecific\QuickChannelComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
     <Compile Include="NewComponents\AbilitySpecific\TitanStrikeComponent.cs" />
