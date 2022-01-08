@@ -1,5 +1,6 @@
 ## Version 1.11.0
 * Game Adjustments
+    * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
     * Angel Unbroken DR should now stacks with all other DR
     * Chain Lightning now respects the CL 20 cap for its damage dice
     * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
@@ -8,6 +9,7 @@
     * Geniekind no longer causes too many damage instances
     * Magus spell combat/strike is now properly restricted to magus spells instead of the magus spell list
     * More of the unique metamagic rods will no longer default to active
+    * Removed unneeded witch patches
     * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
     * Starlight is no longer affected by true sight as it is not an illusion effect
     * Updated Horsemaster prerequisites to restrict it from some cavalier archetypes

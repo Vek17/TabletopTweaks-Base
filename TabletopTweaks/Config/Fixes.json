@@ -578,7 +578,13 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "AgilityPatron": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th."
+        }
+      },
       "IsExpanded": true
     },
     "Archetypes": {}
