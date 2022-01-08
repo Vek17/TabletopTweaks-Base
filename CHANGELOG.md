@@ -2,6 +2,7 @@
 * Fixes
     * General
         * More of the unique metamagic rods will no longer default to active
+        * Nauseated is no longer considered a poison effect globally.
     * Feats
         * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
         * Horsemaster prerequisites now restrict it from some cavalier archetypes
@@ -11,6 +12,9 @@
         * Chain Lightning now respects the CL 20 cap for its damage dice
         * Firebrand no longer causes too many damage instances
         * Geniekind no longer causes too many damage instances
+        * Magical Vestment now works correctly when used by enemies in prebuffs
+        * Magical Vestment can now be correctly dispeled
+        * Magical Vestment now grants a non stacking armor bonus if no armor is equiped
         * Starlight is no longer affected by true sight as it is not an illusion effect
     * Angel
         * Angel Unbroken DR should now stack with all other DR

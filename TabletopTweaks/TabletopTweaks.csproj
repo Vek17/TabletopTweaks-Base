@@ -231,6 +231,7 @@
     <Compile Include="NewComponents\AddWeaponDamageTrigger.cs" />
     <Compile Include="NewComponents\ArmoredJuggernautDRProperty.cs" />
     <Compile Include="NewComponents\ArmorEnchantsToWeapon.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\MagicalVestmentComponent.cs" />
     <Compile Include="NewComponents\ContextArcaneSpellFailureIncrease.cs" />
     <Compile Include="NewComponents\ContextArmorCheckPenaltyIncrease.cs" />
     <Compile Include="NewComponents\ContextMaxDexBonusIncrease.cs" />
@@ -330,8 +331,6 @@
     <Compile Include="Config\AddedContent.cs" />
     <Compile Include="Extensions\ExtentionMethods.cs" />
     <Compile Include="MechanicsChanges\AdditionalModifierDescriptors.cs" />
-    <Compile Include="NewActions\EnhanceShield.cs" />
-    <Compile Include="NewActions\EnhanceArmor.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AzataFavorableMagicTTT.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AzataZippyMagicTTT.cs" />
     <Compile Include="NewComponents\BlockSpellDuplicationComponent.cs" />
@@ -369,6 +368,7 @@
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
+    <Compile Include="NewContent\Features\NauseatedPoision.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />

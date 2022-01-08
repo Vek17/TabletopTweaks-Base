@@ -50,8 +50,10 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Shadow spells now are correctly treated as being from the Illusion school for all effects.
     * Mounted Movement
         * Prevents full round actions after moving while mounted.
+    * Nauseated Condition
+        * Removes the poison descripotor from nauseated.
     * Staggered Condition
-        * Removes the movement impairing descriptor from staggered
+        * Removes the movement impairing descriptor from staggered.
 
 * Spells
     * Spell flags
@@ -278,7 +280,7 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Fire Minor blessing no longer causes excessive damage instances.
     * Water Blessing
         * Water Minor blessing no longer causes excessive damage instances.
-    * Weather Blessing
+    * Weather Blessinggit
         * Weather Minor blessing no longer causes excessive damage instances.
     * Luck Blessing
         * Luck Blessing now grants the correct major ability.

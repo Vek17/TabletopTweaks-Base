@@ -22,6 +22,7 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewActions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
@@ -224,81 +225,54 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 void PatchMagicalVestmentShield() {
                     var MagicalVestmentShield = Resources.GetBlueprint<BlueprintAbility>("adcda176d1756eb45bd5ec9592073b09");
                     var MagicalVestmentShieldBuff = Resources.GetBlueprint<BlueprintBuff>("2e8446f820936a44f951b50d70a82b16");
-                    MagicalVestmentShield.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceSheild>(a => {
-                        a.EnchantLevel = new ContextValue {
-                            ValueType = ContextValueType.Rank,
-                            Value = 1,
-                            ValueRank = AbilityRankType.ProjectilesCount
+
+                    MagicalVestmentShieldBuff.SetComponents();
+                    MagicalVestmentShieldBuff.AddComponent<MagicalVestmentComponent>(c => {
+                        c.Shield = true;
+                        c.EnchantLevel = new ContextValue() {
+                            ValueType = ContextValueType.Rank
                         };
-
-                        a.DurationValue = new ContextDurationValue {
-                            m_IsExtendable = true,
-                            Rate = DurationRate.Hours,
-                            DiceCountValue = new ContextValue(),
-                            BonusValue = new ContextValue()
+                        c.m_EnchantmentBlueprints = new BlueprintItemEnchantmentReference[] {
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("1d9b60d57afb45c4f9bb0a3c21bb3b98"), // TemporaryArmorEnhancementBonus1
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("d45bfd838c541bb40bde7b0bf0e1b684"), // TemporaryArmorEnhancementBonus2
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("51c51d841e9f16046a169729c13c4d4f"), // TemporaryArmorEnhancementBonus3
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("a23bcee56c9fcf64d863dafedb369387"), // TemporaryArmorEnhancementBonus4
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("15d7d6cbbf56bd744b37bbf9225ea83b")  // TemporaryArmorEnhancementBonus5
                         };
-                        a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
-
-                        a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
-                        };
-                    }));
-                    var RankConfig = Helpers.CreateContextRankConfig();
-                    RankConfig.m_Type = AbilityRankType.ProjectilesCount;
-                    RankConfig.m_Progression = ContextRankProgression.DivStep;
-                    RankConfig.m_StepLevel = 4;
-                    RankConfig.m_Min = 1;
-                    RankConfig.m_Max = 5;
-
-                    MagicalVestmentShield.AddComponent(RankConfig);
-                    MagicalVestmentShield.FlattenAllActions()
-                        .OfType<ContextActionApplyBuff>().First().IsNotDispelable = true;
-
-                    Main.LogPatch("Patched", MagicalVestmentShield);
-                    MagicalVestmentShieldBuff.RemoveComponents<BlueprintComponent>();
+                    });
+                    MagicalVestmentShieldBuff.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.DivStep;
+                        c.m_StepLevel = 4;
+                        c.m_Min = 1;
+                        c.m_Max = 5;
+                    });
                     Main.LogPatch("Patched", MagicalVestmentShieldBuff);
                 }
                 void PatchMagicalVestmentArmor() {
                     var MagicalVestmentArmor = Resources.GetBlueprint<BlueprintAbility>("956309af83352714aa7ee89fb4ecf201");
                     var MagicalVestmentArmorBuff = Resources.GetBlueprint<BlueprintBuff>("9e265139cf6c07c4fb8298cb8b646de9");
-                    MagicalVestmentArmor.GetComponent<AbilityEffectRunAction>().AddAction(Helpers.Create<EnhanceArmor>(a => {
-                        a.EnchantLevel = new ContextValue {
-                            ValueType = ContextValueType.Rank,
-                            Value = 1,
-                            ValueRank = AbilityRankType.ProjectilesCount
-                        };
 
-                        a.DurationValue = new ContextDurationValue {
-                            m_IsExtendable = true,
-                            Rate = DurationRate.Hours,
-                            DiceCountValue = new ContextValue(),
-                            BonusValue = new ContextValue()
+                    MagicalVestmentArmorBuff.SetComponents();
+                    MagicalVestmentArmorBuff.AddComponent<MagicalVestmentComponent>(c => {
+                        c.EnchantLevel = new ContextValue() {
+                            ValueType = ContextValueType.Rank
                         };
-                        a.DurationValue.BonusValue.ValueType = ContextValueType.Rank;
-
-                        a.m_Enchantment = new BlueprintItemEnchantmentReference[] {
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus1
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus2
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus3
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus4
-                            Resources.GetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b").ToReference<BlueprintItemEnchantmentReference>(), // TemporaryArmorEnhancementBonus5
+                        c.m_EnchantmentBlueprints = new BlueprintItemEnchantmentReference[] {
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("1d9b60d57afb45c4f9bb0a3c21bb3b98"), // TemporaryArmorEnhancementBonus1
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("d45bfd838c541bb40bde7b0bf0e1b684"), // TemporaryArmorEnhancementBonus2
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("51c51d841e9f16046a169729c13c4d4f"), // TemporaryArmorEnhancementBonus3
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("a23bcee56c9fcf64d863dafedb369387"), // TemporaryArmorEnhancementBonus4
+                            Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("15d7d6cbbf56bd744b37bbf9225ea83b")  // TemporaryArmorEnhancementBonus5
                         };
-                    }));
-                    var RankConfig = Helpers.CreateContextRankConfig();
-                    RankConfig.m_Type = AbilityRankType.ProjectilesCount;
-                    RankConfig.m_Progression = ContextRankProgression.DivStep;
-                    RankConfig.m_StepLevel = 4;
-                    RankConfig.m_Min = 1;
-                    RankConfig.m_Max = 5;
-
-                    MagicalVestmentArmor.AddComponent(RankConfig);
-                    MagicalVestmentArmor.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<ContextActionApplyBuff>().First().IsNotDispelable = true;
-                    Main.LogPatch("Patched", MagicalVestmentArmor);
-                    MagicalVestmentArmorBuff.RemoveComponents<BlueprintComponent>();
+                    });
+                    MagicalVestmentArmorBuff.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.DivStep;
+                        c.m_StepLevel = 4;
+                        c.m_Min = 1;
+                        c.m_Max = 5;
+                    });
                     Main.LogPatch("Patched", MagicalVestmentArmorBuff);
                 }
             }

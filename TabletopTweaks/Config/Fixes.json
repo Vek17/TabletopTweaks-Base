@@ -103,6 +103,11 @@
         "Homebrew": false,
         "Description": "Prevents full round actions after moving while mounted."
       },
+      "NauseatedDescriptors": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Removes the movement impairing descriptor from nauseated."
+      },
       "SelectiveMetamagicNonInstantaneous": {
         "Enabled": true,
         "Homebrew": false,
