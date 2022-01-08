@@ -12,7 +12,7 @@ All fixes and added content are configurable and can be disabled via the unity m
 3. Download the Tabletop Tweaks mod
 4. Install the mod by dragging the zip file from step 5 into the Unity Mod Manager window under the Mods tab
 
-##Added Content
+## Added Content
 * Base Abilities
     * One Handed Weapon toggle
 
@@ -252,7 +252,7 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Lecturer
         * Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.
 
-##Fixes
+## Fixes
 * UI Fixes
     * Dynamic Item Naming
         * Allows Weapon/Armor names to be modified by any additional enchants they gain outside of thier base enchants.
@@ -562,7 +562,7 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Thundering Burst
         * Fixes thundering burst to deal D10s like the description says instead of D8s.
 
-##Mythic Reworks
+## Mythic Reworks
 * Aeon
     * Aeon Bane
         * Updates Aeon Bane's Icon.
