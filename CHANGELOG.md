@@ -1,19 +1,28 @@
 ## Version 1.11.0
-* Game Adjustments
-    * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
-    * Angel Unbroken DR should now stacks with all other DR
-    * Chain Lightning now respects the CL 20 cap for its damage dice
-    * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
-    * Expanded Arsenal can no longer be used to stack spell focus feats to increase DC
-    * Firebrand no longer causes too many damage instances
-    * Geniekind no longer causes too many damage instances
-    * Magus spell combat/strike is now properly restricted to magus spells instead of the magus spell list
-    * More of the unique metamagic rods will no longer default to active
-    * Removed unneeded witch patches
-    * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
-    * Starlight is no longer affected by true sight as it is not an illusion effect
-    * Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
-    * Warpriest Luck Blessing now gets the correct major blessing
+* Fixes
+    * General
+        * More of the unique metamagic rods will no longer default to active
+    * Feats
+        * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
+        * Horsemaster prerequisites now restrict it from some cavalier archetypes
+    * Mythic Feats
+        * Expanded Arsenal can no longer be used to stack spell focus feats to increase DC
+    * Spells
+        * Chain Lightning now respects the CL 20 cap for its damage dice
+        * Firebrand no longer causes too many damage instances
+        * Geniekind no longer causes too many damage instances
+        * Starlight is no longer affected by true sight as it is not an illusion effect
+    * Angel
+        * Angel Unbroken DR should now stacks with all other DR
+    * Magus
+        * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list
+    * Paladin
+        * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
+    * Warpriest
+        * Luck Blessing now grants the correct major blessing
+    * Witch
+        * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
+        * Removed unneeded witch patches
 * UI Tweaks
     * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
     * Spell tooltips now display what spellbook they are from

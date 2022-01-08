@@ -582,7 +582,7 @@
         "LuckBlessing": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Luck Blessing now gets the correct major ability."
+          "Description": "Luck Blessing now grants the correct major ability."
         }
       },
       "IsExpanded": true
