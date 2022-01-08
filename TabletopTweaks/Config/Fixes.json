@@ -574,6 +574,21 @@
       }
     }
   },
+  "Warpriest": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "LuckBlessing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Luck Blessing now gets the correct major ability."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
   "Witch": {
     "DisableAll": false,
     "Base": {

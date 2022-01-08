@@ -23,6 +23,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Rogue = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Sorcerer = new ClassGroup();
+        public ClassGroup Warpriest = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
         public SettingGroup Hellknight = new SettingGroup();
         public SettingGroup Loremaster = new SettingGroup();
@@ -50,6 +51,7 @@ namespace TabletopTweaks.Config {
             Rogue.SetParents();
             Slayer.SetParents();
             Sorcerer.SetParents();
+            Warpriest.SetParents();
             Witch.SetParents();
 
             Crusade.SetParents();
@@ -80,6 +82,7 @@ namespace TabletopTweaks.Config {
             Rogue.LoadClassGroup(loadedSettings.Rogue, NewSettingsOffByDefault);
             Slayer.LoadClassGroup(loadedSettings.Slayer, NewSettingsOffByDefault);
             Sorcerer.LoadClassGroup(loadedSettings.Sorcerer, NewSettingsOffByDefault);
+            Warpriest.LoadClassGroup(loadedSettings.Warpriest, NewSettingsOffByDefault);
             Witch.LoadClassGroup(loadedSettings.Witch, NewSettingsOffByDefault);
 
             Hellknight.LoadSettingGroup(loadedSettings.Hellknight, NewSettingsOffByDefault);
