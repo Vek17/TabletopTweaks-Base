@@ -1,7 +1,8 @@
 ﻿This mod seeks to adjust the game to be closer to the tabletop Pathfinder ruleset.
 
 Additionally this mod seeks to add in content that was not included in the base game from the source books. There is some minor homebew that is all marked in the mod settings.
-Once a game is saved with this mod is enabled it will likely require this mod to be present to load so do not remove or disable the mod once enabled. You can however disable any feature of the mod at will without breaking saves.
+
+Once a game is saved with this mod is enabled it will require this mod to be present to load so do not remove or disable the mod once enabled. You can however disable any feature of the mod at will without breaking saves.
 
 All fixes and added content are configurable and can be disabled via the unity mod manager menu.
 
