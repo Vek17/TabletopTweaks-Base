@@ -334,7 +334,7 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Cleric - Channeler Of The Unknown
         * A fallen cleric archetype that has a unique domain selection, can convert all spells into domain spells, and gets a unique form of channeling that damages ALL things.
     * Magus - Blade Bound
-        * A select group of magi are called to carry a black blade—a sentient weapon of often unknown and possibly unknowable purpose. These weapons become valuable tools and allies, as both the magus and weapon typically crave arcane power, but as a black blade becomes more aware, its true motivations manifest, and as does its ability to influence its wielder with its ever-increasing ego.
+        * A select group of magi are called to carry a black blade-a sentient weapon of often unknown and possibly unknowable purpose. These weapons become valuable tools and allies, as both the magus and weapon typically crave arcane power, but as a black blade becomes more aware, its true motivations manifest, and as does its ability to influence its wielder with its ever-increasing ego.
     * Druid - NatureFang
         * A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents.
     * Warpriest - Divine Commander
@@ -416,7 +416,7 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Stalwart
         * While fighting defensively or using Combat Expertise, you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, to a maximum of DR 5/�, until the start of your next turn.
     * Improved Stalwart
-        * Double the DR you gain from Stalwart, to a maximum of DR 10/—.
+        * Double the DR you gain from Stalwart, to a maximum of DR 10/-.
     * Trick Riding
         * You can make a check using Mounted Combat to negate a hit on your mount twice per round instead of just once.
     * Undersized Mount
@@ -492,7 +492,7 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Armored Confidence
         * While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: +1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +4 at 19th level.
     * Armored Juggernaut
-        * When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor.
+        * When wearing heavy armor, the fighter gains DR 1/-. At 7th level, the fighter gains DR 1/- when wearing medium armor, and DR 2/- when wearing heavy armor. At 11th level, the fighter gains DR 1/- when wearing light armor, DR 2/- when wearing medium armor, and DR 3/- when wearing heavy armor.
     * Armor Specialization
         * The fighter selects one specific type of armor with which he is proficient, such as light or heavy. While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor''s armor bonus, up to a maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the armor bonus doesn't increase the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor's base armor bonus, including other advanced armor training options.
     * Critical Deflection
