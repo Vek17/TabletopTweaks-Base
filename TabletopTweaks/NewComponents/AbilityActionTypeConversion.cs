@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewComponents {
                     MetamagicData = ability.MetamagicData ?? new MetamagicData(),
                     OverridenResourceLogic = new CustomSpeedResourceOverride() {
                         m_RequiredResource = ability.ResourceLogic.RequiredResource.ToReference<BlueprintAbilityResourceReference>(),
-                        Multiplier = ability.ResourceLogic.CalculateCost(ability) * ResourceMultiplier
+                        Multiplier = ResourceMultiplier
                     },
                     CustomActionType = ActionType
                 };
@@ -110,11 +110,8 @@ namespace TabletopTweaks.NewComponents {
             public bool IsSpendResource => true;
 
             public int CalculateCost(AbilityData ability) {
-                var component = ability.Blueprint.GetComponent<IAbilityResourceLogic>();
-                if (component == null) {
-                    return 0;
-                }
-                return component.CalculateCost(ability.ConvertedFrom) * Multiplier;
+                var BaseCost = ability.ConvertedFrom?.ResourceCost ?? 0;
+                return BaseCost * Multiplier;
             }
 
             public void Spend(AbilityData ability) {
