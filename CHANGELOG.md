@@ -13,6 +13,7 @@
     * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
     * Starlight is no longer affected by true sight as it is not an illusion effect
     * Updated Horsemaster prerequisites to restrict it from some cavalier archetypes
+    * Warpriest Luck Blessing now gets the correct major blessing
 * UI Tweaks
     * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
     * Spell tooltips now display what spellbook they are from
