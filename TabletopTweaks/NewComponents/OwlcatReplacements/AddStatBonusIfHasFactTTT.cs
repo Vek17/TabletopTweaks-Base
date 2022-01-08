@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Validation;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
@@ -11,6 +12,8 @@ using Kingmaker.UnitLogic.Mechanics;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
+    [AllowMultipleComponents]
+    [TypeId("7601b8133d844f04956d9bc9a1cce210")]
     class AddStatBonusIfHasFactTTT : UnitBuffComponentDelegate, IUnitGainFactHandler, IUnitSubscriber, ISubscriber, IUnitLostFactHandler {
         public ReferenceArrayProxy<BlueprintUnitFact, BlueprintUnitFactReference> CheckedFacts {
             get {
