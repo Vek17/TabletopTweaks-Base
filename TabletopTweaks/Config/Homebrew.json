@@ -9,7 +9,7 @@
         "AeonBaneIcon": {
           "Enabled": true,
           "Homebrew": true,
-          "Description": "Update Aeon Bane's Icon."
+          "Description": "Updates Aeon Bane's Icon."
         },
         "AeonBaneSpellResistance": {
           "Enabled": true,
@@ -70,7 +70,7 @@
         "AzataPerformanceResource": {
           "Enabled": true,
           "Homebrew": true,
-          "Description": "Azata perforamnce usages now scale at Mythic level + Character level."
+          "Description": ""
         },
         "AzataSongToggles": {
           "Enabled": true,

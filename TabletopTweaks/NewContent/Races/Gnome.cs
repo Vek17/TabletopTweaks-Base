@@ -112,7 +112,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.SetName("Keen Gnome");
                 bp.SetDescription("Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. "
                     + "Such gnomes gain +2 Charisma, +2 Intelligence, "
-                    + "and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training");
+                    + "and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Intelligence;
@@ -148,7 +148,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Fell Magic");
-                bp.SetDescription("Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic");
+                bp.SetDescription("Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic.");
                 bp.AddComponent(Helpers.Create<IncreaseSpellSchoolDC>(c => {
                     c.School = SpellSchool.Necromancy;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -163,7 +163,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Utilitarian Magic");
                 bp.SetDescription("Some gnomes develop practical magic to assist them with their obsessive projects. " +
-                    "These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic");
+                    "These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic.");
                 bp.AddComponent(Helpers.Create<IncreaseSpellSchoolDC>(c => {
                     c.School = SpellSchool.Transmutation;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
@@ -178,7 +178,7 @@ namespace TabletopTweaks.NewContent.Races {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Racial };
                 bp.SetName("Inquisitive");
                 bp.SetDescription("Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery " +
-                    "and Mobility checks. \nThis racial trait replaces keen senses and obsessive.");
+                    "and Mobility checks.\nThis racial trait replaces keen senses and obsessive.");
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.SkillMobility;
                     c.Descriptor = ModifierDescriptor.Racial;

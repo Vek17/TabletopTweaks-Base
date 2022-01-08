@@ -16,7 +16,7 @@
       "DamageReductionRework": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Prevents most forms of damage reduction from stacking unless specifically specified"
+        "Description": "Prevents most forms of damage reduction from stacking unless specifically specified."
       },
       "DisableAfterCombatDeactivationOfUnlimitedAbilities": {
         "Enabled": true,
@@ -76,7 +76,7 @@
       "FixInherentSkillpoints": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Allows Inhernt bonuses to a stat now grant bonus skill points."
+        "Description": "Allows Inhernt bonuses to intelligence to now grant bonus skill points."
       },
       "FixMountedLongspearModifer": {
         "Enabled": true,
@@ -712,7 +712,7 @@
       "ShadowEvocation": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Shadow Evocation can now have the correct metamagic applied."
+        "Description": "Shadow Evocation can now have the correct metamagics applied."
       },
       "ShadowEvocationGreater": {
         "Enabled": true,
@@ -849,7 +849,7 @@
       "WeaponFinesse": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "No longer makes any weapon with Fencing/Slashing grace into a finesse weapon."
+        "Description": "No longer treats any weapon with Fencing/Slashing grace into a finesse weapon."
       }
     },
     "IsExpanded": true

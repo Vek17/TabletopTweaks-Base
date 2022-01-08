@@ -21,7 +21,7 @@
       "ChannelerOfTheUnknown": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Aa fallen cleric archetype that has a unique domain selection, can convert all spells into domain spells, and gets a unique form of channeling that damages ALL things."
+        "Description": "A fallen cleric archetype that has a unique domain selection, can convert all spells into domain spells, and gets a unique form of channeling that damages ALL things."
       },
       "DivineCommander": {
         "Enabled": true,
@@ -105,7 +105,7 @@
       "AnimalAlly": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "You gain an animal companion as if you were a druid of your character level �3. Unlike normal animals of its kind, an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level."
+        "Description": "You gain an animal companion as if you were a druid of your character level -3. Unlike normal animals of its kind, an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level."
       },
       "CelestialServant": {
         "Enabled": true,
@@ -255,7 +255,7 @@
       "Stalwart": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "While fighting defensively or using Combat Expertise, you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, to a maximum of DR 5/�, until the start of your next turn."
+        "Description": "While fighting defensively or using Combat Expertise, you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, to a maximum of DR 5/—, until the start of your next turn."
       },
       "StreetSmarts": {
         "Enabled": true,
@@ -291,12 +291,12 @@
       "ArmoredJuggernaut": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "When wearing heavy armor, the fighter gains DR 1/�. At 7th level, the fighter gains DR 1/� when wearing medium armor, and DR 2/� when wearing heavy armor. At 11th level, the fighter gains DR 1/� when wearing light armor, DR 2/� when wearing medium armor, and DR 3/� when wearing heavy armor."
+        "Description": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor."
       },
       "ArmorSpecialization": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The fighter selects one specific type of armor with which he is proficient, such as light or heavy. While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor�s armor bonus, up to a maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the armor bonus doesn�t increase the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor�s base armor bonus, including other advanced armor training options."
+        "Description": "The fighter selects one specific type of armor with which he is proficient, such as light or heavy. While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor''s armor bonus, up to a maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the armor bonus doesn't increase the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor's base armor bonus, including other advanced armor training options."
       },
       "CriticalDeflection": {
         "Enabled": true,
@@ -311,7 +311,7 @@
       "SteelHeadbutt": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter�s base attack bonus � 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter�s Strength modifier. Treat this attack as a weapon attack made using the same special material and echantment bonus (if any) as the armor."
+        "Description": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter's base attack bonus - 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter's Strength modifier. Treat this attack as a weapon attack made using the same special material and echantment bonus (if any) as the armor."
       }
     },
     "IsExpanded": true
@@ -322,12 +322,12 @@
       "DefensiveWeaponTraining": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The fighter gains a +1 shield bonus to his Armor Class. The fighter adds half his weapon�s enhancement bonus (if any) to this shield bonus. When his weapon training bonus for weapons from the associated fighter weapon group reaches +4, this shield bonus increases to +2. This shield bonus is lost if the fighter is immobilized or helpless."
+        "Description": "The fighter gains a +1 shield bonus to his Armor Class. The fighter adds half his weapon's enhancement bonus (if any) to this shield bonus. When his weapon training bonus for weapons from the associated fighter weapon group reaches +4, this shield bonus increases to +2. This shield bonus is lost if the fighter is immobilized or helpless."
       },
       "FocusedWeapon": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The fighter selects one weapon for which he has Weapon Focus and that belongs to the associated fighter weapon group. The fighter can deal damage with this weapon based on the damage of the warpriest�s sacred weapon class feature, treating his fighter level as his warpriest level. The fighter must have Weapon Focus and Weapon Training with the selected weapon in order to choose this option. A focused weapon deals 1d6 damage, this increases to 1d8 at level 6, 1d10 at level 10, 2d6 at level 15, and 2d8 at level 20"
+        "Description": "The fighter selects one weapon for which he has Weapon Focus and that belongs to the associated fighter weapon group. The fighter can deal damage with this weapon based on the damage of the warpriest's sacred weapon class feature, treating his fighter level as his warpriest level. The fighter must have Weapon Focus and Weapon Training with the selected weapon in order to choose this option. A focused weapon deals 1d6 damage, this increases to 1d8 at level 6, 1d10 at level 10, 2d6 at level 15, and 2d8 at level 20"
       },
       "TrainedGrace": {
         "Enabled": true,
@@ -342,7 +342,7 @@
       "WarriorSpirit": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to unlock the weapon�s potential. Each day he gains a number of points of spiritual energy equal to 1 + his maximum weapon training bonus. While wielding a weapon he has weapon traiing with, he can spend 1 point of spiritual energy to grant the weapon an enhancement bonus equal to his weapon training bonus. Enhancement bonuses gained by this advanced weapon training option stack with those of the weapon, to a maximum of +5. The fighter can also imbue the weapon with any one weapon special ability with an equivalent enhancement bonus less than or equal to his maximum bonus by reducing the granted enhancement bonus by the amount of the equivalent enhancement bonus. These bonuses last for 1 minute."
+        "Description": "The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to unlock the weapon's potential. Each day he gains a number of points of spiritual energy equal to 1 + his maximum weapon training bonus. While wielding a weapon he has weapon traiing with, he can spend 1 point of spiritual energy to grant the weapon an enhancement bonus equal to his weapon training bonus. Enhancement bonuses gained by this advanced weapon training option stack with those of the weapon, to a maximum of +5. The fighter can also imbue the weapon with any one weapon special ability with an equivalent enhancement bonus less than or equal to his maximum bonus by reducing the granted enhancement bonus by the amount of the equivalent enhancement bonus. These bonuses last for 1 minute."
       }
     },
     "IsExpanded": true
@@ -353,7 +353,7 @@
       "BroadStudy": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The magus selects another one of his spellcasting classes. The magus can use his spellstrike and spell combat abilities while casting or using spells from the spell list of that class. This does not allow him to cast arcane spells from that class�s spell list without suffering the normal chances of arcane spell failure, unless the spell lacks somatic components."
+        "Description": "The magus selects another one of his spellcasting classes. The magus can use his spellstrike and spell combat abilities while casting or using spells from the spell list of that class. This does not allow him to cast arcane spells from that class's spell list without suffering the normal chances of arcane spell failure, unless the spell lacks somatic components."
       },
       "SpellBlending": {
         "Enabled": true,
@@ -395,7 +395,7 @@
       "Lecturer": {
         "Enabled": true,
         "Homebrew": true,
-        "Description": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks"
+        "Description": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks."
       }
     },
     "IsExpanded": true
@@ -411,12 +411,12 @@
       "ShadowEnchantment": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment spell has a damaging effect, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. If recognized as a shadow enchantment, a damaging spell deals only one-fifth (20%) the normal amount of damage. If the disbelieved attack has a special effect other than damage, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. Regardless of the result of the save to disbelieve, an affected creature is also allowed any save (or spell resistance) that the spell being simulated allows, but the save DC is set according to shadow enchantment�s level (3rd) rather than the spell�s normal level."
+        "Description": "You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment spell has a damaging effect, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. If recognized as a shadow enchantment, a damaging spell deals only one-fifth (20%) the normal amount of damage. If the disbelieved attack has a special effect other than damage, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. Regardless of the result of the save to disbelieve, an affected creature is also allowed any save (or spell resistance) that the spell being simulated allows, but the save DC is set according to shadow enchantment's level (3rd) rather than the spell's normal level."
       },
       "ShadowEnchantmentGreater": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it�s only three-fifths (60%) as effective."
+        "Description": "This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it's only three-fifths (60%) as effective."
       }
     },
     "IsExpanded": true
@@ -497,7 +497,7 @@
       "PrecisionCritical": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. These dice are only doubled, not multiplied by the weapon�s critical modifier."
+        "Description": "Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. These dice are only doubled, not multiplied by the weapon's critical modifier."
       },
       "SecondPatron": {
         "Enabled": true,
