@@ -19,6 +19,11 @@
     * Paladin
         * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
     * Warpriest
+        * Air Major blessing no longer causes excessive damage instances.
+        * Earth Minor blessing no longer causes excessive damage instances.
+        * Fire Minor blessing no longer causes excessive damage instances.
+        * Water Minor blessing no longer causes excessive damage instances.
+        * Weather Minor blessing no longer causes excessive damage instances.
         * Luck Blessing now grants the correct major blessing
     * Witch
         * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.

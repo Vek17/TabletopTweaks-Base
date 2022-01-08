@@ -579,10 +579,35 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
+        "AirBlessing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Air Major blessing no longer causes excessive damage instances."
+        },
+        "EarthBlessing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Earth Minor blessing no longer causes excessive damage instances."
+        },
+        "FireBlessing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fire Minor blessing no longer causes excessive damage instances."
+        },
         "LuckBlessing": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Luck Blessing now grants the correct major ability."
+        },
+        "WaterBlessing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Water Minor blessing no longer causes excessive damage instances."
+        },
+        "WeatherBlessing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Weather Minor blessing no longer causes excessive damage instances."
         }
       },
       "IsExpanded": true

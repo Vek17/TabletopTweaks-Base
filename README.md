@@ -270,6 +270,16 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Crossblooded sorcerers now take the -2 will saving throw penalty that they were missing.
 
 * Warpriest
+    * Air Blessing
+        * Air Major blessing no longer causes excessive damage instances.
+    * Earth Blessing
+        * Earth Minor blessing no longer causes excessive damage instances.
+    * Fire Blessing
+        * Fire Minor blessing no longer causes excessive damage instances.
+    * Water Blessing
+        * Water Minor blessing no longer causes excessive damage instances.
+    * Weather Blessing
+        * Weather Minor blessing no longer causes excessive damage instances.
     * Luck Blessing
         * Luck Blessing now grants the correct major ability.
 
