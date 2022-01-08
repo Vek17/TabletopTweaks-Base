@@ -6,14 +6,14 @@
         * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
         * Horsemaster prerequisites now restrict it from some cavalier archetypes
     * Mythic Feats
-        * Expanded Arsenal can no longer be used to stack spell focus feats to increase DC
+        * Expanded Arsenal can no longer be used to stack multiple spell focus feats on the same school to increase DC
     * Spells
         * Chain Lightning now respects the CL 20 cap for its damage dice
         * Firebrand no longer causes too many damage instances
         * Geniekind no longer causes too many damage instances
         * Starlight is no longer affected by true sight as it is not an illusion effect
     * Angel
-        * Angel Unbroken DR should now stacks with all other DR
+        * Angel Unbroken DR should now stack with all other DR
     * Magus
         * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list
     * Paladin
