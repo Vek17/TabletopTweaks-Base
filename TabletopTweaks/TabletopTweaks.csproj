@@ -242,6 +242,7 @@
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\NewBaseTypes\ItemEntityRestriction.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\AddStatBonusIfHasFactTTT.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AlliedSpellcasterTTT.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteSpellKnown.cs" />
     <Compile Include="NewComponents\Properties\CompositeCustomPropertyGetter.cs" />
@@ -377,6 +378,7 @@
     <Compile Include="NewContent\MythicAbilities\HarmoniousMage.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicCombatExpertise.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatReflexes.cs" />
     <Compile Include="NewContent\MythicFeats\MythicIntimidatingProwess.cs" />
     <Compile Include="NewContent\MythicFeats\MythicManyshot.cs" />

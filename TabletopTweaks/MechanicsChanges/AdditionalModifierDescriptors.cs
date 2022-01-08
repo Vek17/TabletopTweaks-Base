@@ -160,9 +160,6 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Untyped.SpellFocusGreater:
                         __result = "Other";
                         break;
-                    default:
-                        __result = "Other";
-                        break;
                 }
             }
         }

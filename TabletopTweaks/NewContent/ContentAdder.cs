@@ -155,6 +155,7 @@ namespace TabletopTweaks.NewContent {
                 MythicFeats.TitanStrike.AddTitanStrike();
                 MythicFeats.MythicTwoWeaponDefense.AddMythicTwoWeaponDefense();
                 MythicFeats.MythicManyshot.AddMythicManyshot();
+                MythicFeats.MythicCombatExpertise.AddMythicCombatExpertise();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }

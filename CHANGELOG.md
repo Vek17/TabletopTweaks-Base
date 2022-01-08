@@ -57,6 +57,8 @@
     * Second Patron
         * You select a second patron, gaining all its benifits.
 * Added Mythic Feats
+    * Combat Expertise (Mythic)
+        * Whenever you use Combat Expertise, you gain an additional +2 dodge bonus to your Armor Class.
     * Combat Reflexes (Mythic)
         * You can make any number of additional attacks of opportunity per round.
     * Intimidating Prowess (Mythic)

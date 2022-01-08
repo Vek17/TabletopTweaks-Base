@@ -510,6 +510,11 @@
   "MythicFeats": {
     "DisableAll": false,
     "Settings": {
+      "MythicCombatExpertise": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you use Combat Expertise, you gain an additional +2 dodge bonus to your Armor Class."
+      },
       "MythicCombatReflexes": {
         "Enabled": true,
         "Homebrew": false,

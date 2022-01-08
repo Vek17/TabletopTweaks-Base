@@ -426,6 +426,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Select a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level.
 
 * Mythic Feats
+    * Combat Expertise (Mythic)
+        * Whenever you use Combat Expertise, you gain an additional +2 dodge bonus to your Armor Class.
     * Combat Reflexes (Mythic)
         * You can make any number of additional attacks of opportunity per round.
     * Intimidating Prowess (Mythic)
