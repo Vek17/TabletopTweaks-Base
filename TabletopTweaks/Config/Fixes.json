@@ -121,6 +121,17 @@
     },
     "IsExpanded": true
   },
+  "Aeon": {
+    "DisableAll": false,
+    "Settings": {
+      "AeonDemythication": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Aeon Demythication will now actually suppress mythic effects."
+      }
+    },
+    "IsExpanded": true
+  },
   "Lich": {
     "DisableAll": false,
     "Settings": {

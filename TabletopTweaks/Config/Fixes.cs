@@ -6,6 +6,7 @@ namespace TabletopTweaks.Config {
 
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
+        public SettingGroup Aeon = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
         public ClassGroup Alchemist = new ClassGroup();
@@ -66,6 +67,7 @@ namespace TabletopTweaks.Config {
 
             BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
 
+            Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
 

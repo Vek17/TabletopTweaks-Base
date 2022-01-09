@@ -20,12 +20,14 @@
         * Remove Sickness no longer grants immunity to sickness and nausea.
         * Starlight is no longer affected by true sight as it is not an illusion effect
         * Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly.
+    * Aeon
+        * Aeon Demythication should now actually suppress mythic effects.
     * Angel
-        * Angel Unbroken DR should now stack with all other DR
+        * Angel Unbroken DR should now stack with all other DR.
     * Magus
-        * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list
+        * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list.
     * Paladin
-        * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
+        * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks.
     * Shaman
         * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
     * Warpriest

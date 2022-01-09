@@ -316,7 +316,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", MagicWeaponGreaterPrimary);
                 Main.LogPatch("Patched", MagicWeaponGreaterSecondary);
             }
-            // TODO: Build new supression 
             static void PatchRemoveFear() {
                 if (ModSettings.Fixes.Spells.IsDisabled("RemoveFear")) { return; }
 

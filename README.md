@@ -162,6 +162,10 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Bloodlines
     * Rebuilt all prerequisites to fix multiple issues with prestige class interactions when multiclassing
 
+* Aeon
+    * Aeon Demythication
+        * Aeon Demythication should now actually suppress mythic effects.
+
 * Lich
     * Death Rush
         * Prevents Death Rush from triggering multiple fake attacks and procing weapon effects more often than it should.
