@@ -19,11 +19,13 @@
         * Remove Fear no longer grants immunity to shaken and fear.
         * Remove Sickness no longer grants immunity to sickness and nausea.
         * Starlight is no longer affected by true sight as it is not an illusion effect
-        * Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly.
+        * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * Aeon
         * Aeon Demythication should now actually suppress mythic effects.
     * Angel
         * Angel Unbroken DR should now stack with all other DR.
+    * Cleric
+        * Glory domaain no longer grants an untyped bonus the the raw Charsima stat.
     * Magus
         * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list.
     * Paladin

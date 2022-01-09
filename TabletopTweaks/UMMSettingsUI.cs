@@ -55,6 +55,10 @@ namespace TabletopTweaks {
                     ("Base", Fixes.Cavalier.Base),
                     Fixes.Cavalier.Archetypes
                 );
+                SetttingUI.NestedSettingGroup("Cleric", TabLevel, Fixes.Cleric,
+                    ("Base", Fixes.Cavalier.Base),
+                    Fixes.Cleric.Archetypes
+                );
                 SetttingUI.NestedSettingGroup("Fighter", TabLevel, Fixes.Fighter,
                     ("Base", Fixes.Fighter.Base),
                     Fixes.Fighter.Archetypes

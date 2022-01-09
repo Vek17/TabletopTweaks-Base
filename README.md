@@ -92,6 +92,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Greater Shadow Evocation can now have the correct metamagic applied.
     * Starlight
         * Starlight no longer is affected by true sight.
+    * Unbreakable Heart
+        * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * WrackingRay
         * Wracking Ray now deals the correct amount of ability damage.
 
@@ -216,6 +218,10 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Prevents Supreme Charge damage from criting and moves it into the new charage damage system.
     * Gendarme
         * Prevents Transfixing Charge damage from criting and moves it into the new charage damage system.
+
+* Cleric
+    * Glory Domain
+        * Glory domaain no longer grants an untyped bonus the the raw Charsima stat.
 
 * Fighter
     * Advanced Weapon Training

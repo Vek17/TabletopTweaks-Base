@@ -326,6 +326,21 @@
       }
     }
   },
+  "Cleric": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "GloryDomain": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Glory domaain no longer grants an untyped bonus the the raw Charsima stat."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
   "Fighter": {
     "DisableAll": false,
     "Base": {

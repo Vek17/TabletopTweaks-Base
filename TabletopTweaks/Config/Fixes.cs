@@ -14,6 +14,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Barbarian = new ClassGroup();
         public ClassGroup Bloodrager = new ClassGroup();
         public ClassGroup Cavalier = new ClassGroup();
+        public ClassGroup Cleric = new ClassGroup();
         public ClassGroup Fighter = new ClassGroup();
         public ClassGroup Kineticist = new ClassGroup();
         public ClassGroup Magus = new ClassGroup();
@@ -43,6 +44,7 @@ namespace TabletopTweaks.Config {
             Barbarian.SetParents();
             Bloodrager.SetParents();
             Cavalier.SetParents();
+            Cleric.SetParents();
             Fighter.SetParents();
             Kineticist.SetParents();
             Magus.SetParents();
@@ -76,6 +78,7 @@ namespace TabletopTweaks.Config {
             Barbarian.LoadClassGroup(loadedSettings.Barbarian, NewSettingsOffByDefault);
             Bloodrager.LoadClassGroup(loadedSettings.Bloodrager, NewSettingsOffByDefault);
             Cavalier.LoadClassGroup(loadedSettings.Cavalier, NewSettingsOffByDefault);
+            Cleric.LoadClassGroup(loadedSettings.Cleric, NewSettingsOffByDefault);
             Fighter.LoadClassGroup(loadedSettings.Fighter, NewSettingsOffByDefault);
             Kineticist.LoadClassGroup(loadedSettings.Kineticist, NewSettingsOffByDefault);
             Magus.LoadClassGroup(loadedSettings.Magus, NewSettingsOffByDefault);

@@ -145,6 +145,7 @@
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
+    <Compile Include="Bugfixes\Classes\Cleric.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />

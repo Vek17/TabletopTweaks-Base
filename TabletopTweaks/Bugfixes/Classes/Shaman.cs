@@ -5,7 +5,7 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Classes {
-    class Shaman {
+    static class Shaman {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
