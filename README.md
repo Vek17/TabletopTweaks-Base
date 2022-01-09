@@ -76,6 +76,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Geniekind no longer causes excessive damage instances to trigger when attacking.
     * Greater Magic Weapon
         * Greater Magic Weapon no longer stacks with existing enhancement bonuses.
+    * Hellfire Ray
+        * Hellfire Ray no longer has the Fire descriptor.
     * Magical Vestment
         * Magical Vestment now enhances your armor instead of granting a floating modifier.
     * Remove Fear

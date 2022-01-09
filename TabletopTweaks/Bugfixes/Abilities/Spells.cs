@@ -44,6 +44,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchDispelMagicGreater();
                 PatchFirebrand();
                 PatchGeniekind();
+                PatchHellfireRay();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchRemoveFear();
@@ -215,6 +216,13 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     });
                     Main.LogPatch("Patched", GeniekindBuff);
                 }
+            }
+
+            static void PatchHellfireRay() {
+                if (ModSettings.Fixes.Spells.IsDisabled("HellfireRay")) { return; }
+
+                var HellfireRay = Resources.GetBlueprint<BlueprintAbility>("700cfcbd0cb2975419bcab7dbb8c6210");
+                HellfireRay.GetComponent<SpellDescriptorComponent>().Descriptor = SpellDescriptor.Evil;
             }
 
             static void PatchMagicalVestment() {

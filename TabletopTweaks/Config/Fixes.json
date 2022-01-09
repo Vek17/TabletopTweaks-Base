@@ -724,6 +724,11 @@
         "Homebrew": false,
         "Description": "Greater Magic Weapon no longer stacks with existing enhancement bonuses."
       },
+      "HellfireRay": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Hellfire Ray no longer has the Fire descriptor."
+      },
       "MagicalVestment": {
         "Enabled": true,
         "Homebrew": false,

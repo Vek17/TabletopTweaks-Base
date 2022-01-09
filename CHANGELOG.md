@@ -12,6 +12,7 @@
         * Chain Lightning now respects the CL 20 cap for its damage dice
         * Firebrand no longer causes too many damage instances
         * Geniekind no longer causes too many damage instances
+        * Hellfire Ray no longer has the Fire descriptor.
         * Magical Vestment now works correctly when used by enemies in prebuffs
         * Magical Vestment can now be correctly dispeled
         * Magical Vestment now grants a non stacking armor bonus if no armor is equiped
