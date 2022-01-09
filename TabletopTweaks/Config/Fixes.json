@@ -737,7 +737,12 @@
       "RemoveFear": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Remove fear no longer makes you immune to fear."
+        "Description": "Remove fear no longer makes you immune to shaken and fear."
+      },
+      "RemoveSickness": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Remove sickness no longer makes you immune to sickness and nausea."
       },
       "ShadowConjuration": {
         "Enabled": true,

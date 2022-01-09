@@ -81,7 +81,9 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Magical Vestment
         * Magical Vestment now enhances your armor instead of granting a floating modifier.
     * Remove Fear
-        * Remove fear no longer makes you immune to fear.
+        * Remove Fear no longer grants immunity to shaken and fear.
+    * Remove Sickness
+        * Remove Sickness no longer grants immunity to sickness and nausea.
     * Shadow Conjuration
         * Shadow Conjuration has been added to the Wizard spell list.
     * Shadow Evocation

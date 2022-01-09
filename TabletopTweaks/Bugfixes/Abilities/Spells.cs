@@ -11,6 +11,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -20,7 +21,6 @@ using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewActions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
@@ -48,6 +48,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchRemoveFear();
+                PatchRemoveSickness();
                 PatchShadowConjuration();
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
@@ -223,6 +224,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
                 var HellfireRay = Resources.GetBlueprint<BlueprintAbility>("700cfcbd0cb2975419bcab7dbb8c6210");
                 HellfireRay.GetComponent<SpellDescriptorComponent>().Descriptor = SpellDescriptor.Evil;
+                Main.LogPatch("Patched", HellfireRay);
             }
 
             static void PatchMagicalVestment() {
@@ -304,17 +306,25 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", MagicWeaponGreaterPrimary);
                 Main.LogPatch("Patched", MagicWeaponGreaterSecondary);
             }
-
+            // TODO: Build new supression 
             static void PatchRemoveFear() {
                 if (ModSettings.Fixes.Spells.IsDisabled("RemoveFear")) { return; }
-                var RemoveFear = Resources.GetBlueprint<BlueprintAbility>("55a037e514c0ee14a8e3ed14b47061de");
                 var RemoveFearBuff = Resources.GetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
-                var suppressFear = Helpers.Create<SuppressBuffsPersistant>(c => {
+                RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
+                RemoveFearBuff.AddComponent<SuppressBuffsTTT>(c => {
                     c.Descriptor = SpellDescriptor.Frightened | SpellDescriptor.Shaken | SpellDescriptor.Fear;
                 });
-                RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
-                RemoveFearBuff.AddComponent(suppressFear);
                 Main.LogPatch("Patched", RemoveFearBuff);
+            }
+
+            static void PatchRemoveSickness() {
+                if (ModSettings.Fixes.Spells.IsDisabled("RemoveSickness")) { return; }
+                var RemoveSicknessBuff = Resources.GetBlueprint<BlueprintBuff>("91e09b2d99bb71243a97565af8b282e9");
+                RemoveSicknessBuff.RemoveComponents<AddConditionImmunity>();
+                RemoveSicknessBuff.AddComponent<SuppressBuffsTTT>(c => {
+                    c.Descriptor = SpellDescriptor.Sickened | SpellDescriptor.Nauseated;
+                });
+                Main.LogPatch("Patched", RemoveSicknessBuff);
             }
 
             static void PatchShadowConjuration() {
@@ -398,6 +408,13 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                         }
                     });
                 Main.Log("Finished Spell Flags");
+            }
+        }
+        // TEMP CHANGE
+        [HarmonyPatch(typeof(Buff), "OnAttach")]
+        static class MetamagicHelper_GetBolsteredAreaEffectUnits_Patch {
+            static void Postfix(Buff __instance) {
+                __instance.IsSuppressed = false;
             }
         }
     }

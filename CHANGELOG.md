@@ -9,13 +9,15 @@
     * Mythic Feats
         * Expanded Arsenal can no longer be used to stack multiple spell focus feats on the same school to increase DC
     * Spells
-        * Chain Lightning now respects the CL 20 cap for its damage dice
-        * Firebrand no longer causes too many damage instances
-        * Geniekind no longer causes too many damage instances
+        * Chain Lightning now respects the CL 20 cap for its damage dice.
+        * Firebrand no longer causes too many damage instances.
+        * Geniekind no longer causes too many damage instances.
         * Hellfire Ray no longer has the Fire descriptor.
-        * Magical Vestment now works correctly when used by enemies in prebuffs
-        * Magical Vestment can now be correctly dispeled
-        * Magical Vestment now grants a non stacking armor bonus if no armor is equiped
+        * Magical Vestment now works correctly when used by enemies in prebuffs.
+        * Magical Vestment can now be correctly dispeled.
+        * Magical Vestment now grants a non stacking armor bonus if no armor is equiped.
+        * Remove Fear no longer grants immunity to shaken and fear.
+        * Remove Sickness no longer grants immunity to sickness and nausea.
         * Starlight is no longer affected by true sight as it is not an illusion effect
     * Angel
         * Angel Unbroken DR should now stack with all other DR

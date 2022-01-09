@@ -15,7 +15,7 @@ namespace TabletopTweaks.NewContent {
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
                 Features.MartialWeaponProficencySelection.AddMartialWeaponProficencySelection();
-                Features.NauseatedPoision.AddNauseatedPoision();
+                //Features.NauseatedPoision.AddNauseatedPoision();
 
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();
