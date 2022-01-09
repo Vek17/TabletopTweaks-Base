@@ -86,6 +86,10 @@ namespace TabletopTweaks {
                     ("Base", Fixes.Rogue.Base),
                     Fixes.Rogue.Archetypes
                 );
+                SetttingUI.NestedSettingGroup("Shaman", TabLevel, Fixes.Shaman,
+                    ("Base", Fixes.Shaman.Base),
+                    Fixes.Shaman.Archetypes
+                );
                 SetttingUI.NestedSettingGroup("Slayer", TabLevel, Fixes.Slayer,
                     ("Base", Fixes.Slayer.Base),
                     Fixes.Slayer.Archetypes

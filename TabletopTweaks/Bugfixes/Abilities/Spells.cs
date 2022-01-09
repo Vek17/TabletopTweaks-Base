@@ -53,12 +53,14 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
                 PatchStarlight();
+                PatchUnbreakableHeart();
                 PatchWrachingRay();
                 PatchFromSpellFlags();
             }
 
             static void PatchBelieveInYourself() {
                 if (ModSettings.Fixes.Spells.IsDisabled("BelieveInYourself")) { return; }
+
                 BlueprintAbility BelieveInYourself = Resources.GetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
                 BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
                     .GetComponent<AbilityVariants>()
@@ -78,6 +80,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchBestowCurseGreater() {
                 if (ModSettings.Fixes.Spells.IsDisabled("BestowCurseGreater")) { return; }
+
                 var BestowCurseGreaterDeterioration = Resources.GetBlueprint<BlueprintAbility>("71196d7e6d6645247a058a3c3c9bb5fd");
                 var BestowCurseGreaterFeebleBody = Resources.GetBlueprint<BlueprintAbility>("c74a7dfebd7b1004a80f7e59689dfadd");
                 var BestowCurseGreaterIdiocy = Resources.GetBlueprint<BlueprintAbility>("f7739a453e2138b46978e9098a29b3fb");
@@ -125,6 +128,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchBreakEnchantment() {
                 if (ModSettings.Fixes.Spells.IsDisabled("BreakEnchantment")) { return; }
+
                 var BreakEnchantment = Resources.GetBlueprint<BlueprintAbility>("7792da00c85b9e042a0fdfc2b66ec9a8");
                 BreakEnchantment
                     .FlattenAllActions()
@@ -138,6 +142,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchChainLightning() {
                 if (ModSettings.Fixes.Spells.IsDisabled("ChainLightning")) { return; }
+
                 var ChainLightning = Resources.GetBlueprint<BlueprintAbility>("645558d63604747428d55f0dd3a4cb58");
                 ChainLightning
                     .FlattenAllActions()
@@ -150,6 +155,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchCrusadersEdge() {
                 if (ModSettings.Fixes.Spells.IsDisabled("CrusadersEdge")) { return; }
+
                 BlueprintBuff CrusadersEdgeBuff = Resources.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 Main.LogPatch("Patched", CrusadersEdgeBuff);
@@ -157,6 +163,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchDispelMagicGreater() {
                 if (ModSettings.Fixes.Spells.IsDisabled("DispelMagicGreater")) { return; }
+
                 var DispelMagicGreaterTarget = Resources.GetBlueprint<BlueprintAbility>("6d490c80598f1d34bb277735b52d52c1");
                 DispelMagicGreaterTarget.SetDescription("This functions as a targeted dispel magic, but it can dispel one spell for every four caster " +
                     "levels you possess, starting with the highest level spells and proceeding to lower level spells.\n" +
@@ -169,6 +176,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchFirebrand() {
                 if (ModSettings.Fixes.Spells.IsDisabled("Firebrand")) { return; }
+
                 var FirebrandBuff = Resources.GetBlueprint<BlueprintBuff>("c6cc1c5356db4674dbd2be20ea205c86");
 
                 var EnergyType = FirebrandBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
@@ -189,6 +197,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchGeniekind() {
                 if (ModSettings.Fixes.Spells.IsDisabled("Geniekind")) { return; }
+
                 var GeniekindDjinniBuff = Resources.GetBlueprint<BlueprintBuff>("082caf8c1005f114ba6375a867f638cf");
                 var GeniekindEfreetiBuff = Resources.GetBlueprint<BlueprintBuff>("d47f45f29c4cfc0469f3734d02545e0b");
                 var GeniekindMaridBuff = Resources.GetBlueprint<BlueprintBuff>("4f37fc07fe2cf7f4f8076e79a0a3bfe9");
@@ -229,6 +238,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchMagicalVestment() {
                 if (ModSettings.Fixes.Spells.IsDisabled("MagicalVestment")) { return; }
+
                 PatchMagicalVestmentArmor();
                 PatchMagicalVestmentShield();
 
@@ -309,6 +319,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             // TODO: Build new supression 
             static void PatchRemoveFear() {
                 if (ModSettings.Fixes.Spells.IsDisabled("RemoveFear")) { return; }
+
                 var RemoveFearBuff = Resources.GetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
                 RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
                 RemoveFearBuff.AddComponent<SuppressBuffsTTT>(c => {
@@ -319,6 +330,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchRemoveSickness() {
                 if (ModSettings.Fixes.Spells.IsDisabled("RemoveSickness")) { return; }
+
                 var RemoveSicknessBuff = Resources.GetBlueprint<BlueprintBuff>("91e09b2d99bb71243a97565af8b282e9");
                 RemoveSicknessBuff.RemoveComponents<AddConditionImmunity>();
                 RemoveSicknessBuff.AddComponent<SuppressBuffsTTT>(c => {
@@ -329,6 +341,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchShadowConjuration() {
                 if (ModSettings.Fixes.Spells.IsDisabled("ShadowConjuration")) { return; }
+
                 var ShadowConjuration = Resources.GetBlueprint<BlueprintAbility>("caac251ca7601324bbe000372a0a1005");
                 ShadowConjuration.AddToSpellList(SpellTools.SpellList.WizardSpellList, 4);
                 Main.LogPatch("Patched", ShadowConjuration);
@@ -336,6 +349,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchShadowEvocation() {
                 if (ModSettings.Fixes.Spells.IsDisabled("ShadowEvocation")) { return; }
+
                 var ShadowEvocation = Resources.GetBlueprint<BlueprintAbility>("237427308e48c3341b3d532b9d3a001f");
                 ShadowEvocation.AvailableMetamagic |= Metamagic.Empower
                     | Metamagic.Maximize
@@ -351,6 +365,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchShadowEvocationGreater() {
                 if (ModSettings.Fixes.Spells.IsDisabled("ShadowEvocationGreater")) { return; }
+
                 var ShadowEvocationGreater = Resources.GetBlueprint<BlueprintAbility>("3c4a2d4181482e84d9cd752ef8edc3b6");
                 ShadowEvocationGreater.AvailableMetamagic |= Metamagic.Empower
                     | Metamagic.Maximize
@@ -366,13 +381,22 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchStarlight() {
                 if (ModSettings.Fixes.Spells.IsDisabled("Starlight")) { return; }
+
                 var StarlightAllyBuff = Resources.GetBlueprint<BlueprintBuff>("f4ead47adc2ca2744a00efd4e088ecb2");
                 StarlightAllyBuff.GetComponent<AddConcealment>().Descriptor = ConcealmentDescriptor.InitiatorIsBlind;
                 Main.LogPatch("Patched", StarlightAllyBuff);
             }
 
+            static void PatchUnbreakableHeart() {
+                if (ModSettings.Fixes.Spells.IsDisabled("UnbreakableHeart")) { return; }
+
+                var UnbreakableHeartBuff = Resources.GetBlueprint<BlueprintBuff>("6603b27034f694e44a407a9cdf77c67e");
+                QuickFixTools.ReplaceSuppression(UnbreakableHeartBuff);
+            }
+
             static void PatchWrachingRay() {
                 if (ModSettings.Fixes.Spells.IsDisabled("WrackingRay")) { return; }
+
                 var WrackingRay = Resources.GetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
                 foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
                     foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {
@@ -384,6 +408,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
             static void PatchFromSpellFlags() {
                 if (ModSettings.Fixes.Spells.IsDisabled("FixSpellFlags")) { return; }
+
                 Main.Log("Updating Spell Flags");
                 SpellTools.SpellList.AllSpellLists
                     .SelectMany(list => list.SpellsByLevel)

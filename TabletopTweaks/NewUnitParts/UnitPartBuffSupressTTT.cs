@@ -5,7 +5,6 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
 
@@ -97,7 +96,9 @@ namespace TabletopTweaks.NewUnitParts {
                     var buff =  buffRef.Fact;
                     if (buff != null) {
                         buff.IsSuppressed = true;
-                        buff.Deactivate();
+                        if (buff.IsActive) {
+                            buff.Deactivate();
+                        }
                     }
                 });
             }
@@ -107,7 +108,9 @@ namespace TabletopTweaks.NewUnitParts {
                     var buff = buffRef.Fact;
                     if (buff != null) {
                         buff.IsSuppressed = false;
-                        buff.Activate();
+                        if (!buff.IsActive) {
+                            buff.Activate();
+                        }
                     }
                 });
             }

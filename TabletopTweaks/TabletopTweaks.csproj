@@ -154,6 +154,7 @@
     <Compile Include="Bugfixes\Classes\Oracle.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
+    <Compile Include="Bugfixes\Classes\Shaman.cs" />
     <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
     <Compile Include="Bugfixes\Classes\Warpriest.cs" />
@@ -492,6 +493,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Config\Fixes.cs" />
     <Compile Include="Utilities\ILUtils.cs" />
+    <Compile Include="Utilities\QuickFixTools.cs" />
     <Compile Include="Utilities\SpellTools.cs" />
     <Compile Include="Utilities\TypeReplaceTranspiler.cs" />
   </ItemGroup>

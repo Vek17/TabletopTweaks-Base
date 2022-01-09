@@ -267,6 +267,10 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Removes the level 2 rogue talent and adds in a level 4 talent.
         * Removes the sneak attack dice granted at level 1.
 
+* Shaman
+    * Ameliorating Hex 
+        * Ameliorating Hex  no longer grants complete immunity to effects and instead supresses correctly.
+
 * Slayer
     * Trapfinding
         * Trapfinding now grants bonuses to perception and trickery.
@@ -292,6 +296,10 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Witch
     * Agility Patron
         * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
+    * Ameliorating Hex 
+        * Ameliorating Hex  no longer grants complete immunity to effects and instead supresses correctly.
+    * Major Ameliorating Hex 
+        * Major Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
 
 * Hellknight
     * Pentamic Faith

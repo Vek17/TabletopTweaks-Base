@@ -19,12 +19,15 @@
         * Remove Fear no longer grants immunity to shaken and fear.
         * Remove Sickness no longer grants immunity to sickness and nausea.
         * Starlight is no longer affected by true sight as it is not an illusion effect
+        * Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly.
     * Angel
         * Angel Unbroken DR should now stack with all other DR
     * Magus
         * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list
     * Paladin
         * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
+    * Shaman
+        * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
     * Warpriest
         * Air Major blessing no longer causes excessive damage instances.
         * Earth Minor blessing no longer causes excessive damage instances.
@@ -34,6 +37,8 @@
         * Luck Blessing now grants the correct major blessing
     * Witch
         * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
+        * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
+        * Major Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
         * Removed unneeded witch patches
 * UI Tweaks
     * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value

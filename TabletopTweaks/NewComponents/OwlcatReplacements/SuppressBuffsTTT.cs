@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
 
         [SerializeField]
         [FormerlySerializedAs("Buffs")]
-        private BlueprintBuffReference[] m_Buffs = new BlueprintBuffReference[0];
+        public BlueprintBuffReference[] m_Buffs = new BlueprintBuffReference[0];
         [SerializeField]
         public SpellSchool[] Schools = new SpellSchool[0];
         [SerializeField]

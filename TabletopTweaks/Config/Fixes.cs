@@ -21,6 +21,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Paladin = new ClassGroup();
         public ClassGroup Ranger = new ClassGroup();
         public ClassGroup Rogue = new ClassGroup();
+        public ClassGroup Shaman = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Sorcerer = new ClassGroup();
         public ClassGroup Warpriest = new ClassGroup();
@@ -49,6 +50,7 @@ namespace TabletopTweaks.Config {
             Paladin.SetParents();
             Ranger.SetParents();
             Rogue.SetParents();
+            Shaman.SetParents();
             Slayer.SetParents();
             Sorcerer.SetParents();
             Warpriest.SetParents();
@@ -80,6 +82,7 @@ namespace TabletopTweaks.Config {
             Paladin.LoadClassGroup(loadedSettings.Paladin, NewSettingsOffByDefault);
             Ranger.LoadClassGroup(loadedSettings.Ranger, NewSettingsOffByDefault);
             Rogue.LoadClassGroup(loadedSettings.Rogue, NewSettingsOffByDefault);
+            Shaman.LoadClassGroup(loadedSettings.Shaman, NewSettingsOffByDefault);
             Slayer.LoadClassGroup(loadedSettings.Slayer, NewSettingsOffByDefault);
             Sorcerer.LoadClassGroup(loadedSettings.Sorcerer, NewSettingsOffByDefault);
             Warpriest.LoadClassGroup(loadedSettings.Warpriest, NewSettingsOffByDefault);

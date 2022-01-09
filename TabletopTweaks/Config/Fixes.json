@@ -543,6 +543,21 @@
       }
     }
   },
+  "Shaman": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "AmelioratingHex": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
   "Slayer": {
     "DisableAll": false,
     "Base": {
@@ -628,6 +643,16 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th."
+        },
+        "AmelioratingHex": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
+        },
+        "MajorAmelioratingHex": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
         }
       },
       "IsExpanded": true
@@ -742,7 +767,7 @@
       "RemoveSickness": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Remove sickness no longer makes you immune to sickness and nausea."
+        "Description": "Remove Sickness no longer makes you immune to sickness and nausea."
       },
       "ShadowConjuration": {
         "Enabled": true,
@@ -763,6 +788,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Starlight no longer is affected by true sight."
+      },
+      "UnbreakableHeart": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly."
       },
       "WrackingRay": {
         "Enabled": true,
