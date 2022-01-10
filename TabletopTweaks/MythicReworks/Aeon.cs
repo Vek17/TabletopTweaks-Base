@@ -174,6 +174,7 @@ namespace TabletopTweaks.MythicReworks {
 
                 AeonGazeDCProperty.RemoveComponents<SimplePropertyGetter>();
                 AeonGazeDCProperty.AddComponent<CompositePropertyGetter>(c => {
+                    c.CalculationMode = CompositePropertyGetter.Mode.Sum;
                     c.Properties = new CompositePropertyGetter.ComplexProperty[] {
                         new CompositePropertyGetter.ComplexProperty {
                             Property = UnitProperty.Level,

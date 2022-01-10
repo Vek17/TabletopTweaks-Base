@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem;
@@ -11,7 +12,7 @@ using Newtonsoft.Json;
 namespace TabletopTweaks.NewUnitParts {
     class UnitPartBuffSupressTTT : OldStyleUnitPart {
 
-        public override void OnPostLoad() {
+        public override void OnTurnOn() {
             SuppressionEntries.ForEach(entry => entry.ActivateSuppression());
         }
 

@@ -434,12 +434,5 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.Log("Finished Spell Flags");
             }
         }
-        // TEMP CHANGE
-        [HarmonyPatch(typeof(Buff), "OnAttach")]
-        static class MetamagicHelper_GetBolsteredAreaEffectUnits_Patch {
-            static void Postfix(Buff __instance) {
-                __instance.IsSuppressed = false;
-            }
-        }
     }
 }
