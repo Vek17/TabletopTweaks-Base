@@ -334,7 +334,7 @@
         "GloryDomain": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Glory domaain no longer grants an untyped bonus the the raw Charsima stat."
+          "Description": "Glory domain no longer grants an untyped bonus the the raw Charsima stat."
         }
       },
       "IsExpanded": true

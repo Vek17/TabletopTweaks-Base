@@ -3,6 +3,7 @@
     * General
         * More of the unique metamagic rods will no longer default to active
         * Nauseated is no longer considered a poison effect globally.
+        * Fixed bug that was causing split damage spells to calculate damage incorrectly in some cases
     * Feats
         * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
         * Horsemaster prerequisites now restrict it from some cavalier archetypes
@@ -25,7 +26,7 @@
     * Angel
         * Angel Unbroken DR should now stack with all other DR.
     * Cleric
-        * Glory domaain no longer grants an untyped bonus the the raw Charsima stat.
+        * Glory domain no longer grants an untyped bonus the the raw Charsima stat.
     * Magus
         * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list.
     * Paladin

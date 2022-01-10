@@ -221,7 +221,7 @@ All fixes and added content are configurable and can be disabled via the unity m
 
 * Cleric
     * Glory Domain
-        * Glory domaain no longer grants an untyped bonus the the raw Charsima stat.
+        * Glory domain no longer grants an untyped bonus the the raw Charsima stat.
 
 * Fighter
     * Advanced Weapon Training

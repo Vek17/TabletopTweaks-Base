@@ -52,15 +52,19 @@ namespace TabletopTweaks.MechanicsChanges {
                     }
                     num3 = ((num4 + empowerExtraDamage) + (damage.Bonus * __instance.UnitsCount) * empowerBonus * num2) * damage.TacticalCriticalModifier;
                 }
-                int rolledValue = (int)num3;
+                //int rolledValue = (int)num3;
                 num3 += damage.BonusTargetRelated * __instance.UnitsCount * empowerBonus * num2;
                 if (damage.Half && !damage.AlreadyHalved) {
+                    num3 /= 2f;
+                }
+                if (__instance.ParentRule.Half && !__instance.ParentRule.AlreadyHalved) {
                     num3 /= 2f;
                 }
                 if (__instance.ParentRule.HalfBecauseSavingThrow) {
                     float num5 = __instance.ParentRule.Initiator.State.Features.AzataFavorableMagic ? 0.75f : 0.5f;
                     num3 *= num5;
                 }
+                int rolledValue = (int)num3;
                 DamageDeclineType decline = damage.Decline;
                 if (decline != DamageDeclineType.ByQuarter) {
                     if (decline == DamageDeclineType.ByHalf) {
