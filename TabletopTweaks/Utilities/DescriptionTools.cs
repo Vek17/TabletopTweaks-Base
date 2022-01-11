@@ -292,6 +292,13 @@ namespace TabletopTweaks.Utilities {
                     "damage",
                     "damage rolls?"
                 }
+            },
+            new EncyclopediaEntry {
+                Entry = "Dice",
+                Patterns = {
+                    "rolls?",
+                    "rolled"
+                }
             }
         };
 

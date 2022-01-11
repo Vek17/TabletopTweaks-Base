@@ -199,6 +199,7 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="MythicReworks\MythicAbilities.cs" />
     <Compile Include="NewActions\ContextActionApplyWeaponEnchant.cs" />
     <Compile Include="NewActions\ContextActionTransferArcana.cs" />
     <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\NewBaseTypes\ItemEntityRestriction.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\AddOutgoingDamageTriggerTTT.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AddStatBonusIfHasFactTTT.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AlliedSpellcasterTTT.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteSpellKnown.cs" />

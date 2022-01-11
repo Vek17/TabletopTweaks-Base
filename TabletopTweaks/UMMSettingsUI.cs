@@ -136,6 +136,7 @@ namespace TabletopTweaks {
                 UI.Toggle("New Settings Off By Default".bold(), ref Homebrew.NewSettingsOffByDefault);
                 UI.Space(25);
 
+                SetttingUI.SettingGroup("Mythic Abiltiies", TabLevel, Homebrew.MythicAbilities);
                 SetttingUI.NestedSettingGroup("Mythic Reworks", TabLevel, Homebrew.MythicReworks,
                     ("Aeon", Homebrew.MythicReworks.Aeon),
                     ("Azata", Homebrew.MythicReworks.Azata)

@@ -5,6 +5,8 @@
         * Nauseated is no longer considered a poison effect globally.
         * Fixed bug that was causing split damage spells to calculate damage incorrectly in some cases
     * Feats
+        * Arcane Strike no longer causes too many damage instances when used by a dragonheir scion.
+        * Brew Potions is no longer tagged as a combat feat
         * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
         * Horsemaster prerequisites now restrict it from some cavalier archetypes
     * Mythic Feats
@@ -33,6 +35,8 @@
         * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks.
     * Shaman
         * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
+    * Sorcerer
+        * Updated Draconic Bloodline arcana descriptions to better match their effects.
     * Warpriest
         * Air Major blessing no longer causes excessive damage instances.
         * Earth Minor blessing no longer causes excessive damage instances.

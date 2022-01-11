@@ -603,7 +603,13 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "DraconicBloodlineDescriptions": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes the arcana descriptions to better refelect what they actually do."
+        }
+      },
       "IsExpanded": true
     },
     "Archetypes": {
@@ -847,10 +853,20 @@
         "Homebrew": false,
         "Description": "Prevents Allied Spellcaster from applying globally."
       },
+      "ArcaneStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents draconic arcane strike from generating too many damage instances."
+      },
       "BolsteredMetamagic": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Allows sticky touch spells to be bolstered."
+      },
+      "BrewPotions": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "No longer is tagged as a combat feat."
       },
       "CraneWing": {
         "Enabled": true,

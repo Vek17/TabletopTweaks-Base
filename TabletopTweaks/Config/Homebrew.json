@@ -1,5 +1,16 @@
 {
   "NewSettingsOffByDefault": false,
+  "MythicAbilities": {
+    "DisableAll": false,
+    "Settings": {
+      "ElementalBarrage": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Rework of Elemental barrage to turn it into a caster mythic instead of a weird martial mythic."
+      }
+    },
+    "IsExpanded": true
+  },
   "MythicReworks": {
     "IsExpanded": true,
     "DisableAll": false,

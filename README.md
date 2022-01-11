@@ -100,6 +100,10 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Feats
     * AlliedSpellcaster
         * Allied Spellcaster no longer applies globally.
+    * Arcane Strike 
+        * Arcane Strike no longer causes too many damage instances when used by a dragonheir scion.
+    * Brew Potions
+        * Brew Potions is no longer tagged as a combat feat.
     * Bolstered Metamagic
         * Sticky touch spells can now be bolstered.
     * EmpowerMetamagic
