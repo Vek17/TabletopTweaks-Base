@@ -200,6 +200,7 @@
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="MythicReworks\MythicAbilities.cs" />
+    <Compile Include="MythicReworks\MythicFeats.cs" />
     <Compile Include="NewActions\ContextActionApplyWeaponEnchant.cs" />
     <Compile Include="NewActions\ContextActionTransferArcana.cs" />
     <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\MetaRageComponent.cs" />
     <Compile Include="NewComponents\AbilityActionTypeConversion.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\MythicSneakAttack.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
     <Compile Include="NewComponents\AbilitySpecific\TitanStrikeComponent.cs" />

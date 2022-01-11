@@ -604,6 +604,14 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.
 
 ## Mythic Reworks
+* Mythic Feats
+    * Mythic Sneak Attack
+        * Your sneak attack dice are one size larger than normal. For example if you would normally roll d6s for sneak attacks you would roll d8s instead.
+
+ Mythic Feats
+    * Elemental Barrage
+        * Every time you deal elemental damage to a creature with a spell, you apply an elemental mark to it. If during the next three rounds the marked target takes elemental damage from any source with a different element, the target is dealt additional Divine damage. The damage is 1d6 per mythic rank of your character.
+
 * Aeon
     * Aeon Bane
         * Updates Aeon Bane's Icon.
@@ -619,6 +627,7 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same resouce usage.
         * Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level.
         * Aeon Gaze selection is no longer limited on the first selection and all selections are available.
+
 * Azata
     * Performances
         * Azata perforamnce usages now scale at Mythic level + Character level.

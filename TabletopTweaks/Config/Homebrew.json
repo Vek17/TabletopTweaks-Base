@@ -11,6 +11,17 @@
     },
     "IsExpanded": true
   },
+  "MythicFeats": {
+    "DisableAll": false,
+    "Settings": {
+      "MythicSneakAttack": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Rework of Mythic Sneak Attack to increase the size of the damage dice instead of adding an extra dice."
+      }
+    },
+    "IsExpanded": true
+  },
   "MythicReworks": {
     "IsExpanded": true,
     "DisableAll": false,

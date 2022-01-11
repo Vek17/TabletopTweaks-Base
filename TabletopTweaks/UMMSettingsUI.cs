@@ -137,6 +137,7 @@ namespace TabletopTweaks {
                 UI.Space(25);
 
                 SetttingUI.SettingGroup("Mythic Abiltiies", TabLevel, Homebrew.MythicAbilities);
+                SetttingUI.SettingGroup("Mythic Feats", TabLevel, Homebrew.MythicFeats);
                 SetttingUI.NestedSettingGroup("Mythic Reworks", TabLevel, Homebrew.MythicReworks,
                     ("Aeon", Homebrew.MythicReworks.Aeon),
                     ("Azata", Homebrew.MythicReworks.Azata)
