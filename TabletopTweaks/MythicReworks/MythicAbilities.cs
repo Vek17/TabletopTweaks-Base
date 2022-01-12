@@ -14,6 +14,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewActions;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
@@ -115,7 +116,7 @@ namespace TabletopTweaks.MythicReworks {
                             c.CheckEnergyDamageType = true;
                             c.EnergyType = trigger;
                             c.Actions = Helpers.CreateActionList(
-                                Helpers.Create<ContextActionDealDamage>(a => {
+                                Helpers.Create<ContextActionDealDamageTTT>(a => {
                                     a.DamageType = new DamageTypeDescription() {
                                         Type = DamageType.Energy,
                                         Energy = DamageEnergyType.Divine
@@ -134,6 +135,7 @@ namespace TabletopTweaks.MythicReworks {
                                     };
                                     a.IgnoreCritical = true;
                                     a.SetFactAsReason = true;
+                                    a.IgnoreWeapon = true;
                                 }),
                                 Helpers.Create<ContextActionRemoveSelf>()
                             );
