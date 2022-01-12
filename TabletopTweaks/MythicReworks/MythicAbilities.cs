@@ -7,14 +7,13 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
@@ -42,13 +41,14 @@ namespace TabletopTweaks.MythicReworks {
                     "and found a way to empower them by combining different elements.\n" +
                     "Benefit: Every time you deal elemental damage to a creature with a spell, you apply an elemental mark to it. " +
                     "If during the next three rounds the marked target takes elemental damage from any source " +
-                    "with a different element, the target is dealt additional Divine damage. " +
+                    "with a different element, the target takes additional Divine damage and consume the mark. " +
                     "The damage is 1d6 per mythic rank of your character.");
                 ElementalBarrage.GetComponents<AddOutgoingDamageTrigger>().ForEach(c => {
                     c.CheckAbilityType = true;
                     c.m_AbilityType = AbilityType.Spell;
                 });
                 ElementalBarrage.SetComponents();
+                /*
                 ElementalBarrage.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
                     c.m_Progression = ContextRankProgression.AsIs;
@@ -64,6 +64,7 @@ namespace TabletopTweaks.MythicReworks {
                     };
                     c.Modifier = 1;
                 });
+                */
                 AddOutgoingDamageTrigger(ElementalBarrage, ElementalBarrageAcidBuff, DamageEnergyType.Acid);
                 AddOutgoingDamageTrigger(ElementalBarrage, ElementalBarrageColdBuff, DamageEnergyType.Cold);
                 AddOutgoingDamageTrigger(ElementalBarrage, ElementalBarrageElectricityBuff, DamageEnergyType.Electricity);
@@ -96,6 +97,7 @@ namespace TabletopTweaks.MythicReworks {
                                     DiceCountValue = new ContextValue(),
                                     BonusValue = 3
                                 };
+                                a.IsNotDispelable = true;
                                 a.AsChild = false;
                             })
                         );
@@ -103,7 +105,7 @@ namespace TabletopTweaks.MythicReworks {
                 }
                 void UpdateBuffVisability(BlueprintBuff barrageBuff, string element) {
                     barrageBuff.SetName($"Elemental Barrage Mark — {element}");
-                    barrageBuff.SetDescription("If this creature takes elemental damage from a type other than the marked type it will take additional damage.");
+                    barrageBuff.SetDescription("If this creature takes elemental damage from a type other than the marked type it will take additional damage and consume the mark.");
                     barrageBuff.m_Flags = 0;
                 }
                 void AddIncomingDamageTriggers(BlueprintBuff barrageBuff, params DamageEnergyType[] triggers) {
@@ -125,11 +127,13 @@ namespace TabletopTweaks.MythicReworks {
                                     a.Value = new ContextDiceValue() {
                                         DiceType = DiceType.D6,
                                         DiceCountValue = new ContextValue() {
-                                            ValueType = ContextValueType.Shared
+                                            ValueType = ContextValueType.CasterProperty,
+                                            Property = UnitProperty.MythicLevel
                                         },
                                         BonusValue = 0
                                     };
                                     a.IgnoreCritical = true;
+                                    a.SetFactAsReason = true;
                                 }),
                                 Helpers.Create<ContextActionRemoveSelf>()
                             );
