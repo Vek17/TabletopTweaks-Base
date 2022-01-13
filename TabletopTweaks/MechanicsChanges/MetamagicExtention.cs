@@ -229,7 +229,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
-
+        //Intensify Metamagic
         [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
         static class ContextActionDealDamage_IntensifyMetamagic_Patch {
             static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
@@ -271,6 +271,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
+        //Rime Metamagic
         [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
         static class ContextActionDealDamage_RimeMetamagic_Patch {
             static BlueprintBuffReference EntangleBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("RimeEntagledBuff");
