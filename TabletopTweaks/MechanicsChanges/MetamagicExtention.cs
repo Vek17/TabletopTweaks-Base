@@ -34,7 +34,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             string name,
             Sprite icon,
             int defaultCost,
-            CustomMechanicsFeature favoriteMetamagic) {
+            CustomMechanicsFeature? favoriteMetamagic) {
             var metamagicData = new CustomMetamagicData() {
                 Name = Helpers.CreateString($"{name}SpellMetamagic", name),
                 Icon = icon,
@@ -65,7 +65,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         public static bool HasFavoriteMetamagic(UnitDescriptor unit, Metamagic metamagic) {
             CustomMetamagicData result;
             RegisteredMetamagic.TryGetValue(metamagic, out result);
-            return result == null ? false : unit.CustomMechanicsFeature(result.FavoriteMetamagic);
+            return result?.FavoriteMetamagic == null ? false : unit.CustomMechanicsFeature(result.FavoriteMetamagic.Value);
         }
 
         public static bool IsRegisistered(Metamagic metamagic) {
@@ -78,7 +78,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             public LocalizedString Name;
             public Sprite Icon;
             public int DefaultCost;
-            public CustomMechanicsFeature FavoriteMetamagic;
+            public CustomMechanicsFeature? FavoriteMetamagic;
         }
 
         [Flags]
@@ -187,7 +187,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         [HarmonyPatch(typeof(MetamagicHelper), "SpellIcon")]
         static class MetamagicHelper_SpellIcon_NewMetamagic_Patch {
             private static void Postfix(ref Sprite __result, Metamagic metamagic) {
-                if (__result == null && MetamagicExtention.IsRegisistered(metamagic)) {
+                if (MetamagicExtention.GetMetamagicIcon(metamagic) != null) {
                     __result = MetamagicExtention.GetMetamagicIcon(metamagic);
                 }
             }
