@@ -12,9 +12,10 @@
     * Mythic Feats
         * Expanded Arsenal can no longer be used to stack multiple spell focus feats on the same school to increase DC
     * Spells
+        * Acid Maw no longer causes excessive damage instances to trigger when attacking.
         * Chain Lightning now respects the CL 20 cap for its damage dice.
-        * Firebrand no longer causes too many damage instances.
-        * Geniekind no longer causes too many damage instances.
+        * Firebrand no longer causes excessive damage instances to trigger when attacking.
+        * Geniekind no longer causes excessive damage instances to trigger when attacking.
         * Hellfire Ray no longer has the Fire descriptor.
         * Magical Vestment now works correctly when used by enemies in prebuffs.
         * Magical Vestment can now be correctly dispeled.

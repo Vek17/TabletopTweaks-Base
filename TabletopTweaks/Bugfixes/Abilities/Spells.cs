@@ -36,6 +36,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 if (Initialized) return;
                 Initialized = true;
                 Main.LogHeader("Patching Spells");
+                PatchAcidMaw();
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
                 PatchBreakEnchantment();
@@ -58,6 +59,29 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchFromSpellFlags();
             }
 
+            static void PatchAcidMaw() {
+                if (ModSettings.Fixes.Spells.IsDisabled("AcidMaw")) { return; }
+
+                var AcidMawBuff = Resources.GetBlueprint<BlueprintBuff>("f1a6799b05a40144d9acdbdca1d7c228");
+
+                var EnergyType = AcidMawBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
+                var AttackWithWeaponTrigger = AcidMawBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
+                AttackWithWeaponTrigger.Action.Actions = AttackWithWeaponTrigger.Action.Actions.OfType<ContextActionApplyBuff>().ToArray();
+                AcidMawBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
+                    c.Value = new ContextDiceValue() {
+                        DiceType = DiceType.D4,
+                        DiceCountValue = 1,
+                        BonusValue = 0
+                    };
+                    c.DamageType = new DamageTypeDescription() {
+                        Type = DamageType.Energy,
+                        Energy = EnergyType
+                    };
+                    c.CheckWeaponCatergoy = true;
+                    c.Category = WeaponCategory.Bite;
+                });
+                Main.LogPatch("Patched", AcidMawBuff);
+            }
             static void PatchBelieveInYourself() {
                 if (ModSettings.Fixes.Spells.IsDisabled("BelieveInYourself")) { return; }
 

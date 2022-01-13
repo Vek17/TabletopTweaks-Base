@@ -731,6 +731,11 @@
   "Spells": {
     "DisableAll": false,
     "Settings": {
+      "AcidMaw": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Acid Maw no longer causes excessive damage instances to trigger when attacking."
+      },
       "BelieveInYourself": {
         "Enabled": true,
         "Homebrew": false,

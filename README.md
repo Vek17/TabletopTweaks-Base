@@ -58,6 +58,8 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Spells
     * Spell flags
         * Retags buffs from spells as coming from spells to allow them to be dispeled correctly.
+    * Acid Maw 
+        * Acid Maw no longer causes excessive damage instances to trigger when attacking.
     * Believe In Yourself
         * Believe in yourself now grants the correct bonus amount.
     * Bestow Greater Curse
