@@ -377,7 +377,7 @@
     <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
     <Compile Include="NewContent\Features\NauseatedPoision.cs" />
-    <Compile Include="NewContent\MetamagicMechanics\IntensifiedSpell.cs" />
+    <Compile Include="NewContent\Feats\IntensifiedSpell.cs" />
     <Compile Include="NewContent\MetamagicMechanics\MetamagicExtention.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />

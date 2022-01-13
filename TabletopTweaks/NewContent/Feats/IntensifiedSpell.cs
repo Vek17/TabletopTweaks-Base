@@ -10,11 +10,12 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using System.Linq;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewContent.MetamagicMechanics;
 using TabletopTweaks.Utilities;
 using static TabletopTweaks.NewContent.MetamagicMechanics.MetamagicExtention;
 using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
-namespace TabletopTweaks.NewContent.MetamagicMechanics {
+namespace TabletopTweaks.NewContent.Feats {
     static class IntensifiedSpell {
         public static void AddIntensifiedSpell() {
             var FavoriteMetamagicSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
