@@ -149,6 +149,8 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraDiscovery.AddExtraDiscovery();
                 Feats.ExtraMercy.AddExtraMercy();
 
+                MetamagicMechanics.IntensifiedSpell.AddIntensifiedSpell();
+
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
                 MythicFeats.MythicCombatReflexes.AddMythicCombatReflexes();
                 MythicFeats.MythicWarriorPriest.AddMythicWarriorPriest();

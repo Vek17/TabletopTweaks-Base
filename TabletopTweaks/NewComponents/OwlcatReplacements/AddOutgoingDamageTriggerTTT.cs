@@ -23,7 +23,7 @@ using System.Linq;
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [AllowMultipleComponents]
     [TypeId("d9558dff3102481dbd918c2abdd0c95b")]
-    class AddOutgoingDamageTriggerTTT : UnitFactComponentDelegate<AddOutgoingDamageTrigger.ComponentData>,
+    class AddOutgoingDamageTriggerTTT : UnitFactComponentDelegate<AddOutgoingDamageTriggerTTT.ComponentData>,
         IInitiatorRulebookHandler<RuleDealDamage>,
         IRulebookHandler<RuleDealDamage>,
         IInitiatorRulebookHandler<RuleDealStatDamage>,
@@ -78,6 +78,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
             if (CheckDamageValue(evt.Result)) {
                 Apply(evt);
             }
+            base.Data.LastAttack = evt.AttackRoll;
         }
 
         public void OnEventDidTrigger(RuleDealStatDamage evt) {
@@ -93,6 +94,11 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         }
 
         private void Apply(RuleDealDamage evt) {
+            if (OncePerAttackRoll && base.Data.LastAttack != null) {
+                if (base.Data.LastAttack == evt.AttackRoll) {
+                    return;
+                }
+            }
             if (CheckWeaponType) {
                 ItemEntityWeapon weapon = evt.DamageBundle.Weapon;
                 if (((weapon != null) ? weapon.Blueprint.Type : null) != WeaponType) {
@@ -147,6 +153,11 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
             return !CheckDamageDealt || CompareType.CheckCondition(damageValue, TargetValue.Calculate(base.Fact.MaybeContext));
         }
 
+        public class ComponentData {
+            public bool WasTargetAlive;
+            public RuleAttackRoll LastAttack;
+        }
+
         public ActionList Actions;
         public bool TriggerOnStatDamageOrEnergyDrain;
         public bool CheckWeaponType;
@@ -163,6 +174,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         public bool ApplyToAreaEffectDamage;
         public bool TargetKilledByThisDamage;
         public bool IgnoreDamageFromThisFact = true;
+        public bool OncePerAttackRoll;
         public BlueprintWeaponTypeReference m_WeaponType;
         public BlueprintAbilityReference[] m_AbilityList;
         public SpellDescriptorWrapper SpellDescriptorsList;

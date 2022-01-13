@@ -1053,6 +1053,11 @@
     "Equipment": {
       "DisableAll": false,
       "Settings": {
+        "AspectOfTheAsp": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Will now actually grant damage on ray spells."
+        },
         "HalfOfThePair": {
           "Enabled": true,
           "Homebrew": false,

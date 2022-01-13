@@ -49,23 +49,6 @@ namespace TabletopTweaks.MythicReworks {
                     c.m_AbilityType = AbilityType.Spell;
                 });
                 ElementalBarrage.SetComponents();
-                /*
-                ElementalBarrage.AddContextRankConfig(c => {
-                    c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
-                    c.m_Progression = ContextRankProgression.AsIs;
-                    c.m_Min = 1;
-                    c.m_UseMin = true;
-                });
-                ElementalBarrage.AddComponent<ContextCalculateSharedValue>(c => {
-                    c.Value = new ContextDiceValue() {
-                        DiceCountValue = 0,
-                        BonusValue = new ContextValue() {
-                            ValueType = ContextValueType.Rank,
-                        },
-                    };
-                    c.Modifier = 1;
-                });
-                */
                 AddOutgoingDamageTrigger(ElementalBarrage, ElementalBarrageAcidBuff, DamageEnergyType.Acid);
                 AddOutgoingDamageTrigger(ElementalBarrage, ElementalBarrageColdBuff, DamageEnergyType.Cold);
                 AddOutgoingDamageTrigger(ElementalBarrage, ElementalBarrageElectricityBuff, DamageEnergyType.Electricity);
@@ -76,10 +59,10 @@ namespace TabletopTweaks.MythicReworks {
                 AddIncomingDamageTriggers(ElementalBarrageElectricityBuff, DamageEnergyType.Acid, DamageEnergyType.Cold, DamageEnergyType.Fire);
                 AddIncomingDamageTriggers(ElementalBarrageFireBuff, DamageEnergyType.Acid, DamageEnergyType.Cold, DamageEnergyType.Electricity);
 
-                UpdateBuffVisability(ElementalBarrageAcidBuff, "Acid");
-                UpdateBuffVisability(ElementalBarrageColdBuff, "Cold");
-                UpdateBuffVisability(ElementalBarrageElectricityBuff, "Electricity");
-                UpdateBuffVisability(ElementalBarrageFireBuff, "Fire");
+                UpdateBuffVisability(ElementalBarrageAcidBuff, "acid");
+                UpdateBuffVisability(ElementalBarrageColdBuff, "cold");
+                UpdateBuffVisability(ElementalBarrageElectricityBuff, "electricity");
+                UpdateBuffVisability(ElementalBarrageFireBuff, "fire");
 
                 Main.LogPatch("Patched", ElementalBarrage);
                 void AddOutgoingDamageTrigger(BlueprintFeature barrage, BlueprintBuff barrageBuff, DamageEnergyType trigger) {
@@ -105,8 +88,8 @@ namespace TabletopTweaks.MythicReworks {
                     });
                 }
                 void UpdateBuffVisability(BlueprintBuff barrageBuff, string element) {
-                    barrageBuff.SetName($"Elemental Barrage Mark — {element}");
-                    barrageBuff.SetDescription("If this creature takes elemental damage from a type other than the marked type it will take additional damage and consume the mark.");
+                    barrageBuff.SetDescription($"If this creature takes elemental damage from a " +
+                        $"type other than {element} it will take additional damage and consume the mark.");
                     barrageBuff.m_Flags = 0;
                 }
                 void AddIncomingDamageTriggers(BlueprintBuff barrageBuff, params DamageEnergyType[] triggers) {

@@ -23,6 +23,8 @@
         * Remove Sickness no longer grants immunity to sickness and nausea.
         * Starlight is no longer affected by true sight as it is not an illusion effect
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
+    * Items
+        * Aspect of the Asp will now actually deal bonus damage on ray spells.
     * Aeon
         * Aeon Demythication should now actually suppress mythic effects.
     * Angel
