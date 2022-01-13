@@ -333,8 +333,18 @@ namespace TabletopTweaks.Bugfixes.Features {
                     .ToArray();
                 Main.LogPatch("Enabling", PersistentSpellFeat);
                 foreach (var spell in spells) {
-                    bool HasSavingThrow = spell.FlattenAllActions().OfType<ContextActionSavingThrow>().Any();
-                    if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown || HasSavingThrow) {
+                    bool HasSavingThrow = spell.AbilityAndVariants().SelectMany(s => s.FlattenAllActions()).OfType<ContextActionSavingThrow>().Any() 
+                        || spell.AbilityAndVariants()
+                        .SelectMany(s => s.AbilityAndStickyTouch())
+                        .Where(s => s != null)
+                        .SelectMany(s => s.FlattenAllActions())
+                        .OfType<ContextActionSavingThrow>().Any();
+                    if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown
+                        || spell.AbilityAndVariants()
+                            .SelectMany(s => s.AbilityAndStickyTouch())
+                            .Where(s => s != null)
+                            .Any(s => (s.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown)
+                        || HasSavingThrow) {
                         if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Persistent)) {
                             spell.AvailableMetamagic |= Metamagic.Persistent;
                             Main.LogPatch("Enabled Persistant Metamagic", spell);

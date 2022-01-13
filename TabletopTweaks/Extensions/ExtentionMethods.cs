@@ -57,6 +57,14 @@ namespace TabletopTweaks.Extensions {
             }
             return List;
         }
+        public static IEnumerable<BlueprintAbility> AbilityAndStickyTouch(this BlueprintAbility ability) {
+            var List = new List<BlueprintAbility>() { ability };
+            var stickyTouch = ability.GetComponent<AbilityEffectStickyTouch>();
+            if (stickyTouch != null) {
+                List.Add(stickyTouch.m_TouchDeliveryAbility);
+            }
+            return List;
+        }
         public static V PutIfAbsent<K, V>(this IDictionary<K, V> self, K key, V value) where V : class {
             V oldValue;
             if (!self.TryGetValue(key, out oldValue)) {

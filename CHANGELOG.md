@@ -9,6 +9,7 @@
         * Brew Potions is no longer tagged as a combat feat
         * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
         * Horsemaster prerequisites now restrict it from some cavalier archetypes
+        * Persistent Metamagic now can be applied to a few more spells
     * Mythic Feats
         * Expanded Arsenal can no longer be used to stack multiple spell focus feats on the same school to increase DC
     * Spells
