@@ -6,6 +6,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.Spellbook.Metamagic;
 using Kingmaker.UnitLogic;
@@ -35,6 +36,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             Dazing = 8192,
             Rime = 65536,
             Flaring = 131072,
+            Piercing = 524288,
         }
 
         public static void RegisterMetamagic(
@@ -94,7 +96,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         }
 
         [HarmonyPatch(typeof(RuleApplyMetamagic), "OnTrigger")]
-        static  class RuleApplyMetamagic_OnTrigger_NewMetamagic_Patch {
+        static class RuleApplyMetamagic_OnTrigger_NewMetamagic_Patch {
             static void Postfix(RuleApplyMetamagic __instance) {
                 var lv_adjustment = 0;
                 foreach (var metamagic in __instance.AppliedMetamagics) {
@@ -112,12 +114,12 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
-        
+
         [HarmonyPatch(typeof(RuleCollectMetamagic), "AddMetamagic")]
-        static  class RuleCollectMetamagic_AddMetamagic_NewMetamagic_Patch {
+        static class RuleCollectMetamagic_AddMetamagic_NewMetamagic_Patch {
             static void Postfix(RuleCollectMetamagic __instance, Feature metamagicFeature) {
                 if (!__instance.KnownMetamagics.Contains(metamagicFeature)) { return; }
-                
+
                 AddMetamagicFeat component = metamagicFeature.GetComponent<AddMetamagicFeat>();
                 Metamagic metamagic = component.Metamagic;
                 if (__instance.m_SpellLevel < 0) {
@@ -129,10 +131,9 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 if (__instance.m_SpellLevel + component.Metamagic.DefaultCost() > 10) {
                     return;
                 }
-                if (__instance.Spell != null 
-                    && !__instance.SpellMetamagics.Contains(metamagicFeature) 
-                    && (__instance.Spell.AvailableMetamagic & metamagic) == metamagic) 
-                {
+                if (__instance.Spell != null
+                    && !__instance.SpellMetamagics.Contains(metamagicFeature)
+                    && (__instance.Spell.AvailableMetamagic & metamagic) == metamagic) {
                     __instance.SpellMetamagics.Add(metamagicFeature);
                 }
             }
@@ -230,7 +231,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
-        //Intensify Metamagic
+        //Intensified Spell Metamagic
         [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
         static class ContextActionDealDamage_IntensifyMetamagic_Patch {
             static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
@@ -272,7 +273,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
-        //Rime Metamagic
+        //Rime Spell Metamagic
         [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
         static class ContextActionDealDamage_RimeMetamagic_Patch {
             static BlueprintBuffReference RimeEntagledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("RimeEntagledBuff");
@@ -290,7 +291,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
-        //Flaring Metamagic
+        //Flaring Spell Metamagic
         [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
         static class ContextActionDealDamage_FlaringMetamagic_Patch {
             static BlueprintBuffReference FlaringDazzledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("FlaringDazzledBuff");
@@ -308,6 +309,16 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 if (buff != null) {
                     buff.IsFromSpell = true;
                 }
+            }
+        }
+        //Piercing Spell Metamagic
+        [HarmonyPatch(typeof(RuleSpellResistanceCheck), nameof(RuleSpellResistanceCheck.OnTrigger))]
+        static class RuleSpellResistanceCheck_PiercingMetamagic_Patch {
+            static void Postfix(RuleSpellResistanceCheck __instance, RulebookEventContext context) {
+                if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Piercing)) { return; }
+                var isPiercing = __instance.Context?.HasMetamagic((Metamagic)CustomMetamagic.Piercing) ?? false;
+                if (!isPiercing) { return; }
+                __instance.SpellResistance -= 5;
             }
         }
     }

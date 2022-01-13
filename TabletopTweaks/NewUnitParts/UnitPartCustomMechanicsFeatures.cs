@@ -49,7 +49,7 @@ namespace TabletopTweaks.NewUnitParts {
             FavoriteMetamagicIntensified,
             FavoriteMetamagicRime,
             FavoriteMetamagicFlaring,
-            EmptyFeature
+            FavoriteMetamagicPiercing
         }
     }
     static class CustomMechanicsFeaturesExtentions {

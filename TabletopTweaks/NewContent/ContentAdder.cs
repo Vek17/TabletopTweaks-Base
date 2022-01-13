@@ -21,6 +21,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.IntensifiedSpell.AddIntensifiedSpell();
                 Feats.RimeSpell.AddRimeSpell();
                 Feats.FlaringSpell.AddFlaringSpell();
+                Feats.PiercingSpell.AddPiercingSpell();
 
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();

@@ -212,6 +212,11 @@
         "Homebrew": false,
         "Description": "An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat."
       },
+      "MetamagicPiercingSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR."
+      },
       "MetamagicRimeSpell": {
         "Enabled": true,
         "Homebrew": false,
