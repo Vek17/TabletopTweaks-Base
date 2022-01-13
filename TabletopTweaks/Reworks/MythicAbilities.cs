@@ -18,7 +18,7 @@ using TabletopTweaks.NewActions;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
-namespace TabletopTweaks.MythicReworks {
+namespace TabletopTweaks.Reworks {
     class MythicAbilities {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {

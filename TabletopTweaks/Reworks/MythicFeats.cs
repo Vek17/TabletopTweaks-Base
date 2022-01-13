@@ -13,7 +13,7 @@ using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 
-namespace TabletopTweaks.MythicReworks {
+namespace TabletopTweaks.Reworks {
     class MythicFeats {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {

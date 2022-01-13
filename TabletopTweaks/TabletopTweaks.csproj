@@ -199,8 +199,8 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
-    <Compile Include="MythicReworks\MythicAbilities.cs" />
-    <Compile Include="MythicReworks\MythicFeats.cs" />
+    <Compile Include="Reworks\MythicAbilities.cs" />
+    <Compile Include="Reworks\MythicFeats.cs" />
     <Compile Include="NewActions\ContextActionApplyWeaponEnchant.cs" />
     <Compile Include="NewActions\ContextActionDealDamageTTT.cs" />
     <Compile Include="NewActions\ContextActionTransferArcana.cs" />
@@ -328,8 +328,8 @@
     <Compile Include="NewContent\Archetypes\BladeBound.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
-    <Compile Include="MythicReworks\Aeon.cs" />
-    <Compile Include="MythicReworks\Azata.cs" />
+    <Compile Include="Reworks\Aeon.cs" />
+    <Compile Include="Reworks\Azata.cs" />
     <Compile Include="Bugfixes\Classes\Bloodrager.cs" />
     <Compile Include="Bugfixes\Classes\Rogue.cs" />
     <Compile Include="Bugfixes\Classes\Slayer.cs" />

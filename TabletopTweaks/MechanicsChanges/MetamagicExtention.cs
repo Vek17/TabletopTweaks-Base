@@ -29,6 +29,13 @@ using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 namespace TabletopTweaks.NewContent.MechanicsChanges {
     static class MetamagicExtention {
 
+        [Flags]
+        public enum CustomMetamagic {
+            Intensified = 4096,
+            Dazing = 8192,
+            Rime = 16384,
+        }
+
         public static void RegisterMetamagic(
             Metamagic metamagic,
             string name,
@@ -79,13 +86,6 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             public Sprite Icon;
             public int DefaultCost;
             public CustomMechanicsFeature? FavoriteMetamagic;
-        }
-
-        [Flags]
-        public enum CustomMetamagic {
-            Intensified = 2048,
-            Dazing = 4096,
-            Rime = 8192
         }
 
         public static bool IsNewMetamagic(this Metamagic metamagic) {
