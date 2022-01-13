@@ -7,6 +7,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -75,8 +76,8 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<AddCondition>(c => {
                     c.Condition = UnitCondition.Entangled;
                 });
+                bp.AddComponent<RemoveWhenCombatEnded>();
             });
-
             
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
             MetamagicExtention.RegisterMetamagic(

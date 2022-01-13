@@ -25,6 +25,7 @@ using TabletopTweaks.Utilities;
 using UnityEngine;
 using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
+// This work is largly based on work by https://github.com/Stari0n/MagicTime Copyright (c) 2021 Starion
 namespace TabletopTweaks.NewContent.MechanicsChanges {
     static class MetamagicExtention {
 
