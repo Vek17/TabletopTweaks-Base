@@ -24,6 +24,16 @@ namespace TabletopTweaks.Utilities {
                     .ForEach(selection => selection.AddFeatures(feature));
             }
         }
+        public static void AddAsMetamagic(BlueprintFeature feature) {
+            var MetamagicSelections = new BlueprintFeatureSelection[] {
+                Selections.ArcaneRiderFeatSelection,
+                Selections.SeekerFeatSelection,
+                Selections.ShamanHexSecretSelection,
+                Selections.SkaldFeatSelection,
+                Selections.SorcererBonusFeat
+            };
+            MetamagicSelections.ForEach(selection => selection.AddFeatures(feature));
+        }
         public static void AddAsRogueTalent(BlueprintFeature feature) {
             var TalentSelections = new BlueprintFeatureSelection[] {
                 Selections.SylvanTricksterTalentSelection,
@@ -168,6 +178,13 @@ namespace TabletopTweaks.Utilities {
             });
             init?.Invoke(extraResourceFeat);
             return extraResourceFeat;
+        }
+
+        public static BlueprintFeature[] GetMetamagicFeats(){
+            return FeatTools.Selections.BasicFeatSelection.m_AllFeatures
+                    .Select(reference => reference.Get())
+                    .Where(feature => feature.GetComponent<AddMetamagicFeat>())
+                    .ToArray();
         }
         public static class Selections {
             public static BlueprintFeatureSelection AasimarHeritageSelection => Resources.GetBlueprint<BlueprintFeatureSelection>("67aabcbce8f8ae643a9d08a6ca67cabd");

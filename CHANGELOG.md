@@ -65,7 +65,6 @@
         * An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat.
     * Rime Spell (Metamagic)
         * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
-
 * Added Feats
     * Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus on the check.

@@ -17,6 +17,10 @@ namespace TabletopTweaks.NewContent {
                 Features.MartialWeaponProficencySelection.AddMartialWeaponProficencySelection();
                 //Features.NauseatedPoision.AddNauseatedPoision();
 
+                //Added early as some things depend on them for selections
+                Feats.IntensifiedSpell.AddIntensifiedSpell();
+                Feats.RimeSpell.AddRimeSpell();
+
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();
                 Templates.AlignmentTemplates.AddFiendishTemplate();
@@ -151,9 +155,6 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraRevelation.AddExtraRevelation();
                 Feats.ExtraDiscovery.AddExtraDiscovery();
                 Feats.ExtraMercy.AddExtraMercy();
-
-                Feats.IntensifiedSpell.AddIntensifiedSpell();
-                Feats.RimeSpell.AddRimeSpell();
 
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
                 MythicFeats.MythicCombatReflexes.AddMythicCombatReflexes();

@@ -75,7 +75,7 @@ namespace TabletopTweaks.NewContent.Feats {
 
         private static void UpdateSpells() {
             var spells = SpellTools.SpellList.AllSpellLists
-                    .Where(list => !list.IsMythic)
+                    //.Where(list => !list.IsMythic)
                     .SelectMany(list => list.SpellsByLevel)
                     .Where(spellList => spellList.SpellLevel != 0)
                     .SelectMany(level => level.Spells)

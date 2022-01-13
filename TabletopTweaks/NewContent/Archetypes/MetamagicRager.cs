@@ -317,17 +317,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 BloodlineTools.Bloodline.BloodragerElementalFireBloodline
             };
             int[] featLevels = { 6, 9, 12, 15, 18 };
-            var metamagicFeats = new BlueprintFeature[] {
-                EmpowerSpellFeat,
-                ExtendSpellFeat,
-                HeightenSpellFeat,
-                MaximizeSpellFeat,
-                PersistentSpellFeat,
-                QuickenSpellFeat,
-                ReachSpellFeat,
-                SelectiveSpellFeat,
-                CompletelyNormalSpellFeat
-            };
+            var metamagicFeats = FeatTools.GetMetamagicFeats();
             foreach (var bloodline in basicBloodlines) {
                 BlueprintFeatureSelection MetamagicRagerFeatSelection = null;
                 foreach (var levelEntry in bloodline.LevelEntries.Where(entry => featLevels.Contains(entry.Level))) {
