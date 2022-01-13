@@ -34,6 +34,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             Intensified = 4096,
             Dazing = 8192,
             Rime = 65536,
+            Flaring = 131072,
         }
 
         public static void RegisterMetamagic(
@@ -274,18 +275,38 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         //Rime Metamagic
         [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
         static class ContextActionDealDamage_RimeMetamagic_Patch {
-            static BlueprintBuffReference EntangleBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("RimeEntagledBuff");
+            static BlueprintBuffReference RimeEntagledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("RimeEntagledBuff");
             static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
                 var context = __instance.Context;
                 if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Rime)) { return; }
 
                 if (!context.HasMetamagic((Metamagic)CustomMetamagic.Rime)) { return; }
-                if (!context.SpellDescriptor.HasFlag(SpellDescriptor.Cold)) { return; }
+                if (!context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Cold)) { return; }
                 if(!__instance.DamageType.IsEnergy || __instance.DamageType.Energy != DamageEnergyType.Cold) { return; }
                 var rounds = Math.Max(1, context.Params?.SpellLevel ?? context.SpellLevel).Rounds();
-                var buff = __instance.Target?.Unit?.Descriptor?.AddBuff(EntangleBuff, context, rounds.Seconds);
+                var buff = __instance.Target?.Unit?.Descriptor?.AddBuff(RimeEntagledBuff, context, rounds.Seconds);
                 if (buff != null) { 
                     buff.IsFromSpell = true; 
+                }
+            }
+        }
+        //Flaring Metamagic
+        [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
+        static class ContextActionDealDamage_FlaringMetamagic_Patch {
+            static BlueprintBuffReference FlaringDazzledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("FlaringDazzledBuff");
+            static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
+                var context = __instance.Context;
+                if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Flaring)) { return; }
+
+                if (!context.HasMetamagic((Metamagic)CustomMetamagic.Flaring)) { return; }
+                if (!context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Fire | SpellDescriptor.Electricity)) { return; }
+                if (!__instance.DamageType.IsEnergy 
+                    || !(__instance.DamageType.Energy == DamageEnergyType.Fire 
+                        || __instance.DamageType.Energy == DamageEnergyType.Electricity)) { return; }
+                var rounds = Math.Max(1, context.Params?.SpellLevel ?? context.SpellLevel).Rounds();
+                var buff = __instance.Target?.Unit?.Descriptor?.AddBuff(FlaringDazzledBuff, context, rounds.Seconds);
+                if (buff != null) {
+                    buff.IsFromSpell = true;
                 }
             }
         }

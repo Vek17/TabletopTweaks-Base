@@ -20,6 +20,7 @@ namespace TabletopTweaks.NewContent {
                 //Added early as some things depend on them for selections
                 Feats.IntensifiedSpell.AddIntensifiedSpell();
                 Feats.RimeSpell.AddRimeSpell();
+                Feats.FlaringSpell.AddFlaringSpell();
 
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();

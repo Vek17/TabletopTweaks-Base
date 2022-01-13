@@ -199,6 +199,7 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="NewContent\Feats\FlaringSpell.cs" />
     <Compile Include="Reworks\Feats.cs" />
     <Compile Include="Reworks\MythicAbilities.cs" />
     <Compile Include="Reworks\MythicFeats.cs" />
@@ -684,6 +685,9 @@
     <Content Include="Assets\Feats\Icon_DispelFocus.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_FlaringSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_GreaterDispelFocus.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -710,6 +714,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_UndersizedMount.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_FlaringSpellMetamagic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Metamagic\Icon_IntensifiedSpellMetamagic.png">

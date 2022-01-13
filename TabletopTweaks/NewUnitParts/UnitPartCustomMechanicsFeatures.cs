@@ -44,10 +44,11 @@ namespace TabletopTweaks.NewUnitParts {
             UndersizedMount,
             MountedSkirmisher,
             ManyshotMythic,
-            FavoriteMetamagicIntensified,
-            FavoriteMetamagicRime,
             FavoriteMetamagicPersistent,
             FavoriteMetamagicSelective,
+            FavoriteMetamagicIntensified,
+            FavoriteMetamagicRime,
+            FavoriteMetamagicFlaring,
             EmptyFeature
         }
     }
