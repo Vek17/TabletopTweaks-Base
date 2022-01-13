@@ -139,14 +139,17 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
 
         //This has to be patched after UIUtilityTexts loads normally or everything explodes
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class UIUtilityTexts_GetMetamagicList_NewMetamagic_Patch {
+        static class UIUtilityTexts_NewMetamagic_Patchs {
             private static bool patched = false;
             static void Postfix() {
                 if (patched) { return; }
-                var originalMethod = AccessTools.Method(typeof(UIUtilityTexts), "GetMetamagicList");
-                var postfix = AccessTools.Method(typeof(UIUtilityTexts_GetMetamagicList_NewMetamagic_Patch), "GetMetamagicList");
+                var GetMetamagicList = AccessTools.Method(typeof(UIUtilityTexts), "GetMetamagicList");
+                var GetMetamagicName = AccessTools.Method(typeof(UIUtilityTexts), "GetMetamagicName");
+                var GetMetamagicListPostfix = AccessTools.Method(typeof(UIUtilityTexts_NewMetamagic_Patchs), "GetMetamagicList");
+                var GetMetamagicNamePostfix = AccessTools.Method(typeof(UIUtilityTexts_NewMetamagic_Patchs), "GetMetamagicName");
                 var harmony = new Harmony(ModSettings.ModEntry.Info.Id);
-                harmony.Patch(originalMethod, postfix: new HarmonyMethod(postfix));
+                harmony.Patch(GetMetamagicList, postfix: new HarmonyMethod(GetMetamagicListPostfix));
+                harmony.Patch(GetMetamagicName, postfix: new HarmonyMethod(GetMetamagicNamePostfix));
                 patched = true;
             }
             static void GetMetamagicList(ref string __result, Metamagic mask) {
@@ -164,6 +167,11 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                     }
                 }
                 __result = stringBuilder.ToString();
+            }
+            static void GetMetamagicName(ref string __result, Metamagic metamagic) {
+                if (!string.IsNullOrEmpty(__result)) { return; }
+                if (!MetamagicExtention.IsRegisistered(metamagic)) { return; }
+                __result = MetamagicExtention.GetMetamagicName(metamagic);
             }
         }
 

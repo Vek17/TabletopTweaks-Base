@@ -1,16 +1,22 @@
 ﻿using HarmonyLib;
 using JetBrains.Annotations;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.UI.Common;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.FactLogic;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.NewContent.MechanicsChanges;
@@ -45,10 +51,9 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                     foreach (var variant in variantComponent.Variants) {
                         MetaRageAbilityData metaAbility = new MetaRageAbilityData(variant, ability.Caster, null, ability.SpellbookBlueprint) {
                             MetamagicData = newMetamagicData,
-                            OverridenResourceLogic = new AbilityResourceLogic() {
+                            OverridenResourceLogic = new MetamRageResourceOverride() {
                                 m_RequiredResource = RequiredResource,
-                                m_IsSpendResource = true,
-                                Amount = CalculateCost(ability, metamagic),
+                                addedMetamagic = metamagic
                             },
                             m_MetamagicFeature = metamagicFeature.Blueprint.ToReference<BlueprintFeatureReference>(),
                             m_ConvertedFrom = ability,
@@ -59,10 +64,9 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 } else {
                     MetaRageAbilityData metaAbility = new MetaRageAbilityData(ability, null) {
                         MetamagicData = newMetamagicData,
-                        OverridenResourceLogic = new AbilityResourceLogic() {
+                        OverridenResourceLogic = new MetamRageResourceOverride() {
                             m_RequiredResource = RequiredResource,
-                            m_IsSpendResource = true,
-                            Amount = CalculateCost(ability, metamagic),
+                            addedMetamagic = metamagic
                         },
                         m_MetamagicFeature = metamagicFeature.Blueprint.ToReference<BlueprintFeatureReference>(),
                         addedMetamagic = metamagic
@@ -138,10 +142,39 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 this.m_ConvertedFrom = other;
             }
 
-            public new string Name { get => $"{Blueprint.Name} — {addedMetamagic}"; }
+            public new string Name { get => $"{Blueprint.Name} — {UIUtilityTexts.GetMetamagicName(addedMetamagic)}"; }
             public BlueprintFeature MetamagicFeature { get => m_MetamagicFeature.Get(); }
-
+            [JsonProperty]
             public BlueprintFeatureReference m_MetamagicFeature;
+            [JsonProperty]
+            public Metamagic addedMetamagic;
+        }
+        private class MetamRageResourceOverride : IAbilityResourceLogic {
+            public MetamRageResourceOverride() : base() { }
+
+            public BlueprintAbilityResource RequiredResource => m_RequiredResource.Get();
+
+            public bool IsSpendResource => true;
+
+            public int CalculateCost(AbilityData ability) {
+                return (ability.SpellLevel + AdjustedCost(addedMetamagic, ability.Caster)) * 2;
+            }
+
+            public void Spend(AbilityData ability) {
+                UnitEntityData unit = ability.Caster.Unit;
+                if (unit == null) {
+                    PFLog.Default.Error("Caster is missing", Array.Empty<object>());
+                    return;
+                }
+                if (unit.Blueprint.IsCheater) {
+                    return;
+                }
+                unit.Descriptor.Resources.Spend(this.RequiredResource, CalculateCost(ability));
+            }
+
+            [JsonProperty]
+            public BlueprintAbilityResourceReference m_RequiredResource;
+            [JsonProperty]
             public Metamagic addedMetamagic;
         }
     }
