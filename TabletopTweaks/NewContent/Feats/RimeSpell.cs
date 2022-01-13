@@ -89,6 +89,7 @@ namespace TabletopTweaks.NewContent.Feats {
             );
             UpdateSpells();
             FeatTools.AddAsFeat(RimeSpellFeat);
+            FeatTools.AddAsMetamagicFeat(RimeSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicRime);
         }
         private static void UpdateSpells() {

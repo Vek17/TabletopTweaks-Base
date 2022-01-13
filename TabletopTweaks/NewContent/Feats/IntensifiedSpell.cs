@@ -70,6 +70,7 @@ namespace TabletopTweaks.NewContent.Feats {
             );
             UpdateSpells();
             FeatTools.AddAsFeat(IntensifiedSpellFeat);
+            FeatTools.AddAsMetamagicFeat(IntensifiedSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicIntensified);
         }
 

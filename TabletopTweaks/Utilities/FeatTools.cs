@@ -24,7 +24,7 @@ namespace TabletopTweaks.Utilities {
                     .ForEach(selection => selection.AddFeatures(feature));
             }
         }
-        public static void AddAsMetamagic(BlueprintFeature feature) {
+        public static void AddAsMetamagicFeat(BlueprintFeature feature) {
             var MetamagicSelections = new BlueprintFeatureSelection[] {
                 Selections.ArcaneRiderFeatSelection,
                 Selections.SeekerFeatSelection,
