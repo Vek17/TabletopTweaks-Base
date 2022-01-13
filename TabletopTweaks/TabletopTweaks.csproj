@@ -199,6 +199,7 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="Reworks\Feats.cs" />
     <Compile Include="Reworks\MythicAbilities.cs" />
     <Compile Include="Reworks\MythicFeats.cs" />
     <Compile Include="NewActions\ContextActionApplyWeaponEnchant.cs" />

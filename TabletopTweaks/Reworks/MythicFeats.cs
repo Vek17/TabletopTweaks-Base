@@ -35,6 +35,7 @@ namespace TabletopTweaks.Reworks {
                 SneakAttackerMythicFeat.SetDescription("Your sneak attacks are especially deadly.\n" +
                     "Benifit: Your sneak attack dice are one size larger than normal. " +
                     "For example if you would normally roll d6s for sneak attacks you would roll d8s instead.");
+                Main.LogPatch("Patched", SneakAttackerMythicFeat);
             }
         }
     }

@@ -33,7 +33,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         public enum CustomMetamagic {
             Intensified = 4096,
             Dazing = 8192,
-            Rime = 16384,
+            Rime = 65536,
         }
 
         public static void RegisterMetamagic(
@@ -43,7 +43,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             int defaultCost,
             CustomMechanicsFeature? favoriteMetamagic) {
             var metamagicData = new CustomMetamagicData() {
-                Name = Helpers.CreateString($"{name}SpellMetamagic", name),
+                Name = name == null ? null : Helpers.CreateString($"{name}SpellMetamagic", name),
                 Icon = icon,
                 DefaultCost = defaultCost,
                 FavoriteMetamagic = favoriteMetamagic

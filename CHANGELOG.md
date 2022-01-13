@@ -55,6 +55,8 @@
     * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
     * Spell tooltips now display what spellbook they are from
 * Homebrew Reworks
+    * Bolstered Spell
+        * Increased the spell level increase from bolstered from +1 to +2.
     * Elemental Barrage
         * Elemental Barrage has been reworked to move it away from attack enhancment stacking with weapon enchants, to instead act more like a caster ability.
             * Every time you deal elemental damage to a creature with a spell, you apply an elemental mark to it. If during the next three rounds the marked target takes elemental damage from any source with a different element, the target is dealt additional Divine damage. The damage is 1d6 per mythic rank of your character.

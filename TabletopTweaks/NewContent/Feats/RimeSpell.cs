@@ -30,7 +30,7 @@ namespace TabletopTweaks.NewContent.Feats {
             var RimeSpellFeat = Helpers.CreateBlueprint<BlueprintFeature>("RimeSpellFeat", bp => {
                 bp.SetName("Metamagic (Rime Spell)");
                 bp.SetDescription("Creatures damaged by your spells with the cold descriptor become entangled.\n" +
-                    "The frost of your cold spell clings to the target, impeding it for a short time. " +
+                    "Benefit: The frost of your cold spell clings to the target, impeding it for a short time. " +
                     "A rime spell causes creatures that takes cold damage from the spell to become entangled " +
                     "for a number of rounds equal to the original level of the spell.\n" +
                     "Level Increase: +1 (a rime spell uses up a spell slot one level higher than the spell’s actual level.)");
@@ -85,7 +85,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 name: "Rime",
                 icon: Icon_RimeSpellMetamagic,
                 defaultCost: 1,
-                CustomMechanicsFeature.FavoriteMetamagicRime
+                favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicRime
             );
             UpdateSpells();
             FeatTools.AddAsFeat(RimeSpellFeat);

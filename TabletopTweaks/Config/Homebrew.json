@@ -1,5 +1,16 @@
 {
   "NewSettingsOffByDefault": false,
+  "Feats": {
+    "DisableAll": false,
+    "Settings": {
+      "BolsterSpell": {
+        "Enabled": false,
+        "Homebrew": true,
+        "Description": "Increases the level increase from bolstered from +1 to +2."
+      }
+    },
+    "IsExpanded": true
+  },
   "MythicAbilities": {
     "DisableAll": false,
     "Settings": {
