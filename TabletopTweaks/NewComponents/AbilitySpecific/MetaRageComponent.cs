@@ -13,7 +13,7 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using System.Linq;
-using TabletopTweaks.NewContent.MetamagicMechanics;
+using TabletopTweaks.NewContent.MechanicsChanges;
 using TabletopTweaks.NewEvents;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {

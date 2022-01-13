@@ -479,6 +479,16 @@
         "Homebrew": true,
         "Description": "The effects from your blessings now last twice as long."
       },
+      "FavoriteMetamagicSelective": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Reduce the cost of Selective metamagic by 1."
+      },
+      "FavoriteMetamagicPersistent": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Reduce the cost of Selective Persistent by 1."
+      },
       "HarmoniousMage": {
         "Enabled": true,
         "Homebrew": false,

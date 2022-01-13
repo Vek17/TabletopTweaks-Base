@@ -60,15 +60,17 @@
             * Every time you deal elemental damage to a creature with a spell, you apply an elemental mark to it. If during the next three rounds the marked target takes elemental damage from any source with a different element, the target is dealt additional Divine damage. The damage is 1d6 per mythic rank of your character.
     * Mythic Sneak Attack
         * Mythic Sneak Attack now increases the size of your sneak attack dice (ex: d6 -> d8) instead of addding an additional sneak attack dice.
+* Added Metamagic
+    * Intensified Spell (Metamagic)
+        * An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat.
+    * Rime Spell (Metamagic)
+        * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
+
 * Added Feats
     * Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus on the check.
     * Greater Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.
-    * Intensified Spell (Metamagic)
-        * An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat.
-    * Rime Spell (Metamagic)
-        * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
     * Quicken Blessing
         * Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.
     * Two-Weapon Defense
@@ -88,6 +90,10 @@
         * You can use Lay On Hands a number of additional times per day equal to your mythic rank.
     * Enhanced Blessings
         * The effects from your blessings now last twice as long.
+    * Favorite Metamagic Persistent
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
+    * Favorite Metamagic Selective
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
     * Harmonious Mage
         * Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.
     * Impossible Blessing

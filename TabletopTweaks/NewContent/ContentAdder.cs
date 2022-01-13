@@ -111,6 +111,9 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.EnhancedBlessings.AddEnhancedBlessings();
                 MythicAbilities.ImpossibleBlessing.AddImpossibleBlessing();
 
+                MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
+                MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();
+
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
                 Feats.MagicalAptitude.AddMagicalAptitude();
                 Feats.Scholar.AddScholar();

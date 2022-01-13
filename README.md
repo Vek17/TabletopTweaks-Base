@@ -389,6 +389,12 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Shadow Enchantment Greater
         * This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it's only three-fifths (60%) as effective.
 
+* Metamagic
+    * Intensified Spell (Metamagic)
+        * An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat.
+    * Rime Spell (Metamagic)
+        * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
+
 * Feats
     * AnimalAlly
         * You gain an animal companion as if you were a druid of your character level -3. Unlike normal animals of its kind, an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level.
@@ -498,6 +504,10 @@ All fixes and added content are configurable and can be disabled via the unity m
         * While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank.
     * Enhanced Blessings
         * The effects from your blessings now last twice as long.
+    * Favorite Metamagic Persistent
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
+    * Favorite Metamagic Selective
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
     * Harmonious Mage
         * Your wizardly studies have moved beyond the concept of opposition schools. Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.
     * Impossible Blessing

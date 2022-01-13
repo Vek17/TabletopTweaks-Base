@@ -45,7 +45,10 @@ namespace TabletopTweaks.NewUnitParts {
             MountedSkirmisher,
             ManyshotMythic,
             FavoriteMetamagicIntensified,
-            FavoriteMetamagicRime
+            FavoriteMetamagicRime,
+            FavoriteMetamagicPersistent,
+            FavoriteMetamagicSelective,
+            EmptyFeature
         }
     }
     static class CustomMechanicsFeaturesExtentions {

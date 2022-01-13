@@ -386,6 +386,8 @@
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
     <Compile Include="NewContent\MythicAbilities\EnhancedBlessings.cs" />
+    <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicPersistent.cs" />
+    <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicSelective.cs" />
     <Compile Include="NewContent\MythicAbilities\HarmoniousMage.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />

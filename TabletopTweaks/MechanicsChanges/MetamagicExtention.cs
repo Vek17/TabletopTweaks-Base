@@ -35,7 +35,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             int defaultCost,
             CustomMechanicsFeature favoriteMetamagic) {
             var metamagicData = new CustomMetamagicData() {
-                Name = Helpers.CreateString(metamagic.ToString(), name),
+                Name = Helpers.CreateString($"{name}SpellMetamagic", name),
                 Icon = icon,
                 DefaultCost = defaultCost,
                 FavoriteMetamagic = favoriteMetamagic
@@ -95,7 +95,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         static  class RuleApplyMetamagic_OnTrigger_NewMetamagic_Patch {
             static void Postfix(RuleApplyMetamagic __instance) {
                 var lv_adjustment = 0;
-                foreach (var metamagic in __instance.AppliedMetamagics.Where(meta => meta.IsNewMetamagic())) {
+                foreach (var metamagic in __instance.AppliedMetamagics) {
                     if (MetamagicExtention.HasFavoriteMetamagic(__instance.Initiator, metamagic)) {
                         lv_adjustment++;
                     }
@@ -154,6 +154,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 foreach (object obj in Enum.GetValues(typeof(CustomMetamagic))) {
                     Metamagic metamagic = (Metamagic)obj;
                     if (mask.HasMetamagic(metamagic)) {
+                        if (!MetamagicExtention.IsRegisistered(metamagic)) { continue; }
                         if (addComma) {
                             stringBuilder.Append(", ");
                         }
