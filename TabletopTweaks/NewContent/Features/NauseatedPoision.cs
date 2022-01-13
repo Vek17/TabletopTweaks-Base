@@ -12,7 +12,7 @@ namespace TabletopTweaks.NewContent.Features {
     class NauseatedPoision {
         public static void AddNauseatedPoision() {
             var Nauseated = Resources.GetBlueprintReference<BlueprintBuffReference>("956331dba5125ef48afe41875a00ca0e");
-
+            /*
             var NauseatedPoisionTTT = Helpers.CreateBuff("NauseatedPoisionTTT", bp => {
                 bp.SetName("");
                 bp.SetDescription("");
@@ -38,6 +38,7 @@ namespace TabletopTweaks.NewContent.Features {
                     c.NewRound = Helpers.CreateActionList();
                 });
             });
+            */
         }
     }
 }

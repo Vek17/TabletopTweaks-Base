@@ -8,11 +8,12 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System.Linq;
+using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
-using TabletopTweaks.NewContent.MetamagicMechanics;
+using TabletopTweaks.NewContent.MechanicsChanges;
 using TabletopTweaks.Utilities;
-using static TabletopTweaks.NewContent.MetamagicMechanics.MetamagicExtention;
+using static TabletopTweaks.NewContent.MechanicsChanges.MetamagicExtention;
 using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
 namespace TabletopTweaks.NewContent.Feats {
@@ -57,14 +58,30 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddPrerequisiteFeature(IntensifiedSpellFeat);
             });
 
+            
+
+            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicIntensifiedSpell")) { return; }
+            MetamagicExtention.RegisterMetamagic(
+                metamagic: (Metamagic)CustomMetamagic.Intensified,
+                name: "Intensified",
+                icon: Icon_IntensifiedSpellMetamagic,
+                defaultCost: 1,
+                CustomMechanicsFeature.FavoriteMetamagicIntensified
+            );
+            UpdateSpells();
+            FeatTools.AddAsFeat(IntensifiedSpellFeat);
+            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicIntensified);
+        }
+
+        private static void UpdateSpells() {
             var spells = SpellTools.SpellList.AllSpellLists
-                .Where(list => !list.IsMythic)
-                .SelectMany(list => list.SpellsByLevel)
-                .Where(spellList => spellList.SpellLevel != 0)
-                .SelectMany(level => level.Spells)
-                .Distinct()
-                .OrderBy(spell => spell.Name)
-                .ToArray();
+                    .Where(list => !list.IsMythic)
+                    .SelectMany(list => list.SpellsByLevel)
+                    .Where(spellList => spellList.SpellLevel != 0)
+                    .SelectMany(level => level.Spells)
+                    .Distinct()
+                    .OrderBy(spell => spell.Name)
+                    .ToArray();
             foreach (var spell in spells) {
                 bool dealsDamage = spell.FlattenAllActions()
                     .OfType<ContextActionDealDamage>().Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank)
@@ -81,16 +98,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     }
                 };
             }
-            MetamagicExtention.RegisterNewMetamagic(
-                metamagic: CustomMetamagic.Intensified,
-                name: "Intensified", 
-                icon: Icon_IntensifiedSpellMetamagic, 
-                defaultCost: 1,
-                CustomMechanicsFeature.FavoriteMetamagicIntensified
-            );
-            //if (ModSettings.AddedContent.Feats.IsDisabled("QuickChannel")) { return; }
-            FeatTools.AddAsFeat(IntensifiedSpellFeat);
-            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicIntensified);
         }
     }
 }

@@ -371,6 +371,7 @@
     <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
     <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
     <Compile Include="NewContent\Feats\QuickenBlessing.cs" />
+    <Compile Include="NewContent\Feats\RimeSpell.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
     <Compile Include="NewContent\Feats\TwoWeaponDefense.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
@@ -378,7 +379,7 @@
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
     <Compile Include="NewContent\Features\NauseatedPoision.cs" />
     <Compile Include="NewContent\Feats\IntensifiedSpell.cs" />
-    <Compile Include="NewContent\MetamagicMechanics\MetamagicExtention.cs" />
+    <Compile Include="MechanicsChanges\MetamagicExtention.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
@@ -696,6 +697,9 @@
     <Content Include="Assets\Feats\Icon_MountedSkirmisher.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_RimeSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_TrickRiding.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -706,6 +710,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Metamagic\Icon_IntensifiedSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_RimeSpellMetamagic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

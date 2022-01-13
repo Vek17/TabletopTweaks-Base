@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Enums.Damage;
 using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -12,6 +14,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,50 +25,53 @@ using TabletopTweaks.Utilities;
 using UnityEngine;
 using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
-namespace TabletopTweaks.NewContent.MetamagicMechanics {
+namespace TabletopTweaks.NewContent.MechanicsChanges {
     static class MetamagicExtention {
 
-        public static void RegisterNewMetamagic(
-            CustomMetamagic metamagic, 
-            string name, 
-            Sprite icon, 
+        public static void RegisterMetamagic(
+            Metamagic metamagic,
+            string name,
+            Sprite icon,
             int defaultCost,
-            CustomMechanicsFeature favoriteMetamagic) 
-        {
+            CustomMechanicsFeature favoriteMetamagic) {
             var metamagicData = new CustomMetamagicData() {
                 Name = Helpers.CreateString(metamagic.ToString(), name),
                 Icon = icon,
                 DefaultCost = defaultCost,
                 FavoriteMetamagic = favoriteMetamagic
             };
-            MetamagicNames.Add(metamagic, metamagicData);
+            RegisteredMetamagic.Add(metamagic, metamagicData);
         }
 
         public static string GetMetamagicName(Metamagic metamagic) {
             CustomMetamagicData result;
-            MetamagicNames.TryGetValue((CustomMetamagic)metamagic, out result);
+            RegisteredMetamagic.TryGetValue(metamagic, out result);
             return result?.Name ?? string.Empty;
         }
 
         public static Sprite GetMetamagicIcon(Metamagic metamagic) {
             CustomMetamagicData result;
-            MetamagicNames.TryGetValue((CustomMetamagic)metamagic, out result);
+            RegisteredMetamagic.TryGetValue(metamagic, out result);
             return result?.Icon;
         }
 
         public static int GetMetamagicDefaultCost(Metamagic metamagic) {
             CustomMetamagicData result;
-            MetamagicNames.TryGetValue((CustomMetamagic)metamagic, out result);
+            RegisteredMetamagic.TryGetValue(metamagic, out result);
             return result?.DefaultCost ?? 0;
         }
 
         public static bool HasFavoriteMetamagic(UnitDescriptor unit, Metamagic metamagic) {
             CustomMetamagicData result;
-            MetamagicNames.TryGetValue((CustomMetamagic)metamagic, out result);
+            RegisteredMetamagic.TryGetValue(metamagic, out result);
             return result == null ? false : unit.CustomMechanicsFeature(result.FavoriteMetamagic);
         }
 
-        private static Dictionary<CustomMetamagic, CustomMetamagicData> MetamagicNames = new();
+        public static bool IsRegisistered(Metamagic metamagic) {
+            return RegisteredMetamagic.ContainsKey(metamagic);
+        }
+
+        private static Dictionary<Metamagic, CustomMetamagicData> RegisteredMetamagic = new();
 
         private class CustomMetamagicData {
             public LocalizedString Name;
@@ -77,7 +83,8 @@ namespace TabletopTweaks.NewContent.MetamagicMechanics {
         [Flags]
         public enum CustomMetamagic {
             Intensified = 2048,
-            Dazing = 4096
+            Dazing = 4096,
+            Rime = 8192
         }
 
         public static bool IsNewMetamagic(this Metamagic metamagic) {
@@ -161,7 +168,7 @@ namespace TabletopTweaks.NewContent.MetamagicMechanics {
         [HarmonyPatch(typeof(MetamagicHelper), "DefaultCost")]
         static class MetamagicHelper_DefaultCost_NewMetamagic_Patch {
             static void Postfix(ref int __result, Metamagic metamagic) {
-                if (metamagic.IsNewMetamagic()) {
+                if (MetamagicExtention.IsRegisistered(metamagic)) {
                     __result = MetamagicExtention.GetMetamagicDefaultCost(metamagic);
                 }
             }
@@ -170,7 +177,7 @@ namespace TabletopTweaks.NewContent.MetamagicMechanics {
         [HarmonyPatch(typeof(MetamagicHelper), "SpellIcon")]
         static class MetamagicHelper_SpellIcon_NewMetamagic_Patch {
             private static void Postfix(ref Sprite __result, Metamagic metamagic) {
-                if (__result == null) {
+                if (__result == null && MetamagicExtention.IsRegisistered(metamagic)) {
                     __result = MetamagicExtention.GetMetamagicIcon(metamagic);
                 }
             }
@@ -216,6 +223,8 @@ namespace TabletopTweaks.NewContent.MetamagicMechanics {
         [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
         static class ContextActionDealDamage_IntensifyMetamagic_Patch {
             static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
+                if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Intensified)) { return; }
+
                 var context = __instance.Context;
                 if (!context.HasMetamagic((Metamagic)CustomMetamagic.Intensified)) { return; }
 
@@ -249,6 +258,23 @@ namespace TabletopTweaks.NewContent.MetamagicMechanics {
                             return 5 * rankConfig.m_StepLevel;
                     }
                     return 5;
+                }
+            }
+        }
+        [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
+        static class ContextActionDealDamage_RimeMetamagic_Patch {
+            static BlueprintBuffReference EntangleBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("RimeEntagledBuff");
+            static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
+                var context = __instance.Context;
+                if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Rime)) { return; }
+
+                if (!context.HasMetamagic((Metamagic)CustomMetamagic.Rime)) { return; }
+                if (!context.SpellDescriptor.HasFlag(SpellDescriptor.Cold)) { return; }
+                if(!__instance.DamageType.IsEnergy || __instance.DamageType.Energy != DamageEnergyType.Cold) { return; }
+                var rounds = Math.Max(1, context.Params?.SpellLevel ?? context.SpellLevel).Rounds();
+                var buff = __instance.Target?.Unit?.Descriptor?.AddBuff(EntangleBuff, context, rounds.Seconds);
+                if (buff != null) { 
+                    buff.IsFromSpell = true; 
                 }
             }
         }

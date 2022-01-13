@@ -150,6 +150,7 @@ namespace TabletopTweaks.NewContent {
                 Feats.ExtraMercy.AddExtraMercy();
 
                 Feats.IntensifiedSpell.AddIntensifiedSpell();
+                Feats.RimeSpell.AddRimeSpell();
 
                 MythicFeats.MythicShatterDefenses.AddMythicShatterDefenses();
                 MythicFeats.MythicCombatReflexes.AddMythicCombatReflexes();

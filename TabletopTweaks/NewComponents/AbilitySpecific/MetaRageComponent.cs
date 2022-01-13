@@ -13,6 +13,7 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.NewContent.MetamagicMechanics;
 using TabletopTweaks.NewEvents;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
@@ -100,6 +101,9 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 case Metamagic.Selective:
                     if (features.FavoriteMetamagicSelective) { return metamagic.DefaultCost() - 1; }
                     break;
+            }
+            if (MetamagicExtention.HasFavoriteMetamagic(unit, metamagic)) {
+                return metamagic.DefaultCost() - 1;
             }
             return metamagic.DefaultCost();
         }
