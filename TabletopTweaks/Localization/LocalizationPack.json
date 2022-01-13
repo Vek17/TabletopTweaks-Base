@@ -3147,6 +3147,17 @@
       "esES": null
     },
     {
+      "Key": "9889b5df0580417595f79c4da0af1804",
+      "SimpleName": "BolsteredSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "You make your spells deal additional area of effect damage, while making them stronger.\nBenefit: Spell now deals 2 more points of damage per die rolled to all its targets. Additionally, all enemies in 5 feet of the spell targets are dealt 2 damage per die rolled of the original spell. The spell can no longer apply precision damage.\nLevel Increase: +2 (A bolstered spell uses up a spell slot two levels higher than the spell's actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "37df8bdd9bcf476e82186546ba976884",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
