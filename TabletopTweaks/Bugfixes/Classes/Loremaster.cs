@@ -37,7 +37,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var SkillFocusKnowledgeWorld = Resources.GetBlueprint<BlueprintFeature>("611e863120c0f9a4cab2d099f1eb20b4");
                     var SkillFocusLoreNature = Resources.GetBlueprint<BlueprintFeature>("6507d2da389ed55448e0e1e5b871c013");
                     var SkillFocusLoreReligion = Resources.GetBlueprint<BlueprintFeature>("c541f80af8d0af4498e1abb6025780c7");
-
+                /*
                     var EmpowerSpellFeat = Resources.GetBlueprint<BlueprintFeature>("a1de1e4f92195b442adb946f0e2b9d4e");
                     var ExtendSpellFeat = Resources.GetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef");
                     var HeightenSpellFeat = Resources.GetBlueprint<BlueprintFeature>("2f5d1e705c7967546b72ad8218ccf99c");
@@ -48,8 +48,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var BolsteredSpellFeat = Resources.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
                     var SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
                     var CompletelyNormalSpellFeat = Resources.GetBlueprint<BlueprintFeature>("094b6278f7b570f42aeaa98379f07cf2");
-                    var ScribingScrolls = Resources.GetBlueprint<BlueprintFeature>("a8a385bf53ee3454593ce9054375a2ec");
-                    var BrewPotions = Resources.GetBlueprint<BlueprintFeature>("c0f8c4e513eb493408b8070a1de93fc0");
+                */
+                    var ScribingScrolls = Resources.GetBlueprintReference<BlueprintFeatureReference>("a8a385bf53ee3454593ce9054375a2ec");
+                    var BrewPotions = Resources.GetBlueprintReference<BlueprintFeatureReference>("c0f8c4e513eb493408b8070a1de93fc0");
 
                     LoremasterClass.RemoveComponents<Prerequisite>();
                     LoremasterClass.AddComponent<PrerequisiteCasterTypeSpellLevel>(c => {
@@ -82,20 +83,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         c.Amount = 1;
                     });
                     LoremasterClass.AddComponent<PrerequisiteFeaturesFromListFormatted>(c => {
-                        c.m_Features = new BlueprintFeatureReference[] {
-                            ScribingScrolls.ToReference<BlueprintFeatureReference>(),
-                            BrewPotions.ToReference<BlueprintFeatureReference>(),
-                            EmpowerSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            ExtendSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            HeightenSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            MaximizeSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            QuickenSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            ReachSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            PersistentSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            BolsteredSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            SelectiveSpellFeat.ToReference<BlueprintFeatureReference>(),
-                            CompletelyNormalSpellFeat.ToReference<BlueprintFeatureReference>()
-                        };
+                        c.m_Features = FeatTools.GetMetamagicFeats()
+                        .Select(feat => feat.ToReference<BlueprintFeatureReference>())
+                        .AddItem(ScribingScrolls)
+                        .AddItem(BrewPotions)
+                        .ToArray();
                         c.Amount = 3;
                     });
                     Main.LogPatch("Patched", LoremasterClass);
