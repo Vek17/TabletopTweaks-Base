@@ -33,13 +33,13 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
 
         [Flags]
         public enum CustomMetamagic {
-            Intensified =   0b0000_0000_0000_0000_0001_0000_0000_0000,
-            Dazing =        0b0000_0000_0000_0000_0010_0000_0000_0000,
+            Intensified =   1 << 12,
+            Dazing =        1 << 13,
             //Unused Space
-            Rime =          0b0000_0000_0000_0001_0000_0000_0000_0000,
-            Burning =       0b0000_0000_0000_0010_0000_0000_0000_0000,
-            Flaring =       0b0000_0000_0000_0100_0000_0000_0000_0000,
-            Piercing =      0b0000_0000_0000_1000_0000_0000_0000_0000,
+            Rime =          1 << 16,
+            Burning =       1 << 17,
+            Flaring =       1 << 18,
+            Piercing =      1 << 19,
         }
 
         public static void RegisterMetamagic(
@@ -206,31 +206,31 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
-
+        // I think these are general patches for base game bugs... Not 100% sure but I am scared to touch things
         [HarmonyPatch(typeof(SpellbookMetamagicSelectorVM), "AddMetamagic")]
         static class SpellbookMetamagicSelectorVM_GetCost_AddMetamagic_Patch {
             private static void Postfix(SpellbookMetamagicSelectorVM __instance) {
-                var corr = 0;
+                var CompletlyNormalCorrection = 0;
                 if (__instance.m_MetamagicBuilder.Value.AppliedMetamagics.Contains(Metamagic.CompletelyNormal)) {
-                    corr = 1;
+                    CompletlyNormalCorrection = 1;
                 }
-                if (__instance.CurrentTemporarySpell.Value.SpellLevel < __instance.m_MetamagicBuilder.Value.BaseSpellLevel - corr) {
-                    __instance.CurrentTemporarySpell.Value.SpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - corr;
-                    __instance.m_MetamagicBuilder.Value.ResultSpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - corr;
+                if (__instance.CurrentTemporarySpell.Value.SpellLevel < __instance.m_MetamagicBuilder.Value.BaseSpellLevel - CompletlyNormalCorrection) {
+                    __instance.CurrentTemporarySpell.Value.SpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - CompletlyNormalCorrection;
+                    __instance.m_MetamagicBuilder.Value.ResultSpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - CompletlyNormalCorrection;
                 }
             }
         }
-
+        // I think these are general patches for base game bugs... Not 100% sure but I am scared to touch things
         [HarmonyPatch(typeof(SpellbookMetamagicSelectorVM), "RemoveMetamagic")]
         static class SpellbookMetamagicSelectorVM_GetCost_RemoveMetamagic_Patch {
             private static void Postfix(SpellbookMetamagicSelectorVM __instance) {
-                var corr = 0;
+                var CompletlyNormalCorrection = 0;
                 if (__instance.m_MetamagicBuilder.Value.AppliedMetamagics.Contains(Metamagic.CompletelyNormal)) {
-                    corr = 1;
+                    CompletlyNormalCorrection = 1;
                 }
-                if (__instance.CurrentTemporarySpell.Value.SpellLevel < __instance.m_MetamagicBuilder.Value.BaseSpellLevel - corr) {
-                    __instance.CurrentTemporarySpell.Value.SpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - corr;
-                    __instance.m_MetamagicBuilder.Value.ResultSpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - corr;
+                if (__instance.CurrentTemporarySpell.Value.SpellLevel < __instance.m_MetamagicBuilder.Value.BaseSpellLevel - CompletlyNormalCorrection) {
+                    __instance.CurrentTemporarySpell.Value.SpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - CompletlyNormalCorrection;
+                    __instance.m_MetamagicBuilder.Value.ResultSpellLevel = __instance.m_MetamagicBuilder.Value.BaseSpellLevel - CompletlyNormalCorrection;
                 }
             }
         }
