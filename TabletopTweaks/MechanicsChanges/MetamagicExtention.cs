@@ -7,6 +7,7 @@ using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Abilities;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.Spellbook.Metamagic;
 using Kingmaker.UnitLogic;
@@ -274,38 +275,47 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             }
         }
         //Rime Spell Metamagic
-        [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
+        [HarmonyPatch(typeof(RuleDealDamage), nameof(RuleDealDamage.OnTrigger))]
         static class ContextActionDealDamage_RimeMetamagic_Patch {
             static BlueprintBuffReference RimeEntagledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("RimeEntagledBuff");
-            static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
-                var context = __instance.Context;
+
+            static void Postfix(RuleDealDamage __instance) {
                 if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Rime)) { return; }
 
+                var context = __instance.Reason.Context;
+                if (context == null) { return; }
                 if (!context.HasMetamagic((Metamagic)CustomMetamagic.Rime)) { return; }
                 if (!context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Cold)) { return; }
-                if(!__instance.DamageType.IsEnergy || __instance.DamageType.Energy != DamageEnergyType.Cold) { return; }
+                if (!__instance.DamageBundle
+                    .OfType<EnergyDamage>()
+                    .Where(damage => damage.EnergyType == DamageEnergyType.Cold)
+                    .Any(damage => !damage.Immune))  
+                { return; }
                 var rounds = Math.Max(1, context.Params?.SpellLevel ?? context.SpellLevel).Rounds();
-                var buff = __instance.Target?.Unit?.Descriptor?.AddBuff(RimeEntagledBuff, context, rounds.Seconds);
-                if (buff != null) { 
-                    buff.IsFromSpell = true; 
+                var buff = __instance.Target?.Descriptor?.AddBuff(RimeEntagledBuff, context, rounds.Seconds);
+                if (buff != null) {
+                    buff.IsFromSpell = true;
                 }
             }
         }
         //Flaring Spell Metamagic
-        [HarmonyPatch(typeof(ContextActionDealDamage), nameof(ContextActionDealDamage.GetDamageInfo))]
+        [HarmonyPatch(typeof(RuleDealDamage), nameof(RuleDealDamage.OnTrigger))]
         static class ContextActionDealDamage_FlaringMetamagic_Patch {
             static BlueprintBuffReference FlaringDazzledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("FlaringDazzledBuff");
-            static void Postfix(ContextActionDealDamage __instance, ref ContextActionDealDamage.DamageInfo __result) {
-                var context = __instance.Context;
+            static void Postfix(RuleDealDamage __instance) {
                 if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Flaring)) { return; }
 
+                var context = __instance.Reason.Context;
+                if (context == null) { return; }
                 if (!context.HasMetamagic((Metamagic)CustomMetamagic.Flaring)) { return; }
                 if (!context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Fire | SpellDescriptor.Electricity)) { return; }
-                if (!__instance.DamageType.IsEnergy 
-                    || !(__instance.DamageType.Energy == DamageEnergyType.Fire 
-                        || __instance.DamageType.Energy == DamageEnergyType.Electricity)) { return; }
+                if (!__instance.DamageBundle
+                    .OfType<EnergyDamage>()
+                    .Where(damage => damage.EnergyType == DamageEnergyType.Fire || damage.EnergyType == DamageEnergyType.Electricity)
+                    .Any(damage => !damage.Immune))  
+                { return; }
                 var rounds = Math.Max(1, context.Params?.SpellLevel ?? context.SpellLevel).Rounds();
-                var buff = __instance.Target?.Unit?.Descriptor?.AddBuff(FlaringDazzledBuff, context, rounds.Seconds);
+                var buff = __instance.Target?.Descriptor?.AddBuff(FlaringDazzledBuff, context, rounds.Seconds);
                 if (buff != null) {
                     buff.IsFromSpell = true;
                 }

@@ -78,14 +78,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 .OrderBy(spell => spell.Name)
                 .ToArray();
             foreach (var spell in spells) {
-                /*
-                bool validPiercing = (spell.SpellResistance)
-                    || (spell?.GetComponent<AbilityEffectStickyTouch>()?
-                        .TouchDeliveryAbility.SpellResistance ?? false)
-                    || (spell.GetComponent<AbilityVariants>()?
-                        .Variants.Any(v => v.SpellResistance) ?? false)
-                    || spell.GetComponent<AbilityShadowSpell>();
-                */
                 bool validPiercing = spell.AbilityAndVariants()
                     .SelectMany(s => s.AbilityAndStickyTouch())
                     .Any(s => s.SpellResistance || s.GetComponent<AbilityShadowSpell>());
