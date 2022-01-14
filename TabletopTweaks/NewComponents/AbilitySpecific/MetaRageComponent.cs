@@ -51,7 +51,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                     foreach (var variant in variantComponent.Variants) {
                         MetaRageAbilityData metaAbility = new MetaRageAbilityData(variant, ability.Caster, null, ability.SpellbookBlueprint) {
                             MetamagicData = newMetamagicData,
-                            OverridenResourceLogic = new MetamRageResourceOverride() {
+                            OverridenResourceLogic = new MetaRageResourceOverride() {
                                 m_RequiredResource = RequiredResource,
                                 addedMetamagic = metamagic
                             },
@@ -64,7 +64,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 } else {
                     MetaRageAbilityData metaAbility = new MetaRageAbilityData(ability, null) {
                         MetamagicData = newMetamagicData,
-                        OverridenResourceLogic = new MetamRageResourceOverride() {
+                        OverridenResourceLogic = new MetaRageResourceOverride() {
                             m_RequiredResource = RequiredResource,
                             addedMetamagic = metamagic
                         },
@@ -149,8 +149,8 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
             [JsonProperty]
             public Metamagic addedMetamagic;
         }
-        private class MetamRageResourceOverride : IAbilityResourceLogic {
-            public MetamRageResourceOverride() : base() { }
+        private class MetaRageResourceOverride : IAbilityResourceLogic {
+            public MetaRageResourceOverride() : base() { }
 
             public BlueprintAbilityResource RequiredResource => m_RequiredResource.Get();
 

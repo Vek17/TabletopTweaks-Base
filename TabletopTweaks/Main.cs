@@ -4,6 +4,7 @@ using Kingmaker;
 using Kingmaker.Blueprints.JsonSystem;
 using System;
 using TabletopTweaks.Config;
+using TabletopTweaks.NewContent.MechanicsChanges;
 using TabletopTweaks.Utilities;
 using UnityModManagerNet;
 
