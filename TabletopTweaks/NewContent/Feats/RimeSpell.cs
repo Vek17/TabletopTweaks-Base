@@ -1,8 +1,11 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -33,6 +36,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     "Benefit: The frost of your cold spell clings to the target, impeding it for a short time. " +
                     "A rime spell causes creatures that takes cold damage from the spell to become entangled " +
                     "for a number of rounds equal to the original level of the spell.\n" +
+                    "This feat only affects spells with the cold descriptor.\n" +
                     "Level Increase: +1 (a rime spell uses up a spell slot one level higher than the spell’s actual level.)");
                 bp.m_Icon = Icon_RimeSpellFeat;
                 bp.Ranks = 1;
@@ -42,9 +46,14 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<AddMetamagicFeat>(c => {
                     c.Metamagic = (Metamagic)CustomMetamagic.Rime;
                 });
-                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Magic | FeatureTag.Metamagic;
-                }));
+                });
+                bp.AddPrerequisite<PrerequisiteStatValue>(c => {
+                    c.Stat = StatType.Intelligence;
+                    c.Value = 3;
+                });
+                bp.AddComponent<RecommendationRequiresSpellbook>();
             });
 
             var FavoriteMetamagicRime = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicRime", bp => {

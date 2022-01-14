@@ -1,7 +1,10 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
@@ -39,9 +42,14 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<AddMetamagicFeat>(c => {
                     c.Metamagic = (Metamagic)CustomMetamagic.Intensified;
                 });
-                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Magic | FeatureTag.Metamagic;
-                }));
+                });
+                bp.AddPrerequisite<PrerequisiteStatValue>(c => {
+                    c.Stat = StatType.Intelligence;
+                    c.Value = 3;
+                });
+                bp.AddComponent<RecommendationRequiresSpellbook>();
             });
 
             var FavoriteMetamagicIntensified = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicIntensified", bp => {

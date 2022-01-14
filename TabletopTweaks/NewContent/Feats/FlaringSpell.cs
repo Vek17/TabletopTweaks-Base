@@ -1,8 +1,11 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -33,8 +36,8 @@ namespace TabletopTweaks.NewContent.Feats {
                     "Benefit: The electricity, fire, or light effects of the affected spell create a flaring that " +
                     "dazzles creatures that take damage from the spell. A flare spell causes a creature that " +
                     "takes fire or electricity damage from the affected spell to become dazzled for a number of " +
-                    "rounds equal to the actual level of the spell. A flaring spell only affects spells with a " +
-                    "fire, light, or electricity descriptor.\n" +
+                    "rounds equal to the actual level of the spell.\n" +
+                    "A flaring spell only affects spells with a fire, light, or electricity descriptor.\n" +
                     "Level Increase: +1 (a flaring spell uses up a spell slot one level higher than the spell’s actual level.)");
                 bp.m_Icon = Icon_FlaringSpellFeat;
                 bp.Ranks = 1;
@@ -44,9 +47,14 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<AddMetamagicFeat>(c => {
                     c.Metamagic = (Metamagic)CustomMetamagic.Flaring;
                 });
-                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Magic | FeatureTag.Metamagic;
-                }));
+                });
+                bp.AddPrerequisite<PrerequisiteStatValue>(c => {
+                    c.Stat = StatType.Intelligence;
+                    c.Value = 3;
+                });
+                bp.AddComponent<RecommendationRequiresSpellbook>();
             });
 
             var FavoriteMetamagicFlaring = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicFlaring", bp => {
