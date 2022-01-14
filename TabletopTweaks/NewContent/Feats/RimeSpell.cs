@@ -101,7 +101,10 @@ namespace TabletopTweaks.NewContent.Feats {
                 .OrderBy(spell => spell.Name)
                 .ToArray();
             foreach (var spell in spells) {
-                bool isColdSpell = (spell.GetComponent<SpellDescriptorComponent>()?.Descriptor.HasAnyFlag(SpellDescriptor.Cold) ?? false)
+                bool isColdSpell = spell.AbilityAndVariants()
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .Any(s => s.GetComponent<SpellDescriptorComponent>()?
+                        .Descriptor.HasAnyFlag(SpellDescriptor.Cold) ?? false)
                     || spell.GetComponent<AbilityShadowSpell>();
                 if (isColdSpell) {
                     if (!spell.AvailableMetamagic.HasMetamagic((Metamagic)CustomMetamagic.Rime)) {

@@ -48,6 +48,7 @@ namespace TabletopTweaks.NewUnitParts {
             FavoriteMetamagicSelective,
             FavoriteMetamagicIntensified,
             FavoriteMetamagicRime,
+            FavoriteMetamagicBurning,
             FavoriteMetamagicFlaring,
             FavoriteMetamagicPiercing
         }

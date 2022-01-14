@@ -102,10 +102,13 @@ namespace TabletopTweaks.NewContent.Feats {
                 .OrderBy(spell => spell.Name)
                 .ToArray();
             foreach (var spell in spells) {
-                bool validFlaring = (spell.GetComponent<SpellDescriptorComponent>()?
-                    .Descriptor.HasAnyFlag(SpellDescriptor.Fire | SpellDescriptor.Electricity) ?? false)
+
+                bool isFlaringSpell = spell.AbilityAndVariants()
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .Any(s => s.GetComponent<SpellDescriptorComponent>()?
+                        .Descriptor.HasAnyFlag(SpellDescriptor.Fire | SpellDescriptor.Electricity) ?? false)
                     || spell.GetComponent<AbilityShadowSpell>();
-                if (validFlaring) {
+                if (isFlaringSpell) {
                     if (!spell.AvailableMetamagic.HasMetamagic((Metamagic)CustomMetamagic.Flaring)) {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Flaring;
                         Main.LogPatch("Enabled Flaring Metamagic", spell);

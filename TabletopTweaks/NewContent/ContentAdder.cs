@@ -20,6 +20,7 @@ namespace TabletopTweaks.NewContent {
                 //Added early as some things depend on them for selections
                 Feats.IntensifiedSpell.AddIntensifiedSpell();
                 Feats.RimeSpell.AddRimeSpell();
+                Feats.BurningSpell.AddBurningSpell();
                 Feats.FlaringSpell.AddFlaringSpell();
                 Feats.PiercingSpell.AddPiercingSpell();
 

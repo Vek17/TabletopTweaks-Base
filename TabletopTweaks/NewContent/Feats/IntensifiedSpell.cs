@@ -84,6 +84,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     .OrderBy(spell => spell.Name)
                     .ToArray();
             foreach (var spell in spells) {
+                /*
                 bool dealsDamage = spell.FlattenAllActions()
                     .OfType<ContextActionDealDamage>().Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank)
                     || (spell?.GetComponent<AbilityEffectStickyTouch>()?
@@ -92,7 +93,14 @@ namespace TabletopTweaks.NewContent.Feats {
                     .OfType<ContextActionDealDamage>()?
                     .Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank) ?? false)
                     || spell.GetComponent<AbilityShadowSpell>();
-                if (dealsDamage) {
+                */
+                bool isIntensifiedSpell = spell.AbilityAndVariants()
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .Any(s => s.FlattenAllActions()
+                        .OfType<ContextActionDealDamage>()?
+                        .Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank) ?? false)
+                    || spell.GetComponent<AbilityShadowSpell>();
+                if (isIntensifiedSpell) {
                     if (!spell.AvailableMetamagic.HasMetamagic((Metamagic)CustomMetamagic.Intensified)) {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Intensified;
                         Main.LogPatch("Enabled Intensified Metamagic", spell);

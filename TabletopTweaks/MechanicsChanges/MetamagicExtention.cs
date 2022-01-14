@@ -33,11 +33,13 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
 
         [Flags]
         public enum CustomMetamagic {
-            Intensified = 4096,
-            Dazing = 8192,
-            Rime = 65536,
-            Flaring = 131072,
-            Piercing = 524288,
+            Intensified =   0b0000_0000_0000_0000_0001_0000_0000_0000,
+            Dazing =        0b0000_0000_0000_0000_0010_0000_0000_0000,
+            //Unused Space
+            Rime =          0b0000_0000_0000_0001_0000_0000_0000_0000,
+            Burning =       0b0000_0000_0000_0010_0000_0000_0000_0000,
+            Flaring =       0b0000_0000_0000_0100_0000_0000_0000_0000,
+            Piercing =      0b0000_0000_0000_1000_0000_0000_0000_0000,
         }
 
         public static void RegisterMetamagic(
@@ -295,6 +297,55 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 var buff = __instance.Target?.Descriptor?.AddBuff(RimeEntagledBuff, context, rounds.Seconds);
                 if (buff != null) {
                     buff.IsFromSpell = true;
+                }
+            }
+        }
+        //Burning Spell Metamagic
+        [HarmonyPatch(typeof(RuleDealDamage), nameof(RuleDealDamage.OnTrigger))]
+        static class ContextActionDealDamage_BurningMetamagic_Patch {
+            static BlueprintBuffReference BurningSpellAcidBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("BurningSpellAcidBuff");
+            static BlueprintBuffReference BurningSpellFireBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("BurningSpellFireBuff");
+            static void Postfix(RuleDealDamage __instance) {
+                if (!MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Burning)) { return; }
+
+                var context = __instance.Reason.Context;
+                if (context == null) { return; }
+                if (!context.HasMetamagic((Metamagic)CustomMetamagic.Burning)) { return; }
+                if (!context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Fire | SpellDescriptor.Acid)) { return; }
+                if (!__instance.DamageBundle
+                    .OfType<EnergyDamage>()
+                    .Where(damage => damage.EnergyType == DamageEnergyType.Fire || damage.EnergyType == DamageEnergyType.Acid)
+                    .Any(damage => !damage.Immune)) { return; }
+                var casterLevel = context.Params?.SpellLevel ?? context.SpellLevel;
+                if (context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Fire)) {
+                    var newContext = new MechanicsContext(
+                        caster: __instance.Initiator,
+                        owner: __instance.Target,
+                        blueprint: BurningSpellFireBuff
+                    );
+                    newContext.RecalculateAbilityParams();
+                    newContext.Params.CasterLevel = casterLevel * 2;
+                    newContext.Params.Metamagic = 0;
+                    var buff = __instance.Target?.Descriptor?.AddBuff(BurningSpellFireBuff, newContext, 1.Rounds().Seconds);
+                    if (buff != null) {
+                        buff.IsFromSpell = true;
+                        buff.IsNotDispelable = true;
+                    }
+                }
+                if (context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Acid)) {
+                    var newContext = new MechanicsContext(
+                        caster: __instance.Initiator,
+                        owner: __instance.Target,
+                        blueprint: BurningSpellAcidBuff
+                    );
+                    newContext.RecalculateAbilityParams();
+                    newContext.Params.CasterLevel = casterLevel * 2;
+                    newContext.Params.Metamagic = 0;
+                    var buff = __instance.Target?.Descriptor?.AddBuff(BurningSpellAcidBuff, newContext, 1.Rounds().Seconds);
+                    if (buff != null) {
+                        buff.IsFromSpell = true;
+                        buff.IsNotDispelable = true;
+                    }
                 }
             }
         }
