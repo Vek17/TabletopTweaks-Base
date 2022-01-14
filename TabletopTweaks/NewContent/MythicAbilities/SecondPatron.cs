@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -18,6 +19,14 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
 
             var WitchHexAmelioratingFeature = Resources.GetBlueprint<BlueprintFeature>("3cdd3660fb69f3e4db0160fa97dfa85d");
 
+            var SecondPatronRequisiteFeature = Helpers.CreateBlueprint<BlueprintFeature>("SecondPatronRequisiteFeature", bp => {
+                bp.IsClassFeature = true;
+                bp.HideInUI = true;
+                bp.Ranks = 1;
+                bp.HideInCharacterSheetAndLevelUp = true;
+                bp.SetName("Witch Patron");
+                bp.SetDescription("Patron Requisite Feature");
+            });
             var SecondPatronFeature = Helpers.CreateBlueprint<BlueprintFeatureSelection>("SecondPatronFeature", bp => {
                 bp.SetName("Second Patron");
                 bp.SetDescription("You've attracted the favor of a second patron.\n" +
@@ -35,6 +44,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.AddPrerequisiteFeature(WitchPatronSelection, GroupType.Any);
                 bp.AddPrerequisiteFeature(ElementalWitchPatronSelection, GroupType.Any);
                 bp.AddPrerequisiteFeature(HagboundWitchPatronSelection, GroupType.Any);
+                bp.AddPrerequisiteFeature(SecondPatronRequisiteFeature, GroupType.Any);
             });
 
             if (ModSettings.AddedContent.MythicAbilities.IsDisabled("SecondPatron")) { return; }
@@ -44,6 +54,9 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 .OfType<BlueprintProgression>()
                 .ForEach(patron => {
                     patron.GiveFeaturesForPreviousLevels = true;
+                    patron.AddComponent<AddFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] { SecondPatronRequisiteFeature.ToReference<BlueprintUnitFactReference>() };
+                    });
                     Main.LogPatch("Patched", patron);
                 });
         }
