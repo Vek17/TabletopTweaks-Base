@@ -84,16 +84,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     .OrderBy(spell => spell.Name)
                     .ToArray();
             foreach (var spell in spells) {
-                /*
-                bool dealsDamage = spell.FlattenAllActions()
-                    .OfType<ContextActionDealDamage>().Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank)
-                    || (spell?.GetComponent<AbilityEffectStickyTouch>()?
-                    .TouchDeliveryAbility?
-                    .FlattenAllActions()?
-                    .OfType<ContextActionDealDamage>()?
-                    .Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank) ?? false)
-                    || spell.GetComponent<AbilityShadowSpell>();
-                */
                 bool isIntensifiedSpell = spell.AbilityAndVariants()
                     .SelectMany(s => s.AbilityAndStickyTouch())
                     .Any(s => s.FlattenAllActions()

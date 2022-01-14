@@ -73,6 +73,7 @@ namespace TabletopTweaks.NewContent.Feats {
             var BurningSpellFireBuff = Helpers.CreateBuff("BurningSpellFireBuff", bp => {
                 bp.SetName("Burning Spell");
                 bp.SetDescription("This target will take fire damage at the start of next round.");
+                bp.Stacking = StackingType.Stack;
                 bp.m_Icon = FireStormBuff.Icon;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
                 bp.FxOnStart = FireStormBuff.FxOnStart;
@@ -99,6 +100,7 @@ namespace TabletopTweaks.NewContent.Feats {
                                     ValueType = ContextValueType.Rank
                                 }
                             },
+                            IgnoreCritical = true
                         },
                         new ContextActionRemoveSelf()
                     );
@@ -117,6 +119,7 @@ namespace TabletopTweaks.NewContent.Feats {
             var BurningSpellAcidBuff = Helpers.CreateBuff("BurningSpellAcidBuff", bp => {
                 bp.SetName("Burning Spell");
                 bp.SetDescription("This target will take acid damage at the start of next round.");
+                bp.Stacking = StackingType.Stack;
                 bp.m_Icon = CausticEruption.Icon;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
                 bp.FxOnStart = FirstStage_AcidBuff.FxOnStart;
@@ -143,6 +146,7 @@ namespace TabletopTweaks.NewContent.Feats {
                                     ValueType = ContextValueType.Rank
                                 }
                             },
+                            IgnoreCritical = true
                         },
                         new ContextActionRemoveSelf()
                     );
