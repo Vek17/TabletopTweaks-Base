@@ -17,6 +17,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -389,6 +390,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
             static void PatchShadowEvocationGreater() {
                 if (ModSettings.Fixes.Spells.IsDisabled("ShadowEvocationGreater")) { return; }
 
+                var ShadowEvocationGreaterProperty = Resources.GetBlueprint<BlueprintUnitProperty>("0f813eb338594c5bb840c5583fd29c3d");
                 var ShadowEvocationGreater = Resources.GetBlueprint<BlueprintAbility>("3c4a2d4181482e84d9cd752ef8edc3b6");
                 ShadowEvocationGreater.AvailableMetamagic |= Metamagic.Empower
                     | Metamagic.Maximize
@@ -399,6 +401,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     | Metamagic.Persistent
                     | Metamagic.Selective
                     | Metamagic.Bolstered;
+                ShadowEvocationGreaterProperty.BaseValue = 60;
                 Main.LogPatch("Patched", ShadowEvocationGreater);
             }
 

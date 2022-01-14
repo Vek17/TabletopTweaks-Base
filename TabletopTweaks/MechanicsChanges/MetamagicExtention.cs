@@ -42,6 +42,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             Burning =       1 << 17,
             Flaring =       1 << 18,
             Piercing =      1 << 19,
+            SolidShadows =  1 << 20,
         }
 
         public static void RegisterMetamagic(
@@ -244,6 +245,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             private static FlaringSpellMechanics FlaringSpell = new();
             private static BurningSpellMechanics BurningSpell = new();
             private static RimeSpellMechanics RimeSpell = new();
+            private static SolidShadowsMechanics SolidShadows = new();
             [HarmonyPriority(Priority.Last)]
             [HarmonyPostfix]
             public static void InitalizeMetamagic() {
@@ -259,6 +261,9 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
                 if (MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Rime)) {
                     EventBus.Subscribe(RimeSpell);
+                }
+                if (MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.SolidShadows)) {
+                    EventBus.Subscribe(SolidShadows);
                 }
                 MetamagicInitialized = true;
             }
@@ -391,6 +396,13 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                     var isPiercing = evt.Context?.HasMetamagic((Metamagic)CustomMetamagic.Piercing) ?? false;
                     if (!isPiercing) { return; }
                     evt.SpellResistance -= 5;
+                }
+            }
+            private class SolidShadowsMechanics : IAfterRulebookEventTriggerHandler<RuleCastSpell>, IGlobalSubscriber {
+                public void OnAfterRulebookEventTrigger(RuleCastSpell evt) {
+                    var isSolidShadows = evt.Context?.HasMetamagic((Metamagic)CustomMetamagic.SolidShadows) ?? false;
+                    if (!isSolidShadows) { return; }
+                    evt.Context.ShadowFactorPercents += 20;
                 }
             }
         }

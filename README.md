@@ -402,6 +402,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.
     * Rime Spell (Metamagic)
         * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
+    * Solid Shadows (Metamagic)
+        * When casting a shadow spell, that spell is 20% more real than normal.
 
 * Feats
     * AnimalAlly

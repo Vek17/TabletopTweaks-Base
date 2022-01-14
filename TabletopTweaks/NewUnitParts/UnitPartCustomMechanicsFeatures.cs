@@ -50,7 +50,8 @@ namespace TabletopTweaks.NewUnitParts {
             FavoriteMetamagicRime,
             FavoriteMetamagicBurning,
             FavoriteMetamagicFlaring,
-            FavoriteMetamagicPiercing
+            FavoriteMetamagicPiercing,
+            FavoriteMetamagicSolidShadows
         }
     }
     static class CustomMechanicsFeaturesExtentions {

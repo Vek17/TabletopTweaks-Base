@@ -819,7 +819,7 @@
       "ShadowEvocationGreater": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Greater Shadow Evocation can now have the correct metamagic applied."
+        "Description": "Greater Shadow Evocation can now have the correct metamagic applied and get the correct shadow factor of 60."
       },
       "Starlight": {
         "Enabled": true,

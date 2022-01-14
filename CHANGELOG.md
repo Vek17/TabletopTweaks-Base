@@ -23,6 +23,8 @@
         * Magical Vestment now grants a non stacking armor bonus if no armor is equiped.
         * Remove Fear no longer grants immunity to shaken and fear.
         * Remove Sickness no longer grants immunity to sickness and nausea.
+        * Shadow Conjuration Greater now has the correct shadow factor of 60 instead of 40
+        * Shadow Evocation Greater now has the correct shadow factor of 60 instead of 40
         * Starlight is no longer affected by true sight as it is not an illusion effect
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * Items
@@ -75,6 +77,8 @@
         * When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.
     * Rime Spell (Metamagic)
         * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
+    * Solid Shadows (Metamagic)
+        * When casting a shadow spell, that spell is 20% more real than normal.
 * Added Feats
     * Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus on the check.

@@ -202,6 +202,7 @@
     <Compile Include="NewContent\Feats\BurningSpell.cs" />
     <Compile Include="NewContent\Feats\FlaringSpell.cs" />
     <Compile Include="NewContent\Feats\PiercingSpell.cs" />
+    <Compile Include="NewContent\Feats\SolidShadows.cs" />
     <Compile Include="Reworks\Feats.cs" />
     <Compile Include="Reworks\MythicAbilities.cs" />
     <Compile Include="Reworks\MythicFeats.cs" />
@@ -715,6 +716,9 @@
     <Content Include="Assets\Feats\Icon_RimeSpellFeat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_SolidShadowsFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_TrickRiding.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -737,6 +741,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Metamagic\Icon_RimeSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_SolidShadowsMetamagic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
