@@ -8,7 +8,6 @@ using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Commands.Base;
 using Newtonsoft.Json;
@@ -106,7 +105,7 @@ namespace TabletopTweaks.NewComponents {
             public CustomSpeedResourceOverride() : base() { }
 
             public BlueprintAbilityResource RequiredResource => m_RequiredResource.Get();
-            
+
             public bool IsSpendResource => true;
 
             public int CalculateCost(AbilityData ability) {

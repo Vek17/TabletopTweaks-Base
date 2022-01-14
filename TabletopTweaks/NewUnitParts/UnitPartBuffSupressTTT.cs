@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using HarmonyLib;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.Utility;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
     class UnitPartBuffSupressTTT : OldStyleUnitPart {
@@ -22,7 +21,7 @@ namespace TabletopTweaks.NewUnitParts {
             var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.School);
             foreach (Buff buff in base.Owner.Buffs) {
                 bool shouldSuppress = spellSchools.Contains(buff.Context.SpellSchool);
-                
+
                 if (shouldSuppress && !buff.IsSuppressed) {
                     suppressionEntry.Buffs.Add(buff);
                 }
@@ -94,7 +93,7 @@ namespace TabletopTweaks.NewUnitParts {
 
             public void ActivateSuppression() {
                 Buffs.ForEach(buffRef => {
-                    var buff =  buffRef.Fact;
+                    var buff = buffRef.Fact;
                     if (buff != null) {
                         buff.IsSuppressed = true;
                         if (buff.IsActive) {
@@ -116,7 +115,7 @@ namespace TabletopTweaks.NewUnitParts {
                 });
             }
         }
-        public enum SuppresionType { 
+        public enum SuppresionType {
             Descriptor,
             School,
             Specific

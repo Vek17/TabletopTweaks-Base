@@ -87,7 +87,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddComponent<RemoveWhenCombatEnded>();
             });
-            
+
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
             MetamagicExtention.RegisterMetamagic(
                 metamagic: (Metamagic)CustomMetamagic.Rime,

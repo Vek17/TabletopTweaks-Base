@@ -35,14 +35,14 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         [Flags]
         public enum CustomMetamagic {
             // Owlcat stops at 1 << 9
-            Intensified =   1 << 12,
-            Dazing =        1 << 13,
+            Intensified = 1 << 12,
+            Dazing = 1 << 13,
             //Unused Space
-            Rime =          1 << 16,
-            Burning =       1 << 17,
-            Flaring =       1 << 18,
-            Piercing =      1 << 19,
-            SolidShadows =  1 << 20,
+            Rime = 1 << 16,
+            Burning = 1 << 17,
+            Flaring = 1 << 18,
+            Piercing = 1 << 19,
+            SolidShadows = 1 << 20,
         }
 
         public static void RegisterMetamagic(
@@ -237,7 +237,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
         }
-        
+
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         private static class MetamagicMechanics {
             private static bool MetamagicInitialized = false;

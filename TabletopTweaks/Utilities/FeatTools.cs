@@ -180,7 +180,7 @@ namespace TabletopTweaks.Utilities {
             return extraResourceFeat;
         }
 
-        public static BlueprintFeature[] GetMetamagicFeats(){
+        public static BlueprintFeature[] GetMetamagicFeats() {
             return FeatTools.Selections.BasicFeatSelection.m_AllFeatures
                     .Select(reference => reference.Get())
                     .Where(feature => feature.GetComponent<AddMetamagicFeat>())

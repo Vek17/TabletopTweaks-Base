@@ -12,7 +12,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         IInitiatorRulebookHandler<RulePrepareDamage>,
         IRulebookHandler<RulePrepareDamage>,
         ISubscriber, IInitiatorRulebookSubscriber {
-        public void OnEventAboutToTrigger(RulePrepareDamage evt) { 
+        public void OnEventAboutToTrigger(RulePrepareDamage evt) {
         }
 
         public void OnEventDidTrigger(RulePrepareDamage evt) {
@@ -21,7 +21,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 .ForEach(damage => {
                     var rolls = damage.Dice.Rolls;
                     var originalDice = damage.Dice.Dice;
-                    
+
                     switch (originalDice) {
                         case DiceType.D3:
                             damage.Dice = new DiceFormula(rolls, DiceType.D4);

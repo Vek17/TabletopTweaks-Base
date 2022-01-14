@@ -1,12 +1,4 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Buffs.Components;
-using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
-using TabletopTweaks.Extensions;
-using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Features {
     class NauseatedPoision {

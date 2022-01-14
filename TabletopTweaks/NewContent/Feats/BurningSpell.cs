@@ -6,15 +6,12 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -161,7 +158,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.Activated = Helpers.CreateActionList();
                     c.Deactivated = Helpers.CreateActionList();
                 });
-                bp.AddContextRankConfig(c => { 
+                bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
                     c.m_Progression = ContextRankProgression.AsIs;
                 });

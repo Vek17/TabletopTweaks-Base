@@ -333,7 +333,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                     .ToArray();
                 Main.LogPatch("Enabling", PersistentSpellFeat);
                 foreach (var spell in spells) {
-                    bool HasSavingThrow = spell.AbilityAndVariants().SelectMany(s => s.FlattenAllActions()).OfType<ContextActionSavingThrow>().Any() 
+                    bool HasSavingThrow = spell.AbilityAndVariants().SelectMany(s => s.FlattenAllActions()).OfType<ContextActionSavingThrow>().Any()
                         || spell.AbilityAndVariants()
                         .SelectMany(s => s.AbilityAndStickyTouch())
                         .Where(s => s != null)

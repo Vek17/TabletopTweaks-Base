@@ -66,7 +66,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddPrerequisiteFeature(IntensifiedSpellFeat);
             });
 
-            
+
 
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicIntensifiedSpell")) { return; }
             MetamagicExtention.RegisterMetamagic(
