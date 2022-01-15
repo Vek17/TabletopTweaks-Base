@@ -24,6 +24,7 @@ using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
+using static TabletopTweaks.NewContent.MechanicsChanges.MetamagicExtention;
 
 namespace TabletopTweaks.Bugfixes.Abilities {
     class Spells {
@@ -256,6 +257,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
                 var HellfireRay = Resources.GetBlueprint<BlueprintAbility>("700cfcbd0cb2975419bcab7dbb8c6210");
                 HellfireRay.GetComponent<SpellDescriptorComponent>().Descriptor = SpellDescriptor.Evil;
+                HellfireRay.AvailableMetamagic &= (Metamagic)~(CustomMetamagic.Flaring | CustomMetamagic.Burning);
                 Main.LogPatch("Patched", HellfireRay);
             }
 

@@ -26,7 +26,7 @@ namespace TabletopTweaks.NewContent.Feats {
             var Icon_SolidShadowsFeat = AssetLoader.LoadInternal("Feats", "Icon_SolidShadowsFeat.png");
             var Icon_SolidShadowsMetamagic = AssetLoader.LoadInternal("Metamagic", "Icon_SolidShadowsMetamagic.png", 128);
 
-            var SolidShadowsFeat = Helpers.CreateBlueprint<BlueprintFeature>("SolidShadowsFeat", bp => {
+            var SolidShadowsSpellFeat = Helpers.CreateBlueprint<BlueprintFeature>("SolidShadowsSpellFeat", bp => {
                 bp.SetName("Metamagic (Solid Shadows)");
                 bp.SetDescription("Your shadowy illusions are more potent.\n" +
                     "Benefit: When casting a shadow spell, that spell is 20% more real than normal.\n" +
@@ -65,7 +65,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<AddCustomMechanicsFeature>(c => {
                     c.Feature = CustomMechanicsFeature.FavoriteMetamagicSolidShadows;
                 });
-                bp.AddPrerequisiteFeature(SolidShadowsFeat);
+                bp.AddPrerequisiteFeature(SolidShadowsSpellFeat);
             });
 
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
@@ -77,8 +77,8 @@ namespace TabletopTweaks.NewContent.Feats {
                 favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicSolidShadows
             );
             UpdateSpells();
-            FeatTools.AddAsFeat(SolidShadowsFeat);
-            FeatTools.AddAsMetamagicFeat(SolidShadowsFeat);
+            FeatTools.AddAsFeat(SolidShadowsSpellFeat);
+            FeatTools.AddAsMetamagicFeat(SolidShadowsSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicSolidShadows);
         }
         private static void UpdateSpells() {
