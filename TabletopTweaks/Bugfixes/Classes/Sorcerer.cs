@@ -41,8 +41,8 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     var BloodlineDraconicBronzeArcana = Resources.GetBlueprint<BlueprintFeature>("677ae97f60d26474bbc24a50520f9424");
 
                     PatchDescription(BloodlineDraconicBrassArcana, "fire");
-                    PatchDescription(BloodlineDraconicBrassArcana, "fire");
-                    PatchDescription(BloodlineDraconicBrassArcana, "fire");
+                    PatchDescription(BloodlineDraconicRedArcana, "fire");
+                    PatchDescription(BloodlineDraconicGoldArcana, "fire");
 
                     PatchDescription(BloodlineDraconicBlackArcana, "acid");
                     PatchDescription(BloodlineDraconicCopperArcana, "acid");
