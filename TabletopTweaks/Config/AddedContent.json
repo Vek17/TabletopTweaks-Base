@@ -3,11 +3,6 @@
   "Archetypes": {
     "DisableAll": false,
     "Settings": {
-      "BladeAdept": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "A small number of arcanists learn to use blades as part of their spellcasting and in combat. While these blade adepts are not as capable with a sword as a true master duelist, their combination of swordplay and arcane power makes them quite deadly."
-      },
       "BladeBound": {
         "Enabled": true,
         "Homebrew": false,
@@ -226,6 +221,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell."
+      },
+      "MetamagicSolidShadows": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When casting a shadow spell, that spell is 20% more real than normal."
       },
       "MountedSkirmisher": {
         "Enabled": true,

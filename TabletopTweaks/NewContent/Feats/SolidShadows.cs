@@ -68,7 +68,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddPrerequisiteFeature(SolidShadowsSpellFeat);
             });
 
-            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
+            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicSolidShadows")) { return; }
             MetamagicExtention.RegisterMetamagic(
                 metamagic: (Metamagic)CustomMetamagic.SolidShadows,
                 name: "Solid Shadows",

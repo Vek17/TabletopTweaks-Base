@@ -401,7 +401,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
             private class SolidShadowsMechanics : IAfterRulebookEventTriggerHandler<RuleCastSpell>, IGlobalSubscriber {
                 public void OnAfterRulebookEventTrigger(RuleCastSpell evt) {
                     var isSolidShadows = evt.Context?.HasMetamagic((Metamagic)CustomMetamagic.SolidShadows) ?? false;
-                    if (!isSolidShadows) { return; }
+                    if (!isSolidShadows || !evt.Context.IsShadow) { return; }
                     evt.Context.ShadowFactorPercents += 20;
                 }
             }

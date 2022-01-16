@@ -238,8 +238,10 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
             });
             */
-            if (ModSettings.AddedContent.Archetypes.IsDisabled("ChannelerOfTheUnknown")) { return; }
-            MagusClass.m_Archetypes = MagusClass.m_Archetypes.AppendToArray(MyrmidarchArchetype.ToReference<BlueprintArchetypeReference>());
+
+            //if (ModSettings.AddedContent.Archetypes.IsDisabled("ChannelerOfTheUnknown")) { return; }
+            //MagusClass.m_Archetypes = MagusClass.m_Archetypes.AppendToArray(MyrmidarchArchetype.ToReference<BlueprintArchetypeReference>());
+            
             /*
             MagusClass.Progression.UIGroups.Where(group => group.m_Features.Contains(ArcaneMediumArmor)).ForEach(group => {
                 group.m_Features.Add(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());
@@ -253,7 +255,9 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 Helpers.CreateUIGroup(ArmorTraining, ArmorTrainingSelection, ArmorMastery),
                 Helpers.CreateUIGroup(MyrmidarchFighterTraining, MyrmidarchFighterTrainingUpgrade)
             );
-            Main.LogPatch("Added", MyrmidarchArchetype);
+
+            //Main.LogPatch("Added", MyrmidarchArchetype);
+
             /*
             // Add to Mystic Theurge
             MysticTheurgeClericProgression.AddPrerequisite<PrerequisiteNoArchetype>(c => {
