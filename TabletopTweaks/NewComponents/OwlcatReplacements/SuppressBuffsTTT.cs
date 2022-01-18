@@ -17,6 +17,10 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
 
         public override void OnActivate() {
             var unitPartBuffSuppress = Owner.Ensure<UnitPartBuffSupressTTT>();
+            if (Continuous) {
+                unitPartBuffSuppress.AddContinuousEntry(this.Fact, m_Buffs, Schools, Descriptor);
+                return;
+            }
             if (!Schools.Empty()) {
                 unitPartBuffSuppress.AddEntry(this.Fact, Schools);
             }
@@ -40,5 +44,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         public SpellSchool[] Schools = new SpellSchool[0];
         [SerializeField]
         public SpellDescriptorWrapper Descriptor = SpellDescriptor.None;
+        [SerializeField]
+        public bool Continuous = false;
     }
 }

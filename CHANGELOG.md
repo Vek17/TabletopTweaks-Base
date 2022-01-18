@@ -4,6 +4,7 @@
         * More of the unique metamagic rods will no longer default to active
         * Nauseated is no longer considered a poison effect globally.
         * Fixed bug that was causing split damage spells to calculate damage incorrectly in some cases
+        * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
     * Feats
         * Arcane Strike no longer causes too many damage instances when used by a dragonheir scion.
         * Brew Potions is no longer tagged as a combat feat
@@ -21,6 +22,7 @@
         * Magical Vestment now works correctly when used by enemies in prebuffs.
         * Magical Vestment can now be correctly dispeled.
         * Magical Vestment now grants a non stacking armor bonus if no armor is equiped.
+        * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
         * Remove Fear no longer grants immunity to shaken and fear.
         * Remove Sickness no longer grants immunity to sickness and nausea.
         * Shadow Conjuration Greater now has the correct shadow factor of 60 instead of 40

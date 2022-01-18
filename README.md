@@ -34,6 +34,7 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack.
     * Polymorph Effects
         * Prevents multiple polymorph effects from being applied to a character at a time.
+        * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
     * Feat Selections
         * Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type.
     * Background Modifiers
@@ -82,16 +83,21 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Hellfire Ray no longer has the Fire descriptor.
     * Magical Vestment
         * Magical Vestment now enhances your armor instead of granting a floating modifier.
+    * Microscopic Proportions 
+        * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
     * Remove Fear
         * Remove Fear no longer grants immunity to shaken and fear.
     * Remove Sickness
         * Remove Sickness no longer grants immunity to sickness and nausea.
     * Shadow Conjuration
         * Shadow Conjuration has been added to the Wizard spell list.
+    * Shadow Conjuration Greater 
+        * Now has the correct shadow factor of 60 instead of 40.
     * Shadow Evocation
         * Shadow Evocation can now have the correct metamagics applied.
     * Greater Shadow Evocation
         * Greater Shadow Evocation can now have the correct metamagic applied.
+        * Now has the correct shadow factor of 60 instead of 40.
     * Starlight
         * Starlight no longer is affected by true sight.
     * Unbreakable Heart

@@ -33,6 +33,11 @@
         "Homebrew": false,
         "Description": "Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack."
       },
+      "DisablePolymorphSizeStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Active Polymorph effects will correctly suppress size effects from non polymorph spells."
+      },
       "DisablePolymorphStacking": {
         "Enabled": true,
         "Homebrew": false,
@@ -806,6 +811,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Magical Vestment now enhances your armor instead of granting a floating modifier."
+      },
+      "MicroscopicProportions": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus."
       },
       "RemoveFear": {
         "Enabled": true,

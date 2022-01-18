@@ -48,6 +48,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchHellfireRay();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
+                PatchMicroscopicProportions();
                 PatchRemoveFear();
                 PatchRemoveSickness();
                 PatchShadowConjuration();
@@ -328,18 +329,28 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var MagicWeaponGreaterPrimary = Resources.GetBlueprint<BlueprintAbility>("a3fe23711486ee9489af1dadd6906149");
                 var MagicWeaponGreaterSecondary = Resources.GetBlueprint<BlueprintAbility>("89c13df989e5e624692134d55195121a");
                 var newEnhancements = new BlueprintItemEnchantmentReference[] {
-                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement1NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
-                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement2NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
-                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement3NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
-                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement4NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
-                Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement5NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
-            };
+                    Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement1NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                    Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement2NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                    Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement3NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                    Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement4NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                    Resources.GetModBlueprint<BlueprintWeaponEnchantment>("TemporaryEnhancement5NonStacking").ToReference<BlueprintItemEnchantmentReference>(),
+                };
 
                 MagicWeaponGreaterPrimary.FlattenAllActions().OfType<EnhanceWeapon>().ForEach(c => c.m_Enchantment = newEnhancements);
                 MagicWeaponGreaterSecondary.FlattenAllActions().OfType<EnhanceWeapon>().ForEach(c => c.m_Enchantment = newEnhancements);
 
                 Main.LogPatch("Patched", MagicWeaponGreaterPrimary);
                 Main.LogPatch("Patched", MagicWeaponGreaterSecondary);
+            }
+            static void PatchMicroscopicProportions() {
+                if (ModSettings.Fixes.Spells.IsDisabled("MicroscopicProportions")) { return; }
+
+                var TricksterMicroscopicProportionsBuff = Resources.GetBlueprint<BlueprintBuff>("1dfc2f933e7833f41922411962e1d58a");
+                TricksterMicroscopicProportionsBuff
+                    .GetComponents<AddContextStatBonus>()
+                    .ForEach(c => c.Descriptor = ModifierDescriptor.Size);
+
+                Main.LogPatch("Patched", TricksterMicroscopicProportionsBuff);
             }
             static void PatchRemoveFear() {
                 if (ModSettings.Fixes.Spells.IsDisabled("RemoveFear")) { return; }
