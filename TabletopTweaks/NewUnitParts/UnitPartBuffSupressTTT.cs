@@ -14,7 +14,11 @@ namespace TabletopTweaks.NewUnitParts {
     class UnitPartBuffSupressTTT : OldStyleUnitPart {
 
         public override void OnTurnOn() {
+            SuppressionEntries.Remove(entry => entry.Source.Fact == null);
+            ContinuousSuppressionEntries.Remove(entry => entry.Source.Fact == null);
+
             SuppressionEntries.ForEach(entry => entry.ActivateSuppression());
+            ContinuousSuppressionEntries.ForEach(entry => entry.ActivateSuppression(base.Owner));
         }
 
         public void AddEntry(EntityFact source, SpellSchool[] spellSchools) {

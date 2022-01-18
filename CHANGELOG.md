@@ -5,6 +5,7 @@
         * Nauseated is no longer considered a poison effect globally.
         * Fixed bug that was causing split damage spells to calculate damage incorrectly in some cases
         * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
+        * Only one size changing buff can grant benifits at the same times.
     * Feats
         * Arcane Strike no longer causes too many damage instances when used by a dragonheir scion.
         * Brew Potions is no longer tagged as a combat feat

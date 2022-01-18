@@ -43,6 +43,11 @@
         "Homebrew": false,
         "Description": "Prevents multiple polymorph effects from being applied to a character at a time."
       },
+      "DisableSizeStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents multiple size effects from being applied to a character at a time. Extra effects are suppressed not removed."
+      },
       "DisplaySpellbookInTooltips": {
         "Enabled": true,
         "Homebrew": false,
