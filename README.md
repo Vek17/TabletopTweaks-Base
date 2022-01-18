@@ -282,6 +282,8 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Eldritch Scoundrel
         * Removes the level 2 rogue talent and adds in a level 4 talent.
         * Removes the sneak attack dice granted at level 1.
+    * Sylvan Trickster
+        * Fey Tricks now includes all rogue talents
 
 * Shaman
     * Ameliorating Hex 

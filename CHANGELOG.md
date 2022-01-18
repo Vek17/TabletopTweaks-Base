@@ -41,6 +41,7 @@
         * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks.
     * Rogue
         * Slippery Mind is now an advanced talent like PnP
+        * Sylvan Trickster Fey Tricks now includes all rogue talents
     * Shaman
         * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
     * Sorcerer

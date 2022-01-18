@@ -26,6 +26,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
 
                 PatchBase();
                 PatchEldritchScoundrel();
+                PatchSylvanTrickster();
             }
             static void PatchBase() {
                 PatchTrapfinding();
@@ -92,6 +93,18 @@ namespace TabletopTweaks.Bugfixes.Clases {
                             Level = 4
                         }).ToArray();
                     Main.LogPatch("Patched", EldritchScoundrelArchetype);
+                }
+            }
+            static void PatchSylvanTrickster() {
+                PatchRogueTalentSelection();
+
+                void PatchRogueTalentSelection() {
+                    if (ModSettings.Fixes.Rogue.Archetypes["SylvanTrickster"].IsDisabled("FeyTricks")) { return; }
+                    var RogueTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
+                    var SylvanTricksterTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("290bbcc3c3bb92144b853fd8fb8ff452");
+                    SylvanTricksterTalentSelection.AddFeatures(RogueTalentSelection.m_AllFeatures);
+
+                    Main.LogPatch("Patched", SylvanTricksterTalentSelection);
                 }
             }
         }

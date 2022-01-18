@@ -566,6 +566,17 @@
           }
         },
         "IsExpanded": true
+      },
+      "SylvanTrickster": {
+        "DisableAll": false,
+        "Settings": {
+          "FeyTricks": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fey tricks now properly includes all rogue talents."
+          }
+        },
+        "IsExpanded": true
       }
     }
   },
