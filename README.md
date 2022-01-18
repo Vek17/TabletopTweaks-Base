@@ -276,7 +276,7 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Rogue Talents
         * Prevents you from selecting the same talent more than once.
     * Slippery Mind
-        * Slippery mind correctly updates its save bonuses when your dexterity changes.
+        * Slippery mind is now an advanced talent and correctly updates its save bonuses when your dexterity changes.
     * Trapfinding
         * Trapfinding now grants bonuses to perception and trickery.
     * Eldritch Scoundrel

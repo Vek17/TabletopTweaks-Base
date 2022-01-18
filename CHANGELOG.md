@@ -39,6 +39,8 @@
         * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list.
     * Paladin
         * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks.
+    * Rogue
+        * Slippery Mind is now an advanced talent like PnP
     * Shaman
         * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
     * Sorcerer

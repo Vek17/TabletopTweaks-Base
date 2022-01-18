@@ -53,10 +53,12 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 }
                 void PatchSlipperyMind() {
                     if (ModSettings.Fixes.Rogue.Base.IsDisabled("SlipperyMind")) { return; }
+                    var AdvanceTalents = Resources.GetBlueprint<BlueprintFeature>("a33b99f95322d6741af83e9381b2391c");
                     var SlipperyMind = Resources.GetBlueprint<BlueprintFeature>("a14e8c1801911334f96d410f10eab7bf");
                     SlipperyMind.AddComponent(Helpers.Create<RecalculateOnStatChange>(c => {
                         c.Stat = StatType.Dexterity;
                     }));
+                    SlipperyMind.AddPrerequisiteFeature(AdvanceTalents);
                     Main.LogPatch("Patched", SlipperyMind);
                 }
             }

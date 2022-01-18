@@ -540,7 +540,7 @@
         "SlipperyMind": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Slippery mind correctly updates its save bonuses when your dexterity changes."
+          "Description": "Slippery mind is now an advanced talent and correctly updates its save bonuses when your dexterity changes."
         },
         "Trapfinding": {
           "Enabled": true,
