@@ -62,8 +62,9 @@
         * Major Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
         * Removed unneeded witch patches
 * UI Tweaks
-    * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
-    * Spell tooltips now display what spellbook they are from
+    * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value.
+    * Spell tooltips now display what spellbook they are from.
+    * Suppressed buffs now have custom UI rules to better indicate them.
 * Homebrew Reworks
     * Bolstered Spell
         * Increased the spell level increase from bolstered from +1 to +2.

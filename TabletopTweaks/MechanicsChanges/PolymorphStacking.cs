@@ -18,11 +18,8 @@ using TabletopTweaks.Utilities;
 namespace TabletopTweaks.MechanicsChanges {
     class PolymorphStacking {
 
-        //[HarmonyPatch(typeof(BlueprintsCache), "Init")]
         private static class PolymorphMechanics {
             private static bool Initialized = false;
-            //[HarmonyPriority(Priority.Last)]
-            //[HarmonyPostfix]
             [PostPatchInitialize]
             public static void Initalize() {
                 if (Initialized) { return; }
@@ -51,9 +48,7 @@ namespace TabletopTweaks.MechanicsChanges {
                             .Buffs
                             .Enumerable
                             .Where(buff => buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph))
-                            .ForEach(buff => {
-                                buff.Remove();
-                            });
+                            .ForEach(buff => buff.Remove());
                     }
                 } 
             }

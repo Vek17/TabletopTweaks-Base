@@ -35,6 +35,8 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Polymorph Effects
         * Prevents multiple polymorph effects from being applied to a character at a time.
         * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
+    * Size Effects
+        * Prevents multiple size changing buffs granting benifits at the same time. Old buffs are suppressed.
     * Feat Selections
         * Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type.
     * Background Modifiers

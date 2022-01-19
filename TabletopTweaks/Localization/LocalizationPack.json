@@ -8592,6 +8592,17 @@
       "esES": null
     },
     {
+      "Key": "54c6c03378f2480d9a5c8cb319f80649",
+      "SimpleName": "SuppressedBuff.UIString",
+      "ProcessTemplates": true,
+      "enGB": "Suppressed",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "70babb6e5b99422dbba908166bb3a213",
       "SimpleName": "SwordSaintPerfectStrikeCritAbility.Description",
       "ProcessTemplates": true,

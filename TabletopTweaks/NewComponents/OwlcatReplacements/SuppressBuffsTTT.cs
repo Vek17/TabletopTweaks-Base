@@ -21,15 +21,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
                 unitPartBuffSuppress.AddContinuousEntry(this.Fact, m_Buffs, Schools, Descriptor);
                 return;
             }
-            if (!Schools.Empty()) {
-                unitPartBuffSuppress.AddEntry(this.Fact, Schools);
-            }
-            if (Descriptor != SpellDescriptor.None) {
-                unitPartBuffSuppress.AddEntry(this.Fact, Descriptor);
-            }
-            if (!m_Buffs.Empty()) {
-                unitPartBuffSuppress.AddEntry(this.Fact, m_Buffs);
-            }
+            unitPartBuffSuppress.AddNormalEntry(this.Fact, m_Buffs, Schools, Descriptor);
         }
 
         public override void OnDeactivate() {

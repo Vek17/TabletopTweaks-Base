@@ -20,43 +20,17 @@ namespace TabletopTweaks.NewUnitParts {
             SuppressionEntries.ForEach(entry => entry.ActivateSuppression());
             ContinuousSuppressionEntries.ForEach(entry => entry.ActivateSuppression(base.Owner));
         }
+        public void AddNormalEntry(EntityFact source,
+            BlueprintBuffReference[] buffs,
+            SpellSchool[] spellSchools,
+            SpellDescriptor spellDescriptor) {
+            if (SuppressionEntries.Any(entry => entry.Source.FactId == source.UniqueId && entry.Type == SuppresionType.Normal)) { return; }
 
-        public void AddEntry(EntityFact source, SpellSchool[] spellSchools) {
-            if (SuppressionEntries.Any(entry => entry.Source.FactId == source.UniqueId && entry.Type == SuppresionType.School)) { return; }
-
-            var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.School);
+            var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.Normal);
             foreach (Buff buff in base.Owner.Buffs) {
-                bool shouldSuppress = spellSchools.Contains(buff.Context.SpellSchool);
-
-                if (shouldSuppress && !buff.IsSuppressed) {
-                    suppressionEntry.Buffs.Add(buff);
-                }
-            }
-            suppressionEntry.ActivateSuppression();
-            SuppressionEntries.Add(suppressionEntry);
-        }
-
-        public void AddEntry(EntityFact source, SpellDescriptor spellDescriptor) {
-            if (SuppressionEntries.Any(entry => entry.Source.FactId == source.UniqueId && entry.Type == SuppresionType.Descriptor)) { return; }
-
-            var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.Descriptor);
-            foreach (Buff buff in base.Owner.Buffs) {
-                bool shouldSuppress = buff.Context.SpellDescriptor.HasAnyFlag(spellDescriptor);
-
-                if (shouldSuppress && !buff.IsSuppressed) {
-                    suppressionEntry.Buffs.Add(buff);
-                }
-            }
-            suppressionEntry.ActivateSuppression();
-            SuppressionEntries.Add(suppressionEntry);
-        }
-
-        public void AddEntry(EntityFact source, BlueprintBuffReference[] buffs) {
-            if (SuppressionEntries.Any(entry => entry.Source.FactId == source.UniqueId && entry.Type == SuppresionType.Specific)) { return; }
-
-            var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.Specific);
-            foreach (Buff buff in base.Owner.Buffs) {
-                bool shouldSuppress = buffs.Any(reference => buff.Blueprint.AssetGuid == reference.Guid);
+                bool shouldSuppress = buff.Context.SpellDescriptor.HasAnyFlag(spellDescriptor)
+                    || spellSchools.Contains(buff.Context.SpellSchool)
+                    || buffs.Any(reference => buff.Blueprint.AssetGuid == reference.Guid);
 
                 if (shouldSuppress && !buff.IsSuppressed) {
                     suppressionEntry.Buffs.Add(buff);
@@ -68,7 +42,7 @@ namespace TabletopTweaks.NewUnitParts {
 
         public void AddSizeEntry(EntityFact source) {
             if (SuppressionEntries.Any(entry => entry.Source.FactId == source.UniqueId && entry.Type == SuppresionType.Size)) { return; }
-            var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.Specific);
+            var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.Size);
             foreach (Buff buff in base.Owner.Buffs) {
                 bool shouldSuppress = buff != source 
                     && !buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph) 
@@ -173,9 +147,7 @@ namespace TabletopTweaks.NewUnitParts {
             }
         }
         public enum SuppresionType {
-            Descriptor,
-            School,
-            Specific,
+            Normal,
             Size
         }
         public abstract class ContinuousSuppressionEffectBase {

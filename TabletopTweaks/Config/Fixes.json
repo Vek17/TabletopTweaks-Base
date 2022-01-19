@@ -127,6 +127,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Removes the movement impairing descriptor from staggered."
+      },
+      "SuppressedBuffUI": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Alters how buffs that have been supressed have been rendeered."
       }
     },
     "IsExpanded": true

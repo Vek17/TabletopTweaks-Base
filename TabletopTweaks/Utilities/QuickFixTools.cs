@@ -6,7 +6,7 @@ using TabletopTweaks.NewComponents.OwlcatReplacements;
 
 namespace TabletopTweaks.Utilities {
     static class QuickFixTools {
-        public static void ReplaceSuppression(BlueprintBuff buff) {
+        public static void ReplaceSuppression(BlueprintBuff buff, bool continuous = false) {
             var suppressBuffComponent = buff.GetComponent<SuppressBuffs>();
             if (suppressBuffComponent == null) { return; }
             buff.RemoveComponents<SuppressBuffs>();
@@ -14,6 +14,7 @@ namespace TabletopTweaks.Utilities {
                 c.m_Buffs = suppressBuffComponent.m_Buffs;
                 c.Descriptor = suppressBuffComponent.Descriptor;
                 c.Schools = suppressBuffComponent.Schools;
+                c.Continuous = continuous;
             });
 
             Main.LogPatch("Patched", buff);

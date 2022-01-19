@@ -4,7 +4,7 @@
     "DisableAll": false,
     "Settings": {
       "BolsterSpell": {
-        "Enabled": false,
+        "Enabled": true,
         "Homebrew": true,
         "Description": "Increases the level increase from bolstered from +1 to +2."
       }

@@ -55,9 +55,11 @@
     <ItemGroup>
       <PubliciseAssemblyCSharp Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
       <PubliciseUniRx Include="$(WrathPath)\Wrath_Data\Managed\UniRx.dll" />
+      <PubliciseRuntimeUI Include="$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll" />
     </ItemGroup>
     <Publicise InputAssemblies="@(PubliciseAssemblyCSharp)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
     <Publicise InputAssemblies="@(PubliciseUniRx)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+    <Publicise InputAssemblies="@(PubliciseRuntimeUI)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
   </Target>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -86,7 +88,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
+      <HintPath>$(SolutionDir)\lib\Owlcat.Runtime.UI_public.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -102,6 +104,9 @@
     <Reference Include="UniRx">
       <HintPath>$(SolutionDir)lib\UniRx_public.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure\Wrath_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -133,6 +138,9 @@
       <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityModManager">
       <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
       <Private>False</Private>
@@ -146,6 +154,7 @@
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
     <Compile Include="Bugfixes\Classes\Cleric.cs" />
+    <Compile Include="Bugfixes\Classes\Demon.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
@@ -177,6 +186,7 @@
     <Compile Include="Bugfixes\Items\Equipment.cs" />
     <Compile Include="Bugfixes\Items\Weapons.cs" />
     <Compile Include="Bugfixes\TacticalCombat\Buildings.cs" />
+    <Compile Include="Bugfixes\UI\BuffSuppression.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Bugfixes\UI\SpellTooltips.cs" />
