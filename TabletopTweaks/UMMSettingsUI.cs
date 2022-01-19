@@ -32,7 +32,8 @@ namespace TabletopTweaks {
                 UI.Space(25);
 
                 SetttingUI.SettingGroup("Base Fixes", TabLevel, Fixes.BaseFixes);
-                SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Aeon);
+                SetttingUI.SettingGroup("Aeon", TabLevel, Fixes.Aeon);
+                SetttingUI.SettingGroup("Demon", TabLevel, Fixes.Demon);
                 SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Lich);
                 SetttingUI.SettingGroup("Trickster", TabLevel, Fixes.Trickster);
                 SetttingUI.NestedSettingGroup("Alchemist", TabLevel, Fixes.Alchemist,

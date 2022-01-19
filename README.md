@@ -21,6 +21,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Overhead saving throw rolls now display the correct values
     * Spell Tooltips
         * Updates spell tooltips to include what spellbook the spell is in.
+    * Suppressed Buffs
+        * Suppressed buffs now have custom UI rules to better indicate them.
 * Bases Fixes
     * Progressions
         * Progressions will no longer incorrectly include mythic levels, or double count some classes levels.
@@ -181,6 +183,10 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Aeon
     * Aeon Demythication
         * Aeon Demythication should now actually suppress mythic effects.
+
+* Demon
+    * Demonic Form Balor
+        * Balor transformation now properly gets a vorpal weapon.
 
 * Lich
     * Death Rush
@@ -372,6 +378,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Implements the missing on kill effect. Whenever the wielder of this weapon lands a killing blow, he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. Successful Reflex save (DC 30) halves the damage.
     * Thundering Burst
         * Fixes thundering burst to deal D10s like the description says instead of D8s.
+    * Vorpal
+        * Vorpal now works correctly.
 
 ## Added Content
 * Base Abilities

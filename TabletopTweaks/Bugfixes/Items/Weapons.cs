@@ -8,10 +8,12 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
+using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +21,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents.OwlcatReplacements;
 
 namespace TabletopTweaks.Bugfixes.Items {
     static class Weapons {
@@ -37,6 +40,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 PatchTerribleTremble();
 
                 PatchThunderingBurst();
+                PatchVorpal();
 
                 void PatchBladeOfTheMerciful() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }
@@ -124,6 +128,22 @@ namespace TabletopTweaks.Bugfixes.Items {
                     ThunderingBurst.GetComponent<WeaponEnergyBurst>().Dice = DiceType.D10;
 
                     Main.LogPatch("Patched", ThunderingBurst);
+                }
+                void PatchVorpal() {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("Vorpal")) { return; }
+
+                    var Vorpal = Resources.GetBlueprint<BlueprintWeaponEnchantment>("2f60bfcba52e48a479e4a69868e24ebc");
+                    var VorpalBuff = Resources.GetBlueprintReference<BlueprintBuffReference>("4c02715a54a497a408a93a5d80e91a24");
+                    Vorpal.SetComponents();
+                    Vorpal.AddComponent<WeaponBuffOnConfirmedCritTTT>(c => {
+                        c.m_Buff = VorpalBuff;
+                        c.Duration = 1.Rounds();
+                        c.Fx = new PrefabLink();
+                        c.OnlyNatural20 = true;
+                        c.OnTarget = true;
+                    });
+
+                    Main.LogPatch("Patched", Vorpal);
                 }
             }
         }

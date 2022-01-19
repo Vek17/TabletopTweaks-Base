@@ -30,10 +30,15 @@
         * Shadow Evocation Greater now has the correct shadow factor of 60 instead of 40
         * Starlight is no longer affected by true sight as it is not an illusion effect
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
+    * Enemies
+        * Balors now correctly get thier vorpal weapons. Be afriad.
     * Items
         * Aspect of the Asp will now actually deal bonus damage on ray spells.
+        * The Vorpal weapon enchant now works.
     * Aeon
         * Aeon Demythication should now actually suppress mythic effects.
+    * Demon
+        * Balor transformation now properly gets a vorpal weapon.
     * Angel
         * Angel Unbroken DR should now stack with all other DR.
     * Cleric

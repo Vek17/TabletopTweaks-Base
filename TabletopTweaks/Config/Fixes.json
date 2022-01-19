@@ -147,6 +147,17 @@
     },
     "IsExpanded": true
   },
+  "Demon": {
+    "DisableAll": false,
+    "Settings": {
+      "BalorVorpalStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now properly grants you vorpal weapons in balor form."
+      }
+    },
+    "IsExpanded": true
+  },
   "Lich": {
     "DisableAll": false,
     "Settings": {
@@ -1149,6 +1160,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Fixes thundering burst to deal D10s like the description says instead of D8s."
+        },
+        "Vorpal": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Vorpal now works correctly."
         }
       },
       "IsExpanded": true
