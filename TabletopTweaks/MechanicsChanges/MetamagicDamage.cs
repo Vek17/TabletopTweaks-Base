@@ -3,7 +3,9 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.Settings;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
+using System.Reflection;
 using TabletopTweaks.Config;
 using UnityEngine;
 
@@ -52,7 +54,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     }
                     num3 = ((num4 + empowerExtraDamage) + (damage.Bonus * __instance.UnitsCount) * empowerBonus * num2) * damage.TacticalCriticalModifier;
                 }
-                //int rolledValue = (int)num3;
+                int rolledValue = (int)num3;
                 num3 += damage.BonusTargetRelated * __instance.UnitsCount * empowerBonus * num2;
                 if (damage.Half && !damage.AlreadyHalved) {
                     num3 /= 2f;
@@ -64,7 +66,7 @@ namespace TabletopTweaks.MechanicsChanges {
                     float num5 = __instance.ParentRule.Initiator.State.Features.AzataFavorableMagic ? 0.75f : 0.5f;
                     num3 *= num5;
                 }
-                int rolledValue = (int)num3;
+                //int rolledValue = (int)num3;
                 DamageDeclineType decline = damage.Decline;
                 if (decline != DamageDeclineType.ByQuarter) {
                     if (decline == DamageDeclineType.ByHalf) {
@@ -80,6 +82,17 @@ namespace TabletopTweaks.MechanicsChanges {
                 num8 = __instance.TryApplyShadowDamageFactor(__instance.Target, num8);
                 num8 = (damage.Immune ? 0 : num8);
                 __result = new DamageValue(damage, num8, rolledValue, __instance.TacticalCombatDRModifier);
+            }
+        }
+        [HarmonyPatch]
+        static class ContextActionDealDamage_Bolster_Patch {
+            static MethodBase TargetMethod() {
+                return AccessTools.Method(typeof(ContextActionDealDamage), "GetDamageRule", new[] { typeof(ContextActionDealDamage.DamageInfo), typeof(int).MakeByRefType() });
+            }
+            [HarmonyPostfix]
+            static void StripExtraBolsterDamage(ref RuleDealDamage __result, ContextActionDealDamage.DamageInfo info) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("MetamagicBolsterDoubleDiping")) { return; }
+                __result.DamageBundle.First.PreRolledValue = info.PreRolledValue;
             }
         }
     }

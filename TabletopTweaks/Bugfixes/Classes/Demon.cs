@@ -7,7 +7,8 @@ using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
-using TabletopTweaks.Utilities;
+using static Kingmaker.UI.GenericSlot.EquipSlotBase;
+
 namespace TabletopTweaks.Bugfixes.Classes {
     static class Demon {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
@@ -25,9 +26,18 @@ namespace TabletopTweaks.Bugfixes.Classes {
                     if (ModSettings.Fixes.Demon.IsDisabled("BalorVorpalStrike")) { return; }
                     var BalorVorpalStrikeFeature = Resources.GetBlueprint<BlueprintFeature>("acc4a16c4088f2546b4237dcbb774f14");
                     var BalorVorpalStrikeBuff = Resources.GetBlueprint<BlueprintBuff>("5220bc4386bf3e147b1beb93b0b8b5e7");
+                    var Vorpal = Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("2f60bfcba52e48a479e4a69868e24ebc");
 
+                    BalorVorpalStrikeBuff.SetComponents();
+                    BalorVorpalStrikeBuff.AddComponent<BuffEnchantWornItem>(c => {
+                        c.m_EnchantmentBlueprint = Vorpal;
+                        c.Slot = SlotType.PrimaryHand;
+                    });
+                    BalorVorpalStrikeBuff.AddComponent<BuffEnchantWornItem>(c => {
+                        c.m_EnchantmentBlueprint = Vorpal;
+                        c.Slot = SlotType.SecondaryHand;
+                    });
                     BalorVorpalStrikeFeature.AddComponent<RecalculateOnEquipmentChange>();
-                    BalorVorpalStrikeBuff.GetComponent<BuffEnchantWornItem>().AllWeapons = true;
 
                     Main.LogPatch("Patched", BalorVorpalStrikeFeature);
                     Main.LogPatch("Patched", BalorVorpalStrikeBuff);

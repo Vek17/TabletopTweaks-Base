@@ -44,6 +44,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchCrusadersEdge();
                 PatchDispelMagicGreater();
                 PatchFirebrand();
+                PatchFlamestrike();
                 PatchGeniekind();
                 PatchHellfireRay();
                 PatchMagicalVestment();
@@ -220,6 +221,17 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 Main.LogPatch("Patched", FirebrandBuff);
             }
 
+            static void PatchFlamestrike() {
+                if (ModSettings.Fixes.Spells.IsDisabled("FlameStrike")) { return; }
+
+                var FlameStrike = Resources.GetBlueprint<BlueprintAbility>("f9910c76efc34af41b6e43d5d8752f0f");
+                FlameStrike.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
+                    a.Half = true;
+                    a.HalfIfSaved = true;
+                });
+                Main.LogPatch("Patched", FlameStrike);
+            }
+
             static void PatchGeniekind() {
                 if (ModSettings.Fixes.Spells.IsDisabled("Geniekind")) { return; }
 
@@ -259,6 +271,12 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var HellfireRay = Resources.GetBlueprint<BlueprintAbility>("700cfcbd0cb2975419bcab7dbb8c6210");
                 HellfireRay.GetComponent<SpellDescriptorComponent>().Descriptor = SpellDescriptor.Evil;
                 HellfireRay.AvailableMetamagic &= (Metamagic)~(CustomMetamagic.Flaring | CustomMetamagic.Burning);
+                HellfireRay.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
+                    a.Half = true;
+                    a.Value.DiceType = DiceType.D6;
+                    a.Value.DiceCountValue.ValueType = ContextValueType.Rank;
+                    a.Value.BonusValue = new ContextValue();
+                });
                 Main.LogPatch("Patched", HellfireRay);
             }
 

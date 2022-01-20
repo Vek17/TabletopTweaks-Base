@@ -108,6 +108,11 @@
         "Homebrew": false,
         "Description": "Prevents extra dice from empowered metamagic from being maximized by maximize metamagic."
       },
+      "MetamagicBolsterDoubleDiping": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents bolster from applying to the same spell more than once."
+      },
       "MountedActions": {
         "Enabled": true,
         "Homebrew": false,
@@ -813,6 +818,11 @@
         "Homebrew": false,
         "Description": "Retags buffs from spells as coming from spells to allow them to be dispeled correctly."
       },
+      "FlameStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now correctly halfs divine damage on saving throw."
+      },
       "Geniekind": {
         "Enabled": true,
         "Homebrew": false,
@@ -826,7 +836,7 @@
       "HellfireRay": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Hellfire Ray no longer has the Fire descriptor."
+        "Description": "Hellfire Ray no longer has the Fire descriptor and deals the correct half damage."
       },
       "MagicalVestment": {
         "Enabled": true,
