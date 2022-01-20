@@ -3,7 +3,7 @@
     * General
         * More of the unique metamagic rods will no longer default to active
         * Nauseated is no longer considered a poison effect globally.
-        * Fixed bug that was causing split damage spells to calculate damage incorrectly in some cases
+        * Fixed bug that was causing split damage spells to calculate damage incorrectly in some cases.
         * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
         * Only one size changing buff can grant benifits at the same times.
     * Feats
@@ -15,26 +15,31 @@
     * Mythic Feats
         * Expanded Arsenal can no longer be used to stack multiple spell focus feats on the same school to increase DC
     * Spells
+        * Abyssal Storm no longer saves for half and no longer kills the caster.
         * Acid Maw no longer causes excessive damage instances to trigger when attacking.
         * Chain Lightning now respects the CL 20 cap for its damage dice.
+        * Eye Of The Sun now deals the correct amount of damage.
         * Firebrand no longer causes excessive damage instances to trigger when attacking.
+        * Flamestrike now properly respects the reflex saving throw with the divine portion of its damage.
         * Geniekind no longer causes excessive damage instances to trigger when attacking.
-        * Hellfire Ray no longer has the Fire descriptor.
+        * Hellfire Ray no longer has the Fire descriptor and correctly splits damage half and half.
         * Magical Vestment now works correctly when used by enemies in prebuffs.
         * Magical Vestment can now be correctly dispeled.
         * Magical Vestment now grants a non stacking armor bonus if no armor is equiped.
         * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
         * Remove Fear no longer grants immunity to shaken and fear.
         * Remove Sickness no longer grants immunity to sickness and nausea.
-        * Shadow Conjuration Greater now has the correct shadow factor of 60 instead of 40
-        * Shadow Evocation Greater now has the correct shadow factor of 60 instead of 40
-        * Starlight is no longer affected by true sight as it is not an illusion effect
+        * Shadow Conjuration Greater now has the correct shadow factor of 60 instead of 40.
+        * Shadow Evocation Greater now has the correct shadow factor of 60 instead of 40.
+        * Starlight is no longer affected by true sight as it is not an illusion effect.
+        * Sun Form now deals the correct amount of damage.
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * Enemies
         * Balors now correctly get thier vorpal weapons. Be afriad.
     * Items
         * Aspect of the Asp will now actually deal bonus damage on ray spells.
         * The Vorpal weapon enchant now works.
+        * Radiance now correctly grants spell resistance instead of spell penetrations.
     * Aeon
         * Aeon Demythication should now actually suppress mythic effects.
     * Demon

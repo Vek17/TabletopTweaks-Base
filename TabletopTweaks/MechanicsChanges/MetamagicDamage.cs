@@ -87,7 +87,9 @@ namespace TabletopTweaks.MechanicsChanges {
         [HarmonyPatch]
         static class ContextActionDealDamage_Bolster_Patch {
             static MethodBase TargetMethod() {
-                return AccessTools.Method(typeof(ContextActionDealDamage), "GetDamageRule", new[] { typeof(ContextActionDealDamage.DamageInfo), typeof(int).MakeByRefType() });
+                return AccessTools.Method(typeof(ContextActionDealDamage), 
+                    "GetDamageRule", 
+                    new[] { typeof(ContextActionDealDamage.DamageInfo), typeof(int).MakeByRefType() });
             }
             [HarmonyPostfix]
             static void StripExtraBolsterDamage(ref RuleDealDamage __result, ContextActionDealDamage.DamageInfo info) {

@@ -63,6 +63,8 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Spells
     * Spell flags
         * Retags buffs from spells as coming from spells to allow them to be dispeled correctly.
+    * Abyssal Storm 
+        * Abyssal Storm no longer saves for half and no longer kills the caster.
     * Acid Maw 
         * Acid Maw no longer causes excessive damage instances to trigger when attacking.
     * Believe In Yourself
@@ -77,6 +79,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Crusaders Edge's nauseate effect now only procs on critical hits.
     * Dispel Magic Greater
         * Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs.
+    * Eye Of The Sun
+        * Eye Of The Sun now deals the correct amount of damage.
     * Firebrand
         * Firebrand no longer causes excessive damage instances to trigger when attacking.
     * Geniekind
@@ -104,6 +108,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Now has the correct shadow factor of 60 instead of 40.
     * Starlight
         * Starlight no longer is affected by true sight.
+    * Sun Form
+        * Sun Form now deals the correct amount of damage.
     * Unbreakable Heart
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * WrackingRay
@@ -121,9 +127,11 @@ All fixes and added content are configurable and can be disabled via the unity m
     * EmpowerMetamagic
         * Sticky touch spells can now be empowered.
         * Prevents extra dice from empowered metamagic from being maximized by maximize metamagic.
+    * Bolster Metamagic
+        * No longer applies twice on spells with pre rolled values.
     * Maximize Metamagic
         * Sticky touch spells can now be maximized.
-    * PersistantMetamagic
+    * Persistant Metamagic
         * Allows any spell with a saving throw to be made persistant.
     * Selective Metamagic
         * Retags selective spells to exclude non instantaneous spells.
@@ -374,6 +382,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value.
     * Honorable Judgement
         * Prevents from triggering multiple fake attacks and procing weapon effects more often than it should.
+    * Radiance 
+        * Now correctly grants spell resistance instead of spell penetrations.
     * Terrifying Tremble
         * Implements the missing on kill effect. Whenever the wielder of this weapon lands a killing blow, he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. Successful Reflex save (DC 30) halves the damage.
     * Thundering Burst

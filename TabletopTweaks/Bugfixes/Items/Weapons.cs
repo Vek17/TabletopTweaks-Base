@@ -11,6 +11,9 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
@@ -37,6 +40,7 @@ namespace TabletopTweaks.Bugfixes.Items {
 
                 PatchBladeOfTheMerciful();
                 PatchHonorableJudgement();
+                PatchRadiance();
                 PatchTerribleTremble();
 
                 PatchThunderingBurst();
@@ -120,6 +124,19 @@ namespace TabletopTweaks.Bugfixes.Items {
                     };
 
                     Main.LogPatch("Patched", TerrifyingTrembleItem);
+                }
+                void PatchRadiance() {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("Radiance")) { return; }
+
+                    var RadianceEffectBuff = Resources.GetBlueprint<BlueprintBuff>("0c03ba5e0c3fd304eb0a221e83f4ce1d");
+                    RadianceEffectBuff.RemoveComponents<SpellPenetrationBonus>();
+                    RadianceEffectBuff.AddComponent<AddSpellResistance>(c => {
+                        c.Value = new ContextValue() {
+                            ValueType = ContextValueType.Rank
+                        };
+                    });
+
+                    Main.LogPatch("Patched", RadianceEffectBuff);
                 }
                 void PatchThunderingBurst() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("ThunderingBurst")) { return; }

@@ -3,7 +3,7 @@
     "Author": "Sean Petrie",
     "DisplayName": "Tabletop Tweaks",
     "EntryMethod": "TabletopTweaks.Main.Load",
-    "GameVersion": "1.1.6",
+    "GameVersion": "1.1.7",
     "HomePage": "https://github.com/Vek17/WrathMods-TabletopTweaks/releases",
     "Id": "TabletopTweaks",
     "ManagerVersion": "0.23.0",

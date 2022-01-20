@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -15,6 +16,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System.Linq;
@@ -36,6 +38,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 if (Initialized) return;
                 Initialized = true;
                 Main.LogHeader("Patching Spells");
+                PatchAbyssalStorm();
                 PatchAcidMaw();
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
@@ -43,6 +46,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchChainLightning();
                 PatchCrusadersEdge();
                 PatchDispelMagicGreater();
+                PatchEyeOfTheSun();
                 PatchFirebrand();
                 PatchFlamestrike();
                 PatchGeniekind();
@@ -56,9 +60,37 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
                 PatchStarlight();
+                PatchSunForm();
                 PatchUnbreakableHeart();
                 PatchWrachingRay();
                 PatchFromSpellFlags();
+            }
+
+            static void PatchAbyssalStorm() {
+                if (ModSettings.Fixes.Spells.IsDisabled("AbyssalStorm")) { return; }
+
+                var AbyssalStorm = Resources.GetBlueprint<BlueprintAbility>("58e9e2883bca1574e9c932e72fd361f9");
+                AbyssalStorm.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
+                    a.Value.DiceType = DiceType.D6;
+                    a.Value.DiceCountValue = new ContextValue() {
+                        ValueType = ContextValueType.Rank
+                    };
+                    a.Value.BonusValue = new ContextValue();
+                    a.HalfIfSaved = false;
+                    a.IsAoE = true;
+                    a.WriteResultToSharedValue = false;
+                    a.ReadPreRolledFromSharedValue = false;
+                });
+                AbyssalStorm.GetComponent<AbilityTargetsAround>().TemporaryContext(c => {
+                    c.m_Condition = new ConditionsChecker() {
+                        Conditions = new Condition[] {
+                            new ContextConditionIsCaster(){ 
+                                Not = true
+                            }
+                        }
+                    };
+                });
+                Main.LogPatch("Patched", AbyssalStorm);
             }
 
             static void PatchAcidMaw() {
@@ -84,6 +116,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 });
                 Main.LogPatch("Patched", AcidMawBuff);
             }
+
             static void PatchBelieveInYourself() {
                 if (ModSettings.Fixes.Spells.IsDisabled("BelieveInYourself")) { return; }
 
@@ -198,6 +231,22 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     "If not, compare the same result to the spell with the next highest caster level. Repeat this process until you have dispelled " +
                     "one spell affecting the target, or you have failed to dispel every spell.");
                 Main.LogPatch("Patched", DispelMagicGreaterTarget);
+            }
+
+            static void PatchEyeOfTheSun() {
+                if (ModSettings.Fixes.Spells.IsDisabled("EyeOfTheSun")) { return; }
+
+                var AngelEyeOfTheSun = Resources.GetBlueprint<BlueprintAbility>("a948e10ecf1fa674dbae5eaae7f25a7f");
+                AngelEyeOfTheSun.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
+                    if (a.WriteResultToSharedValue) {
+                        a.WriteRawResultToSharedValue = true;
+                    } else {
+                        a.Half = true;
+                        a.AlreadyHalved = false;
+                        a.ReadPreRolledFromSharedValue = true;
+                    }
+                });
+                Main.LogPatch("Patched", AngelEyeOfTheSun);
             }
 
             static void PatchFirebrand() {
@@ -440,6 +489,28 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var StarlightAllyBuff = Resources.GetBlueprint<BlueprintBuff>("f4ead47adc2ca2744a00efd4e088ecb2");
                 StarlightAllyBuff.GetComponent<AddConcealment>().Descriptor = ConcealmentDescriptor.InitiatorIsBlind;
                 Main.LogPatch("Patched", StarlightAllyBuff);
+            }
+
+            static void PatchSunForm() {
+                if (ModSettings.Fixes.Spells.IsDisabled("SunForm")) { return; }
+
+                var AngelSunFormRay = Resources.GetBlueprint<BlueprintAbility>("d0d8811bf5a8e2942b6b7d77d9691eb9");
+                AngelSunFormRay.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
+                    if (a.WriteResultToSharedValue) {
+                        a.WriteRawResultToSharedValue = true;
+                        a.Half = true;
+                    } else {
+                        a.Half = true;
+                        a.AlreadyHalved = false;
+                        a.ReadPreRolledFromSharedValue = true;
+                    }
+                    a.Value.DiceType = DiceType.D6;
+                    a.Value.DiceCountValue = new ContextValue() {
+                        ValueType = ContextValueType.Rank
+                    };
+                    a.Value.BonusValue = new ContextValue();
+                });
+                Main.LogPatch("Patched", AngelSunFormRay);
             }
 
             static void PatchUnbreakableHeart() {

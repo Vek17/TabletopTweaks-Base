@@ -24,6 +24,9 @@ using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 
 namespace TabletopTweaks.Extensions {
     static class ExtentionMethods {
+        public static void TemporaryContext<T>(this T obj, Action<T> init = null) {
+            init?.Invoke(obj);
+        }
         public static IEnumerable<GameAction> FlattenAllActions(this BlueprintScriptableObject blueprint) {
             List<GameAction> actions = new List<GameAction>();
             foreach (var component in blueprint.ComponentsArray) {

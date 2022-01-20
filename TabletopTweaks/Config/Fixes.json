@@ -773,6 +773,11 @@
   "Spells": {
     "DisableAll": false,
     "Settings": {
+      "AbyssalStorm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Abyssal Storm no longer saves for half and no longer kills the caster."
+      },
       "AcidMaw": {
         "Enabled": true,
         "Homebrew": false,
@@ -807,6 +812,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
+      },
+      "EyeOfTheSun": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Eye Of The Sun now deals the correct amount of damage."
       },
       "Firebrand": {
         "Enabled": true,
@@ -877,6 +887,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Starlight no longer is affected by true sight."
+      },
+      "SunForm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Sun Form now deals the correct amount of damage."
       },
       "UnbreakableHeart": {
         "Enabled": true,
@@ -1160,6 +1175,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
+        "Radiance": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now grants spell resistance correctly instead of spell penetration."
         },
         "TerrifyingTremble": {
           "Enabled": true,
