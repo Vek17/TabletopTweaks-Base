@@ -25,6 +25,7 @@ namespace TabletopTweaks.NewComponents {
             DamageDescription Damage = new DamageDescription {
                 TypeDescription = DamageType,
                 Dice = new DiceFormula(Value.DiceCountValue.Calculate(base.Context), Value.DiceType),
+                Bonus = Value.BonusValue.Calculate(base.Context),
                 SourceFact = base.Fact
             };
             evt.DamageDescription.Add(Damage);

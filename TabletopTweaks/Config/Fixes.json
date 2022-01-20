@@ -1130,6 +1130,11 @@
           "Homebrew": false,
           "Description": "Will now actually grant damage on ray spells."
         },
+        "BaneOfSpirit": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now is a free action to use."
+        },
         "HalfOfThePair": {
           "Enabled": true,
           "Homebrew": false,
@@ -1170,6 +1175,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
+        },
+        "Finnean": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
         },
         "HonorableJudgement": {
           "Enabled": true,

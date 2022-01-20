@@ -40,6 +40,7 @@
         * Aspect of the Asp will now actually deal bonus damage on ray spells.
         * The Vorpal weapon enchant now works.
         * Radiance now correctly grants spell resistance instead of spell penetrations.
+        * Finnean now always deals the correct amount of damage.
     * Aeon
         * Aeon Demythication should now actually suppress mythic effects.
     * Demon

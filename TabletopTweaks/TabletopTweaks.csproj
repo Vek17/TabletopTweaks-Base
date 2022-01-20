@@ -210,6 +210,7 @@
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\WeaponBuffOnConfirmedCritTTT.cs" />
+    <Compile Include="NewComponents\WeaponExtraDamageDice.cs" />
     <Compile Include="NewContent\Feats\BurningSpell.cs" />
     <Compile Include="NewContent\Feats\FlaringSpell.cs" />
     <Compile Include="NewContent\Feats\PiercingSpell.cs" />

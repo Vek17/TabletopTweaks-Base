@@ -382,6 +382,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value.
     * Honorable Judgement
         * Prevents from triggering multiple fake attacks and procing weapon effects more often than it should.
+    * Finnean
+        * Finnean now always deals the correct amount of damage.
     * Radiance 
         * Now correctly grants spell resistance instead of spell penetrations.
     * Terrifying Tremble

@@ -23,6 +23,116 @@
       "esES": null
     },
     {
+      "Key": "c45b586ef5cd459a912089ed4c95998f",
+      "SimpleName": "AbundantBlessingFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've learned a way to increase the number of uses of your Blessing ability.\nBenefit: You can use Blessings a number of additional times per day equal to your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5376a1aa91e64ced86fc57ee008ae8b4",
+      "SimpleName": "AbundantBlessingFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Abundant Blessing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "305026e1cb85479b929c57a40d2a0355",
+      "SimpleName": "AbundantBombsFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've leaned a way to increase the number of bombs you can use in a day.\nBenefit: You can throw a number of additional bombs per day equal to twice your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "957ddb12eb924f85a5de724463eda2c0",
+      "SimpleName": "AbundantBombsFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Abundant Bombs",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b3cfc7ddaeb240b98eccff42bece2a25",
+      "SimpleName": "AbundantFervorFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've learned a way to increase the number of uses of your Fervor ability.\nBenefit: You can use Fervor a number of additional times per day equal to your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "66238a75f4924731a0829c0d969fe9fa",
+      "SimpleName": "AbundantFervorFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Abundant Fervor",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9fd8c9e2e8cd41f990381e802b35b804",
+      "SimpleName": "AbundantIncenseFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've learned a way to increase the number of rounds per day you can use Incense Fog.\nBenefit: The number of rounds per day you can use Incense Fog increases by a number of rounds equal to your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "31af48f77a4945029b1859b8dd77a3b9",
+      "SimpleName": "AbundantIncenseFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Abundant Incense",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5e408b4f3b874aecaeb26c45fde803c2",
+      "SimpleName": "AbundantLayOnHandsFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've learned a way to increase the number of uses of your Lay on Hands ability.\nBenefit: You can use Lay On Hands a number of additional times per day equal to your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6802930856844731af2d308f35453c93",
+      "SimpleName": "AbundantLayOnHandsFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Abundant Lay On Hands",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "e9aae2041a39be92e0a20c9f4d8d8439",
       "SimpleName": "AbyssalBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -1123,10 +1233,10 @@
       "esES": null
     },
     {
-      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
+      "Key": "ffefe480122242e1b53c6ac2e9836219",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1134,10 +1244,10 @@
       "esES": null
     },
     {
-      "Key": "ffefe480122242e1b53c6ac2e9836219",
+      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1970,6 +2080,28 @@
       "esES": null
     },
     {
+      "Key": "d29094c2790e4e5e804c90fb61aa8225",
+      "SimpleName": "BlackBladeLifeDrinkerSharedArcanistBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Life Drinker — Shared (Arcanist)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c1b3a3634d15419b911914c0c0f0efd5",
+      "SimpleName": "BlackBladeLifeDrinkerSharedArcanistEnchantment.Description",
+      "ProcessTemplates": true,
+      "enGB": "Each time the wielder kills a living creature with the black blade, the black blade restores 1 point to its arcane pool and the wielder restores 1 point to his arcane reservoir.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "00fcb29701c14f7ca08b6d1d2d85aca9",
       "SimpleName": "BlackBladeLifeDrinkerSharedBuff.Name",
       "ProcessTemplates": false,
@@ -1978,6 +2110,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "饮血刃：共生",
+      "esES": null
+    },
+    {
+      "Key": "d92cd022337341dcbb639cfe3564f654",
+      "SimpleName": "BlackBladeLifeDrinkerSharedBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Life Drinker — Shared (Magus)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2190,10 +2333,10 @@
       "esES": null
     },
     {
-      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
+      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2201,10 +2344,10 @@
       "esES": null
     },
     {
-      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
+      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2289,6 +2432,17 @@
       "esES": null
     },
     {
+      "Key": "9f48856f97714024a5cb846de75da34e",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana — Magus",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "add3b25fd1214142995be3b8965b0bc8",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2297,6 +2451,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换",
+      "esES": null
+    },
+    {
+      "Key": "d2c707a34bf647dc9aad7b09dd5b5a4e",
+      "SimpleName": "BlackBladeTransferArcanaArcanistAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 13th level a magus can attempt to siphon points from his black blade’s arcane pool into his own arcane reservoir. Doing so takes a full-round action and the arcanist must succeed at a Will saving throw with a DC equal to the black blade’s ego. If the arcanist succeeds, he regains 1 point to his arcane reservoir for every 2 points he saps from his black blade. If he fails the saving throw, the magus becomes fatigued. If he is fatigued, he becomes exhausted instead. He cannot use this ability if he is exhausted.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "12ae109b695b46819122541b5d2ff810",
+      "SimpleName": "BlackBladeTransferArcanaArcanistAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana — Arcanist",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "37708bbcdc174bad901c4f4e2959c303",
+      "SimpleName": "BladeAdeptArchetype.Description",
+      "ProcessTemplates": true,
+      "enGB": "A small number of arcanists learn to use blades as part of their spellcasting and in combat. While these blade adepts are not as capable with a sword as a true master duelist, their combination of swordplay and arcane power makes them quite deadly.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e702e046f7354b8c9c113b1163b5fadc",
+      "SimpleName": "BladeAdeptArchetype.Name",
+      "ProcessTemplates": false,
+      "enGB": "Blade Adept",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2341,6 +2539,116 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "流血",
+      "esES": null
+    },
+    {
+      "Key": "37f6da79d15341e0a230915187a6f71b",
+      "SimpleName": "BloodlineDraconicBlackArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "044884b5b36c4409a993d81347946a5a",
+      "SimpleName": "BloodlineDraconicBlueArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the electricity descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ed855aad52364e8e8063dda7b7497725",
+      "SimpleName": "BloodlineDraconicBrassArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "75e9db820d134588b14956a1868d0bda",
+      "SimpleName": "BloodlineDraconicBronzeArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the electricity descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "21913fcfd30d42d69c17a476affa6af3",
+      "SimpleName": "BloodlineDraconicCopperArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f3a08d2f29b3478ba84e0d961f83f267",
+      "SimpleName": "BloodlineDraconicGoldArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e4ca32a05a514187b9fbb751cb4f96c0",
+      "SimpleName": "BloodlineDraconicGreenArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6c3ad9db76ae4ff48f07ed5a0f1badf3",
+      "SimpleName": "BloodlineDraconicRedArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "757da570d18547018e6c1024dd1c63f7",
+      "SimpleName": "BloodlineDraconicSilverArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the cold descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0b62d7df05fb43c4aff2d013de9d2345",
+      "SimpleName": "BloodlineDraconicWhiteArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the cold descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -3400,6 +3708,72 @@
       "esES": null
     },
     {
+      "Key": "50e2b59d19b44626b2a27dab002f78ea",
+      "SimpleName": "BurningSpellAcidBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This target will take acid damage at the start of next round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1a7ed867c34142658fad689b116fc9ae",
+      "SimpleName": "BurningSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "You cause creatures to take extra damage when you affect them with a spell that has the acid or fire descriptor.\nBenefit: The acid or fire effects of the affected spell adhere to the creature, causing more damage the next round. When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.\nLevel Increase: +2 (a burning spell uses up a slot two levels higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bff6161f07574bf1ac4cb1649e77afff",
+      "SimpleName": "BurningSpellFeat.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Burning Spell)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d0938b3e83f24642a33b2147b8d345c6",
+      "SimpleName": "BurningSpellFireBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This target will take fire damage at the start of next round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7235189ad2244f24a8247556147c21fb",
+      "SimpleName": "BurningSpellFireBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Burning Spell",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "99c2b7b51820499ca8e940b97d5a07e3",
+      "SimpleName": "BurningSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Burning",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "3ad750f748b34e45b000e6522852ae4d",
       "SimpleName": "CavalierMobilityBuff.Description",
       "ProcessTemplates": true,
@@ -3620,6 +3994,50 @@
       "esES": null
     },
     {
+      "Key": "c861cd8b295f481fbd2e987db90936c4",
+      "SimpleName": "CombatExpertiseMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can dart out of the way of attacks with skill and defiance.\nWhenever you use Combat Expertise, you gain an additional +2 dodge bonus to your Armor Class.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "915e4a69506f4109904a9e9e50625c62",
+      "SimpleName": "CombatExpertiseMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Combat Expertise (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c0d3cc79088841f3b88922a011bf9e30",
+      "SimpleName": "CombatReflexesMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You strike viciously whenever your foe gives you an opening.\nYou can make any number of additional attacks of opportunity per round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d8d3c75d0fd9487f9774251f966e0336",
+      "SimpleName": "CombatReflexesMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Combat Reflexes (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "2e696bf572ef4208b5b917976fccf3aa",
       "SimpleName": "Corrosive.Prefix",
       "ProcessTemplates": false,
@@ -3793,6 +4211,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "高等活物破敌",
+      "esES": null
+    },
+    {
+      "Key": "a9cf59cec9c94f0b8d5f2980259bbb77",
+      "SimpleName": "DispelFocusFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are skilled at the art of dispelling.\nWhenever you attempt a dispel check based on your caster level, you gain a +2 bonus on the check.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c73b07e70bea4c3988d7605ab36eee17",
+      "SimpleName": "DispelFocusFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Dispel Focus",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8f62149033b044fc8b959d25cbed7dec",
+      "SimpleName": "DispelFocusGreaterFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are a master of the art of dispelling.\nWhenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b05a2c170ace4b43affcf174ca9cb3e7",
+      "SimpleName": "DispelFocusGreaterFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Dispel Focus",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -4489,6 +4951,61 @@
       "esES": null
     },
     {
+      "Key": "1e102e5c918f4a2fa89c594a2bb13145",
+      "SimpleName": "ElementalBarrage.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've mastered the art of raining elemental spells on your foes, and found a way to empower them by combining different elements.\nBenefit: Every time you deal elemental damage to a creature with a spell, you apply an elemental mark to it. If during the next three rounds the marked target takes elemental damage from any source with a different element, the target takes additional Divine damage and consume the mark. The damage is 1d6 per mythic rank of your character.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f2cf598500404e52ac0ccfd483545096",
+      "SimpleName": "ElementalBarrageAcidBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "If this creature takes elemental damage from a type other than acid it will take additional damage and consume the mark.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1e4df9f9345f4456919f8c064943f934",
+      "SimpleName": "ElementalBarrageColdBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "If this creature takes elemental damage from a type other than cold it will take additional damage and consume the mark.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5f32cf58204242479e75c7076c01cacc",
+      "SimpleName": "ElementalBarrageElectricityBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "If this creature takes elemental damage from a type other than electricity it will take additional damage and consume the mark.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "35038d0a766648ca9fca42d478594813",
+      "SimpleName": "ElementalBarrageFireBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "If this creature takes elemental damage from a type other than fire it will take additional damage and consume the mark.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "cfd0e1b8ea601cf2139b1507f858b9d4",
       "SimpleName": "ElementalEarthBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -4687,6 +5204,28 @@
       "esES": null
     },
     {
+      "Key": "7a16a809c5fb4851958177a8eabe8132",
+      "SimpleName": "EnhancedBlessingsFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You have moved closer to your deity and to the power it has over its blessings.\nThe effects from your blessings now last twice as long.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7a6fc94fa1a348acbeae13e3eb754184",
+      "SimpleName": "EnhancedBlessingsFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Enhanced Blessings",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "a028d110548e4d6ab3f09b080a2ebe62",
       "SimpleName": "ErastilsBlessingFeature.Description",
       "ProcessTemplates": true,
@@ -4706,6 +5245,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "猎手祝福",
+      "esES": null
+    },
+    {
+      "Key": "998048a34dbe436e91b8ee7710b04968",
+      "SimpleName": "ExpertTrainer.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 4th level, a cavalier learns to train mounts with speed and unsurpassed expertise.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "24f550222a9c4592bb62318d15a05b7a",
+      "SimpleName": "ExpertTrainer.Name",
+      "ProcessTemplates": false,
+      "enGB": "Expert Trainer",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5039,6 +5600,94 @@
       "esES": null
     },
     {
+      "Key": "eb7cdc3410434340bb012d12518b5e57",
+      "SimpleName": "FavoriteMetamagicBurning.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Burning",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e613396eb2e147b8bdc73a1644c5ed0a",
+      "SimpleName": "FavoriteMetamagicFlaring.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Flaring",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2ea420e30dce4703828733692d365a81",
+      "SimpleName": "FavoriteMetamagicIntensified.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Intensified",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "99ea7c567b7e4e20bd0c554e47824e0f",
+      "SimpleName": "FavoriteMetamagicPersistent.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Persistent",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "df911a4296eb417dacee505ad5994813",
+      "SimpleName": "FavoriteMetamagicPiercing.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Piercing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5b540aead24148d784082b1726b6bb6b",
+      "SimpleName": "FavoriteMetamagicRime.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Rime",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "828b0a5bd2f04a948250d653ea1ad2f7",
+      "SimpleName": "FavoriteMetamagicSelective.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Selective",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fe6ce5ae359b42db95e4af0c9f95cc69",
+      "SimpleName": "FavoriteMetamagicSolidShadows.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Solid Shadows",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "75b3740e282d1dc2b165ba15acbc26bb",
       "SimpleName": "FeyBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -5050,6 +5699,17 @@
       "esES": null
     },
     {
+      "Key": "04947324b8704fe1a4df82ab1d0a2d10",
+      "SimpleName": "FighterTrainingFakeLevel.Name",
+      "ProcessTemplates": false,
+      "enGB": "Fighter Training Fake Level",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "63ec9c8bd5cd4d80b103ed419ae41a7a",
       "SimpleName": "FireResistance10Enchant.Prefix",
       "ProcessTemplates": false,
@@ -5058,6 +5718,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "火焰抗力",
+      "esES": null
+    },
+    {
+      "Key": "b77bc41683e649ffaf89179b95411b33",
+      "SimpleName": "FlaringSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "You dazzle creatures when you affect them with a spell that has the fire, light, or electricity descriptor.\nBenefit: The electricity, fire, or light effects of the affected spell create a flaring that dazzles creatures that take damage from the spell. A flare spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.\nLevel Increase: +1 (a flaring spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e77ccba57b9b41a6b5f996b23786377a",
+      "SimpleName": "FlaringSpellFeat.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Flaring Spell)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b099256da46145e89582ec13b2962ec9",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Flaring",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5226,6 +5919,17 @@
       "esES": null
     },
     {
+      "Key": "7f9bef9b59ad45e7a4e3a727ddc283ce",
+      "SimpleName": "GnomeFellMagicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "af258ba0a3934257bbd48fc937eaca32",
       "SimpleName": "GnomeFellMagicFeature.Name",
       "ProcessTemplates": false,
@@ -5248,6 +5952,17 @@
       "esES": null
     },
     {
+      "Key": "12a83cf39c2046fb96fa2edaf837f9e4",
+      "SimpleName": "GnomeInquisitiveFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery and Mobility checks.\nThis racial trait replaces keen senses and obsessive.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "226b33a16f96456e8766370a95396f03",
       "SimpleName": "GnomeInquisitiveFeature.Name",
       "ProcessTemplates": false,
@@ -5267,6 +5982,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "有些侏儒比他们看起来的要聪明得多，并且一生投身于追寻无尽的知识。你转而获得+2魅力，+2智力和-2力量。",
+      "esES": null
+    },
+    {
+      "Key": "659f9566a13d4939a59310c7d4b3d25a",
+      "SimpleName": "GnomeKeenFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. Such gnomes gain +2 Charisma, +2 Intelligence, and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5311,6 +6037,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这些侏儒的变化系法术获得+1DC，这一特性取代侏儒魔法。",
+      "esES": null
+    },
+    {
+      "Key": "65e6f4550ad54ea5b2af2b6ea4d206f1",
+      "SimpleName": "GnomeUtilitarianMagicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Some gnomes develop practical magic to assist them with their obsessive projects. These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5457,6 +6194,28 @@
       "esES": null
     },
     {
+      "Key": "455c438a721c49828b3bdca47398a64d",
+      "SimpleName": "HarmoniousMageFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your wizardly studies have moved beyond the concept of opposition schools. Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1faf535625a34a77845e5a597f1779a1",
+      "SimpleName": "HarmoniousMageFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Harmonious Mage",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "c1ca1c19c1944060b1e4842b6d07f647",
       "SimpleName": "Heartseeker.Prefix",
       "ProcessTemplates": false,
@@ -5545,6 +6304,28 @@
       "esES": null
     },
     {
+      "Key": "28e2ab69b4234cadb50bbe78603288c0",
+      "SimpleName": "ImpossibleBlessingFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You feel a closer connection to your deity you serve.\nYou gain one more blessing, ignoring all blessing prerequisites.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "979c5a894a404da494e2c565c5960d94",
+      "SimpleName": "ImpossibleBlessingFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Impossible Blessing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "195aab9346b847b5aa138ee384b4d562",
       "SimpleName": "ImpossibleSpeedFeature.Description",
       "ProcessTemplates": true,
@@ -5597,6 +6378,61 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "地狱血承",
+      "esES": null
+    },
+    {
+      "Key": "a3a7b23078124bb79431118b078eedba",
+      "SimpleName": "IntensifiedSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your spells can go beyond several normal limitations.\nBenefit: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat.\nLevel Increase: +1 (an intensified spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8e41eeb07cff4de78fd55c4cb627f8ae",
+      "SimpleName": "IntensifiedSpellFeat.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Intensified Spell)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5effb1dfff10434d8af19691362dab9c",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Intensified",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "aa02618cd29f447f94edba1464f446b9",
+      "SimpleName": "IntimidatingProwessMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your mythic stature makes others uneasy.\nYou gain a bonus on Intimidate checks equal to your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "efbc9e4714d04ec586873ba60c2233f8",
+      "SimpleName": "IntimidatingProwessMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Intimidating Prowess (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6414,6 +7250,28 @@
       "esES": null
     },
     {
+      "Key": "1078a52fd5b8422bb50ba767d8ffaff4",
+      "SimpleName": "ManyshotMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can fire a barrage of arrows at your target with very little effort.\nWhen making a full-attack action with a bow and using Manyshot, you fire two arrows with both your first and second attacks, instead of just your first attack.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4593d8208f614ad0825a2cb8480ea593",
+      "SimpleName": "ManyshotMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Manyshot (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "7ecf2c8c847741d0bd5e81cb283e3c3a",
       "SimpleName": "MartialWeaponProficencySelection.Name",
       "ProcessTemplates": false,
@@ -7085,6 +7943,72 @@
       "esES": null
     },
     {
+      "Key": "322916e068a04c76b29300bbaa0b5feb",
+      "SimpleName": "MyrmidarchArchetype.Description",
+      "ProcessTemplates": true,
+      "enGB": "The myrmidarch is a skilled specialist, using magic to supplement and augment his martial mastery. Less inclined to mix the two than a typical magus, the myrmidarch seeks supremacy with blade, bow, and armor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0d44d14817944e5183a17b26ba971642",
+      "SimpleName": "MyrmidarchArchetype.Name",
+      "ProcessTemplates": false,
+      "enGB": "Myrmidarch",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1023cc79cb45409e8a4af8646293a830",
+      "SimpleName": "MyrmidarchFighterTraining.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 7th level, a myrmidarch counts his magus level –3 as his fighter level for the purpose of qualifying for feats (if he has levels in fighter, these levels stack).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "dcd3629da12044f98f69857b597c3537",
+      "SimpleName": "MyrmidarchFighterTraining.Name",
+      "ProcessTemplates": false,
+      "enGB": "Fighter Training",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b2ddcae85a2f40858f1597611acf5024",
+      "SimpleName": "MyrmidarchFighterTrainingUpgrade.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 10th level, the myrmidarch treats his magus levels as fighter levels for the purposes of fighter training.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4f6a166471d2488e9d6e5a180aab12c8",
+      "SimpleName": "MyrmidarchFighterTrainingUpgrade.Name",
+      "ProcessTemplates": false,
+      "enGB": "Fighter Training Upgrade",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "653eab6c9b594578bb3a1623fb5525af",
       "SimpleName": "MysticTheurgeChannelerOfTheUnknownLevelUp.Description",
       "ProcessTemplates": true,
@@ -7371,6 +8295,39 @@
       "esES": null
     },
     {
+      "Key": "005b67da15c84fc6b811b37bbc537e1f",
+      "SimpleName": "PiercingSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your studies have helped you develop methods to overcome spell resistance.\nBenefit: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.\nLevel Increase: +1 (a piercing spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "18dc2a9d283140fdb8dc481bd278a6a8",
+      "SimpleName": "PiercingSpellFeat.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Piercing Spell)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f467d13c43764235a30cb4aca2e1edcf",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Piercing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "92df002aeb88439bb71699fdb0c8831b",
       "SimpleName": "PositiveEnergyResistance30Enchant.Prefix",
       "ProcessTemplates": false,
@@ -7481,6 +8438,512 @@
       "esES": null
     },
     {
+      "Key": "d3d5feaaf5b34030a22222efecd3f256",
+      "SimpleName": "QuickenBlessing.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can deliver one of your blessings with greater speed.\nChoose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bdaac7dbfa8b450ca74d394dc4aed3ad",
+      "SimpleName": "QuickenBlessing.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cf2deeee52e64e008eb5ec54afef14d7",
+      "SimpleName": "QuickenBlessingAirFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7319fc79584447c192bed93203df9d25",
+      "SimpleName": "QuickenBlessingAirFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Air",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4f3880ed8fef45758c9fc2440494778e",
+      "SimpleName": "QuickenBlessingAnimalFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2a3ef27b2c034bc0a9a5878566526059",
+      "SimpleName": "QuickenBlessingAnimalFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Animal",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "248a426178724d30a254a5001c5e66f6",
+      "SimpleName": "QuickenBlessingChaosFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "935b7c4622314f06bc2aba874d888cf1",
+      "SimpleName": "QuickenBlessingChaosFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Chaos",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ce2bb454832c433b887681bbdc094069",
+      "SimpleName": "QuickenBlessingDarknessFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4a1ce59b094441129477864690ce97e5",
+      "SimpleName": "QuickenBlessingDarknessFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Darkness",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "22b66241d7ad41c6877efa11e1eaf96b",
+      "SimpleName": "QuickenBlessingDeathFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d2fb15a8145e49a0a3bee9e0186887c3",
+      "SimpleName": "QuickenBlessingDeathFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Death",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "24df866d5fe74dcca7bb3001174bdbfd",
+      "SimpleName": "QuickenBlessingDestructionFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "80a4246780434d76af7e8c866aa61d7d",
+      "SimpleName": "QuickenBlessingDestructionFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Destruction",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "97d72255e5d14102921a153aac622977",
+      "SimpleName": "QuickenBlessingEarthFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7035ba70e16347659d1913b1fe33f33f",
+      "SimpleName": "QuickenBlessingEarthFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Earth",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b6b7d137097c46408c119ffd5977db90",
+      "SimpleName": "QuickenBlessingEvilFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7be6347505e94957b421c3b75bc0ae5b",
+      "SimpleName": "QuickenBlessingEvilFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Evil",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "dae04a1c3ab04bf8b79ee03571f0ba63",
+      "SimpleName": "QuickenBlessingFireFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "37c921ea04a8497c95fb8eb11223e5b6",
+      "SimpleName": "QuickenBlessingFireFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Fire",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b751c6cb00c944c093c8f409f9f9298a",
+      "SimpleName": "QuickenBlessingGoodFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "01a5015d48db4c8189b39288816e501b",
+      "SimpleName": "QuickenBlessingGoodFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Good",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "299cb3f8571647da9cb4a522697585c7",
+      "SimpleName": "QuickenBlessingHealingFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "91147e3fb922470bbc301954528a4acb",
+      "SimpleName": "QuickenBlessingHealingFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Healing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "93382a2307824f13b6185e343ad340d9",
+      "SimpleName": "QuickenBlessingLawFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "44658e88e6a14e65b3d05c8c63e3214f",
+      "SimpleName": "QuickenBlessingLawFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Law",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f922b778465d4b1f93e0dc4b6fffe187",
+      "SimpleName": "QuickenBlessingLuckFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "832d4a71ae0944abbcab389e0c944887",
+      "SimpleName": "QuickenBlessingLuckFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Luck",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "83ccba6eaca6405b9d7aa9f2d870bf90",
+      "SimpleName": "QuickenBlessingMagicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0d11a40c10f14a72a3bb40f12f012b99",
+      "SimpleName": "QuickenBlessingMagicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Magic",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e201f6123b0e4b8db47347367927285a",
+      "SimpleName": "QuickenBlessingNobilityFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bf020d5f3e984007883e78806ff4938e",
+      "SimpleName": "QuickenBlessingNobilityFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Nobility",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "53f0aca0f23441329e7b3997d661cdc8",
+      "SimpleName": "QuickenBlessingProtectionFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "19e79361a71d4175a0fde6cf0edab8d3",
+      "SimpleName": "QuickenBlessingProtectionFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Protection",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "de94ad6485024cee87e05138921cfdeb",
+      "SimpleName": "QuickenBlessingReposeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "abf79a8d922a4ed6a9df3980f17cebf8",
+      "SimpleName": "QuickenBlessingReposeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Repose",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "162a99075b3d4753b1c2d036776182c8",
+      "SimpleName": "QuickenBlessingSunFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "34031d0c345048fb8e0a5d035c3b9999",
+      "SimpleName": "QuickenBlessingSunFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Sun",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3187f84fa88a42ca9c9ab1cf74a64cc1",
+      "SimpleName": "QuickenBlessingTravelFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "12750394dc484f69a7372548d4c28f87",
+      "SimpleName": "QuickenBlessingTravelFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Travel",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9c0bad71daae46d3a33bee4c01142ea3",
+      "SimpleName": "QuickenBlessingTrickeryFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "795334cb386d4a53b31a617cdd333a66",
+      "SimpleName": "QuickenBlessingTrickeryFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Trickery",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ad44f2cb5cac4ea799c21c9c37e4b12b",
+      "SimpleName": "QuickenBlessingWaterFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "91300abc17b94149a1b98b8c1ee6eed1",
+      "SimpleName": "QuickenBlessingWaterFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Water",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "61cf173373444786a8b8e83d4e5ef180",
+      "SimpleName": "QuickenBlessingWeatherFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d85d02b19c1146a7828f7e47b43223ea",
+      "SimpleName": "QuickenBlessingWeatherFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Weather",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "cf4155b50e1e402497a88a30aa503bc8",
       "SimpleName": "Radiant.Prefix",
       "ProcessTemplates": false,
@@ -7489,6 +8952,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "光亮",
+      "esES": null
+    },
+    {
+      "Key": "59e770fd54ca4a57b3a5480b943903a0",
+      "SimpleName": "RimeSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "Creatures damaged by your spells with the cold descriptor become entangled.\nBenefit: The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.\nThis feat only affects spells with the cold descriptor.\nLevel Increase: +1 (a rime spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "eaeaf6911b7d4d5f8490dbc21f1972c7",
+      "SimpleName": "RimeSpellFeat.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Rime Spell)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "334dafcc1c3844e49640b81084309388",
+      "SimpleName": "RimeSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Rime",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -7533,6 +9029,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "学者",
+      "esES": null
+    },
+    {
+      "Key": "4b26461b4ae346e09a2123d1b296c46c",
+      "SimpleName": "SecondPatronFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've attracted the favor of a second patron.\nYou select a second patron, gaining all its benifits.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "635e8cd1e58b444baccf6e5b688d7ab3",
+      "SimpleName": "SecondPatronFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Second Patron",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9c3681ccc8fc47d1b18281dbd74e703c",
+      "SimpleName": "SecondPatronRequisiteFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Patron Requisite Feature",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7a6203cc7d354d2eb1039e5b97acde5b",
+      "SimpleName": "SecondPatronRequisiteFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Witch Patron",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -7731,6 +9271,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "震电",
+      "esES": null
+    },
+    {
+      "Key": "e6ca0c339d5f42588fadc09a4c853ba6",
+      "SimpleName": "SneakAttackerMythicFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your sneak attacks are especially deadly.\nBenifit: Your sneak attack dice are one size larger than normal. For example if you would normally roll d6s for sneak attacks you would roll d8s instead.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "30cff4322b404021b18335c720abbfda",
+      "SimpleName": "Solid ShadowsSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Solid Shadows",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "babab16479c045baa5cbc0f2b9cf6b49",
+      "SimpleName": "SolidShadowsSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your shadowy illusions are more potent.\nBenefit: When casting a shadow spell, that spell is 20% more real than normal.\nLevel Increase: +1 (a solid shadows spell uses up a spell slot 1 level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "be7b7a97ae7e4d4cbc9bb453bebb0aea",
+      "SimpleName": "SolidShadowsSpellFeat.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Solid Shadows)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -9032,6 +10616,28 @@
       "esES": null
     },
     {
+      "Key": "10c699e2ad204d71957a474e6729b490",
+      "SimpleName": "TitanStrikeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your fists can fell titanic foes.\nYour unarmed strike deals damage as if you were one size category larger. You also gain a +1 bonus for each size category that your target is larger than you on the following: bull rush, drag, grapple, overrun, sunder, and trip combat maneuver checks and the DC of your Stunning Fist.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "206d0b1b85124fc794c17e6cbfcafb24",
+      "SimpleName": "TitanStrikeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Titan Strike",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "d53b1e95c04a472390c44164fb05f24e",
       "SimpleName": "TrainedGraceFeature.Description",
       "ProcessTemplates": true,
@@ -9142,6 +10748,50 @@
       "esES": null
     },
     {
+      "Key": "ecf9b4d0d5aa4783b8e89be96eaa5dbd",
+      "SimpleName": "TwoWeaponDefenseFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are skilled at defending yourself while dual-wielding.\nWhen wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively this shield bonus increases to +2.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "164bd4c4feed4e2c841227ac754aa8a2",
+      "SimpleName": "TwoWeaponDefenseFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Two-Weapon Defense",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3578a0f3b3504633a0a52589e8bafe29",
+      "SimpleName": "TwoWeaponDefenseMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your graceful flow between attack and defense makes you difficult to hit.\nWhen using Two-Weapon Defense, you apply the highest enhancement bonus from your two weapons to the shield bonus granted by that feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0a4b67bbd4004276b2adda1cfa5fdead",
+      "SimpleName": "TwoWeaponDefenseMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Two-Weapon Defense (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "b5d307bd0a4c4849bfc0d8681032b182",
       "SimpleName": "Ultrasound.Prefix",
       "ProcessTemplates": false,
@@ -9197,6 +10847,28 @@
       "esES": null
     },
     {
+      "Key": "25213db84a60431996d695edecabcb08",
+      "SimpleName": "VarisianTattooFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You bear intricate tattoos that inspire and empower your natural magic ability. These tattoos mark you as a worker of the ancient traditions of Varisian magic. A Varisian tattoo typically consists of a long string of complex characters from the Thassilonian alphabet.\nSelect a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6a605dbf22ec41ee867866e00e18f05d",
+      "SimpleName": "VarisianTattooFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Varisian Tattoo",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "d37d5761b951426586eb01c77f1c5c40",
       "SimpleName": "ViciousEnchantment.Prefix",
       "ProcessTemplates": false,
@@ -9216,6 +10888,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "斩首",
+      "esES": null
+    },
+    {
+      "Key": "2f75a26138b544ba93a255215bfda665",
+      "SimpleName": "WarriorPriestMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your faith speeds you in battle and further strengthens your mind and confidence.\nYou gain a bonus equal to half your mythic rank both on initiative checks and on concentration checks.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ba5d93ee729b4047af474f574fba3e29",
+      "SimpleName": "WarriorPriestMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Warrior Priest (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

@@ -24,6 +24,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 
 namespace TabletopTweaks.Bugfixes.Items {
@@ -39,6 +40,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 Main.LogHeader("Patching Weapons");
 
                 PatchBladeOfTheMerciful();
+                PatchFinnean();
                 PatchHonorableJudgement();
                 PatchRadiance();
                 PatchTerribleTremble();
@@ -105,6 +107,23 @@ namespace TabletopTweaks.Bugfixes.Items {
                         };
                     });
                     Main.LogPatch("Patched", JudgementOfRuleEnchantment);
+                }
+                void PatchFinnean() {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("Finnean")) { return; }
+
+                    var FinneanChapter3Enchantment = Resources.GetBlueprint<BlueprintWeaponEnchantment>("b183bd491793d194c9e4c96cd11769b1");
+                    var FinneanChapter5EnchantmentBase = Resources.GetBlueprint<BlueprintWeaponEnchantment>("6b66e949f348ccd4989a5fd9254f8958");
+                    var FinneanChapter5EnchantmentLich = Resources.GetBlueprint<BlueprintWeaponEnchantment>("9aa9af4b654662945a410644d3db8d99");
+
+                    FinneanChapter3Enchantment.RemoveComponents<AdditionalDiceOnAttack>();
+                    FinneanChapter3Enchantment.AddComponent<WeaponExtraDamageDice>(c => {
+                        c.Value = new DiceFormula(1, DiceType.D6);
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Force
+                        };
+                    });
+
+                    Main.LogPatch("Patched", FinneanChapter3Enchantment);
                 }
                 void PatchTerribleTremble() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("TerrifyingTremble")) { return; }
