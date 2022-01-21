@@ -30,7 +30,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你每日可以使用祝福的次数增加神话阶层次。",
       "esES": null
     },
     {
@@ -41,7 +41,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "无穷祝福",
       "esES": null
     },
     {
@@ -52,7 +52,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你每日可以投掷炼金炸弹的次数增加神话阶层的两倍次。",
       "esES": null
     },
     {
@@ -63,7 +63,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "无穷炸弹",
       "esES": null
     },
     {
@@ -74,7 +74,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你每日可以使用热诚的次数增加神话阶层次。",
       "esES": null
     },
     {
@@ -85,7 +85,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "无尽热诚",
       "esES": null
     },
     {
@@ -96,7 +96,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你每日可以使用调香的次数增加神话阶层次。",
       "esES": null
     },
     {
@@ -107,7 +107,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "无穷调香",
       "esES": null
     },
     {
@@ -118,7 +118,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你每日可以使用圣疗的次数增加神话阶层次。",
       "esES": null
     },
     {
@@ -129,7 +129,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "无穷圣疗",
       "esES": null
     },
     {
@@ -217,7 +217,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "进阶防具训练",
+      "zhCN": "进阶武器训练",
       "esES": null
     },
     {
@@ -2087,7 +2087,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "饮血刃：共生（奥能师）",
       "esES": null
     },
     {
@@ -2098,7 +2098,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你使用黑刃杀死一个活物，黑刃的奥法池恢复1点，你的奥能源泉点数也恢复1点。",
       "esES": null
     },
     {
@@ -2120,7 +2120,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "饮血刃：共生（魔战士）",
       "esES": null
     },
     {
@@ -2439,7 +2439,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "秘法转换（魔战士）",
       "esES": null
     },
     {
@@ -2461,7 +2461,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "13级起，以一个整轮动作，你可以尝试从黑刃的奥能池中抽取奥能点，每抽取2点，他就能恢复1点自身的奥能源泉点数。若想这么做，魔战士必须通过DC等同黑刃觉醒度的意志检定，否则无法成功并陷入疲劳。如已经疲劳则改为力竭，如已经力竭，无法使用此能力。",
       "esES": null
     },
     {
@@ -2472,7 +2472,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "秘法转换（奥能师）",
       "esES": null
     },
     {
@@ -2483,7 +2483,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "有一些奥能师学会了将他们的法术融入近战武器的能力。尽管他们的近身格斗技巧并不如武学大师那般强大，奥法和剑术的融合也使他们能顷刻间置敌死命。",
       "esES": null
     },
     {
@@ -2494,7 +2494,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "魔刃使",
       "esES": null
     },
     {
@@ -2549,7 +2549,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含酸标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2560,7 +2560,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含电标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2571,7 +2571,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含火标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2582,7 +2582,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含电标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2593,7 +2593,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含酸标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2604,7 +2604,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含火标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2615,7 +2615,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含酸标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2626,7 +2626,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含火标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2637,7 +2637,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含寒冷标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -2648,7 +2648,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个包含寒冷标识符的法术，它的每个伤害骰额外造成1点伤害。",
       "esES": null
     },
     {
@@ -3462,7 +3462,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你使得你的法术造成每个伤害骰2点的额外伤害，并且对在5尺范围内的其他敌人也造成伤害。这个法术不再能附加精准伤害。\n法术环级提升：+2",
       "esES": null
     },
     {
@@ -3715,7 +3715,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个目标在其下回合开始时受到酸蚀伤害。",
       "esES": null
     },
     {
@@ -3726,7 +3726,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的包含火或酸标识符的法术造成额外伤害，受到这个法术伤害的目标在其下回合开始时，受到等同这个法术实际环级两倍的火或酸伤害。\n法术环级提升：+2",
       "esES": null
     },
     {
@@ -3737,7 +3737,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔（燃烧法术）",
       "esES": null
     },
     {
@@ -3748,7 +3748,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个目标在其下回合开始时受到火焰伤害。",
       "esES": null
     },
     {
@@ -3759,7 +3759,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "燃烧法术",
       "esES": null
     },
     {
@@ -3770,7 +3770,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "燃烧",
       "esES": null
     },
     {
@@ -4001,7 +4001,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你用你绝对的自信和技巧躲避绝大多数的攻击。\n当你使用寓守于攻时，你获得额外两点AC的闪避加值。",
       "esES": null
     },
     {
@@ -4012,7 +4012,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "寓守于攻（神话）",
       "esES": null
     },
     {
@@ -4023,7 +4023,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你用最恶毒的方式惩罚你的对手露出的最微小的破绽。\n你每轮可以进行借机攻击的次数没有上限。",
       "esES": null
     },
     {
@@ -4034,7 +4034,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "战斗反射（神话）",
       "esES": null
     },
     {
@@ -4221,7 +4221,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你在解除魔法上极具天赋。\n每当你尝试解除魔法时，在施法者等级检定上获得+2加值。",
       "esES": null
     },
     {
@@ -4232,7 +4232,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "解法专攻",
       "esES": null
     },
     {
@@ -4243,7 +4243,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你在解除魔法上的造诣远超常人。\n每当你尝试解除魔法时，在施法者等级检定上获得额外+2加值。",
       "esES": null
     },
     {
@@ -4254,7 +4254,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "高等解法专攻",
       "esES": null
     },
     {
@@ -4958,7 +4958,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你是向你的对手倾泄元素法术的大师。\n每当你通过一个法术对敌人造成元素伤害，你在它身上留下一个标记。在接下来的三轮内，如果该目标受到来自任何来源的另一种元素的伤害，会消耗该标记并造成等同神话阶层乘以1d6的额外神力伤害。",
       "esES": null
     },
     {
@@ -4969,7 +4969,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个目标如果受到酸以外的元素伤害，会触发元素狂潮效果。",
       "esES": null
     },
     {
@@ -4980,7 +4980,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个目标如果受到冰以外的元素伤害，会触发元素狂潮效果。",
       "esES": null
     },
     {
@@ -4991,7 +4991,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个目标如果受到电以外的元素伤害，会触发元素狂潮效果。",
       "esES": null
     },
     {
@@ -5002,7 +5002,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个目标如果受到火以外的元素伤害，会触发元素狂潮效果。",
       "esES": null
     },
     {
@@ -5178,7 +5178,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5211,7 +5211,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你凭借神话力量与你的信仰建立了更深层的联系，你的所有祝福的持续时间翻倍。",
       "esES": null
     },
     {
@@ -5222,7 +5222,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "强效祝福",
       "esES": null
     },
     {
@@ -5255,7 +5255,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "4级起，骑将学会了更好的训练坐骑的方式，以使它们拥有更快的速度和无与伦比的技巧。",
       "esES": null
     },
     {
@@ -5266,7 +5266,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "驯兽专家",
       "esES": null
     },
     {
@@ -5607,7 +5607,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：燃烧",
       "esES": null
     },
     {
@@ -5618,7 +5618,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：闪耀",
       "esES": null
     },
     {
@@ -5629,7 +5629,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：强化",
       "esES": null
     },
     {
@@ -5640,7 +5640,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：顽强",
       "esES": null
     },
     {
@@ -5651,7 +5651,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：穿刺",
       "esES": null
     },
     {
@@ -5662,7 +5662,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：霜冻",
       "esES": null
     },
     {
@@ -5673,7 +5673,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：甄选",
       "esES": null
     },
     {
@@ -5684,7 +5684,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "偏好超魔：真实阴影",
       "esES": null
     },
     {
@@ -5706,7 +5706,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "战士训练等级",
       "esES": null
     },
     {
@@ -5728,7 +5728,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "当你使用带有火、光[译注：正义之怒没有这个标识符，因此不能识别一部分可能该有光标识符的法术]或电标识符的法术对敌人造成伤害后，无需豁免检定，目标陷入等同法术环级轮的目眩效果。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -5739,7 +5739,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔（闪耀法术）",
       "esES": null
     },
     {
@@ -5750,7 +5750,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "闪耀",
       "esES": null
     },
     {
@@ -5926,7 +5926,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这些侏儒的死灵系法术获得+1DC，这一特性取代侏儒魔法。",
       "esES": null
     },
     {
@@ -5959,7 +5959,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你获得+2巧手和灵巧，这一特性取代敏锐感官和苦心孤诣。",
       "esES": null
     },
     {
@@ -5992,7 +5992,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "有些侏儒比他们看起来的要聪明得多，并且一生投身于追寻无尽的知识。你转而获得+2魅力，+2智力和-2力量。",
       "esES": null
     },
     {
@@ -6047,7 +6047,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这些侏儒的变化系法术获得+1DC，这一特性取代侏儒魔法。",
       "esES": null
     },
     {
@@ -6201,7 +6201,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你带有神话之力的奥术研习已经不再受到对立学派的限制，准备对立学派的法术不再需要额外一个法术槽位。",
       "esES": null
     },
     {
@@ -6212,7 +6212,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥术调谐",
       "esES": null
     },
     {
@@ -6311,7 +6311,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你与神祗建立了更深层的联系。\n你获得一项额外祝福，忽略先决条件。",
       "esES": null
     },
     {
@@ -6322,7 +6322,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奇迹祝福",
       "esES": null
     },
     {
@@ -6388,7 +6388,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的法术的伤害能力超出了常理的限制。这个法术允许的最大伤害骰数目提升5，但你仍然需要拥有足够的施法者等级才能实际产生这些伤害骰。如果法术造成的伤害为固定值而不受施法者等级影响，此超魔没有效果。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -6399,7 +6399,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔（强化法术）",
       "esES": null
     },
     {
@@ -6410,7 +6410,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "强化",
       "esES": null
     },
     {
@@ -6421,7 +6421,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你充满神话之力的身躯令任何敌人拜服。\n你的威吓检定获得等同神话阶层的加值。",
       "esES": null
     },
     {
@@ -6432,7 +6432,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "威逼（神话）",
       "esES": null
     },
     {
@@ -7257,7 +7257,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "向敌人一次性射出大量的箭矢对你来说无比轻松。\n当你使用远程武器进行整轮攻击并拥有多重射击专长时，你在第一次和第二次攻击中都触发多重射击专长的效果。",
       "esES": null
     },
     {
@@ -7268,7 +7268,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "多重射击（神话）",
       "esES": null
     },
     {
@@ -7950,7 +7950,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -7961,7 +7961,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -7972,7 +7972,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -7983,7 +7983,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -7994,7 +7994,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -8005,7 +8005,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "",
       "esES": null
     },
     {
@@ -8302,7 +8302,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的法术在穿透法术抗力时远超常人，这个法术击中敌人时，将目标的法术抗力降低5。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -8313,7 +8313,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔（法术穿刺）",
       "esES": null
     },
     {
@@ -8324,7 +8324,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "穿刺",
       "esES": null
     },
     {
@@ -8445,7 +8445,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你以更快的速度祈求神祗的祝福。\n选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8456,7 +8456,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福",
       "esES": null
     },
     {
@@ -8467,7 +8467,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8478,7 +8478,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：空气",
       "esES": null
     },
     {
@@ -8489,7 +8489,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8500,7 +8500,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：动物",
       "esES": null
     },
     {
@@ -8511,7 +8511,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8522,7 +8522,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：混乱",
       "esES": null
     },
     {
@@ -8533,7 +8533,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8544,7 +8544,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：黑暗",
       "esES": null
     },
     {
@@ -8555,7 +8555,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8566,7 +8566,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：死亡",
       "esES": null
     },
     {
@@ -8577,7 +8577,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8588,7 +8588,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：破坏",
       "esES": null
     },
     {
@@ -8599,7 +8599,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8610,7 +8610,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：大地",
       "esES": null
     },
     {
@@ -8621,7 +8621,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8632,7 +8632,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：邪恶",
       "esES": null
     },
     {
@@ -8643,7 +8643,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8654,7 +8654,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：火焰",
       "esES": null
     },
     {
@@ -8665,7 +8665,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8676,7 +8676,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：善良",
       "esES": null
     },
     {
@@ -8687,7 +8687,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8698,7 +8698,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：医疗",
       "esES": null
     },
     {
@@ -8709,7 +8709,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8720,7 +8720,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：秩序",
       "esES": null
     },
     {
@@ -8731,7 +8731,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8742,7 +8742,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：幸运",
       "esES": null
     },
     {
@@ -8753,7 +8753,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8764,7 +8764,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：魔法",
       "esES": null
     },
     {
@@ -8775,7 +8775,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8786,7 +8786,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：崇高",
       "esES": null
     },
     {
@@ -8797,7 +8797,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8808,7 +8808,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：防护",
       "esES": null
     },
     {
@@ -8819,7 +8819,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8830,7 +8830,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：宁静",
       "esES": null
     },
     {
@@ -8841,7 +8841,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8852,7 +8852,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：太阳",
       "esES": null
     },
     {
@@ -8863,7 +8863,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8874,7 +8874,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：旅行",
       "esES": null
     },
     {
@@ -8885,7 +8885,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8896,7 +8896,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：诡术",
       "esES": null
     },
     {
@@ -8907,7 +8907,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8918,7 +8918,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：流水",
       "esES": null
     },
     {
@@ -8929,7 +8929,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择你的一项祝福，你可以用迅捷动作开启这项祝福，消耗两次每日祝福次数。",
       "esES": null
     },
     {
@@ -8940,7 +8940,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "迅捷祝福：天气",
       "esES": null
     },
     {
@@ -8962,7 +8962,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "受到你的含有寒冷标识符的法术的伤害的敌人受到极度寒冷的影响，无需豁免检定，被纠缠等同法术实际环级轮。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -8973,7 +8973,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔（霜冻法术）",
       "esES": null
     },
     {
@@ -8984,7 +8984,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "霜冻",
       "esES": null
     },
     {
@@ -9039,7 +9039,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的神话力量吸引了更多高等存在的关注。\n选择第二个庇护主，获得所有增益。",
       "esES": null
     },
     {
@@ -9050,7 +9050,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "第二庇护主",
       "esES": null
     },
     {
@@ -9061,7 +9061,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "庇护主",
       "esES": null
     },
     {
@@ -9072,7 +9072,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "巫师庇护主",
       "esES": null
     },
     {
@@ -9281,7 +9281,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的神话之力加持下的偷袭攻击无比致命。\n你的偷袭骰比通常大一级。",
       "esES": null
     },
     {
@@ -9292,7 +9292,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "真实阴影",
       "esES": null
     },
     {
@@ -9303,7 +9303,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的阴影幻象更加难以识破，其真实度提升20%。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -9314,7 +9314,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔（真实阴影）",
       "esES": null
     },
     {
@@ -10183,7 +10183,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "压制",
       "esES": null
     },
     {
@@ -10623,7 +10623,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的拳头在神话力量加持下的威势令人难以想象。\n你的徒手攻击的伤害骰提升一级。此外，你在你的所有战技检定和震慑拳的DC上附加你的对手的体型比中型大的级数作为加值。",
       "esES": null
     },
     {
@@ -10634,7 +10634,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "泰坦之力",
       "esES": null
     },
     {
@@ -10755,7 +10755,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你双持武器时也能凭借技巧保护自身。\n当你双持武器（不含天生武器）时，AC获得+1盾牌加值。如果你进行防御式攻击，提升到+2。",
       "esES": null
     },
     {
@@ -10766,7 +10766,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "双武器防御",
       "esES": null
     },
     {
@@ -10777,7 +10777,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的双持技巧使你更难被击中。\n你的双武器防御额外附加你的武器中增强加值较高者的增强加值作为盾牌AC。",
       "esES": null
     },
     {
@@ -10788,7 +10788,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "双武器防御（神话）",
       "esES": null
     },
     {
@@ -10854,7 +10854,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "选择一个你已有法术专攻的魔法学派，你在这个学派的施法者等级+1。",
       "esES": null
     },
     {
@@ -10865,7 +10865,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "瓦里西安纹身",
       "esES": null
     },
     {
@@ -10898,7 +10898,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的信仰在战斗中使你的意志更加坚定。\n你在先攻和专注上获得神话等级一半的加值。",
       "esES": null
     },
     {
@@ -10909,7 +10909,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "信仰战士（神话）",
       "esES": null
     },
     {
