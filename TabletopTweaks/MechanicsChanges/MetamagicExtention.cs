@@ -185,6 +185,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
 
         [HarmonyPatch(typeof(MetamagicHelper), "DefaultCost")]
         static class MetamagicHelper_DefaultCost_NewMetamagic_Patch {
+            //Prefixed to prevent excessive exceptions from being thrown by vanilla logger
             static bool Prefix(ref int __result, Metamagic metamagic) {
                 if (MetamagicExtention.IsRegisistered(metamagic)) {
                     __result = MetamagicExtention.GetMetamagicDefaultCost(metamagic);
@@ -197,6 +198,7 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         [HarmonyPatch(typeof(MetamagicHelper), "SpellIcon")]
         static class MetamagicHelper_SpellIcon_NewMetamagic_Patch {
             private static bool Prefix(ref Sprite __result, Metamagic metamagic) {
+                //Prefixed to prevent excessive exceptions from being thrown by vanilla logger
                 if (MetamagicExtention.GetMetamagicIcon(metamagic) != null) {
                     __result = MetamagicExtention.GetMetamagicIcon(metamagic);
                     return false;

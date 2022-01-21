@@ -6,6 +6,7 @@ using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
@@ -21,9 +22,11 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
             if (evt.Initiator.IsAlly(evt.Target)) { return; }
             MechanicsContext maybeContext = base.Fact.MaybeContext;
             if (maybeContext != null && evt.Success && (this.TriggerOnAreaEffectsDispell || evt.AreaEffect == null)) {
+                var abilityParams = base.Context.TriggerRule(new RuleCalculateAbilityParams(evt.Initiator, base.OwnerBlueprint, null));
                 using (maybeContext.GetDataScope(evt.Target)) {
-                    int dc = 10 + ((evt.CasterLevel + evt.Bonus) / 2) + getHighestStatBonus(evt.Initiator, StatType.Intelligence, StatType.Wisdom, StatType.Charisma);
-                    RuleSavingThrow ruleSavingThrow = base.Context.TriggerRule<RuleSavingThrow>(new RuleSavingThrow(evt.Target, SavingThrowType.Fortitude, dc));
+                    int dc = 10 + ((evt.CasterLevel + evt.Bonus) / 2) + abilityParams.m_BonusDC + getHighestStatBonus(evt.Initiator, StatType.Intelligence, StatType.Wisdom, StatType.Charisma);
+                    Main.Log($"Calculated DC: {dc} | Bonus From parama: {abilityParams.m_BonusDC}");
+                    RuleSavingThrow ruleSavingThrow = base.Context.TriggerRule(new RuleSavingThrow(evt.Target, SavingThrowType.Fortitude, dc));
                     if (ruleSavingThrow.IsPassed) {
                         SaveSuccees.Run();
                     } else {

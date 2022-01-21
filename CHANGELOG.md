@@ -1,6 +1,12 @@
 ## Version 1.11.0a
 * Chinese Localization has been updated for 1.11.0a
 * Fixes
+    * Metamagic
+        * Burning Spell Metamagic now apllies reworked elemental barrage when the burn damage ticks.
+    * Feats
+        * Destructive Dispel DC now benifits from global DC increases
+    * Spells
+        * Supernova now respects the saving throw for the blind and always deals the correct amount of damage.
     * Aeon
         * Aeon 10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies.
     * Mythic Feats

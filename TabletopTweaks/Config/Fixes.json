@@ -898,6 +898,11 @@
         "Homebrew": false,
         "Description": "Sun Form now deals the correct amount of damage."
       },
+      "Supernova": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Supernova now respects the saving throw for the blind and always deals the correct amount of damage."
+      },
       "UnbreakableHeart": {
         "Enabled": true,
         "Homebrew": false,

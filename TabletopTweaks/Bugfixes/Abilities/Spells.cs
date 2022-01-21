@@ -13,6 +13,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -63,6 +64,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchShadowEvocationGreater();
                 PatchStarlight();
                 PatchSunForm();
+                PatchSupernova();
                 PatchUnbreakableHeart();
                 PatchWrachingRay();
                 PatchFromSpellFlags();
@@ -74,6 +76,11 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 var AbyssalStorm = Resources.GetBlueprint<BlueprintAbility>("58e9e2883bca1574e9c932e72fd361f9");
                 AbyssalStorm.GetComponent<AbilityEffectRunAction>().SavingThrowType = SavingThrowType.Unknown;
                 AbyssalStorm.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
+                    if (a.WriteResultToSharedValue) {
+                        a.WriteRawResultToSharedValue = true;
+                    } else {
+                        a.ReadPreRolledFromSharedValue = true;
+                    }
                     a.Value.DiceType = DiceType.D6;
                     a.Value.DiceCountValue = new ContextValue() {
                         ValueType = ContextValueType.Rank
@@ -81,8 +88,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     a.Value.BonusValue = new ContextValue();
                     a.HalfIfSaved = false;
                     a.IsAoE = true;
-                    a.WriteResultToSharedValue = false;
-                    a.ReadPreRolledFromSharedValue = false;
                 });
                 AbyssalStorm.GetComponent<AbilityTargetsAround>().TemporaryContext(c => {
                     c.m_Condition = new ConditionsChecker() {
@@ -513,6 +518,105 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     a.Value.BonusValue = new ContextValue();
                 });
                 Main.LogPatch("Patched", AngelSunFormRay);
+            }
+
+            static void PatchSupernova() {
+                if (ModSettings.Fixes.Spells.IsDisabled("Supernova")) { return; }
+                var Supernova = Resources.GetBlueprint<BlueprintAbility>("1325e698f4a3f224b880e3b83a551228");
+                var SupernovaArea = Resources.GetBlueprint<BlueprintAbilityAreaEffect>("165a01a3597c0bf44a8b333ac6dd631a");
+                var BlindnessBuff = Resources.GetBlueprintReference<BlueprintBuffReference>("187f88d96a0ef464280706b63635f2af");
+
+                Supernova.AvailableMetamagic |= Metamagic.Empower | Metamagic.Maximize | Metamagic.Bolstered;
+                SupernovaArea.RemoveComponents<AbilityAreaEffectRunAction>();
+                SupernovaArea.AddComponent<AbilityAreaEffectRunAction>(c => {
+                    c.UnitEnter = Helpers.CreateActionList(CreateBlindnessSave(), CreateDamageSave());
+                    c.UnitExit = Helpers.CreateActionList();
+                    c.UnitMove = Helpers.CreateActionList();
+                    c.Round = Helpers.CreateActionList(CreateDamageSave());
+                });
+                Main.LogPatch("Patched", SupernovaArea);
+
+                ContextActionSavingThrow CreateBlindnessSave() {
+                    return Helpers.Create<ContextActionSavingThrow>(save => {
+                        save.Type = SavingThrowType.Fortitude;
+                        save.m_ConditionalDCIncrease = new ContextActionSavingThrow.ConditionalDCIncrease[0];
+                        save.CustomDC = new ContextValue();
+                        save.Actions = Helpers.CreateActionList(
+                            Helpers.Create<ContextActionConditionalSaved>(c => {
+                                c.Succeed = Helpers.CreateActionList();
+                                c.Failed = Helpers.CreateActionList(
+                                    Helpers.Create<ContextActionApplyBuff>(a => {
+                                        a.m_Buff = BlindnessBuff;
+                                        a.DurationValue = new ContextDurationValue() {
+                                            m_IsExtendable = true,
+                                            DiceCountValue = new ContextValue(),
+                                            BonusValue = new ContextValue() {
+                                                ValueType = ContextValueType.Rank
+                                            }
+                                        };
+                                        a.AsChild = true;
+                                    })
+                                );
+                            })
+                        );
+                    });
+                }
+                ContextActionSavingThrow CreateDamageSave() {
+                    return Helpers.Create<ContextActionSavingThrow>(save => {
+                        save.Type = SavingThrowType.Reflex;
+                        save.m_ConditionalDCIncrease = new ContextActionSavingThrow.ConditionalDCIncrease[0];
+                        save.CustomDC = new ContextValue();
+                        save.Actions = Helpers.CreateActionList(
+                            Helpers.Create<ContextActionDealDamage>(c => {
+                                c.DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Common = new DamageTypeDescription.CommomData(),
+                                    Physical = new DamageTypeDescription.PhysicalData(),
+                                    Energy = DamageEnergyType.Fire
+                                };
+                                c.Duration = new ContextDurationValue() {
+                                    m_IsExtendable = true,
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                };
+                                c.Value = new ContextDiceValue() { 
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 2,
+                                    BonusValue = new ContextValue() {
+                                        ValueType = ContextValueType.Rank
+                                    }
+                                };
+                                c.IsAoE = true;
+                                c.HalfIfSaved = true;
+                                c.WriteResultToSharedValue = true;
+                                c.WriteRawResultToSharedValue = true;
+                            }),
+                            Helpers.Create<ContextActionDealDamage>(c => {
+                                c.DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Common = new DamageTypeDescription.CommomData(),
+                                    Physical = new DamageTypeDescription.PhysicalData(),
+                                    Energy = DamageEnergyType.Divine
+                                };
+                                c.Duration = new ContextDurationValue() {
+                                    m_IsExtendable = true,
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                };
+                                c.Value = new ContextDiceValue() {
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 2,
+                                    BonusValue = new ContextValue() {
+                                        ValueType = ContextValueType.Rank
+                                    }
+                                };
+                                c.IsAoE = true;
+                                c.HalfIfSaved = true;
+                                c.ReadPreRolledFromSharedValue = true;
+                            })
+                        );
+                    });
+                }
             }
 
             static void PatchUnbreakableHeart() {
