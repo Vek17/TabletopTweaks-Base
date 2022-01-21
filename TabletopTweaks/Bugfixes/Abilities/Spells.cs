@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -70,6 +71,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 if (ModSettings.Fixes.Spells.IsDisabled("AbyssalStorm")) { return; }
 
                 var AbyssalStorm = Resources.GetBlueprint<BlueprintAbility>("58e9e2883bca1574e9c932e72fd361f9");
+                AbyssalStorm.GetComponent<AbilityEffectRunAction>().SavingThrowType = SavingThrowType.Unknown;
                 AbyssalStorm.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
                     a.Value.DiceType = DiceType.D6;
                     a.Value.DiceCountValue = new ContextValue() {

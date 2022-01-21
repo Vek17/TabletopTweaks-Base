@@ -148,6 +148,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Aeon Demythication will now actually suppress mythic effects."
+      },
+      "AeonTenthLevelImmunities": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies."
       }
     },
     "IsExpanded": true

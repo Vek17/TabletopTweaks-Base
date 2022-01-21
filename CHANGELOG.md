@@ -1,3 +1,8 @@
+## Version 1.11.1
+* Fixes
+    * Aeon
+        * Aeon 10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies.
+
 ## Version 1.11.0
 * Fixes
     * General
@@ -35,7 +40,7 @@
         * Sun Form now deals the correct amount of damage.
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * Enemies
-        * Balors now correctly get thier vorpal weapons. Be afriad.
+        * Balors now correctly get their vorpal weapons. Be afraid.
     * Items
         * Aspect of the Asp will now actually deal bonus damage on ray spells.
         * The Vorpal weapon enchant now works.
