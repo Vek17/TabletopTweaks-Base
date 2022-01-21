@@ -4,6 +4,7 @@
 using JetBrains.Annotations;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -264,6 +265,44 @@ namespace TabletopTweaks.Utilities {
                 Main.Log($"COMPONENT NOT FOUND: {typeof(V).Name} or {typeof(N).Name} on {blueprint.AssetGuid} - {blueprint.NameSafe()}");
             } else {
                 Main.Log($"Rebuilt DR for: {blueprint.AssetGuid} - {blueprint.NameSafe()}");
+            }
+        }
+
+        public static IEnumerable<GameAction> GetAllConditionalActions(this ActionList actions) {
+            var open = new Queue<GameAction>(actions.Actions);
+            var all = new List<GameAction>();
+            while (open.Count > 0) {
+                var action = open.Dequeue();
+
+                if (action is Conditional conditional) {
+                    foreach (var child in Enumerable.Concat(conditional.IfTrue.Actions, conditional.IfFalse.Actions)) {
+                        open.Enqueue(child);
+                    }
+                    continue;
+                }
+
+                all.Add(action);
+            }
+            return all;
+        }
+        public static void ReplaceAction(this ActionList actions, string actionAssetId, Func<GameAction, GameAction> modifier) {
+            ReplaceAction<GameAction>(actions, actionAssetId, modifier);
+        }
+        public static void ReplaceAction<TAction>(this ActionList actions, string actionAssetId, Func<TAction, GameAction> modifier) where TAction : GameAction {
+            if (modifier == null) {
+                return;
+            }
+            for (int i = 0; i < actions.Actions.Length; i++) {
+                var action = actions.Actions[i];
+
+                if (action.AssetGuid != actionAssetId) {
+                    continue;
+                }
+
+                if (action is TAction typedAction) {
+                    actions.Actions[i] = modifier(typedAction);
+                    return;
+                }
             }
         }
 

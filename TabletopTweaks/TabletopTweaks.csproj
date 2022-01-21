@@ -106,7 +106,8 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure\Wrath_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -150,6 +151,7 @@
     <Compile Include="Bugfixes\Abilities\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Classes\Aeon.cs" />
     <Compile Include="Bugfixes\Classes\Alchemist.cs" />
+    <Compile Include="Bugfixes\Classes\Angel.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />

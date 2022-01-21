@@ -33,6 +33,7 @@ namespace TabletopTweaks {
 
                 SetttingUI.SettingGroup("Base Fixes", TabLevel, Fixes.BaseFixes);
                 SetttingUI.SettingGroup("Aeon", TabLevel, Fixes.Aeon);
+                SetttingUI.SettingGroup("Angel", TabLevel, Fixes.Angel);
                 SetttingUI.SettingGroup("Demon", TabLevel, Fixes.Demon);
                 SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Lich);
                 SetttingUI.SettingGroup("Trickster", TabLevel, Fixes.Trickster);

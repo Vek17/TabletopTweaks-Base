@@ -7,6 +7,7 @@ namespace TabletopTweaks.Config {
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
         public SettingGroup Aeon = new SettingGroup();
+        public SettingGroup Angel = new SettingGroup();
         public SettingGroup Demon = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
@@ -71,6 +72,7 @@ namespace TabletopTweaks.Config {
             BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
+            Angel.LoadSettingGroup(loadedSettings.Angel, NewSettingsOffByDefault);
             Demon.LoadSettingGroup(loadedSettings.Demon, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);

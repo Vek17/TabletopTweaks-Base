@@ -147,6 +147,22 @@
     },
     "IsExpanded": true
   },
+  "Angel": {
+    "DisableAll": false,
+    "Settings": {
+      "HeavenlyHost": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Allow Sword of Heaven to affect more than one target when used with Heavenly Host."
+      },
+      "MythicCloak": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Remove the Aeon Mythic Cloak aura from the Angel Mythic Cloak."
+      }
+    },
+    "IsExpanded": true
+  },
   "Demon": {
     "DisableAll": false,
     "Settings": {
