@@ -185,19 +185,23 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
 
         [HarmonyPatch(typeof(MetamagicHelper), "DefaultCost")]
         static class MetamagicHelper_DefaultCost_NewMetamagic_Patch {
-            static void Postfix(ref int __result, Metamagic metamagic) {
+            static bool Prefix(ref int __result, Metamagic metamagic) {
                 if (MetamagicExtention.IsRegisistered(metamagic)) {
                     __result = MetamagicExtention.GetMetamagicDefaultCost(metamagic);
+                    return false;
                 }
+                return true;
             }
         }
 
         [HarmonyPatch(typeof(MetamagicHelper), "SpellIcon")]
         static class MetamagicHelper_SpellIcon_NewMetamagic_Patch {
-            private static void Postfix(ref Sprite __result, Metamagic metamagic) {
+            private static bool Prefix(ref Sprite __result, Metamagic metamagic) {
                 if (MetamagicExtention.GetMetamagicIcon(metamagic) != null) {
                     __result = MetamagicExtention.GetMetamagicIcon(metamagic);
+                    return false;
                 }
+                return true;
             }
         }
 
@@ -341,30 +345,33 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                         .Any(damage => !damage.Immune)) { return; }
                     var casterLevel = context.Params?.SpellLevel ?? context.SpellLevel;
                     if (context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Fire)) {
-                        var newContext = new MechanicsContext(
+                        Main.Log("Burning FIRE");
+                        var fakeContext = new MechanicsContext(
                             caster: evt.Initiator,
                             owner: evt.Target,
-                            blueprint: BurningSpellFireBuff
+                            blueprint: context.SourceAbility
                         );
-                        newContext.RecalculateAbilityParams();
-                        newContext.Params.CasterLevel = casterLevel * 2;
-                        newContext.Params.Metamagic = 0;
-                        var buff = evt.Target?.Descriptor?.AddBuff(BurningSpellFireBuff, newContext, 1.Rounds().Seconds);
+                        fakeContext.RecalculateAbilityParams();
+                        fakeContext.Params.CasterLevel = casterLevel * 2;
+                        fakeContext.Params.Metamagic = 0;
+                        var buff = evt.Target?.Descriptor?.AddBuff(BurningSpellFireBuff, fakeContext, 1.Rounds().Seconds);
                         if (buff != null) {
                             buff.IsFromSpell = true;
                             buff.IsNotDispelable = true;
+                        } else {
+                            Main.Log("Buff was null?");
                         }
                     }
                     if (context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Acid)) {
-                        var newContext = new MechanicsContext(
+                        var fakeContext = new MechanicsContext(
                             caster: evt.Initiator,
                             owner: evt.Target,
-                            blueprint: BurningSpellAcidBuff
+                            blueprint: context.SourceAbility
                         );
-                        newContext.RecalculateAbilityParams();
-                        newContext.Params.CasterLevel = casterLevel * 2;
-                        newContext.Params.Metamagic = 0;
-                        var buff = evt.Target?.Descriptor?.AddBuff(BurningSpellAcidBuff, newContext, 1.Rounds().Seconds);
+                        fakeContext.RecalculateAbilityParams();
+                        fakeContext.Params.CasterLevel = casterLevel * 2;
+                        fakeContext.Params.Metamagic = 0;
+                        var buff = evt.Target?.Descriptor?.AddBuff(BurningSpellAcidBuff, fakeContext, 1.Rounds().Seconds);
                         if (buff != null) {
                             buff.IsFromSpell = true;
                             buff.IsNotDispelable = true;
