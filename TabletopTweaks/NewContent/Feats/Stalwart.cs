@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
@@ -60,6 +61,7 @@ namespace TabletopTweaks.NewContent.Feats {
         public static void AddStalwart() {
             var Diehard = Resources.GetBlueprint<BlueprintFeature>("86669ce8759f9d7478565db69b8c19ad");
 
+            var CombatExpertiseMythicFeature = Resources.GetModBlueprintReference<BlueprintUnitFactReference>("CombatExpertiseMythicFeature");
             var CombatExpertiseBuff = Resources.GetBlueprint<BlueprintBuff>("e81cd772a7311554090e413ea28ceea1");
             var FightDefensivelyBuff = Resources.GetBlueprint<BlueprintBuff>("6ffd93355fb3bcf4592a5d976b1d32a9");
             var CraneStyleBuff = Resources.GetBlueprint<BlueprintBuff>("e8ea7bd10136195478d8a5fc5a44c7da");
@@ -77,6 +79,7 @@ namespace TabletopTweaks.NewContent.Feats {
             var StalwartDRPropertyBlueprint = Helpers.CreateBlueprint<BlueprintUnitProperty>("StalwartDRProperty", bp => {
                 bp.AddComponent(new StalwartDRProperty(
                     CombatExpertiseBuff.ToReference<BlueprintUnitFactReference>(),
+                    CombatExpertiseMythicFeature,
                     FightDefensivelyBuff.ToReference<BlueprintUnitFactReference>(),
                     CraneStyleBuff.ToReference<BlueprintUnitFactReference>(),
                     CautiousFighter.ToReference<BlueprintUnitFactReference>(),
@@ -110,7 +113,7 @@ namespace TabletopTweaks.NewContent.Feats {
                         c.IsStacksWithClassFeatures = true;
                     });
                 }
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
                     c.m_Feature = BlueprintReferenceBase.CreateTyped<BlueprintFeatureReference>(null);
                     c.m_FeatureList = Array.Empty<BlueprintFeatureReference>();
@@ -121,7 +124,7 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.m_Class = Array.Empty<BlueprintCharacterClassReference>();
                     c.m_CustomPropertyList = Array.Empty<BlueprintUnitPropertyReference>();
                     c.m_CustomProperty = StalwartDRPropertyBlueprint.ToReference<BlueprintUnitPropertyReference>();
-                }));
+                });
                 bp.AddComponent<RecalculateOnFactsChange>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] {
                         CombatExpertiseBuff.ToReference<BlueprintUnitFactReference>(),
@@ -183,7 +186,7 @@ namespace TabletopTweaks.NewContent.Feats {
             FightDefensivelyBuff.GetComponent<RecalculateOnFactsChange>().m_CheckedFacts =
                 FightDefensivelyBuff.GetComponent<RecalculateOnFactsChange>().m_CheckedFacts.AddToArray(StalwartBuff.ToReference<BlueprintUnitFactReference>());
 
-            CombatExpertiseBuff.AddComponent<AddStatBonusIfHasFact>(c => {
+            CombatExpertiseBuff.AddComponent<AddStatBonusIfHasFactTTT>(c => {
                 c.Descriptor = ModifierDescriptor.Dodge;
                 c.Stat = StatType.AC;
                 c.Value = new ContextValue {
@@ -196,14 +199,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 };
             });
 
-            // This is still needed, as AddStatBonusIfHasFact does not react properly to adding/removing facts
-            CombatExpertiseBuff.AddComponent<RecalculateOnFactsChange>(c => {
-                c.m_CheckedFacts = new BlueprintUnitFactReference[] {
-                    StalwartBuff.ToReference<BlueprintUnitFactReference>()
-                };
-            });
-
-            CombatExpertiseBuff.AddComponent(Helpers.CreateContextRankConfig(c => {
+            CombatExpertiseBuff.AddContextRankConfig(c => {
                 c.m_BaseValueType = ContextRankBaseValueType.BaseAttack;
                 c.m_Progression = ContextRankProgression.OnePlusDivStep;
                 c.m_StepLevel = 4;
@@ -216,7 +212,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 c.m_AdditionalArchetypes = Array.Empty<BlueprintArchetypeReference>();
                 c.m_Class = Array.Empty<BlueprintCharacterClassReference>();
                 c.m_CustomPropertyList = Array.Empty<BlueprintUnitPropertyReference>();
-            }));
+            });
 
             CombatExpertiseBuff.RemoveComponents<AddStatBonus>();
 

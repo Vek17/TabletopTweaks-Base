@@ -21,6 +21,12 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
             }
         }
 
+        public ReferenceArrayProxy<BlueprintUnitFact, BlueprintUnitFactReference> BlockedFacts {
+            get {
+                return this.m_BlockedFacts;
+            }
+        }
+
         public override void OnTurnOn() {
             this.Update();
         }
@@ -30,13 +36,19 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         }
 
         private bool ShouldApplyBonus() {
-            bool flag = this.RequireAllFacts || this.m_CheckedFacts.Length == 1;
+            
+            foreach (BlueprintUnitFact blueprint in this.BlockedFacts) {
+                if (base.Owner.HasFact(blueprint)) {
+                    return false;
+                }
+            }
+            bool allFacts = this.RequireAllFacts || this.m_CheckedFacts.Length == 1;
             foreach (BlueprintUnitFact blueprint in this.CheckedFacts) {
-                bool flag2 = base.Owner.HasFact(blueprint);
-                if (flag2 && !flag) {
+                bool hasFact = base.Owner.HasFact(blueprint);
+                if (hasFact && !allFacts) {
                     return !this.InvertCondition;
                 }
-                if (!flag2 && flag) {
+                if (!hasFact && allFacts) {
                     return this.InvertCondition;
                 }
             }
@@ -44,13 +56,11 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         }
 
         private void Update() {
+            ModifiableValue stat = base.Owner.Stats.GetStat(this.Stat);
+            if (stat == null) { return; }
             if (this.ShouldApplyBonus()) {
                 int value = this.Value.Calculate(base.Context);
-                base.Owner.Stats.GetStat(this.Stat).AddModifierUnique(value, base.Runtime, this.Descriptor);
-                return;
-            }
-            ModifiableValue stat = base.Owner.Stats.GetStat(this.Stat);
-            if (stat == null) {
+                stat.AddModifierUnique(value, base.Runtime, this.Descriptor);
                 return;
             }
             stat.RemoveModifiersFrom(base.Runtime);
@@ -66,14 +76,14 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
 
         public void HandleUnitGainFact(EntityFact fact) {
             BlueprintUnitFact bp = fact.Blueprint as BlueprintUnitFact;
-            if (bp != null && this.CheckedFacts.HasReference(bp)) {
+            if (bp != null && (this.CheckedFacts.HasReference(bp) || this.BlockedFacts.HasReference(bp))) {
                 this.Update();
             }
         }
 
         public void HandleUnitLostFact(EntityFact fact) {
             BlueprintUnitFact bp = fact.Blueprint as BlueprintUnitFact;
-            if (bp != null && this.CheckedFacts.HasReference(bp)) {
+            if (bp != null && (this.CheckedFacts.HasReference(bp) || this.BlockedFacts.HasReference(bp)) ) {
                 this.Update();
             }
         }
@@ -86,5 +96,6 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         [SerializeField]
         [ValidateNotEmpty]
         public BlueprintUnitFactReference[] m_CheckedFacts;
+        public BlueprintUnitFactReference[] m_BlockedFacts;
     }
 }
