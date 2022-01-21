@@ -24,6 +24,9 @@ using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 
 namespace TabletopTweaks.Extensions {
     static class ExtentionMethods {
+        public static void TemporaryContext<T>(this T obj, Action<T> init = null) {
+            init?.Invoke(obj);
+        }
         public static IEnumerable<GameAction> FlattenAllActions(this BlueprintScriptableObject blueprint) {
             List<GameAction> actions = new List<GameAction>();
             foreach (var component in blueprint.ComponentsArray) {
@@ -54,6 +57,14 @@ namespace TabletopTweaks.Extensions {
             var varriants = ability.GetComponent<AbilityVariants>();
             if (varriants != null) {
                 List.AddRange(varriants.Variants);
+            }
+            return List;
+        }
+        public static IEnumerable<BlueprintAbility> AbilityAndStickyTouch(this BlueprintAbility ability) {
+            var List = new List<BlueprintAbility>() { ability };
+            var stickyTouch = ability.GetComponent<AbilityEffectStickyTouch>();
+            if (stickyTouch != null) {
+                List.Add(stickyTouch.m_TouchDeliveryAbility);
             }
             return List;
         }

@@ -55,9 +55,11 @@
     <ItemGroup>
       <PubliciseAssemblyCSharp Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
       <PubliciseUniRx Include="$(WrathPath)\Wrath_Data\Managed\UniRx.dll" />
+      <PubliciseRuntimeUI Include="$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll" />
     </ItemGroup>
     <Publicise InputAssemblies="@(PubliciseAssemblyCSharp)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
     <Publicise InputAssemblies="@(PubliciseUniRx)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+    <Publicise InputAssemblies="@(PubliciseRuntimeUI)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
   </Target>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -86,7 +88,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Owlcat.Runtime.UI">
-      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</HintPath>
+      <HintPath>$(SolutionDir)\lib\Owlcat.Runtime.UI_public.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -102,6 +104,9 @@
     <Reference Include="UniRx">
       <HintPath>$(SolutionDir)lib\UniRx_public.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure\Wrath_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -133,6 +138,9 @@
       <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityModManager">
       <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
       <Private>False</Private>
@@ -140,10 +148,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bugfixes\Abilities\BaseAbilities.cs" />
+    <Compile Include="Bugfixes\Classes\Aeon.cs" />
     <Compile Include="Bugfixes\Classes\Alchemist.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
+    <Compile Include="Bugfixes\Classes\Cleric.cs" />
+    <Compile Include="Bugfixes\Classes\Demon.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
@@ -154,6 +165,7 @@
     <Compile Include="Bugfixes\Classes\Oracle.cs" />
     <Compile Include="Bugfixes\Classes\Paladin.cs" />
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
+    <Compile Include="Bugfixes\Classes\Shaman.cs" />
     <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
     <Compile Include="Bugfixes\Classes\Warpriest.cs" />
@@ -174,6 +186,7 @@
     <Compile Include="Bugfixes\Items\Equipment.cs" />
     <Compile Include="Bugfixes\Items\Weapons.cs" />
     <Compile Include="Bugfixes\TacticalCombat\Buildings.cs" />
+    <Compile Include="Bugfixes\UI\BuffSuppression.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Bugfixes\UI\SpellTooltips.cs" />
@@ -196,7 +209,18 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="NewComponents\ModifySavingThrowD20.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\WeaponBuffOnConfirmedCritTTT.cs" />
+    <Compile Include="NewComponents\WeaponExtraDamageDice.cs" />
+    <Compile Include="NewContent\Feats\BurningSpell.cs" />
+    <Compile Include="NewContent\Feats\FlaringSpell.cs" />
+    <Compile Include="NewContent\Feats\PiercingSpell.cs" />
+    <Compile Include="NewContent\Feats\SolidShadows.cs" />
+    <Compile Include="Reworks\Feats.cs" />
+    <Compile Include="Reworks\MythicAbilities.cs" />
+    <Compile Include="Reworks\MythicFeats.cs" />
     <Compile Include="NewActions\ContextActionApplyWeaponEnchant.cs" />
+    <Compile Include="NewActions\ContextActionDealDamageTTT.cs" />
     <Compile Include="NewActions\ContextActionTransferArcana.cs" />
     <Compile Include="NewActions\ContextActionWarriorSpiritEnhance.cs" />
     <Compile Include="NewComponents\AbilityRequirementHasResource.cs" />
@@ -216,6 +240,7 @@
     <Compile Include="NewComponents\AbilitySpecific\FocusedWeaponComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\MetaRageComponent.cs" />
     <Compile Include="NewComponents\AbilityActionTypeConversion.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\MythicSneakAttack.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationGreaterComponent.cs" />
     <Compile Include="NewComponents\AbilitySpecific\SpellSpecializationParametrizedExtension.cs" />
     <Compile Include="NewComponents\AbilitySpecific\TitanStrikeComponent.cs" />
@@ -243,6 +268,7 @@
     <Compile Include="NewComponents\IncreaseResourceAmountByWeaponTraining.cs" />
     <Compile Include="NewComponents\NestedPseudoActivatableAbilities.cs" />
     <Compile Include="NewComponents\NewBaseTypes\ItemEntityRestriction.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\AddOutgoingDamageTriggerTTT.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AddStatBonusIfHasFactTTT.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\AlliedSpellcasterTTT.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteSpellKnown.cs" />
@@ -320,8 +346,8 @@
     <Compile Include="NewContent\Archetypes\BladeBound.cs" />
     <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
     <Compile Include="Bugfixes\Abilities\Spells.cs" />
-    <Compile Include="MythicReworks\Aeon.cs" />
-    <Compile Include="MythicReworks\Azata.cs" />
+    <Compile Include="Reworks\Aeon.cs" />
+    <Compile Include="Reworks\Azata.cs" />
     <Compile Include="Bugfixes\Classes\Bloodrager.cs" />
     <Compile Include="Bugfixes\Classes\Rogue.cs" />
     <Compile Include="Bugfixes\Classes\Slayer.cs" />
@@ -336,7 +362,7 @@
     <Compile Include="NewComponents\BlockSpellDuplicationComponent.cs" />
     <Compile Include="NewComponents\ContextConditionHasFreeHand.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteNoClassLevelVisible.cs" />
-    <Compile Include="NewComponents\OwlcatReplacements\SuppressBuffsPersistant.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\SuppressBuffsTTT.cs" />
     <Compile Include="NewComponents\SuppressBuffsEveryRound.cs" />
     <Compile Include="NewContent\Archetypes\ChannelerOfTheUnknown.cs" />
     <Compile Include="NewContent\Archetypes\Myrmidarch.cs" />
@@ -363,18 +389,23 @@
     <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
     <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
     <Compile Include="NewContent\Feats\QuickenBlessing.cs" />
+    <Compile Include="NewContent\Feats\RimeSpell.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />
     <Compile Include="NewContent\Feats\TwoWeaponDefense.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
     <Compile Include="NewContent\Features\NauseatedPoision.cs" />
+    <Compile Include="NewContent\Feats\IntensifiedSpell.cs" />
+    <Compile Include="MechanicsChanges\MetamagicExtention.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
     <Compile Include="NewContent\MythicAbilities\EnhancedBlessings.cs" />
+    <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicPersistent.cs" />
+    <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicSelective.cs" />
     <Compile Include="NewContent\MythicAbilities\HarmoniousMage.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
@@ -462,6 +493,7 @@
     <Compile Include="NewUnitParts\UnitPartAeonGazeManager.cs" />
     <Compile Include="NewUnitParts\UnitPartBlackBlade.cs" />
     <Compile Include="NewUnitParts\UnitPartBroadStudy.cs" />
+    <Compile Include="NewUnitParts\UnitPartBuffSupressTTT.cs" />
     <Compile Include="NewUnitParts\UnitPartCustomMechanicsFeatures.cs" />
     <Compile Include="NewUnitParts\UnitPartCustomStats.cs" />
     <Compile Include="NewUnitParts\UnitPartFocusedWeapon.cs" />
@@ -491,6 +523,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Config\Fixes.cs" />
     <Compile Include="Utilities\ILUtils.cs" />
+    <Compile Include="Utilities\QuickFixTools.cs" />
     <Compile Include="Utilities\SpellTools.cs" />
     <Compile Include="Utilities\TypeReplaceTranspiler.cs" />
   </ItemGroup>
@@ -665,10 +698,19 @@
     <Content Include="Assets\Feats\Icon_ArmorMaster.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_BurningSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_DispelFocus.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_FlaringSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_GreaterDispelFocus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_IntensifiedSpellFeat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_LungingSpellTouch.png">
@@ -681,6 +723,15 @@
     <Content Include="Assets\Feats\Icon_MountedSkirmisher.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_PiercingSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_RimeSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_SolidShadowsFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_TrickRiding.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -688,6 +739,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_UndersizedMount.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_BurningSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_FlaringSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_IntensifiedSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_PiercingSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_RimeSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_SolidShadowsMetamagic.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

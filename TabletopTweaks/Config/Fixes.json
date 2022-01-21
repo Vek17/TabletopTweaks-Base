@@ -33,10 +33,20 @@
         "Homebrew": false,
         "Description": "Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack."
       },
+      "DisablePolymorphSizeStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Active Polymorph effects will correctly suppress size effects from non polymorph spells."
+      },
       "DisablePolymorphStacking": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Prevents multiple polymorph effects from being applied to a character at a time."
+      },
+      "DisableSizeStacking": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents multiple size effects from being applied to a character at a time. Extra effects are suppressed not removed."
       },
       "DisplaySpellbookInTooltips": {
         "Enabled": true,
@@ -98,6 +108,11 @@
         "Homebrew": false,
         "Description": "Prevents extra dice from empowered metamagic from being maximized by maximize metamagic."
       },
+      "MetamagicBolsterDoubleDiping": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents bolster from applying to the same spell more than once."
+      },
       "MountedActions": {
         "Enabled": true,
         "Homebrew": false,
@@ -117,6 +132,38 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Removes the movement impairing descriptor from staggered."
+      },
+      "SuppressedBuffUI": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Alters how buffs that have been supressed have been rendeered."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Aeon": {
+    "DisableAll": false,
+    "Settings": {
+      "AeonDemythication": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Aeon Demythication will now actually suppress mythic effects."
+      },
+      "AeonTenthLevelImmunities": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Demon": {
+    "DisableAll": false,
+    "Settings": {
+      "BalorVorpalStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now properly grants you vorpal weapons in balor form."
       }
     },
     "IsExpanded": true
@@ -314,6 +361,21 @@
         "IsExpanded": true
       }
     }
+  },
+  "Cleric": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "GloryDomain": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Glory domain no longer grants an untyped bonus the the raw Charsima stat."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
   },
   "Fighter": {
     "DisableAll": false,
@@ -514,7 +576,7 @@
         "SlipperyMind": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Slippery mind correctly updates its save bonuses when your dexterity changes."
+          "Description": "Slippery mind is now an advanced talent and correctly updates its save bonuses when your dexterity changes."
         },
         "Trapfinding": {
           "Enabled": true,
@@ -540,8 +602,34 @@
           }
         },
         "IsExpanded": true
+      },
+      "SylvanTrickster": {
+        "DisableAll": false,
+        "Settings": {
+          "FeyTricks": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fey tricks now properly includes all rogue talents."
+          }
+        },
+        "IsExpanded": true
       }
     }
+  },
+  "Shaman": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "AmelioratingHex": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
   },
   "Slayer": {
     "DisableAll": false,
@@ -562,7 +650,13 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "DraconicBloodlineDescriptions": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes the arcana descriptions to better refelect what they actually do."
+        }
+      },
       "IsExpanded": true
     },
     "Archetypes": {
@@ -628,6 +722,16 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th."
+        },
+        "AmelioratingHex": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
+        },
+        "MajorAmelioratingHex": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
         }
       },
       "IsExpanded": true
@@ -674,6 +778,16 @@
   "Spells": {
     "DisableAll": false,
     "Settings": {
+      "AbyssalStorm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Abyssal Storm no longer saves for half and no longer kills the caster."
+      },
+      "AcidMaw": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Acid Maw no longer causes excessive damage instances to trigger when attacking."
+      },
       "BelieveInYourself": {
         "Enabled": true,
         "Homebrew": false,
@@ -704,6 +818,11 @@
         "Homebrew": false,
         "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
       },
+      "EyeOfTheSun": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Eye Of The Sun now deals the correct amount of damage."
+      },
       "Firebrand": {
         "Enabled": true,
         "Homebrew": false,
@@ -713,6 +832,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Retags buffs from spells as coming from spells to allow them to be dispeled correctly."
+      },
+      "FlameStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now correctly halfs divine damage on saving throw."
       },
       "Geniekind": {
         "Enabled": true,
@@ -727,17 +851,27 @@
       "HellfireRay": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Hellfire Ray no longer has the Fire descriptor."
+        "Description": "Hellfire Ray no longer has the Fire descriptor and deals the correct half damage."
       },
       "MagicalVestment": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Magical Vestment now enhances your armor instead of granting a floating modifier."
       },
+      "MicroscopicProportions": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus."
+      },
       "RemoveFear": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Remove fear no longer makes you immune to fear."
+        "Description": "Remove fear no longer makes you immune to shaken and fear."
+      },
+      "RemoveSickness": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Remove Sickness no longer makes you immune to sickness and nausea."
       },
       "ShadowConjuration": {
         "Enabled": true,
@@ -752,12 +886,22 @@
       "ShadowEvocationGreater": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Greater Shadow Evocation can now have the correct metamagic applied."
+        "Description": "Greater Shadow Evocation can now have the correct metamagic applied and get the correct shadow factor of 60."
       },
       "Starlight": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Starlight no longer is affected by true sight."
+      },
+      "SunForm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Sun Form now deals the correct amount of damage."
+      },
+      "UnbreakableHeart": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly."
       },
       "WrackingRay": {
         "Enabled": true,
@@ -786,10 +930,20 @@
         "Homebrew": false,
         "Description": "Prevents Allied Spellcaster from applying globally."
       },
+      "ArcaneStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Prevents draconic arcane strike from generating too many damage instances."
+      },
       "BolsteredMetamagic": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Allows sticky touch spells to be bolstered."
+      },
+      "BrewPotions": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "No longer is tagged as a combat feat."
       },
       "CraneWing": {
         "Enabled": true,
@@ -976,6 +1130,16 @@
     "Equipment": {
       "DisableAll": false,
       "Settings": {
+        "AspectOfTheAsp": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Will now actually grant damage on ray spells."
+        },
+        "BaneOfSpirit": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now is a free action to use."
+        },
         "HalfOfThePair": {
           "Enabled": true,
           "Homebrew": false,
@@ -1017,10 +1181,20 @@
           "Homebrew": false,
           "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
         },
+        "Finnean": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
         "HonorableJudgement": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
+        "Radiance": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now grants spell resistance correctly instead of spell penetration."
         },
         "TerrifyingTremble": {
           "Enabled": true,
@@ -1031,6 +1205,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Fixes thundering burst to deal D10s like the description says instead of D8s."
+        },
+        "Vorpal": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Vorpal now works correctly."
         }
       },
       "IsExpanded": true

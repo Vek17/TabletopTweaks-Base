@@ -26,6 +26,7 @@ namespace TabletopTweaks.Bugfixes.Clases {
 
                 PatchBase();
                 PatchEldritchScoundrel();
+                PatchSylvanTrickster();
             }
             static void PatchBase() {
                 PatchTrapfinding();
@@ -53,10 +54,12 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 }
                 void PatchSlipperyMind() {
                     if (ModSettings.Fixes.Rogue.Base.IsDisabled("SlipperyMind")) { return; }
+                    var AdvanceTalents = Resources.GetBlueprint<BlueprintFeature>("a33b99f95322d6741af83e9381b2391c");
                     var SlipperyMind = Resources.GetBlueprint<BlueprintFeature>("a14e8c1801911334f96d410f10eab7bf");
                     SlipperyMind.AddComponent(Helpers.Create<RecalculateOnStatChange>(c => {
                         c.Stat = StatType.Dexterity;
                     }));
+                    SlipperyMind.AddPrerequisiteFeature(AdvanceTalents);
                     Main.LogPatch("Patched", SlipperyMind);
                 }
             }
@@ -90,6 +93,18 @@ namespace TabletopTweaks.Bugfixes.Clases {
                             Level = 4
                         }).ToArray();
                     Main.LogPatch("Patched", EldritchScoundrelArchetype);
+                }
+            }
+            static void PatchSylvanTrickster() {
+                PatchRogueTalentSelection();
+
+                void PatchRogueTalentSelection() {
+                    if (ModSettings.Fixes.Rogue.Archetypes["SylvanTrickster"].IsDisabled("FeyTricks")) { return; }
+                    var RogueTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
+                    var SylvanTricksterTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("290bbcc3c3bb92144b853fd8fb8ff452");
+                    SylvanTricksterTalentSelection.AddFeatures(RogueTalentSelection.m_AllFeatures);
+
+                    Main.LogPatch("Patched", SylvanTricksterTalentSelection);
                 }
             }
         }

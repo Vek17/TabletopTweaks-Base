@@ -12,7 +12,7 @@ using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
-namespace TabletopTweaks.MythicReworks {
+namespace TabletopTweaks.Reworks {
     class Azata {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {

@@ -32,6 +32,8 @@ namespace TabletopTweaks {
                 UI.Space(25);
 
                 SetttingUI.SettingGroup("Base Fixes", TabLevel, Fixes.BaseFixes);
+                SetttingUI.SettingGroup("Aeon", TabLevel, Fixes.Aeon);
+                SetttingUI.SettingGroup("Demon", TabLevel, Fixes.Demon);
                 SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Lich);
                 SetttingUI.SettingGroup("Trickster", TabLevel, Fixes.Trickster);
                 SetttingUI.NestedSettingGroup("Alchemist", TabLevel, Fixes.Alchemist,
@@ -53,6 +55,10 @@ namespace TabletopTweaks {
                 SetttingUI.NestedSettingGroup("Cavalier", TabLevel, Fixes.Cavalier,
                     ("Base", Fixes.Cavalier.Base),
                     Fixes.Cavalier.Archetypes
+                );
+                SetttingUI.NestedSettingGroup("Cleric", TabLevel, Fixes.Cleric,
+                    ("Base", Fixes.Cleric.Base),
+                    Fixes.Cleric.Archetypes
                 );
                 SetttingUI.NestedSettingGroup("Fighter", TabLevel, Fixes.Fighter,
                     ("Base", Fixes.Fighter.Base),
@@ -85,6 +91,10 @@ namespace TabletopTweaks {
                 SetttingUI.NestedSettingGroup("Rogue", TabLevel, Fixes.Rogue,
                     ("Base", Fixes.Rogue.Base),
                     Fixes.Rogue.Archetypes
+                );
+                SetttingUI.NestedSettingGroup("Shaman", TabLevel, Fixes.Shaman,
+                    ("Base", Fixes.Shaman.Base),
+                    Fixes.Shaman.Archetypes
                 );
                 SetttingUI.NestedSettingGroup("Slayer", TabLevel, Fixes.Slayer,
                     ("Base", Fixes.Slayer.Base),
@@ -127,6 +137,9 @@ namespace TabletopTweaks {
                 UI.Toggle("New Settings Off By Default".bold(), ref Homebrew.NewSettingsOffByDefault);
                 UI.Space(25);
 
+                SetttingUI.SettingGroup("Feats", TabLevel, Homebrew.Feats);
+                SetttingUI.SettingGroup("Mythic Abiltiies", TabLevel, Homebrew.MythicAbilities);
+                SetttingUI.SettingGroup("Mythic Feats", TabLevel, Homebrew.MythicFeats);
                 SetttingUI.NestedSettingGroup("Mythic Reworks", TabLevel, Homebrew.MythicReworks,
                     ("Aeon", Homebrew.MythicReworks.Aeon),
                     ("Azata", Homebrew.MythicReworks.Azata)

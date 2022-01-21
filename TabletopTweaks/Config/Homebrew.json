@@ -1,5 +1,38 @@
 {
   "NewSettingsOffByDefault": false,
+  "Feats": {
+    "DisableAll": false,
+    "Settings": {
+      "BolsterSpell": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Increases the level increase from bolstered from +1 to +2."
+      }
+    },
+    "IsExpanded": true
+  },
+  "MythicAbilities": {
+    "DisableAll": false,
+    "Settings": {
+      "ElementalBarrage": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Rework of Elemental barrage to turn it into a caster mythic instead of a weird martial mythic."
+      }
+    },
+    "IsExpanded": true
+  },
+  "MythicFeats": {
+    "DisableAll": false,
+    "Settings": {
+      "MythicSneakAttack": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Rework of Mythic Sneak Attack to increase the size of the damage dice instead of adding an extra dice."
+      }
+    },
+    "IsExpanded": true
+  },
   "MythicReworks": {
     "IsExpanded": true,
     "DisableAll": false,

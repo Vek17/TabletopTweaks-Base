@@ -3,6 +3,9 @@ namespace TabletopTweaks.Config {
     class Homebrew : IUpdatableSettings {
         public bool NewSettingsOffByDefault = false;
         public MythicReworkGroup MythicReworks = new MythicReworkGroup();
+        public SettingGroup Feats = new SettingGroup();
+        public SettingGroup MythicAbilities = new SettingGroup();
+        public SettingGroup MythicFeats = new SettingGroup();
 
         public void Init() {
             MythicReworks.Init();
@@ -11,6 +14,9 @@ namespace TabletopTweaks.Config {
         public void OverrideSettings(IUpdatableSettings userSettings) {
             var loadedSettings = userSettings as Homebrew;
             MythicReworks.LoadMythicReworkGroup(loadedSettings.MythicReworks, NewSettingsOffByDefault);
+            MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
+            MythicFeats.LoadSettingGroup(loadedSettings.MythicFeats, NewSettingsOffByDefault);
+            Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
         }
     }
     public class MythicReworkGroup : IDisableableGroup, ICollapseableGroup {

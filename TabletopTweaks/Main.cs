@@ -36,10 +36,14 @@ namespace TabletopTweaks {
         }
         [System.Diagnostics.Conditional("DEBUG")]
         public static void LogDebug(string msg) {
-            ModSettings.ModEntry.Logger.Log(msg);
+            Log(msg);
         }
-        public static void LogPatch(string action, [NotNull] IScriptableObjectWithAssetId bp) {
-            Log($"{action}: {bp.AssetGuid} - {bp.name}");
+        public static void LogPatch(string action, [NotNull] IScriptableObjectWithAssetId bp, bool debug = false) {
+            if (debug) {
+                LogDebug($"{action}: {bp.AssetGuid} - {bp.name}");
+            } else {
+                Log($"{action}: {bp.AssetGuid} - {bp.name}");
+            }
         }
         public static void LogHeader(string msg) {
             Log($"--{msg.ToUpper()}--");

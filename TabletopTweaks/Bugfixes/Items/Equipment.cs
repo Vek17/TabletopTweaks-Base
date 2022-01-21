@@ -1,20 +1,28 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Enums.Damage;
+using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewActions;
+using TabletopTweaks.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Items {
@@ -28,11 +36,55 @@ namespace TabletopTweaks.Bugfixes.Items {
                 Initialized = true;
 
                 Main.LogHeader("Patching Equipment");
+                PatchAspectOfTheAsp();
                 PatchMagiciansRing();
                 PatchManglingFrenzy();
                 PatchMetamagicRods();
                 PatchHolySymbolofIomedae();
                 PatchHalfOfThePair();
+
+                void PatchAspectOfTheAsp() {
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("AspectOfTheAsp")) { return; }
+
+                    var AspectOfTheAspItem = Resources.GetBlueprint<BlueprintItemEquipmentNeck>("7d55f6615f884bc45b85fdaa45cd7672");
+                    var AspectOfTheAspFeature = Resources.GetBlueprint<BlueprintFeature>("9b3f6877efdf29a4e821c33ec830f312");
+                    var RayType = Resources.GetBlueprintReference<BlueprintWeaponTypeReference>("1d39a22f206840e40b2255fc0175b8d0");
+                    AspectOfTheAspFeature.m_DisplayName = AspectOfTheAspItem.m_DisplayNameText;
+                    AspectOfTheAspFeature.SetComponents();
+                    AspectOfTheAspFeature.AddComponent<IncreaseSpellDescriptorDC>(c => {
+                        c.Descriptor = SpellDescriptor.Poison;
+                        c.BonusDC = 2;
+                    });
+                    AspectOfTheAspFeature.AddComponent<AddOutgoingDamageTriggerTTT>(c => {
+                        c.IgnoreDamageFromThisFact = true;
+                        c.CheckAbilityType = true;
+                        c.m_AbilityType = AbilityType.Spell;
+                        c.CheckWeaponType = true;
+                        c.m_WeaponType = RayType;
+                        c.OncePerAttackRoll = true;
+                        c.Actions = Helpers.CreateActionList(
+                            Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                a.DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Acid
+                                };
+                                a.Duration = new ContextDurationValue() {
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                };
+                                a.Value = new ContextDiceValue() {
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 1,
+                                    BonusValue = 5
+                                };
+                                a.IgnoreCritical = true;
+                                a.SetFactAsReason = true;
+                                a.IgnoreWeapon = true;
+                            })
+                        );
+                    });
+                    Main.LogPatch("Patched", AspectOfTheAspFeature);
+                }
 
                 void PatchMagiciansRing() {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("MagiciansRing")) { return; }

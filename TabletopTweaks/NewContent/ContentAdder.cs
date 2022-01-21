@@ -15,7 +15,20 @@ namespace TabletopTweaks.NewContent {
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
                 Features.MartialWeaponProficencySelection.AddMartialWeaponProficencySelection();
-                Features.NauseatedPoision.AddNauseatedPoision();
+                //Features.NauseatedPoision.AddNauseatedPoision();
+
+                Spells.LongArms.AddLongArms();
+                Spells.ShadowEnchantment.AddShadowEnchantment();
+                Spells.ShadowEnchantment.AddShadowEnchantmentGreater();
+                Spells.MagicalTailSpells.AddNewMagicalTailSpells();
+
+                //Added early as some things depend on them for selections
+                Feats.IntensifiedSpell.AddIntensifiedSpell();
+                Feats.RimeSpell.AddRimeSpell();
+                Feats.BurningSpell.AddBurningSpell();
+                Feats.FlaringSpell.AddFlaringSpell();
+                Feats.PiercingSpell.AddPiercingSpell();
+                Feats.SolidShadows.AddSolidShadows();
 
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();
@@ -89,12 +102,6 @@ namespace TabletopTweaks.NewContent {
                 //Features to support existing prestige clases
                 Classes.Loremaster.AddLoremasterFeatures();
 
-
-                Spells.LongArms.AddLongArms();
-                Spells.ShadowEnchantment.AddShadowEnchantment();
-                Spells.ShadowEnchantment.AddShadowEnchantmentGreater();
-                Spells.MagicalTailSpells.AddNewMagicalTailSpells();
-
                 MythicAbilities.ImpossibleSpeed.AddImpossibleSpeed();
                 MythicAbilities.ArmorMaster.AddArmorMaster();
                 MythicAbilities.ArmoredMight.AddArmoredMight();
@@ -110,6 +117,9 @@ namespace TabletopTweaks.NewContent {
                 MythicAbilities.SecondPatron.AddSecondPatron();
                 MythicAbilities.EnhancedBlessings.AddEnhancedBlessings();
                 MythicAbilities.ImpossibleBlessing.AddImpossibleBlessing();
+
+                MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
+                MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
                 Feats.MagicalAptitude.AddMagicalAptitude();

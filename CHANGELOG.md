@@ -1,28 +1,70 @@
+## Version 1.11.1
+* Fixes
+    * Aeon
+        * Aeon 10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies.
+
 ## Version 1.11.0
 * Fixes
     * General
         * More of the unique metamagic rods will no longer default to active
         * Nauseated is no longer considered a poison effect globally.
+        * Fixed bug that was causing split damage spells to calculate damage incorrectly in some cases.
+        * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
+        * Only one size changing buff can grant benifits at the same times.
     * Feats
+        * Arcane Strike no longer causes too many damage instances when used by a dragonheir scion.
+        * Brew Potions is no longer tagged as a combat feat
         * Destructive Dispel now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
         * Horsemaster prerequisites now restrict it from some cavalier archetypes
+        * Persistent Metamagic now can be applied to a few more spells
     * Mythic Feats
         * Expanded Arsenal can no longer be used to stack multiple spell focus feats on the same school to increase DC
     * Spells
-        * Chain Lightning now respects the CL 20 cap for its damage dice
-        * Firebrand no longer causes too many damage instances
-        * Geniekind no longer causes too many damage instances
-        * Hellfire Ray no longer has the Fire descriptor.
-        * Magical Vestment now works correctly when used by enemies in prebuffs
-        * Magical Vestment can now be correctly dispeled
-        * Magical Vestment now grants a non stacking armor bonus if no armor is equiped
-        * Starlight is no longer affected by true sight as it is not an illusion effect
+        * Abyssal Storm no longer saves for half and no longer kills the caster.
+        * Acid Maw no longer causes excessive damage instances to trigger when attacking.
+        * Chain Lightning now respects the CL 20 cap for its damage dice.
+        * Eye Of The Sun now deals the correct amount of damage.
+        * Firebrand no longer causes excessive damage instances to trigger when attacking.
+        * Flamestrike now properly respects the reflex saving throw with the divine portion of its damage.
+        * Geniekind no longer causes excessive damage instances to trigger when attacking.
+        * Hellfire Ray no longer has the Fire descriptor and correctly splits damage half and half.
+        * Magical Vestment now works correctly when used by enemies in prebuffs.
+        * Magical Vestment can now be correctly dispeled.
+        * Magical Vestment now grants a non stacking armor bonus if no armor is equiped.
+        * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
+        * Remove Fear no longer grants immunity to shaken and fear.
+        * Remove Sickness no longer grants immunity to sickness and nausea.
+        * Shadow Conjuration Greater now has the correct shadow factor of 60 instead of 40.
+        * Shadow Evocation Greater now has the correct shadow factor of 60 instead of 40.
+        * Starlight is no longer affected by true sight as it is not an illusion effect.
+        * Sun Form now deals the correct amount of damage.
+        * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
+    * Enemies
+        * Balors now correctly get their vorpal weapons. Be afraid.
+    * Items
+        * Aspect of the Asp will now actually deal bonus damage on ray spells.
+        * The Vorpal weapon enchant now works.
+        * Radiance now correctly grants spell resistance instead of spell penetrations.
+        * Finnean now always deals the correct amount of damage.
+    * Aeon
+        * Aeon Demythication should now actually suppress mythic effects.
+    * Demon
+        * Balor transformation now properly gets a vorpal weapon.
     * Angel
-        * Angel Unbroken DR should now stack with all other DR
+        * Angel Unbroken DR should now stack with all other DR.
+    * Cleric
+        * Glory domain no longer grants an untyped bonus the the raw Charsima stat.
     * Magus
-        * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list
+        * Spell combat/strike is now properly restricted to the magus spellbook instead of the magus spell list.
     * Paladin
-        * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks
+        * Smite Evil/Smite Chaos/Mark of Justice attack bonus no longer stacks.
+    * Rogue
+        * Slippery Mind is now an advanced talent like PnP
+        * Sylvan Trickster Fey Tricks now includes all rogue talents
+    * Shaman
+        * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
+    * Sorcerer
+        * Updated Draconic Bloodline arcana descriptions to better match their effects.
     * Warpriest
         * Air Major blessing no longer causes excessive damage instances.
         * Earth Minor blessing no longer causes excessive damage instances.
@@ -32,10 +74,34 @@
         * Luck Blessing now grants the correct major blessing
     * Witch
         * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
+        * Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
+        * Major Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
         * Removed unneeded witch patches
 * UI Tweaks
-    * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value
-    * Spell tooltips now display what spellbook they are from
+    * Dynamic item naming of armor no longer includes the enhancement bonus of the armor when it does not deviate from the original value.
+    * Spell tooltips now display what spellbook they are from.
+    * Suppressed buffs now have custom UI rules to better indicate them.
+* Homebrew Reworks
+    * Bolstered Spell
+        * Increased the spell level increase from bolstered from +1 to +2.
+    * Elemental Barrage
+        * Elemental Barrage has been reworked to move it away from attack enhancment stacking with weapon enchants, to instead act more like a caster ability.
+            * Every time you deal elemental damage to a creature with a spell, you apply an elemental mark to it. If during the next three rounds the marked target takes elemental damage from any source with a different element, the target is dealt additional Divine damage. The damage is 1d6 per mythic rank of your character.
+    * Mythic Sneak Attack
+        * Mythic Sneak Attack now increases the size of your sneak attack dice (ex: d6 -> d8) instead of addding an additional sneak attack dice.
+* Added Metamagic
+    * Burning Spell (Metamagic)
+        * The acid or fire effects of the affected spell adhere to the creature, causing more damage the next round. When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.
+    * Flaring Spell (Metamagic)
+        * The electricity, fire, or light effects of the affected spell create a flaring that dazzles creatures that take damage from the spell. A flare spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell. A flaring spell only affects spells with a fire, light, or electricity descriptor.
+    * Intensified Spell (Metamagic)
+        * An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat.
+    * Piercing Spell (Metamagic)
+        * When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.
+    * Rime Spell (Metamagic)
+        * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
+    * Solid Shadows (Metamagic)
+        * When casting a shadow spell, that spell is 20% more real than normal.
 * Added Feats
     * Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus on the check.
@@ -60,6 +126,10 @@
         * You can use Lay On Hands a number of additional times per day equal to your mythic rank.
     * Enhanced Blessings
         * The effects from your blessings now last twice as long.
+    * Favorite Metamagic Persistent
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
+    * Favorite Metamagic Selective
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
     * Harmonious Mage
         * Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.
     * Impossible Blessing

@@ -19,9 +19,13 @@ namespace TabletopTweaks.NewComponents {
             if (CheckWeaponRangeType && !RangeType.IsSuitableWeapon(evt.Weapon)) {
                 return;
             }
+            if (CheckWeaponCatergoy && evt.Weapon.Blueprint.Category != Category) {
+                return;
+            }
             DamageDescription Damage = new DamageDescription {
                 TypeDescription = DamageType,
                 Dice = new DiceFormula(Value.DiceCountValue.Calculate(base.Context), Value.DiceType),
+                Bonus = Value.BonusValue.Calculate(base.Context),
                 SourceFact = base.Fact
             };
             evt.DamageDescription.Add(Damage);
@@ -34,5 +38,7 @@ namespace TabletopTweaks.NewComponents {
         public ContextDiceValue Value;
         public bool CheckWeaponRangeType;
         public WeaponRangeType RangeType;
+        public bool CheckWeaponCatergoy;
+        public WeaponCategory Category;
     }
 }

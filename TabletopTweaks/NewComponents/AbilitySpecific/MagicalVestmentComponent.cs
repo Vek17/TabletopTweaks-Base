@@ -10,7 +10,6 @@ using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
-using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 

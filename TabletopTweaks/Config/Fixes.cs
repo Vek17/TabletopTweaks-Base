@@ -6,6 +6,8 @@ namespace TabletopTweaks.Config {
 
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
+        public SettingGroup Aeon = new SettingGroup();
+        public SettingGroup Demon = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
         public ClassGroup Alchemist = new ClassGroup();
@@ -13,6 +15,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Barbarian = new ClassGroup();
         public ClassGroup Bloodrager = new ClassGroup();
         public ClassGroup Cavalier = new ClassGroup();
+        public ClassGroup Cleric = new ClassGroup();
         public ClassGroup Fighter = new ClassGroup();
         public ClassGroup Kineticist = new ClassGroup();
         public ClassGroup Magus = new ClassGroup();
@@ -21,6 +24,7 @@ namespace TabletopTweaks.Config {
         public ClassGroup Paladin = new ClassGroup();
         public ClassGroup Ranger = new ClassGroup();
         public ClassGroup Rogue = new ClassGroup();
+        public ClassGroup Shaman = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Sorcerer = new ClassGroup();
         public ClassGroup Warpriest = new ClassGroup();
@@ -41,6 +45,7 @@ namespace TabletopTweaks.Config {
             Barbarian.SetParents();
             Bloodrager.SetParents();
             Cavalier.SetParents();
+            Cleric.SetParents();
             Fighter.SetParents();
             Kineticist.SetParents();
             Magus.SetParents();
@@ -49,6 +54,7 @@ namespace TabletopTweaks.Config {
             Paladin.SetParents();
             Ranger.SetParents();
             Rogue.SetParents();
+            Shaman.SetParents();
             Slayer.SetParents();
             Sorcerer.SetParents();
             Warpriest.SetParents();
@@ -64,6 +70,8 @@ namespace TabletopTweaks.Config {
 
             BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
 
+            Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
+            Demon.LoadSettingGroup(loadedSettings.Demon, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
 
@@ -72,6 +80,7 @@ namespace TabletopTweaks.Config {
             Barbarian.LoadClassGroup(loadedSettings.Barbarian, NewSettingsOffByDefault);
             Bloodrager.LoadClassGroup(loadedSettings.Bloodrager, NewSettingsOffByDefault);
             Cavalier.LoadClassGroup(loadedSettings.Cavalier, NewSettingsOffByDefault);
+            Cleric.LoadClassGroup(loadedSettings.Cleric, NewSettingsOffByDefault);
             Fighter.LoadClassGroup(loadedSettings.Fighter, NewSettingsOffByDefault);
             Kineticist.LoadClassGroup(loadedSettings.Kineticist, NewSettingsOffByDefault);
             Magus.LoadClassGroup(loadedSettings.Magus, NewSettingsOffByDefault);
@@ -80,6 +89,7 @@ namespace TabletopTweaks.Config {
             Paladin.LoadClassGroup(loadedSettings.Paladin, NewSettingsOffByDefault);
             Ranger.LoadClassGroup(loadedSettings.Ranger, NewSettingsOffByDefault);
             Rogue.LoadClassGroup(loadedSettings.Rogue, NewSettingsOffByDefault);
+            Shaman.LoadClassGroup(loadedSettings.Shaman, NewSettingsOffByDefault);
             Slayer.LoadClassGroup(loadedSettings.Slayer, NewSettingsOffByDefault);
             Sorcerer.LoadClassGroup(loadedSettings.Sorcerer, NewSettingsOffByDefault);
             Warpriest.LoadClassGroup(loadedSettings.Warpriest, NewSettingsOffByDefault);

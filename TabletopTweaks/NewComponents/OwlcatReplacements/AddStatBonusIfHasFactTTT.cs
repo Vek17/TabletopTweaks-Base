@@ -85,6 +85,6 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         public bool RequireAllFacts;
         [SerializeField]
         [ValidateNotEmpty]
-        public  BlueprintUnitFactReference[] m_CheckedFacts;
+        public BlueprintUnitFactReference[] m_CheckedFacts;
     }
 }

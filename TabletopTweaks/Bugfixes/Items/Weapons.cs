@@ -8,10 +8,15 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
+using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +24,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
+using TabletopTweaks.NewComponents.OwlcatReplacements;
 
 namespace TabletopTweaks.Bugfixes.Items {
     static class Weapons {
@@ -33,10 +40,13 @@ namespace TabletopTweaks.Bugfixes.Items {
                 Main.LogHeader("Patching Weapons");
 
                 PatchBladeOfTheMerciful();
+                PatchFinnean();
                 PatchHonorableJudgement();
+                PatchRadiance();
                 PatchTerribleTremble();
 
                 PatchThunderingBurst();
+                PatchVorpal();
 
                 void PatchBladeOfTheMerciful() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }
@@ -98,6 +108,23 @@ namespace TabletopTweaks.Bugfixes.Items {
                     });
                     Main.LogPatch("Patched", JudgementOfRuleEnchantment);
                 }
+                void PatchFinnean() {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("Finnean")) { return; }
+
+                    var FinneanChapter3Enchantment = Resources.GetBlueprint<BlueprintWeaponEnchantment>("b183bd491793d194c9e4c96cd11769b1");
+                    var FinneanChapter5EnchantmentBase = Resources.GetBlueprint<BlueprintWeaponEnchantment>("6b66e949f348ccd4989a5fd9254f8958");
+                    var FinneanChapter5EnchantmentLich = Resources.GetBlueprint<BlueprintWeaponEnchantment>("9aa9af4b654662945a410644d3db8d99");
+
+                    FinneanChapter3Enchantment.RemoveComponents<AdditionalDiceOnAttack>();
+                    FinneanChapter3Enchantment.AddComponent<WeaponExtraDamageDice>(c => {
+                        c.Value = new DiceFormula(1, DiceType.D6);
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Force
+                        };
+                    });
+
+                    Main.LogPatch("Patched", FinneanChapter3Enchantment);
+                }
                 void PatchTerribleTremble() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("TerrifyingTremble")) { return; }
 
@@ -117,6 +144,19 @@ namespace TabletopTweaks.Bugfixes.Items {
 
                     Main.LogPatch("Patched", TerrifyingTrembleItem);
                 }
+                void PatchRadiance() {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("Radiance")) { return; }
+
+                    var RadianceEffectBuff = Resources.GetBlueprint<BlueprintBuff>("0c03ba5e0c3fd304eb0a221e83f4ce1d");
+                    RadianceEffectBuff.RemoveComponents<SpellPenetrationBonus>();
+                    RadianceEffectBuff.AddComponent<AddSpellResistance>(c => {
+                        c.Value = new ContextValue() {
+                            ValueType = ContextValueType.Rank
+                        };
+                    });
+
+                    Main.LogPatch("Patched", RadianceEffectBuff);
+                }
                 void PatchThunderingBurst() {
                     if (ModSettings.Fixes.Items.Weapons.IsDisabled("ThunderingBurst")) { return; }
 
@@ -124,6 +164,22 @@ namespace TabletopTweaks.Bugfixes.Items {
                     ThunderingBurst.GetComponent<WeaponEnergyBurst>().Dice = DiceType.D10;
 
                     Main.LogPatch("Patched", ThunderingBurst);
+                }
+                void PatchVorpal() {
+                    if (ModSettings.Fixes.Items.Weapons.IsDisabled("Vorpal")) { return; }
+
+                    var Vorpal = Resources.GetBlueprint<BlueprintWeaponEnchantment>("2f60bfcba52e48a479e4a69868e24ebc");
+                    var VorpalBuff = Resources.GetBlueprintReference<BlueprintBuffReference>("4c02715a54a497a408a93a5d80e91a24");
+                    Vorpal.SetComponents();
+                    Vorpal.AddComponent<WeaponBuffOnConfirmedCritTTT>(c => {
+                        c.m_Buff = VorpalBuff;
+                        c.Duration = 1.Rounds();
+                        c.Fx = new PrefabLink();
+                        c.OnlyNatural20 = true;
+                        c.OnTarget = true;
+                    });
+
+                    Main.LogPatch("Patched", Vorpal);
                 }
             }
         }

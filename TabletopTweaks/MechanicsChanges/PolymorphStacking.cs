@@ -2,37 +2,114 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.RuleSystem;
+using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewUnitParts;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.MechanicsChanges {
     class PolymorphStacking {
 
-        [HarmonyPatch(typeof(RuleCanApplyBuff), "OnTrigger", new[] { typeof(RulebookEventContext) })]
-        static class RuleCanApplyBuff_OnTrigger_Patch {
+        private static class PolymorphMechanics {
+            private static bool Initialized = false;
+            [PostPatchInitialize]
+            public static void Initalize() {
+                if (Initialized) { return; }
+                if (ModSettings.Fixes.BaseFixes.IsEnabled("DisablePolymorphStacking")) {
+                    EventBus.Subscribe(PolymorphStackingRules.Instance);
+                }
+                if (ModSettings.Fixes.BaseFixes.IsEnabled("DisablePolymorphSizeStacking")) {
+                    EventBus.Subscribe(PolymorphSizeRules.PolymorphBuffApply.Instance);
+                }
+                EventBus.Subscribe(PolymorphSizeRules.PolymorphBuffRemove.Instance);
+                if (ModSettings.Fixes.BaseFixes.IsEnabled("DisableSizeStacking")) {
+                    EventBus.Subscribe(SizeStackingRules.SizeBuffApply.Instance);
+                }
+                EventBus.Subscribe(SizeStackingRules.SizeBuffRemove.Instance);
+                Initialized = true;
+            }
+            private class PolymorphStackingRules : IAfterRulebookEventTriggerHandler<RuleCanApplyBuff>, IGlobalSubscriber {
+                public static PolymorphStackingRules Instance = new();
+                private PolymorphStackingRules() { }
+                public void OnAfterRulebookEventTrigger(RuleCanApplyBuff evt) {
+                    var Descriptor = evt.Blueprint.GetComponent<SpellDescriptorComponent>();
+                    if (Descriptor == null) { return; }
+                    if (!Descriptor.Descriptor.HasAnyFlag(SpellDescriptor.Polymorph)) { return; }
+                    if (evt.CanApply && (evt.Context.MaybeCaster.Faction == evt.Initiator.Faction)) {
+                        evt.Initiator
+                            .Buffs
+                            .Enumerable
+                            .Where(buff => buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph))
+                            .ForEach(buff => buff.Remove());
+                    }
+                } 
+            }
+            private class PolymorphSizeRules {
+                public class PolymorphBuffApply : IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
+                    public static PolymorphBuffApply Instance = new();
+                    private PolymorphBuffApply() { }
+                    public void HandleBuffDidAdded(Buff buff) {
+                        if (!buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)) { return; }
+                        var owner = buff.Owner;
+                        var suppressionPart = owner?.Ensure<UnitPartBuffSupressTTT>();
+                        if (suppressionPart == null) { return; }
+                        suppressionPart.AddContinuousPolymorphEntry(buff);
+                    }
 
-            static void Postfix(RuleCanApplyBuff __instance) {
-                if (ModSettings.Fixes.BaseFixes.IsDisabled("DisablePolymorphStacking")) { return; }
-                var Descriptor = __instance.Blueprint.GetComponent<SpellDescriptorComponent>();
-                if (Descriptor == null) { return; }
-                if (!Descriptor.Descriptor.HasAnyFlag(SpellDescriptor.Polymorph)) { return; }
-                if (__instance.CanApply && (__instance.Context.MaybeCaster.Faction == __instance.Initiator.Faction)) {
-                    __instance.Initiator
-                        .Buffs
-                        .Enumerable
-                        .Where(buff => buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph))
-                        .ForEach(buff => {
-                            Main.LogDebug($"Removing Polymorph Buff: {buff.Name}");
-                            buff.Remove();
-                            Main.LogDebug($"Applied Polymorph Buff: {__instance.Context.Name}");
-                        });
+                    public void HandleBuffDidRemoved(Buff buff) {
+                    }
+                }
+                public class PolymorphBuffRemove : IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
+                    public static PolymorphBuffRemove Instance = new();
+                    private PolymorphBuffRemove() { }
+                    public void HandleBuffDidAdded(Buff buff) {
+                    }
+
+                    public void HandleBuffDidRemoved(Buff buff) {
+                        if (!buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)) { return; }
+                        var owner = buff.Owner;
+                        var suppressionPart = owner?.Get<UnitPartBuffSupressTTT>();
+                        if (suppressionPart == null) { return; }
+                        suppressionPart.RemoveEntry(buff);
+                    }
+                }
+            }
+            private class SizeStackingRules {
+                public class SizeBuffApply : IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
+                    public static SizeBuffApply Instance = new();
+                    private SizeBuffApply() { }
+                    public void HandleBuffDidAdded(Buff buff) {
+                        if (buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph) || !buff.GetComponent<ChangeUnitSize>()) { return; }
+                        var owner = buff.Owner;
+                        var suppressionPart = owner?.Ensure<UnitPartBuffSupressTTT>();
+                        if (suppressionPart == null) { return; }
+                        suppressionPart.AddSizeEntry(buff);
+                    }
+
+                    public void HandleBuffDidRemoved(Buff buff) {
+                    }
+                }
+                public class SizeBuffRemove : IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
+                    public static SizeBuffRemove Instance = new();
+                    private SizeBuffRemove() { }
+                    public void HandleBuffDidAdded(Buff buff) {
+                    }
+
+                    public void HandleBuffDidRemoved(Buff buff) {
+                        if (buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph) || !buff.GetComponent<ChangeUnitSize>()) { return; }
+                        var owner = buff.Owner;
+                        var suppressionPart = owner?.Get<UnitPartBuffSupressTTT>();
+                        if (suppressionPart == null) { return; }
+                        suppressionPart.RemoveEntry(buff);
+                    }
                 }
             }
         }

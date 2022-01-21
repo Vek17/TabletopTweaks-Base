@@ -3,11 +3,6 @@
   "Archetypes": {
     "DisableAll": false,
     "Settings": {
-      "BladeAdept": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "A small number of arcanists learn to use blades as part of their spellcasting and in combat. While these blade adepts are not as capable with a sword as a true master duelist, their combination of swordplay and arcane power makes them quite deadly."
-      },
       "BladeBound": {
         "Enabled": true,
         "Homebrew": false,
@@ -201,6 +196,36 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "You get a +2 bonus on Knowledge (Arcana) and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "MetamagicBurningSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The acid or fire effects of the affected spell adhere to the creature, causing more damage the next round. When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor."
+      },
+      "MetamagicFlaringSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The electricity, fire, or light effects of the affected spell create a flaring that dazzles creatures that take damage from the spell. A flare spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell. A flaring spell only affects spells with a fire, light, or electricity descriptor."
+      },
+      "MetamagicIntensifiedSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat."
+      },
+      "MetamagicPiercingSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR."
+      },
+      "MetamagicRimeSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell."
+      },
+      "MetamagicSolidShadows": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When casting a shadow spell, that spell is 20% more real than normal."
       },
       "MountedSkirmisher": {
         "Enabled": true,
@@ -468,6 +493,16 @@
         "Enabled": true,
         "Homebrew": true,
         "Description": "The effects from your blessings now last twice as long."
+      },
+      "FavoriteMetamagicSelective": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Reduce the cost of Selective metamagic by 1."
+      },
+      "FavoriteMetamagicPersistent": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Reduce the cost of Selective Persistent by 1."
       },
       "HarmoniousMage": {
         "Enabled": true,

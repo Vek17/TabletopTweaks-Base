@@ -21,6 +21,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Overhead saving throw rolls now display the correct values
     * Spell Tooltips
         * Updates spell tooltips to include what spellbook the spell is in.
+    * Suppressed Buffs
+        * Suppressed buffs now have custom UI rules to better indicate them.
 * Bases Fixes
     * Progressions
         * Progressions will no longer incorrectly include mythic levels, or double count some classes levels.
@@ -34,6 +36,9 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack.
     * Polymorph Effects
         * Prevents multiple polymorph effects from being applied to a character at a time.
+        * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
+    * Size Effects
+        * Prevents multiple size changing buffs granting benifits at the same time. Old buffs are suppressed.
     * Feat Selections
         * Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type.
     * Background Modifiers
@@ -58,6 +63,10 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Spells
     * Spell flags
         * Retags buffs from spells as coming from spells to allow them to be dispeled correctly.
+    * Abyssal Storm 
+        * Abyssal Storm no longer saves for half and no longer kills the caster.
+    * Acid Maw 
+        * Acid Maw no longer causes excessive damage instances to trigger when attacking.
     * Believe In Yourself
         * Believe in yourself now grants the correct bonus amount.
     * Bestow Greater Curse
@@ -70,6 +79,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Crusaders Edge's nauseate effect now only procs on critical hits.
     * Dispel Magic Greater
         * Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs.
+    * Eye Of The Sun
+        * Eye Of The Sun now deals the correct amount of damage.
     * Firebrand
         * Firebrand no longer causes excessive damage instances to trigger when attacking.
     * Geniekind
@@ -80,30 +91,47 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Hellfire Ray no longer has the Fire descriptor.
     * Magical Vestment
         * Magical Vestment now enhances your armor instead of granting a floating modifier.
+    * Microscopic Proportions 
+        * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
     * Remove Fear
-        * Remove fear no longer makes you immune to fear.
+        * Remove Fear no longer grants immunity to shaken and fear.
+    * Remove Sickness
+        * Remove Sickness no longer grants immunity to sickness and nausea.
     * Shadow Conjuration
         * Shadow Conjuration has been added to the Wizard spell list.
+    * Shadow Conjuration Greater 
+        * Now has the correct shadow factor of 60 instead of 40.
     * Shadow Evocation
         * Shadow Evocation can now have the correct metamagics applied.
     * Greater Shadow Evocation
         * Greater Shadow Evocation can now have the correct metamagic applied.
+        * Now has the correct shadow factor of 60 instead of 40.
     * Starlight
         * Starlight no longer is affected by true sight.
+    * Sun Form
+        * Sun Form now deals the correct amount of damage.
+    * Unbreakable Heart
+        * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * WrackingRay
         * Wracking Ray now deals the correct amount of ability damage.
 
 * Feats
     * AlliedSpellcaster
         * Allied Spellcaster no longer applies globally.
+    * Arcane Strike 
+        * Arcane Strike no longer causes too many damage instances when used by a dragonheir scion.
+    * Brew Potions
+        * Brew Potions is no longer tagged as a combat feat.
     * Bolstered Metamagic
         * Sticky touch spells can now be bolstered.
     * EmpowerMetamagic
         * Sticky touch spells can now be empowered.
         * Prevents extra dice from empowered metamagic from being maximized by maximize metamagic.
+    * Bolster Metamagic
+        * No longer applies twice on spells with pre rolled values.
     * Maximize Metamagic
         * Sticky touch spells can now be maximized.
-    * PersistantMetamagic
+    * Persistant Metamagic
         * Allows any spell with a saving throw to be made persistant.
     * Selective Metamagic
         * Retags selective spells to exclude non instantaneous spells.
@@ -160,6 +188,14 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Bloodlines
     * Rebuilt all prerequisites to fix multiple issues with prestige class interactions when multiclassing
 
+* Aeon
+    * Aeon Demythication
+        * Aeon Demythication should now actually suppress mythic effects.
+
+* Demon
+    * Demonic Form Balor
+        * Balor transformation now properly gets a vorpal weapon.
+
 * Lich
     * Death Rush
         * Prevents Death Rush from triggering multiple fake attacks and procing weapon effects more often than it should.
@@ -211,6 +247,10 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Gendarme
         * Prevents Transfixing Charge damage from criting and moves it into the new charage damage system.
 
+* Cleric
+    * Glory Domain
+        * Glory domain no longer grants an untyped bonus the the raw Charsima stat.
+
 * Fighter
     * Advanced Weapon Training
         * Enforces the weapon training prerequisites properly.
@@ -258,12 +298,18 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Rogue Talents
         * Prevents you from selecting the same talent more than once.
     * Slippery Mind
-        * Slippery mind correctly updates its save bonuses when your dexterity changes.
+        * Slippery mind is now an advanced talent and correctly updates its save bonuses when your dexterity changes.
     * Trapfinding
         * Trapfinding now grants bonuses to perception and trickery.
     * Eldritch Scoundrel
         * Removes the level 2 rogue talent and adds in a level 4 talent.
         * Removes the sneak attack dice granted at level 1.
+    * Sylvan Trickster
+        * Fey Tricks now includes all rogue talents
+
+* Shaman
+    * Ameliorating Hex 
+        * Ameliorating Hex  no longer grants complete immunity to effects and instead supresses correctly.
 
 * Slayer
     * Trapfinding
@@ -290,6 +336,10 @@ All fixes and added content are configurable and can be disabled via the unity m
 * Witch
     * Agility Patron
         * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
+    * Ameliorating Hex 
+        * Ameliorating Hex  no longer grants complete immunity to effects and instead supresses correctly.
+    * Major Ameliorating Hex 
+        * Major Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
 
 * Hellknight
     * Pentamic Faith
@@ -332,10 +382,16 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value.
     * Honorable Judgement
         * Prevents from triggering multiple fake attacks and procing weapon effects more often than it should.
+    * Finnean
+        * Finnean now always deals the correct amount of damage.
+    * Radiance 
+        * Now correctly grants spell resistance instead of spell penetrations.
     * Terrifying Tremble
         * Implements the missing on kill effect. Whenever the wielder of this weapon lands a killing blow, he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. Successful Reflex save (DC 30) halves the damage.
     * Thundering Burst
         * Fixes thundering burst to deal D10s like the description says instead of D8s.
+    * Vorpal
+        * Vorpal now works correctly.
 
 ## Added Content
 * Base Abilities
@@ -364,6 +420,20 @@ All fixes and added content are configurable and can be disabled via the unity m
         * You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment spell has a damaging effect, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. If recognized as a shadow enchantment, a damaging spell deals only one-fifth (20%) the normal amount of damage. If the disbelieved attack has a special effect other than damage, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. Regardless of the result of the save to disbelieve, an affected creature is also allowed any save (or spell resistance) that the spell being simulated allows, but the save DC is set according to shadow enchantment's level (3rd) rather than the spell's normal level.
     * Shadow Enchantment Greater
         * This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it's only three-fifths (60%) as effective.
+
+* Metamagic
+    * Burning Spell (Metamagic)
+        * The acid or fire effects of the affected spell adhere to the creature, causing more damage the next round. When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.
+    * Flaring Spell (Metamagic)
+        * The electricity, fire, or light effects of the affected spell create a flaring that dazzles creatures that take damage from the spell. A flare spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell. A flaring spell only affects spells with a fire, light, or electricity descriptor.
+    * Intensified Spell (Metamagic)
+        * An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat.
+    * Piercing Spell (Metamagic)
+        * When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.
+    * Rime Spell (Metamagic)
+        * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
+    * Solid Shadows (Metamagic)
+        * When casting a shadow spell, that spell is 20% more real than normal.
 
 * Feats
     * AnimalAlly
@@ -474,6 +544,10 @@ All fixes and added content are configurable and can be disabled via the unity m
         * While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank.
     * Enhanced Blessings
         * The effects from your blessings now last twice as long.
+    * Favorite Metamagic Persistent
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
+    * Favorite Metamagic Selective
+        * Select one kind of metamagic. The spell level cost for its use decreases by one (to a minimum of 0).
     * Harmonious Mage
         * Your wizardly studies have moved beyond the concept of opposition schools. Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two.
     * Impossible Blessing
@@ -579,7 +653,19 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Lecturer
         * Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.
 
-## Mythic Reworks
+## Reworks
+* Feats
+    * Bolstered Spell Metamagic
+        * Level increase has been increased from +1 to +2. (This is defaulted to off)
+
+* Mythic Feats
+    * Mythic Sneak Attack
+        * Your sneak attack dice are one size larger than normal. For example if you would normally roll d6s for sneak attacks you would roll d8s instead.
+
+ * Mythic Feats
+    * Elemental Barrage
+        * Every time you deal elemental damage to a creature with a spell, you apply an elemental mark to it. If during the next three rounds the marked target takes elemental damage from any source with a different element, the target is dealt additional Divine damage. The damage is 1d6 per mythic rank of your character.
+
 * Aeon
     * Aeon Bane
         * Updates Aeon Bane's Icon.
@@ -595,6 +681,7 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same resouce usage.
         * Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level.
         * Aeon Gaze selection is no longer limited on the first selection and all selections are available.
+
 * Azata
     * Performances
         * Azata perforamnce usages now scale at Mythic level + Character level.
@@ -608,4 +695,4 @@ Acknowledgments:
 -   Pathfinder Wrath of The Righteous Discord channel members
 -   @Balkoth, @Narria, @edoipi, @SpaceHamster and the rest of our great Discord modding community - help.
 -   PS: Wolfie's [Modding Wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki) is an excellent place to start if you want to start modding on your own.
--   Join our [Discord](https://discord.gg/bQVwsP7cky)
+-   Join our [Discord](https://discord.com/invite/wotr)

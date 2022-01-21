@@ -43,7 +43,15 @@ namespace TabletopTweaks.NewUnitParts {
             UseWeaponOneHanded,
             UndersizedMount,
             MountedSkirmisher,
-            ManyshotMythic
+            ManyshotMythic,
+            FavoriteMetamagicPersistent,
+            FavoriteMetamagicSelective,
+            FavoriteMetamagicIntensified,
+            FavoriteMetamagicRime,
+            FavoriteMetamagicBurning,
+            FavoriteMetamagicFlaring,
+            FavoriteMetamagicPiercing,
+            FavoriteMetamagicSolidShadows
         }
     }
     static class CustomMechanicsFeaturesExtentions {

@@ -292,6 +292,13 @@ namespace TabletopTweaks.Utilities {
                     "damage",
                     "damage rolls?"
                 }
+            },
+            new EncyclopediaEntry {
+                Entry = "Dice",
+                Patterns = {
+                    "rolls?",
+                    "rolled"
+                }
             }
         };
 
@@ -321,9 +328,16 @@ namespace TabletopTweaks.Utilities {
                 .OfType<Match>()
                 .Select(m => m.Value)
                 .Distinct();
+            var firstMatch = matches.FirstOrDefault();
+            if (!string.IsNullOrEmpty(firstMatch)) {
+                var resultPattern = new Regex(Regex.Escape(firstMatch).EnforceSolo().ExcludeTagged(), RegexOptions.IgnoreCase);
+                str = resultPattern.Replace(str, entry.Tag(firstMatch), 1);
+            }
+            /*
             foreach (string match in matches) {
                 str = Regex.Replace(str, Regex.Escape(match).EnforceSolo().ExcludeTagged(), entry.Tag(match), RegexOptions.IgnoreCase);
             }
+            */
             return str;
         }
         public static string StripHTML(this string str) {

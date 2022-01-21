@@ -11,6 +11,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -50,6 +51,8 @@ namespace TabletopTweaks.Bugfixes.Features {
 
                 Main.LogHeader("Patching Feats");
                 PatchAlliedSpellcaster();
+                PatchArcaneStrike();
+                PatchBrewPotions();
                 PatchCraneWing();
                 PatchDestructiveDispel();
                 PatchEndurance();
@@ -82,6 +85,56 @@ namespace TabletopTweaks.Bugfixes.Features {
                 });
 
                 Main.LogPatch("Patched", AlliedSpellcaster);
+            }
+
+            static void PatchArcaneStrike() {
+                if (ModSettings.Fixes.Feats.IsDisabled("ArcaneStrike")) { return; }
+
+                var ArcaneStrikeBuff = Resources.GetBlueprint<BlueprintBuff>("98ac795afd1b2014eb9fdf2b9820808f");
+                var DragonicStrikeAcid = Resources.GetBlueprintReference<BlueprintUnitFactReference>("b7d0c5d733a06e543b35d4e1c88d04f7");
+                var DragonicStrikeCold = Resources.GetBlueprintReference<BlueprintUnitFactReference>("3ff9333e578d7c2448ba18b6ffacb885");
+                var DragonicStrikeElectricity = Resources.GetBlueprintReference<BlueprintUnitFactReference>("db64de9cdbad45b4cbc8b369cd7a007c");
+                var DragonicStrikeFire = Resources.GetBlueprintReference<BlueprintUnitFactReference>("42aee53be1b64334caa5c73d34d10fad");
+
+                ArcaneStrikeBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                AddDraconicTrigger(ArcaneStrikeBuff, DragonicStrikeAcid, DamageEnergyType.Acid);
+                AddDraconicTrigger(ArcaneStrikeBuff, DragonicStrikeCold, DamageEnergyType.Cold);
+                AddDraconicTrigger(ArcaneStrikeBuff, DragonicStrikeElectricity, DamageEnergyType.Electricity);
+                AddDraconicTrigger(ArcaneStrikeBuff, DragonicStrikeFire, DamageEnergyType.Fire);
+
+                Main.LogPatch("Patched", ArcaneStrikeBuff);
+
+                void AddDraconicTrigger(BlueprintBuff arcaneStrike, BlueprintUnitFactReference draconic, DamageEnergyType type) {
+                    arcaneStrike.AddComponent<AdditionalDiceOnAttack>(c => {
+                        c.OnHit = true;
+                        c.InitiatorConditions = new ConditionsChecker() {
+                            Conditions = new Condition[] {
+                                new ContextConditionHasFact(){
+                                    m_Fact = draconic
+                                }
+                            }
+                        };
+                        c.TargetConditions = new ConditionsChecker();
+                        c.Value = new ContextDiceValue() {
+                            DiceType = DiceType.D4,
+                            DiceCountValue = 1,
+                            BonusValue = 0
+                        };
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Energy,
+                            Energy = type
+                        };
+                    });
+                }
+            }
+
+            static void PatchBrewPotions() {
+                if (ModSettings.Fixes.Feats.IsDisabled("BrewPotions")) { return; }
+
+                var BrewPotions = Resources.GetBlueprint<BlueprintFeature>("c0f8c4e513eb493408b8070a1de93fc0");
+                BrewPotions.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+
+                Main.LogPatch("Patched", BrewPotions);
             }
 
             static void PatchDestructiveDispel() {
@@ -280,8 +333,18 @@ namespace TabletopTweaks.Bugfixes.Features {
                     .ToArray();
                 Main.LogPatch("Enabling", PersistentSpellFeat);
                 foreach (var spell in spells) {
-                    bool HasSavingThrow = spell.FlattenAllActions().OfType<ContextActionSavingThrow>().Any();
-                    if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown || HasSavingThrow) {
+                    bool HasSavingThrow = spell.AbilityAndVariants().SelectMany(s => s.FlattenAllActions()).OfType<ContextActionSavingThrow>().Any()
+                        || spell.AbilityAndVariants()
+                        .SelectMany(s => s.AbilityAndStickyTouch())
+                        .Where(s => s != null)
+                        .SelectMany(s => s.FlattenAllActions())
+                        .OfType<ContextActionSavingThrow>().Any();
+                    if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown
+                        || spell.AbilityAndVariants()
+                            .SelectMany(s => s.AbilityAndStickyTouch())
+                            .Where(s => s != null)
+                            .Any(s => (s.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown)
+                        || HasSavingThrow) {
                         if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Persistent)) {
                             spell.AvailableMetamagic |= Metamagic.Persistent;
                             Main.LogPatch("Enabled Persistant Metamagic", spell);
