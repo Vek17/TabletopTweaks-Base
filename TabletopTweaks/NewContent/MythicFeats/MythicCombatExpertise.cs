@@ -12,6 +12,7 @@ namespace TabletopTweaks.NewContent.MythicFeats {
         public static void AddMythicCombatExpertise() {
             var CombatExpertiseFeature = Resources.GetBlueprint<BlueprintFeature>("4c44724ffa8844f4d9bedb5bb27d144a");
             var CombatExpertiseBuff = Resources.GetBlueprintReference<BlueprintUnitFactReference>("e81cd772a7311554090e413ea28ceea1");
+            var StalwartBuff = Resources.GetModBlueprintReference<BlueprintUnitFactReference>("StalwartBuff");
 
             var CombatExpertiseMythicFeature = Helpers.CreateBlueprint<BlueprintFeature>("CombatExpertiseMythicFeature", bp => {
                 bp.m_Icon = CombatExpertiseFeature.m_Icon;
@@ -23,6 +24,7 @@ namespace TabletopTweaks.NewContent.MythicFeats {
                     c.Value = 2;
                     c.Descriptor = ModifierDescriptor.Dodge;
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] { CombatExpertiseBuff };
+                    c.m_BlockedFacts = new BlueprintUnitFactReference[] { StalwartBuff };
                 });
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;

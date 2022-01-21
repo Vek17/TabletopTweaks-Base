@@ -7,6 +7,7 @@ using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
@@ -256,7 +257,6 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
                 var FirebrandBuff = Resources.GetBlueprint<BlueprintBuff>("c6cc1c5356db4674dbd2be20ea205c86");
 
-                var EnergyType = FirebrandBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
                 FirebrandBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
                 FirebrandBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
                     c.Value = new ContextDiceValue() {
@@ -266,7 +266,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     };
                     c.DamageType = new DamageTypeDescription() {
                         Type = DamageType.Energy,
-                        Energy = EnergyType
+                        Energy = DamageEnergyType.Fire
                     };
                 });
                 Main.LogPatch("Patched", FirebrandBuff);

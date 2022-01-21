@@ -12,6 +12,7 @@ namespace TabletopTweaks.NewComponents.Properties {
     [TypeId("157d986776584a2da0729efd762e5598")]
     public class StalwartDRProperty : PropertyValueGetter {
         private BlueprintUnitFactReference m_CombatExpertiseBuff;
+        private BlueprintUnitFactReference m_CombatExpertiseMythicFeature;
 
         private BlueprintUnitFactReference m_FightingDefensivelyBuff;
         private BlueprintUnitFactReference m_CraneStyleBuff;
@@ -23,12 +24,14 @@ namespace TabletopTweaks.NewComponents.Properties {
 
         public StalwartDRProperty(
             BlueprintUnitFactReference combatExpertiseBuff,
+            BlueprintUnitFactReference combatExpertiseMythicFeature,
             BlueprintUnitFactReference fightingDefensivelyBuff,
             BlueprintUnitFactReference craneStyleBuff,
             BlueprintUnitFactReference cautiousFighter,
             BlueprintUnitFactReference swordLordSteelNetFeature,
             BlueprintUnitFactReference stalwartImprovedFeature) {
             m_CombatExpertiseBuff = combatExpertiseBuff;
+            m_CombatExpertiseMythicFeature = combatExpertiseMythicFeature;
             m_FightingDefensivelyBuff = fightingDefensivelyBuff;
             m_CraneStyleBuff = craneStyleBuff;
             m_CautiousFighter = cautiousFighter;
@@ -48,6 +51,10 @@ namespace TabletopTweaks.NewComponents.Properties {
             EntityFact combatExpertiseFact = unit.Descriptor.GetFact(m_CombatExpertiseBuff);
             if (combatExpertiseFact != null) {
                 num += 1 + unit.Stats.BaseAttackBonus.ModifiedValue / 4;
+                EntityFact combatExpertiseMythicFact = unit.Descriptor.GetFact(m_CombatExpertiseMythicFeature);
+                if (combatExpertiseMythicFact != null) {
+                    num += 2;
+                }
             }
 
             EntityFact stalwartImprovedFeature = unit.Descriptor.GetFact(m_StalwartImprovedFeature);
