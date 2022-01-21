@@ -2,6 +2,8 @@
 * Fixes
     * Aeon
         * Aeon 10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies.
+    * Mythic Feats
+        * Combat Expertise (Mythic) now interacts as expected with Stalwart
 
 ## Version 1.11.0
 * Fixes
