@@ -1,4 +1,5 @@
-## Version 1.11.1
+## Version 1.11.0a
+* Chinese Localization has been updated for 1.11.0a
 * Fixes
     * Aeon
         * Aeon 10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies.
