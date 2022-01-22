@@ -82,17 +82,10 @@ namespace TabletopTweaks.NewContent.Feats {
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicSolidShadows);
         }
         private static void UpdateSpells() {
-            var spells = SpellTools.SpellList.AllSpellLists
-                //.Where(list => !list.IsMythic)
-                .SelectMany(list => list.SpellsByLevel)
-                .Where(spellList => spellList.SpellLevel != 0)
-                .SelectMany(level => level.Spells)
-                .Distinct()
-                .OrderBy(spell => spell.Name)
-                .ToArray();
+            var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
-                bool validPiercing = spell.GetComponent<AbilityShadowSpell>();
-                if (validPiercing) {
+                bool validShadow = spell.GetComponent<AbilityShadowSpell>();
+                if (validShadow) {
                     if (!spell.AvailableMetamagic.HasMetamagic((Metamagic)CustomMetamagic.SolidShadows)) {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.SolidShadows;
                         Main.LogPatch("Enabled Solid Shadows Metamagic", spell);

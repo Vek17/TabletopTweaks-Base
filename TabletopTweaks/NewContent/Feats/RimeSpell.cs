@@ -102,13 +102,7 @@ namespace TabletopTweaks.NewContent.Feats {
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicRime);
         }
         private static void UpdateSpells() {
-            var spells = SpellTools.SpellList.AllSpellLists
-                .SelectMany(list => list.SpellsByLevel)
-                .Where(spellList => spellList.SpellLevel != 0)
-                .SelectMany(level => level.Spells)
-                .Distinct()
-                .OrderBy(spell => spell.Name)
-                .ToArray();
+            var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
                 bool isColdSpell = spell.AbilityAndVariants()
                     .SelectMany(s => s.AbilityAndStickyTouch())

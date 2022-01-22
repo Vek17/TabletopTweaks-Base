@@ -323,14 +323,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.IsDisabled("PersistantMetamagic")) { return; }
 
                 var PersistentSpellFeat = Resources.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
-                var spells = SpellTools.SpellList.AllSpellLists
-                    .Where(list => !list.IsMythic)
-                    .SelectMany(list => list.SpellsByLevel)
-                    .Where(spellList => spellList.SpellLevel != 0)
-                    .SelectMany(level => level.Spells)
-                    .Distinct()
-                    .OrderBy(spell => spell.Name)
-                    .ToArray();
+                var spells = SpellTools.GetAllSpells();
                 Main.LogPatch("Enabling", PersistentSpellFeat);
                 foreach (var spell in spells) {
                     bool HasSavingThrow = spell.AbilityAndVariants().SelectMany(s => s.FlattenAllActions()).OfType<ContextActionSavingThrow>().Any()
@@ -356,14 +349,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.IsDisabled("BolsteredMetamagic")) { return; }
 
                 var BolsteredSpellFeat = Resources.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
-                var spells = SpellTools.SpellList.AllSpellLists
-                    .Where(list => !list.IsMythic)
-                    .SelectMany(list => list.SpellsByLevel)
-                    .Where(spellList => spellList.SpellLevel != 0)
-                    .SelectMany(level => level.Spells)
-                    .Distinct()
-                    .OrderBy(spell => spell.Name)
-                    .ToArray();
+                var spells = SpellTools.GetAllSpells();
                 Main.LogPatch("Enabling", BolsteredSpellFeat);
                 foreach (var spell in spells) {
                     bool dealsDamage = spell.FlattenAllActions()
@@ -385,14 +371,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.IsDisabled("EmpowerMetamagic")) { return; }
 
                 var EmpowerSpellFeat = Resources.GetBlueprint<BlueprintFeature>("a1de1e4f92195b442adb946f0e2b9d4e");
-                var spells = SpellTools.SpellList.AllSpellLists
-                    .Where(list => !list.IsMythic)
-                    .SelectMany(list => list.SpellsByLevel)
-                    .Where(spellList => spellList.SpellLevel != 0)
-                    .SelectMany(level => level.Spells)
-                    .Distinct()
-                    .OrderBy(spell => spell.Name)
-                    .ToArray();
+                var spells = SpellTools.GetAllSpells();
                 Main.LogPatch("Enabling", EmpowerSpellFeat);
                 foreach (var spell in spells) {
                     bool dealsDamage = spell.FlattenAllActions()
@@ -414,14 +393,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.IsDisabled("MaximizeMetamagic")) { return; }
 
                 var MaximizeSpellFeat = Resources.GetBlueprint<BlueprintFeature>("7f2b282626862e345935bbea5e66424b");
-                var spells = SpellTools.SpellList.AllSpellLists
-                    .Where(list => !list.IsMythic)
-                    .SelectMany(list => list.SpellsByLevel)
-                    .Where(spellList => spellList.SpellLevel != 0)
-                    .SelectMany(level => level.Spells)
-                    .Distinct()
-                    .OrderBy(spell => spell.Name)
-                    .ToArray();
+                var spells = SpellTools.GetAllSpells();
                 Main.LogPatch("Enabling", MaximizeSpellFeat);
                 foreach (var spell in spells) {
                     bool dealsDamage = spell.FlattenAllActions()
@@ -443,13 +415,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 if (ModSettings.Fixes.Feats.IsDisabled("SelectiveMetamagic")) { return; }
 
                 var SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
-                var spells = SpellTools.SpellList.AllSpellLists
-                    .SelectMany(list => list.SpellsByLevel)
-                    .Where(spellList => spellList.SpellLevel != 0)
-                    .SelectMany(level => level.Spells)
-                    .Distinct()
-                    .OrderBy(spell => spell.Name)
-                    .ToArray();
+                var spells = SpellTools.GetAllSpells();
                 Main.LogPatch("Updating", SelectiveSpellFeat);
                 foreach (var spell in spells) {
                     bool isAoE = spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityTargetsAround>());

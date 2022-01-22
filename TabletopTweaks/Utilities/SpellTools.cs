@@ -47,6 +47,19 @@ namespace TabletopTweaks.Utilities {
                 }
             }
         }
+
+        public static List<BlueprintAbility> GetAllSpells(bool excludeMythic = false) {
+            return SpellTools.SpellList.AllSpellLists
+                .Where(list => excludeMythic ? !list.IsMythic : true)
+                .SelectMany(list => list.SpellsByLevel)
+                .Where(spellList => spellList.SpellLevel != 0)
+                .SelectMany(level => level.Spells)
+                .Concat(SpellTools.ElementalBloodlineSpells.AllSpells)
+                .Distinct()
+                .OrderBy(spell => spell.Name)
+                .ToList();
+        }
+
         static readonly Lazy<BlueprintSpellList[]> specialistSchoolList = new Lazy<BlueprintSpellList[]>(() => {
             var result = new BlueprintSpellList[(int)SpellSchool.Universalist + 1];
             result[(int)SpellSchool.Abjuration] = SpellList.WizardAbjurationSpellList;
@@ -424,6 +437,24 @@ namespace TabletopTweaks.Utilities {
                 WarpriestClass,
                 WitchClass,
                 WizardClass,
+            };
+        }
+
+        public static class ElementalBloodlineSpells {
+            public static BlueprintAbility BurningHandsCold => Resources.GetBlueprint<BlueprintAbility>("83ed16546af22bb43bd08734a8b51941");
+            public static BlueprintAbility ScorchingRayCold => Resources.GetBlueprint<BlueprintAbility>("7ef096fdc8394e149a9e8dced7576fee");
+            public static BlueprintAbility BurningHandsAcid => Resources.GetBlueprint<BlueprintAbility>("97d0a51ca60053047afb9aca900fb71b");
+            public static BlueprintAbility ScorchingRayAcid => Resources.GetBlueprint<BlueprintAbility>("435222be97067a447b2b40d3c58a058e");
+            public static BlueprintAbility BurningHandsElecricity => Resources.GetBlueprint<BlueprintAbility>("728b3daffb1d9fd45958c6e60876b7a9");
+            public static BlueprintAbility ScorchingRayElecricity => Resources.GetBlueprint<BlueprintAbility>("96ca3143601d6b242802655336620d91");
+
+            public static BlueprintAbility[] AllSpells => new BlueprintAbility[] {
+                BurningHandsCold,
+                ScorchingRayCold,
+                BurningHandsAcid,
+                ScorchingRayAcid,
+                BurningHandsElecricity,
+                ScorchingRayElecricity,
             };
         }
     }

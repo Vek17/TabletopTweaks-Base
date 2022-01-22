@@ -1,10 +1,14 @@
+## Version 1.11.1
+* General
+    * Elemental Bloodline spells now work more correctly with metamagics
+
 ## Version 1.11.0a
 * Chinese Localization has been updated for 1.11.0a
 * Fixes
     * Metamagic
-        * Burning Spell Metamagic now apllies reworked elemental barrage when the burn damage ticks.
+        * Burning Spell Metamagic now applies reworked elemental barrage when the burn damage ticks.
     * Feats
-        * Destructive Dispel DC now benifits from global DC increases
+        * Destructive Dispel DC now benefits from global DC increases
     * Spells
         * Supernova now respects the saving throw for the blind and always deals the correct amount of damage.
     * Aeon
