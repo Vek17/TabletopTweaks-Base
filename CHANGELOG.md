@@ -1,6 +1,10 @@
 ## Version 1.11.1
-* General
-    * Elemental Bloodline spells now work more correctly with metamagics
+
+* Fixes
+    * General
+        * Elemental Bloodline spells now work more correctly with metamagics.
+    * Sorcerer
+        * Elemental Bloodline arcanas now correctly show up in character creation.
 
 ## Version 1.11.0a
 * Chinese Localization has been updated for 1.11.0a

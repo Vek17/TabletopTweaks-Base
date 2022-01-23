@@ -655,6 +655,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Fixes the arcana descriptions to better refelect what they actually do."
+        },
+        "PatchElementalBloodlineDescriptions": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes the arcana to show up in the level up UI with the correct name and descriptions."
         }
       },
       "IsExpanded": true
