@@ -25,6 +25,7 @@ using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewActions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
@@ -67,6 +68,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchSupernova();
                 PatchUnbreakableHeart();
                 PatchWrachingRay();
+                PatchVampiricBlade();
                 PatchFromSpellFlags();
             }
 
@@ -636,6 +638,44 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     }
                 }
                 Main.LogPatch("Patched", WrackingRay);
+            }
+
+            static void PatchVampiricBlade() {
+                if (ModSettings.Fixes.Spells.IsDisabled("VampiricBlade")) { return; }
+
+                var VampiricBladeBuff = Resources.GetBlueprint<BlueprintBuff>("f6007b38909c3b248a8a77b316f5bc2d");
+
+                VampiricBladeBuff.GetComponents<AddInitiatorAttackWithWeaponTrigger>()
+                    .Where(c => c.ActionsOnInitiator == false)
+                    .FirstOrDefault()
+                    .TemporaryContext(c => {
+                        c.Action = Helpers.CreateActionList(
+                            Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                a.DamageType = new DamageTypeDescription() { 
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Unholy,
+                                    Common = new DamageTypeDescription.CommomData(),
+                                    Physical = new DamageTypeDescription.PhysicalData()
+                                };
+                                a.Duration = new ContextDurationValue() { 
+                                    m_IsExtendable = true,
+                                    DiceCountValue = 0,
+                                    BonusValue = 0
+                                };
+                                a.Value = new ContextDiceValue() { 
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 1,
+                                    BonusValue = new ContextValue() { 
+                                        ValueType = ContextValueType.Rank
+                                    }
+                                };
+                                a.WriteResultToSharedValue = true;
+                                a.ResultSharedValue = AbilitySharedValue.Heal;
+                                a.IgnoreWeapon = true;
+                            })
+                        ); ;
+                    });
+                Main.LogPatch("Patched", VampiricBladeBuff);
             }
 
             static void PatchFromSpellFlags() {

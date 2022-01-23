@@ -130,7 +130,18 @@
     },
     "Lich": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "DecayingTouch": {
+          "Enabled": true,
+          "Homebrew": true,
+          "Description": "Decaying touch has been completly rewritten to have fewer bugs with how it applies damage"
+        },
+        "TainedSneakAttack": {
+          "Enabled": true,
+          "Homebrew": true,
+          "Description": "Tainted sneak attack now works with spells and the DC scales at 10 + 1/2 character level + twice your mythic rank"
+        }
+      },
       "IsExpanded": true
     },
     "Trickster": {

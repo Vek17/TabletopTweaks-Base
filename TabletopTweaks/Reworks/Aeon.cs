@@ -32,7 +32,7 @@ using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Reworks {
-    class Aeon {
+    static class Aeon {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;

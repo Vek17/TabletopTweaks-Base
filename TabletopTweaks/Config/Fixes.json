@@ -917,6 +917,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Wracking Ray now deals the correct amount of ability damage."
+      },
+      "VampiricBlade": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Vampiric Blade no longer causes excessive damage instances."
       }
     },
     "IsExpanded": true

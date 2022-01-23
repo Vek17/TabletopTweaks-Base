@@ -245,8 +245,8 @@ namespace TabletopTweaks.NewActions {
             DamageBundle damage = damageBundle;
             RuleDealDamage ruleDealDamage = new RuleDealDamage(base.Context.MaybeCaster, base.Target.Unit, damage) {
                 DisablePrecisionDamage = base.Context.HasMetamagic(Metamagic.Bolstered),
-                Projectile = ((contextAttackData != null) ? contextAttackData.Projectile : null),
-                AttackRoll = ((contextAttackData != null) ? contextAttackData.AttackRoll : null),
+                Projectile = IgnoreWeapon ? null : ((contextAttackData != null) ? contextAttackData.Projectile : null),
+                AttackRoll = IgnoreWeapon ? null : ((contextAttackData != null) ? contextAttackData.AttackRoll : null),
                 HalfBecauseSavingThrow = info.HalfBecauseSavingThrow,
                 MinHPAfterDamage = (UseMinHPAfterDamage ? new int?(MinHPAfterDamage) : null),
                 SourceAbility = base.Context.SourceAbility,
