@@ -673,7 +673,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                                 a.ResultSharedValue = AbilitySharedValue.Heal;
                                 a.IgnoreWeapon = true;
                             })
-                        ); ;
+                        );
                     });
                 Main.LogPatch("Patched", VampiricBladeBuff);
             }

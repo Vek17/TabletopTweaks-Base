@@ -131,10 +131,20 @@
     "Lich": {
       "DisableAll": false,
       "Settings": {
+        "DeadlyMagic": {
+          "Enabled": true,
+          "Homebrew": true,
+          "Description": "Deadly magic can now be used for a numbe of rounds equal to your mythic rank"
+        },
         "DecayingTouch": {
           "Enabled": true,
           "Homebrew": true,
           "Description": "Decaying touch has been completly rewritten to have fewer bugs with how it applies damage"
+        },
+        "EclipseChill": {
+          "Enabled": true,
+          "Homebrew": true,
+          "Description": "Eclipse Chill DC now scales at 10 + 1/2 character level + twice your mythic rank and can now be used for a numbe of rounds equal to your mythic rank"
         },
         "TainedSneakAttack": {
           "Enabled": true,
