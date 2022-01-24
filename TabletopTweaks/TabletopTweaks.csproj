@@ -209,6 +209,7 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="NewComponents\IgnoreEnergyImmunityOnTarget.cs" />
     <Compile Include="NewComponents\ModifySavingThrowD20.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\WeaponBuffOnConfirmedCritTTT.cs" />
     <Compile Include="NewComponents\WeaponExtraDamageDice.cs" />

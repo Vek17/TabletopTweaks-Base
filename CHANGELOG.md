@@ -3,6 +3,8 @@
 * Fixes
     * General
         * Elemental Bloodline spells now work more correctly with metamagics.
+    * Aeon
+        * Aeon 10th level now correctly ignores energy immunities of chaotic characters.
     * Sorcerer
         * Elemental Bloodline arcanas now correctly show up in character creation.
 

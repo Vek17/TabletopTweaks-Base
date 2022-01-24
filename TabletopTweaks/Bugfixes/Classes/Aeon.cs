@@ -42,6 +42,11 @@ namespace TabletopTweaks.Bugfixes.Classes {
                         c.Replace = true;
                         c.Roll = 20;
                     });
+                    AeonTenthLevelImmunities.AddComponent<IgnoreEnergyImmunityOnTarget>(c => {
+                        c.CheckTargetAlignment = true;
+                        c.Alignment = AlignmentComponent.Chaotic;
+                        c.AllTypes = true;
+                    });
                 }
             }
         }

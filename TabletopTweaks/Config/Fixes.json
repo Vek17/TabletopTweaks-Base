@@ -152,7 +152,7 @@
       "AeonTenthLevelImmunities": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies."
+        "Description": "10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies. Additionally now correctly ignores energy immunities of chaotic characters"
       }
     },
     "IsExpanded": true
