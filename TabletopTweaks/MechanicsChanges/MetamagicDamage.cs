@@ -77,7 +77,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 }
                 num3 = Math.Max(1f, num3);
                 float num6 = num3 * (1f + damage.BonusPercent / 100f) * damage.Vulnerability * damage.Durability * __instance.TacticalCombatFactor;
-                float num7 = __instance.ParentRule.ModifierBonus ?? 1f;
+                float num7 = 1 + (__instance.ParentRule.ModifierBonus ?? 0f);
                 int num8 = Math.Max(1, (int)Math.Floor(num6 * num7));
                 num8 = __instance.TryApplyShadowDamageFactor(__instance.Target, num8);
                 num8 = (damage.Immune ? 0 : num8);
