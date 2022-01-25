@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents.Properties {
     [TypeId("8050a764a88e4f199015f70ddb0c8eee")]
-    class CompositePropertyGetter : PropertyValueGetter {
+    public class CompositePropertyGetter : PropertyValueGetter {
         public override int GetBaseValue(UnitEntityData unit) {
             switch (CalculationMode) {
                 case Mode.Sum:

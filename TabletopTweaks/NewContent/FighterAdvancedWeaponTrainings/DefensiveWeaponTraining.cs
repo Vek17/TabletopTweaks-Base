@@ -7,7 +7,7 @@ using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
-    class DefensiveWeaponTraining {
+    public class DefensiveWeaponTraining {
         public static void AddDefensiveWeaponTraining() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
 

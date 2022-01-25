@@ -10,7 +10,7 @@ using System.Text;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("8dccf39766ed482eb9b7f2ae31e50428")]
-    class PrerequisiteStatValues : Prerequisite {
+    public class PrerequisiteStatValues : Prerequisite {
         public override bool CheckInternal(FeatureSelectionState selectionState, UnitDescriptor unit, LevelUpState state) {
             return CheckUnit(unit);
         }

@@ -8,7 +8,7 @@ using TabletopTweaks.NewUnitParts;
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [AllowedOn(typeof(BlueprintParametrizedFeature))]
     [TypeId("fd74a9c62e844ac09f9aa5ce81a427cc")]
-    class FocusedWeaponComponent : UnitFactComponentDelegate {
+    public class FocusedWeaponComponent : UnitFactComponentDelegate {
         public override void OnTurnOn() {
             WeaponCategory? category = base.Param.WeaponCategory;
             base.Owner.Ensure<UnitPartFocusedWeapon>().AddEntry(category, base.Fact);

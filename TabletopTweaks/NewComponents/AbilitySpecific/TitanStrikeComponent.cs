@@ -9,7 +9,7 @@ using Kingmaker.UnitLogic.Mechanics;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("4a2247bdf0cf4b139863f0136abd4af8")]
-    class TitanStrikeComponent : UnitFactComponentDelegate,
+    public class TitanStrikeComponent : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,
         IInitiatorRulebookHandler<RuleCalculateCMB>,

@@ -8,7 +8,7 @@ using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedWeaponTrainings {
-    class AdvancedWeapontrainingSelection {
+    public class AdvancedWeapontrainingSelection {
         public static void AddAdvancedWeaponTrainingSelection() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var FighterTrainingFakeLevel = Resources.GetModBlueprintReference<BlueprintUnitFactReference>("FighterTrainingFakeLevel");

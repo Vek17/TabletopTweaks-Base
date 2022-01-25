@@ -14,7 +14,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("ae9e3debc1c64fc5bd2ba05e34541293")]
-    class WeaponBuffOnConfirmedCritTTT : WeaponEnchantmentLogic, 
+    public class WeaponBuffOnConfirmedCritTTT : WeaponEnchantmentLogic, 
         IInitiatorRulebookHandler<RuleAttackWithWeapon>, 
         IRulebookHandler<RuleAttackWithWeapon>, 
         ISubscriber, IInitiatorRulebookSubscriber, IResourcesHolder {

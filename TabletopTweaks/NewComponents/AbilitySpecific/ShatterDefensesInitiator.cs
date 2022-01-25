@@ -9,7 +9,7 @@ using Kingmaker.UnitLogic.Mechanics.ContextData;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("52c4991ee89544a2973b7e8b95396aba")]
-    class ShatterDefensesInitiator : EntityFactComponentDelegate,
+    public class ShatterDefensesInitiator : EntityFactComponentDelegate,
         IInitiatorRulebookHandler<RuleAttackRoll>,
         IRulebookHandler<RuleAttackRoll>,
         ISubscriber, IInitiatorRulebookSubscriber {

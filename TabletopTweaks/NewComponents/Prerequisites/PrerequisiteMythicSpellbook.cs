@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("08d2e61c79c64ee1afdca9fc834ffc32")]
-    class PrerequisiteMythicSpellbook : Prerequisite {
+    public class PrerequisiteMythicSpellbook : Prerequisite {
         public override bool CheckInternal([CanBeNull] FeatureSelectionState selectionState, [NotNull] UnitDescriptor unit, [CanBeNull] LevelUpState state) {
             return unit.Spellbooks
                 .Where(book => book.IsMythic)

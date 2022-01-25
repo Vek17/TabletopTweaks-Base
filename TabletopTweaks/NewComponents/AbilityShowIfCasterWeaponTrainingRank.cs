@@ -6,7 +6,7 @@ using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("94cb46b01f8a458fa8fe39732047d10d")]
-    class AbilityShowIfCasterWeaponTrainingRank : BlueprintComponent, IAbilityVisibilityProvider {
+    public class AbilityShowIfCasterWeaponTrainingRank : BlueprintComponent, IAbilityVisibilityProvider {
         public bool IsAbilityVisible(AbilityData ability) {
             var weaponTraining = ability.Caster.Get<UnitPartWeaponTraining>();
             if (weaponTraining == null) {

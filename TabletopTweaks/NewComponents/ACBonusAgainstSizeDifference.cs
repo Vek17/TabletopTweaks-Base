@@ -9,7 +9,7 @@ using Kingmaker.UnitLogic.Mechanics;
 namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [TypeId("b3a1e6c7233e4388a09b149964705b03")]
-    class ACBonusAgainstSizeDifference : UnitFactComponentDelegate, ITargetRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>, ISubscriber, ITargetRulebookSubscriber {
+    public class ACBonusAgainstSizeDifference : UnitFactComponentDelegate, ITargetRulebookHandler<RuleAttackRoll>, IRulebookHandler<RuleAttackRoll>, ISubscriber, ITargetRulebookSubscriber {
         public void OnEventAboutToTrigger(RuleAttackRoll evt) {
             var sizeDifference = Smaller ? evt.Initiator.State.Size - Owner.Descriptor.State.Size : Owner.Descriptor.State.Size - evt.Initiator.State.Size;
             if (sizeDifference >= Steps) {

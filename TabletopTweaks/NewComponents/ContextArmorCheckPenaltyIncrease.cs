@@ -12,7 +12,7 @@ using System.Linq;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("5c83ff59ace044d19376f4bbe035b544")]
-    class ContextArmorCheckPenaltyIncrease : UnitFactComponentDelegate,
+    public class ContextArmorCheckPenaltyIncrease : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateArmorCheckPenalty>,
         IRulebookHandler<RuleCalculateArmorCheckPenalty>,
         ISubscriber, IInitiatorRulebookSubscriber {

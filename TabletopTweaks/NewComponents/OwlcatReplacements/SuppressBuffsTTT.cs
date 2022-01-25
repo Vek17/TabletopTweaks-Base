@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("f97c2c9ad47743b49972f7c8c026d416")]
-    class SuppressBuffsTTT : UnitFactComponentDelegate {
+    public class SuppressBuffsTTT : UnitFactComponentDelegate {
 
         public override void OnPostLoad() {
             OnActivate();

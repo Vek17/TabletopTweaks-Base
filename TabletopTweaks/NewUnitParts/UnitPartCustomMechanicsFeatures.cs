@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using static TabletopTweaks.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartCustomMechanicsFeatures : OldStyleUnitPart {
+    public class UnitPartCustomMechanicsFeatures : OldStyleUnitPart {
 
         public void AddMechanicsFeature(CustomMechanicsFeature type) {
             CountableFlag MechanicsFeature = GetMechanicsFeature(type);

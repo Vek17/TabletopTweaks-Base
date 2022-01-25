@@ -11,7 +11,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
-    class TwoWeaponDefenseComponent : UnitFactComponentDelegate,
+    public class TwoWeaponDefenseComponent : UnitFactComponentDelegate,
         IUnitActiveEquipmentSetHandler,
         IGlobalSubscriber,
         ISubscriber,

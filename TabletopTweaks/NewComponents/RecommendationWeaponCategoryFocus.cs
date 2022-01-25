@@ -13,7 +13,7 @@ namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintAbility), false)]
     [AllowedOn(typeof(BlueprintFeature), false)]
     [TypeId("29c2f378da99404a948453b832deb097")]
-    class RecommendationWeaponCategoryFocus : LevelUpRecommendationComponent {
+    public class RecommendationWeaponCategoryFocus : LevelUpRecommendationComponent {
         public override RecommendationPriority GetPriority([CanBeNull] LevelUpState levelUpState) {
             if (levelUpState == null) {
                 return RecommendationPriority.Same;

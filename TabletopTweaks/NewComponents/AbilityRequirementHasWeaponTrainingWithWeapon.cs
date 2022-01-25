@@ -6,7 +6,7 @@ using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("df38cda426724a6b9d5065585340d9d0")]
-    class AbilityRequirementHasWeaponTrainingWithWeapon : BlueprintComponent, IAbilityRestriction {
+    public class AbilityRequirementHasWeaponTrainingWithWeapon : BlueprintComponent, IAbilityRestriction {
         public string GetAbilityRestrictionUIText() {
             return $"You must have weapon training with your current weapon";
         }

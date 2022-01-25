@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
-    class HasFactFeatureUnlock : UnitFactComponentDelegate<AddFeatureIfHasFactData>, IUnitGainFactHandler, IUnitLostFactHandler, IUnitSubscriber, ISubscriber {
+    public class HasFactFeatureUnlock : UnitFactComponentDelegate<AddFeatureIfHasFactData>, IUnitGainFactHandler, IUnitLostFactHandler, IUnitSubscriber, ISubscriber {
         public BlueprintUnitFact CheckedFact {
             get {
                 BlueprintUnitFactReference checkedFact = m_CheckedFact;

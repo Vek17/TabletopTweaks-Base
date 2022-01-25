@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartBlackBlade : OldStyleUnitPart {
+    public class UnitPartBlackBlade : OldStyleUnitPart {
         public UnitPartBlackBlade() {
         }
 

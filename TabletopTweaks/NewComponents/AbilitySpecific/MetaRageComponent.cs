@@ -24,7 +24,7 @@ using TabletopTweaks.NewEvents;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("b522a7a4b3a44772bc5cfbdd55b1e0f9")]
-    class MetaRageComponent : UnitFactComponentDelegate, ISpontaneousConversionHandler {
+    public class MetaRageComponent : UnitFactComponentDelegate, ISpontaneousConversionHandler {
 
         private BlueprintSpellbook Spellbook { get => ConvertSpellbook.Get(); }
         static readonly Metamagic ExcludeMask = Metamagic.Heighten | Metamagic.CompletelyNormal;

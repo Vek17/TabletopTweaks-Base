@@ -23,7 +23,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("4515aeab69cc419ba926987dd2cce54f")]
-    class QuickStudyComponent : AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
+    public class QuickStudyComponent : AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
 
         public AbilityParameter RequiredParameters {
             get {

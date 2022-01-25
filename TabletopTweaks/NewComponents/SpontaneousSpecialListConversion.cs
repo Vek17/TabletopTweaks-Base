@@ -9,7 +9,7 @@ using TabletopTweaks.NewEvents;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("a0c9a0074a8944aca4b83d16126bfdb2")]
-    class SpontaneousSpecialListConversion : UnitFactComponentDelegate, ISpontaneousConversionHandler {
+    public class SpontaneousSpecialListConversion : UnitFactComponentDelegate, ISpontaneousConversionHandler {
 
         public void HandleGetConversions(AbilityData ability, ref IEnumerable<AbilityData> conversions) {
             var conversionList = conversions.ToList();

@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("febcdf299ca242a7be5bacfda8e4254f")]
-    class ContextRestoreResourcesTTT : ContextAction {
+    public class ContextRestoreResourcesTTT : ContextAction {
         public BlueprintAbilityResource Resource {
             get {
                 BlueprintAbilityResourceReference resource = this.m_Resource;

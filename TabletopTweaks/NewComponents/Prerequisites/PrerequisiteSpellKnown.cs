@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("e523c74b8da74fec91ae651138ec0ca0")]
-    class PrerequisiteSpellKnown : Prerequisite {
+    public class PrerequisiteSpellKnown : Prerequisite {
         private BlueprintAbility Spell {
             get {
                 if (m_Spell == null) {

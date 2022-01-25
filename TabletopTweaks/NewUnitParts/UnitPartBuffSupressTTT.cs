@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartBuffSupressTTT : OldStyleUnitPart {
+    public class UnitPartBuffSupressTTT : OldStyleUnitPart {
 
         public override void OnTurnOn() {
             SuppressionEntries.Remove(entry => entry.Source.Fact == null);

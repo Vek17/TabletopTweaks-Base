@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("8c2d2cced7a44fa7a352e65a120466d6")]
-    class AbilityRequirementHasBuff : BlueprintComponent, IAbilityRestriction {
+    public class AbilityRequirementHasBuff : BlueprintComponent, IAbilityRestriction {
 
         public string GetAbilityRestrictionUIText() {
             return !Not ? $"Required Buff: {RequiredBuff.Get().Name}" : $"Not allowed with Buff: {RequiredBuff.Get().Name}";

@@ -7,7 +7,7 @@ using System;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("3d768a2d4890495c8a76167a1c411c60")]
-    class AbilityRestoreArcanistSpell : AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
+    public class AbilityRestoreArcanistSpell : AbilityApplyEffect, IAbilityRestriction, IAbilityRequiredParameters {
         public AbilityParameter RequiredParameters {
             get {
                 return AbilityParameter.Spellbook | AbilityParameter.SpellLevel | AbilityParameter.SpellSlot;

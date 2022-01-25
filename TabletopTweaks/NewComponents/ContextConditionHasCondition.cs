@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents {
-    class ContextConditionHasCondition : ContextCondition {
+    public class ContextConditionHasCondition : ContextCondition {
 
         public override string GetConditionCaption() {
             return $"Check if target has condition: {string.Join(", ", Conditions.Select(c => c.ToString()))}";

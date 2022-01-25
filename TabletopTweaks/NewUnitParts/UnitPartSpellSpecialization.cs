@@ -17,7 +17,7 @@ using TabletopTweaks.NewEvents;
 using UnityEngine;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartSpellSpecialization : OldStyleUnitPart, ISpontaneousConversionHandler, IUnitSubscriber {
+    public class UnitPartSpellSpecialization : OldStyleUnitPart, ISpontaneousConversionHandler, IUnitSubscriber {
         public void AddEntry(BlueprintAbilityReference spell, EntityFact source) {
             SpellSpecializationEntry item = new SpellSpecializationEntry {
                 Spell = spell,

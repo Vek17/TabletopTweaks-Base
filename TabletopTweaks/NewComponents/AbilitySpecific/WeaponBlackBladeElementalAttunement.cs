@@ -6,7 +6,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("2f13fd3858d642d3ba16351be5168254")]
-    class WeaponBlackBladeElementalAttunement : WeaponEnchantmentLogic, IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
+    public class WeaponBlackBladeElementalAttunement : WeaponEnchantmentLogic, IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {

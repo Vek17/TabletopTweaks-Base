@@ -9,7 +9,7 @@ using Kingmaker.UnitLogic.Mechanics;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("fd7dabc757e74a52a6a0c6e64fd5fd6b")]
-    class ContextDispelBonusOnType : UnitFactComponentDelegate,
+    public class ContextDispelBonusOnType : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleDispelMagic>,
         IRulebookHandler<RuleDispelMagic>,
         ISubscriber, IInitiatorRulebookSubscriber {

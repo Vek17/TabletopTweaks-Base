@@ -18,7 +18,7 @@ using TabletopTweaks.NewEvents;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("d2cf98b4e2854b90b4d451059cc581c0")]
-    class AbilityActionTypeConversion : UnitFactComponentDelegate, ISpontaneousConversionHandler {
+    public class AbilityActionTypeConversion : UnitFactComponentDelegate, ISpontaneousConversionHandler {
 
         private ReferenceArrayProxy<BlueprintAbility, BlueprintAbilityReference> Abilities {
             get {

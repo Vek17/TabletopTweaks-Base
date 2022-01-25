@@ -10,7 +10,7 @@ using Kingmaker.UnitLogic;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("8eb56941c0744505ae2e470528f9f1dd")]
-    class IgnoreEnergyImmunityOnTarget : UnitFactComponentDelegate, 
+    public class IgnoreEnergyImmunityOnTarget : UnitFactComponentDelegate, 
         IInitiatorRulebookHandler<RuleCalculateDamage>, 
         IRulebookHandler<RuleCalculateDamage>, 
         ISubscriber, IInitiatorRulebookSubscriber { 

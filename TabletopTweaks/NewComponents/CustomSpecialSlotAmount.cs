@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintSpellbook), false)]
     [TypeId("076df57c9d7d415c81a3b968437d98ec")]
-    class CustomSpecialSlotAmount : BlueprintComponent {
+    public class CustomSpecialSlotAmount : BlueprintComponent {
         public int Amount = 1;
     }
 

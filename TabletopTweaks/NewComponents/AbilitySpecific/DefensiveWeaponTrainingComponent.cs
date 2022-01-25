@@ -11,7 +11,7 @@ using Kingmaker.UnitLogic.Parts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("9f0ac1baab294739912163ea4b318c28")]
-    class DefensiveWeaponTrainingComponent : UnitFactComponentDelegate,
+    public class DefensiveWeaponTrainingComponent : UnitFactComponentDelegate,
         IUnitActiveEquipmentSetHandler,
         IGlobalSubscriber,
         ISubscriber,

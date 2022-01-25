@@ -14,7 +14,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [ComponentName("Replace attack stat")]
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("a2f09aa00803458fb96caa907389a8e7")]
-    class AttackStatReplacementTTT : UnitFactComponentDelegate,
+    public class AttackStatReplacementTTT : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateAttackBonusWithoutTarget>,
         IRulebookHandler<RuleCalculateAttackBonusWithoutTarget>, ISubscriber,
         IInitiatorRulebookSubscriber {

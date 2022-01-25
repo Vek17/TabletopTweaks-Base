@@ -14,7 +14,7 @@ using Kingmaker.UnitLogic.Mechanics;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("e8651c2865ee48f4a877df9d376bc37c")]
-    class ModifySavingThrowD20 : UnitFactComponentDelegate, 
+    public class ModifySavingThrowD20 : UnitFactComponentDelegate, 
         IInitiatorRulebookHandler<RuleSavingThrow>, 
         IRulebookHandler<RuleSavingThrow>,
         IInitiatorRulebookHandler<RuleRollD20>, 

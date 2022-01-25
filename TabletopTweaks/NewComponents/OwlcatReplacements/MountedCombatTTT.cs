@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("6529138e5e96494f958a758ee21e451e")]
-    class MountedCombatTTT : UnitFactComponentDelegate, IRulebookHandler<RuleAttackRoll>, IGlobalRulebookHandler<RuleAttackRoll>, ISubscriber, IGlobalSubscriber {
+    public class MountedCombatTTT : UnitFactComponentDelegate, IRulebookHandler<RuleAttackRoll>, IGlobalRulebookHandler<RuleAttackRoll>, ISubscriber, IGlobalSubscriber {
 
         public BlueprintBuff CooldownBuff {
             get {

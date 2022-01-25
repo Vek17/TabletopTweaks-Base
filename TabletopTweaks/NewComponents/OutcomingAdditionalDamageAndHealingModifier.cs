@@ -9,7 +9,7 @@ using Kingmaker.UnitLogic.Mechanics;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("f9bd6635909c40e09c3f4a22b711945b")]
-    class OutcomingAdditionalDamageAndHealingModifier : UnitFactComponentDelegate,
+    public class OutcomingAdditionalDamageAndHealingModifier : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateDamage>,
         IRulebookHandler<RuleCalculateDamage>, ISubscriber,
         IInitiatorRulebookSubscriber,

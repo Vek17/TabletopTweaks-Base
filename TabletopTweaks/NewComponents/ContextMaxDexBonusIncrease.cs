@@ -12,7 +12,7 @@ using System.Linq;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("39d2343f6d254e44ac05f3efb2c1937d")]
-    class ContextMaxDexBonusIncrease : UnitFactComponentDelegate,
+    public class ContextMaxDexBonusIncrease : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateArmorMaxDexBonusLimit>,
         IRulebookHandler<RuleCalculateArmorMaxDexBonusLimit>,
         ISubscriber, IInitiatorRulebookSubscriber {

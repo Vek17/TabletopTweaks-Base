@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("0542dd3cbb5949a7b120f2165758db9b")]
-    class IgnoreArmorMaxDexBonus : UnitFactComponentDelegate,
+    public class IgnoreArmorMaxDexBonus : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateArmorMaxDexBonusLimit>,
         IRulebookHandler<RuleCalculateArmorMaxDexBonusLimit>,
         ISubscriber, IInitiatorRulebookSubscriber {

@@ -4,7 +4,7 @@ using Kingmaker.UnitLogic;
 using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
-    class PrecisionCriticalComponent : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleCalculateDamage>, IRulebookHandler<RuleCalculateDamage>, ISubscriber, IInitiatorRulebookSubscriber {
+    public class PrecisionCriticalComponent : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleCalculateDamage>, IRulebookHandler<RuleCalculateDamage>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public override void OnTurnOn() {
             base.Owner.Ensure<UnitPartPrecisionCritical>().AddEntry(CriticalMultiplier, Additional, base.Fact);

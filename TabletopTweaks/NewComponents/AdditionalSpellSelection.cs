@@ -16,7 +16,7 @@ using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("070fd2a4a2cb4f198a44ae036082818c")]
-    class AdditionalSpellSelection : UnitFactComponentDelegate, IUnitCompleteLevelUpHandler {
+    public class AdditionalSpellSelection : UnitFactComponentDelegate, IUnitCompleteLevelUpHandler {
 
         private Spellbook SpellBook { get => Owner.DemandSpellbook(m_SpellCastingClass); }
         private BlueprintSpellList SpellList { get => ProxyList(m_SpellList ?? SpellBook?.Blueprint?.SpellList); }

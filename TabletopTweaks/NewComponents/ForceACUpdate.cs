@@ -4,7 +4,7 @@ using Kingmaker.UnitLogic;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("a736dbb1331c456488c601cefdbcd886")]
-    class ForceACUpdate : UnitFactComponentDelegate {
+    public class ForceACUpdate : UnitFactComponentDelegate {
 
         public override void OnTurnOn() {
             UpdateAC();

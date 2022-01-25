@@ -4,7 +4,7 @@ using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("1034d09d808c4a39b9d59c8a3097e126")]
-    class AeonGazeResouceLogic : UnitFactComponentDelegate {
+    public class AeonGazeResouceLogic : UnitFactComponentDelegate {
         public override void OnActivate() {
             var unitPart = Owner.Ensure<UnitPartAeonGazeManager>();
             unitPart.AddEntry(this.Fact);

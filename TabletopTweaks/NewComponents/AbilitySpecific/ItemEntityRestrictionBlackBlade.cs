@@ -9,7 +9,7 @@ using TabletopTweaks.NewUnitParts;
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [AllowedOn(typeof(BlueprintItemWeapon), false)]
     [TypeId("914ecd4aa8a04c24aa8dae7fd9d618de")]
-    class ItemEntityRestrictionBlackBlade : ItemEntityRestriction {
+    public class ItemEntityRestrictionBlackBlade : ItemEntityRestriction {
 
         public override bool CanBeEquippedBy(UnitDescriptor unit, ItemEntity item) {
             var BlackBlade = unit.Get<UnitPartBlackBlade>();

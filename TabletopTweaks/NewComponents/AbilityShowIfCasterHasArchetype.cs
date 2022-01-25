@@ -8,7 +8,7 @@ using UnityEngine;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintAbility))]
     [TypeId("faaed80f2d01490bb8be1424f8d12665")]
-    class AbilityShowIfCasterHasArchetype : BlueprintComponent, IAbilityVisibilityProvider {
+    public class AbilityShowIfCasterHasArchetype : BlueprintComponent, IAbilityVisibilityProvider {
         public bool IsAbilityVisible(AbilityData ability) {
             return ability.Caster.Progression.GetClassData(Class)?.Archetypes.Contains(Archetype) ?? false;
         }

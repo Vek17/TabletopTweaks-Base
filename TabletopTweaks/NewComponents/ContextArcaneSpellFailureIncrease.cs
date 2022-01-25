@@ -11,7 +11,7 @@ using System.Linq;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintUnitFact), false)]
     [TypeId("83ce1f63bacb4494887fb0b2080eddcd")]
-    class ContextArcaneSpellFailureIncrease : UnitFactComponentDelegate,
+    public class ContextArcaneSpellFailureIncrease : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateArcaneSpellFailureChance>,
         IRulebookHandler<RuleCalculateArcaneSpellFailureChance>,
         ISubscriber, IInitiatorRulebookSubscriber {

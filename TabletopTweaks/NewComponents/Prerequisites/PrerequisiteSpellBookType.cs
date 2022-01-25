@@ -8,7 +8,7 @@ using System.Text;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("1cdf85e299bf474d89e2ce827aa6ecbf")]
-    class PrerequisiteSpellBookType : Prerequisite {
+    public class PrerequisiteSpellBookType : Prerequisite {
         public override bool CheckInternal(FeatureSelectionState selectionState, UnitDescriptor unit, LevelUpState state) {
             int? casterTypeSpellLevel = this.GetCasterTypeSpellLevel(unit);
             return (casterTypeSpellLevel.GetValueOrDefault() >= RequiredSpellLevel) && (casterTypeSpellLevel != null);

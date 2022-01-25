@@ -11,7 +11,7 @@ namespace TabletopTweaks.NewComponents {
     //This is a hack that should not be needed
     [TypeId("f60835ac5ca54ff4b29cf0e3c65a465e")]
     [AllowedOn(typeof(BlueprintFeature))]
-    class EnsureProgressionAdded : UnitFactComponentDelegate,
+    public class EnsureProgressionAdded : UnitFactComponentDelegate,
         IUnitLevelUpHandler, IGlobalSubscriber, ISubscriber {
 
         public void HandleUnitAfterLevelUp(UnitEntityData unit, LevelUpController controller) {

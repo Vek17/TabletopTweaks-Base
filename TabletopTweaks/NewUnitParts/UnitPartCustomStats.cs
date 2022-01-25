@@ -13,7 +13,7 @@ using System.Reflection;
 using static TabletopTweaks.NewUnitParts.CustomStatTypes;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartCustomStats : OldStyleUnitPart {
+    public class UnitPartCustomStats : OldStyleUnitPart {
 
         public override void OnTurnOn() {
             foreach (var stat in CustomStats) {
@@ -82,7 +82,7 @@ namespace TabletopTweaks.NewUnitParts {
             }
         }
     }
-    static class CustomStatTypes {
+    public static class CustomStatTypes {
         //If using new values stats are 10_000 - 1_000_000
         public enum CustomStatType : int {
             MeleeTouchReach = 10_000,

@@ -6,7 +6,7 @@ using Kingmaker.UnitLogic;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("68de0e05a62241a6bd00a9107a493041")]
-    class ForceFlatFooted : UnitFactComponentDelegate, ITargetRulebookHandler<RuleCheckTargetFlatFooted>, ITargetRulebookSubscriber {
+    public class ForceFlatFooted : UnitFactComponentDelegate, ITargetRulebookHandler<RuleCheckTargetFlatFooted>, ITargetRulebookSubscriber {
 
         public void OnEventAboutToTrigger(RuleCheckTargetFlatFooted evt) {
             if (TacticalCombatHelper.IsActive) { return; }

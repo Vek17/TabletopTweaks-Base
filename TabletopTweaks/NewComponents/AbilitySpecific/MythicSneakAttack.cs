@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("aabbfeda974c455aafe14d05efca4f67")]
-    class MythicSneakAttack : UnitFactComponentDelegate,
+    public class MythicSneakAttack : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RulePrepareDamage>,
         IRulebookHandler<RulePrepareDamage>,
         ISubscriber, IInitiatorRulebookSubscriber {

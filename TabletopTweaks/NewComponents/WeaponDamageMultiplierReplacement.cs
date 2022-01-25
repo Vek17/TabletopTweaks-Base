@@ -5,7 +5,7 @@ using Kingmaker.RuleSystem.Rules;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("34455dfff53d4c349bd19eb9ebb85ab6")]
-    class WeaponDamageMultiplierReplacement : WeaponEnchantmentLogic,
+    public class WeaponDamageMultiplierReplacement : WeaponEnchantmentLogic,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,
         ISubscriber, IInitiatorRulebookSubscriber {

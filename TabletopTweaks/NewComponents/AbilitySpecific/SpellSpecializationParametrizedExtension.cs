@@ -7,7 +7,7 @@ using TabletopTweaks.NewUnitParts;
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [AllowedOn(typeof(BlueprintParametrizedFeature), false)]
     [TypeId("b104bfacc8a3446ab149fb3241778d8e")]
-    class SpellSpecializationParametrizedExtension : UnitFactComponentDelegate {
+    public class SpellSpecializationParametrizedExtension : UnitFactComponentDelegate {
         public override void OnTurnOn() {
             var part = base.Owner.Ensure<UnitPartSpellSpecialization>();
             part.AddEntry(base.Param.Blueprint.ToReference<BlueprintAbilityReference>(), base.Fact);

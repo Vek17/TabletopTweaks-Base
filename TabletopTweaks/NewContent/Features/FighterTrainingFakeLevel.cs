@@ -3,9 +3,9 @@ using TabletopTweaks.Extensions;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.Features {
-    class FighterTrainingFakeLevel {
+    public class FighterTrainingFakeLevel {
         public static void AddFighterTrainingFakeLevel() {
-            var AnimalAllyRank = Helpers.CreateBlueprint<BlueprintFeature>("FighterTrainingFakeLevel", bp => {
+            var FighterTrainingFakeLevel = Helpers.CreateBlueprint<BlueprintFeature>("FighterTrainingFakeLevel", bp => {
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 40;

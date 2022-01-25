@@ -9,7 +9,7 @@ using System.Linq;
 using TabletopTweaks.MechanicsChanges;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartAeonGazeManager : OldStyleUnitPart {
+    public class UnitPartAeonGazeManager : OldStyleUnitPart {
 
         public void AddEntry(EntityFact source) {
             GazeEntry gaze = new GazeEntry {
@@ -46,7 +46,7 @@ namespace TabletopTweaks.NewUnitParts {
         }
 
         [HarmonyPatch(typeof(ActivatableAbilityResourceLogic), "IsAvailable")]
-        class ActivatableAbilityResourceLogic_IsAvailable_PerfectCritical_Patch {
+        public class ActivatableAbilityResourceLogic_IsAvailable_PerfectCritical_Patch {
             static void Postfix(ActivatableAbilityResourceLogic __instance, ref bool __result, EntityFactComponent runtime) {
                 using (runtime.RequestEventContext()) {
                     if (__instance.RequiredResource && __instance.SpendType == ActivatableAbilitySpendLogic.StandardSpendType.AeonGaze.ToResourceType()) {

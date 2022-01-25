@@ -6,7 +6,7 @@ using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("a0ff3623a0154448a082b1c5ea9898fc")]
-    class AbilityRequirementHasBlackBlade : BlueprintComponent, IAbilityRestriction {
+    public class AbilityRequirementHasBlackBlade : BlueprintComponent, IAbilityRestriction {
         public string GetAbilityRestrictionUIText() {
             return $"You must be wielding your Black Blade";
         }

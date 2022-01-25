@@ -6,7 +6,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 
 namespace TabletopTweaks.NewComponents.Properties {
     [TypeId("5f193022788a43d28c0bdaa913a21117")]
-    class StatValueGetter : PropertyValueGetter {
+    public class StatValueGetter : PropertyValueGetter {
         public override int GetBaseValue(UnitEntityData unit) {
             return unit.Stats.GetStat(this.Stat).ModifiedValue;
         }

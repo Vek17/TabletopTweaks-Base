@@ -16,7 +16,7 @@ using TabletopTweaks.NewEvents;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintAbility), false)]
     [TypeId("a9892b3a72f349fe8acb2e7565d18f93")]
-    class NestedPseudoActivatableAbilities : UnitFactComponentDelegate, ISpontaneousConversionHandler, IUnitEquipmentHandler {
+    public class NestedPseudoActivatableAbilities : UnitFactComponentDelegate, ISpontaneousConversionHandler, IUnitEquipmentHandler {
         public ReferenceArrayProxy<BlueprintAbility, BlueprintAbilityReference> Variants {
             get {
                 return this.m_Variants;

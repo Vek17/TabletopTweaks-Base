@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("1c41e810627b489bbdc47138903dbc86")]
-    class ArmorEnchantsToWeapon : WeaponEnchantmentLogic,
+    public class ArmorEnchantsToWeapon : WeaponEnchantmentLogic,
         ISubscriber, IInitiatorRulebookSubscriber,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,

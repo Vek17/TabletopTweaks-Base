@@ -4,7 +4,7 @@ using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("8390a2bda2e74bfb83cb0483adfcf5f7")]
-    class SpellSpecializationGreaterComponent : UnitFactComponentDelegate {
+    public class SpellSpecializationGreaterComponent : UnitFactComponentDelegate {
 
         public override void OnTurnOn() {
             var part = base.Owner.Ensure<UnitPartSpellSpecialization>();

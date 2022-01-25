@@ -8,7 +8,7 @@ using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("446f9e9a24684cbdb77e3b270af7b5dc")]
-    class AddBlackBlade : UnitFactComponentDelegate, IUnitLevelUpHandler {
+    public class AddBlackBlade : UnitFactComponentDelegate, IUnitLevelUpHandler {
 
         public override void OnTurnOn() {
 

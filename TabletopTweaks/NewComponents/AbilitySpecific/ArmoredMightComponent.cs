@@ -10,7 +10,7 @@ using System;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("e90c706b6fd84f90b4dcd35ef2699483")]
-    class ArmoredMightComponent : UnitFactComponentDelegate,
+    public class ArmoredMightComponent : UnitFactComponentDelegate,
         IUnitActiveEquipmentSetHandler,
         IGlobalSubscriber,
         ISubscriber,

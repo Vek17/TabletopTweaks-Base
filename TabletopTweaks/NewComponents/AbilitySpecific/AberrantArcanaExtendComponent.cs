@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("e9cfd3c8b2ee49caada37795d9925af3")]
-    class AberrantArcanaExtendComponent : UnitFactComponentDelegate, IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
+    public class AberrantArcanaExtendComponent : UnitFactComponentDelegate, IUnitBuffHandler, IGlobalSubscriber, ISubscriber {
 
         public void HandleBuffDidAdded(Buff buff) {
             MechanicsContext maybeContext = buff.MaybeContext;

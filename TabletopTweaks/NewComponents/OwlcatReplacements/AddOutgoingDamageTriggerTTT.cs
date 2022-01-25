@@ -22,7 +22,7 @@ using System.Linq;
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [AllowMultipleComponents]
     [TypeId("d9558dff3102481dbd918c2abdd0c95b")]
-    class AddOutgoingDamageTriggerTTT : UnitFactComponentDelegate<AddOutgoingDamageTriggerTTT.ComponentData>,
+    public class AddOutgoingDamageTriggerTTT : UnitFactComponentDelegate<AddOutgoingDamageTriggerTTT.ComponentData>,
         IInitiatorRulebookHandler<RuleDealDamage>,
         IRulebookHandler<RuleDealDamage>,
         IInitiatorRulebookHandler<RuleDealStatDamage>,

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace TabletopTweaks.NewUnitParts {
-    class UnitPartPrecisionCritical : UnitPart {
+    public class UnitPartPrecisionCritical : UnitPart {
 
         public int GetMultiplier() {
             int multiplier = 0;

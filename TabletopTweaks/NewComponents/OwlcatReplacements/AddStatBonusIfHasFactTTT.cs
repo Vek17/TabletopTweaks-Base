@@ -14,7 +14,7 @@ using UnityEngine;
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [AllowMultipleComponents]
     [TypeId("7601b8133d844f04956d9bc9a1cce210")]
-    class AddStatBonusIfHasFactTTT : UnitBuffComponentDelegate, IUnitGainFactHandler, IUnitSubscriber, ISubscriber, IUnitLostFactHandler {
+    public class AddStatBonusIfHasFactTTT : UnitBuffComponentDelegate, IUnitGainFactHandler, IUnitSubscriber, ISubscriber, IUnitLostFactHandler {
         public ReferenceArrayProxy<BlueprintUnitFact, BlueprintUnitFactReference> CheckedFacts {
             get {
                 return this.m_CheckedFacts;

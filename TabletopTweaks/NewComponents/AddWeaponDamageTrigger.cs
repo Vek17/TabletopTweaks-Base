@@ -10,7 +10,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("d6c77d2de4804f8e9aa06e01c9fb77fa")]
-    class AddWeaponDamageTrigger : WeaponEnchantmentLogic,
+    public class AddWeaponDamageTrigger : WeaponEnchantmentLogic,
         IInitiatorRulebookHandler<RuleDealDamage>,
         IRulebookHandler<RuleDealDamage> {
 

@@ -6,7 +6,7 @@ using Kingmaker.RuleSystem.Rules;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("e3c345a3c9ae4f84a0f86b42101b294d")]
-    class WeaponBlackBladeStrike : WeaponEnchantmentLogic, IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
+    public class WeaponBlackBladeStrike : WeaponEnchantmentLogic, IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>, ISubscriber, IInitiatorRulebookSubscriber {
 
         private int CalculateModifier() {

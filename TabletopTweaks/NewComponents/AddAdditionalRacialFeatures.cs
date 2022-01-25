@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("459d17478d434bbb881b99d766113cb9")]
-    class AddAdditionalRacialFeatures : UnitFactComponentDelegate {
+    public class AddAdditionalRacialFeatures : UnitFactComponentDelegate {
 
         public override void OnActivate() {
             LevelUpController controller = Kingmaker.Game.Instance?.LevelUpController;

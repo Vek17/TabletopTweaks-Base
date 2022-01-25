@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("33c66b9aaaa348cfa8efd39841cf255b")]
-    class PrerequisiteNoFeaturesFromList : Prerequisite {
+    public class PrerequisiteNoFeaturesFromList : Prerequisite {
         public ReferenceArrayProxy<BlueprintFeature, BlueprintFeatureReference> Features {
             get {
                 return m_Features;

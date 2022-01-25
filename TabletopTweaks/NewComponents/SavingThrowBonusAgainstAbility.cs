@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("c19c12bbbba146dca21b7ef7e6867acf")]
-    class SavingThrowBonusAgainstAbility : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
+    public class SavingThrowBonusAgainstAbility : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleSavingThrow>, IRulebookHandler<RuleSavingThrow>, ISubscriber, IInitiatorRulebookSubscriber {
 
         public BlueprintFeature CheckedFact {
             get {

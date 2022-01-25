@@ -6,7 +6,7 @@ using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("aac8d3adce2c4251ba6531b47d099186")]
-    class BlackBladeEffect : UnitFactComponentDelegate<BlackBladeEffect.AppliedEnchantData> {
+    public class BlackBladeEffect : UnitFactComponentDelegate<BlackBladeEffect.AppliedEnchantData> {
 
         public override void OnTurnOn() {
             var part = base.Owner.Get<UnitPartBlackBlade>();

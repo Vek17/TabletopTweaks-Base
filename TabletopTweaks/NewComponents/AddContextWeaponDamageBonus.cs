@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic.Mechanics;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("fc8175648c844fbda84dc1cf7f0f670b")]
-    class AddContextWeaponDamageBonus : UnitFactComponentDelegate,
+    public class AddContextWeaponDamageBonus : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,
         ISubscriber, IInitiatorRulebookSubscriber {

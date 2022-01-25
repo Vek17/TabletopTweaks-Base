@@ -13,7 +13,7 @@ using System.Linq;
 namespace TabletopTweaks.NewComponents {
     [AllowedOn(typeof(BlueprintAbility), false)]
     [TypeId("60689f3632da4205b776a2c4a02485a7")]
-    class UpdateSlotsOnEquipmentChange : UnitFactComponentDelegate, IUnitEquipmentHandler {
+    public class UpdateSlotsOnEquipmentChange : UnitFactComponentDelegate, IUnitEquipmentHandler {
         public void HandleEquipmentSlotUpdated(ItemSlot slot, ItemEntity previousItem) {
             if (slot.Owner != Owner) { return; }
             var slots = Game.Instance?.RootUiContext?.InGameVM?.StaticPartVM?.ActionBarVM?.Slots;

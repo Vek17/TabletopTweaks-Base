@@ -12,7 +12,7 @@ using TabletopTweaks.NewUnitParts;
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [AllowedOn(typeof(BlueprintUnitFact))]
     [TypeId("a945c1d2b2d44247bd37d651665d4f54")]
-    class FocusedWeaponDamageComponent : UnitFactComponentDelegate,
+    public class FocusedWeaponDamageComponent : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,
         ISubscriber,

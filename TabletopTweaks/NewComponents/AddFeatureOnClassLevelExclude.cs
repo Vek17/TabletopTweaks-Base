@@ -6,7 +6,7 @@ using Kingmaker.UnitLogic;
 using System.Linq;
 
 namespace TabletopTweaks.NewComponents {
-    class AddFeatureOnClassLevelExclude : UnitFactComponentDelegate<AddFeatureOnClassLevelData>, IOwnerGainLevelHandler, IUnitSubscriber, ISubscriber {
+    public class AddFeatureOnClassLevelExclude : UnitFactComponentDelegate<AddFeatureOnClassLevelData>, IOwnerGainLevelHandler, IUnitSubscriber, ISubscriber {
 
         public override void OnActivate() {
             Apply();

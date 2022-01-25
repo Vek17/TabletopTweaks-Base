@@ -11,7 +11,7 @@ using Kingmaker.UnitLogic.Mechanics;
 namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]
     [TypeId("9ea33bacd9fb466e996d243274f84f9a")]
-    class AddAdditionalWeaponDamage : EntityFactComponentDelegate,
+    public class AddAdditionalWeaponDamage : EntityFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
         IRulebookHandler<RuleCalculateWeaponStats>,
         ISubscriber, IInitiatorRulebookSubscriber {

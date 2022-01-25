@@ -7,7 +7,7 @@ using TabletopTweaks.NewUnitParts;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("03f55b5c7cb0445ab32ce2c8d44704ec")]
-    class AddOutgoingWeaponDamageBonus : UnitFactComponentDelegate,
+    public class AddOutgoingWeaponDamageBonus : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleCalculateDamage>,
         IRulebookHandler<RuleCalculateDamage>,
         ISubscriber,

@@ -12,7 +12,7 @@ using TabletopTweaks.NewComponents.Properties;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
-    class AdvancedArmorTraining {
+    public class AdvancedArmorTraining {
         public static void AddAdvancedArmorTraining() {
             var FighterClass = Resources.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var ArmorTraining = Resources.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");

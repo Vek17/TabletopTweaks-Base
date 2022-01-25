@@ -11,7 +11,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("6ac52746855e4c82a1427a787bb26edb")]
-    class SurviveDeathWithSave : UnitFactComponentDelegate, IDamageHandler, IGlobalSubscriber, ISubscriber {
+    public class SurviveDeathWithSave : UnitFactComponentDelegate, IDamageHandler, IGlobalSubscriber, ISubscriber {
 
         public BlueprintAbilityResource RequiredResource {
             get {
