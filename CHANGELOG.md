@@ -4,6 +4,7 @@
     * General
         * Elemental Bloodline spells now work more correctly with metamagics.
         * Addative critical range increases are no longer multiplied by keen/improved critical. This includes trickster improved imporved critical.
+        * Fixed issue where bolstered metamagic was granting an unrelated stat boost.
     * Aeon
         * Aeon 10th level now correctly ignores energy immunities of chaotic characters.
     * Sorcerer

@@ -25,8 +25,6 @@ namespace TabletopTweaks.Reworks {
 
                 var BolsteredSpellFeat = Resources.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
 
-                BolsteredSpellFeat.RemoveComponents<AddStatBonus>();
-                BolsteredSpellFeat.AddComponent<MythicSneakAttack>();
                 BolsteredSpellFeat.SetDescription("You make your spells deal additional area of effect damage, while making them stronger.\n" +
                     "Benefit: Spell now deals 2 more points of damage per die rolled to all its targets. " +
                     "Additionally, all enemies in 5 feet of the spell targets are dealt 2 damage " +
