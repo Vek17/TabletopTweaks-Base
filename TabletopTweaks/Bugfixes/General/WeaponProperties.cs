@@ -1,8 +1,10 @@
 ﻿using HarmonyLib;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using System;
 using System.Linq;
+using TabletopTweaks.Config;
 
 namespace TabletopTweaks.Bugfixes.General {
     static class WeaponProperties {
@@ -37,6 +39,14 @@ namespace TabletopTweaks.Bugfixes.General {
                         damage.AddAlignment(__instance.Alignment);
                     }
                 }
+            }
+        }
+        [HarmonyPatch(typeof(RuleCalculateWeaponStats), nameof(RuleCalculateWeaponStats.CriticalRange), MethodType.Getter)]
+        class RuleCalculateWeaponStats_CriticalRange_Patch {
+            static void Postfix(RuleCalculateWeaponStats __instance, ref int __result) {
+                if (ModSettings.Fixes.BaseFixes.IsDisabled("CriticalRangeIncreases")) { return; }
+                __result = ((21 - __instance.Weapon.Blueprint.CriticalRollEdge) * (__instance.DoubleCriticalEdge ? 2 : 1))
+                    + __instance.CriticalEdgeBonus;
             }
         }
     }
