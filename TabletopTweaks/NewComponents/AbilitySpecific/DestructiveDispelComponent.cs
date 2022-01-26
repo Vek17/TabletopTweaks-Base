@@ -14,7 +14,10 @@ using Kingmaker.Utility;
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [AllowedOn(typeof(BlueprintFeature), false)]
     [TypeId("ea475e4be98f4eabb361ed8ce58870ad")]
-    public class DestructiveDispelComponent : UnitFactComponentDelegate, IInitiatorRulebookHandler<RuleDispelMagic>, IRulebookHandler<RuleDispelMagic>, ISubscriber, IInitiatorRulebookSubscriber {
+    public class DestructiveDispelComponent : UnitFactComponentDelegate, 
+        IInitiatorRulebookHandler<RuleDispelMagic>, 
+        IRulebookHandler<RuleDispelMagic>, 
+        ISubscriber, IInitiatorRulebookSubscriber {
         public void OnEventAboutToTrigger(RuleDispelMagic evt) {
         }
 
@@ -25,7 +28,6 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
                 var abilityParams = base.Context.TriggerRule(new RuleCalculateAbilityParams(evt.Initiator, base.OwnerBlueprint, null));
                 using (maybeContext.GetDataScope(evt.Target)) {
                     int dc = 10 + ((evt.CasterLevel + evt.Bonus) / 2) + abilityParams.m_BonusDC + getHighestStatBonus(evt.Initiator, StatType.Intelligence, StatType.Wisdom, StatType.Charisma);
-                    Main.Log($"Calculated DC: {dc} | Bonus From parama: {abilityParams.m_BonusDC}");
                     RuleSavingThrow ruleSavingThrow = base.Context.TriggerRule(new RuleSavingThrow(evt.Target, SavingThrowType.Fortitude, dc));
                     if (ruleSavingThrow.IsPassed) {
                         SaveSuccees.Run();
