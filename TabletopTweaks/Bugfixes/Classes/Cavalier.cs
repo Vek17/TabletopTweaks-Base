@@ -136,6 +136,9 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     //Order Of The Sword Level 15
                     Resources.GetBlueprint<BlueprintFeature>("485ffa7a62af8064fa76d6d0de13c253").HideInCharacterSheetAndLevelUp = false;
+
+
+
                 }
 
                 void PatchCalling()
@@ -170,6 +173,27 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
 
                     }));
+                    callingChannelSupport.AddComponent(Helpers.Create<AddCasterLevelForAbility>(x => {
+                        x.Descriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+                        x.m_Spell = Resources.GetBlueprintReference<BlueprintAbilityReference>("8d6073201e5395d458b8251386d72df1");
+                        x.Bonus = 1;
+
+                    }));
+                    callingChannelSupport.AddComponent(Helpers.Create<AddCasterLevelForAbility>(x => {
+                        x.Descriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+                        x.m_Spell = Resources.GetBlueprintReference<BlueprintAbilityReference>("caae1dc6fcf7b37408686971ee27db13");
+                        x.Bonus = 1;
+
+                    }));
+                    callingChannelSupport.AddComponent(Helpers.Create<AddCasterLevelForAbility>(x => {
+                        x.Descriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+                        x.m_Spell = Resources.GetBlueprintReference<BlueprintAbilityReference>("8337cea04c8afd1428aad69defbfc365");
+                        x.Bonus = 1;
+
+                    }));
+
+                    
+
                 }
             }
 
