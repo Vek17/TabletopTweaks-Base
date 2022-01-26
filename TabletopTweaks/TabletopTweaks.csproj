@@ -87,9 +87,8 @@
       <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Owlcat.Runtime.UI">
-      <HintPath>$(SolutionDir)\lib\Owlcat.Runtime.UI_public.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Owlcat.Runtime.UI_public">
+      <HintPath>..\..\..\Users\Alex Walters\source\repos\TomeOfTheFirebird\lib\Owlcat.Runtime.UI_public.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

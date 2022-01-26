@@ -25,6 +25,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                 PatchBase();
                 PatchGendarme();
+                PatchOrders();
             }
 
             static void PatchBase() {
@@ -112,6 +113,67 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 }
             }
 
+            static void PatchOrders() {
+
+                PatchVisibility();
+                PatchCalling();
+                void PatchVisibility() {
+                    if (ModSettings.Fixes.Cavalier.Base.IsDisabled("OrderAbilityVisibility")) { return; }
+                    //Order Of The Cockatrice Level 15
+                    Resources.GetBlueprint<BlueprintFeature>("1ee7bb75e8d29b641b39294ad4d9afca").HideInCharacterSheetAndLevelUp = false;
+
+                    //Order Of The Lion Level 2
+                    Resources.GetBlueprint<BlueprintFeature>("66ed10b9ff262734ca90a7b7167db764").HideInCharacterSheetAndLevelUp = false;
+
+                    //Order Of The Lion Level 8
+                    Resources.GetBlueprint<BlueprintFeature>("14c5ae26f6c962047be3fda7f865f519").HideInCharacterSheetAndLevelUp = false;
+
+                    //Order Of The Star Level 2
+                    Resources.GetBlueprint<BlueprintFeature>("271af8eb5d6ccd04899f548380bff006").HideInCharacterSheetAndLevelUp = false;
+
+                    //Order Of The Star Level 8
+                    Resources.GetBlueprint<BlueprintFeature>("2cc3041fdc8693640a0b18c8d14e77e0").HideInCharacterSheetAndLevelUp = false;
+
+                    //Order Of The Sword Level 15
+                    Resources.GetBlueprint<BlueprintFeature>("485ffa7a62af8064fa76d6d0de13c253").HideInCharacterSheetAndLevelUp = false;
+                }
+
+                void PatchCalling()
+                {
+                    if (ModSettings.Fixes.Cavalier.Base.IsDisabled("FixOrderOfTheStarsChannelling")) { return; }
+                    var callingChannelSupport = Resources.GetBlueprint<BlueprintFeature>("eff49ecc28a0ce54caf416bdacedf4f3");
+                    callingChannelSupport.AddComponent(Helpers.Create<IncreaseSpellDescriptorCasterLevel>(x => {
+                        x.Descriptor = new Kingmaker.Blueprints.Classes.Spells.SpellDescriptorWrapper(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor.ChannelPositiveHeal);
+                        x.BonusCasterLevel = 1;
+                        x.ModifierDescriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+
+
+                    }));
+                    callingChannelSupport.AddComponent(Helpers.Create<IncreaseSpellDescriptorCasterLevel>(x => {
+                        x.Descriptor = new Kingmaker.Blueprints.Classes.Spells.SpellDescriptorWrapper(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor.ChannelNegativeHeal);
+                        x.BonusCasterLevel = 1;
+                        x.ModifierDescriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+
+
+                    }));
+                    callingChannelSupport.AddComponent(Helpers.Create<IncreaseSpellDescriptorCasterLevel>(x => {
+                        x.Descriptor = new Kingmaker.Blueprints.Classes.Spells.SpellDescriptorWrapper(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor.ChannelNegativeHarm);
+                        x.BonusCasterLevel = 1;
+                        x.ModifierDescriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+
+
+                    }));
+                    callingChannelSupport.AddComponent(Helpers.Create<IncreaseSpellDescriptorCasterLevel>(x => {
+                        x.Descriptor = new Kingmaker.Blueprints.Classes.Spells.SpellDescriptorWrapper(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor.ChannelPositiveHarm);
+                        x.BonusCasterLevel = 1;
+                        x.ModifierDescriptor = Kingmaker.Enums.ModifierDescriptor.UntypedStackable;
+
+
+                    }));
+                }
+            }
+
+         
         }
     }
 }

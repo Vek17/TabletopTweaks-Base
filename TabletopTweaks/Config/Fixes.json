@@ -349,6 +349,16 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Prevents Supreme Charge damage from criting and moves it into the new charage damage system."
+        },
+        "OrderAbilityVisibility": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Makes Order abilities that were hidden for no real reason visibile."
+        },
+        "OrderOfTheStarsChannelling": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Implements Order Of The Stars ability to progress channel power at half cavalier level."
         }
       },
       "IsExpanded": true
