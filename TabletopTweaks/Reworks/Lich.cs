@@ -2,8 +2,6 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
@@ -19,9 +17,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.UnitLogic.Mechanics.Properties;
-using Kingmaker.Utility;
-using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewActions;
@@ -52,7 +47,7 @@ namespace TabletopTweaks.Reworks {
                 var DeadlyMagicBuff = Resources.GetBlueprint<BlueprintBuff>("27ebfae71cce46045814eb3ba4fefa6b");
                 var DeadlyMagicResource = Resources.GetBlueprint<BlueprintAbilityResource>("a3441d150c5fec54bbbc04efdefaf6aa");
 
-                DeadlyMagicFeature.SetDescription("For a number of rounds equal to his mythic rank, " +
+                DeadlyMagicFeature.SetDescription("For a number of rounds equal to 3 + half his mythic rank, " +
                     "a Lich can make all spells he casts to ignore spell resistance and spell immunity. " +
                     "Any creature affected by such spell can't cast spells for 1d3+1 rounds.");
                 DeadlyMagicToggleAbility.m_Description = DeadlyMagicFeature.m_Description;
@@ -60,12 +55,13 @@ namespace TabletopTweaks.Reworks {
 
                 DeadlyMagicResource.TemporaryContext(bp => {
                     bp.m_MaxAmount = new BlueprintAbilityResource.Amount() {
-                        m_Class = Game.Instance.BlueprintRoot.Progression.m_CharacterMythics,
+                        m_Class = new BlueprintCharacterClassReference[0],
                         m_Archetypes = new BlueprintArchetypeReference[0],
-                        m_ClassDiv = new BlueprintCharacterClassReference[0],
-                        BaseValue = 0,
-                        IncreasedByLevel = true,
-                        LevelIncrease = 1
+                        m_ClassDiv = Game.Instance.BlueprintRoot.Progression.m_CharacterMythics,
+                        BaseValue = 3,
+                        IncreasedByLevelStartPlusDivStep = true,
+                        LevelStep = 2,
+                        PerStepIncrease = 1
                     };
                 });
             }
@@ -231,7 +227,7 @@ namespace TabletopTweaks.Reworks {
                 var EclipseChillResource = Resources.GetBlueprint<BlueprintAbilityResource>("b134e2d400adc4a49bd217a7953d6d6a");
                 var PlantType = Resources.GetBlueprintReference<BlueprintUnitFactReference>("706e61781d692a042b35941f14bc41c5");
 
-                EclipseChillFeature.SetDescription("For a number of rounds equal to his mythic rank, a Lich can imbue all spells he casts with the " +
+                EclipseChillFeature.SetDescription("For a number of rounds equal to 3 + half his mythic rank, a Lich can imbue all spells he casts with the " +
                     "powers of the Eclipse chill. Creatures affected by such spells must pass a Fortitude saving throw " +
                     "(DC = 10 + 1/2 character level + twice your mythic rank) or become blinded and suffer (2d8 + mythic rank) " +
                     "cold damage, becoming vulnerable to cold and negative energy until the end of the combat.");
@@ -239,12 +235,13 @@ namespace TabletopTweaks.Reworks {
                 EclipseChillEffectBuff.m_Description = EclipseChillFeature.m_Description;
                 EclipseChillResource.TemporaryContext(bp => {
                     bp.m_MaxAmount = new BlueprintAbilityResource.Amount() {
-                        m_Class = Game.Instance.BlueprintRoot.Progression.m_CharacterMythics,
+                        m_Class = new BlueprintCharacterClassReference[0],
                         m_Archetypes = new BlueprintArchetypeReference[0],
-                        m_ClassDiv = new BlueprintCharacterClassReference[0],
-                        BaseValue = 0,
-                        IncreasedByLevel = true,
-                        LevelIncrease = 1
+                        m_ClassDiv = Game.Instance.BlueprintRoot.Progression.m_CharacterMythics,
+                        BaseValue = 3,
+                        IncreasedByLevelStartPlusDivStep = true,
+                        LevelStep = 2,
+                        PerStepIncrease = 1
                     };
                 });
 

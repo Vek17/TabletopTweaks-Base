@@ -12,6 +12,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -50,6 +51,7 @@ namespace TabletopTweaks.Reworks {
                 PatchAeonGreaterBaneDispel();
                 PatchAeonGazeAction();
                 PatchAeonGazeDC();
+                PatchAeonGazeIcons();
             }
 
             static void PatchAeonBaneIcon() {
@@ -205,6 +207,33 @@ namespace TabletopTweaks.Reworks {
                         if (gazeBuff != null) {
                             gazeBuff.AddComponent<AeonGazeResouceLogic>();
                             Main.LogPatch("Patched", gazeBuff);
+                        }
+                    });
+            }
+            static void PatchAeonGazeIcons() {
+                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonGazeIcons")) { return; }
+                var AeonGazeThirdSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("0bec49f67ecb49a5826fcfefb9408a35");
+                AeonGazeThirdSelection.AllFeatures
+                    .SelectMany(feature => feature.GetComponent<AddFacts>()?.m_Facts)
+                    .Where(gaze => gaze != null)
+                    .Select(gaze => gaze.Get() as BlueprintActivatableAbility)
+                    .Where(gaze => gaze != null)
+                    .ForEach(gaze => {
+                        var gazeBuff = gaze.Buff;
+                        if (gazeBuff != null) {
+                            gazeBuff.m_Icon = gaze.Icon;
+                            Main.LogPatch("Patched", gazeBuff);
+                            gazeBuff.GetComponent<AddAreaEffect>().TemporaryContext(areaEffect => {
+                                areaEffect.AreaEffect
+                                .FlattenAllActions()
+                                .OfType<ContextActionApplyBuff>()
+                                .ForEach(component => {
+                                    component.Buff.TemporaryContext(buff => {
+                                        buff.m_Flags &= ~BlueprintBuff.Flags.HiddenInUi;
+                                        buff.m_Icon = gaze.Icon;
+                                    });
+                                });
+                            });
                         }
                     });
             }

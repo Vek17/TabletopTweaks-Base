@@ -23,6 +23,7 @@ namespace TabletopTweaks.NewComponents {
                 DamageEnergyType? damageEnergyType = (energyDamage != null) ? new DamageEnergyType?(energyDamage.EnergyType) : null;
                 bool matchesType = damageEnergyType != null ? (AllTypes || damageEnergyType == Type) : false;
                 if (matchesType) {
+                    baseDamage.AddDecline(new DamageDecline(DamageDeclineType.None, this));
                     energyDamage.IgnoreImmunities = true;
                     energyDamage.IgnoreReduction = true;
                 }

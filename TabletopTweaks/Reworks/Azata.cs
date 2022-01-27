@@ -2,8 +2,11 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Linq;
@@ -26,6 +29,7 @@ namespace TabletopTweaks.Reworks {
                 PatchAzataPerformanceResource();
                 PatchAzataSongToggles();
                 PatchFavorableMagic();
+                PatchIncredibleMight();
                 PatchZippyMagicFeature();
             }
 
@@ -73,6 +77,31 @@ namespace TabletopTweaks.Reworks {
                 //Helpers.Create<AzataFavorableMagic>()
                 );
                 Main.LogPatch("Patched", FavorableMagicFeature);
+            }
+
+            static void PatchIncredibleMight() {
+                if (ModSettings.Homebrew.MythicReworks.Azata.IsDisabled("IncredibleMight")) { return; }
+                var IncredibleMightAllyBuff = Resources.GetBlueprint<BlueprintBuff>("8e041bd9d786d934892d892d179fc1e8");
+                var IncredibleMightMainBuff = Resources.GetBlueprint<BlueprintBuff>("9a86d073d91f599439c8d4588cdb1fc8");
+                var IncredibleMightFeature = Resources.GetBlueprint<BlueprintFeature>("eef8d23a7e4acfe4d834a5de844c8c7c");
+                var IncredibleMightAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("f81b4910d05399a4aaf5fcc8c4d713eb");
+
+                IncredibleMightFeature.SetDescription(IncredibleMightFeature.Description.Replace("morale", "mythic"));
+                IncredibleMightMainBuff.m_Description = IncredibleMightFeature.m_Description;
+
+                IncredibleMightMainBuff
+                    .GetComponents<AddContextStatBonus>()
+                    .ForEach(c => {
+                        c.Descriptor = ModifierDescriptor.Mythic;
+                    });
+                IncredibleMightAllyBuff
+                    .GetComponents<AddContextStatBonus>()
+                    .ForEach(c => {
+                        c.Descriptor = ModifierDescriptor.Mythic;
+                    });
+                Main.LogPatch("Patched", IncredibleMightAllyBuff);
+                Main.LogPatch("Patched", IncredibleMightMainBuff);
+                Main.LogPatch("Patched", IncredibleMightFeature);
             }
 
             static void PatchZippyMagicFeature() {

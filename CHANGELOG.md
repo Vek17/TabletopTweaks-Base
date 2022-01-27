@@ -5,12 +5,27 @@
         * Elemental Bloodline spells now work more correctly with metamagics.
         * Addative critical range increases are no longer multiplied by keen/improved critical. This includes trickster improved imporved critical.
         * Fixed issue where bolstered metamagic was granting an unrelated stat boost.
+    * Mythic Abiltiies
+        * Ascendant Element bypasses elemental immunities again.
+    * Spells
+        * Vamperic Blade no longer triggers extra fake attacks
     * Aeon
         * Aeon 10th level now correctly ignores energy immunities of chaotic characters.
+        * Aeon Gaze buffs now all have proper icons.
     * Sorcerer
         * Elemental Bloodline arcanas now correctly show up in character creation.
 * Reworks
-    * Aeon no longer gets all gaze selections at all times. With the new gazes this no longer feels needed.
+    * Aeon 
+        * Aeon no longer gets all gaze selections at all times. With the new gazes this no longer feels needed.
+    * Azata
+        * Incredible Might now grants a mythic bonus isntead of a morale bonus.
+    * Lich
+        * Deadly Magic is now usable 3 + half mythic rank rounds per day.
+        * Decaying Touch has been rebuilt to prevent abuse cases but should work exactly as described now.
+        * Eclipse Chill is now usable 3 + half mythic rank rounds per day.
+        * Eclipse Chill DC is now 10 + 1/2 character level + twice your mythic rank.
+        * Tainted Sneak Attack DC is now 10 + 1/2 character level + twice your mythic rank.
+        * Tainted Sneak Attack now works on spells.
 
 ## Version 1.11.0a
 * Chinese Localization has been updated for 1.11.0a

@@ -218,7 +218,7 @@ namespace TabletopTweaks.NewUnitParts {
             [CanBeNull] UnitPartClusteredAttack clusteredAttack,
             ChunkStack DR,
             ref int remainingDamage) {
-            if (DR == null || remainingDamage <= 0) {
+            if (DR == null || remainingDamage <= 0 || DR.RemainReduction < 0) {
                 return 0;
             }
 
@@ -572,7 +572,7 @@ namespace TabletopTweaks.NewUnitParts {
                     && this.ReferenceChunk.DR.Settings.Priority == chunk.DR.Settings.Priority;
             }
 
-            public bool AddToAllStacks => ReferenceChunk.DR.Settings.AddToAllStacks;
+            public bool AddToAllStacks => ReferenceChunk.DR.Settings.AddToAllStacks || ReferenceChunk.DR.GetCurrentValue() < 0;
 
             public bool SourceIsArmor => ReferenceChunk.DR.Settings.SourceIsArmor;
 

@@ -64,6 +64,11 @@
           "Homebrew": true,
           "Description": "Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level."
         },
+        "AeonGazeIcons": {
+          "Enabled": true,
+          "Homebrew": true,
+          "Description": "Aeon Gaze buffs now all are visable with proper icons."
+        },
         "AeonGreaterBaneActionBoost": {
           "Enabled": true,
           "Homebrew": true,
@@ -114,6 +119,11 @@
           "Enabled": true,
           "Homebrew": true,
           "Description": "Zippy magic will now ignore some harmful effects."
+        },
+        "IncredibleMight": {
+          "Enabled": true,
+          "Homebrew": true,
+          "Description": "Incredible Might now grants a mythic bonus isntead of a morale bonus."
         }
       },
       "IsExpanded": true

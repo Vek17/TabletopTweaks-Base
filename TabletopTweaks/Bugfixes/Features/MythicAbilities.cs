@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
@@ -159,6 +160,22 @@ namespace TabletopTweaks.Bugfixes.Features {
                     }
                 }
                 return true;
+            }
+        }
+        [HarmonyPatch(typeof(AscendantElement), "OnEventAboutToTrigger")]
+        static class AscendantElement_OnEventAboutToTrigger_Patch {
+
+            static bool Prefix(AscendantElement __instance, RuleCalculateDamage evt) {
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("EnduringSpells")) { return true; }
+                foreach (BaseDamage baseDamage in evt.DamageBundle) {
+                    EnergyDamage energyDamage;
+                    if ((energyDamage = (baseDamage as EnergyDamage)) != null && energyDamage.EnergyType == __instance.Element) {
+                        baseDamage.AddDecline(new DamageDecline(DamageDeclineType.None, __instance));
+                        energyDamage.IgnoreReduction = true;
+                        energyDamage.IgnoreImmunities = true;
+                    }
+                }
+                return false;
             }
         }
     }
