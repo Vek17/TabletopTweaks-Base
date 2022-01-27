@@ -147,7 +147,8 @@ namespace TabletopTweaks.Bugfixes.Features {
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
                 if (ModSettings.Fixes.MythicAbilities.IsDisabled("EnduringSpells")) { return true; }
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
-
+                    var abilityData = parentContext.SourceAbilityContext?.Ability;
+                    if (abilityData == null || abilityData.Spellbook == null || abilityData.SourceItem != null) { return true; }
                     var owner = parentContext.MaybeOwner;
                     if (owner.Descriptor.HasFact(EnduringSpells)) {
                         if (owner.Descriptor.HasFact(EnduringSpellsGreater) && duration >= (DurationRate.Minutes.ToRounds() * 5)) {

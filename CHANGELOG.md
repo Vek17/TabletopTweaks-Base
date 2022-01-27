@@ -9,6 +9,8 @@
         * Aeon 10th level now correctly ignores energy immunities of chaotic characters.
     * Sorcerer
         * Elemental Bloodline arcanas now correctly show up in character creation.
+* Reworks
+    * Aeon no longer gets all gaze selections at all times. With the new gazes this no longer feels needed.
 
 ## Version 1.11.0a
 * Chinese Localization has been updated for 1.11.0a

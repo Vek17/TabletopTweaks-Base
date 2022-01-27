@@ -26,6 +26,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
 
         private bool isValidTrigger(RuleCastSpell evt) {
             return evt.Success
+                && evt.Spell.Blueprint.IsSpell
                 && !evt.IsDuplicateSpellApplied
                 && !evt.Spell.IsAOE
                 && !evt.Spell.Blueprint.GetComponents<AbilityEffectStickyTouch>().Any()
