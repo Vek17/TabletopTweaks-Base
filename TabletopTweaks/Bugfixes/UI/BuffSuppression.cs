@@ -50,14 +50,14 @@ namespace TabletopTweaks.Bugfixes.UI {
             }
 
             [HarmonyPatch("SetupIcon"), HarmonyPostfix]
-            static void SuppressIcons(CharInfoFeaturePCView __instance) {
-                if (!__instance.ViewModel.Active.Value) {
+            static void SuppressIcons(CharInfoFeatureView __instance) {
+                if (!__instance.ViewModel.IsActive) {
                     __instance.m_Icon.color = new Color(1f, 1f, 1f, 0.5f);
                 }
             }
             [HarmonyPatch("SetupDescription"), HarmonyPostfix]
-            static void SuppressDesciption(CharInfoFeaturePCView __instance) {
-                if (!__instance.ViewModel.Active.Value) {
+            static void SuppressDesciption(CharInfoFeatureView __instance) {
+                if (!__instance.ViewModel.IsActive) {
                     var BuffTemplate = __instance.ViewModel.Tooltip as TooltipTemplateBuff;
                     if (BuffTemplate != null && BuffTemplate.Buff.IsSuppressed) {
                         __instance.m_Description.text = __instance.m_Description.text + "\n" +
