@@ -114,6 +114,8 @@ All fixes and added content are configurable and can be disabled via the unity m
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
     * WrackingRay
         * Wracking Ray now deals the correct amount of ability damage.
+    * Vamperic Blade
+        * Vamperic Blade no longer triggers extra fake attacks.
 
 * Feats
     * AlliedSpellcaster
@@ -680,15 +682,27 @@ All fixes and added content are configurable and can be disabled via the unity m
     * Aeon Gaze
         * Aeon Gaze now functions like Inquisitor Judgments where multiple can be activated for the same resouce usage.
         * Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level.
-        * Aeon Gaze selection is no longer limited on the first selection and all selections are available.
 
 * Azata
     * Performances
         * Azata perforamnce usages now scale at Mythic level + Character level.
     * FavorableMagic
         * Favorable magic now works on reoccuring saves.
+    * Incredible Might 
+        * Incredible Might now grants a mythic bonus isntead of a morale bonus.
     * Zippy Magic
         * Zippy magic will now ignore some harmful effects.
+* Lich
+    * Deadly Magic
+        * Deadly Magic is now usable 3 + half mythic rank rounds per day.
+    * Decaying Touch
+        * Decaying Touch has been rebuilt to prevent abuse cases but should work exactly as described now.
+    * Eclipse Chill
+        * Eclipse Chill is now usable 3 + half mythic rank rounds per day.
+        * Eclipse Chill DC is now 10 + 1/2 character level + twice your mythic rank.
+    * Tainted Sneak Attack
+        * Tainted Sneak Attack DC is now 10 + 1/2 character level + twice your mythic rank.
+        * Tainted Sneak Attack now works on spells.
 
 Acknowledgments:  
 

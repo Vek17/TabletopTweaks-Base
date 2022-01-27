@@ -8,7 +8,7 @@
     * Mythic Abiltiies
         * Ascendant Element bypasses elemental immunities again.
     * Spells
-        * Vamperic Blade no longer triggers extra fake attacks
+        * Vamperic Blade no longer triggers extra fake attacks.
     * Aeon
         * Aeon 10th level now correctly ignores energy immunities of chaotic characters.
         * Aeon Gaze buffs now all have proper icons.
