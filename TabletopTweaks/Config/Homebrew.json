@@ -64,11 +64,6 @@
           "Homebrew": true,
           "Description": "Aeon Gaze DC has been adjusted from 15 + 2x Mythic Level to 10 + 1/2 Character Level + 2x Mythic level."
         },
-        "AeonGazeSelection": {
-          "Enabled": true,
-          "Homebrew": true,
-          "Description": "Aeon Gaze selection is no longer limited on the first selection and all selections are available."
-        },
         "AeonGreaterBaneActionBoost": {
           "Enabled": true,
           "Homebrew": true,

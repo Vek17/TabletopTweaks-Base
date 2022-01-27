@@ -43,7 +43,6 @@ namespace TabletopTweaks.Reworks {
                 Main.LogHeader("Aeon Rework");
 
                 PatchAeonBaneIcon();
-                //PatchAeonBaneAction();
                 PatchAeonBaneSpellResistance();
                 PatchAeonBaneUses();
                 PatchAeonImprovedBaneDispelLimit();
@@ -51,7 +50,6 @@ namespace TabletopTweaks.Reworks {
                 PatchAeonGreaterBaneDispel();
                 PatchAeonGazeAction();
                 PatchAeonGazeDC();
-                PatchAeonGazeSelection();
             }
 
             static void PatchAeonBaneIcon() {
@@ -62,12 +60,6 @@ namespace TabletopTweaks.Reworks {
                 AeonBaneFeature.m_Icon = Icon_AeonBane;
                 AeonBaneAbility.m_Icon = Icon_AeonBane;
                 Main.LogPatch("Patched", AeonBaneFeature);
-                Main.LogPatch("Patched", AeonBaneAbility);
-            }
-            static void PatchAeonBaneAction() {
-                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonBaneAction")) { return; }
-                var AeonBaneAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("67fb31f553f2bb14bbfae0b1040169f1");
-                AeonBaneAbility.m_ActivateWithUnitCommand = UnitCommand.CommandType.Free;
                 Main.LogPatch("Patched", AeonBaneAbility);
             }
             static void PatchAeonBaneSpellResistance() {
@@ -195,18 +187,10 @@ namespace TabletopTweaks.Reworks {
                 AeonGazeDCProperty.BaseValue = 0;
                 Main.LogPatch("Patched", AeonGazeDCProperty);
             }
-            static void PatchAeonGazeSelection() {
-                if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonGazeSelection")) { return; }
-                var AeonGazeFirstSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7e468a5266235454e9dcefee315ee6d5");
-                var AeonGazeSecondSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7d498e034d18ca94baea19d7edee7403");
-                AeonGazeFirstSelection.m_AllFeatures = AeonGazeSecondSelection.m_AllFeatures;
-                AeonGazeFirstSelection.m_Features = AeonGazeSecondSelection.m_Features;
-                Main.LogPatch("Patched", AeonGazeFirstSelection);
-            }
             static void PatchAeonGazeAction() {
                 if (ModSettings.Homebrew.MythicReworks.Aeon.IsDisabled("AeonGazeActionSystem")) { return; }
-                var AeonGazeSecondSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("7d498e034d18ca94baea19d7edee7403");
-                AeonGazeSecondSelection.AllFeatures
+                var AeonGazeThirdSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("0bec49f67ecb49a5826fcfefb9408a35");
+                AeonGazeThirdSelection.AllFeatures
                     .SelectMany(feature => feature.GetComponent<AddFacts>()?.m_Facts)
                     .Where(gaze => gaze != null)
                     .Select(gaze => gaze.Get() as BlueprintActivatableAbility)
