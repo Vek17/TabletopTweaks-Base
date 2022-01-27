@@ -433,10 +433,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
                 var RemoveFearBuff = Resources.GetBlueprint<BlueprintBuff>("c5c86809a1c834e42a2eb33133e90a28");
                 RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
-                RemoveFearBuff.AddComponent<SuppressBuffsTTT>(c => {
-                    c.Descriptor = SpellDescriptor.Frightened | SpellDescriptor.Shaken | SpellDescriptor.Fear;
-                });
-                Main.LogPatch("Patched", RemoveFearBuff);
+                QuickFixTools.ReplaceSuppression(RemoveFearBuff);
             }
 
             static void PatchRemoveSickness() {
