@@ -1,7 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -9,6 +8,7 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics;
+using Owlcat.QA.Validation;
 using UnityEngine;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {

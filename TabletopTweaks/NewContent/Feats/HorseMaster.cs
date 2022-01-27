@@ -56,7 +56,7 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.GiveFeaturesForPreviousLevels = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
-                bp.m_FeatureRankIncrease = new BlueprintFeatureReference();
+                bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = Enumerable.Range(1, 20)
                     .Select(i => new LevelEntry {
                         Level = i,

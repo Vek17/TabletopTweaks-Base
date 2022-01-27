@@ -26,6 +26,7 @@ using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TabletopTweaks.Config;
@@ -171,7 +172,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.ReapplyOnLevelUp = true;
                 bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
-                bp.m_FeatureRankIncrease = new BlueprintFeatureReference();
+                bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
             });
             var BlackBladeProgressionProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("BlackBladeProgressionProperty", bp => {
                 bp.AddComponent<ProgressionRankGetter>(c => {

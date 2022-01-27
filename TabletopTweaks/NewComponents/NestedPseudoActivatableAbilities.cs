@@ -1,13 +1,13 @@
 ﻿using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.Items;
 using Kingmaker.Items.Slots;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Owlcat.QA.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +23,8 @@ namespace TabletopTweaks.NewComponents {
             }
         }
 
-        public override void ApplyValidation(ValidationContext context) {
-            base.ApplyValidation(context);
+        public override void ApplyValidation(ValidationContext context, int parentIndex) {
+            base.ApplyValidation(context, parentIndex);
             if (this.Variants.Length < 2) {
                 context.AddError("Variants count less than 2", Array.Empty<object>());
             }

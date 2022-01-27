@@ -2,12 +2,12 @@
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
+using Owlcat.QA.Validation;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -98,8 +98,8 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance {
                 && (m_CheckedFactMythic == null && otherDR.m_CheckedFactMythic == null || m_CheckedFactMythic != null && otherDR.m_CheckedFactMythic != null && m_CheckedFactMythic.Equals(otherDR.m_CheckedFactMythic));
         }
 
-        public override void ApplyValidation(ValidationContext context) {
-            base.ApplyValidation(context);
+        public override void ApplyValidation(ValidationContext context, int parentIndex) {
+            base.ApplyValidation(context, parentIndex);
             if (BypassedByWeaponType && !(bool)(SimpleBlueprint)WeaponType)
                 context.AddError("WeaponType is missing!");
             if (!BypassedByForm || Form != 0)

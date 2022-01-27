@@ -53,18 +53,18 @@ namespace TabletopTweaks.Localization {
 
         public void AddString(MultiLocaleString newString) {
             Ids[newString.Key] = newString;
-            Text[newString.LocalizedText(LocalizationManager.CurrentLocale)] = newString;
+            Text[newString.StringEntry(LocalizationManager.CurrentLocale).Text] = newString;
             Strings.Add(newString);
-            LocalizationManager.CurrentPack.Strings[newString.Key] = newString.LocalizedText(LocalizationManager.CurrentLocale);
+            LocalizationManager.CurrentPack.m_Strings[newString.Key] = newString.StringEntry(LocalizationManager.CurrentLocale);
         }
 
         private LocalizationPack GeneratePack() {
             var pack = new LocalizationPack {
                 Locale = LocalizationManager.CurrentPack.Locale,
-                Strings = new Dictionary<string, string>()
+                m_Strings = new Dictionary<string, LocalizationPack.StringEntry>()
             };
             foreach (var entry in Strings) {
-                pack.Strings[entry.Key] = entry.LocalizedText(pack.Locale);
+                pack.m_Strings[entry.Key] = entry.StringEntry(pack.Locale);
             }
             return pack;
         }
@@ -135,7 +135,7 @@ namespace TabletopTweaks.Localization {
                 }
             }
 
-            public string LocalizedText(Locale locale = Locale.enGB) {
+            public LocalizationPack.StringEntry StringEntry(Locale locale = Locale.enGB) {
                 string result;
                 switch (locale) {
                     case Locale.enGB:
@@ -163,10 +163,12 @@ namespace TabletopTweaks.Localization {
                 if (string.IsNullOrEmpty(result)) {
                     result = enGB;
                 }
-                return ProcessTemplates ? DescriptionTools.TagEncyclopediaEntries(result) : result;
+                return new LocalizationPack.StringEntry {
+                    Text = ProcessTemplates ? DescriptionTools.TagEncyclopediaEntries(result) : result
+                };
             }
             public override string ToString() {
-                return this.LocalizedText(LocalizationManager.CurrentLocale);
+                return this.StringEntry(LocalizationManager.CurrentLocale).Text;
             }
             public override int GetHashCode() {
                 return Key.GetHashCode() ^ enGB.GetHashCode();

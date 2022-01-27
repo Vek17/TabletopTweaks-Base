@@ -101,7 +101,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                     }
                 };
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
-                bp.m_FeatureRankIncrease = new BlueprintFeatureReference();
+                bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = Enumerable.Range(2, 20)
                     .Select(i => new LevelEntry {
                         Level = i,

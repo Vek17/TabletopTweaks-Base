@@ -1,5 +1,4 @@
 ﻿using Kingmaker;
-using Kingmaker.Blueprints.Validation;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
@@ -14,6 +13,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.ContextData;
+using Owlcat.QA.Validation;
 using System;
 using UnityEngine;
 
@@ -198,7 +198,7 @@ namespace TabletopTweaks.NewActions {
             };
         }
 
-        public void Validate(ValidationContext context, string objectPath) {
+        public void Validate(ValidationContext context, int parentIndex) {
             if (IsAbilityDamage && !AbilityType.IsAttribute()) {
                 context.AddError("Can't deal damage to stat {0}", new object[]
                 {
