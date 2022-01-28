@@ -241,7 +241,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
 
             //if (ModSettings.AddedContent.Archetypes.IsDisabled("ChannelerOfTheUnknown")) { return; }
             //MagusClass.m_Archetypes = MagusClass.m_Archetypes.AppendToArray(MyrmidarchArchetype.ToReference<BlueprintArchetypeReference>());
-            
+
             /*
             MagusClass.Progression.UIGroups.Where(group => group.m_Features.Contains(ArcaneMediumArmor)).ForEach(group => {
                 group.m_Features.Add(ArmorTraining.ToReference<BlueprintFeatureBaseReference>());

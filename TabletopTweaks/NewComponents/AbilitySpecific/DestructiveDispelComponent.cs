@@ -14,9 +14,9 @@ using Kingmaker.Utility;
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [AllowedOn(typeof(BlueprintFeature), false)]
     [TypeId("ea475e4be98f4eabb361ed8ce58870ad")]
-    public class DestructiveDispelComponent : UnitFactComponentDelegate, 
-        IInitiatorRulebookHandler<RuleDispelMagic>, 
-        IRulebookHandler<RuleDispelMagic>, 
+    public class DestructiveDispelComponent : UnitFactComponentDelegate,
+        IInitiatorRulebookHandler<RuleDispelMagic>,
+        IRulebookHandler<RuleDispelMagic>,
         ISubscriber, IInitiatorRulebookSubscriber {
         public void OnEventAboutToTrigger(RuleDispelMagic evt) {
         }

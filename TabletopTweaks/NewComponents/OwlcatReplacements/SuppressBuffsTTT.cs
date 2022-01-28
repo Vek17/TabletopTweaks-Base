@@ -2,7 +2,6 @@
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic;
-using Kingmaker.Utility;
 using TabletopTweaks.NewUnitParts;
 using UnityEngine;
 using UnityEngine.Serialization;

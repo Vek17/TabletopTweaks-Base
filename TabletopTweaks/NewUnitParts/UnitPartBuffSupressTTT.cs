@@ -44,8 +44,8 @@ namespace TabletopTweaks.NewUnitParts {
             if (SuppressionEntries.Any(entry => entry.Source.FactId == source.UniqueId && entry.Type == SuppresionType.Size)) { return; }
             var suppressionEntry = new SuppressionEffectEntry(source, SuppresionType.Size);
             foreach (Buff buff in base.Owner.Buffs) {
-                bool shouldSuppress = buff != source 
-                    && !buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph) 
+                bool shouldSuppress = buff != source
+                    && !buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph)
                     && buff.GetComponent<ChangeUnitSize>();
 
                 if (shouldSuppress) {
@@ -59,8 +59,7 @@ namespace TabletopTweaks.NewUnitParts {
         public void AddContinuousEntry(EntityFact source,
             BlueprintBuffReference[] buffs,
             SpellSchool[] spellSchools,
-            SpellDescriptor spellDescriptor) 
-        {
+            SpellDescriptor spellDescriptor) {
             if (ContinuousSuppressionEntries.Any(entry => entry.Source.FactId == source.UniqueId)) { return; }
 
             var suppressionEntry = new ContinuousSuppressionEffectEntry(source, buffs, spellSchools, spellDescriptor);
@@ -151,7 +150,7 @@ namespace TabletopTweaks.NewUnitParts {
             Size
         }
         public abstract class ContinuousSuppressionEffectBase {
-            public ContinuousSuppressionEffectBase(){
+            public ContinuousSuppressionEffectBase() {
             }
             public ContinuousSuppressionEffectBase(EntityFact source) {
                 Source = source;
@@ -186,11 +185,10 @@ namespace TabletopTweaks.NewUnitParts {
         }
         public class ContinuousSuppressionEffectEntry : ContinuousSuppressionEffectBase {
             public ContinuousSuppressionEffectEntry() { }
-            public ContinuousSuppressionEffectEntry(EntityFact source, 
+            public ContinuousSuppressionEffectEntry(EntityFact source,
                 BlueprintBuffReference[] buffs,
                 SpellSchool[] spellSchools,
-                SpellDescriptor spellDescriptor) : base(source)
-            {
+                SpellDescriptor spellDescriptor) : base(source) {
                 this.Buffs = buffs ?? new BlueprintBuffReference[0];
                 this.Schools = spellSchools ?? new SpellSchool[0];
                 this.Descriptor = spellDescriptor;

@@ -2,10 +2,8 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
-using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewContent.MechanicsChanges;
 
 namespace TabletopTweaks.Reworks {

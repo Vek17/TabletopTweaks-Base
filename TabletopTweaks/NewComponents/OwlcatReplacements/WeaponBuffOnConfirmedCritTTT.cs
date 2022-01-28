@@ -1,5 +1,4 @@
-﻿using System;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.PubSubSystem;
@@ -9,14 +8,15 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Particles;
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.OwlcatReplacements {
     [TypeId("ae9e3debc1c64fc5bd2ba05e34541293")]
-    public class WeaponBuffOnConfirmedCritTTT : WeaponEnchantmentLogic, 
-        IInitiatorRulebookHandler<RuleAttackWithWeapon>, 
-        IRulebookHandler<RuleAttackWithWeapon>, 
+    public class WeaponBuffOnConfirmedCritTTT : WeaponEnchantmentLogic,
+        IInitiatorRulebookHandler<RuleAttackWithWeapon>,
+        IRulebookHandler<RuleAttackWithWeapon>,
         ISubscriber, IInitiatorRulebookSubscriber, IResourcesHolder {
         public BlueprintBuff Buff {
             get {

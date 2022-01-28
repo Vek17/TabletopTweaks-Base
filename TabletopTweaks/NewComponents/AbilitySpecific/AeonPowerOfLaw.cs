@@ -20,7 +20,7 @@ namespace TabletopTweaks.NewComponents.AbilitySpecific {
         }
 
         public void OnEventAboutToTrigger(RuleRollD20 evt) {
-            
+
         }
 
         public void OnEventDidTrigger(RuleRollD20 evt) {

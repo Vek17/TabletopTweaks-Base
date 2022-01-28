@@ -25,7 +25,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                     string startingHTMLTag = string.Empty;
                     string endingHTMLTag = string.Empty;
                     foreach (int roll in ruleRollDice.RollHistory) {
-                        
+
                         if (!firstRoll) {
                             stringBuilder.Append(", ");
                         }

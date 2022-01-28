@@ -50,7 +50,7 @@ namespace TabletopTweaks.MechanicsChanges {
                             .Where(buff => buff.Context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Polymorph))
                             .ForEach(buff => buff.Remove());
                     }
-                } 
+                }
             }
             private class PolymorphSizeRules {
                 public class PolymorphBuffApply : IUnitBuffHandler, IGlobalSubscriber, ISubscriber {

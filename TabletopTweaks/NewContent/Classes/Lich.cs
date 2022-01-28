@@ -8,8 +8,8 @@ namespace TabletopTweaks.NewContent.Classes {
         public static void AddLichFeatures() {
             var LichDCProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>("LichDCProperty", bp => {
                 bp.AddComponent<CompositePropertyGetter>(c => {
-                     c.CalculationMode = CompositePropertyGetter.Mode.Sum;
-                     c.Properties = new CompositePropertyGetter.ComplexProperty[] {
+                    c.CalculationMode = CompositePropertyGetter.Mode.Sum;
+                    c.Properties = new CompositePropertyGetter.ComplexProperty[] {
                         new CompositePropertyGetter.ComplexProperty {
                             Property = UnitProperty.Level,
                             Numerator = 1,
@@ -21,11 +21,11 @@ namespace TabletopTweaks.NewContent.Classes {
                             Denominator = 1
                         }
                     };
-                     c.Settings = new PropertySettings() {
-                         m_Progression = PropertySettings.Progression.AsIs,
-                         m_CustomProgression = new PropertySettings.CustomProgressionItem[0]
-                     };
-                 });
+                    c.Settings = new PropertySettings() {
+                        m_Progression = PropertySettings.Progression.AsIs,
+                        m_CustomProgression = new PropertySettings.CustomProgressionItem[0]
+                    };
+                });
                 bp.BaseValue = 10;
             });
         }

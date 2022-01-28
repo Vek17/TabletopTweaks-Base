@@ -5,7 +5,6 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Mechanics;
 
 namespace TabletopTweaks.NewComponents {
     [AllowMultipleComponents]

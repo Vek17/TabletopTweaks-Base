@@ -36,7 +36,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
         }
 
         private bool ShouldApplyBonus() {
-            
+
             foreach (BlueprintUnitFact blueprint in this.BlockedFacts) {
                 if (base.Owner.HasFact(blueprint)) {
                     return false;
@@ -83,7 +83,7 @@ namespace TabletopTweaks.NewComponents.OwlcatReplacements {
 
         public void HandleUnitLostFact(EntityFact fact) {
             BlueprintUnitFact bp = fact.Blueprint as BlueprintUnitFact;
-            if (bp != null && (this.CheckedFacts.HasReference(bp) || this.BlockedFacts.HasReference(bp)) ) {
+            if (bp != null && (this.CheckedFacts.HasReference(bp) || this.BlockedFacts.HasReference(bp))) {
                 this.Update();
             }
         }

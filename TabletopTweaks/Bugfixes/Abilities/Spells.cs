@@ -94,7 +94,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 AbyssalStorm.GetComponent<AbilityTargetsAround>().TemporaryContext(c => {
                     c.m_Condition = new ConditionsChecker() {
                         Conditions = new Condition[] {
-                            new ContextConditionIsCaster(){ 
+                            new ContextConditionIsCaster(){
                                 Not = true
                             }
                         }
@@ -578,7 +578,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                                     DiceCountValue = new ContextValue(),
                                     BonusValue = new ContextValue()
                                 };
-                                c.Value = new ContextDiceValue() { 
+                                c.Value = new ContextDiceValue() {
                                     DiceType = DiceType.D6,
                                     DiceCountValue = 2,
                                     BonusValue = new ContextValue() {
@@ -648,21 +648,21 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     .TemporaryContext(c => {
                         c.Action = Helpers.CreateActionList(
                             Helpers.Create<ContextActionDealDamageTTT>(a => {
-                                a.DamageType = new DamageTypeDescription() { 
+                                a.DamageType = new DamageTypeDescription() {
                                     Type = DamageType.Energy,
                                     Energy = DamageEnergyType.Unholy,
                                     Common = new DamageTypeDescription.CommomData(),
                                     Physical = new DamageTypeDescription.PhysicalData()
                                 };
-                                a.Duration = new ContextDurationValue() { 
+                                a.Duration = new ContextDurationValue() {
                                     m_IsExtendable = true,
                                     DiceCountValue = 0,
                                     BonusValue = 0
                                 };
-                                a.Value = new ContextDiceValue() { 
+                                a.Value = new ContextDiceValue() {
                                     DiceType = DiceType.D6,
                                     DiceCountValue = 1,
-                                    BonusValue = new ContextValue() { 
+                                    BonusValue = new ContextValue() {
                                         ValueType = ContextValueType.Rank
                                     }
                                 };

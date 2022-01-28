@@ -78,7 +78,7 @@ namespace TabletopTweaks.Reworks {
                         c.OnHit = true;
                         c.AllNaturalAndUnarmed = true;
                         c.InitiatorConditions = new ConditionsChecker();
-                        c.TargetConditions = new ConditionsChecker() { 
+                        c.TargetConditions = new ConditionsChecker() {
                             Conditions = new Condition[] {
                                 new ContextConditionHasFact() {
                                     m_Fact = PlantType,
@@ -213,7 +213,7 @@ namespace TabletopTweaks.Reworks {
                         c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
                     });
                 });
-                
+
                 Main.LogPatch(DecayingTouchFeature);
             }
 
