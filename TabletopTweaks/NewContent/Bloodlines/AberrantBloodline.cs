@@ -253,7 +253,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             //Bloodline Spells
             var BloodragerAberrantSpell7 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell7", bp => {
                 var spell = EnlargePerson;
-                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
+                bp.SetName($"Bonus Spell — Enlarge Person");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
@@ -264,7 +264,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerAberrantSpell10 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell10", bp => {
                 var spell = SeeInvisibility;
-                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
+                bp.SetName($"Bonus Spell — See Invisibility");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
@@ -275,7 +275,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerAberrantSpell13 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell13", bp => {
                 var spell = Displacement;
-                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
+                bp.SetName($"Bonus Spell — Displacement");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
@@ -286,7 +286,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerAberrantSpell16 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerAberrantSpell16", bp => {
                 var spell = SpikeStones;
-                bp.SetName($"Bonus Spell — {EnlargePerson.Get().Name}");
+                bp.SetName($"Bonus Spell — Spike Stones");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
