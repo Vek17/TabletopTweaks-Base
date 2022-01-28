@@ -372,7 +372,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             //Bloodline Spells
             var BloodragerDestinedSpell7 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell7", bp => {
                 var spell = MageShield;
-                bp.SetName($"Bonus Spell — {spell.Get().Name}");
+                bp.SetName($"Bonus Spell — Shield");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
@@ -383,7 +383,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerDestinedSpell10 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell10", bp => {
                 var spell = Blur;
-                bp.SetName($"Bonus Spell — {spell.Get().Name}");
+                bp.SetName($"Bonus Spell — Blur");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
@@ -394,7 +394,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerDestinedSpell13 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell13", bp => {
                 var spell = ProtectionFromEnergy;
-                bp.SetName($"Bonus Spell — {spell.Get().Name}");
+                bp.SetName($"Bonus Spell — Protection From Energy");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
@@ -405,7 +405,7 @@ namespace TabletopTweaks.NewContent.Bloodlines {
             });
             var BloodragerDestinedSpell16 = Helpers.CreateBlueprint<BlueprintFeature>("BloodragerDestinedSpell16", bp => {
                 var spell = FreedomOfMovement;
-                bp.SetName($"Bonus Spell — {spell.Get().Name}");
+                bp.SetName($"Bonus Spell — Freedom Of Movement");
                 bp.SetDescription("At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
