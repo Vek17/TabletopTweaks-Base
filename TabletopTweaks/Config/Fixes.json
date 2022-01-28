@@ -1066,6 +1066,11 @@
   "MythicAbilities": {
     "DisableAll": false,
     "Settings": {
+      "AscendantElement": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Actually ignores immunities again."
+      },
       "BloodlineAscendance": {
         "Enabled": true,
         "Homebrew": false,
