@@ -1,12 +1,5 @@
-﻿using System;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.Enums;
+﻿using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.PubSubSystem;
-using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -14,7 +7,7 @@ using static Kingmaker.Designers.Mechanics.Facts.ModifyD20;
 
 namespace TabletopTweaks.NewComponents.AbilitySpecific {
     [TypeId("df847aa8e2f94af2a4efe8c73228dc97")]
-    class AeonPowerOfLaw : UnitFactComponentDelegate,
+    public class AeonPowerOfLaw : UnitFactComponentDelegate,
         IInitiatorRulebookHandler<RuleSavingThrow>,
         IRulebookHandler<RuleSavingThrow>,
         IInitiatorRulebookHandler<RuleRollD20>,
