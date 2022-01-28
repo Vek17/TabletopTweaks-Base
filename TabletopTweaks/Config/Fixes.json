@@ -23,6 +23,11 @@
         "Homebrew": false,
         "Description": "Prevents most forms of damage reduction from stacking unless specifically specified."
       },
+      "DiceReplacementUI": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Alters how replaced dice rolls are displayed."
+      },
       "DisableAfterCombatDeactivationOfUnlimitedAbilities": {
         "Enabled": true,
         "Homebrew": false,
@@ -158,6 +163,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "10th level immunities now correctly grant automatic natural 20s for saving throws from chaotic enemies. Additionally now correctly ignores energy immunities of chaotic characters"
+      },
+      "PowerOfLaw": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now works correctly with dice reroll effects"
       }
     },
     "IsExpanded": true

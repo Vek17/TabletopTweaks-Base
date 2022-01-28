@@ -1,5 +1,9 @@
-## Version 1.11.1
+## Version 1.11.2
+* Fixes
+    * Aeon
+        * Power of Law now works correctly with Reroll effects
 
+## Version 1.11.1
 * Fixes
     * General
         * Elemental Bloodline spells now work more correctly with metamagics.

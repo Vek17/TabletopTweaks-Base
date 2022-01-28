@@ -193,6 +193,7 @@
     <Compile Include="Bugfixes\Items\Weapons.cs" />
     <Compile Include="Bugfixes\TacticalCombat\Buildings.cs" />
     <Compile Include="Bugfixes\UI\BuffSuppression.cs" />
+    <Compile Include="Bugfixes\UI\DiceRollDescriptions.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Bugfixes\UI\SpellTooltips.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
     <Compile Include="Bugfixes\General\BlueprintProgressionFix.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="NewComponents\AbilitySpecific\AeonPowerOfLaw.cs" />
     <Compile Include="NewComponents\IgnoreEnergyImmunityOnTarget.cs" />
     <Compile Include="NewComponents\ModifySavingThrowD20.cs" />
     <Compile Include="NewComponents\OwlcatReplacements\WeaponBuffOnConfirmedCritTTT.cs" />
