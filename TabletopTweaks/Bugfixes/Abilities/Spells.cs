@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Buffs;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -67,6 +68,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchSunForm();
                 PatchSupernova();
                 PatchUnbreakableHeart();
+                PatchWindsOfFall();
                 PatchWrachingRay();
                 PatchVampiricBlade();
                 PatchFromSpellFlags();
@@ -623,6 +625,38 @@ namespace TabletopTweaks.Bugfixes.Abilities {
 
                 var UnbreakableHeartBuff = Resources.GetBlueprint<BlueprintBuff>("6603b27034f694e44a407a9cdf77c67e");
                 QuickFixTools.ReplaceSuppression(UnbreakableHeartBuff);
+            }
+
+            static void PatchWindsOfFall() {
+                if (ModSettings.Fixes.Spells.IsDisabled("WindsOfFall")) { return; }
+
+                var WindsOfTheFall = Resources.GetBlueprint<BlueprintAbility>("af2ed41c7894b934c9a9ca5048af3f58");
+                var WindsOfTheFallBuff = Resources.GetBlueprint<BlueprintBuff>("b90339c580288eb48b7fea4abba0507e");
+
+                WindsOfTheFall.TemporaryContext(bp => {
+                    bp.Range = AbilityRange.Projectile;
+                    bp.CanTargetEnemies = true;
+                    bp.CanTargetFriends = true;
+                    bp.CanTargetPoint = true;
+                });
+                WindsOfTheFallBuff.TemporaryContext(bp => {
+                    bp.SetComponents();
+                    bp.AddComponent<ModifyD20>(c => {
+                        c.Rule = RuleType.All;
+                        c.RollsAmount = 1;
+                        c.TakeBest = false;
+                        c.m_SavingThrowType = ModifyD20.InnerSavingThrowType.All;
+                        c.m_TandemTripFeature = new BlueprintFeatureReference();
+                        c.RollResult = new ContextValue();
+                        c.Bonus = new ContextValue();
+                        c.Chance = new ContextValue();
+                        c.ValueToCompareRoll = new ContextValue();
+                        c.Skill = new StatType[0];
+                        c.Value = new ContextValue();
+                    });
+                });
+                Main.LogPatch(WindsOfTheFall);
+                Main.LogPatch(WindsOfTheFallBuff);
             }
 
             static void PatchWrachingRay() {

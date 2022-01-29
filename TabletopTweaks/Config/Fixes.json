@@ -928,6 +928,11 @@
         "Homebrew": false,
         "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly."
       },
+      "WindsOfFall": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Winds of the fall now can be targeted and has a working debuff."
+      },
       "WrackingRay": {
         "Enabled": true,
         "Homebrew": false,

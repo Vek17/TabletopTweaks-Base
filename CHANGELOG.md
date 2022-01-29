@@ -1,7 +1,9 @@
 ## Version 1.11.2
 * Fixes
+    * Spells
+        * Winds Of Fall now works.
     * Aeon
-        * Power of Law now works correctly with Reroll effects
+        * Power of Law now works correctly with Reroll effects.
 
 ## Version 1.11.1
 * Fixes
