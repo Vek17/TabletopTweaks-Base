@@ -247,29 +247,24 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         private static class MetamagicMechanics {
             private static bool MetamagicInitialized = false;
-            private static PiercingSpellMechanics PiercingSpell = new();
-            private static FlaringSpellMechanics FlaringSpell = new();
-            private static BurningSpellMechanics BurningSpell = new();
-            private static RimeSpellMechanics RimeSpell = new();
-            private static SolidShadowsMechanics SolidShadows = new();
             [HarmonyPriority(Priority.Last)]
             [HarmonyPostfix]
             public static void InitalizeMetamagic() {
                 if (MetamagicInitialized) { return; }
                 if (MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Piercing)) {
-                    EventBus.Subscribe(PiercingSpell);
+                    EventBus.Subscribe(PiercingSpellMechanics.Instance);
                 }
                 if (MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Flaring)) {
-                    EventBus.Subscribe(FlaringSpell);
+                    EventBus.Subscribe(FlaringSpellMechanics.Instance);
                 }
                 if (MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Burning)) {
-                    EventBus.Subscribe(BurningSpell);
+                    EventBus.Subscribe(BurningSpellMechanics.Instance);
                 }
                 if (MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.Rime)) {
-                    EventBus.Subscribe(RimeSpell);
+                    EventBus.Subscribe(RimeSpellMechanics.Instance);
                 }
                 if (MetamagicExtention.IsRegisistered((Metamagic)CustomMetamagic.SolidShadows)) {
-                    EventBus.Subscribe(SolidShadows);
+                    EventBus.Subscribe(SolidShadowsMechanics.Instance);
                 }
                 MetamagicInitialized = true;
             }
@@ -316,6 +311,10 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
             private class RimeSpellMechanics : IAfterRulebookEventTriggerHandler<RuleDealDamage>, IGlobalSubscriber {
+
+                private RimeSpellMechanics() { }
+                public static RimeSpellMechanics Instance = new();
+
                 static BlueprintBuffReference RimeEntagledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("RimeEntagledBuff");
                 public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {
                     var context = evt.Reason.Context;
@@ -334,6 +333,10 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
             private class BurningSpellMechanics : IAfterRulebookEventTriggerHandler<RuleDealDamage>, IGlobalSubscriber {
+
+                private BurningSpellMechanics() { }
+                public static BurningSpellMechanics Instance = new();
+
                 private static BlueprintBuffReference BurningSpellAcidBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("BurningSpellAcidBuff");
                 private static BlueprintBuffReference BurningSpellFireBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("BurningSpellFireBuff");
                 public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {
@@ -382,6 +385,10 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
             private class FlaringSpellMechanics : IAfterRulebookEventTriggerHandler<RuleDealDamage>, IGlobalSubscriber {
+
+                private FlaringSpellMechanics() { }
+                public static FlaringSpellMechanics Instance = new();
+
                 private static BlueprintBuffReference FlaringDazzledBuff = Resources.GetModBlueprintReference<BlueprintBuffReference>("FlaringDazzledBuff");
                 public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {
                     var context = evt.Reason.Context;
@@ -401,6 +408,10 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
             private class PiercingSpellMechanics : IAfterRulebookEventTriggerHandler<RuleSpellResistanceCheck>, IGlobalSubscriber {
+
+                private PiercingSpellMechanics() { }
+                public static PiercingSpellMechanics Instance = new();
+
                 public void OnAfterRulebookEventTrigger(RuleSpellResistanceCheck evt) {
                     var isPiercing = evt.Context?.HasMetamagic((Metamagic)CustomMetamagic.Piercing) ?? false;
                     if (!isPiercing) { return; }
@@ -408,6 +419,10 @@ namespace TabletopTweaks.NewContent.MechanicsChanges {
                 }
             }
             private class SolidShadowsMechanics : IAfterRulebookEventTriggerHandler<RuleCastSpell>, IGlobalSubscriber {
+                
+                private SolidShadowsMechanics() { }
+                public static SolidShadowsMechanics Instance = new();
+
                 public void OnAfterRulebookEventTrigger(RuleCastSpell evt) {
                     var isSolidShadows = evt.Context?.HasMetamagic((Metamagic)CustomMetamagic.SolidShadows) ?? false;
                     if (!isSolidShadows || !evt.Context.IsShadow) { return; }
