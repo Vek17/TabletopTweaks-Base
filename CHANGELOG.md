@@ -4,8 +4,33 @@
         * Winds Of Fall now works.
     * Aeon
         * Power of Law now works correctly with Reroll effects.
+    * Items
+        * Stormlord's Resolve can now be deactivated immediatly instead of taking 1 turn to turn off.
 * New Items
-    * Metamagic Rods for new metamagics have been added to the game and to vender lists.
+    * Lesser Burning Metamagic Rod
+        * Avaiable from skeletal merchant in act 2.
+    * Lesser Intensified Metamagic Rod
+        * Avaiable from skeletal merchant in act 2.
+    * Lesser Piercing Metamagic Rod
+        * Avaiable from Defender's Heart scroll vender.
+    * Burning Metamagic Rod
+        * Avaiable from skeletal merchant in act 3.
+    * Flaring Metamagic Rod
+        * Avaiable from scroll merchant in Drezen during act 3.
+    * Intensified Metamagic Rod
+        * Avaiable from skeletal merchant in act 3.
+    * Piercing Metamagic Rod
+        * Avaiable from scroll vender in act 2 warcamp.
+    * Rime Metamagic Rod
+        * Avaiable from skeletal merchant in act 3.
+    * Greater Burning Metamagic Rod
+        * Avaiable from magic merchant in the fleshmarkets.
+    * Greater Flaring Metamagic Rod
+        * Avaiable from scroll merchant in Drezen during act 5.
+    * Greater Intensified Metamagic Rod
+        * Avaiable from skeletal merchant in act 5.
+    * Greater Rime Metamagic Rod
+        * Avaiable from magic merchant in the fleshmarkets.
 
 ## Version 1.11.1
 * Fixes

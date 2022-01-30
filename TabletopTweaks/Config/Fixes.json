@@ -1204,6 +1204,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now default to off."
+        },
+        "StormlordsResolve": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Can now be deactivated immediatly instead of taking 1 turn to turn off."
         }
       },
       "IsExpanded": true

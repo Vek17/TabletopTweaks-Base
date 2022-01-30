@@ -111,8 +111,16 @@ namespace TabletopTweaks.NewContent.Feats {
             }
         }
         private static void AddRodsToVenders() {
+            var Scrolls_DefendersHeartVendorTable = Resources.GetBlueprint<BlueprintSharedVendorTable>("79b995e5fc910f34ab9dfec3c6b16c8f");
             var WarCamp_ScrollVendorClericTable = Resources.GetBlueprint<BlueprintSharedVendorTable>("cdd7aa16e900b9146bc6963ca53b8e71");
 
+            Scrolls_DefendersHeartVendorTable.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodLesserPiercing"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
             WarCamp_ScrollVendorClericTable.AddComponent<LootItemsPackFixed>(c => {
                 c.m_Item = new LootItem() {
                     m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodNormalPiercing"),

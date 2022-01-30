@@ -42,6 +42,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                 PatchMetamagicRods();
                 PatchHolySymbolofIomedae();
                 PatchHalfOfThePair();
+                PatchStormlordsResolve();
 
                 void PatchAspectOfTheAsp() {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("AspectOfTheAsp")) { return; }
@@ -83,7 +84,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                             })
                         );
                     });
-                    Main.LogPatch("Patched", AspectOfTheAspFeature);
+                    Main.LogPatch(AspectOfTheAspFeature);
                 }
 
                 void PatchMagiciansRing() {
@@ -91,7 +92,7 @@ namespace TabletopTweaks.Bugfixes.Items {
 
                     var RingOfTheSneakyWizardFeature = Resources.GetBlueprint<BlueprintFeature>("d848f1f1b31b3e143ba4aeeecddb17f4");
                     RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
-                    Main.LogPatch("Patched", RingOfTheSneakyWizardFeature);
+                    Main.LogPatch(RingOfTheSneakyWizardFeature);
                 }
 
                 void PatchHalfOfThePair() {
@@ -127,7 +128,7 @@ namespace TabletopTweaks.Bugfixes.Items {
                     HalfOfPairedPendantArea.FlattenAllActions()
                         .OfType<ContextActionRemoveBuff>()
                         .ForEach(c => c.ToCaster = false);
-                    Main.LogPatch("Patched", HalfOfPairedPendantArea);
+                    Main.LogPatch(HalfOfPairedPendantArea);
                 }
 
                 void PatchHolySymbolofIomedae() {
@@ -140,12 +141,13 @@ namespace TabletopTweaks.Bugfixes.Items {
                         .UnitExit = Helpers.CreateActionList(
                             Helpers.Create<ContextActionRemoveBuff>(a => a.m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>())
                     );
-                    Main.LogPatch("Patched", Artifact_HolySymbolOfIomedaeArea);
+                    Main.LogPatch(Artifact_HolySymbolOfIomedaeArea);
                 }
 
                 // Fix Mangling Frenzy does not apply to Bloodrager's Rage
                 void PatchManglingFrenzy() {
                     if (ModSettings.Fixes.Items.Equipment.IsDisabled("ManglingFrenzy")) { return; }
+
                     var ManglingFrenzyFeature = Resources.GetBlueprint<BlueprintFeature>("29e2f51e6dd7427099b015de88718990");
                     var ManglingFrenzyBuff = Resources.GetBlueprint<BlueprintBuff>("1581c5ceea24418cadc9f26ce4d391a9");
                     var BloodragerStandartRageBuff = Resources.GetBlueprint<BlueprintBuff>("5eac31e457999334b98f98b60fc73b2f");
@@ -154,6 +156,17 @@ namespace TabletopTweaks.Bugfixes.Items {
                         c.m_CheckedBuff = BloodragerStandartRageBuff.ToReference<BlueprintBuffReference>();
                         c.m_ExtraEffectBuff = ManglingFrenzyBuff.ToReference<BlueprintBuffReference>();
                     }));
+
+                    Main.LogPatch(ManglingFrenzyFeature);
+                }
+
+                void PatchStormlordsResolve(){
+                    if (ModSettings.Fixes.Items.Equipment.IsDisabled("StormlordsResolve")) { return; }
+
+                    var StormlordsResolveActivatableAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("ae908f59269c54c4d83ca51a63be8db4");
+                    StormlordsResolveActivatableAbility.DeactivateImmediately = true;
+
+                    Main.LogPatch(StormlordsResolveActivatableAbility);
                 }
 
                 void PatchMetamagicRods() {

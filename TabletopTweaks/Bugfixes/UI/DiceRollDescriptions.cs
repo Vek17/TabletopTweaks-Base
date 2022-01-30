@@ -30,7 +30,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                             stringBuilder.Append(", ");
                         }
                         firstRoll = false;
-                        if (roll == ruleRollDice.Result && !taggedResult) {
+                        if (!taggedResult && (roll == ruleRollDice.m_Result || roll == ruleRollDice.Result)) {
                             startingHTMLTag = "<b><u>";
                             endingHTMLTag = "</u></b>";
                             taggedResult = true;
@@ -48,7 +48,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                                 ruleRollDice.m_PreRolledResult.Value : ruleRollDice.m_Result;
                             stringBuilder
                                 .Append(startingHTMLTag)
-                                .Append($"<s>{actualroll}</s> ")
+                                //.Append($"<s>{actualroll}</s> ")
                                 .Append($"{ruleRollDice.ResultOverride.Value}")
                                 .Append(endingHTMLTag);
                         } else {
@@ -90,6 +90,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                     return false;
 
                 }
+                /*
                 if (ruleRollDice.ResultOverride.HasValue && !ruleRollDice.m_PreRolledResult.HasValue) {
                     var originalResult = ruleRollDice.m_PreRolledResult ?? ruleRollDice.m_Result;
                     if (originalResult == 0) {
@@ -99,6 +100,7 @@ namespace TabletopTweaks.Bugfixes.UI {
                     }
                     return false;
                 }
+                */
                 __result = ruleRollDice.Result.ToString();
                 return false;
             }
