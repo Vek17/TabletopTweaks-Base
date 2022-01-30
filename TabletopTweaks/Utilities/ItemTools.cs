@@ -38,7 +38,7 @@ namespace TabletopTweaks.Utilities {
                 bp.ResourceAssetIds = new string[0];
                 bp.SetName(rodName);
                 bp.SetDescription(description);
-                bp.m_DescriptionShort = Helpers.CreateString($"{bp.name}.description_short", "");
+                bp.m_DescriptionShort = Helpers.CreateString($"{bp.name}.Description_Short", "");
                 bp.m_Icon = icon;
             });
             var ActivatableAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>($"MetamagicRod{type}{metamagicName}ToggleAbility", bp => {
@@ -50,7 +50,7 @@ namespace TabletopTweaks.Utilities {
                 bp.ResourceAssetIds = new string[0];
                 bp.SetName(rodName);
                 bp.SetDescription(description);
-                bp.m_DescriptionShort = Helpers.CreateString($"{bp.name}.description_short", "");
+                bp.m_DescriptionShort = Helpers.CreateString($"{bp.name}.Description_Short", "");
                 bp.m_Icon = icon;
                 bp.AddComponent<ActivatableAbilityResourceLogic>(c => {
                     c.m_RequiredResource = new BlueprintAbilityResourceReference();
@@ -75,11 +75,11 @@ namespace TabletopTweaks.Utilities {
                 bp.SpendCharges = true;
                 bp.Charges = 3;
                 bp.RestoreChargesOnRest = true;
-                bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.name", rodName);
-                bp.m_DescriptionText = Helpers.CreateString($"{bp.name}.description", description, shouldProcess: true);
-                bp.m_FlavorText = Helpers.CreateString($"{bp.name}.flavor", "");
-                bp.m_NonIdentifiedNameText = Helpers.CreateString($"{bp.name}.unidentified_name", "Rod");
-                bp.m_NonIdentifiedDescriptionText = Helpers.CreateString($"{bp.name}.unidentified_description", "");
+                bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Name", rodName);
+                bp.m_DescriptionText = Helpers.CreateString($"{bp.name}.Description", description, shouldProcess: true);
+                bp.m_FlavorText = Helpers.CreateString($"{bp.name}.Flavor", "");
+                bp.m_NonIdentifiedNameText = Helpers.CreateString($"{bp.name}.Unidentified_Name", "Rod");
+                bp.m_NonIdentifiedDescriptionText = Helpers.CreateString($"{bp.name}.Unidentified_Description", "");
                 bp.m_Icon = icon;
                 bp.m_Cost = GetRodCost(metamagic, type);
                 bp.m_Weight = 1;

@@ -2333,10 +2333,10 @@
       "esES": null
     },
     {
-      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
+      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2344,10 +2344,10 @@
       "esES": null
     },
     {
-      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
+      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2432,17 +2432,6 @@
       "esES": null
     },
     {
-      "Key": "9f48856f97714024a5cb846de75da34e",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana — Magus",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换（魔战士）",
-      "esES": null
-    },
-    {
       "Key": "add3b25fd1214142995be3b8965b0bc8",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2451,6 +2440,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换",
+      "esES": null
+    },
+    {
+      "Key": "9f48856f97714024a5cb846de75da34e",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana — Magus",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换（魔战士）",
       "esES": null
     },
     {
@@ -2883,6 +2883,17 @@
       "esES": null
     },
     {
+      "Key": "f7ec8465c8c441768d290817aeca4928",
+      "SimpleName": "BloodragerAberrantSpell10.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bonus Spell — See Invisibility",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "7d1feb3b42c04d79b1513af89846a60c",
       "SimpleName": "BloodragerAberrantSpell13.Description",
       "ProcessTemplates": true,
@@ -2894,6 +2905,17 @@
       "esES": null
     },
     {
+      "Key": "0acc5dd70f184021a99471e50aea863e",
+      "SimpleName": "BloodragerAberrantSpell13.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bonus Spell — Displacement",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "456e2f5e42fe4f79acd80895c4056c50",
       "SimpleName": "BloodragerAberrantSpell16.Description",
       "ProcessTemplates": true,
@@ -2902,6 +2924,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "esES": null
+    },
+    {
+      "Key": "7f1daefbdead4e99955a53dda0077780",
+      "SimpleName": "BloodragerAberrantSpell16.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bonus Spell — Spike Stones",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -3386,6 +3419,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在7、10、13、16级时，血怒者从血脉中学习一个额外法术。",
+      "esES": null
+    },
+    {
+      "Key": "614c59e387044f3b8ceafa347a731b29",
+      "SimpleName": "BloodragerDestinedSpell16.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bonus Spell — Freedom Of Movement",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5798,6 +5842,17 @@
       "esES": null
     },
     {
+      "Key": "85e307c7ad914699acf58a74b4c3193e",
+      "SimpleName": "FlaringSpellFeat.Description",
+      "ProcessTemplates": true,
+      "enGB": "You dazzle creatures when you affect them with a spell that has the fire, light, or electricity descriptor.\nBenefit: The electricity, fire, or light effects of the affected spell create a flaring that dazzles creatures that take damage from the spell. A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.\nLevel Increase: +1 (a flaring spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "e77ccba57b9b41a6b5f996b23786377a",
       "SimpleName": "FlaringSpellFeat.Name",
       "ProcessTemplates": false,
@@ -5974,10 +6029,10 @@
       "esES": null
     },
     {
-      "Key": "733dca100af5465d991da0c352540b40",
+      "Key": "7f9bef9b59ad45e7a4e3a727ddc283ce",
       "SimpleName": "GnomeFellMagicFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic",
+      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -5985,10 +6040,10 @@
       "esES": null
     },
     {
-      "Key": "7f9bef9b59ad45e7a4e3a727ddc283ce",
+      "Key": "733dca100af5465d991da0c352540b40",
       "SimpleName": "GnomeFellMagicFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic.",
+      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6095,10 +6150,10 @@
       "esES": null
     },
     {
-      "Key": "f279fdad21d54e58b92b396313ddaacc",
+      "Key": "65e6f4550ad54ea5b2af2b6ea4d206f1",
       "SimpleName": "GnomeUtilitarianMagicFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Some gnomes develop practical magic to assist them with their obsessive projects. These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic",
+      "enGB": "Some gnomes develop practical magic to assist them with their obsessive projects. These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6106,10 +6161,10 @@
       "esES": null
     },
     {
-      "Key": "65e6f4550ad54ea5b2af2b6ea4d206f1",
+      "Key": "f279fdad21d54e58b92b396313ddaacc",
       "SimpleName": "GnomeUtilitarianMagicFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Some gnomes develop practical magic to assist them with their obsessive projects. These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic.",
+      "enGB": "Some gnomes develop practical magic to assist them with their obsessive projects. These gnomes add 1 to the DC of any saving throws against transmutation spells they cast.\nThis racial trait replaces gnome magic",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -7423,6 +7478,677 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "超魔狂怒者",
+      "esES": null
+    },
+    {
+      "Key": "45427006c967489a9f1372da7aefa3a7",
+      "SimpleName": "MetamagicRodGreaterBurning.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "773e977ef57f4b05b3b95cfce9270401",
+      "SimpleName": "MetamagicRodGreaterBurningBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "17b371f04c294a308dbe67c8805eac46",
+      "SimpleName": "MetamagicRodGreaterBurningBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Burning Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a989aa4863a840c1a9a77638bd1a8a51",
+      "SimpleName": "MetamagicRodGreaterBurningToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "30886f8c2f7947ac9963778f53c81fea",
+      "SimpleName": "MetamagicRodGreaterFlaring.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "56f4fa306337481980620406c98d33b9",
+      "SimpleName": "MetamagicRodGreaterFlaringBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d7f769cd2f2f4290892a0bbdf3eb1e6c",
+      "SimpleName": "MetamagicRodGreaterFlaringBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Flaring Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "06131d4bb34248b297a0fb702e1e5026",
+      "SimpleName": "MetamagicRodGreaterFlaringToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6780a2351b22454fa7ab3dc1ba685a52",
+      "SimpleName": "MetamagicRodGreaterIntensified.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2f63392e7a2d47d1ba91aa3dde7dd212",
+      "SimpleName": "MetamagicRodGreaterIntensifiedBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "24c3a904516f4551b92ff001a10d3043",
+      "SimpleName": "MetamagicRodGreaterIntensifiedBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Intensified Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0dce77239a9b42a886489b2e7abd8712",
+      "SimpleName": "MetamagicRodGreaterIntensifiedToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c470e0fb8240442aa9db9fb086b0cd46",
+      "SimpleName": "MetamagicRodGreaterPiercing.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c3b6a9f94f7b4d56854023789af77a22",
+      "SimpleName": "MetamagicRodGreaterPiercingBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7bab6cd102934298bf4fc9569b9b5063",
+      "SimpleName": "MetamagicRodGreaterPiercingBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Piercing Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2b881ebbd5d048a39ee6e014d03c5118",
+      "SimpleName": "MetamagicRodGreaterPiercingToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f44911992ff24b2498b7c282874b68be",
+      "SimpleName": "MetamagicRodGreaterRime.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4dea76f8b4cc4f3ba1182eb0da4dc744",
+      "SimpleName": "MetamagicRodGreaterRimeBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0f4e43b3e5904bcaa02c4acc19d2fae3",
+      "SimpleName": "MetamagicRodGreaterRimeBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Rime Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f1f669adbd404d108d7c4756d6acf095",
+      "SimpleName": "MetamagicRodGreaterRimeToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "efc91fb17f4a4d7cbafe716ac7d20dbe",
+      "SimpleName": "MetamagicRodLesserBurning.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "627e27013e8042fa961d04f32e162579",
+      "SimpleName": "MetamagicRodLesserBurningBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "445856a1cd604df9a04ffb23c9e4a67c",
+      "SimpleName": "MetamagicRodLesserBurningBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Burning Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "90db7cf67247461bb35e048371d1c3da",
+      "SimpleName": "MetamagicRodLesserBurningToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1dfd31b5385f40f4b00ede25367573a9",
+      "SimpleName": "MetamagicRodLesserFlaring.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a67ca29231d6467bb78790aa2f65762e",
+      "SimpleName": "MetamagicRodLesserFlaringBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "001d421d170146b8a9f38bf1d10067c8",
+      "SimpleName": "MetamagicRodLesserFlaringBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Flaring Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c0b9adf089de4022b33995093462f021",
+      "SimpleName": "MetamagicRodLesserFlaringToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f3903e1733ef4e13a4f632273c104442",
+      "SimpleName": "MetamagicRodLesserIntensified.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d682fba44fd145c7a213fc502f528c22",
+      "SimpleName": "MetamagicRodLesserIntensified.Unidentified_Name",
+      "ProcessTemplates": false,
+      "enGB": "Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "159f09baf5d24b64a056db21935135e5",
+      "SimpleName": "MetamagicRodLesserIntensifiedBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f523ef3dfb654d22be7904d091e037a5",
+      "SimpleName": "MetamagicRodLesserIntensifiedBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Intensified Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "da657bfcee2447b9b4840692d3aeec1d",
+      "SimpleName": "MetamagicRodLesserIntensifiedToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "07cf554eef6e425fa29e7c6ecade4e06",
+      "SimpleName": "MetamagicRodLesserPiercing.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d5a96e4f4e18493ca653c3cbf3e44b99",
+      "SimpleName": "MetamagicRodLesserPiercingBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "389f871650b841a3a7da806a14ec8286",
+      "SimpleName": "MetamagicRodLesserPiercingBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Piercing Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d46d2370d71f4d6fb292275b0e7467de",
+      "SimpleName": "MetamagicRodLesserPiercingToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6c59323d1d66409e922b094b476ff267",
+      "SimpleName": "MetamagicRodLesserRime.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fb3c4113614c46a9a5276c9bcc750135",
+      "SimpleName": "MetamagicRodLesserRimeBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e228291b394b490c9e836fbe5caf24c9",
+      "SimpleName": "MetamagicRodLesserRimeBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Rime Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d108c3cf035846dabbc508d9654ad3ab",
+      "SimpleName": "MetamagicRodLesserRimeToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "40bb0e1e1c3243ae9a048032e91c165f",
+      "SimpleName": "MetamagicRodNormalBurning.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fe95c49c4176402fbec7d948f7b97f28",
+      "SimpleName": "MetamagicRodNormalBurningBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6e57e460c10149fabb204f65bf076bd5",
+      "SimpleName": "MetamagicRodNormalBurningBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Burning Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0e62899db2db436f8bc96c4959922948",
+      "SimpleName": "MetamagicRodNormalBurningToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day burning, as though using the Burning Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nBurning Spell: When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3823f7e60c8b4b839f746460b5df2859",
+      "SimpleName": "MetamagicRodNormalFlaring.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3c2d4ea3674b4b1e974077a515b0b667",
+      "SimpleName": "MetamagicRodNormalFlaringBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "546dcf7a1ca9438599a95ca6b28bee7f",
+      "SimpleName": "MetamagicRodNormalFlaringBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Flaring Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "98a58a22bf714bf38b499254048c7c3b",
+      "SimpleName": "MetamagicRodNormalFlaringToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day flaring, as though using the Flaring Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nFlaring Spell: A flaring spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell.\nA flaring spell only affects spells with a fire, light, or electricity descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5ebfa8c70669422bb4470e0079f31d0f",
+      "SimpleName": "MetamagicRodNormalIntensified.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ad59e465405f40639dfc723628889641",
+      "SimpleName": "MetamagicRodNormalIntensifiedBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fe37eafe8111474e8adf2e87f6c28c51",
+      "SimpleName": "MetamagicRodNormalIntensifiedBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Intensified Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ceafe3e5ff6c4f869f2eaf4eda7b2e0a",
+      "SimpleName": "MetamagicRodNormalIntensifiedToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day intensified, as though using the Intensified Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nIntensified Spell: An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "df1078ba896645caa5fe66eb5019998d",
+      "SimpleName": "MetamagicRodNormalPiercing.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "41facac23843474d909e856e85dde9ee",
+      "SimpleName": "MetamagicRodNormalPiercingBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4130c92051414ab1b8a0f2a279945311",
+      "SimpleName": "MetamagicRodNormalPiercingBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Piercing Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "95db6ba42cd74d74a49f3b5796bc0c5b",
+      "SimpleName": "MetamagicRodNormalPiercingToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day piercing, as though using the Piercing Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nPiercing Spell: When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0e8122720cad4be8b18e6378a820cf48",
+      "SimpleName": "MetamagicRodNormalRime.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "34ef9223654443bc8ee6d29a4d0b6af1",
+      "SimpleName": "MetamagicRodNormalRimeBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "84d68a8d44504baca129dd3e2b3584c7",
+      "SimpleName": "MetamagicRodNormalRimeBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Rime Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e685cb64abd9444b93e992f137801cb6",
+      "SimpleName": "MetamagicRodNormalRimeToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day rime, as though using the Rime Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nRime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
