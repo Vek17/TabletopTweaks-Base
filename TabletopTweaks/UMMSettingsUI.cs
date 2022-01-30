@@ -162,6 +162,7 @@ namespace TabletopTweaks {
                 SetttingUI.SettingGroup("Fighter Advanced Armor Training", TabLevel, AddedContent.FighterAdvancedArmorTraining);
                 SetttingUI.SettingGroup("Fighter Advanced Weapon Training", TabLevel, AddedContent.FighterAdvancedWeaponTraining);
                 SetttingUI.SettingGroup("Magus Arcana", TabLevel, AddedContent.MagusArcana);
+                SetttingUI.SettingGroup("Wizard Arcane Discoveries", TabLevel, AddedContent.WizardArcaneDiscoveries);
                 SetttingUI.SettingGroup("Races", TabLevel, AddedContent.Races);
                 SetttingUI.SettingGroup("Backgrounds", TabLevel, AddedContent.Backgrounds);
                 SetttingUI.SettingGroup("Spells", TabLevel, AddedContent.Spells);

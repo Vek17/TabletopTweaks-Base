@@ -388,6 +388,17 @@
     },
     "IsExpanded": true
   },
+  "WizardArcaneDiscoveries": {
+    "DisableAll": false,
+    "Settings": {
+      "OppositionResearch": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two."
+      }
+    },
+    "IsExpanded": true
+  },
   "Races": {
     "DisableAll": false,
     "Settings": {

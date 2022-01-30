@@ -10,6 +10,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup FighterAdvancedArmorTraining = new SettingGroup();
         public SettingGroup FighterAdvancedWeaponTraining = new SettingGroup();
         public SettingGroup MagusArcana = new SettingGroup();
+        public SettingGroup WizardArcaneDiscoveries = new SettingGroup();
         public SettingGroup Races = new SettingGroup();
         public SettingGroup Backgrounds = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
@@ -30,6 +31,7 @@ namespace TabletopTweaks.Config {
             FighterAdvancedArmorTraining.LoadSettingGroup(loadedSettings.FighterAdvancedArmorTraining, NewSettingsOffByDefault);
             FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining, NewSettingsOffByDefault);
             MagusArcana.LoadSettingGroup(loadedSettings.MagusArcana, NewSettingsOffByDefault);
+            WizardArcaneDiscoveries.LoadSettingGroup(loadedSettings.WizardArcaneDiscoveries, NewSettingsOffByDefault);
             Races.LoadSettingGroup(loadedSettings.Races, NewSettingsOffByDefault);
             Backgrounds.LoadSettingGroup(loadedSettings.Backgrounds, NewSettingsOffByDefault);
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);

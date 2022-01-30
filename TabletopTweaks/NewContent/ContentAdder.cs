@@ -54,6 +54,9 @@ namespace TabletopTweaks.NewContent {
                 MagusArcana.SpellBlending.AddSpellBlending();
                 MagusArcana.BroadStudy.AddBroadStudy();
 
+                WizardArcaneDiscoveries.ArcaneDiscoverySelection.AddArcaneDiscoverySelection();
+                WizardArcaneDiscoveries.OppositionResearch.AddOppositionResearch();
+
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.LongspearChargeBuff.AddLongspearChargeBuff();
