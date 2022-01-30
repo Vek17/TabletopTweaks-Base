@@ -24,6 +24,9 @@ namespace TabletopTweaks.NewContent.Feats {
             var FavoriteMetamagicSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
             var Icon_PiercingSpellFeat = AssetLoader.LoadInternal("Feats", "Icon_PiercingSpellFeat.png");
             var Icon_PiercingSpellMetamagic = AssetLoader.LoadInternal("Metamagic", "Icon_PiercingSpellMetamagic.png", 128);
+            var Icon_MetamagicRodPiercingLesser = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodPiercingLesser.png", 64);
+            var Icon_MetamagicRodPiercingNormal = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodPiercingNormal.png", 64);
+            var Icon_MetamagicRodPiercingGreater = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodPiercingGreater.png", 64);
 
             var PiercingSpellFeat = Helpers.CreateBlueprint<BlueprintFeature>("PiercingSpellFeat", bp => {
                 bp.SetName("Metamagic (Piercing Spell)");
@@ -48,7 +51,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
             });
-
             var FavoriteMetamagicFlaring = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicPiercing", bp => {
                 bp.SetName("Favorite Metamagic — Piercing");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
@@ -63,14 +65,29 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddPrerequisiteFeature(PiercingSpellFeat);
             });
 
-            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
-            MetamagicExtention.RegisterMetamagic(
+            if (ModSettings.AddedContent.Feats.IsEnabled("MetamagicPiercingSpell")) {
+                MetamagicExtention.RegisterMetamagic(
+                    metamagic: (Metamagic)CustomMetamagic.Piercing,
+                    name: "Piercing",
+                    icon: Icon_PiercingSpellMetamagic,
+                    defaultCost: 1,
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicPiercing
+                );
+            }
+            var MetamagicRodsPiercing = ItemTools.CreateAllMetamagicRods(
+                rodName: "Piercing Metamagic Rod",
+                lesserIcon: Icon_MetamagicRodPiercingLesser,
+                normalIcon: Icon_MetamagicRodPiercingNormal,
+                greaterIcon: Icon_MetamagicRodPiercingGreater,
                 metamagic: (Metamagic)CustomMetamagic.Piercing,
-                name: "Piercing",
-                icon: Icon_PiercingSpellMetamagic,
-                defaultCost: 1,
-                favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicPiercing
+                rodDescriptionStart: "This rod grants its wielder the ability to make up to three spells they cast per day piercing, " +
+                    "as though using the Piercing Spell feat.",
+                metamagicDescription: "Piercing Spell: When you cast a piercing spell against a target with spell resistance, it treats " +
+                    "the spell resistance of the target as 5 lower than its actual SR."
             );
+
+            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
+
             UpdateSpells();
             FeatTools.AddAsFeat(PiercingSpellFeat);
             FeatTools.AddAsMetamagicFeat(PiercingSpellFeat);

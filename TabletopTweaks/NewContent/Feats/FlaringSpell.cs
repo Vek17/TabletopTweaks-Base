@@ -28,12 +28,15 @@ namespace TabletopTweaks.NewContent.Feats {
             var FavoriteMetamagicSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
             var Icon_FlaringSpellFeat = AssetLoader.LoadInternal("Feats", "Icon_FlaringSpellFeat.png");
             var Icon_FlaringSpellMetamagic = AssetLoader.LoadInternal("Metamagic", "Icon_FlaringSpellMetamagic.png", 128);
+            var Icon_MetamagicRodFlaringLesser = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodFlaringLesser.png", 64);
+            var Icon_MetamagicRodFlaringNormal = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodFlaringNormal.png", 64);
+            var Icon_MetamagicRodFlaringGreater = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodFlaringGreater.png", 64);
 
             var FlaringSpellFeat = Helpers.CreateBlueprint<BlueprintFeature>("FlaringSpellFeat", bp => {
                 bp.SetName("Metamagic (Flaring Spell)");
                 bp.SetDescription("You dazzle creatures when you affect them with a spell that has the fire, light, or electricity descriptor.\n" +
                     "Benefit: The electricity, fire, or light effects of the affected spell create a flaring that " +
-                    "dazzles creatures that take damage from the spell. A flare spell causes a creature that " +
+                    "dazzles creatures that take damage from the spell. A flaring spell causes a creature that " +
                     "takes fire or electricity damage from the affected spell to become dazzled for a number of " +
                     "rounds equal to the actual level of the spell.\n" +
                     "A flaring spell only affects spells with a fire, light, or electricity descriptor.\n" +
@@ -55,7 +58,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
             });
-
             var FavoriteMetamagicFlaring = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicFlaring", bp => {
                 bp.SetName("Favorite Metamagic — Flaring");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
@@ -69,7 +71,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddPrerequisiteFeature(FlaringSpellFeat);
             });
-
             var FlaringDazzledBuff = Helpers.CreateBuff("FlaringDazzledBuff", bp => {
                 bp.m_DisplayName = DazzledBuff.m_DisplayName;
                 bp.m_Description = DazzledBuff.m_Description;
@@ -87,14 +88,31 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<RemoveWhenCombatEnded>();
             });
 
-            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicFlaringSpell")) { return; }
-            MetamagicExtention.RegisterMetamagic(
+            if (ModSettings.AddedContent.Feats.IsEnabled("MetamagicFlaringSpell")) {
+                MetamagicExtention.RegisterMetamagic(
+                    metamagic: (Metamagic)CustomMetamagic.Flaring,
+                    name: "Flaring",
+                    icon: Icon_FlaringSpellMetamagic,
+                    defaultCost: 1,
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicFlaring
+                );
+            }
+            var MetamagicRodsFlaring = ItemTools.CreateAllMetamagicRods(
+                rodName: "Flaring Metamagic Rod",
+                lesserIcon: Icon_MetamagicRodFlaringLesser,
+                normalIcon: Icon_MetamagicRodFlaringNormal,
+                greaterIcon: Icon_MetamagicRodFlaringGreater,
                 metamagic: (Metamagic)CustomMetamagic.Flaring,
-                name: "Flaring",
-                icon: Icon_FlaringSpellMetamagic,
-                defaultCost: 1,
-                favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicFlaring
+                rodDescriptionStart: "This rod grants its wielder the ability to make up to three spells they cast per day flaring, " +
+                    "as though using the Flaring Spell feat.",
+                metamagicDescription: "Flaring Spell: A flaring spell causes a creature that " +
+                    "takes fire or electricity damage from the affected spell to become dazzled for a number of " +
+                    "rounds equal to the actual level of the spell.\n" +
+                    "A flaring spell only affects spells with a fire, light, or electricity descriptor."
             );
+
+            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicFlaringSpell")) { return; }
+
             UpdateSpells();
             FeatTools.AddAsFeat(FlaringSpellFeat);
             FeatTools.AddAsMetamagicFeat(FlaringSpellFeat);

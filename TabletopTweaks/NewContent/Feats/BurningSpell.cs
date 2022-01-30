@@ -34,6 +34,9 @@ namespace TabletopTweaks.NewContent.Feats {
             var FavoriteMetamagicSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
             var Icon_BurningSpellFeat = AssetLoader.LoadInternal("Feats", "Icon_BurningSpellFeat.png");
             var Icon_BurningSpellMetamagic = AssetLoader.LoadInternal("Metamagic", "Icon_BurningSpellMetamagic.png", 128);
+            var Icon_MetamagicRodBurningLesser = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodBurningLesser.png", 64);
+            var Icon_MetamagicRodBurningNormal = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodBurningNormal.png", 64);
+            var Icon_MetamagicRodBurningGreater = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodBurningGreater.png", 64);
 
             var BurningSpellFeat = Helpers.CreateBlueprint<BlueprintFeature>("BurningSpellFeat", bp => {
                 bp.SetName("Metamagic (Burning Spell)");
@@ -60,7 +63,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
             });
-
             var FavoriteMetamagicBurning = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicBurning", bp => {
                 bp.SetName("Favorite Metamagic — Burning");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
@@ -74,7 +76,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddPrerequisiteFeature(BurningSpellFeat);
             });
-
             var BurningSpellFireBuff = Helpers.CreateBuff("BurningSpellFireBuff", bp => {
                 bp.SetName("Burning Spell");
                 bp.SetDescription("This target will take fire damage at the start of next round.");
@@ -120,7 +121,6 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.Descriptor = SpellDescriptor.Fire;
                 });
             });
-
             var BurningSpellAcidBuff = Helpers.CreateBuff("BurningSpellAcidBuff", bp => {
                 bp.SetName("Burning Spell");
                 bp.SetDescription("This target will take acid damage at the start of next round.");
@@ -166,15 +166,30 @@ namespace TabletopTweaks.NewContent.Feats {
                     c.Descriptor = SpellDescriptor.Acid;
                 });
             });
+            if (ModSettings.AddedContent.Feats.IsEnabled("MetamagicBurningSpell")) {
+                MetamagicExtention.RegisterMetamagic(
+                    metamagic: (Metamagic)CustomMetamagic.Burning,
+                    name: "Burning",
+                    icon: Icon_BurningSpellMetamagic,
+                    defaultCost: 2,
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicBurning
+                );
+            }
+            var MetamagicRodsRime = ItemTools.CreateAllMetamagicRods(
+                rodName: "Burning Metamagic Rod",
+                lesserIcon: Icon_MetamagicRodBurningLesser,
+                normalIcon: Icon_MetamagicRodBurningNormal,
+                greaterIcon: Icon_MetamagicRodBurningGreater,
+                metamagic: (Metamagic)CustomMetamagic.Burning,
+                rodDescriptionStart: "This rod grants its wielder the ability to make up to three spells they cast per day burning, " +
+                    "as though using the Burning Spell feat.",
+                metamagicDescription: "Burning Spell: When a creature takes acid or fire damage from the affected spell, " +
+                    "that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. " +
+                    "The damage is acid or fire, as determined by the spell’s descriptor."
+            );
 
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicBurningSpell")) { return; }
-            MetamagicExtention.RegisterMetamagic(
-                metamagic: (Metamagic)CustomMetamagic.Burning,
-                name: "Burning",
-                icon: Icon_BurningSpellMetamagic,
-                defaultCost: 2,
-                favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicBurning
-            );
+  
             UpdateSpells();
             FeatTools.AddAsFeat(BurningSpellFeat);
             FeatTools.AddAsMetamagicFeat(BurningSpellFeat);

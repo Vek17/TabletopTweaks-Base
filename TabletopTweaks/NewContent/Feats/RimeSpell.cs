@@ -29,6 +29,9 @@ namespace TabletopTweaks.NewContent.Feats {
             var IcyPrisonEntangledBuff = Resources.GetBlueprint<BlueprintBuff>("c53b286bb06a0544c85ca0f8bcc86950");
             var Icon_RimeSpellFeat = AssetLoader.LoadInternal("Feats", "Icon_RimeSpellFeat.png");
             var Icon_RimeSpellMetamagic = AssetLoader.LoadInternal("Metamagic", "Icon_RimeSpellMetamagic.png", 128);
+            var Icon_MetamagicRodRimeLesser = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodRimeLesser.png", 64);
+            var Icon_MetamagicRodRimeNormal = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodRimeNormal.png", 64);
+            var Icon_MetamagicRodRimeGreater = AssetLoader.LoadInternal("Equipment", "Icon_MetamagicRodRimeGreater.png", 64);
 
             var RimeSpellFeat = Helpers.CreateBlueprint<BlueprintFeature>("RimeSpellFeat", bp => {
                 bp.SetName("Metamagic (Rime Spell)");
@@ -55,7 +58,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
             });
-
             var FavoriteMetamagicRime = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicRime", bp => {
                 bp.SetName("Favorite Metamagic — Rime");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
@@ -69,7 +71,6 @@ namespace TabletopTweaks.NewContent.Feats {
                 });
                 bp.AddPrerequisiteFeature(RimeSpellFeat);
             });
-
             var RimeEntagledBuff = Helpers.CreateBuff("RimeEntagledBuff", bp => {
                 bp.m_DisplayName = EntangleBuff.m_DisplayName;
                 bp.m_Description = EntangleBuff.m_Description;
@@ -88,14 +89,28 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<RemoveWhenCombatEnded>();
             });
 
-            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
-            MetamagicExtention.RegisterMetamagic(
+            if (ModSettings.AddedContent.Feats.IsEnabled("MetamagicRimeSpell")) {
+                MetamagicExtention.RegisterMetamagic(
+                    metamagic: (Metamagic)CustomMetamagic.Rime,
+                    name: "Rime",
+                    icon: Icon_RimeSpellMetamagic,
+                    defaultCost: 1,
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicRime
+                );
+            }
+            var MetamagicRodsRime = ItemTools.CreateAllMetamagicRods(
+                rodName: "Rime Metamagic Rod",
+                lesserIcon: Icon_MetamagicRodRimeLesser,
+                normalIcon: Icon_MetamagicRodRimeNormal,
+                greaterIcon: Icon_MetamagicRodRimeGreater,
                 metamagic: (Metamagic)CustomMetamagic.Rime,
-                name: "Rime",
-                icon: Icon_RimeSpellMetamagic,
-                defaultCost: 1,
-                favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicRime
+                rodDescriptionStart: "This rod grants its wielder the ability to make up to three spells they cast per day rime, " +
+                    "as though using the Rime Spell feat.",
+                metamagicDescription: "Rime Spell: A rime spell causes creatures that takes cold damage from the spell to become entangled " +
+                    "for a number of rounds equal to the original level of the spell. This feat only affects spells with the cold descriptor."
             );
+
+            if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
             UpdateSpells();
             FeatTools.AddAsFeat(RimeSpellFeat);
             FeatTools.AddAsMetamagicFeat(RimeSpellFeat);
