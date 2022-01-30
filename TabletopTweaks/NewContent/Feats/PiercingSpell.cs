@@ -2,6 +2,8 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
@@ -89,6 +91,7 @@ namespace TabletopTweaks.NewContent.Feats {
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
 
             UpdateSpells();
+            AddRodsToVenders();
             FeatTools.AddAsFeat(PiercingSpellFeat);
             FeatTools.AddAsMetamagicFeat(PiercingSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicFlaring);
@@ -106,6 +109,17 @@ namespace TabletopTweaks.NewContent.Feats {
                     }
                 };
             }
+        }
+        private static void AddRodsToVenders() {
+            var WarCamp_ScrollVendorClericTable = Resources.GetBlueprint<BlueprintSharedVendorTable>("cdd7aa16e900b9146bc6963ca53b8e71");
+
+            WarCamp_ScrollVendorClericTable.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodNormalPiercing"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
         }
     }
 }

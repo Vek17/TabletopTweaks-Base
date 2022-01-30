@@ -3,6 +3,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
@@ -112,6 +114,7 @@ namespace TabletopTweaks.NewContent.Feats {
 
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
             UpdateSpells();
+            AddRodsToVenders();
             FeatTools.AddAsFeat(RimeSpellFeat);
             FeatTools.AddAsMetamagicFeat(RimeSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicRime);
@@ -131,6 +134,25 @@ namespace TabletopTweaks.NewContent.Feats {
                     }
                 };
             }
+        }
+        private static void AddRodsToVenders() {
+            var RE_Chapter3VendorTableMagic = Resources.GetBlueprint<BlueprintSharedVendorTable>("e8e384f0e411fab42a69f16991cac161");
+            var KrebusSlaveTraderTable = Resources.GetBlueprint<BlueprintSharedVendorTable>("d43baa8b603f4604f8e36b048072e759");
+
+            RE_Chapter3VendorTableMagic.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodNormalRime"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
+            KrebusSlaveTraderTable.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodGreaterRime"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
         }
     }
 }

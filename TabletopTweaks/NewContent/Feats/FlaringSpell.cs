@@ -3,6 +3,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
@@ -114,6 +116,7 @@ namespace TabletopTweaks.NewContent.Feats {
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicFlaringSpell")) { return; }
 
             UpdateSpells();
+            AddRodsToVenders();
             FeatTools.AddAsFeat(FlaringSpellFeat);
             FeatTools.AddAsMetamagicFeat(FlaringSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicFlaring);
@@ -134,6 +137,25 @@ namespace TabletopTweaks.NewContent.Feats {
                     }
                 };
             }
+        }
+        private static void AddRodsToVenders() {
+            var Scroll_Chapter3VendorTable = Resources.GetBlueprint<BlueprintSharedVendorTable>("d33d4c7396fc1d74c9569bc38e887e86");
+            var Scroll_Chapter5VendorTable = Resources.GetBlueprint<BlueprintSharedVendorTable>("5b73c93dccd743668734070160dfb82f");
+
+            Scroll_Chapter3VendorTable.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodNormalFlaring"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
+            Scroll_Chapter5VendorTable.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodGreaterFlaring"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
         }
     }
 }

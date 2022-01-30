@@ -3,6 +3,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
@@ -191,6 +193,7 @@ namespace TabletopTweaks.NewContent.Feats {
             if (ModSettings.AddedContent.Feats.IsDisabled("MetamagicBurningSpell")) { return; }
   
             UpdateSpells();
+            AddRodsToVenders();
             FeatTools.AddAsFeat(BurningSpellFeat);
             FeatTools.AddAsMetamagicFeat(BurningSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicBurning);
@@ -210,6 +213,33 @@ namespace TabletopTweaks.NewContent.Feats {
                     }
                 };
             }
+        }
+        private static void AddRodsToVenders() {
+            var WarCamp_REVendorTableMagic = Resources.GetBlueprint<BlueprintSharedVendorTable>("f02cf582e915ae343aa489f11dba42aa");
+            var RE_Chapter3VendorTableMagic = Resources.GetBlueprint<BlueprintSharedVendorTable>("e8e384f0e411fab42a69f16991cac161");
+            var KrebusSlaveTraderTable = Resources.GetBlueprint<BlueprintSharedVendorTable>("d43baa8b603f4604f8e36b048072e759");
+
+            WarCamp_REVendorTableMagic.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodLesserBurning"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
+            RE_Chapter3VendorTableMagic.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodNormalBurning"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
+            KrebusSlaveTraderTable.AddComponent<LootItemsPackFixed>(c => {
+                c.m_Item = new LootItem() {
+                    m_Item = Resources.GetModBlueprintReference<BlueprintItemReference>("MetamagicRodGreaterBurning"),
+                    m_Loot = new BlueprintUnitLootReference()
+                };
+                c.m_Count = 1;
+            });
         }
     }
 }
