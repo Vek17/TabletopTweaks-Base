@@ -6,6 +6,11 @@
         * Power of Law now works correctly with Reroll effects.
     * Items
         * Stormlord's Resolve can now be deactivated immediatly instead of taking 1 turn to turn off.
+* New Arcane Discoveries
+    * Knowledge Is Power
+        * Your understanding of physical forces gives you power over them. You add your Intelligence modifier on combat maneuver checks and to your CMD.
+    * Opposition Research
+        * Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two.
 * New Items
     * Lesser Burning Metamagic Rod
         * Avaiable from skeletal merchant in act 2.

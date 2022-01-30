@@ -65,7 +65,7 @@ namespace TabletopTweaks.NewContent.WizardArcaneDiscoveries {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat, FeatureGroup.MountedCombatFeat };
+                bp.Groups = new FeatureGroup[] {};
                 bp.AddComponent<OppositionResearchComponent>(c => {
                     c.School = School;
                 });
