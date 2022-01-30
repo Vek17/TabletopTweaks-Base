@@ -4,6 +4,8 @@
         * Winds Of Fall now works.
     * Aeon
         * Power of Law now works correctly with Reroll effects.
+* New Items
+    * Metamagic Rods for new metamagics have been added to the game and to vender lists.
 
 ## Version 1.11.1
 * Fixes
