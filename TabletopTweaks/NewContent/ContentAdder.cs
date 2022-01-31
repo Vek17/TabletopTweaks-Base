@@ -57,6 +57,7 @@ namespace TabletopTweaks.NewContent {
                 WizardArcaneDiscoveries.ArcaneDiscoverySelection.AddArcaneDiscoverySelection();
                 WizardArcaneDiscoveries.OppositionResearch.AddOppositionResearch();
                 WizardArcaneDiscoveries.KnowledgeIsPower.AddKnowledgeIsPower();
+                WizardArcaneDiscoveries.Idealize.AddIdealize();
 
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();

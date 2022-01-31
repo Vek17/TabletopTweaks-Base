@@ -48,7 +48,9 @@ namespace TabletopTweaks.NewUnitParts {
             FavoriteMetamagicBurning,
             FavoriteMetamagicFlaring,
             FavoriteMetamagicPiercing,
-            FavoriteMetamagicSolidShadows
+            FavoriteMetamagicSolidShadows,
+            IdealizeDiscovery,
+            IdealizeDiscoveryUpgrade
         }
     }
     static class CustomMechanicsFeaturesExtentions {

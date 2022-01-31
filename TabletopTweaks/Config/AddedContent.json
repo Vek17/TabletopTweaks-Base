@@ -391,6 +391,11 @@
   "WizardArcaneDiscoveries": {
     "DisableAll": false,
     "Settings": {
+      "Idealize": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When a transmutation spell you cast grants an enhancement bonus to an ability score, that bonus increases by 2. At 20th level, the bonus increases by 4."
+      },
       "KnowledgeIsPower": {
         "Enabled": true,
         "Homebrew": false,

@@ -4,11 +4,6 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.MechanicsChanges;
@@ -19,7 +14,7 @@ namespace TabletopTweaks.NewContent.WizardArcaneDiscoveries {
         public static void AddKnowledgeIsPower() {
             var KnowledgeIsPower = Helpers.CreateBlueprint<BlueprintFeature>($"KnowledgeIsPower", bp => {
                 bp.SetName($"Knowledge Is Power");
-                bp.SetDescription("Your understanding of physical forces gives you power over them. " +
+                bp.SetDescription("Your understanding of physical forces gives you power over them.\n" +
                     "You add your Intelligence modifier on combat maneuver checks and to your CMD.");
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
