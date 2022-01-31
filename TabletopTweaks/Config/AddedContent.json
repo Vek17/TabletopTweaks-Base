@@ -391,6 +391,11 @@
   "WizardArcaneDiscoveries": {
     "DisableAll": false,
     "Settings": {
+      "AlchemicalAffinity": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you cast a spell that appears on both the wizard and alchemist spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1."
+      },
       "Idealize": {
         "Enabled": true,
         "Homebrew": false,
@@ -399,12 +404,17 @@
       "KnowledgeIsPower": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Your understanding of physical forces gives you power over them. You add your Intelligence modifier on combat maneuver checks and to your CMD."
+        "Description": "You add your Intelligence modifier on combat maneuver checks and to your CMD."
       },
       "OppositionResearch": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two."
+      },
+      "YuelralsBlessing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you cast a spell that appears on both the wizard and druid spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1."
       }
     },
     "IsExpanded": true

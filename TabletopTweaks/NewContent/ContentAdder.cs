@@ -55,9 +55,11 @@ namespace TabletopTweaks.NewContent {
                 MagusArcana.BroadStudy.AddBroadStudy();
 
                 WizardArcaneDiscoveries.ArcaneDiscoverySelection.AddArcaneDiscoverySelection();
-                WizardArcaneDiscoveries.OppositionResearch.AddOppositionResearch();
-                WizardArcaneDiscoveries.KnowledgeIsPower.AddKnowledgeIsPower();
+                WizardArcaneDiscoveries.AlchemicalAffinity.AddAlchemicalAffinity();
                 WizardArcaneDiscoveries.Idealize.AddIdealize();
+                WizardArcaneDiscoveries.KnowledgeIsPower.AddKnowledgeIsPower();
+                WizardArcaneDiscoveries.OppositionResearch.AddOppositionResearch();
+                WizardArcaneDiscoveries.YuelralsBlessing.AddYuelralsBlessing();
 
                 Features.AeonBaneIncreaseResourceFeature.AddAeonBaneIncreaseResourceFeature();
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();

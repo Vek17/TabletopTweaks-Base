@@ -254,6 +254,28 @@
       "esES": null
     },
     {
+      "Key": "17bda7861e8f437b8c673591f1f81e5c",
+      "SimpleName": "AlchemicalAffinity.Description",
+      "ProcessTemplates": true,
+      "enGB": "Having studied alongside alchemists, you’ve learned to use their methodologies to enhance your spellcraft.\nWhenever you cast a spell that appears on both the wizard and alchemist spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "12ad8fa43d5341f6ae083097cb98b74c",
+      "SimpleName": "AlchemicalAffinity.Name",
+      "ProcessTemplates": false,
+      "enGB": "Alchemical Affinity",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "b12e3a44e37341f2ae578620965a902f",
       "SimpleName": "AlignmentSmite.Duration",
       "ProcessTemplates": false,
@@ -372,6 +394,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "奥术血承",
+      "esES": null
+    },
+    {
+      "Key": "a4c3445a0be84aef8ba41be6eaeeb729",
+      "SimpleName": "ArcaneDiscoverySelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "Wizards spend much of their lives seeking deeper truths, hunting knowledge as if it were life itself. The wizard’s power is not necessarily the spells he wields; spells are merely the outward, most visible manifestation of that power. A wizard’s true power is in his fierce intelligence, his dedication to his craft, and his ability to peel back the surface truths of reality to understand the fundamental underpinnings of existence. A wizard spends much of his time researching spells, and would rather find an undiscovered library than a room full of gold. A wizard need not be a reclusive bookworm, but he must have a burning curiosity for the unknown. Arcane discoveries are the results of this obsession with magic.\nA wizard can learn an arcane discovery in place of a regular feat or wizard bonus feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0b219837f0a847e6bf945abf6bce004f",
+      "SimpleName": "ArcaneDiscoverySelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Discovery",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2333,10 +2377,10 @@
       "esES": null
     },
     {
-      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
+      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2344,10 +2388,10 @@
       "esES": null
     },
     {
-      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
+      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -3422,17 +3466,6 @@
       "esES": null
     },
     {
-      "Key": "614c59e387044f3b8ceafa347a731b29",
-      "SimpleName": "BloodragerDestinedSpell16.Name",
-      "ProcessTemplates": false,
-      "enGB": "Bonus Spell — Freedom Of Movement",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "c48322e101334947a678019582e607ff",
       "SimpleName": "BloodragerDestinedSpell16.Name",
       "ProcessTemplates": false,
@@ -3441,6 +3474,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "额外法术：行动自如",
+      "esES": null
+    },
+    {
+      "Key": "614c59e387044f3b8ceafa347a731b29",
+      "SimpleName": "BloodragerDestinedSpell16.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bonus Spell — Freedom Of Movement",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6029,10 +6073,10 @@
       "esES": null
     },
     {
-      "Key": "7f9bef9b59ad45e7a4e3a727ddc283ce",
+      "Key": "733dca100af5465d991da0c352540b40",
       "SimpleName": "GnomeFellMagicFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic.",
+      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6040,10 +6084,10 @@
       "esES": null
     },
     {
-      "Key": "733dca100af5465d991da0c352540b40",
+      "Key": "7f9bef9b59ad45e7a4e3a727ddc283ce",
       "SimpleName": "GnomeFellMagicFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic",
+      "enGB": "Gnomes add +1 to the DC of any saving throws against necromancy spells that they cast.\nThis racial trait replaces gnome magic.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6095,10 +6139,10 @@
       "esES": null
     },
     {
-      "Key": "659f9566a13d4939a59310c7d4b3d25a",
+      "Key": "c4a6816f33cd4299bd514dd0b9ad5c82",
       "SimpleName": "GnomeKeenFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. Such gnomes gain +2 Charisma, +2 Intelligence, and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training.",
+      "enGB": "Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. Such gnomes gain +2 Charisma, +2 Intelligence, and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6106,10 +6150,10 @@
       "esES": null
     },
     {
-      "Key": "c4a6816f33cd4299bd514dd0b9ad5c82",
+      "Key": "659f9566a13d4939a59310c7d4b3d25a",
       "SimpleName": "GnomeKeenFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. Such gnomes gain +2 Charisma, +2 Intelligence, and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training",
+      "enGB": "Some gnomes are far more cleaver than they seem, and have devoted all of their time in the pursit of knowledge. Such gnomes gain +2 Charisma, +2 Intelligence, and -2 Strength.\nThis racial trait alters the gnomes’ ability score modifiers.\nThis racial trait replaces defensive training.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6425,6 +6469,50 @@
       "esES": null
     },
     {
+      "Key": "b76da58ea5114d3cbf2d9b55d2b6db60",
+      "SimpleName": "Idealize.Description",
+      "ProcessTemplates": true,
+      "enGB": "In your quest for self-perfection, you have discovered a way to further enhance yourself and others.\nWhen a transmutation spell you cast grants an enhancement bonus to an ability score, that bonus increases by 2. At 20th level, the bonus increases by 4.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5d85f899f38b4edb9853a86b71f5a34e",
+      "SimpleName": "Idealize.Name",
+      "ProcessTemplates": false,
+      "enGB": "Idealize",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ab1c9252c31245619fdca646000ce3e6",
+      "SimpleName": "IdealizeUpgrade.Description",
+      "ProcessTemplates": true,
+      "enGB": "In your quest for self-perfection, you have discovered a way to further enhance yourself and others.\nWhen a transmutation spell you cast grants an enhancement bonus to an ability score, that bonus increases by 2. At 20th level, the bonus increases by 4.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0daa52931d5448f6b44efafaf695bfe5",
+      "SimpleName": "IdealizeUpgrade.Name",
+      "ProcessTemplates": false,
+      "enGB": "Idealize Upgrade",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "28e2ab69b4234cadb50bbe78603288c0",
       "SimpleName": "ImpossibleBlessingFeature.Description",
       "ProcessTemplates": true,
@@ -6576,6 +6664,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "锐锋",
+      "esES": null
+    },
+    {
+      "Key": "ca089b08610947798267be19e5cdcca3",
+      "SimpleName": "KnowledgeIsPower.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your understanding of physical forces gives you power over them.\nYou add your Intelligence modifier on combat maneuver checks and to your CMD.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6e69132f8ed746b3983a3cc2bcc8975a",
+      "SimpleName": "KnowledgeIsPower.Name",
+      "ProcessTemplates": false,
+      "enGB": "Knowledge Is Power",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -9051,6 +9161,204 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "单手握持武器",
+      "esES": null
+    },
+    {
+      "Key": "b855b2ad1ef841f0a8e7895c092f91b4",
+      "SimpleName": "OppositionResearchAbjuration.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Abjuration school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6ce78e0b7bd14c84ba41d9c137d5bfcc",
+      "SimpleName": "OppositionResearchAbjuration.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Abjuration",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f3aad77a95024d14a3ff59bd5aaf31c2",
+      "SimpleName": "OppositionResearchConjuration.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Conjuration school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "79c3942bd0bd4c2b886827b328392dae",
+      "SimpleName": "OppositionResearchConjuration.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Conjuration",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ef873692ef5e4229bceb4c530dd4052c",
+      "SimpleName": "OppositionResearchDivination.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Divination school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "197df3952e8c469e87b787bfbf351b0c",
+      "SimpleName": "OppositionResearchDivination.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Divination",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7fab537ee4804a458df9798f96ace564",
+      "SimpleName": "OppositionResearchEnchantment.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Enchantment school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "636f179b692f47fdb3870939014af717",
+      "SimpleName": "OppositionResearchEnchantment.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Enchantment",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bcdd37b379bf4152b5f0a5068d92f119",
+      "SimpleName": "OppositionResearchEvocation.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Evocation school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bc8872c30e79492981b9903c163272ac",
+      "SimpleName": "OppositionResearchEvocation.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Evocation",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1cebc71b4f9a488a91e382682ce301ea",
+      "SimpleName": "OppositionResearchIllusion.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Illusion school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1700ce31f7cd4c9381bd898e7a11e23c",
+      "SimpleName": "OppositionResearchIllusion.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Illusion",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c187478beb3542deb9dca63d54a8fa2e",
+      "SimpleName": "OppositionResearchNecromancy.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Necromancy school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7b863de2fbd14d7690a50d77ed22f2f8",
+      "SimpleName": "OppositionResearchNecromancy.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Necromancy",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3fd4f717d1d744cc9f1dcf1a31be1d61",
+      "SimpleName": "OppositionResearchSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a26ad751890847c2b1f3fd2a8a26c9b7",
+      "SimpleName": "OppositionResearchSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e82d030d8e614c81a1a0e9c69f1c3962",
+      "SimpleName": "OppositionResearchTransmutation.Description",
+      "ProcessTemplates": true,
+      "enGB": "Preparing spells from the Transmutation school now only requires one spell slot of the appropriate spell level instead of two.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e90f2891c6654cf68e287cbed7937ad3",
+      "SimpleName": "OppositionResearchTransmutation.Name",
+      "ProcessTemplates": false,
+      "enGB": "Opposition Research — Transmutation",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11757,6 +12065,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "1分钟",
+      "esES": null
+    },
+    {
+      "Key": "f60a335cb2484250ad86e1c2b6429b7d",
+      "SimpleName": "YuelralsBlessing.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell that appears on both the wizard and druid spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3f23397b11214fcca1c15fe5764960c7",
+      "SimpleName": "YuelralsBlessing.Name",
+      "ProcessTemplates": false,
+      "enGB": "Yuelral's Blessing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     }
   ]

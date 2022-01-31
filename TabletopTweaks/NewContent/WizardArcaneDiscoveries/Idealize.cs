@@ -113,7 +113,7 @@ namespace TabletopTweaks.NewContent.WizardArcaneDiscoveries {
                         return target;
                     }
                 }
-                Main.Log("ADD STAT PATCH: COULD NOT FIND TARGET");
+                Main.Log("ADD STAT IDEALIZE PATCH: COULD NOT FIND TARGET");
                 return -1;
             }
 

@@ -7,10 +7,16 @@
     * Items
         * Stormlord's Resolve can now be deactivated immediatly instead of taking 1 turn to turn off.
 * New Arcane Discoveries
+    * AlchemicalAffinity
+        * Whenever you cast a spell that appears on both the wizard and alchemist spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1.
+    * Idealize
+        * When a transmutation spell you cast grants an enhancement bonus to an ability score, that bonus increases by 2. At 20th level, the bonus increases by 4.
     * Knowledge Is Power
-        * Your understanding of physical forces gives you power over them. You add your Intelligence modifier on combat maneuver checks and to your CMD.
+        * You add your Intelligence modifier on combat maneuver checks and to your CMD.
     * Opposition Research
         * Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two.
+    * Yuelral's Blessing
+        * Whenever you cast a spell that appears on both the wizard and druid spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1.
 * New Items
     * Lesser Burning Metamagic Rod
         * Avaiable from skeletal merchant in act 2.
