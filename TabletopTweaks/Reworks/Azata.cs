@@ -86,18 +86,18 @@ namespace TabletopTweaks.Reworks {
                 var IncredibleMightFeature = Resources.GetBlueprint<BlueprintFeature>("eef8d23a7e4acfe4d834a5de844c8c7c");
                 var IncredibleMightAbility = Resources.GetBlueprint<BlueprintActivatableAbility>("f81b4910d05399a4aaf5fcc8c4d713eb");
 
-                IncredibleMightFeature.SetDescription(IncredibleMightFeature.Description.Replace("morale", "mythic"));
+                IncredibleMightFeature.SetDescription(IncredibleMightFeature.Description.Replace("morale ", ""));
                 IncredibleMightMainBuff.m_Description = IncredibleMightFeature.m_Description;
 
                 IncredibleMightMainBuff
                     .GetComponents<AddContextStatBonus>()
                     .ForEach(c => {
-                        c.Descriptor = ModifierDescriptor.Mythic;
+                        c.Descriptor = ModifierDescriptor.UntypedStackable;
                     });
                 IncredibleMightAllyBuff
                     .GetComponents<AddContextStatBonus>()
                     .ForEach(c => {
-                        c.Descriptor = ModifierDescriptor.Mythic;
+                        c.Descriptor = ModifierDescriptor.UntypedStackable;
                     });
                 Main.LogPatch("Patched", IncredibleMightAllyBuff);
                 Main.LogPatch("Patched", IncredibleMightMainBuff);

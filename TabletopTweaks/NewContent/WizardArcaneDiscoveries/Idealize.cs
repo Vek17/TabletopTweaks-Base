@@ -8,6 +8,7 @@ using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,16 +128,17 @@ namespace TabletopTweaks.NewContent.WizardArcaneDiscoveries {
                 if (owner == null) { return value; }
                 if (attribute == null || value < 0) { return value; }
                 if (!context.SourceAbility?.IsSpell ?? true
+                    || context.SpellLevel <= 0
                     || context.SpellSchool != SpellSchool.Transmutation
                     || component.Descriptor != ModifierDescriptor.Enhancement) {
-                    return value; 
+                    return value;
                 }
 
                 if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscovery)) {
-                    value += 2; 
+                    value += 2;
                 }
-                if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscoveryUpgrade)) { 
-                    value += 2; 
+                if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscoveryUpgrade)) {
+                    value += 2;
                 }
                 return value;
             }
