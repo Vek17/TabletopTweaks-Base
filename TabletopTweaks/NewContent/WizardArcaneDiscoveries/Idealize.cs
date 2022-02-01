@@ -7,7 +7,9 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -84,12 +86,10 @@ namespace TabletopTweaks.NewContent.WizardArcaneDiscoveries {
                 typeof(EntityFactComponent),
                 typeof(ModifierDescriptor)
             });
-            static readonly FieldInfo AddStatBonus_Descriptor = AccessTools.Field(typeof(AddStatBonus), nameof(AddStatBonus.Descriptor));
-            static readonly FieldInfo AddStatBonus_Stat = AccessTools.Field(typeof(AddStatBonus), nameof(AddStatBonus.Stat));
-            static readonly MethodInfo AddStatBonus_Context = AccessTools.PropertyGetter(typeof(AddStatBonus), nameof(AddStatBonus.Context));
-            static readonly MethodInfo AddStatBonus_Idealize_Patch_AddIdealizeBonus = AccessTools.Method(
-                typeof(AddStatBonus_Idealize_Patch), 
-                nameof(AddStatBonus_Idealize_Patch.AddIdealizeBonus)
+            static readonly MethodInfo Idealize_AddIdealizeBonus = AccessTools.Method(
+                typeof(Idealize),
+                nameof(Idealize.AddIdealizeBonus),
+                new Type[]{ typeof(int), typeof(AddStatBonus) }
             );
             //Add Idealize calculations
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
@@ -100,7 +100,7 @@ namespace TabletopTweaks.NewContent.WizardArcaneDiscoveries {
                 //Utilities.ILUtils.LogIL(codes);
                 codes.InsertRange(target, new CodeInstruction[] {
                     new CodeInstruction(OpCodes.Ldarg_0),
-                    new CodeInstruction(OpCodes.Call, AddStatBonus_Idealize_Patch_AddIdealizeBonus)
+                    new CodeInstruction(OpCodes.Call, Idealize_AddIdealizeBonus)
                 });
                 //Utilities.ILUtils.LogIL(codes);
                 return codes.AsEnumerable();
@@ -114,34 +114,126 @@ namespace TabletopTweaks.NewContent.WizardArcaneDiscoveries {
                         return target;
                     }
                 }
-                Main.Log("ADD STAT IDEALIZE PATCH: COULD NOT FIND TARGET");
+                Main.Log("ADD STAT IDEALIZE PATCH - AddStatBonus: COULD NOT FIND TARGET");
                 return -1;
             }
+        }
+        [HarmonyPatch(typeof(AddContextStatBonus), nameof(AddContextStatBonus.OnTurnOn))]
+        static class AddContextStatBonus_Idealize_Patch {
+            static readonly MethodInfo Modifier_AddModifier = AccessTools.Method(typeof(ModifiableValue), "AddModifier", new Type[] {
+                typeof(int),
+                typeof(EntityFactComponent),
+                typeof(ModifierDescriptor)
+            });
+            static readonly MethodInfo Idealize_AddIdealizeBonus = AccessTools.Method(
+                typeof(Idealize),
+                nameof(Idealize.AddIdealizeBonus),
+                new Type[] { typeof(int), typeof(AddContextStatBonus) }
+            );
+            //Add Idealize calculations
+            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
+                if (ModSettings.AddedContent.WizardArcaneDiscoveries.IsDisabled("Idealize")) { return instructions; }
 
-            static int AddIdealizeBonus(int value, AddStatBonus component) {
-                var context = component.Context;
-                var owner = context?.MaybeOwner;
-                var caster = context?.MaybeCaster;
-                var attribute = owner?.Stats?.GetAttribute(component.Stat);
+                var codes = new List<CodeInstruction>(instructions);
+                int target = FindInsertionTarget(codes);
+                //Utilities.ILUtils.LogIL(codes);
+                codes.InsertRange(target, new CodeInstruction[] {
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, Idealize_AddIdealizeBonus)
+                });
+                target = FindInsertionTarget(codes, target);
+                codes.InsertRange(target, new CodeInstruction[] {
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, Idealize_AddIdealizeBonus)
+                });
+                //Utilities.ILUtils.LogIL(codes);
+                return codes.AsEnumerable();
+            }
+            private static int FindInsertionTarget(List<CodeInstruction> codes, int startingIndex = 0) {
+                int target = startingIndex;
+                for (int i = startingIndex; i < codes.Count; i++) {
+                    //Find where the modifier is added and grab the load of the value varriable
+                    if (codes[i].opcode == OpCodes.Ldloc_1) { target = i + 1; }
+                    if (codes[i].Calls(Modifier_AddModifier) && target != startingIndex) {
+                        return target;
+                    }
+                }
+                Main.Log("ADD STAT IDEALIZE PATCH - AddContextStatBonus: COULD NOT FIND TARGET");
+                return -1;
+            }
+        }
+        [HarmonyPatch(typeof(AddGenericStatBonus), nameof(AddStatBonus.OnTurnOn))]
+        static class AddGenericStatBonus_Idealize_Patch {
+            static readonly MethodInfo Modifier_AddModifierUnique = AccessTools.Method(typeof(ModifiableValue), "AddModifierUnique", new Type[] {
+                typeof(int),
+                typeof(EntityFactComponent),
+                typeof(ModifierDescriptor)
+            });
+            static readonly MethodInfo Idealize_AddIdealizeBonus = AccessTools.Method(
+                typeof(Idealize),
+                nameof(Idealize.AddIdealizeBonus),
+                new Type[] { typeof(int), typeof(AddGenericStatBonus) }
+            );
+            //Add Idealize calculations
+            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
+                if (ModSettings.AddedContent.WizardArcaneDiscoveries.IsDisabled("Idealize")) { return instructions; }
 
-                if (caster == null) { return value; }
-                if (owner == null) { return value; }
-                if (attribute == null || value < 0) { return value; }
-                if (!context.SourceAbility?.IsSpell ?? true
-                    || context.SpellLevel <= 0
-                    || context.SpellSchool != SpellSchool.Transmutation
-                    || component.Descriptor != ModifierDescriptor.Enhancement) {
-                    return value;
+                var codes = new List<CodeInstruction>(instructions);
+                int target = FindInsertionTarget(codes);
+                //Utilities.ILUtils.LogIL(codes);
+                codes.InsertRange(target, new CodeInstruction[] {
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, Idealize_AddIdealizeBonus)
+                });
+                //Utilities.ILUtils.LogIL(codes);
+                return codes.AsEnumerable();
+            }
+            private static int FindInsertionTarget(List<CodeInstruction> codes) {
+                int target = 0;
+                for (int i = 0; i < codes.Count; i++) {
+                    //Find where the modifier is added and grab the load of the value varriable
+                    if (codes[i].opcode == OpCodes.Ldloc_1) { target = i + 1; }
+                    if (codes[i].Calls(Modifier_AddModifierUnique)) {
+                        return target;
+                    }
                 }
+                Main.Log("ADD STAT IDEALIZE PATCH - AddGenericStatBonus: COULD NOT FIND TARGET");
+                return -1;
+            }
+        }
 
-                if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscovery)) {
-                    value += 2;
-                }
-                if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscoveryUpgrade)) {
-                    value += 2;
-                }
+        private static int AddIdealizeBonus(int value, AddStatBonus component) {
+            return AddIdealizeBonus(value, component.Stat, component.Descriptor, component.Context);
+        }
+        private static int AddIdealizeBonus(int value, AddContextStatBonus component) {
+            return AddIdealizeBonus(value, component.Stat, component.Descriptor, component.Context);
+        }
+        private static int AddIdealizeBonus(int value, AddGenericStatBonus component) {
+            return AddIdealizeBonus(value, component.Stat, component.Descriptor, component.Context);
+        }
+        private static int AddIdealizeBonus(int value, StatType stat, ModifierDescriptor descriptor, MechanicsContext context) {
+            if (descriptor != ModifierDescriptor.Enhancement) { return value; }
+
+            var owner = context?.MaybeOwner;
+            var caster = context?.MaybeCaster;
+            var attribute = owner?.Stats?.GetAttribute(stat);
+
+            if (caster == null) { return value; }
+            if (owner == null) { return value; }
+            if (attribute == null || value < 0) { return value; }
+            if (!context.SourceAbility?.IsSpell ?? true
+                || context.SpellLevel <= 0
+                || context.SpellSchool != SpellSchool.Transmutation) {
                 return value;
             }
+
+            if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscovery)) {
+                value += 2;
+            }
+            if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscoveryUpgrade)) {
+                value += 2;
+            }
+            return value;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Utility;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace TabletopTweaks.Bugfixes.General {
                             .Where(selection => feat.Get().HasGroup(selection.Group) || feat.Get().HasGroup(selection.Group2))
                             .ForEach(selection => selection.AddFeatures(feat));
                     }
+                    var ArcaneDiscoverySelection = Resources.GetModBlueprint<BlueprintFeatureSelection>("ArcaneDiscoverySelection");
+                    FeatTools.Selections.LoremasterWizardFeatSelection.RemoveFeatures(ArcaneDiscoverySelection);
                 }
             }
         }
