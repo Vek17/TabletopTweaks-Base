@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -50,6 +51,9 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.AddComponent<ContextDispelBonusOnType>(c => {
                     c.Bonus = 2;
                     c.Type = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel;
+                });
+                bp.AddComponent<RecommendationHasFeature>(c => {
+                    c.m_Feature = DispelFocusFeature.ToReference<BlueprintUnitFactReference>();
                 });
                 bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Magic;
