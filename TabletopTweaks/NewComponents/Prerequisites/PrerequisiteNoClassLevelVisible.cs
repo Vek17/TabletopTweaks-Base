@@ -3,14 +3,19 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
+using System.Text;
+using TabletopTweaks.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("cb76145587814eabbbbaed3d2a9b5d99")]
     public class PrerequisiteNoClassLevelVisible : Prerequisite {
+        [InitializeStaticString]
+        private static readonly LocalizedString NoLevelsInClass = Helpers.CreateString("PrerequisiteNoClassLevelVisible.UI", "Has no levels in the class:");
         public BlueprintCharacterClass CharacterClass {
             get {
                 BlueprintCharacterClassReference characterClass = m_CharacterClass;
@@ -21,7 +26,13 @@ namespace TabletopTweaks.NewComponents.Prerequisites {
             }
         }
         public override string GetUITextInternal(UnitDescriptor unit) {
-            return $"Has no levels in the class {CharacterClass.Name}";
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.Append(NoLevelsInClass);
+            stringBuilder.Append(" ");
+            stringBuilder.Append(CharacterClass.LocalizedName);
+
+            return stringBuilder.ToString();
         }
 
         public override bool CheckInternal([CanBeNull] FeatureSelectionState selectionState, [NotNull] UnitDescriptor unit, [CanBeNull] LevelUpState state) {
