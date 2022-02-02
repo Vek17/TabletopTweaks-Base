@@ -37,6 +37,7 @@ using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.AbilitySpecific;
 using TabletopTweaks.NewComponents.OwlcatReplacements;
+using TabletopTweaks.NewComponents.Prerequisites;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Features {
@@ -55,6 +56,8 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchBrewPotions();
                 PatchCraneWing();
                 PatchDestructiveDispel();
+                PatchDestructiveDispelPrerequisites();
+                PatchDispelSynergy();
                 PatchEndurance();
                 PatchFencingGrace();
                 PatchIndomitableMount();
@@ -167,6 +170,42 @@ namespace TabletopTweaks.Bugfixes.Features {
                 });
 
                 Main.LogPatch("Patched", DestructiveDispel);
+            }
+
+            static void PatchDestructiveDispelPrerequisites() {
+                if (ModSettings.Fixes.Feats.IsDisabled("DestructiveDispelPrerequisites")) { return; }
+
+                var DestructiveDispel = Resources.GetBlueprint<BlueprintFeature>("d298e64e14398e848a54db5a2619ba42");
+                var DispelMagic = Resources.GetBlueprintReference<BlueprintAbilityReference>("92681f181b507b34ea87018e8f7a528a");
+                var DispelMagicGreater = Resources.GetBlueprintReference<BlueprintAbilityReference>("f0f761b808dc4b149b08eaf44b99f633");
+
+                DestructiveDispel.RemoveComponents<Prerequisite>();
+                DestructiveDispel.TemporaryContext(bp => {
+                    bp.AddPrerequisite<PrerequisiteSpellKnown>(p => {
+                        p.m_Spell = DispelMagic;
+                        p.Group = Prerequisite.GroupType.Any;
+                    });
+                    bp.AddPrerequisite<PrerequisiteSpellKnown>(p => {
+                        p.m_Spell = DispelMagicGreater;
+                        p.Group = Prerequisite.GroupType.Any;
+                    });
+                    bp.AddPrerequisite<PrerequisiteCasterLevel>(p => {
+                        p.RequiredCasterLevel = 11;
+                        p.Group = Prerequisite.GroupType.All;
+                    });
+                });
+            }
+
+            static void PatchDispelSynergy() {
+                if (ModSettings.Fixes.Feats.IsDisabled("DispelSynergy")) { return; }
+
+                var DispelSynergy = Resources.GetBlueprint<BlueprintFeature>("f3e3e29608ba07844ab3cafc4c8e4343");
+
+                DispelSynergy.RemoveComponents<Prerequisite>();
+                DispelSynergy.AddPrerequisite<PrerequisiteStatValue>(p => {
+                    p.Stat = StatType.SkillKnowledgeArcana;
+                    p.Value = 5;
+                });
             }
 
             static void PatchMagicalTail() {

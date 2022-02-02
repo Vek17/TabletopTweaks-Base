@@ -1,5 +1,8 @@
 ## Version 1.11.2
 * Fixes
+    * Feats
+        * Destructive Dispel's prerequisites have been updated.
+        * Dispel Synergy's prerequisites have been updated.
     * Spells
         * Winds Of Fall now works.
     * Aeon
