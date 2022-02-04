@@ -6,6 +6,7 @@ using Kingmaker.Localization.Shared;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using TabletopTweaks.Config;
 using TabletopTweaks.Utilities;
 
@@ -83,6 +84,11 @@ namespace TabletopTweaks.Localization {
             public string SimpleName;
             [JsonProperty]
             public bool ProcessTemplates;
+#if DEBUG
+            [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+            [DefaultValue(true)]
+            private bool IsUsed = false;
+#endif
             [JsonProperty]
             public string enGB = "";
             [JsonProperty]
@@ -95,11 +101,18 @@ namespace TabletopTweaks.Localization {
             public string zhCN;
             [JsonProperty]
             public string esES;
+            private LocalizedString m_LocalizedString;
             public LocalizedString LocalizedString {
-                get => new LocalizedString {
-                    m_Key = Key,
-                    m_ShouldProcess = ProcessTemplates
-                };
+                get {
+                    m_LocalizedString ??= new LocalizedString {
+                        m_Key = Key,
+                        m_ShouldProcess = ProcessTemplates
+                    };
+#if DEBUG
+                    IsUsed = true;
+#endif
+                    return m_LocalizedString;
+                }
             }
             public MultiLocaleString() { }
             public MultiLocaleString(string simpleName, string text, bool shouldProcess = false, Locale locale = Locale.enGB) {

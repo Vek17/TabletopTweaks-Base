@@ -3,15 +3,23 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Class.LevelUp;
 using System.Text;
+using TabletopTweaks.Utilities;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace TabletopTweaks.NewComponents.Prerequisites {
     [TypeId("33c66b9aaaa348cfa8efd39841cf255b")]
     public class PrerequisiteNoFeaturesFromList : Prerequisite {
+        [InitializeStaticString]
+        private static readonly LocalizedString DoesntHaveFeature = Helpers.CreateString("PrerequisiteNoFeaturesFromList.UI", "Doesn't have any of the following features");
+        [InitializeStaticString]
+        private static readonly LocalizedString DoesntHaveMoreThan = Helpers.CreateString("PrerequisiteNoFeaturesFromList.UI", "Doesn't have more than");
+        [InitializeStaticString]
+        private static readonly LocalizedString OfTheFollowingFeatures = Helpers.CreateString("PrerequisiteNoFeaturesFromList.UI", "of the following features");
         public ReferenceArrayProxy<BlueprintFeature, BlueprintFeatureReference> Features {
             get {
                 return m_Features;
@@ -23,9 +31,13 @@ namespace TabletopTweaks.NewComponents.Prerequisites {
         public override string GetUITextInternal(UnitDescriptor unit) {
             StringBuilder stringBuilder = new StringBuilder();
             if (Amount == 0) {
-                stringBuilder.Append("Doesn't have any of the following features");
+                stringBuilder.Append(DoesntHaveFeature);
             } else {
-                stringBuilder.Append($"Doesn't have more than {Amount} of the following features");
+                stringBuilder.Append(DoesntHaveMoreThan);
+                stringBuilder.Append(" ");
+                stringBuilder.Append(Amount);
+                stringBuilder.Append(" ");
+                stringBuilder.Append(OfTheFollowingFeatures);
             }
             stringBuilder.Append(":\n");
             for (int i = 0; i < Features.Length; i++) {
