@@ -1676,11 +1676,11 @@
       "Key": "6598fc983f0c4acfb7dc6d814842cbc8",
       "SimpleName": "BlackBladeBastardSword.Description",
       "ProcessTemplates": false,
-      "enGB": "A black blade's enhancement bonus increases as it gains levels. It is +1 at level 3 and increases by 1 every 4 levels thereafter. A black blade cannot be wielded by anyone other than its owner.",
+      "enGB": "A black blade's enhancement bonus increases as it gains levels. It is +1 at level 1 and increases by 1 every 4 levels thereafter. A black blade cannot be wielded by anyone other than its owner.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "黑刃的增强加值随你的魔战士等级而提高，在3级时为+1，此后每升4级，额外加1。黑刃不能由其他角色持用。",
+      "zhCN": "黑刃的增强加值随你的魔战士等级而提高，在1级时为+1，此后每升4级，额外加1。黑刃不能由其他角色持用。",
       "esES": null
     },
     {

@@ -1328,8 +1328,8 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.name = $"BlackBlade{baseWeapon.Category}";
                 bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
                 bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Name", "Black Blade");
-                bp.m_DescriptionText = Helpers.CreateString($"{bp.name}.Description", "A black blade's enhancement bonus increases as it gains levels. " +
-                    "It is +1 at level 3, +2 at level 5, +3 at level 9, +4 at level 13, and +5 at level 17. " +
+                bp.m_DescriptionText = Helpers.CreateString($"{bp.name}.Description", "A black blade's enhancement bonus increases " +
+                    "as it gains levels. It is +1 at level 1 and increases by 1 every 4 levels thereafter. " +
                     "A black blade cannot be wielded by anyone other than its owner.");
                 bp.m_Enchantments = new BlueprintWeaponEnchantmentReference[] { enchant.ToReference<BlueprintWeaponEnchantmentReference>() };
                 bp.m_Destructible = false;

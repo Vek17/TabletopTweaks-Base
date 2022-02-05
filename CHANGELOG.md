@@ -5,6 +5,7 @@
         * Dispel Synergy's prerequisites have been updated.
     * Spells
         * Winds Of Fall now works.
+        * Perfect Form can no longer be stacked multiple time for multiple stat boosts.
     * Aeon
         * Power of Law now works correctly with Reroll effects.
     * Items

@@ -883,6 +883,11 @@
         "Homebrew": false,
         "Description": "Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus."
       },
+      "PerfectForm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Perfect Form can no longer be stacked multiple time for multiple stat boosts."
+      },
       "RemoveFear": {
         "Enabled": true,
         "Homebrew": false,

@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
@@ -23,6 +24,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
@@ -59,6 +61,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchMicroscopicProportions();
+                PatchPerfectForm();
                 PatchRemoveFear();
                 PatchRemoveSickness();
                 PatchShadowConjuration();
@@ -429,6 +432,49 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     .ForEach(c => c.Descriptor = ModifierDescriptor.Size);
 
                 Main.LogPatch("Patched", TricksterMicroscopicProportionsBuff);
+            }
+            static void PatchPerfectForm() {
+                if (ModSettings.Fixes.Spells.IsDisabled("PerfectForm")) { return; }
+
+                var PerfectForm = Resources.GetBlueprint<BlueprintAbility>("91d04f9180e94065ac768959323d2002");
+                var perfectFormBuffs = new BlueprintBuffReference[] {
+                        Resources.GetBlueprintReference<BlueprintBuffReference>("ccd363424d954c668a81b0024012a66a"),    // PerfectFormEqualToCharismaBuff
+                        Resources.GetBlueprintReference<BlueprintBuffReference>("774567a0bcf54a83807f7387d5dd9c23"),    // PerfectFormEqualToConstitutionBuff
+                        Resources.GetBlueprintReference<BlueprintBuffReference>("23b87498fac14465bc9c22cc3366e6e7"),    // PerfectFormEqualToDexterityBuff
+                        Resources.GetBlueprintReference<BlueprintBuffReference>("3bc3d8660ddc467aabea43b070fcd10b"),    // PerfectFormEqualToIntelligenceBuff
+                        Resources.GetBlueprintReference<BlueprintBuffReference>("149e7d34927146a8804404087bf9703f"),    // PerfectFormEqualToStrengthBuff
+                        Resources.GetBlueprintReference<BlueprintBuffReference>("06785b5665264ad1b257fa3e724ed68f")     // PerfectFormEqualToWisdomBuff
+  
+                    };
+                PerfectForm
+                    .GetComponent<AbilityEffectRunAction>()
+                    .TemporaryContext(c => {
+                        c.Actions = Helpers.CreateActionList(
+                            CreateRemoveBuff(perfectFormBuffs)
+                                .Concat(c.Actions.Actions)
+                                .ToArray()
+                        );
+                    });
+                IEnumerable<GameAction> CreateRemoveBuff(BlueprintBuffReference[] buffs) {
+                    foreach (var buff in buffs) {
+                        var removeBuff = new ContextActionRemoveBuff() {
+                            m_Buff = buff,
+                        };
+                        var conditional = new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Conditions = new Condition[] {
+                                new ContextConditionHasBuff() {
+                                    m_Buff = buff
+                                }
+                            }
+                            },
+                            IfTrue = Helpers.CreateActionList(removeBuff),
+                            IfFalse = Helpers.CreateActionList()
+                        };
+                        yield return conditional;
+                    }
+                }
+                Main.LogPatch(PerfectForm);
             }
             static void PatchRemoveFear() {
                 if (ModSettings.Fixes.Spells.IsDisabled("RemoveFear")) { return; }
