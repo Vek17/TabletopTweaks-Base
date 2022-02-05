@@ -179,6 +179,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now properly grants you vorpal weapons in balor form."
+      },
+      "BrimorakAspect": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now properly applies to all spells."
       }
     },
     "IsExpanded": true

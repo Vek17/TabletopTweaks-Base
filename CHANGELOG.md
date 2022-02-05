@@ -8,10 +8,12 @@
         * Perfect Form can no longer be stacked multiple time for multiple stat boosts.
     * Aeon
         * Power of Law now works correctly with Reroll effects.
+    * Demon
+        * Brimorak Aspect now properly applies to all spells.
     * Items
         * Stormlord's Resolve can now be deactivated immediatly instead of taking 1 turn to turn off.
 * New Arcane Discoveries
-    * AlchemicalAffinity
+    * Alchemical Affinity
         * Whenever you cast a spell that appears on both the wizard and alchemist spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1.
     * Idealize
         * When a transmutation spell you cast grants an enhancement bonus to an ability score, that bonus increases by 2. At 20th level, the bonus increases by 4.
