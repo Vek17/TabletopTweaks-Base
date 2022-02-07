@@ -363,6 +363,15 @@ namespace TabletopTweaks.Extensions {
             }
         }
 
+        public static IEnumerable<T> GetComponents<T>(this BlueprintScriptableObject obj, Predicate<T> predicate) where T : BlueprintComponent {
+            var compnents = obj.GetComponents<T>().ToArray();
+            foreach (var c in compnents) {
+                if (predicate(c)) {
+                    yield return c;
+                }
+            }
+        }
+
         public static void AddComponents(this BlueprintScriptableObject obj, IEnumerable<BlueprintComponent> components) => AddComponents(obj, components.ToArray());
 
         public static void AddComponents(this BlueprintScriptableObject obj, params BlueprintComponent[] components) {
