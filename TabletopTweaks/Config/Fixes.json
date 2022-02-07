@@ -1121,6 +1121,11 @@
         "Homebrew": false,
         "Description": "Now works on equipment enhancing effects like crusader's edge."
       },
+      "ExposeVulnerability": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now no longer critically hits and procs additional weapons effects."
+      },
       "MythicCharge": {
         "Enabled": true,
         "Homebrew": false,

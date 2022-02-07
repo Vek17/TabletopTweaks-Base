@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
@@ -14,11 +15,13 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewActions;
 using TabletopTweaks.Utilities;
 
 namespace TabletopTweaks.Bugfixes.Features {
@@ -34,6 +37,7 @@ namespace TabletopTweaks.Bugfixes.Features {
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
+                PatchExposeVulnerability();
                 PatchMythicCharge();
                 PatchCloseToTheAbyss();
             }
@@ -114,6 +118,45 @@ namespace TabletopTweaks.Bugfixes.Features {
                     c.Amount = 1;
                 });
                 FeatTools.Selections.MythicAbilitySelection.RemoveFeatures(SecondBloodragerBloodlineReformedFiend);
+            }
+            static void PatchExposeVulnerability() {
+                if (ModSettings.Fixes.MythicAbilities.IsDisabled("ExposeVulnerability")) { return; }
+
+                var ExposeVulnerability = Resources.GetBlueprint<BlueprintFeature>("8ce3c4b3c1ad24f4dbb6cb4c72e1ec53");
+                var ExposeVulnerabilityBuff = Resources.GetBlueprintReference<BlueprintBuffReference>("4edf0af9fd0ebb94ba5ef08b38768e06");
+
+                ExposeVulnerability.FlattenAllActions()
+                    .OfType<Conditional>()
+                    .ForEach(c => {
+                        c.IfTrue = Helpers.CreateActionList(
+                            new ContextActionDealDamageTTT() { 
+                                DamageType = new DamageTypeDescription() { 
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Divine
+                                },
+                                Duration = new ContextDurationValue() { 
+                                    DiceCountValue =new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                },
+                                Value = new ContextDiceValue() { 
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = new ContextValue() { 
+                                        ValueType = ContextValueType.Rank,
+                                    },
+                                    BonusValue = new ContextValue()
+                                },
+                                IgnoreWeapon = true,
+                                IgnoreCritical = true
+                            },
+                            new ContextActionRemoveBuff() {
+                                m_Buff = ExposeVulnerabilityBuff
+                            },
+                            new ContextActionRemoveBuff() {
+                                m_Buff = ExposeVulnerabilityBuff
+                            }
+                        );
+                });
+                Main.LogPatch(ExposeVulnerability);
             }
             static void PatchMythicCharge() {
                 if (ModSettings.Fixes.MythicAbilities.IsDisabled("MythicCharge")) { return; }

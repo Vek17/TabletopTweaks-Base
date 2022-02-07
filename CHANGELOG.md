@@ -6,6 +6,9 @@
     * Spells
         * Winds Of Fall now works.
         * Perfect Form can no longer be stacked multiple time for multiple stat boosts.
+    * Mythic Abilities
+        * ExposeVulnerability
+            * Now no longer critically hits and procs additional weapons effects.
     * Aeon
         * Power of Law now works correctly with Reroll effects.
     * Demon
