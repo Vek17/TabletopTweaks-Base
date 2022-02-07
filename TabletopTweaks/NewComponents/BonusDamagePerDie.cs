@@ -10,7 +10,7 @@ using Kingmaker.Utility;
 
 namespace TabletopTweaks.NewComponents {
     [TypeId("5608ad3529df47a1821463fa85ce10b9")]
-    public class BonusDamagePerDice : UnitFactComponentDelegate, 
+    public class BonusDamagePerDie : UnitFactComponentDelegate, 
         IInitiatorRulebookHandler<RuleCalculateDamage>, 
         IRulebookHandler<RuleCalculateDamage>, 
         ISubscriber, IInitiatorRulebookSubscriber {

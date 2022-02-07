@@ -55,7 +55,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
 
                     BrimorakAspectEffectBuff.TemporaryContext(bp => { 
                         bp.RemoveComponents<DraconicBloodlineArcana>();
-                        bp.AddComponent<BonusDamagePerDice>(c => {
+                        bp.AddComponent<BonusDamagePerDie>(c => {
                             c.CheckDescriptor = false;
                             c.SpellsOnly = true;
                             c.UseContextBonus = true;
