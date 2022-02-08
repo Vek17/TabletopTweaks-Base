@@ -36,6 +36,7 @@ namespace TabletopTweaks.Config {
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
         public SettingGroup MythicFeats = new SettingGroup();
+        public UnitGroup Units = new UnitGroup();
         public CrusadeGroup Crusade = new CrusadeGroup();
         public ItemGroup Items = new ItemGroup();
 
@@ -60,6 +61,7 @@ namespace TabletopTweaks.Config {
             Warpriest.SetParents();
             Witch.SetParents();
 
+            Units.SetParents();
             Crusade.SetParents();
             Items.SetParents();
         }
@@ -103,6 +105,8 @@ namespace TabletopTweaks.Config {
             Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
             MythicFeats.LoadSettingGroup(loadedSettings.MythicFeats, NewSettingsOffByDefault);
+
+            Units.LoadUnitGroup(loadedSettings.Units, NewSettingsOffByDefault);
 
             Crusade.LoadCrusadeGroup(loadedSettings.Crusade, NewSettingsOffByDefault);
 
@@ -200,6 +204,47 @@ namespace TabletopTweaks.Config {
                 Armor.LoadSettingGroup(group.Armor, frozen);
                 Equipment.LoadSettingGroup(group.Equipment, frozen);
                 Weapons.LoadSettingGroup(group.Weapons, frozen);
+            }
+
+            ref bool ICollapseableGroup.IsExpanded() {
+                return ref IsExpanded;
+            }
+
+            public void SetExpanded(bool value) {
+                IsExpanded = value;
+            }
+        }
+
+        public class UnitGroup : IDisableableGroup, ICollapseableGroup {
+            private bool IsExpanded = true;
+            public bool DisableAll = false;
+            public bool GroupIsDisabled() => DisableAll;
+            public void SetGroupDisabled(bool value) => DisableAll = value;
+            public NestedSettingGroup Companions;
+            public NestedSettingGroup NPCs;
+            public NestedSettingGroup Bosses;
+            public NestedSettingGroup Enemies;
+
+            public UnitGroup() {
+                Companions = new NestedSettingGroup(this);
+                NPCs = new NestedSettingGroup(this);
+                Bosses = new NestedSettingGroup(this);
+                Enemies = new NestedSettingGroup(this);
+            }
+
+            public void SetParents() {
+                Companions.Parent = this;
+                NPCs.Parent = this;
+                Bosses.Parent = this;
+                Enemies.Parent = this;
+            }
+
+            public void LoadUnitGroup(UnitGroup group, bool frozen) {
+                DisableAll = group.DisableAll;
+                Bosses.LoadSettingGroup(group.Bosses, frozen);
+                Enemies.LoadSettingGroup(group.Enemies, frozen);
+                Companions.LoadSettingGroup(group.Companions, frozen);
+                NPCs.LoadSettingGroup(group.NPCs, frozen);
             }
 
             ref bool ICollapseableGroup.IsExpanded() {

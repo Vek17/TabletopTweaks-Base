@@ -23,29 +23,7 @@ namespace TabletopTweaks.Bugfixes.Classes {
                 Initialized = true;
                 Main.LogHeader("Patching Demon Resources");
 
-                PatchBalorVorpalStrike();
                 PatchBrimorakAspect();
-
-                void PatchBalorVorpalStrike() {
-                    if (ModSettings.Fixes.Demon.IsDisabled("BalorVorpalStrike")) { return; }
-                    var BalorVorpalStrikeFeature = Resources.GetBlueprint<BlueprintFeature>("acc4a16c4088f2546b4237dcbb774f14");
-                    var BalorVorpalStrikeBuff = Resources.GetBlueprint<BlueprintBuff>("5220bc4386bf3e147b1beb93b0b8b5e7");
-                    var Vorpal = Resources.GetBlueprintReference<BlueprintItemEnchantmentReference>("2f60bfcba52e48a479e4a69868e24ebc");
-
-                    BalorVorpalStrikeBuff.SetComponents();
-                    BalorVorpalStrikeBuff.AddComponent<BuffEnchantWornItem>(c => {
-                        c.m_EnchantmentBlueprint = Vorpal;
-                        c.Slot = SlotType.PrimaryHand;
-                    });
-                    BalorVorpalStrikeBuff.AddComponent<BuffEnchantWornItem>(c => {
-                        c.m_EnchantmentBlueprint = Vorpal;
-                        c.Slot = SlotType.SecondaryHand;
-                    });
-                    BalorVorpalStrikeFeature.AddComponent<RecalculateOnEquipmentChange>();
-
-                    Main.LogPatch(BalorVorpalStrikeFeature);
-                    Main.LogPatch(BalorVorpalStrikeBuff);
-                }
 
                 void PatchBrimorakAspect() {
                     if (ModSettings.Fixes.Demon.IsDisabled("BrimorakAspect")) { return; }

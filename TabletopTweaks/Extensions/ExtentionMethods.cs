@@ -328,7 +328,7 @@ namespace TabletopTweaks.Extensions {
         public static void InsertComponent(this BlueprintScriptableObject obj, int index, BlueprintComponent component) {
             var components = obj.ComponentsArray.ToList();
             components.Insert(index, component);
-            obj.SetComponents(components);
+            obj.SetComponents(components.ToArray());
         }
 
         public static void AddContextRankConfig(this BlueprintScriptableObject obj, Action<ContextRankConfig> init = null) {
@@ -363,13 +363,12 @@ namespace TabletopTweaks.Extensions {
             }
         }
 
+        public static T GetComponent<T>(this BlueprintScriptableObject obj, Predicate<T> predicate) where T : BlueprintComponent {
+            return obj.GetComponents<T>().Where(c => predicate(c)).FirstOrDefault();
+        }
+
         public static IEnumerable<T> GetComponents<T>(this BlueprintScriptableObject obj, Predicate<T> predicate) where T : BlueprintComponent {
-            var compnents = obj.GetComponents<T>().ToArray();
-            foreach (var c in compnents) {
-                if (predicate(c)) {
-                    yield return c;
-                }
-            }
+            return obj.GetComponents<T>().Where(c => predicate(c)).ToArray();
         }
 
         public static void AddComponents(this BlueprintScriptableObject obj, IEnumerable<BlueprintComponent> components) => AddComponents(obj, components.ToArray());
@@ -400,6 +399,14 @@ namespace TabletopTweaks.Extensions {
 
         public static void SetComponents(this BlueprintScriptableObject obj, IEnumerable<BlueprintComponent> components) {
             SetComponents(obj, components.ToArray());
+        }
+
+        public static SelectionEntry GetSelection(this AddClassLevels obj, Predicate<SelectionEntry> predicate){
+            return obj.Selections.Where(c => predicate(c)).FirstOrDefault();
+        }
+
+        public static IEnumerable<SelectionEntry> GetSelections(this AddClassLevels obj) {
+            return obj.Selections.ToArray();
         }
 
         public static T CreateCopy<T>(this T original, Action<T> action = null) where T : UnityEngine.Object {

@@ -119,6 +119,12 @@ namespace TabletopTweaks {
                 SetttingUI.SettingGroup("Feats", TabLevel, Fixes.Feats);
                 SetttingUI.SettingGroup("Mythic Abilities", TabLevel, Fixes.MythicAbilities);
                 SetttingUI.SettingGroup("Mythic Feats", TabLevel, Fixes.MythicFeats);
+                SetttingUI.NestedSettingGroup("Units", TabLevel, Fixes.Units,
+                    ("Companions", Fixes.Units.Companions),
+                    ("NPCs", Fixes.Units.NPCs),
+                    ("Bosses", Fixes.Units.Bosses),
+                    ("Enemies", Fixes.Units.Enemies)
+                );
                 SetttingUI.NestedSettingGroup("Crusade", TabLevel, Fixes.Crusade,
                     ("Buildings", Fixes.Crusade.Buildings)
                 );

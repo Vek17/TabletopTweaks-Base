@@ -175,11 +175,6 @@
   "Demon": {
     "DisableAll": false,
     "Settings": {
-      "BalorVorpalStrike": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Now properly grants you vorpal weapons in balor form."
-      },
       "BrimorakAspect": {
         "Enabled": true,
         "Homebrew": false,
@@ -1164,6 +1159,41 @@
       }
     },
     "IsExpanded": true
+  },
+  "Units": {
+    "DisableAll": false,
+    "Companions": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Bosses": {
+      "DisableAll": false,
+      "Settings": {
+        "StauntonVane": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now has the correct fighter feats instead of random default feats."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Enemies": {
+      "DisableAll": false,
+      "Settings": {
+        "Balors": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now Correctly have Vorpal weapons."
+        }
+      },
+      "IsExpanded": true
+    },
+    "NPCs": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    }
   },
   "Crusade": {
     "DisableAll": false,

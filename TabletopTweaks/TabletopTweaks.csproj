@@ -197,6 +197,8 @@
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Bugfixes\UI\SpellTooltips.cs" />
+    <Compile Include="Bugfixes\Units\Bosses.cs" />
+    <Compile Include="Bugfixes\Units\Enemies.cs" />
     <Compile Include="Config\Blueprints.cs" />
     <Compile Include="Config\Homebrew.cs" />
     <Compile Include="Config\ICollapseableGroup.cs" />
