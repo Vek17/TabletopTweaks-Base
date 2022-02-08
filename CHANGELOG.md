@@ -9,6 +9,10 @@
     * Mythic Abilities
         * ExposeVulnerability
             * Now no longer critically hits and procs additional weapons effects.
+    * Units
+        * Staunton Vane (Boss) now has the correct feats instead of using random default feats.
+    * Magus
+        * Eldritch Schon can now take the new bloodlines.
     * Aeon
         * Power of Law now works correctly with Reroll effects.
     * Demon
