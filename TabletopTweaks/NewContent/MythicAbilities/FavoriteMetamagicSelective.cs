@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
@@ -14,7 +15,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
             var SelectiveSpellFeat = Resources.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
             var FavoriteMetamagicSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
 
-            var FavoriteMetamagicPersistent = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicSelective", bp => {
+            var FavoriteMetamagicSelective = Helpers.CreateBlueprint<BlueprintFeature>("FavoriteMetamagicSelective", bp => {
                 bp.SetName("Favorite Metamagic — Selective");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
                 //bp.m_Icon = Icon_IntensifiedSpellFeat;
@@ -22,21 +23,14 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { };
-                bp.AddComponent<AddCustomMechanicsFeature>(c => {
-                    c.Feature = CustomMechanicsFeature.FavoriteMetamagicIntensified;
+                bp.AddComponent<AddMechanicsFeature>(c => {
+                    c.m_Feature = AddMechanicsFeature.MechanicsFeatureType.FavoriteMetamagicSelective;
                 });
                 bp.AddPrerequisiteFeature(SelectiveSpellFeat);
             });
 
             if (ModSettings.AddedContent.MythicAbilities.IsDisabled("FavoriteMetamagicSelective")) { return; }
-            MetamagicExtention.RegisterMetamagic(
-                metamagic: Metamagic.Selective,
-                name: "",
-                icon: null,
-                defaultCost: 1,
-                CustomMechanicsFeature.FavoriteMetamagicIntensified
-            );
-            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPersistent);
+            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicSelective);
         }
     }
 }

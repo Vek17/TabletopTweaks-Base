@@ -447,6 +447,7 @@ namespace TabletopTweaks.MechanicsChanges {
                 PatchArmorDR();
                 PatchStalwartDefender();
                 PatchBarbariansDR();
+                PatchInevitableFateDR();
                 PatchLichIndestructibleBonesDR();
                 PatchAngelUnbrokenDR();
                 PatchAspectOfOmoxDR();
@@ -600,6 +601,14 @@ namespace TabletopTweaks.MechanicsChanges {
             }
 
             static void PatchLichIndestructibleBonesDR() {
+                var MythicPowersFromDLC1EffectBuff = Resources.GetBlueprint<BlueprintBuff>("08eba577806847ac9a814694013f7783");
+
+                MythicPowersFromDLC1EffectBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {
+                    newRes.AddToAllStacks = true;
+                });
+            }
+
+            static void PatchInevitableFateDR() {
                 BlueprintFeature lichIndestructibleBonesFeature = Resources.GetBlueprint<BlueprintFeature>("42274a4428cb43b40acf771a7f5ddfac");
 
                 lichIndestructibleBonesFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(newRes => {

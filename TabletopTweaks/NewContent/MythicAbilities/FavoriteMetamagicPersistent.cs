@@ -23,7 +23,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { };
                 bp.AddComponent<AddCustomMechanicsFeature>(c => {
-                    c.Feature = CustomMechanicsFeature.FavoriteMetamagicIntensified;
+                    c.Feature = CustomMechanicsFeature.FavoriteMetamagicPersistent;
                 });
                 bp.AddPrerequisiteFeature(PersistentSpellFeat);
             });
@@ -34,7 +34,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 name: "",
                 icon: null,
                 defaultCost: 2,
-                CustomMechanicsFeature.FavoriteMetamagicIntensified
+                CustomMechanicsFeature.FavoriteMetamagicPersistent
             );
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPersistent);
         }
