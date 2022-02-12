@@ -2,9 +2,12 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Enums;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
+using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.NewContent.Feats {
     static class VarisianTattoo {
@@ -25,7 +28,10 @@ namespace TabletopTweaks.NewContent.Feats {
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
                 bp.m_Prerequisite = SpellFocus.ToReference<BlueprintParametrizedFeatureReference>();
                 bp.ParameterType = FeatureParameterType.SpellSchool;
-                bp.AddComponent<SchoolMasteryParametrized>();
+                bp.AddComponent<BonusCasterLevelParametrized>(c => {
+                    c.Bonus = 1;
+                    c.Descriptor = (ModifierDescriptor)Untyped.VarisianTattoo;
+                });
                 bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Magic;
                 });

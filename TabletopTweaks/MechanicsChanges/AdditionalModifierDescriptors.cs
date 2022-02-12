@@ -36,7 +36,9 @@ namespace TabletopTweaks.MechanicsChanges {
             WeaponFocus = 3128,
             WeaponFocusGreater = 3129,
             SpellFocus = 3130,
-            SpellFocusGreater = 3131
+            SpellFocusGreater = 3131,
+            SchoolMastery = 3132,
+            VarisianTattoo = 3133,
         }
 
         private static class FilterAdjustments {
@@ -158,6 +160,8 @@ namespace TabletopTweaks.MechanicsChanges {
                     case (ModifierDescriptor)Untyped.WeaponFocusGreater:
                     case (ModifierDescriptor)Untyped.SpellFocus:
                     case (ModifierDescriptor)Untyped.SpellFocusGreater:
+                    case (ModifierDescriptor)Untyped.SchoolMastery:
+                    case (ModifierDescriptor)Untyped.VarisianTattoo:
                         __result = "Other";
                         break;
                 }

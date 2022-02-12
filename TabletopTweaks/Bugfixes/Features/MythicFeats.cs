@@ -7,6 +7,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
+using TabletopTweaks.NewComponents;
 using TabletopTweaks.Utilities;
 using static TabletopTweaks.MechanicsChanges.AdditionalModifierDescriptors;
 
@@ -29,9 +30,17 @@ namespace TabletopTweaks.Bugfixes.Features {
                 var ExpandedArsenalSchool = Resources.GetBlueprint<BlueprintParametrizedFeature>("f137089c48364014aa3ec3b92ccaf2e2");
                 var SpellFocus = Resources.GetBlueprint<BlueprintParametrizedFeature>("16fa59cc9a72a6043b566b49184f53fe");
                 var SpellFocusGreater = Resources.GetBlueprint<BlueprintParametrizedFeature>("5b04b45b228461c43bad768eb0f7c7bf");
+                var SchoolMasteryMythicFeat = Resources.GetBlueprint<BlueprintParametrizedFeature>("ac830015569352b458efcdfae00a948c");
 
                 SpellFocus.GetComponent<SpellFocusParametrized>().Descriptor = (ModifierDescriptor)Untyped.SpellFocus;
                 SpellFocusGreater.GetComponent<SpellFocusParametrized>().Descriptor = (ModifierDescriptor)Untyped.SpellFocusGreater;
+                SchoolMasteryMythicFeat.TemporaryContext(bp => {
+                    bp.RemoveComponents<SchoolMasteryParametrized>();
+                    bp.AddComponent<BonusCasterLevelParametrized>(c => {
+                        c.Bonus = 1;
+                        c.Descriptor = (ModifierDescriptor)Untyped.SchoolMastery;
+                    });
+                });
 
                 Main.LogPatch("Patched", SpellFocus);
                 Main.LogPatch("Patched", SpellFocusGreater);

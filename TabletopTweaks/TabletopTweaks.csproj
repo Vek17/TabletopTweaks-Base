@@ -220,6 +220,7 @@
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
     <Compile Include="NewComponents\AbilitySpecific\AeonPowerOfLaw.cs" />
     <Compile Include="NewComponents\AbilitySpecific\OppositionResearchComponent.cs" />
+    <Compile Include="NewComponents\BonusCasterLevelParametrized.cs" />
     <Compile Include="NewComponents\BonusDamagePerDie.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteCasterLevel.cs" />
     <Compile Include="NewComponents\SharedSpellListCLIncrease.cs" />

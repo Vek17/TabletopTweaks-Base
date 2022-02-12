@@ -7,8 +7,10 @@
         * Winds Of Fall now works.
         * Perfect Form can no longer be stacked multiple time for multiple stat boosts.
     * Mythic Abilities
-        * ExposeVulnerability
+        * Expose Vulnerability
             * Now no longer critically hits and procs additional weapons effects.
+    * Mythic Feats
+        * Expaned Arsenal now interacts correctly with School Mastery and Varisian Tatto.
     * Units
         * Staunton Vane (Boss) now has the correct feats instead of using random default feats.
     * Magus
