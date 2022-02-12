@@ -1145,7 +1145,7 @@
       "ExpandedArsenal": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "No longer allows stacking multiple spell focuses on the same school to increase DC, you can only benifit from spell focus once."
+        "Description": "No longer allows stacking multiple spell focuses, or school mastery on the same school to increase DC and CL, you can only benifit from spell focus and school mastery once."
       },
       "ExtraFeat": {
         "Enabled": true,
