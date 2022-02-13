@@ -858,6 +858,11 @@
         "Homebrew": false,
         "Description": "Now correctly halfs divine damage on saving throw."
       },
+      "FrightfulAspect": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now correctly applies fear when hit in melee."
+      },
       "Geniekind": {
         "Enabled": true,
         "Homebrew": false,

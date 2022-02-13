@@ -56,6 +56,7 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                 PatchEyeOfTheSun();
                 PatchFirebrand();
                 PatchFlamestrike();
+                PatchFrightfulAspect();
                 PatchGeniekind();
                 PatchHellfireRay();
                 PatchMagicalVestment();
@@ -293,6 +294,15 @@ namespace TabletopTweaks.Bugfixes.Abilities {
                     a.HalfIfSaved = true;
                 });
                 Main.LogPatch("Patched", FlameStrike);
+            }
+
+            static void PatchFrightfulAspect() {
+                if (ModSettings.Fixes.Spells.IsDisabled("FrightfulAspect")) { return; }
+
+                var FrightfulAspectArea = Resources.GetBlueprint<BlueprintAbilityAreaEffect>("b69066531acd0b94184d03e010c92e94");
+                var FrightfulAspectShakenBuff = Resources.GetBlueprintReference<BlueprintBuffReference>("522164167a56d804bb4fa5abf36b4fbc");
+                FrightfulAspectArea.GetComponent<AbilityAreaEffectBuff>().m_Buff = FrightfulAspectShakenBuff;
+                Main.LogPatch(FrightfulAspectArea);
             }
 
             static void PatchGeniekind() {

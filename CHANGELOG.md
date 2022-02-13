@@ -4,6 +4,7 @@
         * Destructive Dispel's prerequisites have been updated.
         * Dispel Synergy's prerequisites have been updated.
     * Spells
+        * Frightful Aspect now correctly applies fear when hit in melee.
         * Winds Of Fall now works.
         * Perfect Form can no longer be stacked multiple time for multiple stat boosts.
     * Mythic Abilities
