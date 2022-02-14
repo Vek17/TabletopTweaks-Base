@@ -1,12 +1,14 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Config;
@@ -49,7 +51,15 @@ namespace TabletopTweaks.Bugfixes.Clases {
                 void PatchRogueTalentSelection() {
                     if (ModSettings.Fixes.Rogue.Base.IsDisabled("RogueTalentSelection")) { return; }
                     var RogueTalentSelection = Resources.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
-                    RogueTalentSelection.Mode = SelectionMode.OnlyNew;
+                    RogueTalentSelection.AllFeatures.ForEach(feature => {
+                        if (!feature.HasGroup(FeatureGroup.Feat) && feature.HasGroup(FeatureGroup.RogueTalent)) {
+                            feature.AddPrerequisite<PrerequisiteNoFeature>(p => {
+                                p.m_Feature = feature.ToReference<BlueprintFeatureReference>();
+                                p.Group = Prerequisite.GroupType.All;
+                            });
+                        }
+                    });
+                    //RogueTalentSelection.Mode = SelectionMode.OnlyNew;
                     Main.LogPatch("Patched", RogueTalentSelection);
                 }
                 void PatchSlipperyMind() {
