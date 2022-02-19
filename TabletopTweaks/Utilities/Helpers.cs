@@ -23,6 +23,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using TabletopTweaks.Config;
+using TabletopTweaks.Extensions;
 using TabletopTweaks.Localization;
 using TabletopTweaks.NewComponents.OwlcatReplacements.DamageResistance;
 
@@ -43,6 +44,15 @@ namespace TabletopTweaks.Utilities {
             init?.Invoke(result);
             return result;
         }
+        public static T CreateDerivedBlueprint<T>([NotNull] string name, BlueprintGuid masterId, [NotNull] IEnumerable<SimpleBlueprint> componentBlueprints, Action<T> init = null) where T : SimpleBlueprint, new() {
+            var result = new T {
+                name = name,
+                AssetGuid = ModSettings.Blueprints.GetDerivedGUID(name, masterId, componentBlueprints.Select(bp => bp.AssetGuid).ToArray())
+            };
+            Resources.AddBlueprint(result);
+            init?.Invoke(result);
+            return result;
+        }
 
         public static BlueprintBuff CreateBuff(string name, Action<BlueprintBuff> init = null) {
             var result = Helpers.CreateBlueprint<BlueprintBuff>(name, bp => {
@@ -55,6 +65,26 @@ namespace TabletopTweaks.Utilities {
 
         public static T CreateCopy<T>(T original, Action<T> init = null) {
             var result = (T)ObjectDeepCopier.Clone(original);
+            init?.Invoke(result);
+            return result;
+        }
+
+        public static T CreateCopy<T>(this T original, string name, Action<T> init = null) where T : SimpleBlueprint {
+            var result = (T)ObjectDeepCopier.Clone(original);
+            result.TemporaryContext(bp => {
+                bp.name = name;
+                bp.AssetGuid = ModSettings.Blueprints.GetGUID(name);
+            });
+            init?.Invoke(result);
+            return result;
+        }
+
+        public static T CreateCopy<T>(this T original, string name, BlueprintGuid masterId, Action<T> init = null) where T : SimpleBlueprint {
+            var result = (T)ObjectDeepCopier.Clone(original);
+            result.TemporaryContext(bp => {
+                bp.name = name;
+                bp.AssetGuid = ModSettings.Blueprints.GetDerivedGUID(name, masterId, original.AssetGuid);
+            });
             init?.Invoke(result);
             return result;
         }

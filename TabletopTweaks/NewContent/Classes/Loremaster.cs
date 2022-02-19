@@ -6,6 +6,7 @@ using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using TabletopTweaks.Config;
 using TabletopTweaks.Extensions;
 using TabletopTweaks.NewComponents;
 using TabletopTweaks.NewComponents.Prerequisites;
@@ -17,6 +18,7 @@ namespace TabletopTweaks.NewContent.Classes {
         private static readonly BlueprintFeatureSelection LoremasterClericSpellSecret = Resources.GetBlueprint<BlueprintFeatureSelection>("904ce918c85c9f947910340b956fb877");
         private static readonly BlueprintFeatureSelection LoremasterDruidSpellSecret = Resources.GetBlueprint<BlueprintFeatureSelection>("6b73ba9d8a718fb419a484c6e1b92c6d");
         private static readonly BlueprintFeatureSelection LoremasterWizardSpellSecret = Resources.GetBlueprint<BlueprintFeatureSelection>("f97986f19a595e2409cfe5d92bcf697c");
+        private static readonly BlueprintGuid LoremasterSpellbookMasterID = ModSettings.Blueprints.GetGUID("LoremasterSpellbookMasterID");
 
         public static void AddLoremasterFeatures() {
 
@@ -112,24 +114,27 @@ namespace TabletopTweaks.NewContent.Classes {
                 return spellbooks.Select(spellbook => CreateSpellbookReplacement(spellbook, SpellTools.SpellCastingClasses.WizardClass, selection)).ToArray();
             }
             BlueprintFeatureReplaceSpellbook CreateSpellbookReplacement(BlueprintSpellbookReference spellbook, BlueprintCharacterClass characterClass, BlueprintFeatureSelection selection) {
-                return Helpers.CreateBlueprint<BlueprintFeatureReplaceSpellbook>($"LoremasterSpellbook{spellbook.Get().name.Replace("Spellbook", "")}TTT", bp => {
-                    bp.SetName(characterClass.LocalizedName);
-                    bp.SetDescription(selection.m_Description);
-                    bp.IsClassFeature = true;
-                    bp.m_Spellbook = spellbook;
-                    bp.Groups = new FeatureGroup[] { FeatureGroup.ArcaneTricksterSpellbook };
-                    bp.HideInUI = true;
-                    bp.HideNotAvailibleInUI = true;
-                    bp.AddPrerequisite<PrerequisiteClassSpellLevel>(c => {
-                        c.m_CharacterClass = characterClass.ToReference<BlueprintCharacterClassReference>();
-                        c.RequiredSpellLevel = 3;
+                return Helpers.CreateDerivedBlueprint<BlueprintFeatureReplaceSpellbook>($"LoremasterSpellbook{spellbook.Get().name.Replace("Spellbook", "")}TTT",
+                    LoremasterSpellbookMasterID,
+                    new SimpleBlueprint[] { spellbook },
+                    bp => {
+                        bp.SetName(characterClass.LocalizedName);
+                        bp.SetDescription(selection.m_Description);
+                        bp.IsClassFeature = true;
+                        bp.m_Spellbook = spellbook;
+                        bp.Groups = new FeatureGroup[] { FeatureGroup.ArcaneTricksterSpellbook };
+                        bp.HideInUI = true;
+                        bp.HideNotAvailibleInUI = true;
+                        bp.AddPrerequisite<PrerequisiteClassSpellLevel>(c => {
+                            c.m_CharacterClass = characterClass.ToReference<BlueprintCharacterClassReference>();
+                            c.RequiredSpellLevel = 3;
+                        });
+                        bp.AddPrerequisite<PrerequisiteSpellbook>(c => {
+                            c.Spellbook = spellbook;
+                            c.RequiredSpellLevel = 3;
+                            c.HideInUI = true;
+                        });
                     });
-                    bp.AddPrerequisite<PrerequisiteSpellbook>(c => {
-                        c.Spellbook = spellbook;
-                        c.RequiredSpellLevel = 3;
-                        c.HideInUI = true;
-                    });
-                });
             }
         }
     }
