@@ -18,24 +18,15 @@ namespace TabletopTweaks.NewContent.Classes {
             var IcyBurst = Resources.GetBlueprint<BlueprintWeaponEnchantment>("564a6924b246d254c920a7c44bf2a58b");
             var ShockingBurst = Resources.GetBlueprint<BlueprintWeaponEnchantment>("914d7ee77fb09d846924ca08bccee0ff");
 
-            var FlamingBurst_ArcaneWeapon_TTT = Helpers.CreateCopy(FlamingBurst, bp => {
-                bp.name = "FlamingBurst_ArcaneWeapon_TTT";
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+            var FlamingBurst_ArcaneWeapon_TTT = FlamingBurst.CreateCopy("FlamingBurst_ArcaneWeapon_TTT", bp => {
                 bp.m_EnchantmentCost = 1;
             });
-            Resources.AddBlueprint(FlamingBurst_ArcaneWeapon_TTT);
-            var IcyBurst_ArcaneWeapon_TTT = Helpers.CreateCopy(IcyBurst, bp => {
-                bp.name = "IcyBurst_ArcaneWeapon_TTT";
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+            var IcyBurst_ArcaneWeapon_TTT = IcyBurst.CreateCopy("IcyBurst_ArcaneWeapon_TTT", bp => {
                 bp.m_EnchantmentCost = 1;
             });
-            Resources.AddBlueprint(IcyBurst_ArcaneWeapon_TTT);
-            var ShockingBurst_ArcaneWeapon_TTT = Helpers.CreateCopy(ShockingBurst, bp => {
-                bp.name = "ShockingBurst_ArcaneWeapon_TTT";
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+            var ShockingBurst_ArcaneWeapon_TTT = ShockingBurst.CreateCopy("ShockingBurst_ArcaneWeapon_TTT", bp => {
                 bp.m_EnchantmentCost = 1;
             });
-            Resources.AddBlueprint(ShockingBurst_ArcaneWeapon_TTT);
 
             var ArcaneWeaponFlamingBurstBuff_TTT = Helpers.CreateBuff("ArcaneWeaponFlamingBurstBuff_TTT", bp => {
                 bp.SetName("Flaming Burst");

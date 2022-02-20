@@ -39,12 +39,9 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 bp.Levels = SwordSaintSpellLevels.Levels.Select(level => SpellTools.CreateSpellLevelEntry(level.Count)).ToArray();
             });
 
-            var MyrmidarchSpellbook = Helpers.CreateCopy<BlueprintSpellbook>(MagusClass.Spellbook, bp => {
-                bp.name = "MyrmidarchSpellbook";
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+            var MyrmidarchSpellbook = MagusClass.Spellbook.CreateCopy("MyrmidarchSpellbook", bp => {
                 bp.m_SpellsPerDay = MyrmidarchSpellLevels.ToReference<BlueprintSpellsTableReference>();
                 SpellTools.Spellbook.AllSpellbooks.Add(bp);
-                Resources.AddBlueprint(bp);
             });
             /*
             var MyrmidarchSpellbook = Helpers.CreateBlueprint<BlueprintSpellbook>("MyrmidarchSpellbook", bp => {

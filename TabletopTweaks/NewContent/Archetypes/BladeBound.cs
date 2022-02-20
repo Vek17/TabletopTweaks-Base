@@ -1324,9 +1324,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
             //var LexiconAssemble_BE = Resources.GetBlueprint<BlueprintDialog>("9df5b313d792a424392ae64647e36969");
             var CatergorySplit = Regex.Split(baseWeapon.Category.ToString(), @"(?<!^)(?=[A-Z])");
             var CatergoryName = string.Join(" ", CatergorySplit);
-            var BlackBlade = Helpers.CreateCopy(baseWeapon, bp => {
-                bp.name = $"BlackBlade{baseWeapon.Category}";
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+            var BlackBlade = baseWeapon.CreateCopy($"BlackBlade{baseWeapon.Category}", bp => {
                 bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Name", "Black Blade");
                 bp.m_DescriptionText = Helpers.CreateString($"{bp.name}.Description", "A black blade's enhancement bonus increases " +
                     "as it gains levels. It is +1 at level 1 and increases by 1 every 4 levels thereafter. " +
@@ -1347,7 +1345,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                 });
                 */
             });
-            Resources.AddBlueprint(BlackBlade);
             var BlackBladeFeature = Helpers.CreateBlueprint<BlueprintFeature>($"{BlackBlade.name}Feature", bp => {
                 bp.SetName($"{CatergoryName}");
                 bp.SetDescription($"Your Black Blade takes the form of a {CatergoryName}.");

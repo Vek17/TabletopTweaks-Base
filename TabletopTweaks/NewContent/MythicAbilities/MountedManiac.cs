@@ -54,9 +54,7 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 });
                 bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
             });
-            var MountedManiacAbility = Helpers.CreateCopy(DazzlingDisplayAction, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("MountedManiacAbility");
-                bp.name = "MountedManiacAbility";
+            var MountedManiacAbility = DazzlingDisplayAction.CreateCopy("MountedManiacAbility", bp => {
                 bp.m_Icon = icon;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Free;
                 bp.CanTargetEnemies = true;
@@ -65,7 +63,6 @@ namespace TabletopTweaks.NewContent.MythicAbilities {
                 bp.SetDescription("Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an " +
                     "Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check.");
                 bp.GetComponent<AbilityEffectRunAction>().Actions.Actions.OfType<Demoralize>().First().DazzlingDisplay = false;
-                Resources.AddBlueprint(bp);
             });
             var MountedManiacBuff = Helpers.CreateBuff("MountedManiacBuff", bp => {
 

@@ -25,9 +25,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_EnchantmentCost = 0;
                 bp.AddComponent<ArmorEnchantsToWeapon>();
             });
-            var SteelHeadbutt1d3 = Helpers.CreateCopy(Gore1d6, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbutt1d3");
-                bp.name = "SteelHeadbutt1d3";
+            var SteelHeadbutt1d3 = Gore1d6.CreateCopy("SteelHeadbutt1d3", bp => {
                 bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Description", "Steel Headbutt");
                 bp.m_OverrideDamageType = true;
                 bp.m_DamageType.Physical.Form = PhysicalDamageForm.Bludgeoning;
@@ -35,9 +33,7 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 bp.m_DamageDice = new DiceFormula(1, DiceType.D3);
                 bp.m_Enchantments = new BlueprintWeaponEnchantmentReference[] { SteelHeadbuttEnchant.ToReference<BlueprintWeaponEnchantmentReference>() };
             });
-            var SteelHeadbutt1d4 = Helpers.CreateCopy(Gore1d6, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("SteelHeadbutt1d4");
-                bp.name = "SteelHeadbutt1d4";
+            var SteelHeadbutt1d4 = Gore1d6.CreateCopy("SteelHeadbutt1d4", bp => {
                 bp.m_DisplayNameText = Helpers.CreateString($"{bp.name}.Description", "Steel Headbutt");
                 bp.m_OverrideDamageType = true;
                 bp.m_DamageType.Physical.Form = PhysicalDamageForm.Bludgeoning;
@@ -84,8 +80,6 @@ namespace TabletopTweaks.NewContent.FighterAdvancedArmorTrainings {
                 });
             });
 
-            Resources.AddBlueprint(SteelHeadbutt1d3);
-            Resources.AddBlueprint(SteelHeadbutt1d4);
             if (ModSettings.AddedContent.FighterAdvancedArmorTraining.IsDisabled("SteelHeadbutt")) { return; }
             AdvancedArmorTraining.AddToAdvancedArmorTrainingSelection(SteelHeadbuttFeature);
         }

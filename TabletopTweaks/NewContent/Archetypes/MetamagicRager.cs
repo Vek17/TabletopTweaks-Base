@@ -325,9 +325,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
                         var featSelect = selection as BlueprintFeatureSelection;
                         if (MetamagicRagerFeatSelection == null) {
-                            MetamagicRagerFeatSelection = Helpers.CreateCopy(featSelect, bp => {
-                                bp.name = GenerateName(bloodline);
-                                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+                            MetamagicRagerFeatSelection = featSelect.CreateCopy(GenerateName(bloodline), bp => {
                                 bp.HideNotAvailibleInUI = true;
                                 bp.AddFeatures(metamagicFeats);
                                 bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
@@ -337,7 +335,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                                 }));
                             });
-                            Resources.AddBlueprint(MetamagicRagerFeatSelection);
                         }
                         selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
                             c.HideInUI = true;
@@ -356,9 +353,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
                         var featSelect = selection as BlueprintFeatureSelection;
                         if (DraconicMetamagicRagerFeatSelection == null) {
-                            DraconicMetamagicRagerFeatSelection = Helpers.CreateCopy(featSelect, bp => {
-                                bp.name = GenerateName(bloodline);
-                                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+                            DraconicMetamagicRagerFeatSelection = featSelect.CreateCopy(GenerateName(bloodline), bp => {
                                 bp.AddFeatures(metamagicFeats);
                                 bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
@@ -367,7 +362,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                                 }));
                             });
-                            Resources.AddBlueprint(DraconicMetamagicRagerFeatSelection);
                         }
                         selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
                             c.HideInUI = true;
@@ -386,9 +380,7 @@ namespace TabletopTweaks.NewContent.Archetypes {
                         if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
                         var featSelect = selection as BlueprintFeatureSelection;
                         if (ElementalMetamagicRagerFeatSelection == null) {
-                            ElementalMetamagicRagerFeatSelection = Helpers.CreateCopy(featSelect, bp => {
-                                bp.name = GenerateName(bloodline); ;
-                                bp.AssetGuid = ModSettings.Blueprints.GetGUID(bp.name);
+                            ElementalMetamagicRagerFeatSelection = featSelect.CreateCopy(GenerateName(bloodline), bp => {
                                 bp.AddFeatures(metamagicFeats);
                                 bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
@@ -397,7 +389,6 @@ namespace TabletopTweaks.NewContent.Archetypes {
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                                 }));
                             });
-                            Resources.AddBlueprint(ElementalMetamagicRagerFeatSelection);
                         }
                         selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
                             c.HideInUI = true;

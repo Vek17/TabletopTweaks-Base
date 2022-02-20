@@ -15,39 +15,31 @@ namespace TabletopTweaks.NewContent.Spells {
             BlueprintAbility deepSlumberKitsune = Resources.GetBlueprint<BlueprintAbility>("2bc8d4bb8baa23a4b84ef34945d13733");
             BlueprintAbility heroism = Resources.GetBlueprint<BlueprintAbility>("5ab0d42fb68c9e34abae4921822b9d63");
 
-            var hideousLaughterKitsune = Helpers.CreateCopy(hideousLaughter, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HideousLaughterKitsune");
+            var hideousLaughterKitsune = hideousLaughter.CreateCopy("HideousLaughterKitsune", bp => {
+                bp.RemoveComponents<AbilityResourceLogic>();
+                bp.AddComponent<AbilityResourceLogic>(c => {
+                    c.Amount = sleepKitsune.GetComponent<AbilityResourceLogic>().Amount;
+                    c.CostIsCustom = sleepKitsune.GetComponent<AbilityResourceLogic>().CostIsCustom;
+                    c.m_IsSpendResource = sleepKitsune.GetComponent<AbilityResourceLogic>().m_IsSpendResource;
+                    c.m_RequiredResource = sleepKitsune.GetComponent<AbilityResourceLogic>().m_RequiredResource;
+                    c.name = sleepKitsune.GetComponent<AbilityResourceLogic>().name;
+                    c.ResourceCostDecreasingFacts = sleepKitsune.GetComponent<AbilityResourceLogic>().ResourceCostDecreasingFacts;
+                    c.ResourceCostIncreasingFacts = sleepKitsune.GetComponent<AbilityResourceLogic>().ResourceCostIncreasingFacts;
+                });
             });
 
-            hideousLaughterKitsune.RemoveComponents<AbilityResourceLogic>();
-            hideousLaughterKitsune.AddComponent<AbilityResourceLogic>(c => {
-                c.Amount = sleepKitsune.GetComponent<AbilityResourceLogic>().Amount;
-                c.CostIsCustom = sleepKitsune.GetComponent<AbilityResourceLogic>().CostIsCustom;
-                c.m_IsSpendResource = sleepKitsune.GetComponent<AbilityResourceLogic>().m_IsSpendResource;
-                c.m_RequiredResource = sleepKitsune.GetComponent<AbilityResourceLogic>().m_RequiredResource;
-                c.name = sleepKitsune.GetComponent<AbilityResourceLogic>().name;
-                c.ResourceCostDecreasingFacts = sleepKitsune.GetComponent<AbilityResourceLogic>().ResourceCostDecreasingFacts;
-                c.ResourceCostIncreasingFacts = sleepKitsune.GetComponent<AbilityResourceLogic>().ResourceCostIncreasingFacts;
+            var heroismKitsune = heroism.CreateCopy("HeroismKitsune", bp => {
+                bp.RemoveComponents<AbilityResourceLogic>();
+                bp.AddComponent<AbilityResourceLogic>(c => {
+                    c.Amount = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().Amount;
+                    c.CostIsCustom = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().CostIsCustom;
+                    c.m_IsSpendResource = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().m_IsSpendResource;
+                    c.m_RequiredResource = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().m_RequiredResource;
+                    c.name = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().name;
+                    c.ResourceCostDecreasingFacts = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().ResourceCostDecreasingFacts;
+                    c.ResourceCostIncreasingFacts = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().ResourceCostIncreasingFacts;
+                });
             });
-
-            Resources.AddBlueprint(hideousLaughterKitsune);
-
-            var heroismKitsune = Helpers.CreateCopy(heroism, bp => {
-                bp.AssetGuid = ModSettings.Blueprints.GetGUID("HeroismKitsune");
-            });
-
-            heroismKitsune.RemoveComponents<AbilityResourceLogic>();
-            heroismKitsune.AddComponent<AbilityResourceLogic>(c => {
-                c.Amount = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().Amount;
-                c.CostIsCustom = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().CostIsCustom;
-                c.m_IsSpendResource = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().m_IsSpendResource;
-                c.m_RequiredResource = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().m_RequiredResource;
-                c.name = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().name;
-                c.ResourceCostDecreasingFacts = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().ResourceCostDecreasingFacts;
-                c.ResourceCostIncreasingFacts = deepSlumberKitsune.GetComponent<AbilityResourceLogic>().ResourceCostIncreasingFacts;
-            });
-
-            Resources.AddBlueprint(heroismKitsune);
         }
     }
 }
