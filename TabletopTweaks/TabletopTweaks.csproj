@@ -222,6 +222,7 @@
     <Compile Include="NewComponents\AbilitySpecific\OppositionResearchComponent.cs" />
     <Compile Include="NewComponents\BonusCasterLevelParametrized.cs" />
     <Compile Include="NewComponents\BonusDamagePerDie.cs" />
+    <Compile Include="NewComponents\OwlcatReplacements\AddSpellListAsAbilitiesTTT.cs" />
     <Compile Include="NewComponents\Prerequisites\PrerequisiteCasterLevel.cs" />
     <Compile Include="NewComponents\SharedSpellListCLIncrease.cs" />
     <Compile Include="NewComponents\SharedSpellListDCIncrease.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="NewComponents\OwlcatReplacements\WeaponBuffOnConfirmedCritTTT.cs" />
     <Compile Include="NewComponents\WeaponExtraDamageDice.cs" />
     <Compile Include="NewContent\Classes\Lich.cs" />
+    <Compile Include="NewContent\Domains\TricksterDomains.cs" />
     <Compile Include="NewContent\Feats\BurningSpell.cs" />
     <Compile Include="NewContent\Feats\FlaringSpell.cs" />
     <Compile Include="NewContent\Feats\PiercingSpell.cs" />
