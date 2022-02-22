@@ -22,6 +22,9 @@
         * Brimorak Aspect now properly applies to all spells.
     * Items
         * Stormlord's Resolve can now be deactivated immediatly instead of taking 1 turn to turn off.
+    * Homebrew Reworks
+        * Dimensional Retribution
+            * Rework of Dimensional Retribution to make it work more like dweomercat leap. This means it is an automatic action that teleports you and does an attack of opportunity.
 * New Arcane Discoveries
     * Alchemical Affinity
         * Whenever you cast a spell that appears on both the wizard and alchemist spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1.

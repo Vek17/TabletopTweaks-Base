@@ -14,6 +14,11 @@
   "MythicAbilities": {
     "DisableAll": false,
     "Settings": {
+      "DimensionalRetribution": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Rework of Dimensional Retribution to make it work more like dweomercat leap. This means it is an automatic action that teleports you and does an attack of opportunity."
+      },
       "ElementalBarrage": {
         "Enabled": true,
         "Homebrew": true,

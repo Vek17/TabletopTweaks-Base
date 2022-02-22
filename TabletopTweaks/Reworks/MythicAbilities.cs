@@ -7,6 +7,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -29,6 +30,7 @@ namespace TabletopTweaks.Reworks {
                 Initialized = true;
                 Main.LogHeader("Reworking Mythic Abilities");
                 PatchElementalBarrage();
+                PatchDimensionalRetribution();
             }
             static void PatchElementalBarrage() {
                 if (ModSettings.Homebrew.MythicAbilities.IsDisabled("ElementalBarrage")) { return; }
@@ -125,6 +127,21 @@ namespace TabletopTweaks.Reworks {
                         });
                     }
                 }
+            }
+            static void PatchDimensionalRetribution() {
+                if (ModSettings.Homebrew.MythicAbilities.IsDisabled("DimensionalRetribution")) { return; }
+                var DimensionalRetribution = Resources.GetBlueprint<BlueprintFeature>("939f49ad995ee8d4fad03ad0c7f655d1");
+                var DimensionalRetributionTTTToggleAbility = Resources.GetModBlueprintReference<BlueprintUnitFactReference>("DimensionalRetributionTTTToggleAbility");
+
+                DimensionalRetribution.SetDescription("You leave a mystical link with enemy spellcasters that lets you instantly move to them." +
+                    "Benefit: Every time you are targeted by an enemy spell, you may teleport to the " +
+                    "spellcaster as an immediate action and make an attack of opportunity.");
+                DimensionalRetribution.SetComponents();
+                DimensionalRetribution.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
+                        DimensionalRetributionTTTToggleAbility
+                    };
+                });
             }
         }
     }

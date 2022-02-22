@@ -51,6 +51,7 @@ namespace TabletopTweaks.NewContent.Domains {
                     }
                 });
                 bp.RemoveComponents<LearnSpellList>();
+                bp.RemoveComponents<Prerequisite>();
                 bp.AddComponent<AddSpellListAsAbilitiesTTT>(c => {
                     c.m_SpellList = SpellList;
                     c.m_ResourcePerSpellLevel = new BlueprintAbilityResourceReference[] {
