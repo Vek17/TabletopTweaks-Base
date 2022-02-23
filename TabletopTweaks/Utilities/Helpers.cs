@@ -91,19 +91,15 @@ namespace TabletopTweaks.Utilities {
             return result;
         }
 
-        public static LevelEntry LevelEntry(int level, BlueprintFeatureBase feature) {
-            return new LevelEntry {
-                Level = level,
-                Features = {
-                    feature
-                }
-            };
+        public static LevelEntry CreateLevelEntry(int level, params BlueprintFeatureBase[] features) {
+            return CreateLevelEntry(level, features.Select(f => f.ToReference<BlueprintFeatureBaseReference>()).ToArray());
         }
 
-        public static LevelEntry CreateLevelEntry(int level, params BlueprintFeatureBase[] features) {
-            LevelEntry levelEntry = new LevelEntry();
-            levelEntry.Level = level;
-            features.ForEach(f => levelEntry.Features.Add(f));
+        public static LevelEntry CreateLevelEntry(int level, params BlueprintFeatureBaseReference[] features) {
+            LevelEntry levelEntry = new LevelEntry() { 
+                Level = level,
+                m_Features = features.ToList()
+            };
             return levelEntry;
         }
 

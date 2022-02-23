@@ -85,11 +85,11 @@ namespace TabletopTweaks.NewContent.Feats {
                 .AppendToArray(Helpers.CreateUIGroup(CavalierMountSelection, ExpertTrainer));
 
             BeastRiderArchetype.RemoveFeatures = BeastRiderArchetype.RemoveFeatures
-                .AppendToArray(Helpers.LevelEntry(4, ExpertTrainer));
+                .AppendToArray(Helpers.CreateLevelEntry(4, ExpertTrainer));
             DiscipleOfThePikeArchetype.RemoveFeatures = DiscipleOfThePikeArchetype.RemoveFeatures
-                .AppendToArray(Helpers.LevelEntry(4, ExpertTrainer));
+                .AppendToArray(Helpers.CreateLevelEntry(4, ExpertTrainer));
             KnightOfTheWallArchetype.RemoveFeatures = KnightOfTheWallArchetype.RemoveFeatures
-                .AppendToArray(Helpers.LevelEntry(4, ExpertTrainer));
+                .AppendToArray(Helpers.CreateLevelEntry(4, ExpertTrainer));
 
             SaveGameFix.AddUnitPatch((unit) => {
                 if (unit.Progression.GetClassLevel(CavalierClass) >= 4
