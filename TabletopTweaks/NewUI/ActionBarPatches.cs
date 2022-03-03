@@ -101,7 +101,7 @@ namespace TabletopTweaks.NewUI {
             }
         }
 
-        [HarmonyPatch(typeof(ActionBarSlotVM), nameof(ActionBarSlotVM.SetResource))]
+        [HarmonyPatch(typeof(ActionBarSlotVM), nameof(ActionBarSlotVM.UpdateResource))]
         static class ActionBarSlotVM_SetResource_Patch {
             static void Postfix(ActionBarSlotVM __instance) {
                 if (!(__instance.MechanicActionBarSlot == null)

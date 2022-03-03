@@ -639,17 +639,6 @@
       "esES": null
     },
     {
-      "Key": "30403b099bed4cf79d1619ad891aecd3",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。",
-      "esES": null
-    },
-    {
       "Key": "9fd71c48669a40c1a071aa9195fc988e",
       "SimpleName": "ArmoredJuggernautFeature.Description",
       "ProcessTemplates": true,
@@ -658,6 +647,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
+      "esES": null
+    },
+    {
+      "Key": "30403b099bed4cf79d1619ad891aecd3",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。",
       "esES": null
     },
     {
@@ -2377,10 +2377,10 @@
       "esES": null
     },
     {
-      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
+      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2388,10 +2388,10 @@
       "esES": null
     },
     {
-      "Key": "ff4aaec2e2b6415a95e8e5026feebdb1",
+      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2476,17 +2476,6 @@
       "esES": null
     },
     {
-      "Key": "add3b25fd1214142995be3b8965b0bc8",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换",
-      "esES": null
-    },
-    {
       "Key": "9f48856f97714024a5cb846de75da34e",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2495,6 +2484,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换（魔战士）",
+      "esES": null
+    },
+    {
+      "Key": "add3b25fd1214142995be3b8965b0bc8",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换",
       "esES": null
     },
     {
@@ -4357,6 +4357,39 @@
       "esES": null
     },
     {
+      "Key": "3b5f644ed6944548b1cbf82d2221dbcc",
+      "SimpleName": "DimensionalRetribution.Description",
+      "ProcessTemplates": true,
+      "enGB": "You leave a mystical link with enemy spellcasters that lets you instantly move to them.Benefit: Every time you are targeted by an enemy spell, you may teleport to the spellcaster as an immediate action and make an attack of opportunity.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a6f83ed2650f45ac84700c9826ff4ef7",
+      "SimpleName": "DimensionalRetributionTTTAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "Every time you are targeted by an enemy spell, you may teleport to the spellcaster as an immediate action and make an attack of opportunity.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3d592d155c184a45b8857f427c097445",
+      "SimpleName": "DimensionalRetributionTTTAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Dimensional Retribution",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "a9cf59cec9c94f0b8d5f2980259bbb77",
       "SimpleName": "DispelFocusFeature.Description",
       "ProcessTemplates": true,
@@ -6106,10 +6139,10 @@
       "esES": null
     },
     {
-      "Key": "5a28bfdf15e74d309215835c6cdb0734",
+      "Key": "12a83cf39c2046fb96fa2edaf837f9e4",
       "SimpleName": "GnomeInquisitiveFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery and Mobility checks. \nThis racial trait replaces keen senses and obsessive.",
+      "enGB": "Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery and Mobility checks.\nThis racial trait replaces keen senses and obsessive.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6117,10 +6150,10 @@
       "esES": null
     },
     {
-      "Key": "12a83cf39c2046fb96fa2edaf837f9e4",
+      "Key": "5a28bfdf15e74d309215835c6cdb0734",
       "SimpleName": "GnomeInquisitiveFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery and Mobility checks.\nThis racial trait replaces keen senses and obsessive.",
+      "enGB": "Gnomes have a knack for being in places they shouldn’t be. Gnomes with this trait gain a +2 racial bonus on Trickery and Mobility checks. \nThis racial trait replaces keen senses and obsessive.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -6583,6 +6616,17 @@
       "SimpleName": "IncredibleMightFeature.Description",
       "ProcessTemplates": true,
       "enGB": "Azata gains a mythic bonus equal to her mythic rank on attack and damage rolls. Whenever she hits with a charge attack or confirms a critical hit, the target has to pass a Fortitude saving throw, with DC equal to 10 + your mythic rank + strength modifier. If the target fails a saving throw one of the following action happens at random:\nEnemy is stunned for 1d4 rounds (30%)\nEnemy is prone for 1d4 rounds (20%)\nEnemy is pushed away 15 feet and is stunned for 1d4 rounds (20%)\nEnemy is crippled till the end of the fight: they can no longer move and suffers a -3 penalty to attack rolls and AC (15%)\nEnemy becomes exhausted (10%)\nEnemy is killed (5%)\nAdditionally, Azata can decide to lose these advantages to instead bolster the physical abilities of companions. They gain a bonus on all attack and damage rolls equal to +1 per 2 Azata's mythic ranks.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1edfaff297654fb390a1685ab520d012",
+      "SimpleName": "IncredibleMightFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Azata gains a bonus equal to her mythic rank on attack and damage rolls. Whenever she hits with a charge attack or confirms a critical hit, the target has to pass a Fortitude saving throw, with DC equal to 10 + your mythic rank + strength modifier. If the target fails a saving throw one of the following action happens at random:\nEnemy is stunned for 1d4 rounds (30%)\nEnemy is prone for 1d4 rounds (20%)\nEnemy is pushed away 15 feet and is stunned for 1d4 rounds (20%)\nEnemy is crippled till the end of the fight: they can no longer move and suffers a -3 penalty to attack rolls and AC (15%)\nEnemy becomes exhausted (10%)\nEnemy is killed (5%)\nAdditionally, Azata can decide to lose these advantages to instead bolster the physical abilities of companions. They gain a bonus on all attack and damage rolls equal to +1 per 2 Azata's mythic ranks.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -9384,6 +9428,17 @@
       "esES": null
     },
     {
+      "Key": "eb3b7237e3e44cb997ab228d88ac6e96",
+      "SimpleName": "PerfectStrikeZenArcherBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You must declare that you are using this feat before you make your attack roll (thus a failed attack roll ruins the attempt). You can roll your attack roll twice and take the higher result. You may attempt a perfect attack once per day for every four levels you have attained (but see Special).\nSpecial: A zen archer or quarterstaff master monk receives Perfect Strike as a bonus feat at 1st level, even if he does not meet the prerequisites. A monk may attempt an perfect strike attack a number of times per day equal to his monk level, plus one more time per day for every four levels he has in classes other than monk.\nAt 10th level, the monk can roll his attack roll three times and take the highest result.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "a8a1e7feb89e4f48a5b6eb7f8930e477",
       "SimpleName": "PerfectStrikeZenArcherUpgrade.Description",
       "ProcessTemplates": true,
@@ -9469,6 +9524,61 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "精准重击",
+      "esES": null
+    },
+    {
+      "Key": "536dea38831b4092accc0606885e5697",
+      "SimpleName": "PrerequisiteCasterLevel.UI",
+      "ProcessTemplates": false,
+      "enGB": "Has a caster level of:",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5ae6c38a8b2d489399a34e4a54fbaa7c",
+      "SimpleName": "PrerequisiteMythicSpellbook.UI",
+      "ProcessTemplates": false,
+      "enGB": "Can cast spells of level",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4f3df0ca4b814cfe918b3e2bb67edc40",
+      "SimpleName": "PrerequisiteMythicSpellbook.UI",
+      "ProcessTemplates": false,
+      "enGB": "or higher from mythic spellbook",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0f5f3e3e7f794ac88c9366c6259d872c",
+      "SimpleName": "PrerequisiteMythicSpellbook.UI",
+      "ProcessTemplates": false,
+      "enGB": "Has mythic spellbook",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3b055df9f8a341c0b1bef4f4704146bc",
+      "SimpleName": "PrerequisiteSize.UI",
+      "ProcessTemplates": false,
+      "enGB": "Is Size",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

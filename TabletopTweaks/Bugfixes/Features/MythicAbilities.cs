@@ -205,21 +205,5 @@ namespace TabletopTweaks.Bugfixes.Features {
                 return true;
             }
         }
-        [HarmonyPatch(typeof(AscendantElement), "OnEventAboutToTrigger")]
-        static class AscendantElement_OnEventAboutToTrigger_Patch {
-
-            static bool Prefix(AscendantElement __instance, RuleCalculateDamage evt) {
-                if (ModSettings.Fixes.MythicAbilities.IsDisabled("AscendantElement")) { return true; }
-                foreach (BaseDamage baseDamage in evt.DamageBundle) {
-                    EnergyDamage energyDamage;
-                    if ((energyDamage = (baseDamage as EnergyDamage)) != null && energyDamage.EnergyType == __instance.Element) {
-                        baseDamage.AddDecline(new DamageDecline(DamageDeclineType.None, __instance));
-                        energyDamage.IgnoreReduction = true;
-                        energyDamage.IgnoreImmunities = true;
-                    }
-                }
-                return false;
-            }
-        }
     }
 }

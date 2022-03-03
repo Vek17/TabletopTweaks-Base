@@ -1101,11 +1101,6 @@
   "MythicAbilities": {
     "DisableAll": false,
     "Settings": {
-      "AscendantElement": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Actually ignores immunities again."
-      },
       "BloodlineAscendance": {
         "Enabled": true,
         "Homebrew": false,
@@ -1186,6 +1181,11 @@
     "Enemies": {
       "DisableAll": false,
       "Settings": {
+        "Anomalies": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Chaotic mind now works in all cases."
+        },
         "Balors": {
           "Enabled": true,
           "Homebrew": false,
@@ -1234,11 +1234,6 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Will now actually grant damage on ray spells."
-        },
-        "BaneOfSpirit": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Now is a free action to use."
         },
         "HalfOfThePair": {
           "Enabled": true,

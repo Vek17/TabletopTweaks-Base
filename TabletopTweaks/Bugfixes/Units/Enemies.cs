@@ -20,6 +20,7 @@ namespace TabletopTweaks.Bugfixes.Units {
                 Initialized = true;
                 Main.LogHeader("Patching Bosses");
                 PatchBalors();
+                PatchAnomalies();
             }
         }
         static void PatchBalors() {
@@ -42,6 +43,14 @@ namespace TabletopTweaks.Bugfixes.Units {
 
             Main.LogPatch(BalorVorpalStrikeFeature);
             Main.LogPatch(BalorVorpalStrikeBuff);
+        }
+        static void PatchAnomalies() {
+            if (ModSettings.Fixes.Units.Enemies.IsDisabled("Anomalies")) { return; }
+
+            var AnomalyTemplateDefensive_ChaoticMindBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("2159f35f1dfb4ee78da818f443a086ee");
+            AnomalyTemplateDefensive_ChaoticMindBuff
+                .GetComponent<AddAbilityUseTargetTrigger>()
+                .TriggerOnEffectApply = true;
         }
     }
 }
