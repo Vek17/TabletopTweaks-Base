@@ -261,7 +261,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "学习了炼金术师的一些技巧后，你能用一些他们的独特技巧提升你的施法能力。\n你施展一个同时在法师和炼金术士法术表的法术时，CL提升1。",
       "esES": null
     },
     {
@@ -272,7 +272,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "炼金亲和",
       "esES": null
     },
     {
@@ -404,7 +404,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "法师可以选择一项奥术发现，以替代一项专长。",
       "esES": null
     },
     {
@@ -415,7 +415,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥术发现",
       "esES": null
     },
     {
@@ -2703,7 +2703,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个造成能量伤害的法术，你可以将它的伤害转换为你的血承的元素类别。这也会改变法术的标识符。",
       "esES": null
     },
     {
@@ -2714,7 +2714,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个造成能量伤害的法术，你可以将它的伤害转换为你的血承的元素类别。这也会改变法术的标识符。",
       "esES": null
     },
     {
@@ -2725,7 +2725,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个造成能量伤害的法术，你可以将它的伤害转换为你的血承的元素类别。这也会改变法术的标识符。",
       "esES": null
     },
     {
@@ -2736,7 +2736,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "每当你释放一个造成能量伤害的法术，你可以将它的伤害转换为你的血承的元素类别。这也会改变法术的标识符。",
       "esES": null
     },
     {
@@ -2934,7 +2934,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "额外法术：识破隐形",
       "esES": null
     },
     {
@@ -2956,7 +2956,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "额外法术：移位术",
       "esES": null
     },
     {
@@ -2978,7 +2978,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "额外法术：石拳",
       "esES": null
     },
     {
@@ -4276,7 +4276,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3+MR轮内，巫妖可以使他的法术忽略法术抗力和法术免疫。这不能忽略对法术效果的免疫（译注：例如，油腻术不能忽略敌人对倒地的免疫）。此外，任何受到过你的法术影响的敌人在接下来1d3+1轮内无法施法。",
       "esES": null
     },
     {
@@ -4991,7 +4991,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3加上神话等级一半的轮次内，任何受到巫妖的法术影响的敌人必须进行DC为10+角色等级一半+神话等级两倍的强韧豁免检定，否则被致盲、变得对寒冷和负能量易伤，并且立即受到2d8+神话等级的寒冷伤害。",
       "esES": null
     },
     {
@@ -5893,7 +5893,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "当你使用带有火、光[译注：正义之怒没有这个标识符，因此不能识别一部分可能该有光标识符的法术]或电标识符的法术对敌人造成伤害后，无需豁免检定，目标陷入等同法术环级轮的目眩效果。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -6476,7 +6476,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在你寻求完美的道路上，你发现了一种不同寻常的方式来增强自己和你的盟友。每当你释放一个变形学派的法术可以提升一项肉体属性时，将它的加值增加2。如果你有20个法师职业等级，改为+4。",
       "esES": null
     },
     {
@@ -6487,7 +6487,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "理想化",
       "esES": null
     },
     {
@@ -6498,7 +6498,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在你寻求完美的道路上，你发现了一种不同寻常的方式来增强自己和你的盟友。每当你释放一个变形学派的法术可以提升一项肉体属性时，将它的加值增加2。如果你有20个法师职业等级，改为+4。",
       "esES": null
     },
     {
@@ -6509,7 +6509,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "理想化（20级法师）",
       "esES": null
     },
     {
@@ -6586,7 +6586,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "灵使在所有攻击和伤害检定获得等同神话等级的神话加值。每当灵使冲锋击中敌人，或是确认重击时，都会激发异常狂野的神话能量，敌方须做DC为10+神话等级+灵使力调的强韧检定，否则受到以下随机效果之一：\n震慑1d4轮(30%)\n麻痹1d4轮(20%)\n被推离15尺并震慑1d4轮(20%)\n无法移动，并且在AC和AB上受到-3减值(15%)\n力竭(10%)\n立即死亡(5%)\n",
       "esES": null
     },
     {
@@ -6674,7 +6674,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你对物理规则的理解超出了常理的范畴，你能用不同寻常的方式控制这个世界。\n你在CMB和CMD上额外添加智力调整值。",
       "esES": null
     },
     {
@@ -6685,7 +6685,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "知识就是力量",
       "esES": null
     },
     {
@@ -8863,7 +8863,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8874,7 +8874,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8885,7 +8885,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8896,7 +8896,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8907,7 +8907,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8918,7 +8918,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -9171,7 +9171,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9182,7 +9182,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：防护",
       "esES": null
     },
     {
@@ -9193,7 +9193,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9204,7 +9204,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：咒法",
       "esES": null
     },
     {
@@ -9215,7 +9215,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9226,7 +9226,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：预言",
       "esES": null
     },
     {
@@ -9237,7 +9237,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9248,7 +9248,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：惑控",
       "esES": null
     },
     {
@@ -9259,7 +9259,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9270,7 +9270,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：塑能",
       "esES": null
     },
     {
@@ -9281,7 +9281,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9292,7 +9292,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：幻术",
       "esES": null
     },
     {
@@ -9303,7 +9303,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9314,7 +9314,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：死灵",
       "esES": null
     },
     {
@@ -9325,7 +9325,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9336,7 +9336,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识",
       "esES": null
     },
     {
@@ -9347,7 +9347,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备对立学派的法术现在不再需要额外法术槽位。",
       "esES": null
     },
     {
@@ -9358,7 +9358,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "禁忌学识：变化",
       "esES": null
     },
     {
@@ -11316,7 +11316,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "当巫妖进行偷袭命中敌人时，敌人必须进行DC为10+角色等级一半+神话等级两倍的强韧检定，否则直到战斗结束对所有武器伤害和元素伤害易伤，在AB,AC和伤害上获得-2减值。\n此外，巫妖的偷袭伤害提高1d6。",
       "esES": null
     },
     {
@@ -12075,7 +12075,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你施展任何同时出现在法师和德鲁伊法术列表上的法术时获得+1施法者等级和+1DC。",
       "esES": null
     },
     {
@@ -12086,7 +12086,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "Yuelral赐福",
       "esES": null
     }
   ]
