@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props" Condition="Exists('..\packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C03B79A7-F087-44A4-92E1-DD3EDFCA487B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TabletopTweaks.Base</RootNamespace>
+    <AssemblyName>TabletopTweaks-Base</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <LangVersion>9</LangVersion>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>
+
+0649</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>
+
+0649</NoWarn>
+  </PropertyGroup>
+  <Target Name="RemoveLib" BeforeTargets="Clean" Condition="Exists('$(SolutionDir)lib')">
+    <RemoveDir Directories="$(SolutionDir)lib" />
+  </Target>
+  <Target Name="CreateLib" BeforeTargets="BeforeBuild" AfterTargets="RemoveLib" Condition="!Exists('$(SolutionDir)lib')">
+    <MakeDir Directories="$(SolutionDir)lib" />
+  </Target>
+  <Target Name="Publicise" AfterTargets="CreateLib">
+    <ItemGroup>
+      <PubliciseAssemblyCSharp Include="$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp.dll" />
+      <PubliciseUniRx Include="$(WrathPath)\Wrath_Data\Managed\UniRx.dll" />
+      <PubliciseRuntimeUI Include="$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.UI.dll" />
+    </ItemGroup>
+    <Publicise InputAssemblies="@(PubliciseAssemblyCSharp)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+    <Publicise InputAssemblies="@(PubliciseUniRx)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+    <Publicise InputAssemblies="@(PubliciseRuntimeUI)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+  </Target>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(SolutionDir)lib\Assembly-CSharp_public.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TabletopTweaks-Core">
+      <HintPath>$(WrathPath)\Mods\TabletopTweaks-Core\TabletopTweaks-Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+    <Reference Include="ModKit">
+      <HintPath>$(WrathPath)\Mods\TabletopTweaks-Core\ModKit.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Core">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.UI">
+      <HintPath>$(SolutionDir)\lib\Owlcat.Runtime.UI_public.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Owlcat.Runtime.Validation">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UniRx">
+      <HintPath>$(SolutionDir)lib\UniRx_public.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityEngine.UIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bugfixes\Abilities\BaseAbilities.cs" />
+    <Compile Include="Bugfixes\Abilities\Spells.cs" />
+    <Compile Include="Bugfixes\Classes\Aeon.cs" />
+    <Compile Include="Bugfixes\Classes\Alchemist.cs" />
+    <Compile Include="Bugfixes\Classes\Arcanist.cs" />
+    <Compile Include="Bugfixes\Classes\Barbarian.cs" />
+    <Compile Include="Bugfixes\Classes\Bloodrager.cs" />
+    <Compile Include="Bugfixes\Classes\Cavalier.cs" />
+    <Compile Include="Bugfixes\Classes\Cleric.cs" />
+    <Compile Include="Bugfixes\Classes\Demon.cs" />
+    <Compile Include="Bugfixes\Classes\Fighter.cs" />
+    <Compile Include="Bugfixes\Classes\Hellknight.cs" />
+    <Compile Include="Bugfixes\Classes\Kineticist.cs" />
+    <Compile Include="Bugfixes\Classes\Lich.cs" />
+    <Compile Include="Bugfixes\Classes\Loremaster.cs" />
+    <Compile Include="Bugfixes\Classes\Magus.cs" />
+    <Compile Include="Bugfixes\Classes\Monk.cs" />
+    <Compile Include="Bugfixes\Classes\Oracle.cs" />
+    <Compile Include="Bugfixes\Classes\Paladin.cs" />
+    <Compile Include="Bugfixes\Classes\Ranger.cs" />
+    <Compile Include="Bugfixes\Classes\Rogue.cs" />
+    <Compile Include="Bugfixes\Classes\Shaman.cs" />
+    <Compile Include="Bugfixes\Classes\Slayer.cs" />
+    <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
+    <Compile Include="Bugfixes\Classes\Trickster.cs" />
+    <Compile Include="Bugfixes\Classes\Warpriest.cs" />
+    <Compile Include="Bugfixes\Classes\Witch.cs" />
+    <Compile Include="Bugfixes\Features\Backgrounds.cs" />
+    <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
+    <Compile Include="Bugfixes\Features\Bloodlines.cs" />
+    <Compile Include="Bugfixes\Features\Conditions.cs" />
+    <Compile Include="Bugfixes\Features\Feats.cs" />
+    <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
+    <Compile Include="Bugfixes\Features\MythicFeats.cs" />
+    <Compile Include="Bugfixes\General\AddFactsFix.cs" />
+    <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
+    <Compile Include="Bugfixes\General\DynamicItemNames.cs" />
+    <Compile Include="Bugfixes\General\FeatSelections.cs" />
+    <Compile Include="Bugfixes\General\MountedCombatFixes.cs" />
+    <Compile Include="Bugfixes\General\ProfaneGift.cs" />
+    <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
+    <Compile Include="Bugfixes\General\SizeModifiers.cs" />
+    <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
+    <Compile Include="Bugfixes\General\WeaponProperties.cs" />
+    <Compile Include="Bugfixes\Items\Armor.cs" />
+    <Compile Include="Bugfixes\Items\Equipment.cs" />
+    <Compile Include="Bugfixes\Items\Weapons.cs" />
+    <Compile Include="Bugfixes\TacticalCombat\Buildings.cs" />
+    <Compile Include="Bugfixes\UI\BuffSuppression.cs" />
+    <Compile Include="Bugfixes\UI\DiceRollDescriptions.cs" />
+    <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
+    <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
+    <Compile Include="Bugfixes\UI\SpellTooltips.cs" />
+    <Compile Include="Bugfixes\Units\Bosses.cs" />
+    <Compile Include="Bugfixes\Units\Enemies.cs" />
+    <Compile Include="Config\AddedContent.cs" />
+    <Compile Include="Config\Bugfixes.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="MechanicsChanges\ActivatableResourceFreeResourceLogic.cs" />
+    <Compile Include="MechanicsChanges\CannyDefenseStacking.cs" />
+    <Compile Include="MechanicsChanges\DRRework.cs" />
+    <Compile Include="MechanicsChanges\InherentBonuses.cs" />
+    <Compile Include="MechanicsChanges\MetamagicDamage.cs" />
+    <Compile Include="MechanicsChanges\MountedCombatModifiers.cs" />
+    <Compile Include="MechanicsChanges\NaturalArmorStacking.cs" />
+    <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
+    <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="ModLogic\ModContextTTTBase.cs" />
+    <Compile Include="NewContent\AlternateCapstones\MasterfulTalent.cs" />
+    <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
+    <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
+    <Compile Include="NewContent\ArcanistExploits\MetamagicKnowledge.cs" />
+    <Compile Include="NewContent\ArcanistExploits\QuickStudy.cs" />
+    <Compile Include="NewContent\Archetypes\BladeAdept.cs" />
+    <Compile Include="NewContent\Archetypes\BladeBound.cs" />
+    <Compile Include="NewContent\Archetypes\CauldronWitch.cs" />
+    <Compile Include="NewContent\Archetypes\ChannelerOfTheUnknown.cs" />
+    <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
+    <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Archetypes\MadDog.cs" />
+    <Compile Include="NewContent\Archetypes\MetamagicRager.cs" />
+    <Compile Include="NewContent\Archetypes\Myrmidarch.cs" />
+    <Compile Include="NewContent\Archetypes\NatureFang.cs" />
+    <Compile Include="NewContent\Backgrounds\Lecturer.cs" />
+    <Compile Include="NewContent\BaseAbilities\OneHandedToggleAbility.cs" />
+    <Compile Include="NewContent\Bloodlines\AberrantBloodline.cs" />
+    <Compile Include="NewContent\Bloodlines\AbyssalBloodline.cs" />
+    <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
+    <Compile Include="NewContent\Bloodlines\BloodragerArcaneBloodline.cs" />
+    <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
+    <Compile Include="NewContent\Classes\Cavalier.cs" />
+    <Compile Include="NewContent\Classes\Loremaster.cs" />
+    <Compile Include="NewContent\Classes\Magus.cs" />
+    <Compile Include="NewContent\Classes\Oracle.cs" />
+    <Compile Include="NewContent\ContentAdder.cs" />
+    <Compile Include="NewContent\Feats\AnimalAlly.cs" />
+    <Compile Include="NewContent\Feats\BurningSpell.cs" />
+    <Compile Include="NewContent\Feats\CelestialServant.cs" />
+    <Compile Include="NewContent\Feats\DervishDance.cs" />
+    <Compile Include="NewContent\Feats\DispelFocus.cs" />
+    <Compile Include="NewContent\Feats\EncouragingSpell.cs" />
+    <Compile Include="NewContent\Feats\ErastilsBlessing.cs" />
+    <Compile Include="NewContent\Feats\ExtraArcana.cs" />
+    <Compile Include="NewContent\Feats\ExtraArcanistExploit.cs" />
+    <Compile Include="NewContent\Feats\ExtraDiscovery.cs" />
+    <Compile Include="NewContent\Feats\ExtraHex.cs" />
+    <Compile Include="NewContent\Feats\ExtraKi.cs" />
+    <Compile Include="NewContent\Feats\ExtraMercy.cs" />
+    <Compile Include="NewContent\Feats\ExtraReservoir.cs" />
+    <Compile Include="NewContent\Feats\ExtraRevelation.cs" />
+    <Compile Include="NewContent\Feats\ExtraRogueTalent.cs" />
+    <Compile Include="NewContent\Feats\ExtraSlayerTalent.cs" />
+    <Compile Include="NewContent\Feats\FlaringSpell.cs" />
+    <Compile Include="NewContent\Feats\GracefulAthlete.cs" />
+    <Compile Include="NewContent\Feats\HorseMaster.cs" />
+    <Compile Include="NewContent\Feats\ImprovedChannel.cs" />
+    <Compile Include="NewContent\Feats\IntensifiedSpell.cs" />
+    <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
+    <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
+    <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
+    <Compile Include="NewContent\Feats\NatureSoul.cs" />
+    <Compile Include="NewContent\Feats\PiercingSpell.cs" />
+    <Compile Include="NewContent\Feats\QuickChannel.cs" />
+    <Compile Include="NewContent\Feats\QuickDraw.cs" />
+    <Compile Include="NewContent\Feats\QuickenBlessing.cs" />
+    <Compile Include="NewContent\Feats\RimeSpell.cs" />
+    <Compile Include="NewContent\Feats\Scholar.cs" />
+    <Compile Include="NewContent\Feats\SelfSufficient.cs" />
+    <Compile Include="NewContent\Feats\ShatterDefenses.cs" />
+    <Compile Include="NewContent\Feats\ShingleRunner.cs" />
+    <Compile Include="NewContent\Feats\SolidShadows.cs" />
+    <Compile Include="NewContent\Feats\SpellSpecializationGreater.cs" />
+    <Compile Include="NewContent\Feats\Stalwart.cs" />
+    <Compile Include="NewContent\Feats\StreetSmarts.cs" />
+    <Compile Include="NewContent\Feats\TrickRiding.cs" />
+    <Compile Include="NewContent\Feats\TwoWeaponDefense.cs" />
+    <Compile Include="NewContent\Feats\UndersizedMount.cs" />
+    <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
+    <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
+    <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
+    <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
+    <Compile Include="NewContent\Features\MartialWeaponProficencySelection.cs" />
+    <Compile Include="NewContent\Features\NauseatedPoision.cs" />
+    <Compile Include="NewContent\Features\PerfectStrikeZenArcherBuff.cs" />
+    <Compile Include="NewContent\Features\PrimalistRagePowerSelection.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\AdvancedArmorTraining.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredConfidence.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmoredJuggernaut.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\ArmorSpecialization.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\CriticalDeflection.cs" />
+    <Compile Include="NewContent\FighterAdvancedArmorTrainings\SteelHeadbutt.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\AdvancedWeapontrainingSelection.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\DefensiveWeaponTraining.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\FocusedWeapon.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
+    <Compile Include="NewContent\FighterAdvancedWeaponTrainings\WarriorSpirit.cs" />
+    <Compile Include="NewContent\MagusArcana\BroadStudy.cs" />
+    <Compile Include="NewContent\MagusArcana\SpellBlending.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
+    <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
+    <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
+    <Compile Include="NewContent\MythicAbilities\DimensionalRetribution.cs" />
+    <Compile Include="NewContent\MythicAbilities\EnhancedBlessings.cs" />
+    <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicPersistent.cs" />
+    <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicSelective.cs" />
+    <Compile Include="NewContent\MythicAbilities\HarmoniousMage.cs" />
+    <Compile Include="NewContent\MythicAbilities\ImpossibleBlessing.cs" />
+    <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />
+    <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
+    <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
+    <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
+    <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicCombatExpertise.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicCombatReflexes.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicCriticalFocus.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicIntimidatingProwess.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicManyshot.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicShatterDefenses.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicTwoWeaponDefense.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicWarriorPriest.cs" />
+    <Compile Include="NewContent\MythicFeats\TitanStrike.cs" />
+    <Compile Include="NewContent\Races\Dwarf.cs" />
+    <Compile Include="NewContent\Races\Elf.cs" />
+    <Compile Include="NewContent\Races\Gnome.cs" />
+    <Compile Include="NewContent\Races\Halfling.cs" />
+    <Compile Include="NewContent\Spells\LongArms.cs" />
+    <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
+    <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
+    <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
+    <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
+    <Compile Include="NewContent\WeaponEnchantments\TerrifyingTremble.cs" />
+    <Compile Include="NewContent\WeaponEnchantments\TwoHandedDamageMultiplier.cs" />
+    <Compile Include="NewContent\WizardArcaneDiscoveries\AlchemicalAffinity.cs" />
+    <Compile Include="NewContent\WizardArcaneDiscoveries\ArcaneDiscoverySelection.cs" />
+    <Compile Include="NewContent\WizardArcaneDiscoveries\Idealize.cs" />
+    <Compile Include="NewContent\WizardArcaneDiscoveries\KnowledgeIsPower.cs" />
+    <Compile Include="NewContent\WizardArcaneDiscoveries\OppositionResearch.cs" />
+    <Compile Include="NewContent\WizardArcaneDiscoveries\YuelralsBlessing.cs" />
+    <Compile Include="UMMSettingsUI.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <EmbeddedResource Include="Config\Blueprints.json" />
+    <EmbeddedResource Include="Config\Fixes.json" />
+    <EmbeddedResource Include="Config\AddedContent.json" />
+    <None Include="Info.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Localization\LocalizationPack.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Patches\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Abilities\Icon_AberrantBloodline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_AeonBane.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_BlackBladeStrike.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Base.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Cold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Electricity.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Fire.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Force.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_ElementalAttunment_Sonic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerBase.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerBlade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerSelf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_LifeDrinkerShared.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_SpellDefense.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BlackBlade_TransferArcana.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_ChannelEntropy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_DestinedBloodline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_LongArm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_MetaRage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_MetaRage1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_MetaRage2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_MetaRage3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_MetaRage4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_OneHandedToggle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_QuickStudy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_ShadowEnchantment.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_ShadowEnchantmentGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Activation.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Anarchic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Axiomatic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Bane.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_BrilliantEnergy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Corrosive.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_CorrosiveBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Cruel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Flaming.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_FlamingBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Frost.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_GhostTouch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Holy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_IcyBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Keen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Shock.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_ShockingBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Speed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Thundering.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_ThunderingBurst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_WarriorSpirit_Unholy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodBurningGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodBurningLesser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodBurningNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodEncouragingGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodEncouragingLesser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodEncouragingNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodFlaringGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodFlaringLesser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodFlaringNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodIntensifiedGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodIntensifiedLesser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodIntensifiedNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodPiercingGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodPiercingLesser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodPiercingNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodRimeGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodRimeLesser.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_MetamagicRodRimeNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_ArmoredMight.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_ArmorMaster.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_BurningSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_DispelFocus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_EncouragingSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_FlaringSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_GreaterDispelFocus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_IntensifiedSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_LungingSpellTouch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_MountedManiac.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_MountedSkirmisher.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_PiercingSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_RimeSpellFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_SolidShadowsFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_TrickRiding.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_TwoWeaponDefense.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_UndersizedMount.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_BurningSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_EncouragingSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_FlaringSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_IntensifiedSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_PiercingSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_RimeSpellMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Metamagic\Icon_SolidShadowsMetamagic.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" AfterTargets="BeforeClean">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props'))" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>(robocopy "$(TargetDir) " "%25WrathPath%25\Mods\TabletopTweaks-Base\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0</PostBuildEvent>
+  </PropertyGroup>
+</Project>

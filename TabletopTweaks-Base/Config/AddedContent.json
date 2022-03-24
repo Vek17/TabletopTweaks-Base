@@ -1,0 +1,622 @@
+﻿{
+  "NewSettingsOffByDefault": false,
+  "Archetypes": {
+    "DisableAll": false,
+    "Settings": {
+      "BladeBound": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A select group of magi are called to carry a black blade—a sentient weapon of often unknown and possibly unknowable purpose. These weapons become valuable tools and allies, as both the magus and weapon typically crave arcane power, but as a black blade becomes more aware, its true motivations manifest, and as does its ability to influence its wielder with its ever-increasing ego."
+      },
+      "CauldronWitchArchetype": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables an incomplete archetype from Owlcat."
+      },
+      "ChannelerOfTheUnknown": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A fallen cleric archetype that has a unique domain selection, can convert all spells into domain spells, and gets a unique form of channeling that damages ALL things."
+      },
+      "DivineCommander": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A warpriest/cavalier hybrid archetype who trades blessings and some bonus feats for a divine mount and the tactician ability."
+      },
+      "ElementalMasterArchetype": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables an incomplete archetype from Owlcat."
+      },
+      "MetamagicRager": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A bloodrager archetype that can spend rage rounds to apply metamagic effects to thier spells."
+      },
+      "NatureFang": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A druid/slayer hybrid archetype who trades wild shape for studied target and slayer talents."
+      }
+    },
+    "IsExpanded": true
+  },
+  "BaseAbilities": {
+    "DisableAll": false,
+    "Settings": {
+      "OneHandedToggle": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds an activatable ability that allows you to force a one handed weapon to be wielding in one hand."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Bloodlines": {
+    "DisableAll": false,
+    "Settings": {
+      "AberrantBloodline": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds the Aberrant bloodline for both Bloodrager and Sorcerer."
+      },
+      "DestinedBloodline": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds the Destined bloodline for both Bloodrager and Sorcerer."
+      }
+    },
+    "IsExpanded": true
+  },
+  "ArcanistExploits": {
+    "DisableAll": false,
+    "Settings": {
+      "Familiar": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "An arcanist with this exploit can acquire a familiar as the arcane bond wizard class feature. A familiar is a magical pet that enhances the wizard's skills and senses."
+      },
+      "ItemCrafting": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The arcanist can select one item creation feat as a bonus feat. She must meet the prerequisites of this feat."
+      },
+      "MetamagicKnowledge": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The arcanist can select one metamagic feat as a bonus feat. She must meet the prerequisites of this feat."
+      },
+      "QuickStudy": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The arcanist can prepare a spell in place of an existing spell by expending 1 point from her arcane reservoir. Using this ability is a full-round action that provokes an attack of opportunity. The spell prepared must be of the same level as the spell being replaced."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Feats": {
+    "DisableAll": false,
+    "Settings": {
+      "AnimalAlly": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain an animal companion as if you were a druid of your character level -3. Unlike normal animals of its kind, an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level."
+      },
+      "CelestialServant": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your animal companion, familiar, or mount gains the celestial template and becomes a magical beast, though you may still treat it as an animal when using Handle Animal, wild empathy, or any other spells or class abilities that specifically affect animals."
+      },
+      "DervishDance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls."
+      },
+      "DispelFocus": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check."
+      },
+      "DispelFocusGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus."
+      },
+      "ErastilsBlessing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can use your Wisdom modifier instead of your Dexterity modifier on ranged attack rolls when using a bow."
+      },
+      "ExtraArcana": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain one additional magus arcana. You must meet all the prerequisites for this magus arcana."
+      },
+      "ExtraArcanistExploit": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain one additional arcanist exploit. You must meet the prerequisites for this arcanist exploit."
+      },
+      "ExtraDiscovery": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain one additional discovery. You must meet all of the prerequisites for this discovery."
+      },
+      "ExtraHex": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain one additional hex. You must meet the prerequisites for this hex."
+      },
+      "ExtraKi": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your ki pool increases by 2."
+      },
+      "ExtraMercy": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Select one additional mercy for which you qualify. When you use lay on hands to heal damage to one target, it also receives the additional effects of this mercy."
+      },
+      "ExtraReservoir": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain 3 more points in your arcane reservoir, and the maximum number of points in your arcane reservoir increases by that amount."
+      },
+      "ExtraRevelation": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain one additional revelation. You must meet all of the prerequisites for this revelation."
+      },
+      "ExtraRogueTalent": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain one additional rogue talent. You must meet all of the prerequisites for this rogue talent."
+      },
+      "ExtraSlayerTalent": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain one additional slayer talent. You must meet the prerequisites for this slayer talent."
+      },
+      "GracefulAthlete": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Add your Dexterity modifier instead of your Strength bonus to Athletics checks."
+      },
+      "ImprovedChannel": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Add 2 to the DC of saving throws made to resist the effects of your channel energy ability."
+      },
+      "LungingSpellTouch": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn."
+      },
+      "MagicalAptitude": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You get a +2 bonus on Knowledge (Arcana) and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "MetamagicBurningSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The acid or fire effects of the affected spell adhere to the creature, causing more damage the next round. When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor."
+      },
+      "MetamagicFlaringSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The electricity, fire, or light effects of the affected spell create a flaring that dazzles creatures that take damage from the spell. A flare spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell. A flaring spell only affects spells with a fire, light, or electricity descriptor."
+      },
+      "MetamagicIntensifiedSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat."
+      },
+      "MetamagicPiercingSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you cast a piercing spell against a target with spell resistance, it treats the spell resistance of the target as 5 lower than its actual SR."
+      },
+      "MetamagicRimeSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell."
+      },
+      "MetamagicSolidShadows": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When casting a shadow spell, that spell is 20% more real than normal."
+      },
+      "MountedSkirmisher": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "If your mount moves its speed or less, you can still take a full-attack action."
+      },
+      "NatureSoul": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You get a +2 bonus on all Lore (Nature) checks and Perception checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "TwoWeaponDefense": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When wielding a double weapon or two weapons (not including natural weapons or unarmed strikes), you gain a +1 shield bonus to your AC. When you are fighting defensively this shield bonus increases to +2."
+      },
+      "QuickChannel": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You may channel energy as a move action by spending 2 daily uses of that ability."
+      },
+      "QuickDraw": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can draw a weapon as a free action instead of as a move action."
+      },
+      "QuickenBlessing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead."
+      },
+      "Scholar": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You get a +2 bonus on Knowledge (Arcana) and Knowledge (World) skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "Self-Sufficient": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You get a +2 bonus on Lore (Nature) and Lore (Religion) skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "ShingleRunner": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You get a +2 bonus on Athletics and Mobility skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "SpellSpecializationGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "By sacrificing a prepared spell of the same or higher level than your specialized spell, you may spontaneously cast your specialized spell. The specialized spell is treated as its normal level, regardless of the spell slot used to cast it."
+      },
+      "Stalwart": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "While fighting defensively or using Combat Expertise, you can forgo the dodge bonus to AC you would normally gain to instead gain an equivalent amount of DR, to a maximum of DR 5/—, until the start of your next turn."
+      },
+      "StreetSmarts": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You get a +2 bonus on Knowledge (World) and Perception skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+      },
+      "TrickRiding": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can make a check using Mounted Combat to negate a hit on your mount twice per round instead of just once."
+      },
+      "UndersizedMount": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can ride creatures equal to your own size category instead of only creatures larger than you."
+      },
+      "VarisianTattoo": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Select a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level."
+      }
+    },
+    "IsExpanded": true
+  },
+  "FighterAdvancedArmorTraining": {
+    "DisableAll": false,
+    "Settings": {
+      "ArmoredConfidence": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "While wearing armor, the fighter gains a bonus on Intimidate checks based upon the type of armor he is wearing: +1 for light armor, +2 for medium armor, or +3 for heavy armor. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +4 at 19th level."
+      },
+      "ArmoredJuggernaut": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor."
+      },
+      "ArmorSpecialization": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The fighter selects one specific type of armor with which he is proficient, such as light or heavy. While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor''s armor bonus, up to a maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the armor bonus doesn't increase the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor's base armor bonus, including other advanced armor training options."
+      },
+      "CriticalDeflection": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "While wearing armor or using a shield, the fighter gains a +2 bonus to his AC against attack rolls made to confirm a critical hit. This bonus increases by 1 at 7th level and every 4 fighter levels thereafter, to a maximum of +6 at 19th level."
+      },
+      "Feats": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables the advanced armor training combat feats."
+      },
+      "SteelHeadbutt": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter's base attack bonus - 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter's Strength modifier. Treat this attack as a weapon attack made using the same special material and echantment bonus (if any) as the armor."
+      }
+    },
+    "IsExpanded": true
+  },
+  "FighterAdvancedWeaponTraining": {
+    "DisableAll": false,
+    "Settings": {
+      "DefensiveWeaponTraining": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The fighter gains a +1 shield bonus to his Armor Class. The fighter adds half his weapon's enhancement bonus (if any) to this shield bonus. When his weapon training bonus for weapons from the associated fighter weapon group reaches +4, this shield bonus increases to +2. This shield bonus is lost if the fighter is immobilized or helpless."
+      },
+      "FocusedWeapon": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The fighter selects one weapon for which he has Weapon Focus and that belongs to the associated fighter weapon group. The fighter can deal damage with this weapon based on the damage of the warpriest's sacred weapon class feature, treating his fighter level as his warpriest level. The fighter must have Weapon Focus and Weapon Training with the selected weapon in order to choose this option. A focused weapon deals 1d6 damage, this increases to 1d8 at level 6, 1d10 at level 10, 2d6 at level 15, and 2d8 at level 20"
+      },
+      "TrainedGrace": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When the fighter uses Weapon Finesse to make a melee attack with a weapon, using his Dexterity modifier on attack rolls and his Strength modifier on damage rolls, he doubles his weapon training bonus on damage rolls. The fighter must have Weapon Finesse in order to choose this option."
+      },
+      "TrainedThrow": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When the fighter makes a ranged attack with a thrown weapon and applies his Dexterity modifier on attack rolls and his Strength modifier on damage rolls, he doubles his weapon training bonus on damage rolls."
+      },
+      "WarriorSpirit": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to unlock the weapon's potential. Each day he gains a number of points of spiritual energy equal to 1 + his maximum weapon training bonus. While wielding a weapon he has weapon traiing with, he can spend 1 point of spiritual energy to grant the weapon an enhancement bonus equal to his weapon training bonus. Enhancement bonuses gained by this advanced weapon training option stack with those of the weapon, to a maximum of +5. The fighter can also imbue the weapon with any one weapon special ability with an equivalent enhancement bonus less than or equal to his maximum bonus by reducing the granted enhancement bonus by the amount of the equivalent enhancement bonus. These bonuses last for 1 minute."
+      }
+    },
+    "IsExpanded": true
+  },
+  "MagusArcana": {
+    "DisableAll": false,
+    "Settings": {
+      "BroadStudy": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The magus selects another one of his spellcasting classes. The magus can use his spellstrike and spell combat abilities while casting or using spells from the spell list of that class. This does not allow him to cast arcane spells from that class's spell list without suffering the normal chances of arcane spell failure, unless the spell lacks somatic components."
+      },
+      "SpellBlending": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When a magus selects this arcana, he must select one spell from the wizard spell list that is of a magus spell level he can cast. He adds this spell to his spellbook and list of magus spells known as a magus spell of its wizard spell level. He can instead select two spells to add in this way, but both must be at least one level lower than the highest-level magus spell he can cast."
+      }
+    },
+    "IsExpanded": true
+  },
+  "WizardArcaneDiscoveries": {
+    "DisableAll": false,
+    "Settings": {
+      "AlchemicalAffinity": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you cast a spell that appears on both the wizard and alchemist spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1."
+      },
+      "Idealize": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When a transmutation spell you cast grants an enhancement bonus to an ability score, that bonus increases by 2. At 20th level, the bonus increases by 4."
+      },
+      "KnowledgeIsPower": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You add your Intelligence modifier on combat maneuver checks and to your CMD."
+      },
+      "OppositionResearch": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Select one Wizard opposition school; preparing spells of this school now only requires one spell slot of the appropriate level instead of two."
+      },
+      "YuelralsBlessing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you cast a spell that appears on both the wizard and druid spell lists, you treat your caster level as 1 higher than normal and the save DC of such spells increases by 1."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Races": {
+    "DisableAll": false,
+    "Settings": {
+      "DwarfAlternateTraits": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds additional alternate racial traits."
+      },
+      "ElfAlternateTraits": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds additional alternate racial traits."
+      },
+      "GnomeAlternateTraits": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds additional alternate racial traits."
+      },
+      "HalflingAlternateTraits": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds additional alternate racial traits."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Backgrounds": {
+    "DisableAll": false,
+    "Settings": {
+      "Lecturer": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Spells": {
+    "DisableAll": false,
+    "Settings": {
+      "LongArm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet."
+      },
+      "ShadowEnchantment": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment spell has a damaging effect, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. If recognized as a shadow enchantment, a damaging spell deals only one-fifth (20%) the normal amount of damage. If the disbelieved attack has a special effect other than damage, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. Regardless of the result of the save to disbelieve, an affected creature is also allowed any save (or spell resistance) that the spell being simulated allows, but the save DC is set according to shadow enchantment's level (3rd) rather than the spell's normal level."
+      },
+      "ShadowEnchantmentGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it's only three-fifths (60%) as effective."
+      }
+    },
+    "IsExpanded": true
+  },
+  "MythicAbilities": {
+    "DisableAll": false,
+    "Settings": {
+      "AbundantBlessing": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Blessings a number of additional times per day equal to your mythic rank."
+      },
+      "AbundantBombs": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can throw additional bombs per day equal to twice your mythic rank."
+      },
+      "AbundantLayOnHands": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Lay on Hands a number of additional times per day equal to your mythic rank."
+      },
+      "AbundantIncense": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use incense fog for an additional number of rounds equal to your mythic rank."
+      },
+      "AbundantFervor": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Fervor a number of additional times per day equal to your mythic rank."
+      },
+      "ArmoredMight": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one."
+      },
+      "ArmorMaster": {
+        "Enabled": false,
+        "Homebrew": false,
+        "Description": "You don't take an armor check penalty or incur an arcane spell failure chance when wearing the selected type of armor or using any shield. In addition, the maximum Dexterity bonus of the selected armor type doesn't apply to you."
+      },
+      "ArmorMasterHomebrew": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Alternate versrion of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank."
+      },
+      "EnhancedBlessings": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "The effects from your blessings now last twice as long."
+      },
+      "FavoriteMetamagicSelective": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Reduce the cost of Selective metamagic by 1."
+      },
+      "FavoriteMetamagicPersistent": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Reduce the cost of Selective Persistent by 1."
+      },
+      "HarmoniousMage": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your wizardly studies have moved beyond the concept of opposition schools. Preparing spells from one of your opposition schools now only requires one spell slot of the appropriate level instead of two."
+      },
+      "ImpossibleBlessing": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You gain one more blessing, ignoring all blessing prerequisites."
+      },
+      "ImpossibleSpeed": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your base land speed increases by 30 feet plus an additional 5 feet for every mythic rank."
+      },
+      "MountedManiac": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check."
+      },
+      "MythicSpellCombat": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "The magus can use his spell combat and spellstrike abilities while casting or using spells from a spellbook granted by a mythic class."
+      },
+      "PrecisionCritical": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. These dice are only doubled, not multiplied by the weapon's critical modifier."
+      },
+      "SecondPatron": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You select a second patron, gaining all its benifits."
+      }
+    },
+    "IsExpanded": true
+  },
+  "MythicFeats": {
+    "DisableAll": false,
+    "Settings": {
+      "MythicCombatExpertise": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you use Combat Expertise, you gain an additional +2 dodge bonus to your Armor Class."
+      },
+      "MythicCombatReflexes": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You can make any number of additional attacks of opportunity per round."
+      },
+      "MythicIntimidatingProwess": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain a bonus on Intimidate checks equal to your mythic rank."
+      },
+      "MythicManyshot": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When making a full-attack action with a bow and using Manyshot, you fire two arrows with both your first and second attacks, instead of just your first attack."
+      },
+      "MythicShatterDefenses": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "An opponent you affect with Shatter Defenses is flat-footed to all attacks, not just yours."
+      },
+      "MythicTwoWeaponDefense": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When using Two-Weapon Defense, you apply the highest enhancement bonus from your two weapons to the shield bonus granted by that feat."
+      },
+      "MythicWarriorPriest": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You gain a bonus equal to half your tier both on initiative checks and on concentration checks."
+      },
+      "TitanStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Your unarmed strike deals damage as if you were one size category larger. You also gain a +1 bonus for each size category that your target is larger than you on the following: bull rush, drag, grapple, overrun, sunder, and trip combat maneuver checks and the DC of your Stunning Fist."
+      }
+    },
+    "IsExpanded": true
+  }
+}
