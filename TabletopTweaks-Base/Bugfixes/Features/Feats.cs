@@ -36,6 +36,7 @@ using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
+using TabletopTweaks.Core.NewRules;
 using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;
@@ -703,8 +704,11 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     if (ruleAttackRoll == null) { return; }
                     if (evt.Initiator.Stats.SneakAttack < 1) { return; }
                     if (!ruleAttackRoll.TargetUseFortification) {
-                        UnitPartFortification unitPartFortification = ruleAttackRoll.Target.Get<UnitPartFortification>();
-                        ruleAttackRoll.FortificationChance = ((unitPartFortification != null) ? unitPartFortification.Value : 0);
+                        var FortificationCheck = Rulebook.Trigger<RuleFortificationCheck>(new RuleFortificationCheck(ruleAttackRoll));
+                        if (FortificationCheck.UseFortification) {
+                            ruleAttackRoll.FortificationChance = FortificationCheck.FortificationChance;
+                            ruleAttackRoll.FortificationRoll = FortificationCheck.Roll;
+                        }
                     }
                     if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
                         DamageTypeDescription damageTypeDescription = evt.ResolveRules
@@ -726,8 +730,11 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     if (ruleAttackRoll == null) { return; }
                     if (evt.Initiator.Stats.SneakAttack < 1) { return; }
                     if (!ruleAttackRoll.TargetUseFortification) {
-                        UnitPartFortification unitPartFortification = ruleAttackRoll.Target.Get<UnitPartFortification>();
-                        ruleAttackRoll.FortificationChance = ((unitPartFortification != null) ? unitPartFortification.Value : 0);
+                        var FortificationCheck = Rulebook.Trigger<RuleFortificationCheck>(new RuleFortificationCheck(ruleAttackRoll));
+                        if (FortificationCheck.UseFortification) {
+                            ruleAttackRoll.FortificationChance = FortificationCheck.FortificationChance;
+                            ruleAttackRoll.FortificationRoll = FortificationCheck.Roll;
+                        }
                     }
                     if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
                         DamageTypeDescription damageTypeDescription = evt.DamageBundle
