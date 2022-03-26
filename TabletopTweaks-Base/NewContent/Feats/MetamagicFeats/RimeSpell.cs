@@ -28,7 +28,7 @@ using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
-namespace TabletopTweaks.Base.NewContent.Feats {
+namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class RimeSpell {
         public static void AddRimeSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");

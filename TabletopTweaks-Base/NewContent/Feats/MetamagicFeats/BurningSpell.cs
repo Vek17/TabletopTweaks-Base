@@ -30,7 +30,7 @@ using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
-namespace TabletopTweaks.Base.NewContent.Feats {
+namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class BurningSpell {
         public static void AddBurningSpell() {
             var CausticEruption = BlueprintTools.GetBlueprint<BlueprintAbility>("8c29e953190cc67429dc9c701b16b7c2");

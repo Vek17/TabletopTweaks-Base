@@ -28,7 +28,7 @@ using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
-namespace TabletopTweaks.Base.NewContent.Feats {
+namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class FlaringSpell {
         public static void AddFlaringSpell() {
             var DazzledBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("df6d1025da07524429afbae248845ecc");

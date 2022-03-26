@@ -9,6 +9,8 @@ namespace TabletopTweaks.Base.Config {
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup ArcanistExploits = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
+        public SettingGroup ArmorMasteryFeats = new SettingGroup();
+        public SettingGroup ShieldMasteryFeats = new SettingGroup();
         public SettingGroup FighterAdvancedArmorTraining = new SettingGroup();
         public SettingGroup FighterAdvancedWeaponTraining = new SettingGroup();
         public SettingGroup MagusArcana = new SettingGroup();
@@ -31,6 +33,8 @@ namespace TabletopTweaks.Base.Config {
             ArcanistExploits.LoadSettingGroup(loadedSettings.ArcanistExploits, NewSettingsOffByDefault);
             Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
             FighterAdvancedArmorTraining.LoadSettingGroup(loadedSettings.FighterAdvancedArmorTraining, NewSettingsOffByDefault);
+            ArmorMasteryFeats.LoadSettingGroup(loadedSettings.ArmorMasteryFeats, NewSettingsOffByDefault);
+            ShieldMasteryFeats.LoadSettingGroup(loadedSettings.ShieldMasteryFeats, NewSettingsOffByDefault);
             FighterAdvancedWeaponTraining.LoadSettingGroup(loadedSettings.FighterAdvancedWeaponTraining, NewSettingsOffByDefault);
             MagusArcana.LoadSettingGroup(loadedSettings.MagusArcana, NewSettingsOffByDefault);
             WizardArcaneDiscoveries.LoadSettingGroup(loadedSettings.WizardArcaneDiscoveries, NewSettingsOffByDefault);

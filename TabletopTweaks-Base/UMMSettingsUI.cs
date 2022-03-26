@@ -9,7 +9,8 @@ namespace TabletopTweaks.Base {
             ModKit.UI.AutoWidth();
             ModKit.UI.TabBar(ref selectedTab,
                     () => ModKit.UI.Label("SETTINGS WILL NOT BE UPDATED UNTIL YOU RESTART YOUR GAME.".yellow().bold()),
-                    new NamedAction("UI", () => SettingsTabs.Fixes())
+                    new NamedAction("Fixes", () => SettingsTabs.Fixes()),
+                    new NamedAction("Added Content", () => SettingsTabs.AddedContent())
             );
         }
     }
@@ -125,6 +126,32 @@ namespace TabletopTweaks.Base {
                     ("Equipment", Fixes.Items.Equipment),
                     ("Weapons", Fixes.Items.Weapons)
                 );
+            }
+        }
+        public static void AddedContent() {
+            var TabLevel = SetttingUI.TabLevel.Zero;
+            var AddedContent = Main.TTTContext.AddedContent;
+            UI.Div(0, 15);
+            using (UI.VerticalScope()) {
+                UI.Toggle("New Settings Off By Default".bold(), ref AddedContent.NewSettingsOffByDefault);
+                UI.Space(25);
+
+                SetttingUI.SettingGroup("Archetypes", TabLevel, AddedContent.Archetypes);
+                SetttingUI.SettingGroup("Base Abilities", TabLevel, AddedContent.BaseAbilities);
+                SetttingUI.SettingGroup("Bloodlines", TabLevel, AddedContent.Bloodlines);
+                SetttingUI.SettingGroup("Arcanist Exploits", TabLevel, AddedContent.ArcanistExploits);
+                SetttingUI.SettingGroup("Feats", TabLevel, AddedContent.Feats);
+                SetttingUI.SettingGroup("Armor Mastery Feats", TabLevel, AddedContent.ArmorMasteryFeats);
+                SetttingUI.SettingGroup("Shield Mastery Feats", TabLevel, AddedContent.ShieldMasteryFeats);
+                SetttingUI.SettingGroup("Fighter Advanced Armor Training", TabLevel, AddedContent.FighterAdvancedArmorTraining);
+                SetttingUI.SettingGroup("Fighter Advanced Weapon Training", TabLevel, AddedContent.FighterAdvancedWeaponTraining);
+                SetttingUI.SettingGroup("Magus Arcana", TabLevel, AddedContent.MagusArcana);
+                SetttingUI.SettingGroup("Wizard Arcane Discoveries", TabLevel, AddedContent.WizardArcaneDiscoveries);
+                SetttingUI.SettingGroup("Races", TabLevel, AddedContent.Races);
+                SetttingUI.SettingGroup("Backgrounds", TabLevel, AddedContent.Backgrounds);
+                SetttingUI.SettingGroup("Spells", TabLevel, AddedContent.Spells);
+                SetttingUI.SettingGroup("Mythic Abilities", TabLevel, AddedContent.MythicAbilities);
+                SetttingUI.SettingGroup("Mythic Feats", TabLevel, AddedContent.MythicFeats);
             }
         }
     }

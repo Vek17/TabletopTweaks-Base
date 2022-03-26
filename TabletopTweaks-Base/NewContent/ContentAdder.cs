@@ -31,13 +31,13 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.MagicalTailSpells.AddNewMagicalTailSpells();
 
                 //Added early as some things depend on them for selections
-                Feats.IntensifiedSpell.AddIntensifiedSpell();
-                Feats.RimeSpell.AddRimeSpell();
-                Feats.BurningSpell.AddBurningSpell();
-                Feats.FlaringSpell.AddFlaringSpell();
-                Feats.PiercingSpell.AddPiercingSpell();
-                Feats.SolidShadows.AddSolidShadows();
-                Feats.EncouragingSpell.AddEncouragingSpell();
+                Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();
+                Feats.MetamagicFeats.RimeSpell.AddRimeSpell();
+                Feats.MetamagicFeats.BurningSpell.AddBurningSpell();
+                Feats.MetamagicFeats.FlaringSpell.AddFlaringSpell();
+                Feats.MetamagicFeats.PiercingSpell.AddPiercingSpell();
+                Feats.MetamagicFeats.SolidShadows.AddSolidShadows();
+                Feats.MetamagicFeats.EncouragingSpell.AddEncouragingSpell();
 
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();
@@ -89,6 +89,12 @@ namespace TabletopTweaks.Base.NewContent {
                 FighterAdvancedArmorTrainings.ArmorSpecialization.AddArmorSpecialization();
                 FighterAdvancedArmorTrainings.CriticalDeflection.AddCriticalDeflection();
                 FighterAdvancedArmorTrainings.SteelHeadbutt.AddSteelHeadbutt();
+
+                Feats.ArmorMastery.ArmorMastery.AddArmorMasterySelection();
+                Feats.ArmorMastery.SprightlyArmor.AddSprightlyArmor();
+                Feats.ArmorMastery.IntenseBlows.AddIntenseBlows();
+                Feats.ArmorMastery.KnockingBlows.AddKnockingBlows();
+                Feats.ArmorMastery.SecuredArmor.AddSecuredArmor();
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();

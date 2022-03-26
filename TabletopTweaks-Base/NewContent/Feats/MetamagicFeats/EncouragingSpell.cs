@@ -31,7 +31,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 using HarmonyLib;
 
-namespace TabletopTweaks.Base.NewContent.Feats {
+namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class EncouragingSpell {
         public static void AddEncouragingSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
@@ -44,7 +44,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var EncouragingSpellFeat = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "EncouragingSpellFeat", bp => {
                 bp.SetName(TTTContext, "Metamagic (Encouraging Spell)");
                 bp.SetDescription(TTTContext, "Your inspiration provides your allies with greater support.\n" +
-                    "Benefit(s): Any morale bonus granted by an encouraging spell is increased by 1.\n" +
+                    "Benefit: Any morale bonus granted by an encouraging spell is increased by 1.\n" +
                     "Level Increase: +1 (an encouraging spell uses up a spell slot 1 level higher than the spell’s actual level.)");
                 bp.m_Icon = Icon_EncouragingSpellFeat;
                 bp.Ranks = 1;
@@ -103,7 +103,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 metamagicDescription: "Encouraging Spell: Any morale bonus granted by an encouraging spell is increased by 1."
             );
 
-            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicEncouragingSpell")) { return; }
 
             UpdateSpells();
             //AddRodsToVenders();
@@ -115,7 +115,6 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var spells = SpellTools.GetAllSpells()
                 .Where(s => s.AssetGuid.m_Guid != Guid.Parse("8bc64d869456b004b9db255cdd1ea734") /*Exclude Bane*/);
             foreach (var spell in spells) {
-                //bool validEncouraging = true;
                 bool validEncouraging = spell
                     .AbilityAndVariants()
                     .SelectMany(s => s.AbilityAndStickyTouch())
