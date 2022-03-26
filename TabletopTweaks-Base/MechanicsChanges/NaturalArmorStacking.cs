@@ -18,8 +18,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Core.Wrappers;
-using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Base.MechanicsChanges {
     internal static class NaturalArmorStacking {

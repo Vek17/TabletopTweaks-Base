@@ -1,7 +1,7 @@
-﻿using TabletopTweaks.Core.ModLogic;
-using TabletopTweaks.Base.Config;
-using static UnityModManagerNet.UnityModManager;
+﻿using TabletopTweaks.Base.Config;
+using TabletopTweaks.Core.ModLogic;
 using static TabletopTweaks.Base.Main;
+using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks.Base.ModLogic {
     internal class ModContextTTTBase : ModContextBase {

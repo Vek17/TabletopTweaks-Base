@@ -13,8 +13,8 @@ using Kingmaker.UnitLogic.Parts;
 using System;
 using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Core.Wrappers;
-using static TabletopTweaks.Core.MechanicsChanges.ActivatableAbilitySpendLogic;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.MechanicsChanges.ActivatableAbilitySpendLogic;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Magus {

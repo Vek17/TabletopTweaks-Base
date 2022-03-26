@@ -96,6 +96,11 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.ArmorMastery.KnockingBlows.AddKnockingBlows();
                 Feats.ArmorMastery.SecuredArmor.AddSecuredArmor();
 
+                Feats.ShieldMastery.ShieldMastery.AddShieldMasterySelection();
+                Feats.ShieldMastery.DefendedMovement.AddDefendedMovement();
+                Feats.ShieldMastery.StumblingBash.AddStumblingBash();
+                Feats.ShieldMastery.TopplingBash.AddTopplingBash();
+
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();
                 Bloodlines.AberrantBloodline.AddSorcererAberrantBloodline();

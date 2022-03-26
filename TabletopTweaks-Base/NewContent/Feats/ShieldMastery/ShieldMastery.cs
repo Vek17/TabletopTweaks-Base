@@ -1,16 +1,14 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Designers.Mechanics.Facts;
 using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Core.Wrappers;
-using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
     public static class ShieldMastery {
-        internal static void AddShieldMastery() {
+        internal static void AddShieldMasterySelection() {
             var FighterClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("48ac8db94d5de7645906c7d0ad3bcfbd");
             var ArmorTraining = BlueprintTools.GetBlueprint<BlueprintFeature>("3c380607706f209499d951b29d3c44f3");
             var ShieldFocus = BlueprintTools.GetBlueprint<BlueprintFeature>("ac57069b6bf8c904086171683992a92a");
@@ -28,21 +26,13 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                     "feats count as combat feats for all purposes, including which classes can select them as bonus feats. " +
                     "You gain the benefits of a shield mastery feat only while wielding a shield with which you are proficient.");
 
-             bp.m_AllFeatures = new BlueprintFeatureReference[0];
+                bp.m_AllFeatures = new BlueprintFeatureReference[0];
                 bp.m_Features = new BlueprintFeatureReference[0];
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
-                bp.AddPrerequisite<PrerequisiteClassLevel>(c => {
-                    c.m_CharacterClass = FighterClass.ToReference<BlueprintCharacterClassReference>();
-                    c.Level = 7;
-                    c.Group = GroupType.Any;
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Defense;
                 });
-                bp.AddPrerequisite<PrerequisiteStatValue>(c => {
-                    c.Stat = StatType.BaseAttackBonus;
-                    c.Value = 11;
-                    c.Group = GroupType.Any;
-                });
-                bp.AddPrerequisiteFeaturesFromList(1, ArmorTraining, ShieldFocus);
             });
         }
         public static void AddToShieldMasterySelection(params BlueprintFeature[] features) {

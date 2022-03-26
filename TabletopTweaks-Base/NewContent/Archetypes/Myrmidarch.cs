@@ -39,7 +39,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.Levels = SwordSaintSpellLevels.Levels.Select(level => SpellTools.CreateSpellLevelEntry(level.Count)).ToArray();
             });
 
-            var MyrmidarchSpellbook = MagusClass.Spellbook.CreateCopy(TTTContext, "MyrmidarchSpellbook",bp => {
+            var MyrmidarchSpellbook = MagusClass.Spellbook.CreateCopy(TTTContext, "MyrmidarchSpellbook", bp => {
                 bp.m_SpellsPerDay = MyrmidarchSpellLevels.ToReference<BlueprintSpellsTableReference>();
                 SpellTools.Spellbook.AllSpellbooks.Add(bp);
             });

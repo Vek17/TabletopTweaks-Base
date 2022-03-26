@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Base.MechanicsChanges {
     internal class CannyDefenseStacking {

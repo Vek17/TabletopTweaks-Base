@@ -25,7 +25,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;

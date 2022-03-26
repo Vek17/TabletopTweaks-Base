@@ -1,8 +1,8 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.UnitLogic.Abilities;
-using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.MechanicsChanges;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;

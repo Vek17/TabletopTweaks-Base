@@ -16,3 +16,10 @@
 		* When you are hit by a confirmed critical hit or a sneak attack while wearing medium or heavy armor, there is a 25% chance that the critical hit or sneak attack is negated and damage is instead rolled normally. Special: This chance stacks with the light fortification and moderate fortification armor special abilities.
 	* Sprightly Armor
 		* While wearing light armor you add your armor’s enhancement bonus as a bonus on your initiative checks.
+* Added Shield Mastery Feats
+	* Defended Movement
+		* You gain a +2 bonus to your AC against attacks of opportunity.
+	* Stumbling Bash
+		* Creatures struck by your shield bash take a –2 penalty to their AC until the end of your next turn.
+	* Toppling Bash
+		* As a swift action when you hit a creature with a shield bash, you can attempt a trip combat maneuver against that creature at a –5 penalty. This does not provoke an attack of opportunity.

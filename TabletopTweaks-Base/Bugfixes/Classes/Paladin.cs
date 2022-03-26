@@ -8,8 +8,8 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System.Linq;
 using TabletopTweaks.Core.Utilities;
-using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Paladin {

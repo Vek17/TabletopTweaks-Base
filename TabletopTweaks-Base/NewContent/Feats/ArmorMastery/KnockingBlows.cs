@@ -1,7 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -64,7 +63,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ArmorMastery {
                         Helpers.Create<Conditional>(condition => {
                             condition.ConditionsChecker = new ConditionsChecker() {
                                 Conditions = new Condition[] {
-                                    new ContextConditionSizeDifferneceFromCaster(){ 
+                                    new ContextConditionSizeDifferneceFromCaster(){
                                         delta = 1
                                     }
                                 }

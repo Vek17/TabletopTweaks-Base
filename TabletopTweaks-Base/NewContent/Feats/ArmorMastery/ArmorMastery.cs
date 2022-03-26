@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;
@@ -28,6 +29,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.ArmorMastery {
                 bp.m_Features = new BlueprintFeatureReference[0];
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Defense;
+                });
             });
         }
         public static void AddToArmorMasterySelection(params BlueprintFeature[] features) {

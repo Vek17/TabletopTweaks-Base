@@ -7,8 +7,8 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
-using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Base.Bugfixes.Features {
     static class MythicFeats {

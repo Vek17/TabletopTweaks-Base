@@ -1,4 +1,6 @@
-﻿using Kingmaker.Blueprints;
+﻿using HarmonyLib;
+using JetBrains.Annotations;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -6,30 +8,25 @@ using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
-using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using System;
 using System.Linq;
-using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.MechanicsChanges;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewEvents;
 using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
-using JetBrains.Annotations;
-using Kingmaker.EntitySystem;
-using Kingmaker.RuleSystem;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using System;
-using HarmonyLib;
 
 namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class EncouragingSpell {

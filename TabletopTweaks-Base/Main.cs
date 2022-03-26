@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
-using TabletopTweaks.Core.Utilities;
 using TabletopTweaks.Base.ModLogic;
+using TabletopTweaks.Core.Utilities;
 using UnityModManagerNet;
 
 namespace TabletopTweaks.Base {
