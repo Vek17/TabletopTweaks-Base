@@ -23,8 +23,10 @@ namespace TabletopTweaks.Base.ModLogic {
 
         public override void AfterBlueprintCachePatches() {
             base.AfterBlueprintCachePatches();
-            Blueprints.RemoveUnused();
-            SaveSettings(BlueprintsFile, Blueprints);
+            //Blueprints.RemoveUnused();
+            //SaveSettings(BlueprintsFile, Blueprints);
+            //ModLocalizationPack.RemoveUnused();
+            //SaveLocalization(ModLocalizationPack);
         }
 
         public override void SaveAllSettings() {
