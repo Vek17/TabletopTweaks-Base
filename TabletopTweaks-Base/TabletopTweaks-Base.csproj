@@ -606,6 +606,9 @@
     <Content Include="Assets\Feats\Icon_EncouragingSpellFeat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Feats\Icon_ErastilsBlessingFeat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Feats\Icon_FlaringSpellFeat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

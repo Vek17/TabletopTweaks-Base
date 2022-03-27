@@ -22,11 +22,13 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var CompositeShortbow = BlueprintTools.GetBlueprint<BlueprintWeaponType>("011f6f86a0b16df4bbf7f40878c3e80b");
             var Longbow = BlueprintTools.GetBlueprint<BlueprintWeaponType>("7a1211c05ec2c46428f41e3c0db9423f");
             var Shortbow = BlueprintTools.GetBlueprint<BlueprintWeaponType>("99ce02fb54639b5439d07c99c55b8542");
+            var Icon_ErastilsBlessingFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_ErastilsBlessingFeat.png");
 
             var ErastilsBlessingFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ErastilsBlessingFeature", bp => {
                 bp.SetName(TTTContext, "Erastil's Blessing");
                 bp.SetDescription(TTTContext, "Your deity grants you prowess with a bow that far exceeds your own physical capabilities.\n" +
                     "You can use your Wisdom modifier instead of your Dexterity modifier on ranged attack rolls when using a bow.");
+                bp.m_Icon = Icon_ErastilsBlessingFeat;
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;

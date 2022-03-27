@@ -1,6 +1,7 @@
 ## Version 1.0.0
 * Fixes
-	* Fixed issue with some effects being considered polymorphs incorrectly
+	* Fixed issue with some effects being considered polymorphs incorrectly.
+	* Fixed issues with Destined Bloodline's Touch of Destiny applying bonuses incorrectly.
 * Added Metamagic
 	* Encouraging Metamagic
 		* Any morale bonus granted by an encouraging spell is increased by 1.

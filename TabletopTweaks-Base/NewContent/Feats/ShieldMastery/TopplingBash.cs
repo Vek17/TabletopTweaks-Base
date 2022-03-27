@@ -50,6 +50,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                     "Benefit: As a swift action when you hit a creature with a shield bash, " +
                     "you can attempt a trip combat maneuver against that creature at a –5 penalty. " +
                     "This does not provoke an attack of opportunity.");
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.m_Icon = ShieldBashFeature.Icon;
                 bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
                     c.OnlyHit = true;
