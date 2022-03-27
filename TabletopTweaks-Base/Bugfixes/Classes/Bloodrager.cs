@@ -308,7 +308,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 TTTContext.Logger.LogPatch("Patched", BloodragerArcaneSpellAbility);
             }
-
             static void PatchGreaterArcaneBloodrage() {
                 if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
                 var BloodragerArcaneGreaterSpell = BlueprintTools.GetBlueprint<BlueprintAbility>("31dbadf586920494b87e8e95452af998");
@@ -322,7 +321,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 TTTContext.Logger.LogPatch("Patched", BloodragerArcaneGreaterSpell);
             }
-
             static void PatchTrueArcaneBloodrage() {
                 if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
                 var BloodragerArcaneTrueSpellAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("9d4d7f56d2d87f643b5ef990ef481094");
@@ -345,9 +343,24 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 TTTContext.Logger.LogPatch("Patched", BloodragerArcaneTrueSpellAbility);
             }
+            static void PatchDisruptiveBloodrage() {
+                if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("DisruptiveBloodrage")) { return; }
+                var BloodragerArcaneBloodlineBaseBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b500dec368206eb41808fb73238b8769");
+                var BloodragerArcaneDisruptive = BlueprintTools.GetBlueprint<BlueprintFeature>("d8cb753a508c6fd4090a9c67ad0c1e58");
+                var BloodragerArcaneDisruptiveBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("0e8083dbeec00a84dafa6e5be0408d1f");
 
+                BloodragerArcaneBloodlineBaseBuff.AddConditionalBuff(BloodragerArcaneDisruptive, BloodragerArcaneDisruptiveBuff);
+                TTTContext.Logger.LogPatch("Patched", BloodragerArcaneDisruptive);
+            }
+            static void PatchCastersBane() {
+                if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("CastersBane")) { return; }
+                var BloodragerArcaneBloodlineBaseBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b500dec368206eb41808fb73238b8769");
+                var BloodragerArcaneCastersBane = BlueprintTools.GetBlueprint<BlueprintFeature>("7327c5f0d02a4eb99949da59603263a3");
+                var BloodragerArcaneCastersBaneBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b0dd4cb1813340c3b724062b0f6842b0");
 
-
+                BloodragerArcaneBloodlineBaseBuff.AddConditionalBuff(BloodragerArcaneCastersBane, BloodragerArcaneCastersBaneBuff);
+                TTTContext.Logger.LogPatch("Patched", BloodragerArcaneCastersBane);
+            }
         }
     }
 }

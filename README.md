@@ -231,6 +231,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Enables abysal bulk to not dispel existing enlarge person when rage ends.
     * Arcane Bloodrage
         * Completly rebuilds arcane bloodrage with new UI
+    * Disruptive Bloodrage
+        * Now properly triggers for arcane bloodragers.
+    * Caster's Bane
+        * Now properly triggers for arcane bloodragers.
     * Spellbook
         * Fixes spell progression to not incorrectly qualify for some features that require casting early.
     * Primalist
@@ -427,6 +431,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 * Metamagic
     * Burning Spell (Metamagic)
         * The acid or fire effects of the affected spell adhere to the creature, causing more damage the next round. When a creature takes acid or fire damage from the affected spell, that creature takes damage equal to 2x the spell’s actual level at the start of its next turn. The damage is acid or fire, as determined by the spell’s descriptor.
+    * Encouraging Spell (Metamagic)
+		* Any morale bonus granted by an encouraging spell is increased by 1.
     * Flaring Spell (Metamagic)
         * The electricity, fire, or light effects of the affected spell create a flaring that dazzles creatures that take damage from the spell. A flare spell causes a creature that takes fire or electricity damage from the affected spell to become dazzled for a number of rounds equal to the actual level of the spell. A flaring spell only affects spells with a fire, light, or electricity descriptor.
     * Intensified Spell (Metamagic)
@@ -512,7 +518,29 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * VarisianTattoo
         * Select a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level.
 
+* Armor Mastery Feats
+    * Intense Blows
+		* When wearing heavy armor and using Power Attack, you gain a +1 bonus to your CMD until the beginning of your next turn. When your base attack bonus reaches +4, and every 4 points thereafter, this bonus increases by another 1.
+	* Knocking Blows
+		* While wearing heavy armor if you hit a creature that is no more than one size category larger than you with a Power Attack, the creature you attacked is also knocked off balance. Until the beginning of your next turn, it takes a –4 penalty to its CMD against combat maneuvers that move it or knock it prone.
+	* Secured Armor
+		* When you are hit by a confirmed critical hit or a sneak attack while wearing medium or heavy armor, there is a 25% chance that the critical hit or sneak attack is negated and damage is instead rolled normally. Special: This chance stacks with the light fortification and moderate fortification armor special abilities.
+	* Sprightly Armor
+		* While wearing light armor you add your armor’s enhancement bonus as a bonus on your initiative checks.
+
+* Shield Mastery Feats
+    * Defended Movement
+		* You gain a +2 bonus to your AC against attacks of opportunity.
+	* Stumbling Bash
+		* Creatures struck by your shield bash take a –2 penalty to their AC until the end of your next turn.
+	* Toppling Bash
+		* As a swift action when you hit a creature with a shield bash, you can attempt a trip combat maneuver against that creature at a –5 penalty. This does not provoke an attack of opportunity.
+	* Tower Shield Specialist
+		* You reduce the armor check penalty for tower shields by 3, and if you have the armor training class feature, you modify the armor check penalty and maximum Dexterity bonus of tower shields as if they were armor.
+
 * Mythic Feats
+    * Critical Focus (Mythic)
+		* You automatically confirm critical threats against non-mythic opponents. In addition, when you threaten a critical hit against a creature wearing armor with the fortification special ability or similar effect, that creature must roll twice and take the worse result when determining critical hit negation.
     * Combat Expertise (Mythic)
         * Whenever you use Combat Expertise, you gain an additional +2 dodge bonus to your Armor Class.
     * Combat Reflexes (Mythic)

@@ -287,6 +287,16 @@
           "Homebrew": false,
           "Description": "Rebuilds the arcane bloodrager UI to be less awful."
         },
+        "CastersBane": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Enables Caster's basne arcane bloodrager capstone."
+        },
+        "DisruptiveBloodrage": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Enables disruptive bloodrage for arcane bloodrager."
+        },
         "Spellbook": {
           "Enabled": true,
           "Homebrew": false,

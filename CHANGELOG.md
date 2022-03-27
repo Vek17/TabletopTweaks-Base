@@ -2,6 +2,8 @@
 * Fixes
 	* Fixed issue with some effects being considered polymorphs incorrectly.
 	* Fixed issues with Destined Bloodline's Touch of Destiny applying bonuses incorrectly.
+    * Fixed disruptive bloodraget not triggering on arcane bloodrage.
+    * Fixed caster's bane not triggering for arcane bloodrage.
 * Added Metamagic
 	* Encouraging Metamagic
 		* Any morale bonus granted by an encouraging spell is increased by 1.
