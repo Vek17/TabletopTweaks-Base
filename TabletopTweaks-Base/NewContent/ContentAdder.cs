@@ -100,6 +100,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.ShieldMastery.DefendedMovement.AddDefendedMovement();
                 Feats.ShieldMastery.StumblingBash.AddStumblingBash();
                 Feats.ShieldMastery.TopplingBash.AddTopplingBash();
+                Feats.ShieldMastery.TowerShieldSpecialist.AddTowerShieldSpecialist();
 
                 Bloodlines.BloodlineRequisiteFeature.AddBloodlineRequisiteFeature();
                 Bloodlines.AberrantBloodline.AddBloodragerAberrantBloodline();

@@ -33,6 +33,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
             var DefendedMovementFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "DefendedMovementFeature", bp => {
                 bp.SetName(DefendedMovementEffect.m_DisplayName);
                 bp.SetDescription(DefendedMovementEffect.m_Description);
+                bp.m_Icon = ShieldFocus.Icon;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };

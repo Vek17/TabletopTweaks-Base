@@ -23,3 +23,5 @@
 		* Creatures struck by your shield bash take a –2 penalty to their AC until the end of your next turn.
 	* Toppling Bash
 		* As a swift action when you hit a creature with a shield bash, you can attempt a trip combat maneuver against that creature at a –5 penalty. This does not provoke an attack of opportunity.
+	* Tower Shield Specialist
+		* You reduce the armor check penalty for tower shields by 3, and if you have the armor training class feature, you modify the armor check penalty and maximum Dexterity bonus of tower shields as if they were armor.

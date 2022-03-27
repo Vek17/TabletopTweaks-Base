@@ -86,6 +86,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ArmorMastery {
             var KnockingBlowsFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "KnockingBlowsFeature", bp => {
                 bp.SetName(KnockingBlowsBuff.m_DisplayName);
                 bp.SetDescription(KnockingBlowsBuff.m_Description);
+                bp.m_Icon = ArmorFocusLight.Icon;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };

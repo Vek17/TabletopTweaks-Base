@@ -54,6 +54,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ArmorMastery {
             var IntenseBlowsFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "IntenseBlowsFeature", bp => {
                 bp.SetName(IntenseBlowsEffect.m_DisplayName);
                 bp.SetDescription(IntenseBlowsEffect.m_Description);
+                bp.m_Icon = ArmorFocusLight.Icon;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };

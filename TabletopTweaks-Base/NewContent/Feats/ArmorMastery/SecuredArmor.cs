@@ -97,6 +97,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ArmorMastery {
             var SecuredArmorFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "SecuredArmorFeature", bp => {
                 bp.SetName(SecuredArmorEffect.m_DisplayName);
                 bp.SetDescription(SecuredArmorEffect.m_Description);
+                bp.m_Icon = ArmorFocusLight.Icon;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };

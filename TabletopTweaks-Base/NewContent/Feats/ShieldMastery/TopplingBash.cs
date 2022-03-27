@@ -116,7 +116,6 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                 bp.SetName(TopplingBashEffectBuff.m_DisplayName);
                 bp.SetDescription(TopplingBashEffectBuff.m_Description);
                 bp.m_Icon = ShieldBashFeature.Icon;
-                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<AddFactContextActions>(c => {
                     c.Activated = Helpers.CreateActionList(
                         Helpers.Create<ContextActionApplyBuff>(a => {
@@ -169,6 +168,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
             var TopplingBashFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "TopplingBashFeature", bp => {
                 bp.SetName(TopplingBashEffect.m_DisplayName);
                 bp.SetDescription(TopplingBashEffect.m_Description);
+                bp.m_Icon = TopplingBashEffectBuff.Icon;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };

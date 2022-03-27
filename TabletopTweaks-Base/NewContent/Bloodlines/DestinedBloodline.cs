@@ -675,6 +675,14 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                         ValueRank = AbilityRankType.StatBonus
                     };
                 });
+                bp.AddComponent<AddContextStatBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Insight;
+                    c.Stat = StatType.SaveWill;
+                    c.Value = new ContextValue {
+                        ValueType = ContextValueType.Rank,
+                        ValueRank = AbilityRankType.StatBonus
+                    };
+                });
                 bp.AddComponent<BuffAllSkillsBonus>(c => {
                     c.Descriptor = ModifierDescriptor.Insight;
                     c.Value = 1;
@@ -701,6 +709,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 bp.SetDescription(TTTContext, "At 1st level, you can touch a creature as a standard action, giving it an insight bonus on attack rolls, skill checks, "
                     + "ability checks, and saving throws equal to 1/2 your sorcerer level (minimum 1) for 1 round. You can use this ability a number of "
                     + "times per day equal to 3 + your Charisma modifier.");
+                bp.Type = AbilityType.SpellLike;
                 bp.LocalizedDuration = new Kingmaker.Localization.LocalizedString();
                 bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
                 bp.CanTargetFriends = true;

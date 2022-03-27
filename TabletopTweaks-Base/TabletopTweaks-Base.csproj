@@ -297,6 +297,7 @@
     <Compile Include="NewContent\Feats\ShieldMastery\ShieldMastery.cs" />
     <Compile Include="NewContent\Feats\ShieldMastery\StumblingBash.cs" />
     <Compile Include="NewContent\Feats\ShieldMastery\TopplingBash.cs" />
+    <Compile Include="NewContent\Feats\ShieldMastery\TowerShieldSpecialist.cs" />
     <Compile Include="NewContent\Feats\ShingleRunner.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\SolidShadows.cs" />
     <Compile Include="NewContent\Feats\SpellSpecializationGreater.cs" />

@@ -134,7 +134,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 bp.SetDescription(TTTContext, "While wearing armor or wielding a shield, you reduce the armor check penalty by 1 per mythic rank " +
                     "and increase the maximum Dexterity bonus allowed by 1 per mythic rank. " +
                     "Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank.");
-                bp.AddComponent<ContextMaxDexBonusIncrease>(c => {
+                bp.AddComponent<ContextArmorMaxDexBonusIncrease>(c => {
                     c.CheckCategory = true;
                     c.Categorys = new ArmorProficiencyGroup[] {
                         ArmorProficiencyGroup.Light,
