@@ -176,6 +176,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.TwoWeaponDefense.AddTwoWeaponDefense();
                 Feats.VarisianTattoo.AddVarisianTattoo();
                 Feats.QuickenBlessing.AddQuickenBlessing();
+                Feats.RivingStrike.AddRivingStrike();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

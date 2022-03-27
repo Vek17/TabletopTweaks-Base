@@ -286,6 +286,7 @@
     <Compile Include="NewContent\Feats\QuickDraw.cs" />
     <Compile Include="NewContent\Feats\QuickenBlessing.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\RimeSpell.cs" />
+    <Compile Include="NewContent\Feats\RivingStrike.cs" />
     <Compile Include="NewContent\Feats\Scholar.cs" />
     <Compile Include="NewContent\Feats\SelfSufficient.cs" />
     <Compile Include="NewContent\Feats\ShatterDefenses.cs" />

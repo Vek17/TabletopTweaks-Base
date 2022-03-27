@@ -262,6 +262,11 @@
         "Homebrew": false,
         "Description": "Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead."
       },
+      "RivingStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "If you have a weapon that is augmented by your Arcane Strike feat, when you damage a creature with an attack made with that weapon, that creature takes a –2 penalty on saving throws against spells and spell-like abilities. This effect lasts for 1 round."
+      },
       "Scholar": {
         "Enabled": true,
         "Homebrew": false,
