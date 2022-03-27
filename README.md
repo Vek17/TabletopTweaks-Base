@@ -499,6 +499,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * You can draw a weapon as a free action instead of as a move action.
     * Quicken Blessing
         * Choose one of your blessings that normally requires a standard action to use. You can expend two of your daily uses of blessings to deliver that blessing (regardless of whether it’s a minor or major effect) as a swift action instead.
+    * Riving Strike
+        * If you have a weapon that is augmented by your Arcane Strike feat, when you damage a creature with an attack made with that weapon, that creature takes a –2 penalty on saving throws against spells and spell-like abilities. This effect lasts for 1 round.
     * Scholar
         * You get a +2 bonus on Knowledge (Arcana) and Knowledge (World) skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.
     * Self-Sufficient

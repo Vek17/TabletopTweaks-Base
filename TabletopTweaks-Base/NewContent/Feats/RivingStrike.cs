@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -69,6 +70,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.AddPrerequisite<PrerequisiteCasterTypeSpellLevel>(c => {
                     c.IsArcane = true;
                     c.RequiredSpellLevel = 1;
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Attack | FeatureTag.Magic;
                 });
             });
 
