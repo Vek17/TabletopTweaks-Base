@@ -12,7 +12,6 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.Spells {

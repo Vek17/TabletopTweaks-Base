@@ -18,7 +18,6 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 using static TabletopTweaks.Base.Main;
 

@@ -10,7 +10,6 @@ using Kingmaker.Visual.Animation.Kingmaker.Actions;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.MythicAbilities {

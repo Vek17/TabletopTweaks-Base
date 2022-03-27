@@ -1,8 +1,8 @@
 ﻿{
     "Releases": [
         {
-            "Id": "TabletopTweaks-MythicReworks",
-            "Version": "1.0.0"
+            "Id": "TabletopTweaks-Base",
+            "Version": "2.0.0"
         }
     ]
 }

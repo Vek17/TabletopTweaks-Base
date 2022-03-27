@@ -5,7 +5,6 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Abilities;
 using System.Linq;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static Kingmaker.Designers.Mechanics.Facts.AutoMetamagic;
 using static TabletopTweaks.Base.Main;
 

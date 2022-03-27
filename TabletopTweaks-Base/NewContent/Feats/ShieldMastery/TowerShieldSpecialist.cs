@@ -4,12 +4,10 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 using static TabletopTweaks.Base.Main;
 
@@ -29,7 +27,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.AddComponent<ArmorCheckPenaltyIncrease>(c => {
-                    c.Bonus = new ContextValue() { 
+                    c.Bonus = new ContextValue() {
                         ValueType = ContextValueType.Rank
                     };
                     c.CheckCategory = true;
@@ -57,7 +55,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                     c.CheckCategory = true;
                     c.Category = ArmorProficiencyGroup.TowerShield;
                 });
-                bp.AddComponent<HasFactFeatureUnlock>(c => { 
+                bp.AddComponent<HasFactFeatureUnlock>(c => {
                     c.m_CheckedFact = ArmorTraining.ToReference<BlueprintUnitFactReference>();
                     c.m_Feature = TowerShieldSpecialistTrainingEffect.ToReference<BlueprintUnitFactReference>();
                 });

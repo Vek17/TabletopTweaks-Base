@@ -1,21 +1,20 @@
-﻿using ModKit;
-using TabletopTweaks.Core;
+﻿using TabletopTweaks.Core.UMMTools;
 using UnityModManagerNet;
 
 namespace TabletopTweaks.Base {
     internal static class UMMSettingsUI {
         private static int selectedTab;
         public static void OnGUI(UnityModManager.ModEntry modEntry) {
-            ModKit.UI.AutoWidth();
-            ModKit.UI.TabBar(ref selectedTab,
-                    () => ModKit.UI.Label("SETTINGS WILL NOT BE UPDATED UNTIL YOU RESTART YOUR GAME.".yellow().bold()),
+            UI.AutoWidth();
+            UI.TabBar(ref selectedTab,
+                    () => UI.Label("SETTINGS WILL NOT BE UPDATED UNTIL YOU RESTART YOUR GAME.".yellow().bold()),
                     new NamedAction("Fixes", () => SettingsTabs.Fixes()),
                     new NamedAction("Added Content", () => SettingsTabs.AddedContent())
             );
         }
     }
 
-    static class SettingsTabs {
+    internal static class SettingsTabs {
         public static void Fixes() {
             var TabLevel = SetttingUI.TabLevel.Zero;
             var Fixes = Main.TTTContext.Fixes;

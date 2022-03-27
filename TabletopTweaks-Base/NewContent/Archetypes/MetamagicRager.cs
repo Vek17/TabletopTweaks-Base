@@ -20,7 +20,6 @@ using System.Text.RegularExpressions;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
 using static TabletopTweaks.Base.Main;
 

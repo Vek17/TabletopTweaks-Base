@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.Features {

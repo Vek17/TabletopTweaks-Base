@@ -25,7 +25,6 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TabletopTweaks.Core.Utilities;
-using TabletopTweaks.Core.Wrappers;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 

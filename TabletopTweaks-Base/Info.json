@@ -4,11 +4,11 @@
   "DisplayName": "Tabletop Tweaks Base",
   "EntryMethod": "TabletopTweaks.Base.Main.Load",
   "GameVersion": "1.2.0",
-  "HomePage": "https://github.com/Vek17/WrathMods-TabletopTweaks/releases",
+  "HomePage": "https://github.com/Vek17/TabletopTweaks-Base/releases",
   "Id": "TabletopTweaks-Base",
   "ManagerVersion": "0.23.0",
-  "Repository": "https://raw.githubusercontent.com/Vek17/WrathMods-TabletopTweaks/master/Repository.json",
+  "Repository": "https://raw.githubusercontent.com/Vek17/TabletopTweaks-Base/master/Repository.json",
   "Requirements": [ "TabletopTweaks-Core" ],
   "LoadAfter": [ "TabletopTweaks-Core" ],
-  "Version": "1.0.0"
+  "Version": "2.0.0"
 }
