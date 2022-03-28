@@ -2,7 +2,9 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -10,6 +12,7 @@ using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -122,10 +125,27 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 }
                 void PatchItemBuffs() {
                     //Icy Protector
-                    BlueprintBuff ProtectionOfColdBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f592ecdb8045d7047a21b20ffee72afd");
-                    ProtectionOfColdBuff.SetName(TTTContext, "Iceplant");
-                    ProtectionOfColdBuff.GetComponent<AddStatBonus>().Value = 4;
-                    TTTContext.Logger.LogPatch("Patched", ProtectionOfColdBuff);
+                    var ProtectionOfColdEnchantment = BlueprintTools.GetBlueprint<BlueprintEquipmentEnchantment>("789af679bec72a647afd0e4c956e542a");
+                    var ProtectionOfColdFeature = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("75e471cd478242c4bab2a170c1851f46");
+                    var ShamanHexIceplantFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("999e367bbabc42d46bf864d3f4bda86d");
+                    var WitchHexIceplantFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("9af6dc2697c8ef24eab8ce1c697b05c4");
+
+                    ProtectionOfColdEnchantment.RemoveComponents<AddFactContextActions>();
+                    ShamanHexIceplantFeature.AddComponent<AddStatBonusIfHasFact>(c => {
+                        c.m_CheckedFacts = new BlueprintUnitFactReference[] { ProtectionOfColdFeature };
+                        c.Stat = StatType.AC;
+                        c.Value = 4;
+                        c.Descriptor = ModifierDescriptor.NaturalArmor;
+                    });
+                    WitchHexIceplantFeature.AddComponent<AddStatBonusIfHasFact>(c => {
+                        c.m_CheckedFacts = new BlueprintUnitFactReference[] { ProtectionOfColdFeature };
+                        c.Stat = StatType.AC;
+                        c.Value = 4;
+                        c.Descriptor = ModifierDescriptor.NaturalArmor;
+                    });
+
+                    TTTContext.Logger.LogPatch("Patched", ShamanHexIceplantFeature);
+                    TTTContext.Logger.LogPatch("Patched", WitchHexIceplantFeature);
                 }
                 void PatchSpellBuffs() {
                     var buffComponents = SpellTools.SpellList.AllSpellLists

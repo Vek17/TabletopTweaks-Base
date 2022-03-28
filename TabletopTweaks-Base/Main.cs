@@ -19,7 +19,7 @@ namespace TabletopTweaks.Base {
         }
 
         static void OnSaveGUI(UnityModManager.ModEntry modEntry) {
-            TTTContext.SaveSettings(TTTContext.BlueprintsFile, TTTContext.Blueprints);
+            TTTContext.SaveAllSettings();
         }
     }
 }
