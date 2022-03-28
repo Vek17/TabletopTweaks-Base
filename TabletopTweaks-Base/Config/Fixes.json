@@ -78,6 +78,11 @@
         "Homebrew": true,
         "Description": "Changes the skill and attack bonuses granted from backgrounds into trait bonuses."
       },
+      "FixConcealment": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes concealment checks for invisibility."
+      },
       "FixCriticalConfirmation": {
         "Enabled": true,
         "Homebrew": false,
@@ -231,6 +236,17 @@
             "Enabled": true,
             "Homebrew": false,
             "Description": "Removes posion resistiance from the archetype."
+          }
+        },
+        "IsExpanded": true
+      },
+      "IncenseSynthesizer": {
+        "DisableAll": false,
+        "Settings": {
+          "ImprovedIncense": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes bonus calculation when the 30 foot discovery is taken."
           }
         },
         "IsExpanded": true
@@ -438,6 +454,27 @@
             "Enabled": true,
             "Homebrew": false,
             "Description": "Allows two handed fighter to pick advanced weapon training feats."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
+  },
+  "Hunter": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "DivineHunter": {
+        "DisableAll": false,
+        "Settings": {
+          "OtherworldlyCompanion": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes Celestial and Fiendish templates giving unlimited smites."
           }
         },
         "IsExpanded": true

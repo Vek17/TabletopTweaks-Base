@@ -18,6 +18,7 @@ namespace TabletopTweaks.Base.Config {
         public ClassGroup Cavalier = new ClassGroup();
         public ClassGroup Cleric = new ClassGroup();
         public ClassGroup Fighter = new ClassGroup();
+        public ClassGroup Hunter = new ClassGroup();
         public ClassGroup Kineticist = new ClassGroup();
         public ClassGroup Magus = new ClassGroup();
         public ClassGroup Monk = new ClassGroup();
@@ -49,6 +50,7 @@ namespace TabletopTweaks.Base.Config {
             Cavalier.SetParents();
             Cleric.SetParents();
             Fighter.SetParents();
+            Hunter.SetParents();
             Kineticist.SetParents();
             Magus.SetParents();
             Monk.SetParents();
@@ -85,6 +87,7 @@ namespace TabletopTweaks.Base.Config {
             Cavalier.LoadClassGroup(loadedSettings.Cavalier, NewSettingsOffByDefault);
             Cleric.LoadClassGroup(loadedSettings.Cleric, NewSettingsOffByDefault);
             Fighter.LoadClassGroup(loadedSettings.Fighter, NewSettingsOffByDefault);
+            Hunter.LoadClassGroup(loadedSettings.Hunter, NewSettingsOffByDefault);
             Kineticist.LoadClassGroup(loadedSettings.Kineticist, NewSettingsOffByDefault);
             Magus.LoadClassGroup(loadedSettings.Magus, NewSettingsOffByDefault);
             Monk.LoadClassGroup(loadedSettings.Monk, NewSettingsOffByDefault);

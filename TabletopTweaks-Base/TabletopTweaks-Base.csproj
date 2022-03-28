@@ -74,6 +74,9 @@
       <HintPath>$(WrathPath)\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Owlcat.Runtime.Visual">
+      <HintPath>$(WrathPath)\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll</HintPath>
+    </Reference>
     <Reference Include="TabletopTweaks-Core">
       <HintPath>$(WrathPath)\Mods\TabletopTweaks-Core\TabletopTweaks-Core.dll</HintPath>
       <Private>False</Private>
@@ -167,6 +170,7 @@
     <Compile Include="Bugfixes\Classes\Demon.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
+    <Compile Include="Bugfixes\Classes\Hunter.cs" />
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
     <Compile Include="Bugfixes\Classes\Lich.cs" />
     <Compile Include="Bugfixes\Classes\Loremaster.cs" />
@@ -190,6 +194,7 @@
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Bugfixes\Features\MythicFeats.cs" />
     <Compile Include="Bugfixes\General\AddFactsFix.cs" />
+    <Compile Include="Bugfixes\General\ConcealmentFix.cs" />
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />
     <Compile Include="Bugfixes\General\DynamicItemNames.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />

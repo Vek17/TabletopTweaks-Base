@@ -1,3 +1,15 @@
+## Version 2.0.1
+* Fixes
+    * Systems
+        * Fixed Concealment checks for invisibility.
+    * Alchemsist
+        * Fixed Incense Fog scaling incorrectly if you took expanded area.
+    * Hunter
+        * Fixed Divine Hunter's animal companion getting unlimited smites.
+
+## Version 2.0.0a
+* Fixed issue preventing settings from being saved
+
 ## Version 2.0.0
 This has been split and now depends on [TabletopTweaks-Core](https://github.com/Vek17/TabletopTweaks-Core/releases).
 

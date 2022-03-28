@@ -56,6 +56,10 @@ namespace TabletopTweaks.Base {
                     ("Base", Fixes.Fighter.Base),
                     Fixes.Fighter.Archetypes
                 );
+                SetttingUI.NestedSettingGroup("Hunter", TabLevel, Fixes.Hunter,
+                    ("Base", Fixes.Hunter.Base),
+                    Fixes.Hunter.Archetypes
+                );
                 SetttingUI.NestedSettingGroup("Kineticist", TabLevel, Fixes.Kineticist,
                     ("Base", Fixes.Kineticist.Base),
                     Fixes.Kineticist.Archetypes

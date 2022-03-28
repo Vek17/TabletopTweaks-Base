@@ -28,6 +28,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 PatchBase();
                 PatchGrenadier();
+                PatchIncenseSynthesizer();
             }
 
             static void PatchBase() {
@@ -134,6 +135,21 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         }).ToArray();
                     TTTContext.Logger.LogPatch("Patched", GrenadierArchetype);
                 }
+            }
+
+            static void PatchIncenseSynthesizer() {
+                if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ImprovedIncense")) { return; }
+
+                var IncenseFogImprovedIncenseFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("ccea52d8cc5f8d34d95196d0a885be06");
+                var IncenseFogEffectBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("d2facca5b5801234b95f0cd75ebac3c1");
+                IncenseFogEffectBuff.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                    c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
+                    c.m_Feature = IncenseFogImprovedIncenseFeature;
+                    c.m_Progression = ContextRankProgression.OnePlusDivStep;
+                    c.m_StepLevel = 1;
+                });
+
+                TTTContext.Logger.LogPatch("Patched", IncenseFogEffectBuff);
             }
         }
     }
