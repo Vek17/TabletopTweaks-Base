@@ -11,6 +11,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
@@ -131,17 +132,39 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                     var WitchHexIceplantFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("9af6dc2697c8ef24eab8ce1c697b05c4");
 
                     ProtectionOfColdEnchantment.RemoveComponents<AddFactContextActions>();
-                    ShamanHexIceplantFeature.AddComponent<AddStatBonusIfHasFact>(c => {
-                        c.m_CheckedFacts = new BlueprintUnitFactReference[] { ProtectionOfColdFeature };
-                        c.Stat = StatType.AC;
-                        c.Value = 4;
-                        c.Descriptor = ModifierDescriptor.NaturalArmor;
+                    ShamanHexIceplantFeature.ReapplyOnLevelUp = true;
+                    ShamanHexIceplantFeature.RemoveComponents<AddFactContextActions>();
+                    ShamanHexIceplantFeature.GetComponent<AddContextStatBonus>().TemporaryContext(c => {
+                        c.Value = new ContextValue() {
+                            ValueType = ContextValueType.Rank
+                        };
+                        c.Multiplier = 2;
                     });
-                    WitchHexIceplantFeature.AddComponent<AddStatBonusIfHasFact>(c => {
-                        c.m_CheckedFacts = new BlueprintUnitFactReference[] { ProtectionOfColdFeature };
-                        c.Stat = StatType.AC;
-                        c.Value = 4;
-                        c.Descriptor = ModifierDescriptor.NaturalArmor;
+                    ShamanHexIceplantFeature.AddComponent<RecalculateOnOwnerFactUpdated>(c => {
+                        c.m_Fact = ProtectionOfColdFeature;
+                    });
+                    ShamanHexIceplantFeature.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
+                        c.m_Feature = ProtectionOfColdFeature.Get().ToReference<BlueprintFeatureReference>();
+                        c.m_Progression = ContextRankProgression.StartPlusDivStep;
+                        c.m_StepLevel = 1;
+                    });
+                    WitchHexIceplantFeature.ReapplyOnLevelUp = true;
+                    WitchHexIceplantFeature.RemoveComponents<AddFactContextActions>();
+                    WitchHexIceplantFeature.GetComponent<AddContextStatBonus>().TemporaryContext(c => {
+                        c.Value = new ContextValue() {
+                            ValueType = ContextValueType.Rank
+                        };
+                        c.Multiplier = 2;
+                    });
+                    WitchHexIceplantFeature.AddComponent<RecalculateOnOwnerFactUpdated>(c => {
+                        c.m_Fact = ProtectionOfColdFeature;
+                    });
+                    WitchHexIceplantFeature.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
+                        c.m_Feature = ProtectionOfColdFeature.Get().ToReference<BlueprintFeatureReference>();
+                        c.m_Progression = ContextRankProgression.StartPlusDivStep;
+                        c.m_StepLevel = 1;
                     });
 
                     TTTContext.Logger.LogPatch("Patched", ShamanHexIceplantFeature);
