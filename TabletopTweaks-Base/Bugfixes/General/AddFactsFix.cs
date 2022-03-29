@@ -1,5 +1,13 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Experience;
+using Kingmaker.Designers.Mechanics.Collections;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Buffs;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using System;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
@@ -8,7 +16,16 @@ namespace TabletopTweaks.Base.Bugfixes.General {
         static class AddFacts_UpdateFacts_CL_Patch {
             static void Postfix(AddFacts __instance) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
-                if (__instance.CasterLevel <= 0) { return; }
+                if (__instance.CasterLevel <= 0) {
+                    var OwnerCR = __instance.Owner.Blueprint.GetComponent<Experience>()?.CR ?? 0;
+                    if (OwnerCR > 0) {
+                        __instance?.Data?.AppliedFacts?.ForEach(fact => {
+                            if (fact?.MaybeContext != null) {
+                                fact.MaybeContext.m_Params.CasterLevel = OwnerCR;
+                            }
+                        });
+                    }
+                }
                 __instance?.Data?.AppliedFacts?.ForEach(fact => {
                     if (fact?.MaybeContext != null) {
                         fact.MaybeContext.m_Params = fact?.MaybeContext?.Params?.Clone();
@@ -29,6 +46,36 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                         fact.MaybeContext.m_Params = fact.MaybeContext.Params?.Clone();
                     }
                 });
+            }
+        }
+
+        [HarmonyPatch(typeof(Kingmaker.UnitLogic.Buffs.BuffCollection), "AddBuff", 
+            new Type[] { 
+                typeof(BlueprintBuff),
+                typeof(UnitEntityData),
+                typeof(TimeSpan?),
+                typeof(AbilityParams)
+            }
+        )]
+        static class BuffCollection_AddBuff_CL_Patch {
+            static void Postfix(
+                Kingmaker.UnitLogic.Buffs.BuffCollection __instance, 
+                BlueprintBuff blueprint, 
+                UnitEntityData caster, 
+                TimeSpan? duration, 
+                AbilityParams abilityParams,
+                Buff __result) 
+            {
+                if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
+                var mechanicsContext = __result.MaybeContext;
+                if (mechanicsContext == null) { return; }
+                if (abilityParams == null) {
+                    var OwnerCR = __instance.Owner.Blueprint.GetComponent<Experience>()?.CR ?? 0;
+                    if (OwnerCR == 0) { return; }
+                    var clonedParams = mechanicsContext.Params.Clone();
+                    clonedParams.CasterLevel = OwnerCR;
+                    __result.MaybeContext.m_Params = clonedParams;
+                }
             }
         }
     }

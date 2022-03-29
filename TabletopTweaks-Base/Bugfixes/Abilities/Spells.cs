@@ -61,6 +61,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchMicroscopicProportions();
+                PatchMindBlank();
                 PatchPerfectForm();
                 PatchRemoveFear();
                 PatchRemoveSickness();
@@ -441,6 +442,30 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     .ForEach(c => c.Descriptor = ModifierDescriptor.Size);
 
                 TTTContext.Logger.LogPatch("Patched", TricksterMicroscopicProportionsBuff);
+            }
+            static void PatchMindBlank() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("MindBlank")) { return; }
+
+                var DivinationImmunityFeature = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("12435ed2443c41c78ac47b8ef076e997");
+                var MindBlank = BlueprintTools.GetBlueprint<BlueprintAbility>("df2a0ba6b6dcecf429cbb80a56fee5cf");
+                var MindBlankCommunal = BlueprintTools.GetBlueprint<BlueprintAbility>("87a29febd010993419f2a4a9bee11cfc");
+                var MindBlankBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("35f3724d4e8877845af488d167cb8a89");
+
+                MindBlank.SetDescription(TTTContext, "The subject is protected from all devices and spells that gather information " +
+                    "about the target through divination magic (such as true seeing, see invisability, or thoughtsense). " +
+                    "This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.");
+                MindBlankCommunal.SetDescription(TTTContext, "This spell functions like mind blank, " +
+                    "except it affects all party members and it lasts for 4 hours.\n" +
+                    "Mind Blank: The subject is protected from all devices and spells that gather information " +
+                    "about the target through divination magic (such as true seeing, see invisability, or thoughtsense). " +
+                    "This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.");
+                MindBlankBuff.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { DivinationImmunityFeature };
+                });
+
+                TTTContext.Logger.LogPatch("Patched", MindBlank);
+                TTTContext.Logger.LogPatch("Patched", MindBlankCommunal);
+                TTTContext.Logger.LogPatch("Patched", MindBlankBuff);
             }
             static void PatchPerfectForm() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("PerfectForm")) { return; }

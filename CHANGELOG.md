@@ -2,6 +2,9 @@
 * Fixes
     * Systems
         * Fixed Concealment checks for invisibility.
+    * Spells
+        * Mind Blank
+            * Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing.
     * Alchemsist
         * Fixed Incense Fog scaling incorrectly if you took expanded area.
     * Hunter
