@@ -186,7 +186,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                     WeaponEnchants.BaneVermin.UpdatePrefixSuffix(TTTContext, "Vermin Bane", "");
                     WeaponEnchants.BaneVermin1d8.UpdatePrefixSuffix(TTTContext, "Vermin Bane", "");
                     WeaponEnchants.Bleed.UpdatePrefixSuffix(TTTContext, "Bleed", "");
-                    WeaponEnchants.Brass.UpdatePrefixSuffix(TTTContext, "Flaming", "");
+                    WeaponEnchants.Brass.UpdatePrefixSuffix(TTTContext, "Incinerating", "");
                     WeaponEnchants.Brass2d8.UpdatePrefixSuffix(TTTContext, "Greater Flaming", "");
                     WeaponEnchants.BrilliantEnergy.UpdatePrefixSuffix(TTTContext, "Brilliant Energy", "");
                     WeaponEnchants.Corrosive.UpdatePrefixSuffix(TTTContext, "Corrosive", "");
@@ -197,7 +197,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                     WeaponEnchants.DisruptingWeapon.UpdatePrefixSuffix(TTTContext, "Disruption", "");
                     WeaponEnchants.Disruption.UpdatePrefixSuffix(TTTContext, "Disruption", "");
                     WeaponEnchants.DragonEssenceBaneDragon.UpdatePrefixSuffix(TTTContext, "Dragon Bane", "");
-                    WeaponEnchants.ElderBrass.UpdatePrefixSuffix(TTTContext, "Elder Flaming", "");
+                    WeaponEnchants.ElderBrass.UpdatePrefixSuffix(TTTContext, "Elder Incinerating", "");
                     WeaponEnchants.ElderCorrosive.UpdatePrefixSuffix(TTTContext, "Elder Greater Corrosive", "");
                     WeaponEnchants.ElderCorrosive2d6.UpdatePrefixSuffix(TTTContext, "Elder Caustic", "");
                     WeaponEnchants.ElderCorrosiveBurst.UpdatePrefixSuffix(TTTContext, "Burst", "");

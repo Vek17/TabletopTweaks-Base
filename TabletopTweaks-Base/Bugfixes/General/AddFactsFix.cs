@@ -68,9 +68,10 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 var mechanicsContext = __result.MaybeContext;
+                var actualCaster = caster?.Descriptor ?? __instance.Owner;
                 if (mechanicsContext == null) { return; }
                 if (abilityParams == null) {
-                    var OwnerCR = __instance.Owner.Blueprint.GetComponent<Experience>()?.CR ?? 0;
+                    var OwnerCR = actualCaster.Blueprint.GetComponent<Experience>()?.CR ?? actualCaster.Progression.CharacterLevel;
                     if (OwnerCR == 0) { return; }
                     var clonedParams = mechanicsContext.Params.Clone();
                     clonedParams.CasterLevel = OwnerCR;

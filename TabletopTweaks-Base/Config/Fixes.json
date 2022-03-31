@@ -113,6 +113,11 @@
         "Homebrew": false,
         "Description": "Shadow spells now are correctly treated as being from the Illusion school for all effects."
       },
+      "FixSizeShiftLimits": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Size shifts are now legal for the full size range of Fine to Collasal. This primarily affects microscopic proportions."
+      },
       "MetamagicStacking": {
         "Enabled": true,
         "Homebrew": false,

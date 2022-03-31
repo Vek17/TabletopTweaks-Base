@@ -202,6 +202,7 @@
     <Compile Include="Bugfixes\General\ProfaneGift.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
+    <Compile Include="Bugfixes\General\SizeShiftLimits.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
     <Compile Include="Bugfixes\General\WeaponProperties.cs" />
     <Compile Include="Bugfixes\Items\Armor.cs" />
