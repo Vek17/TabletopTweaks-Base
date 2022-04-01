@@ -66,6 +66,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 AbilityParams abilityParams,
                 Buff __result) 
             {
+                return;
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 var mechanicsContext = __result.MaybeContext;
                 var actualCaster = caster?.Descriptor ?? __instance.Owner;
