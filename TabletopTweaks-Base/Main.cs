@@ -10,7 +10,6 @@ namespace TabletopTweaks.Base {
         static bool Load(UnityModManager.ModEntry modEntry) {
             var harmony = new Harmony(modEntry.Info.Id);
             TTTContext = new ModContextTTTBase(modEntry);
-            TTTContext.LoadAllSettings();
             TTTContext.ModEntry.OnSaveGUI = OnSaveGUI;
             TTTContext.ModEntry.OnGUI = UMMSettingsUI.OnGUI;
             harmony.PatchAll();

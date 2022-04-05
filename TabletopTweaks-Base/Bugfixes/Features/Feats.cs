@@ -549,22 +549,22 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("SpiritedCharge")) { return; }
 
                 var ChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f36da144a379d534cad8e21667079066");
-                var MountedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
+                var MountedBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
                 var SpiritedCharge = BlueprintTools.GetBlueprint<BlueprintFeature>("95ef0ff14771f2549897f300ce62c95c");
                 var SpiritedChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("5a191fc6731bd4845bbbcc8ff3ff4c1d");
 
                 SpiritedCharge.RemoveComponents<BuffExtraEffects>();
-                SpiritedCharge.AddComponent(Helpers.Create<BuffExtraEffectsRequirements>(c => {
+                SpiritedCharge.AddComponent<BuffExtraEffectsRequirements>(c => {
                     c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
                     c.CheckFacts = true;
-                    c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff.ToReference<BlueprintUnitFactReference>() };
+                    c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff };
                     c.ExtraEffectBuff = SpiritedChargeBuff.ToReference<BlueprintBuffReference>();
-                }));
-                SpiritedChargeBuff.RemoveComponents<AddOutgoingDamageBonus>();
-                SpiritedChargeBuff.AddComponent(Helpers.Create<AddOutgoingWeaponDamageBonus>(c => {
+                });
+                SpiritedChargeBuff.RemoveComponents<OutcomingDamageAndHealingModifier>();
+                SpiritedChargeBuff.AddComponent<AddOutgoingWeaponDamageBonus>(c => {
                     c.BonusDamageMultiplier = 1;
-                }));
-                SpiritedChargeBuff.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
+                });
+                SpiritedChargeBuff.AddComponent<RemoveBuffOnAttack>();
                 TTTContext.Logger.LogPatch("Patched", SpiritedCharge);
                 TTTContext.Logger.LogPatch("Patched", SpiritedChargeBuff);
             }

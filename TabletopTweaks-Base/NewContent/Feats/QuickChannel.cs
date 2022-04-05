@@ -33,12 +33,12 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.CheckDescriptors = true;
                     c.RequireAoE = true;
                 });
-                bp.AddComponent(Helpers.Create<PureRecommendation>(c => {
+                bp.AddComponent<PureRecommendation>(c => {
                     c.Priority = RecommendationPriority.Good;
-                }));
-                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.ClassSpecific;
-                }));
+                });
                 SelectiveChannel.GetComponents<PrerequisiteFeature>().ForEach(p => {
                     bp.AddPrerequisiteFeature(p.Feature, p.Group);
                 });

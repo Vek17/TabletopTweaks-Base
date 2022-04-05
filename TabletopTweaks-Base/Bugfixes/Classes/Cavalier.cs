@@ -52,23 +52,23 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 void PatchSupremeCharge() {
                     if (TTTContext.Fixes.Cavalier.Base.IsDisabled("SupremeCharge")) { return; }
 
-                    var MountedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
+                    var MountedBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
                     var ChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f36da144a379d534cad8e21667079066");
                     var CavalierSupremeCharge = BlueprintTools.GetBlueprint<BlueprintFeature>("77af3c58e71118d4481c50694bd99e77");
                     var CavalierSupremeChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("7e9c5be79cfb3d44586dd650c7c7d198");
 
                     CavalierSupremeCharge.RemoveComponents<BuffExtraEffects>();
-                    CavalierSupremeCharge.AddComponent(Helpers.Create<BuffExtraEffectsRequirements>(c => {
+                    CavalierSupremeCharge.AddComponent<BuffExtraEffectsRequirements>(c => {
                         c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
                         c.CheckFacts = true;
-                        c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff.ToReference<BlueprintUnitFactReference>() };
+                        c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff };
                         c.ExtraEffectBuff = CavalierSupremeChargeBuff.ToReference<BlueprintBuffReference>();
-                    }));
+                    });
                     CavalierSupremeChargeBuff.RemoveComponents<OutcomingDamageAndHealingModifier>();
-                    CavalierSupremeChargeBuff.AddComponent(Helpers.Create<AddOutgoingWeaponDamageBonus>(c => {
+                    CavalierSupremeChargeBuff.AddComponent<AddOutgoingWeaponDamageBonus>(c => {
                         c.BonusDamageMultiplier = 1;
-                    }));
-                    CavalierSupremeChargeBuff.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
+                    });
+                    CavalierSupremeChargeBuff.AddComponent<RemoveBuffOnAttack>();
                     TTTContext.Logger.LogPatch("Patched", CavalierSupremeCharge);
                     TTTContext.Logger.LogPatch("Patched", CavalierSupremeChargeBuff);
                 }
@@ -89,7 +89,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 void PatchTransfixingCharge() {
                     if (TTTContext.Fixes.Cavalier.Archetypes["Gendarme"].IsDisabled("TransfixingCharge")) { return; }
 
-                    var MountedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
+                    var MountedBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
                     var ChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f36da144a379d534cad8e21667079066");
                     var GendarmeTransfixingCharge = BlueprintTools.GetBlueprint<BlueprintFeature>("72a0bde01943f824faa98bd55f04c06d");
                     var GendarmeTransfixingChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6334e70d212add149909a36340ef5300");
@@ -98,14 +98,14 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     GendarmeTransfixingCharge.AddComponent(Helpers.Create<BuffExtraEffectsRequirements>(c => {
                         c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
                         c.CheckFacts = true;
-                        c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff.ToReference<BlueprintUnitFactReference>() };
+                        c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff };
                         c.ExtraEffectBuff = GendarmeTransfixingChargeBuff.ToReference<BlueprintBuffReference>();
                     }));
                     GendarmeTransfixingChargeBuff.RemoveComponents<OutcomingDamageAndHealingModifier>();
-                    GendarmeTransfixingChargeBuff.AddComponent(Helpers.Create<AddOutgoingWeaponDamageBonus>(c => {
+                    GendarmeTransfixingChargeBuff.AddComponent<AddOutgoingWeaponDamageBonus>(c => {
                         c.BonusDamageMultiplier = 2;
-                    }));
-                    GendarmeTransfixingChargeBuff.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
+                    });
+                    GendarmeTransfixingChargeBuff.AddComponent<RemoveBuffOnAttack>();
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingCharge);
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingChargeBuff);
                 }

@@ -3,6 +3,7 @@
     * Systems
         * Fixed Concealment checks for invisibility.
         * Size shifts are now supported from Fine to Colossal.
+        * Charge damage multipliers should now work correctly again.
     * Spells
         * Mind Blank
             * Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing.
