@@ -11,10 +11,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     class ConcealmentFix {
@@ -50,8 +47,8 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 }
                 Concealment concealment = (targetConcealmentPart != null && targetConcealmentPart.IsConcealedFor(initiator)) ? Concealment.Total : Concealment.None;
                 if (target.Descriptor.State.HasCondition(UnitCondition.Invisible)
-                    && HasNoValidConditionAgainst(initiator, target, UnitCondition.SeeInvisibility)
-                    && HasNoValidConditionAgainst(initiator, target, UnitCondition.TrueSeeing)
+                    && !HasValidConditionAgainst(initiator, target, UnitCondition.SeeInvisibility)
+                    && !HasValidConditionAgainst(initiator, target, UnitCondition.TrueSeeing)
                 ) {
                     concealment = Concealment.Total;
                 }
@@ -59,9 +56,9 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                     foreach (UnitPartConcealment.ConcealmentEntry concealmentEntry in targetConcealmentPart.m_Concealments) {
                         if (!concealmentEntry.OnlyForAttacks || attack) {
                             if (concealmentEntry.DistanceGreater > 0.Feet()) {
-                                float num2 = initiator.DistanceTo(target);
-                                float num3 = initiator.View.Corpulence + target.View.Corpulence;
-                                if (num2 <= concealmentEntry.DistanceGreater.Meters + num3) {
+                                float distanceToTarget = initiator.DistanceTo(target);
+                                float corpulence = initiator.View.Corpulence + target.View.Corpulence;
+                                if (distanceToTarget <= concealmentEntry.DistanceGreater.Meters + corpulence) {
                                     continue;
                                 }
                             }
@@ -72,16 +69,10 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                                     continue;
                                 }
                             }
-                            if ((concealmentEntry.Descriptor == ConcealmentDescriptor.Blur || concealmentEntry.Descriptor == ConcealmentDescriptor.Displacement) && initiator.Descriptor.State.HasCondition(UnitCondition.TrueSeeing)) {
-                                IEnumerable<UnitConditionExceptions> source = initiator.Descriptor.State.GetConditionExceptions(UnitCondition.TrueSeeing).EmptyIfNull<UnitConditionExceptions>();
-                                Func<UnitConditionExceptions, bool> predicate = (delegate (UnitConditionExceptions _exception)
-                                {
-                                    UnitConditionExceptionsTargetHasFacts unitConditionExceptionsTargetHasFacts2;
-                                    return (unitConditionExceptionsTargetHasFacts2 = (_exception as UnitConditionExceptionsTargetHasFacts)) == null || !unitConditionExceptionsTargetHasFacts2.IsExceptional(target);
-                                });
-                                if (source.Any(predicate)) {
-                                    continue;
-                                }
+                            if ((concealmentEntry.Descriptor == ConcealmentDescriptor.Blur || concealmentEntry.Descriptor == ConcealmentDescriptor.Displacement) 
+                                    && HasValidConditionAgainst(initiator, target, UnitCondition.TrueSeeing)) 
+                            {
+                                continue;
                             }
                             concealment = UnitPartConcealment.Max(concealment, concealmentEntry.Concealment);
                         }
@@ -114,10 +105,10 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 return false;
             }
 
-            static bool HasNoValidConditionAgainst(UnitEntityData initiator, UnitEntityData target, UnitCondition condition) {
+            static bool HasValidConditionAgainst(UnitEntityData initiator, UnitEntityData target, UnitCondition condition) {
 
-                return !initiator.Descriptor.State.HasCondition(condition)
-                    || initiator.Descriptor.State.GetConditionExceptions(condition)
+                return initiator.Descriptor.State.HasCondition(condition)
+                    && !initiator.Descriptor.State.GetConditionExceptions(condition)
                         .EmptyIfNull<UnitConditionExceptions>()
                         .OfType<UnitConditionExceptionsTargetHasFacts>()
                         .Any(exception => exception.IsExceptional(target));
