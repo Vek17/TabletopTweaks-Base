@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     class ConcealmentFix {
-        [HarmonyPatch(typeof(UnitPartConcealment), "Calculate")]
+        [HarmonyPatch(typeof(UnitPartConcealment), nameof(UnitPartConcealment.Calculate))]
         class UnitDescriptor_FixSizeModifiers_Patch {
             static bool Prefix(UnitPartConcealment __instance, 
                 UnitEntityData initiator, 
