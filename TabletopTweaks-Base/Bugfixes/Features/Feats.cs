@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using TabletopTweaks.Core.NewActions;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
@@ -53,6 +54,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchAlliedSpellcaster();
                 PatchArcaneStrike();
                 PatchBrewPotions();
+                PatchCleave();
                 PatchCraneWing();
                 PatchDestructiveDispel();
                 PatchDestructiveDispelPrerequisites();
@@ -137,6 +139,19 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 BrewPotions.Groups = new FeatureGroup[] { FeatureGroup.Feat };
 
                 TTTContext.Logger.LogPatch("Patched", BrewPotions);
+            }
+
+            static void PatchCleave() {
+
+                var CleaveAction = BlueprintTools.GetBlueprint<BlueprintAbility>("6447d104a2222c14d9c9b8a36e4eb242");
+                var GreatCleaveFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("cc9c862ef2e03af4f89be5088851ea35");
+
+                CleaveAction.RemoveComponents<AbilityCustomCleave>();
+                CleaveAction.AddComponent<AbilityCustomCleaveTTT>(c => {
+                    c.m_GreaterFeature = GreatCleaveFeature;
+                });
+
+                TTTContext.Logger.LogPatch("Patched", CleaveAction);
             }
 
             static void PatchDestructiveDispel() {
