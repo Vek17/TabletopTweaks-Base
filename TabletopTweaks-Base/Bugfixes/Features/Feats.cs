@@ -396,12 +396,17 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 var spells = SpellTools.GetAllSpells();
                 TTTContext.Logger.LogPatch("Enabling", PersistentSpellFeat);
                 foreach (var spell in spells) {
-                    bool HasSavingThrow = spell.AbilityAndVariants().SelectMany(s => s.FlattenAllActions()).OfType<ContextActionSavingThrow>().Any()
-                        || spell.AbilityAndVariants()
+                    bool HasSavingThrow = spell.AbilityAndVariants()
                         .SelectMany(s => s.AbilityAndStickyTouch())
                         .Where(s => s != null)
                         .SelectMany(s => s.FlattenAllActions())
-                        .OfType<ContextActionSavingThrow>().Any();
+                        .OfType<ContextActionSavingThrow>().Any()
+                            ||
+                        spell.AbilityAndVariants()
+                            .SelectMany(s => s.AbilityAndStickyTouch())
+                            .Where(s => s != null)
+                            .SelectMany(s => s.FlattenAllActions())
+                            .OfType<ContextActionConditionalSaved>().Any();
                     if ((spell?.GetComponent<AbilityEffectRunAction>()?.SavingThrowType ?? SavingThrowType.Unknown) != SavingThrowType.Unknown
                         || spell.AbilityAndVariants()
                             .SelectMany(s => s.AbilityAndStickyTouch())
