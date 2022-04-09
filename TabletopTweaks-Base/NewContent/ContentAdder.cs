@@ -198,6 +198,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicFeats.MythicManyshot.AddMythicManyshot();
                 MythicFeats.MythicCombatExpertise.AddMythicCombatExpertise();
                 MythicFeats.MythicCriticalFocus.AddMythicCriticalFocus();
+                MythicFeats.MythicCleave.AddMythicCleave();
 
                 AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
             }

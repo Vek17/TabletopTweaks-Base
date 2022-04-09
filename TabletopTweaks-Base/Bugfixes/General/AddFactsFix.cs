@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Experience;
-using Kingmaker.Designers.Mechanics.Collections;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic.Abilities;
@@ -18,17 +17,17 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             static void Postfix(AddFacts __instance) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 if (__instance.CasterLevel <= 0) {
-                    var OwnerCR = __instance.Owner.Blueprint.GetComponent<Experience>()?.CR ?? 0;
+                    var OwnerCR = __instance.Owner?.Blueprint?.GetComponent<Experience>()?.CR ?? 0;
                     if (OwnerCR > 0) {
-                        __instance?.Data?.AppliedFacts?.ForEach(fact => {
-                            if (fact?.MaybeContext != null) {
+                        __instance.Data?.AppliedFacts?.ForEach(fact => {
+                            if (fact?.MaybeContext?.m_Params != null) {
                                 fact.MaybeContext.m_Params.CasterLevel = OwnerCR;
                             }
                         });
                     }
                 }
                 __instance?.Data?.AppliedFacts?.ForEach(fact => {
-                    if (fact?.MaybeContext != null) {
+                    if (fact?.MaybeContext?.m_Params != null) {
                         fact.MaybeContext.m_Params = fact?.MaybeContext?.Params?.Clone();
                     }
                 });
@@ -68,11 +67,12 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 Buff __result) 
             {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
-                var mechanicsContext = __result.MaybeContext;
-                var actualCaster = caster?.Descriptor ?? __instance.Owner;
+                var mechanicsContext = __result?.MaybeContext;
+                var actualCaster = caster?.Descriptor ?? __instance?.Owner;
+                if (actualCaster == null) { return; }
                 if (mechanicsContext == null) { return; }
                 if (abilityParams == null) {
-                    var OwnerCR = actualCaster.Blueprint.GetComponent<Experience>()?.CR ?? actualCaster.Progression.CharacterLevel;
+                    var OwnerCR = actualCaster.Blueprint?.GetComponent<Experience>()?.CR ?? actualCaster.Progression.CharacterLevel;
                     if (OwnerCR == 0) { return; }
                     var clonedParams = mechanicsContext.Params.Clone();
                     clonedParams.CasterLevel = OwnerCR;

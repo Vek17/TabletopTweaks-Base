@@ -4,6 +4,11 @@
         * Fixed Concealment checks for invisibility.
         * Size shifts are now supported from Fine to Colossal.
         * Charge damage multipliers should now work correctly again.
+    * Feats
+        * Cleave
+            * Cleave now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
+        * Cleaving Finish
+            * Cleaving Finish now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
     * Spells
         * Corrupt Magic
             * Corrupt Magic now uses a single dispel roll for all buffs like other dispels.
@@ -17,6 +22,10 @@
         * Fixed Divine Hunter's animal companion getting unlimited smites.
     * Rogue
         * Dispelling Attack no longer removes debuffs.
+* Added Mythic Feats
+	* Cleave (Mythic)
+		* Whenever you use Cleave or Cleaving Finish, your attacks can be made against a foe that is within your reach.
+
 
 ## Version 2.0.0a
 * Fixed issue preventing settings from being saved

@@ -35,7 +35,7 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
                 });
                 bp.AddPrerequisiteFeature(CriticalFocus);
             });
-            if (TTTContext.AddedContent.MythicFeats.IsDisabled("MythicCombatReflexes")) { return; }
+            if (TTTContext.AddedContent.MythicFeats.IsDisabled("MythicCriticalFocus")) { return; }
             FeatTools.AddAsMythicFeat(CriticalFocusMythic);
         }
     }

@@ -142,16 +142,33 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             }
 
             static void PatchCleave() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("Cleave")) { return; }
 
                 var CleaveAction = BlueprintTools.GetBlueprint<BlueprintAbility>("6447d104a2222c14d9c9b8a36e4eb242");
                 var GreatCleaveFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("cc9c862ef2e03af4f89be5088851ea35");
+                var CleaveMythicFeature = BlueprintTools.GetModBlueprintReference<BlueprintFeatureReference>(TTTContext, "CleaveMythicFeature");
+                var CleavingFinish = BlueprintTools.GetBlueprint<BlueprintFeature>("59bd93899149fa44687ff4121389b3a9");
 
                 CleaveAction.RemoveComponents<AbilityCustomCleave>();
                 CleaveAction.AddComponent<AbilityCustomCleaveTTT>(c => {
                     c.m_GreaterFeature = GreatCleaveFeature;
+                    c.m_MythicFeature = CleaveMythicFeature;
                 });
-
-                TTTContext.Logger.LogPatch("Patched", CleaveAction);
+                CleavingFinish
+                    .GetComponent<AddInitiatorAttackWithWeaponTrigger>(c => c.ReduceHPToZero == true)?
+                    .Action
+                    .Actions
+                    .OfType<Conditional>()
+                    .FirstOrDefault()?
+                    .TemporaryContext(conditional => {
+                        conditional.IfTrue.Actions = conditional.IfTrue.Actions.Where(a => !(a is ContextActionMeleeAttack)).ToArray();
+                        conditional.AddActionIfTrue(Helpers.Create<ContextActionCleaveAttack>(a => {
+                            a.ExtraAttack = true;
+                            a.m_MythicFeature = CleaveMythicFeature;
+                        }));
+                    });
+                TTTContext.Logger.LogPatch(CleaveAction);
+                TTTContext.Logger.LogPatch(CleavingFinish);
             }
 
             static void PatchDestructiveDispel() {

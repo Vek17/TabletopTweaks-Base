@@ -349,6 +349,7 @@
     <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
     <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
+    <Compile Include="NewContent\MythicFeats\MythicCleave.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatExpertise.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatReflexes.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCriticalFocus.cs" />

@@ -1057,6 +1057,11 @@
         "Homebrew": false,
         "Description": "No longer is tagged as a combat feat."
       },
+      "Cleave": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now checks for adjacency instead of just within reach. This also applies to cleaving finish."
+      },
       "CraneWing": {
         "Enabled": true,
         "Homebrew": false,

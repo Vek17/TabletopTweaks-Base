@@ -638,6 +638,11 @@
   "MythicFeats": {
     "DisableAll": false,
     "Settings": {
+      "MythicCleave": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you use Cleave or Cleaving Finish, your attacks can be made against a foe that is within your reach."
+      },
       "MythicCombatExpertise": {
         "Enabled": true,
         "Homebrew": false,
@@ -647,6 +652,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "You can make any number of additional attacks of opportunity per round."
+      },
+      "MythicCriticalFocus": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You automatically confirm critical threats against non-mythic opponents. In addition, when you threaten a critical hit against a creature wearing armor with the fortification special ability or similar effect, that creature must roll twice and take the worse result when determining critical hit negation."
       },
       "MythicIntimidatingProwess": {
         "Enabled": true,
