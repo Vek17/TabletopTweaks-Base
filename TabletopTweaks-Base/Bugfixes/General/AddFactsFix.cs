@@ -49,8 +49,8 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             }
         }
 
-        [HarmonyPatch(typeof(Kingmaker.UnitLogic.Buffs.BuffCollection), "AddBuff", 
-            new Type[] { 
+        [HarmonyPatch(typeof(Kingmaker.UnitLogic.Buffs.BuffCollection), "AddBuff",
+            new Type[] {
                 typeof(BlueprintBuff),
                 typeof(UnitEntityData),
                 typeof(TimeSpan?),
@@ -59,13 +59,12 @@ namespace TabletopTweaks.Base.Bugfixes.General {
         )]
         static class BuffCollection_AddBuff_CL_Patch {
             static void Postfix(
-                Kingmaker.UnitLogic.Buffs.BuffCollection __instance, 
-                BlueprintBuff blueprint, 
-                UnitEntityData caster, 
-                TimeSpan? duration, 
+                Kingmaker.UnitLogic.Buffs.BuffCollection __instance,
+                BlueprintBuff blueprint,
+                UnitEntityData caster,
+                TimeSpan? duration,
                 AbilityParams abilityParams,
-                Buff __result) 
-            {
+                Buff __result) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 var mechanicsContext = __result?.MaybeContext;
                 var actualCaster = caster?.Descriptor ?? __instance?.Owner;

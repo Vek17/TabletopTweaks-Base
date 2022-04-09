@@ -2,14 +2,9 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.Enums;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using System.Linq;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
-using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Hunter {
@@ -24,7 +19,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchBase();
                 PatchDivineHunter();
             }
-            static void PatchBase() {}
+            static void PatchBase() { }
 
             static void PatchDivineHunter() {
                 if (TTTContext.Fixes.Hunter.Archetypes["DivineHunter"].IsDisabled("OtherworldlyCompanion")) { return; }

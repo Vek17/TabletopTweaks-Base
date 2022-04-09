@@ -1,6 +1,5 @@
 ﻿using TabletopTweaks.Base.Config;
 using TabletopTweaks.Core.ModLogic;
-using static TabletopTweaks.Base.Main;
 using static UnityModManagerNet.UnityModManager;
 
 namespace TabletopTweaks.Base.ModLogic {
@@ -8,7 +7,7 @@ namespace TabletopTweaks.Base.ModLogic {
         public Config.Bugfixes Fixes;
         public AddedContent AddedContent;
 
-        public ModContextTTTBase(ModEntry ModEntry) : base(ModEntry) {   
+        public ModContextTTTBase(ModEntry ModEntry) : base(ModEntry) {
 #if DEBUG
             Debug = true;
 #endif

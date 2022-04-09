@@ -17,9 +17,9 @@ namespace TabletopTweaks.Base.Bugfixes.General {
     class ConcealmentFix {
         [HarmonyPatch(typeof(UnitPartConcealment), nameof(UnitPartConcealment.Calculate))]
         class UnitDescriptor_FixSizeModifiers_Patch {
-            static bool Prefix(UnitPartConcealment __instance, 
-                UnitEntityData initiator, 
-                UnitEntityData target, 
+            static bool Prefix(UnitPartConcealment __instance,
+                UnitEntityData initiator,
+                UnitEntityData target,
                 bool attack,
                 ref Concealment __result) {
 
@@ -69,9 +69,8 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                                     continue;
                                 }
                             }
-                            if ((concealmentEntry.Descriptor == ConcealmentDescriptor.Blur || concealmentEntry.Descriptor == ConcealmentDescriptor.Displacement) 
-                                    && HasValidConditionAgainst(initiator, target, UnitCondition.TrueSeeing)) 
-                            {
+                            if ((concealmentEntry.Descriptor == ConcealmentDescriptor.Blur || concealmentEntry.Descriptor == ConcealmentDescriptor.Displacement)
+                                    && HasValidConditionAgainst(initiator, target, UnitCondition.TrueSeeing)) {
                                 continue;
                             }
                             concealment = UnitPartConcealment.Max(concealment, concealmentEntry.Concealment);
