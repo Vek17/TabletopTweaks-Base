@@ -70,6 +70,12 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                     DispellingAttack.FlattenAllActions()
                         .OfType<ContextActionDispelMagic>()
                         .ForEach(a => {
+                            a.m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel;
+                            a.m_UseMaxCasterLevel = true;
+                            a.m_MaxCasterLevel = new ContextValue() {
+                                ValueType = ContextValueType.Rank
+                            };
+                            a.ContextBonus = new ContextValue();
                             a.OnlyTargetEnemyBuffs = true;
                             a.OneRollForAll = true;
                         });

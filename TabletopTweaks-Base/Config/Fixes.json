@@ -633,7 +633,7 @@
         "DispellingAttack": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Prevents Dispelling attack from removing debuffs."
+          "Description": "Makes Dispelling attack use the correct CL for the dispell and prevents Dispelling attack from removing debuffs."
         },
         "RogueTalentSelection": {
           "Enabled": true,

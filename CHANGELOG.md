@@ -21,7 +21,7 @@
     * Hunter
         * Fixed Divine Hunter's animal companion getting unlimited smites.
     * Rogue
-        * Dispelling Attack no longer removes debuffs.
+        * Dispelling Attack now uses the correct CL and no longer removes debuffs.
 * Added Mythic Feats
 	* Cleave (Mythic)
 		* Whenever you use Cleave or Cleaving Finish, your attacks can be made against a foe that is within your reach.
