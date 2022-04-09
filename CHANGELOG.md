@@ -5,12 +5,18 @@
         * Size shifts are now supported from Fine to Colossal.
         * Charge damage multipliers should now work correctly again.
     * Spells
+        * Corrupt Magic
+            * Corrupt Magic now uses a single dispel roll for all buffs like other dispels.
         * Mind Blank
             * Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing.
+        * Zero State
+            * Zero State now uses a single dispel roll for all buffs like other dispels.
     * Alchemsist
         * Fixed Incense Fog scaling incorrectly if you took expanded area.
     * Hunter
         * Fixed Divine Hunter's animal companion getting unlimited smites.
+    * Rogue
+        * Dispelling Attack no longer removes debuffs.
 
 ## Version 2.0.0a
 * Fixed issue preventing settings from being saved

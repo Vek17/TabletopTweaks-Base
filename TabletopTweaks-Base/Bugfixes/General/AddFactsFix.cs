@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Designers.Mechanics.Collections;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -66,7 +67,6 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 AbilityParams abilityParams,
                 Buff __result) 
             {
-                return;
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 var mechanicsContext = __result.MaybeContext;
                 var actualCaster = caster?.Descriptor ?? __instance.Owner;
@@ -78,6 +78,14 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                     clonedParams.CasterLevel = OwnerCR;
                     __result.MaybeContext.m_Params = clonedParams;
                 }
+            }
+        }
+
+        //[HarmonyPatch(typeof(RuleCalculateAbilityParams), nameof(RuleCalculateAbilityParams.OnTrigger))]
+        static class RuleCalculateAbilityParams_CL_Patch {
+            static void Postfix(RuleCalculateAbilityParams __instance) {
+                if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
+                TTTContext.Logger.Log($"CL: {__instance.Result?.CasterLevel} Spell: {__instance.Spell?.name} ");
             }
         }
     }

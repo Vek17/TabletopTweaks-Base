@@ -630,6 +630,11 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
+        "DispellingAttack": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents Dispelling attack from removing debuffs."
+        },
         "RogueTalentSelection": {
           "Enabled": true,
           "Homebrew": false,
@@ -875,6 +880,11 @@
         "Homebrew": false,
         "Description": "Chain Lightning now respect the 20 CL max for damage dice."
       },
+      "CorruptMagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Corrupt Magic now uses a single dispel roll for all buffs like other dispels."
+      },
       "CrusadersEdge": {
         "Enabled": true,
         "Homebrew": false,
@@ -1004,6 +1014,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Vampiric Blade no longer causes excessive damage instances."
+      },
+      "ZeroState": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Zero State now uses a single dispel roll for all buffs like other dispels."
       }
     },
     "IsExpanded": true

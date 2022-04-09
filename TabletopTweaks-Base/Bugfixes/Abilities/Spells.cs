@@ -50,6 +50,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchBestowCurseGreater();
                 PatchBreakEnchantment();
                 PatchChainLightning();
+                PatchCorruptMagic();
                 PatchCrusadersEdge();
                 PatchDispelMagicGreater();
                 PatchEyeOfTheSun();
@@ -75,6 +76,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchWindsOfFall();
                 PatchWrachingRay();
                 PatchVampiricBlade();
+                PatchZeroState();
                 PatchFromSpellFlags();
             }
 
@@ -226,6 +228,19 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         damage.Value.DiceCountValue.ValueRank = AbilityRankType.DamageDice;
                     });
                 TTTContext.Logger.LogPatch("Patched", ChainLightning);
+            }
+
+            static void PatchCorruptMagic() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("CorruptMagic")) { return; }
+
+                var CorruptMagic = BlueprintTools.GetBlueprint<BlueprintAbility>("6fd7bdd6dfa9dd943b36d65faf97ac41");
+
+                CorruptMagic.FlattenAllActions()
+                    .OfType<ContextActionDispelMagic>()
+                    .ForEach(a => {
+                        a.OneRollForAll = true;
+                    });
+                TTTContext.Logger.LogPatch("Patched", CorruptMagic);
             }
 
             static void PatchCrusadersEdge() {
@@ -787,6 +802,18 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         );
                     });
                 TTTContext.Logger.LogPatch("Patched", VampiricBladeBuff);
+            }
+            static void PatchZeroState() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("ZeroState")) { return; }
+
+                var ZeroState = BlueprintTools.GetBlueprint<BlueprintAbility>("c6195ff24255d3f46a26323de9f1187a");
+
+                ZeroState.FlattenAllActions()
+                    .OfType<ContextActionDispelMagic>()
+                    .ForEach(a => {
+                        a.OneRollForAll = true;
+                    });
+                TTTContext.Logger.LogPatch("Patched", ZeroState);
             }
 
             static void PatchFromSpellFlags() {

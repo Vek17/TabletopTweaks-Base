@@ -6,13 +6,18 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.NewUnitParts.CustomStatTypes;
 
 namespace TabletopTweaks.Base.Bugfixes.Clases {
     class Rogue {
@@ -32,6 +37,7 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
             static void PatchBase() {
                 PatchTrapfinding();
                 PatchRogueTalentSelection();
+                PatchDispellingAttack();
                 PatchSlipperyMind();
 
                 void PatchTrapfinding() {
@@ -61,13 +67,24 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                     //RogueTalentSelection.Mode = SelectionMode.OnlyNew;
                     TTTContext.Logger.LogPatch("Patched", RogueTalentSelection);
                 }
+                void PatchDispellingAttack() {
+                    if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("DispellingAttack")) { return; }
+
+                    var DispellingAttack = BlueprintTools.GetBlueprint<BlueprintFeature>("1b92146b8a9830d4bb97ab694335fa7c");
+                    DispellingAttack.FlattenAllActions()
+                        .OfType<ContextActionDispelMagic>()
+                        .ForEach(a => {
+                            a.OnlyTargetEnemyBuffs = true;
+                            a.OneRollForAll = true;
+                        });
+                }
                 void PatchSlipperyMind() {
                     if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("SlipperyMind")) { return; }
                     var AdvanceTalents = BlueprintTools.GetBlueprint<BlueprintFeature>("a33b99f95322d6741af83e9381b2391c");
                     var SlipperyMind = BlueprintTools.GetBlueprint<BlueprintFeature>("a14e8c1801911334f96d410f10eab7bf");
-                    SlipperyMind.AddComponent(Helpers.Create<RecalculateOnStatChange>(c => {
+                    SlipperyMind.AddComponent<RecalculateOnStatChange>(c => {
                         c.Stat = StatType.Dexterity;
-                    }));
+                    });
                     SlipperyMind.AddPrerequisiteFeature(AdvanceTalents);
                     TTTContext.Logger.LogPatch("Patched", SlipperyMind);
                 }
