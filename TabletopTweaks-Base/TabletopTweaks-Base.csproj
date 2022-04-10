@@ -338,7 +338,6 @@
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
-    <Compile Include="NewContent\MythicAbilities\DimensionalRetribution.cs" />
     <Compile Include="NewContent\MythicAbilities\EnhancedBlessings.cs" />
     <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicPersistent.cs" />
     <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicSelective.cs" />

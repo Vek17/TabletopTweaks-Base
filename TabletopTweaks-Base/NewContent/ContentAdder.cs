@@ -148,7 +148,6 @@ namespace TabletopTweaks.Base.NewContent {
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();
-                MythicAbilities.DimensionalRetribution.AddDimensionalRetribution();
 
                 Feats.ShatterDefenses.AddNewShatterDefenseBlueprints();
                 Feats.MagicalAptitude.AddMagicalAptitude();
