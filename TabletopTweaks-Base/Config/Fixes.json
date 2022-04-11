@@ -860,6 +860,11 @@
         "Homebrew": false,
         "Description": "Acid Maw no longer causes excessive damage instances to trigger when attacking."
       },
+      "AnimalGrowth": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Should now work properly on animal companions."
+      },
       "BelieveInYourself": {
         "Enabled": true,
         "Homebrew": false,

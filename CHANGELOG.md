@@ -10,6 +10,8 @@
         * Cleaving Finish
             * Cleaving Finish now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
     * Spells
+        * Animal Growth
+            * Should now work correctly with animal companions.
         * Corrupt Magic
             * Corrupt Magic now uses a single dispel roll for all buffs like other dispels.
         * Mind Blank

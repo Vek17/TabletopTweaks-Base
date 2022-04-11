@@ -1,5 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
@@ -46,6 +48,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 TTTContext.Logger.LogHeader("Patching Spells");
                 PatchAbyssalStorm();
                 PatchAcidMaw();
+                PatchAnimalGrowth();
                 PatchBelieveInYourself();
                 PatchBestowCurseGreater();
                 PatchBreakEnchantment();
@@ -133,6 +136,37 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     c.Category = WeaponCategory.Bite;
                 });
                 TTTContext.Logger.LogPatch("Patched", AcidMawBuff);
+            }
+
+            static void PatchAnimalGrowth() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("AnimalGrowth")) { return; }
+
+                var AnimalCompanionSelectionBase = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
+                IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = AnimalCompanionSelectionBase.m_AllFeatures.Concat(AnimalCompanionSelectionBase.m_Features)
+                    .Select(feature => feature.Get())
+                    .Where(feature => feature.GetComponent<AddPet>())
+                    .Select(feature => feature.GetComponent<AddPet>())
+                    .Where(component => component.m_UpgradeFeature != null)
+                    .Select(component => component.m_UpgradeFeature.Get())
+                    .Where(feature => feature != null)
+                    .Distinct();
+                AnimalCompanionUpgrades.ForEach(bp => {
+                    var component = bp.GetComponent<ChangeUnitSize>();
+                    if (component == null) { return; }
+                    bp.RemoveComponent(component);
+                    if (component.IsTypeDelta) {
+                        bp.AddComponent<ChangeUnitBaseSize>(c => {
+                            c.m_Type = Core.NewUnitParts.UnitPartBaseSizeAdjustment.ChangeType.Delta;
+                            c.SizeDelta = component.SizeDelta;
+                        });
+                    } else if (component.IsTypeValue) {
+                        bp.AddComponent<ChangeUnitBaseSize>(c => {
+                            c.m_Type = Core.NewUnitParts.UnitPartBaseSizeAdjustment.ChangeType.Value;
+                            c.Size = component.Size;
+                        });
+                    }
+                    TTTContext.Logger.LogPatch("Patched", bp);
+                });
             }
 
             static void PatchBelieveInYourself() {
