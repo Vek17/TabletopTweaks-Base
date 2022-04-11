@@ -12,7 +12,8 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Cleric {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        [HarmonyPriority(Priority.First)]
+        static class BlueprintsCache_Init_Domain_Patch {
             static bool Initialized;
 
             static void Postfix() {

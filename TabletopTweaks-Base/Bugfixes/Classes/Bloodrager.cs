@@ -36,6 +36,8 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchArcaneBloodrage();
                 PatchGreaterArcaneBloodrage();
                 PatchTrueArcaneBloodrage();
+                PatchDisruptiveBloodrage();
+                PatchCastersBane();
             }
             static void PatchBaseClass() {
                 PatchSpellbook();
