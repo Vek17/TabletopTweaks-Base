@@ -18,6 +18,9 @@
             * Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing.
         * Zero State
             * Zero State now uses a single dispel roll for all buffs like other dispels.
+    * Armor
+        * Singing Steel
+            * Singing Steel now works.
     * Alchemsist
         * Fixed Incense Fog scaling incorrectly if you took expanded area.
     * Hunter

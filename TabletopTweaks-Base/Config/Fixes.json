@@ -1300,6 +1300,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Haramaki are now counted as light armor properly."
+        },
+        "SingingSteel": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Singing Steel now works."
         }
       },
       "IsExpanded": true
