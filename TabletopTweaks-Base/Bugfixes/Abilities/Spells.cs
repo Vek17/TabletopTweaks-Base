@@ -55,6 +55,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchChainLightning();
                 PatchCorruptMagic();
                 PatchCrusadersEdge();
+                PatchDeathWard();
                 PatchDispelMagicGreater();
                 PatchEyeOfTheSun();
                 PatchFirebrand();
@@ -283,6 +284,41 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 BlueprintBuff CrusadersEdgeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("7ca348639a91ae042967f796098e3bc3");
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 TTTContext.Logger.LogPatch("Patched", CrusadersEdgeBuff);
+            }
+
+            static void PatchDeathWard() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("DeathWard")) { return; }
+
+                var NegativeLevelsBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("b02b6b9221241394db720ca004ea9194");
+                var DeathWardBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b0253e57a75b621428c1b89de5a937d1");
+                var DeathWardBuff_IsFromSpell = BlueprintTools.GetBlueprint<BlueprintBuff>("a04d666d8b1f5a2419f1adc6874ae65a");
+
+                DeathWardBuff.SetDescription(TTTContext, "The subject gains a +4 morale bonus on saves against all death spells " +
+                    "and magical death effects. The subject is granted a save to negate such effects even if one is not normally allowed. " +
+                    "The subject is immune to energy drain and any negative energy effects, including channeled negative energy. " +
+                    "This spell does not remove negative levels that the subject has already gained, " +
+                    "but it does remove the penalties from negative levels for the duration of its effect. " +
+                    "Death ward does not protect against other sorts of attacks, even if those attacks might be lethal. ");
+                DeathWardBuff.AddComponent<SuppressBuffsTTT>(c => {
+                    c.Continuous = true;
+                    c.m_Buffs = new BlueprintBuffReference[] {
+                        NegativeLevelsBuff
+                    };
+                });
+                DeathWardBuff_IsFromSpell.SetDescription(TTTContext, "The subject gains a +4 morale bonus on saves against all death spells " +
+                    "and magical death effects. The subject is granted a save to negate such effects even if one is not normally allowed. " +
+                    "The subject is immune to energy drain and any negative energy effects, including channeled negative energy. " +
+                    "This spell does not remove negative levels that the subject has already gained, " +
+                    "but it does remove the penalties from negative levels for the duration of its effect. " +
+                    "Death ward does not protect against other sorts of attacks, even if those attacks might be lethal. ");
+                DeathWardBuff_IsFromSpell.AddComponent<SuppressBuffsTTT>(c => {
+                    c.Continuous = true;
+                    c.m_Buffs = new BlueprintBuffReference[] {
+                        NegativeLevelsBuff
+                    };
+                });
+                TTTContext.Logger.LogPatch("Patched", DeathWardBuff);
+                TTTContext.Logger.LogPatch("Patched", DeathWardBuff_IsFromSpell);
             }
 
             static void PatchDispelMagicGreater() {

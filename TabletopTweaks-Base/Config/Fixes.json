@@ -895,6 +895,11 @@
         "Homebrew": false,
         "Description": "Crusaders Edge's nauseate effect now only procs on critical hits."
       },
+      "DeathWard": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now supresses existing negative levels."
+      },
       "DispelMagicGreater": {
         "Enabled": true,
         "Homebrew": false,
