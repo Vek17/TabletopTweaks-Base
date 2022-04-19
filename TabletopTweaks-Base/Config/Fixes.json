@@ -8,11 +8,6 @@
         "Homebrew": false,
         "Description": "Coup De Grace saving throw DC is now based on damage dealt."
       },
-      "CriticalRangeIncreases": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Addative critical range increases are no longer multiplied by keen/improved critical. This includes trickster improved imporved critical."
-      },
       "DamageReductionRework": {
         "Enabled": true,
         "Homebrew": false,
@@ -117,6 +112,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Size shifts are now legal for the full size range of Fine to Collasal. This primarily affects microscopic proportions."
+      },
+      "FixWeaponEnhancmentBonusModifiers": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Weapon enhancement bonuses are logically split from non weapon enhancement bonuses."
       },
       "MetamagicStacking": {
         "Enabled": true,
@@ -1326,6 +1326,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now is a free action to use."
+        },
+        "FlawlessBeltOfPhysicalPerfection8": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now increases critical threat range by 1 in all cases."
         },
         "HalfOfThePair": {
           "Enabled": true,

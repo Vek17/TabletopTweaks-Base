@@ -1,9 +1,11 @@
 ﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
@@ -20,6 +22,7 @@ using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewActions;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -42,6 +45,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchHolySymbolofIomedae();
                 PatchHalfOfThePair();
                 PatchStormlordsResolve();
+                PatchFlawlessBeltOfPhysicalPerfection8();
 
                 void PatchAspectOfTheAsp() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("AspectOfTheAsp")) { return; }
@@ -85,7 +89,31 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     });
                     TTTContext.Logger.LogPatch(AspectOfTheAspFeature);
                 }
+                void PatchFlawlessBeltOfPhysicalPerfection8() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FlawlessBeltOfPhysicalPerfection8")) { return; }
 
+                    var DLC1_InevitableDarkness_CoreReward = BlueprintTools.GetBlueprint<BlueprintLoot>("b4ba9f9162694daeabca42b2de9a98d8");
+                    var BeltOfPerfection8Extra = BlueprintTools.GetBlueprintReference<BlueprintItemReference>("3c3a3a043b99422480b04940bc1edc73");
+                    var BeltOfPerfection8ExtraFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("e1f419f50b5a45158080bb4cb4ff6858");
+                    
+                    if (BeltOfPerfection8ExtraFeature != null) {
+                        BeltOfPerfection8ExtraFeature.SetComponents();
+                        BeltOfPerfection8ExtraFeature.AddComponent<AddFlatCriticalRangeIncrease>(c => {
+                            c.CriticalRangeIncrease = 1;
+                            c.AllWeapons = true;
+                        });
+                        TTTContext.Logger.LogPatch(BeltOfPerfection8ExtraFeature);
+                    }
+                    if (DLC1_InevitableDarkness_CoreReward != null) {
+                        DLC1_InevitableDarkness_CoreReward.Items = new LootEntry[] {
+                            new LootEntry(){ 
+                                m_Item = BeltOfPerfection8Extra,
+                                Count = 1
+                            }
+                        };
+                        TTTContext.Logger.LogPatch(DLC1_InevitableDarkness_CoreReward);
+                    }
+                }
                 void PatchMagiciansRing() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("MagiciansRing")) { return; }
 
@@ -93,7 +121,6 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     RingOfTheSneakyWizardFeature.GetComponent<IncreaseSpellSchoolDC>().BonusDC = 2;
                     TTTContext.Logger.LogPatch(RingOfTheSneakyWizardFeature);
                 }
-
                 void PatchHalfOfThePair() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("HalfOfThePair")) { return; }
 
@@ -129,7 +156,6 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         .ForEach(c => c.ToCaster = false);
                     TTTContext.Logger.LogPatch(HalfOfPairedPendantArea);
                 }
-
                 void PatchHolySymbolofIomedae() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("HolySymbolofIomedae")) { return; }
 
@@ -142,7 +168,6 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     );
                     TTTContext.Logger.LogPatch(Artifact_HolySymbolOfIomedaeArea);
                 }
-
                 // Fix Mangling Frenzy does not apply to Bloodrager's Rage
                 void PatchManglingFrenzy() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("ManglingFrenzy")) { return; }
@@ -158,7 +183,6 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                     TTTContext.Logger.LogPatch(ManglingFrenzyFeature);
                 }
-
                 void PatchStormlordsResolve() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("StormlordsResolve")) { return; }
 
@@ -167,7 +191,6 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                     TTTContext.Logger.LogPatch(StormlordsResolveActivatableAbility);
                 }
-
                 void PatchMetamagicRods() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("MetamagicRods")) { return; }
 

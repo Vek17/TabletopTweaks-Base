@@ -36,11 +36,11 @@ namespace TabletopTweaks.Base.NewContent.MagusArcana {
                 return classes
                     .Where(c => c.AssetGuid != SpellTools.SpellCastingClasses.MagusClass.AssetGuid)
                     .Select(characterClass => {
-                        var spellSecret = Helpers.CreateDerivedBlueprint<BlueprintFeature>(TTTContext, $"BroadStudy{characterClass.name}",
+                        var broadStudy = Helpers.CreateDerivedBlueprint<BlueprintFeature>(TTTContext, $"BroadStudy{characterClass.name}",
                             BroadStudyMasterID,
                             new SimpleBlueprint[] { characterClass },
                             bp => {
-                                bp.SetName(TTTContext, $"Broad Study — {characterClass.Name}");
+                                bp.SetName(TTTContext, $"Broad Study — {characterClass.name.SplitCamelCase().FirstOrDefault()}");
                                 bp.m_Description = selection.m_Description;
                                 bp.IsClassFeature = true;
                                 bp.Groups = selection.Groups;
@@ -54,7 +54,7 @@ namespace TabletopTweaks.Base.NewContent.MagusArcana {
                                     c.HideInUI = true;
                                 });
                             });
-                        return spellSecret;
+                        return broadStudy;
                     }).ToArray();
             }
 

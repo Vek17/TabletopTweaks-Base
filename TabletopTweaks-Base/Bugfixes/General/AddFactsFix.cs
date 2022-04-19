@@ -71,11 +71,12 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 if (actualCaster == null) { return; }
                 if (mechanicsContext == null) { return; }
                 if (abilityParams == null) {
-                    var OwnerCR = actualCaster.Blueprint?.GetComponent<Experience>()?.CR ?? actualCaster.Progression.CharacterLevel;
+                    var OwnerCR = actualCaster.Progression.CharacterLevel;// actualCaster.Blueprint?.GetComponent<Experience>()?.CR; ?? actualCaster.Progression.CharacterLevel;
                     if (OwnerCR == 0) { return; }
                     var clonedParams = mechanicsContext.Params.Clone();
                     clonedParams.CasterLevel = OwnerCR;
                     __result.MaybeContext.m_Params = clonedParams;
+                    __result.Reapply();
                 }
             }
         }

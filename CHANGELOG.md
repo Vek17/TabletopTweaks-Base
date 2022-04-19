@@ -1,4 +1,4 @@
-## Version 2.0.1
+## Version 2.1.0
 * Fixes
     * Systems
         * Fixed Concealment checks for invisibility.
@@ -9,6 +9,8 @@
             * Cleave now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
         * Cleaving Finish
             * Cleaving Finish now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
+        * Toppling Bash
+            * Toppling Bash's action cost has been removed for now due to bugs breaking action econemy when toggled.
     * Spells
         * Animal Growth
             * Animal Growth should now work correctly with animal companions.
@@ -23,6 +25,9 @@
     * Armor
         * Singing Steel
             * Singing Steel now works.
+    * Equipment
+        * Flawless Belt Of Physical Perfection 8
+            * Now increases Crit range by 1 in all cases.
     * Alchemsist
         * Fixed Incense Fog scaling incorrectly if you took expanded area.
     * Hunter

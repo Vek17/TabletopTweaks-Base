@@ -24,8 +24,8 @@ namespace TabletopTweaks.Base.ModLogic {
             base.AfterBlueprintCachePatches();
             //Blueprints.RemoveUnused();
             //SaveSettings(BlueprintsFile, Blueprints);
-            //ModLocalizationPack.RemoveUnused();
-            //SaveLocalization(ModLocalizationPack);
+            ModLocalizationPack.RemoveUnused();
+            SaveLocalization(ModLocalizationPack);
         }
 
         public override void SaveAllSettings() {

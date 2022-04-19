@@ -467,6 +467,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         c.m_Progression = ContextRankProgression.DivStep;
                         c.m_StepLevel = 4;
                         c.m_Min = 1;
+                        c.m_UseMin = true;
                         c.m_Max = 5;
                     });
                     TTTContext.Logger.LogPatch("Patched", MagicalVestmentShieldBuff);
@@ -493,6 +494,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         c.m_Progression = ContextRankProgression.DivStep;
                         c.m_StepLevel = 4;
                         c.m_Min = 1;
+                        c.m_UseMin = true;
                         c.m_Max = 5;
                     });
                     TTTContext.Logger.LogPatch("Patched", MagicalVestmentArmorBuff);

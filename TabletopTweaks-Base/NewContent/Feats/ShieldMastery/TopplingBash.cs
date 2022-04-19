@@ -150,11 +150,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                 bp.IsOnByDefault = true;
                 bp.DoNotTurnOffOnRest = true;
                 bp.DeactivateImmediately = true;
+                bp.ActivationType = AbilityActivationType.Immediately;
+                /*
                 bp.ActivationType = AbilityActivationType.WithUnitCommand;
                 bp.m_ActivateWithUnitCommand = UnitCommand.CommandType.Swift;
                 bp.AddComponent<ActivatableAbilityUnitCommand>(c => {
                     c.Type = UnitCommand.CommandType.Swift;
                 });
+                */
             });
             var TopplingBashEffect = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "TopplingBashEffect", bp => {
                 bp.SetName(TopplingBashEffectBuff.m_DisplayName);
