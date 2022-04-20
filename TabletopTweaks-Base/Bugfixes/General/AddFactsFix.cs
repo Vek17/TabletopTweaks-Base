@@ -7,6 +7,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using System;
 using static TabletopTweaks.Base.Main;
 
@@ -86,6 +87,16 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             static void Postfix(RuleCalculateAbilityParams __instance) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 TTTContext.Logger.Log($"CL: {__instance.Result?.CasterLevel} Spell: {__instance.Spell?.name} ");
+            }
+        }
+        [HarmonyPatch(typeof(MechanicsContext), nameof(MechanicsContext.OnDeserialized))]
+        static class MechanicsContext_OnDeserialized_Patch {
+            static bool Prefix(MechanicsContext __instance) { 
+                if (TTTContext.Fixes.BaseFixes.IsDisabled("FixBuffCasterOnSaveLoad")) { return true; }
+                if (__instance.m_CasterRef.IsEmpty) {
+                    __instance.m_CasterRef = __instance.m_OwnerRef;
+                }
+                return false;
             }
         }
     }

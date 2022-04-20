@@ -73,6 +73,11 @@
         "Homebrew": true,
         "Description": "Changes the skill and attack bonuses granted from backgrounds into trait bonuses."
       },
+      "FixBuffCasterOnSaveLoad": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Ensures that the caster of buffs is correctly remembered when a save is loaded."
+      },
       "FixConcealment": {
         "Enabled": true,
         "Homebrew": false,
