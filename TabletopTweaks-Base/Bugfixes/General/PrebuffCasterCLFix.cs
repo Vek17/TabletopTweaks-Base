@@ -12,7 +12,7 @@ using System;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
-    static class AddFactsFix {
+    static class PrebuffCasterCLFix {
         [HarmonyPatch(typeof(AddFacts), nameof(AddFacts.UpdateFacts))]
         static class AddFacts_UpdateFacts_CL_Patch {
             static void Postfix(AddFacts __instance) {
@@ -87,16 +87,6 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             static void Postfix(RuleCalculateAbilityParams __instance) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
                 TTTContext.Logger.Log($"CL: {__instance.Result?.CasterLevel} Spell: {__instance.Spell?.name} ");
-            }
-        }
-        [HarmonyPatch(typeof(MechanicsContext), nameof(MechanicsContext.OnDeserialized))]
-        static class MechanicsContext_OnDeserialized_Patch {
-            static bool Prefix(MechanicsContext __instance) { 
-                if (TTTContext.Fixes.BaseFixes.IsDisabled("FixBuffCasterOnSaveLoad")) { return true; }
-                if (__instance.m_CasterRef.IsEmpty) {
-                    __instance.m_CasterRef = __instance.m_OwnerRef;
-                }
-                return false;
             }
         }
     }
