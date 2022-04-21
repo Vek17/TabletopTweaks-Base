@@ -30,6 +30,8 @@
             * Now increases Crit range by 1 in all cases.
     * Alchemsist
         * Fixed Incense Fog scaling incorrectly if you took expanded area.
+    * Cavalier
+        * Order of the Star's Calling ability should now properly apply bonuses.
     * Hunter
         * Fixed Divine Hunter's animal companion getting unlimited smites.
     * Rogue

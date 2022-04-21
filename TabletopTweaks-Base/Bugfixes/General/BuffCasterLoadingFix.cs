@@ -7,7 +7,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
         static class MechanicsContext_OnDeserialized_Patch {
             static bool Prefix(MechanicsContext __instance) {
                 if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("FixBuffCasterOnSaveLoad")) { return true; }
-                if (__instance.m_CasterRef.Entity == null) {
+                if (__instance.m_CasterRef.IsEmpty) {
                     __instance.m_CasterRef = __instance.m_OwnerRef;
                 }
                 return false;

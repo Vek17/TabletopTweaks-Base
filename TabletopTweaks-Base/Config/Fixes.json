@@ -386,6 +386,11 @@
           "Homebrew": false,
           "Description": "Allows the Cavalier to select a wolf for a mount if they are of small size."
         },
+        "OrderOfTheStarCalling": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Bonuses should now actually be calculated instead of just being displayed."
+        },
         "SupremeCharge": {
           "Enabled": true,
           "Homebrew": false,

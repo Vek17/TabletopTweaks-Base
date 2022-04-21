@@ -193,7 +193,7 @@
     <Compile Include="Bugfixes\Features\Feats.cs" />
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Bugfixes\Features\MythicFeats.cs" />
-    <Compile Include="Bugfixes\General\AddFactsFix.cs" />
+    <Compile Include="Bugfixes\General\PrebuffCasterCLFix.cs" />
     <Compile Include="Bugfixes\General\BuffCasterLoadingFix.cs" />
     <Compile Include="Bugfixes\General\ConcealmentFix.cs" />
     <Compile Include="Bugfixes\General\CriticalConfirmOn20.cs" />

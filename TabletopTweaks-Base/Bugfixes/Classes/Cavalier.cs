@@ -3,8 +3,14 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents;
@@ -30,6 +36,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchCavalierMobility();
                 PatchCavalierMountSelection();
                 PatchSupremeCharge();
+                PatchOrderOfTheStar();
 
                 void PatchCavalierMountSelection() {
                     if (TTTContext.Fixes.Cavalier.Base.IsDisabled("CavalierMountSelection")) { return; }
@@ -81,6 +88,36 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                     CavalierProgression.LevelEntries.Where(l => l.Level == 1).First().m_Features.Add(CavalierMobilityFeature.ToReference<BlueprintFeatureBaseReference>());
                     DiscipleOfThePikeArchetype.RemoveFeatures.Where(l => l.Level == 1).First().m_Features.Add(CavalierMobilityFeature.ToReference<BlueprintFeatureBaseReference>());
+                }
+                void PatchOrderOfTheStar() {
+                    PatchCalling();
+
+                    void PatchCalling(){
+                        if (TTTContext.Fixes.Cavalier.Base.IsDisabled("OrderOfTheStarCalling")) { return; }
+
+                        var CavalierCallingBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6074c0e8bd593024c9866c7b99c6d826");
+                        CavalierCallingBuff.TemporaryContext(bp => {
+                            bp.RemoveComponents<ModifyD20>();
+                            bp.AddComponent<BuffAllSkillsBonus>(c => {
+                                c.Value = 1;
+                                c.Multiplier = new ContextValue() {
+                                    ValueType = ContextValueType.Rank
+                                };
+                                c.Descriptor = ModifierDescriptor.Competence;
+                            });
+                            bp.AddComponent<AddContextStatBonus>(c => {
+                                c.Stat = StatType.AdditionalAttackBonus;
+                                c.Descriptor = ModifierDescriptor.Competence;
+                                c.Value = new ContextValue() {
+                                    ValueType = ContextValueType.Rank
+                                };
+                            });
+                            bp.AddComponent<AddInitiatorSkillRollTrigger>(c => {
+                                c.Action = Helpers.CreateActionList(new ContextActionRemoveSelf());
+                            });
+                            bp.AddComponent<RemoveBuffOnAttack>();
+                        });
+                    }
                 }
             }
             static void PatchGendarme() {
