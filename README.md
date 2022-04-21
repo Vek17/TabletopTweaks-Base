@@ -25,8 +25,6 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Suppressed Buffs
         * Suppressed buffs now have custom UI rules to better indicate them.
 * Bases Fixes
-    * Progressions
-        * Progressions will no longer incorrectly include mythic levels, or double count some classes levels.
     * Coup De Grace
         * Coup De Grace saving throw DC is now based on damage dealt.
     * Damage Reduction
@@ -40,6 +38,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
     * Size Effects
         * Prevents multiple size changing buffs granting benifits at the same time. Old buffs are suppressed.
+    * Size Limits
+        * Size shifts are now supported from Fine to Colossal.
     * Feat Selections
         * Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type.
     * Background Modifiers
@@ -52,6 +52,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Spears now grant additional damage during a mounted charge in the same mannor a lance would.
     * Enemy Buff CL
         * Enemy buffs now have the correct CL for applied buffs as defined on thier blueprints.
+        * Prebuffs will be applied at a more correct level instead of nearly always CL 20.
     * Shadow Spells
         * Shadow spells now are correctly treated as being from the Illusion school for all effects.
     * Mounted Movement
@@ -60,6 +61,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Removes the poison descripotor from nauseated.
     * Staggered Condition
         * Removes the movement impairing descriptor from staggered.
+    * Invisibility
+        * Invisibility now properly grants concealment.
+    * Loading
+        * Saves will now properly remember who cast buffs which should fix several bugs including idealize discovery not working on save load.
 
 * Spells
     * Spell flags
@@ -68,6 +73,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Abyssal Storm no longer saves for half and no longer kills the caster.
     * Acid Maw 
         * Acid Maw no longer causes excessive damage instances to trigger when attacking.
+    * Animal Growth
+        * Animal Growth should now work correctly with animal companions.
     * Believe In Yourself
         * Believe in yourself now grants the correct bonus amount.
     * Bestow Greater Curse
@@ -76,8 +83,12 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Break Enchantment no longer affects friendly buffs.
     * Chain Lightning
         * Chain Lightning now respect the 20 CL max for damage dice.
+    * Corrupt Magic
+        * Corrupt Magic now uses a single dispel roll for all buffs like other dispels.
     * Crusader's Edge
         * Crusaders Edge's nauseate effect now only procs on critical hits.
+    * Death Ward
+        * Death Ward now Supresses existing negative levels.
     * Dispel Magic Greater
         * Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs.
     * Eye Of The Sun
@@ -94,6 +105,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Magical Vestment now enhances your armor instead of granting a floating modifier.
     * Microscopic Proportions 
         * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
+    * Mind Blank
+        * Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing.
     * Remove Fear
         * Remove Fear no longer grants immunity to shaken and fear.
     * Remove Sickness
@@ -117,6 +130,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Wracking Ray now deals the correct amount of ability damage.
     * Vamperic Blade
         * Vamperic Blade no longer triggers extra fake attacks.
+    * Zero State
+        * Zero State now uses a single dispel roll for all buffs like other dispels.
 
 * Feats
     * AlliedSpellcaster
@@ -127,6 +142,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Brew Potions is no longer tagged as a combat feat.
     * Bolstered Metamagic
         * Sticky touch spells can now be bolstered.
+    * Cleave
+        * Cleave now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
+    * Cleaving Finish
+        * Cleaving Finish now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
     * EmpowerMetamagic
         * Sticky touch spells can now be empowered.
         * Prevents extra dice from empowered metamagic from being maximized by maximize metamagic.
@@ -215,6 +234,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Grenadier
         * Removed brew potions from the archetype
         * Removed posion resistance from the archetype
+    * Incense Synthesizer
+        * Incense Fog now scales correctly if you take expanded area.
 
 * Arcanist
     * Prepared Spell UI
@@ -249,6 +270,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Allows Cavalier to ignore thier armor check penalty while mounted for mobility skill checks.
     * Mount Selection
         * Allows the Cavalier to select a wolf for a mount if they are of small size.
+    * Order of the Star
+        * Order of the Star's Calling ability should now properly apply bonuses.
     * Supreme Charge
         * Prevents Supreme Charge damage from criting and moves it into the new charage damage system.
     * Gendarme
@@ -268,6 +291,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Two Weapon Fighter
         * Allows two handed fighter to pick advanced weapon training feats.
         * Treats two handed fighter's weapon training as proper weapon training.
+
+* Hunter
+    * Divine Hunter
+        * Divine Hunter's animal companion no longer gets unlimited smites.
 
 * Magus
     * Arcane Weapon
@@ -302,6 +329,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Trapfinding now grants bonuses to perception and trickery.
 
 * Rogue
+    * Dispelling Attack
+        * Dispelling Attack now uses the correct CL and no longer removes debuffs.
     * Rogue Talents
         * Prevents you from selecting the same talent more than once.
     * Slippery Mind
@@ -369,8 +398,13 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 * Armor
     * Haramaki
         * Haramaki are now counted as light armor properly.
+    * Singing Steel
+        * Singing Steel now works properly.
 
 * Equipment
+    * Flawless Belt Of Physical Perfection 8
+        * Now increases critical hit range by 1 in all cases.
+        * Now appears as a DLC1 reward.
     * Half Of The Pair
         * Will more accuratly update the bonus with range.
     * Holy Symbol of Iomedae
@@ -541,6 +575,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 		* You reduce the armor check penalty for tower shields by 3, and if you have the armor training class feature, you modify the armor check penalty and maximum Dexterity bonus of tower shields as if they were armor.
 
 * Mythic Feats
+    * Cleave (Mythic)
+		* Whenever you use Cleave or Cleaving Finish, your attacks can be made against a foe that is within your reach.
     * Critical Focus (Mythic)
 		* You automatically confirm critical threats against non-mythic opponents. In addition, when you threaten a critical hit against a creature wearing armor with the fortification special ability or similar effect, that creature must roll twice and take the worse result when determining critical hit negation.
     * Combat Expertise (Mythic)

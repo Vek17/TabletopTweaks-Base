@@ -4,13 +4,15 @@
         * Fixed Concealment checks for invisibility.
         * Size shifts are now supported from Fine to Colossal.
         * Charge damage multipliers should now work correctly again.
+        * Prebuffs will be applied at a more correct level instead of nearly always CL 20.
+        * Saves will now properly remember who cast buffs which should fix several bugs including idealize discovery not working on save load.
     * Feats
         * Cleave
             * Cleave now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
         * Cleaving Finish
             * Cleaving Finish now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
         * Toppling Bash
-            * Toppling Bash's action cost has been removed for now due to bugs breaking action econemy when toggled.
+            * Toppling Bash's action cost has been removed for now due to bugs breaking action econemy when toggled. This is still limited to once per round.
     * Spells
         * Animal Growth
             * Animal Growth should now work correctly with animal companions.
@@ -27,7 +29,8 @@
             * Singing Steel now works.
     * Equipment
         * Flawless Belt Of Physical Perfection 8
-            * Now increases Crit range by 1 in all cases.
+            * Now increases critical hit range by 1 in all cases.
+            * Now appears as a DLC1 reward.
     * Alchemsist
         * Fixed Incense Fog scaling incorrectly if you took expanded area.
     * Cavalier

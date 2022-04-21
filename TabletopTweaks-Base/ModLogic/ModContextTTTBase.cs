@@ -19,15 +19,15 @@ namespace TabletopTweaks.Base.ModLogic {
             LoadBlueprints("TabletopTweaks.Base.Config", this);
             LoadLocalization("TabletopTweaks.Base.Localization");
         }
-
         public override void AfterBlueprintCachePatches() {
             base.AfterBlueprintCachePatches();
-            //Blueprints.RemoveUnused();
-            //SaveSettings(BlueprintsFile, Blueprints);
-            ModLocalizationPack.RemoveUnused();
-            SaveLocalization(ModLocalizationPack);
+            if (Debug) {
+                //Blueprints.RemoveUnused();
+                //SaveSettings(BlueprintsFile, Blueprints);
+                ModLocalizationPack.RemoveUnused();
+                SaveLocalization(ModLocalizationPack);
+            }
         }
-
         public override void SaveAllSettings() {
             base.SaveAllSettings();
             SaveSettings("Fixes.json", Fixes);

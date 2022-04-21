@@ -1178,14 +1178,14 @@
       "esES": null
     },
     {
-      "Key": "156b5212ad84f0849b8649b72fe0ffee",
+      "Key": "af88278451f04eb8866a183f851f869c",
       "SimpleName": "BackgroundMwangianHunter.Description",
       "ProcessTemplates": true,
-      "enGB": "Mwangi Hunter adds Lore (nature) and Stealth to the list of her class skills. She also becomes proficient with darts, slings, throwing axes and javelins. In addition, Mwangi Hunter gets a +1 bonus to damage with all throwing weapons.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Mwangi Hunter adds Lore (nature) and Stealth to the list of her class skills. She also becomes proficient with darts, throwing axes and javelins. In addition, Mwangi Hunter gets a +1 bonus to damage with all throwing weapons.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "莽迹猎人将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长飞镖、投石索、飞斧和标枪。此外，莽迹猎人在用所有投掷武器造成的伤害获得+1加值。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2674,17 +2674,6 @@
       "esES": null
     },
     {
-      "Key": "bea8b0b4ae074f49807a3d6f3dd17c6b",
-      "SimpleName": "BloodragerAberrantBloodline.Description",
-      "ProcessTemplates": true,
-      "enGB": "There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.\nWhile bloodraging, you gain the abilities and immunities of some aberrations, but show signs of your tainted heritage.\n额外专长：战斗反射、钢铁意志、精通徒手打击、精通阴招、精通先攻、精通缴械、顽石强韧。\nBonus Spells: Enlarge Person (7th), See Invisibility (10th), Displacement (13th), Spike Stones (16th).",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "05904ca55b1e4a579480927db8907b97",
       "SimpleName": "BloodragerAberrantBloodline.Name",
       "ProcessTemplates": false,
@@ -3147,17 +3136,6 @@
       "esES": null
     },
     {
-      "Key": "5472b21f17c44f7699232798d3538a2f",
-      "SimpleName": "BloodragerDestinedBloodline.Description",
-      "ProcessTemplates": true,
-      "enGB": "Your bloodline is destined for great things. When you bloodrage, you exude a greatness that makes all but the most legendary creatures seem lesser.\nYour future greatness grants you the might to strike your enemies with awe.\n额外专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。\nBonus Spells: Shield (7th), Blur (10th), Protection From Energy (13th), Freedom Of Movement (16th).",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "c6a74ccfd3064e4cad25c85486cccf9b",
       "SimpleName": "BloodragerDestinedBloodline.Name",
       "ProcessTemplates": false,
@@ -3389,6 +3367,17 @@
       "esES": null
     },
     {
+      "Key": "447f62fcee2e48868763c8a8d0d95ddb",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Incinerating",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "1a4efcc5257d463f87d26807037d27d4",
       "SimpleName": "Brass2d8.Prefix",
       "ProcessTemplates": false,
@@ -3408,17 +3397,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "光能",
-      "esES": null
-    },
-    {
-      "Key": "3f439d41f0ab4465a4a7507ebf19f4ee",
-      "SimpleName": "BroadStudyArcanistClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 奥能师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -3444,17 +3422,6 @@
       "esES": null
     },
     {
-      "Key": "23b064475474461fb9d316dedcba473c",
-      "SimpleName": "BroadStudyBardClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 吟游诗人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "73deea05a757ca76b2641f570a3fa93a",
       "SimpleName": "BroadStudyBloodragerClass.Name",
       "ProcessTemplates": false,
@@ -3466,28 +3433,6 @@
       "esES": null
     },
     {
-      "Key": "194d6ad1f2184bb8a96278cb746eecab",
-      "SimpleName": "BroadStudyBloodragerClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 血怒者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "07ec3f18e75046e3b73750f25146ecd4",
-      "SimpleName": "BroadStudyClericClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 牧师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "c3211fdcc5fbd126619b9c7fd26ed303",
       "SimpleName": "BroadStudyClericClass.Name",
       "ProcessTemplates": false,
@@ -3496,17 +3441,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "奥术扩展：牧师",
-      "esES": null
-    },
-    {
-      "Key": "1e18b0de797840319ea89af563becd57",
-      "SimpleName": "BroadStudyDruidClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 德鲁伊",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -3532,28 +3466,6 @@
       "esES": null
     },
     {
-      "Key": "8bb573cb66d640fea8e8ac8d86047095",
-      "SimpleName": "BroadStudyHunterClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 猎人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "da4d209da2524036adbf27440b303d94",
-      "SimpleName": "BroadStudyInquisitorClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 审判官",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "55078033a88a0d160212376242828c6d",
       "SimpleName": "BroadStudyInquisitorClass.Name",
       "ProcessTemplates": false,
@@ -3576,28 +3488,6 @@
       "esES": null
     },
     {
-      "Key": "9378f246f8e9429999dbc787f56824d7",
-      "SimpleName": "BroadStudyOracleClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 先知",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "7a7616423de04e669aadfc55106a15e8",
-      "SimpleName": "BroadStudyPaladinClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 圣武士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "1b019f95542f79b6218d9b934038ba4f",
       "SimpleName": "BroadStudyPaladinClass.Name",
       "ProcessTemplates": false,
@@ -3609,17 +3499,6 @@
       "esES": null
     },
     {
-      "Key": "10e0254e727d408bb85ba731d46d721c",
-      "SimpleName": "BroadStudyRangerClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 游侠",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "6900ecfbdb2793e671506c813c583755",
       "SimpleName": "BroadStudyRangerClass.Name",
       "ProcessTemplates": false,
@@ -3628,17 +3507,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "奥术扩展：游侠",
-      "esES": null
-    },
-    {
-      "Key": "83467ffaeb2a44b1b7c64baae9797c92",
-      "SimpleName": "BroadStudyRogueClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 游荡者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -3675,17 +3543,6 @@
       "esES": null
     },
     {
-      "Key": "6f0d9ca39cf248c8bfc11ff8b176edcb",
-      "SimpleName": "BroadStudyShamanClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 萨满",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "b0ff9090858b362611bf8ba1fe519e2d",
       "SimpleName": "BroadStudyShamanClass.Name",
       "ProcessTemplates": false,
@@ -3694,17 +3551,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "奥术扩展：萨满",
-      "esES": null
-    },
-    {
-      "Key": "72174322ce22439dad319f56a6c14f69",
-      "SimpleName": "BroadStudySkaldClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 歌者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -3719,17 +3565,6 @@
       "esES": null
     },
     {
-      "Key": "36a35f8fd5ec44bfbccce6ad49d89bc5",
-      "SimpleName": "BroadStudySorcererClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 术士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "17058856d2c231369319955b2a29896c",
       "SimpleName": "BroadStudySorcererClass.Name",
       "ProcessTemplates": false,
@@ -3738,17 +3573,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "奥术扩展：术士",
-      "esES": null
-    },
-    {
-      "Key": "7e79dac08f034656bc87f7a761fec4e1",
-      "SimpleName": "BroadStudyWarpriestClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 战斗祭司",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -3771,28 +3595,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "奥术扩展：巫师",
-      "esES": null
-    },
-    {
-      "Key": "7ea9308500984e95a29567072318cc9d",
-      "SimpleName": "BroadStudyWitchClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 巫师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "cf9fc0ef6b654baa91c106a886310cbf",
-      "SimpleName": "BroadStudyWizardClass.Name",
-      "ProcessTemplates": false,
-      "enGB": "Broad Study — 法师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -4071,6 +3873,28 @@
       "esES": null
     },
     {
+      "Key": "d2b7d354cb914d0b8d31637dabfa265c",
+      "SimpleName": "CleaveMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can cleave any foe within your reach.\nWhenever you use Cleave or Cleaving Finish, your attacks can be made against a foe that is within your reach, but not adjacent to the foe you attacked. You can’t use this ability to attack a foe more than once per round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bcfd5a3eff744f23ae09b47194cf7037",
+      "SimpleName": "CleaveMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Cleave (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "12d79d753e164726bfffdaad2434e7a9",
       "SimpleName": "ColdResistance10Enchant.Prefix",
       "ProcessTemplates": false,
@@ -4247,6 +4071,28 @@
       "esES": null
     },
     {
+      "Key": "e834f56e5f484b589eadb8095abf848d",
+      "SimpleName": "DeathWardBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "The subject gains a +4 morale bonus on saves against all death spells and magical death effects. The subject is granted a save to negate such effects even if one is not normally allowed. The subject is immune to energy drain and any negative energy effects, including channeled negative energy. This spell does not remove negative levels that the subject has already gained, but it does remove the penalties from negative levels for the duration of its effect. Death ward does not protect against other sorts of attacks, even if those attacks might be lethal. ",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ef96d2aba1f74ae3892e365b7cdc88c2",
+      "SimpleName": "DeathWardBuff_IsFromSpell.Description",
+      "ProcessTemplates": true,
+      "enGB": "The subject gains a +4 morale bonus on saves against all death spells and magical death effects. The subject is granted a save to negate such effects even if one is not normally allowed. The subject is immune to energy drain and any negative energy effects, including channeled negative energy. This spell does not remove negative levels that the subject has already gained, but it does remove the penalties from negative levels for the duration of its effect. Death ward does not protect against other sorts of attacks, even if those attacks might be lethal. ",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "358d2bba94db4235a5965e21d6bb75b4",
       "SimpleName": "DefendedMovementEffect.Description",
       "ProcessTemplates": true,
@@ -4343,28 +4189,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "高等活物破敌",
-      "esES": null
-    },
-    {
-      "Key": "74b036b50c8e41fdaf74f42b63dba8c8",
-      "SimpleName": "DimensionalRetributionTTTAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "Every time you are targeted by an enemy spell, you may teleport to the spellcaster as an immediate action and make an attack of opportunity.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "每当你被敌人的法术攻击时，你可以立即传送到施法者那里，并发动借机攻击。",
-      "esES": null
-    },
-    {
-      "Key": "5b9e6a1f259f4fe8b4ac4e6f2c80f4dd",
-      "SimpleName": "DimensionalRetributionTTTAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Dimensional Retribution",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "次元反击",
       "esES": null
     },
     {
@@ -4981,6 +4805,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古炽焰",
+      "esES": null
+    },
+    {
+      "Key": "2cece7c1eba64efb8d470aaa9c7fba72",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Incinerating",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6634,28 +6469,6 @@
       "esES": null
     },
     {
-      "Key": "0951648f365f4b949b1dd3f390ce8e49",
-      "SimpleName": "LoremasterClericSecretArcanist_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 奥能师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "e4eb968a602f4fc4bf9bfa074bd2580d",
-      "SimpleName": "LoremasterClericSecretBard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 吟游诗人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "b86dab7d1c4eb5bb9a9c2652a075a5ae",
       "SimpleName": "LoremasterClericSecretBard_TTT.Name",
       "ProcessTemplates": false,
@@ -6678,28 +6491,6 @@
       "esES": null
     },
     {
-      "Key": "d478d5767e1d46f88ce3e7dce4ebc557",
-      "SimpleName": "LoremasterClericSecretBloodrager_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 血怒者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "978cdd76a1af4cbd849c5fac9e9dca52",
-      "SimpleName": "LoremasterClericSecretDruid_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 德鲁伊",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "ae4cabb07856438bf8372e385a3da867",
       "SimpleName": "LoremasterClericSecretDruid_TTT.Name",
       "ProcessTemplates": false,
@@ -6708,17 +6499,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 - 德鲁伊",
-      "esES": null
-    },
-    {
-      "Key": "217c198cf1d54929b10aac8c8ef990ba",
-      "SimpleName": "LoremasterClericSecretHunter_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 猎人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -6733,17 +6513,6 @@
       "esES": null
     },
     {
-      "Key": "3fd4a6b509ba4efcb32f6079a5736b2e",
-      "SimpleName": "LoremasterClericSecretInquisitor_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 审判官",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "3ee6254159679cbb4a008674e56f273f",
       "SimpleName": "LoremasterClericSecretInquisitor_TTT.Name",
       "ProcessTemplates": false,
@@ -6752,17 +6521,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 - 审判官",
-      "esES": null
-    },
-    {
-      "Key": "8bc2001155d749b6a7f7effe424b2339",
-      "SimpleName": "LoremasterClericSecretMagus_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 魔战士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -6788,28 +6546,6 @@
       "esES": null
     },
     {
-      "Key": "3577c7e211574b6d90cc8f5f1a11c44d",
-      "SimpleName": "LoremasterClericSecretOracle_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 先知",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "90525b9bd32446b4b46e0c071a381769",
-      "SimpleName": "LoremasterClericSecretPaladin_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 圣武士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "70e03ae7a5c2e81b699f2a85e7d5111d",
       "SimpleName": "LoremasterClericSecretPaladin_TTT.Name",
       "ProcessTemplates": false,
@@ -6818,17 +6554,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 - 圣武士",
-      "esES": null
-    },
-    {
-      "Key": "276083f5c9f84908859777af89e052a6",
-      "SimpleName": "LoremasterClericSecretRanger_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 游侠",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -6854,28 +6579,6 @@
       "esES": null
     },
     {
-      "Key": "b79746a20f07438094282735d238a6e8",
-      "SimpleName": "LoremasterClericSecretRogue_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 游荡者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "2517c579ea574111b3240c7c224e5913",
-      "SimpleName": "LoremasterClericSecretShaman_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 萨满",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "db1e35e27466a78b59ad3ab759bc357f",
       "SimpleName": "LoremasterClericSecretShaman_TTT.Name",
       "ProcessTemplates": false,
@@ -6898,28 +6601,6 @@
       "esES": null
     },
     {
-      "Key": "59b1e1875a4f42b490edea69d83a8238",
-      "SimpleName": "LoremasterClericSecretSkald_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 歌者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "bd509cac89db459086913b88e9da7eaf",
-      "SimpleName": "LoremasterClericSecretSorcerer_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 术士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "7ce42d24232fa09bdb0b244d8dc4223e",
       "SimpleName": "LoremasterClericSecretSorcerer_TTT.Name",
       "ProcessTemplates": false,
@@ -6928,17 +6609,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 - 术士",
-      "esES": null
-    },
-    {
-      "Key": "ccf69f59dae64e0f958e5555712dc819",
-      "SimpleName": "LoremasterClericSecretWarpriest_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 战斗祭司",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -6964,28 +6634,6 @@
       "esES": null
     },
     {
-      "Key": "837040ecfc8d4396916e15b61a21cc72",
-      "SimpleName": "LoremasterClericSecretWitch_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 巫师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "d7d575d383544b478f0c1e446b084f94",
-      "SimpleName": "LoremasterClericSecretWizard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 法师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "75750da6c698194bdaba7a4c7573b2df",
       "SimpleName": "LoremasterClericSecretWizard_TTT.Name",
       "ProcessTemplates": false,
@@ -6994,17 +6642,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 - 法师",
-      "esES": null
-    },
-    {
-      "Key": "a8c174c39d8e4e14ae9633b92c74e423",
-      "SimpleName": "LoremasterDruidSecretArcanist_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 奥能师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7030,17 +6667,6 @@
       "esES": null
     },
     {
-      "Key": "c2528d25970d461abe1aa7fd8a4b3cce",
-      "SimpleName": "LoremasterDruidSecretBard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 吟游诗人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "e3001cf214974bfb9ac21e8cd9049672",
       "SimpleName": "LoremasterDruidSecretBloodrager_TTT.Name",
       "ProcessTemplates": false,
@@ -7049,28 +6675,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 - 血怒者",
-      "esES": null
-    },
-    {
-      "Key": "e7aaa6efaf1648cbba4a0d035180fc4f",
-      "SimpleName": "LoremasterDruidSecretBloodrager_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 血怒者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "855c9dc99b1d40648d6fe9969df453a2",
-      "SimpleName": "LoremasterDruidSecretCleric_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 牧师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7096,17 +6700,6 @@
       "esES": null
     },
     {
-      "Key": "73eea753f2b44f7d84260b4f733d96e9",
-      "SimpleName": "LoremasterDruidSecretHunter_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 猎人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "c5d976c41b4a8c9b2ab436b991b9b325",
       "SimpleName": "LoremasterDruidSecretInquisitor_TTT.Name",
       "ProcessTemplates": false,
@@ -7115,28 +6708,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 - 审判官",
-      "esES": null
-    },
-    {
-      "Key": "a2904849f3004c81883953db34fe0e15",
-      "SimpleName": "LoremasterDruidSecretInquisitor_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 审判官",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "55cd161af59b41b9be94b52b19bdc43d",
-      "SimpleName": "LoremasterDruidSecretMagus_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 魔战士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7162,28 +6733,6 @@
       "esES": null
     },
     {
-      "Key": "342f697f667a43b4a1cda8b76abe8f05",
-      "SimpleName": "LoremasterDruidSecretOracle_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 先知",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "9ef0fc8d7cca454f9058d4449f273eb0",
-      "SimpleName": "LoremasterDruidSecretPaladin_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 圣武士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "8bdf6962e7eff83b092b9a4893038507",
       "SimpleName": "LoremasterDruidSecretPaladin_TTT.Name",
       "ProcessTemplates": false,
@@ -7192,17 +6741,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 - 圣武士",
-      "esES": null
-    },
-    {
-      "Key": "d5791aab850549c1a90e30319840b711",
-      "SimpleName": "LoremasterDruidSecretRanger_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 游侠",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7228,17 +6766,6 @@
       "esES": null
     },
     {
-      "Key": "6598f6b6662d404682d02f613f9d19c9",
-      "SimpleName": "LoremasterDruidSecretRogue_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 游荡者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "20216667364bb7ab39198a7a2d6aa165",
       "SimpleName": "LoremasterDruidSecretShaman_TTT.Name",
       "ProcessTemplates": false,
@@ -7247,28 +6774,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 - 萨满",
-      "esES": null
-    },
-    {
-      "Key": "4d3951d71dfd4f118e49e18ffd8b4a16",
-      "SimpleName": "LoremasterDruidSecretShaman_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 萨满",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "2f6a71f645d849e8b363190b762e0471",
-      "SimpleName": "LoremasterDruidSecretSkald_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 歌者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7294,28 +6799,6 @@
       "esES": null
     },
     {
-      "Key": "a1ba843af96c483280d4b1e04437ed8d",
-      "SimpleName": "LoremasterDruidSecretSorcerer_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 术士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "911852f96bcf474dab0e3c410897a3c1",
-      "SimpleName": "LoremasterDruidSecretWarpriest_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 战斗祭司",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "04cb9f2747e12e0b8a0c8dc3c887e972",
       "SimpleName": "LoremasterDruidSecretWarpriest_TTT.Name",
       "ProcessTemplates": false,
@@ -7327,17 +6810,6 @@
       "esES": null
     },
     {
-      "Key": "3b8a3698df3c429aa88a81b3ddcfb384",
-      "SimpleName": "LoremasterDruidSecretWitch_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 巫师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "2fe608abe7fe283b29089a40e823f127",
       "SimpleName": "LoremasterDruidSecretWitch_TTT.Name",
       "ProcessTemplates": false,
@@ -7346,17 +6818,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 - 巫师",
-      "esES": null
-    },
-    {
-      "Key": "01955c989b3e49f4ae7ee6ac6c2bcc46",
-      "SimpleName": "LoremasterDruidSecretWizard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 法师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7404,28 +6865,6 @@
       "esES": null
     },
     {
-      "Key": "d3771716e9c34f0c84c7a8f2bfae362a",
-      "SimpleName": "LoremasterWizardSecretArcanist_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 奥能师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "75347416645848af83e2a0db186b1d73",
-      "SimpleName": "LoremasterWizardSecretBard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 吟游诗人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "d158c4944e4b740bea43f7801ed574a5",
       "SimpleName": "LoremasterWizardSecretBard_TTT.Name",
       "ProcessTemplates": false,
@@ -7448,17 +6887,6 @@
       "esES": null
     },
     {
-      "Key": "429415a326574560a906650fc63d2094",
-      "SimpleName": "LoremasterWizardSecretBloodrager_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 血怒者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "c1f5d5476613813b5956fcbbcb23a95a",
       "SimpleName": "LoremasterWizardSecretCleric_TTT.Name",
       "ProcessTemplates": false,
@@ -7467,17 +6895,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 牧师",
-      "esES": null
-    },
-    {
-      "Key": "4687107cfa3d408f8d158c41864743cd",
-      "SimpleName": "LoremasterWizardSecretCleric_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 牧师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7492,28 +6909,6 @@
       "esES": null
     },
     {
-      "Key": "911c4071af2c47fc92f1fe3363dce246",
-      "SimpleName": "LoremasterWizardSecretDruid_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 德鲁伊",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "34e47e612073473998a2c88e9245f65e",
-      "SimpleName": "LoremasterWizardSecretHunter_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 猎人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "92989683f1d0177b3ad2e1cd7b1805c3",
       "SimpleName": "LoremasterWizardSecretHunter_TTT.Name",
       "ProcessTemplates": false,
@@ -7522,17 +6917,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 猎人",
-      "esES": null
-    },
-    {
-      "Key": "85435bf64f554b7f8a25300844149ef5",
-      "SimpleName": "LoremasterWizardSecretInquisitor_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 审判官",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7558,28 +6942,6 @@
       "esES": null
     },
     {
-      "Key": "b6280d7516724cea8a0c3a085c7d4780",
-      "SimpleName": "LoremasterWizardSecretMagus_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 魔战士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "d1cc42d31a7941d9a710dfd1b549661e",
-      "SimpleName": "LoremasterWizardSecretOracle_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 先知",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "86badccebf5ba20b6afecc589129ce4b",
       "SimpleName": "LoremasterWizardSecretOracle_TTT.Name",
       "ProcessTemplates": false,
@@ -7588,17 +6950,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 先知",
-      "esES": null
-    },
-    {
-      "Key": "d2c84b82fc554ad4acb613e11626e267",
-      "SimpleName": "LoremasterWizardSecretPaladin_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 圣武士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7613,17 +6964,6 @@
       "esES": null
     },
     {
-      "Key": "0013f13e5b4d48d08501244c7f94ef5f",
-      "SimpleName": "LoremasterWizardSecretRanger_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 游侠",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "6bd4266078cfc3fb499d0c4525154d0c",
       "SimpleName": "LoremasterWizardSecretRanger_TTT.Name",
       "ProcessTemplates": false,
@@ -7632,17 +6972,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 游侠",
-      "esES": null
-    },
-    {
-      "Key": "6e3bbc28978444f9a75cfb7fcd6f547e",
-      "SimpleName": "LoremasterWizardSecretRogue_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 游荡者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7668,17 +6997,6 @@
       "esES": null
     },
     {
-      "Key": "dbe0c27e4b9747329007e175d1ad04ff",
-      "SimpleName": "LoremasterWizardSecretShaman_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 萨满",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "cc8e734b9021245b2971a0f07bca6a3a",
       "SimpleName": "LoremasterWizardSecretSkald_TTT.Name",
       "ProcessTemplates": false,
@@ -7687,28 +7005,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 歌者",
-      "esES": null
-    },
-    {
-      "Key": "d33f977a06d64858a70719e845a47255",
-      "SimpleName": "LoremasterWizardSecretSkald_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 歌者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "4dcbc23b2c97434fadf54698b78e1e7e",
-      "SimpleName": "LoremasterWizardSecretSorcerer_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 术士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7734,17 +7030,6 @@
       "esES": null
     },
     {
-      "Key": "b773fe336fba4aa9a168441286ddb778",
-      "SimpleName": "LoremasterWizardSecretWarpriest_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 战斗祭司",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "bdec34c7f7d6f9ab3963fb5f2255b436",
       "SimpleName": "LoremasterWizardSecretWitch_TTT.Name",
       "ProcessTemplates": false,
@@ -7753,28 +7038,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 - 巫师",
-      "esES": null
-    },
-    {
-      "Key": "57789fdaf17b4e91b26dbe3de69f6cf9",
-      "SimpleName": "LoremasterWizardSecretWitch_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 巫师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "2b3a80f5bd93405a9665ab21dfd228a8",
-      "SimpleName": "LoremasterWizardSecretWizard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 法师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8834,6 +8097,28 @@
       "esES": null
     },
     {
+      "Key": "91d59176ef1445e4a584c9d8c281a849",
+      "SimpleName": "MindBlank.Description",
+      "ProcessTemplates": true,
+      "enGB": "The subject is protected from all devices and spells that gather information about the target through divination magic (such as true seeing, see invisability, or thoughtsense). This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "311f29863da341ebbb5c765176c492ff",
+      "SimpleName": "MindBlankCommunal.Description",
+      "ProcessTemplates": true,
+      "enGB": "This spell functions like mind blank, except it affects all party members and it lasts for 4 hours.\nMind Blank: The subject is protected from all devices and spells that gather information about the target through divination magic (such as true seeing, see invisability, or thoughtsense). This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "681d6e402fff4d1bb913caf75744d2e7",
       "SimpleName": "MithralArmorEnchant.Prefix",
       "ProcessTemplates": false,
@@ -9362,17 +8647,6 @@
       "esES": null
     },
     {
-      "Key": "a26ad751890847c2b1f3fd2a8a26c9b7",
-      "SimpleName": "OppositionResearchSelection.Name",
-      "ProcessTemplates": false,
-      "enGB": "禁制研究",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "e82d030d8e614c81a1a0e9c69f1c3962",
       "SimpleName": "OppositionResearchTransmutation.Description",
       "ProcessTemplates": true,
@@ -9414,17 +8688,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "你必须在进行攻击掷骰前声明你正在使用此专长(因此攻击掷骰失败将导致尝试失败)。你可以掷两次攻击骰，取更高的结果。你可以每天尝试一次完美攻击，每四个等级+1次。特殊:禅宗射手或执械僧在第1级获得完美打击作为额外专长，即使他不满足先决条件。一个武僧每天可以尝试完美打击的次数等于他的武僧等级，再加上每四个级别的一次的额外次数。在第10级时，武僧可以掷三次攻击骰并获得最高的结果。",
-      "esES": null
-    },
-    {
-      "Key": "672945900dd943318cd93411925d0995",
-      "SimpleName": "PerfectStrikeZenArcherBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "你必须在进行攻击检定前事先声明施展本专长（因此攻击检定失败会浪费次数）。你可以骰两次攻击检定并取较高的结果。你每拥有四个等级，每天便可以尝试一次极意击（但有例外情况，见“特殊”段落）。\n特殊：禅宗射手和棍法宗师在1级时获得极意击作为额外专长，即使不符合先决条件。武僧每天可尝试施展极意击的次数等于其武僧等级，在武僧之外每拥有四个其他职业的等级，每天便可多施展一次。\nAt 10th level, the monk can roll his attack roll three times and take the highest result.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -9535,17 +8798,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "原怒者狂暴",
-      "esES": null
-    },
-    {
-      "Key": "12b0eed7041442769e882785744e1b4e",
-      "SimpleName": "ProtectionOfColdBuff.Name",
-      "ProcessTemplates": false,
-      "enGB": "Iceplant",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "冻皮",
       "esES": null
     },
     {
@@ -10473,17 +9725,6 @@
       "esES": null
     },
     {
-      "Key": "5b9bdc3c2f384441bb34e58c28829ef1",
-      "SimpleName": "SorcererAberrantSpell11.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n弱智术: 目标生物的智力和魅力值降到1点。受影响的生物将无法使用基于智力或魅力的技能，也不能施法。但该生物仍清楚谁是自己的盟友，并可以跟随甚至保护他们。目标将保持此状态，直到通过医疗术或破除魔咒去除弱智效果。能够施放奥术的生物，如术士和法师，在豁免检定上受到-4减值。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "7297bfb7ace94bd686ed16f34ec23a9a",
       "SimpleName": "SorcererAberrantSpell13.Description",
       "ProcessTemplates": true,
@@ -10492,28 +9733,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：摄心目光",
-      "esES": null
-    },
-    {
-      "Key": "fec41c1d783448b6ab4f22cbbb83e4db",
-      "SimpleName": "SorcererAberrantSpell13.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n凶险注视: 你每轮可以指定一个活物为目标，以能量波动对其发起袭击。根据目标的生命骰数，这种袭击具有三种不同效果。\n如果目标生命骰数大于或等于10，它在每施法者等级10分钟内陷入恶心状态。\n如果目标生命骰数在5-9之间，它在每施法者等级10分钟内陷入惊恐和恶心状态。\n如果目标生命骰数小于或等于4，它陷入麻痹、惊恐和恶心状态。\n这些效果互相累计并同时生效，持续每施法者等级10分钟。\n在第一轮之后的每一轮，你都必须花费一个迅捷动作才能指定一个敌人为目标。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "b21ba61f29444746aed321cf34d8045b",
-      "SimpleName": "SorcererAberrantSpell15.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n高等变形术: 此法术能将盟友生物变成大型剑齿虎、蔓生怪、元素生物、双足飞龙或中型类龙生物。受术者可以选择花费一个整轮动作变回原来的形态。这样做将终止此法术的效果。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -10539,17 +9758,6 @@
       "esES": null
     },
     {
-      "Key": "651c78ff222c498f975c846db96ab006",
-      "SimpleName": "SorcererAberrantSpell17.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n心灵屏障: 此法术使生物在对抗所有影响心智的法术和效果的豁免检定中获得+8抗力加值。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "6a3851dc4f0c4e27a56b43d7bfb9d195",
       "SimpleName": "SorcererAberrantSpell19.Description",
       "ProcessTemplates": true,
@@ -10558,28 +9766,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：变化形体",
-      "esES": null
-    },
-    {
-      "Key": "10f66a8d34cd44fb9069db5714233aa0",
-      "SimpleName": "SorcererAberrantSpell19.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n变化形体: 此法术允许你变成多种生物。此法术可产生如同野兽之状IV、元素之躯IV、龙形III的效果，取决于你变成的形体。你能够以自由动作每轮改变一次形体。变形会在你的常规动作之前或之后立即发生，但不能在动作中途发生。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "49c28c12102b4d44ba1cc9561bf79696",
-      "SimpleName": "SorcererAberrantSpell3.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n变巨术: 此法术会使一个类人生物立刻快速成长，身高变成原来的2倍，体重变为原来的8倍。这会让生物的体型上升一级。由于体型增大，目标的力量属性获得+2体型加值，敏捷承受-2体型减值（最低降为1点），攻击检定和防御等级承受-1减值。该生物使用的近战或远程武器能造成更高伤害。\n体型增加到大型的类人生物占据10英尺的空间，拥有10英尺的天生触及范围。此法术不改变目标的速度。\n变巨术能够解除缩小术。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -10605,17 +9791,6 @@
       "esES": null
     },
     {
-      "Key": "7810e815212e4446af2150e78a5d56d8",
-      "SimpleName": "SorcererAberrantSpell5.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n识破隐形: 你可以看到视野内的隐形事物。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "e56b4b2ec8834f1eae23345da4f56dcf",
       "SimpleName": "SorcererAberrantSpell7.Description",
       "ProcessTemplates": true,
@@ -10627,17 +9802,6 @@
       "esES": null
     },
     {
-      "Key": "2bde91cb4ce4415a883f7ca1fcaf8400",
-      "SimpleName": "SorcererAberrantSpell7.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n闪现术: 对你发动的物理攻击有50%几率失手，由于你处于灵化状态而非仅仅隐形，即便对手有“盲斗”专长也无济于事。若该攻击能够击中灵体生物，那么失手率仅为20%（因隐蔽效果而失手）。任何对你施放的单体法术有50%几率失败，除非施法者能够以隐形生物和灵体生物为目标。\n假如攻击者能够看见隐形生物，失手率同样仅有20%。对于同时能够看见和击中灵体生物的攻击者而言，不会有失手几率。\n同样，你自己发动的攻击也有20%失手率。 在闪现期间，范围攻击对你只会造成一半伤害（但能够延伸到灵界位面的范围攻击会造成全部伤害）。虽然只有部分可见，但你不被视为隐形状态，目标在对抗你的攻击时也能够保留防御等级（AC）的敏捷加值。你在对看不见隐形生物的敌人发动攻击时，攻击检定会获得+2加值。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "3b9d9813f75d4ee3be18d14ab9a1b9a4",
       "SimpleName": "SorcererAberrantSpell9.Description",
       "ProcessTemplates": true,
@@ -10646,17 +9810,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：岩突",
-      "esES": null
-    },
-    {
-      "Key": "382c77c91d6841b9b1ba2a7589eb8a0c",
-      "SimpleName": "SorcererAberrantSpell9.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n岩刺: 岩质地面、石地板与类似的表面形状改变，形成长而尖的石刺，与背景融为一体。\n岩刺使该区域难以通行，并造成伤害。任何徒步进入或穿过法术影响区域的生物移动速度减半。此外，在区域内的生物每移动5英尺，便受到1d8点穿刺伤害。\n因岩刺受到伤害的生物还需要反射豁免成功才能避免腿脚受伤。若豁免失败，则生物的速度减半，持续1分钟。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -10880,17 +10033,6 @@
       "esES": null
     },
     {
-      "Key": "764b7850ca8b43f88fbdbc3eab20398a",
-      "SimpleName": "SorcererDestinedSpell11.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n破除魔咒: 此法术能够解除目标身上的惑控、变化和诅咒效果。破除魔咒甚至还能逆转立即生效的效果。对于这些效果，你需要分别进行施法者等级检定（1d20+施法者等级，最高为+15），对抗等于11+该效果施法者等级的DC。检定成功意味着受术生物从法术、诅咒或效果中解脱。破除魔咒只对不超过5级的法术有效。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "42cb522f994f42639de53b7cfaa13c17",
       "SimpleName": "SorcererDestinedSpell13.Description",
       "ProcessTemplates": true,
@@ -10899,17 +10041,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
-      "esES": null
-    },
-    {
-      "Key": "f1d544464ec0467e938e6d1f8fc4ad4d",
-      "SimpleName": "SorcererDestinedSpell13.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n高等英雄气概: 此法术效果类似于英雄气概，区别在于生物在攻击、豁免和技能检定上获得+4士气加值，免疫恐惧效应，并获得等于你的施法者等级的临时生命值（最高20）。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -10924,17 +10055,6 @@
       "esES": null
     },
     {
-      "Key": "db2f729e003b4616b58a59d43995ad6a",
-      "SimpleName": "SorcererDestinedSpell15.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n明晰之环: 你创造出魔法能量场，干扰范围内的所有幻象，为辨别幻术的豁免检定提供+4加值。能量场还会抵消范围内弱于完全隐蔽的隐蔽效果。在范围内用于发现生物或物品的察觉检定获得等于施法者等级一半的加值（最高+10）。如果施放于空间中的一点，法术位置将固定不变。如果施放在一个生物或物品上，法术就能够移动，不过生物或被持有的物品可以通过豁免检定或法术抗力来免除法术效果。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "6fba8820ed0342288d3f7fe73862fd52",
       "SimpleName": "SorcererDestinedSpell17.Description",
       "ProcessTemplates": true,
@@ -10943,28 +10063,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
-      "esES": null
-    },
-    {
-      "Key": "ba9498b0f3f240628c4ccb071a3e31a7",
-      "SimpleName": "SorcererDestinedSpell17.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n防护魔法: 受术者对抗法术和类法术能力的豁免检定具有+8抗力加值（对超自然能力和特异能力无效）。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "6ba1baa4a9514e99bfea848ccbd7f4ce",
-      "SimpleName": "SorcererDestinedSpell19.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n预警: 该法术给予你强大的第六感。一旦施放预警术，只要施法对象面临危险或即将受到伤害，你就会立即得到警告。你永远不会陷入措手不及状态。此外，该法术将指引你如何更好地保护自身，使你的防御等级和反射豁免得到+2洞察加值。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -10990,28 +10088,6 @@
       "esES": null
     },
     {
-      "Key": "fe3bb08c66974d17809dcfd5d1aa008c",
-      "SimpleName": "SorcererDestinedSpell3.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n护盾术: 护盾术制造一个隐形的力场盾牌悬浮在你身前。它可以吸收射向你的魔法飞弹。该盾牌同时为防御等级提供+4盾牌加值。该加值属于力场效应，故对虚体接触攻击有效。该盾牌不会带来防具检定减值和奥术失败几率。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "08ffaa24cd1b4bbeace5d2888a4a42ba",
-      "SimpleName": "SorcererDestinedSpell5.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n朦胧术: 目标的轮廓变得朦胧、歪曲、变化不定。该法术使目标获得隐蔽状态（20%失手几率）。\n识破隐形法术不能抵消朦胧效果，但真知术可以。\n看不到目标的对手无视此法术的效果（不过与不可见的对手战斗本身就有不利影响）。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "4a82ce0b906844d2ae53b97e42cdf8d0",
       "SimpleName": "SorcererDestinedSpell5.Description",
       "ProcessTemplates": true,
@@ -11023,17 +10099,6 @@
       "esES": null
     },
     {
-      "Key": "46dacacc764343ff80da3d542b31742d",
-      "SimpleName": "SorcererDestinedSpell7.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n防护能量: 防护能量使目标暂时对你施法时指定的能量类型免疫（酸蚀、寒冷、电击、火焰或音波）。法术吸收每施法者等级12点能量伤害后（10级时达到最大值120点）就会消散。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "4ec168fe1dd34d689dfb67232f3fe7b2",
       "SimpleName": "SorcererDestinedSpell7.Description",
       "ProcessTemplates": true,
@@ -11042,17 +10107,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术",
-      "esES": null
-    },
-    {
-      "Key": "a67182b110d4450abf0c97755249132a",
-      "SimpleName": "SorcererDestinedSpell9.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n行动自如: 该法术使得你或你接触的一个生物在法术持续时间内，即使遭到限制行动的魔法影响时，也可以正常移动和攻击，例如麻痹、重雾术、缓慢术与蛛网术。所有尝试擒抱目标的战技检定都会自动失败。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
