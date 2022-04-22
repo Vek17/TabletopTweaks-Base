@@ -10,5 +10,5 @@
   "Repository": "https://raw.githubusercontent.com/Vek17/TabletopTweaks-Base/master/Repository.json",
   "Requirements": [ "TabletopTweaks-Core" ],
   "LoadAfter": [ "TabletopTweaks-Core" ],
-  "Version": "2.1.0"
+  "Version": "2.2.0"
 }

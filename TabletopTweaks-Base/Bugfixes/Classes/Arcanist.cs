@@ -1,14 +1,18 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UnitLogic;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
+using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
@@ -22,7 +26,39 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Arcanist Resources");
 
+                PatchAlternateCapstone();
                 PatchBase();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Arcanist")) { return; }
+
+                var ArcanistMagicalSupremacy = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("261270d064148224fb982590b7a65414");
+                var ArcanistAlternateCapstone = NewContent.AlternateCapstones.Arcanist.ArcanistAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                ArcanistMagicalSupremacy.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.ArcanistClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == ArcanistMagicalSupremacy.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(ArcanistAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(ArcanistAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == ArcanistMagicalSupremacy.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(ArcanistAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
             }
             static void PatchBase() {
             }

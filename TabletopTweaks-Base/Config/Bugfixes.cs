@@ -11,6 +11,7 @@ namespace TabletopTweaks.Base.Config {
         public SettingGroup Demon = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
+        public SettingGroup AlternateCapstones = new SettingGroup();
         public ClassGroup Alchemist = new ClassGroup();
         public ClassGroup Arcanist = new ClassGroup();
         public ClassGroup Barbarian = new ClassGroup();
@@ -79,6 +80,8 @@ namespace TabletopTweaks.Base.Config {
             Demon.LoadSettingGroup(loadedSettings.Demon, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
+
+            AlternateCapstones.LoadSettingGroup(loadedSettings.AlternateCapstones, NewSettingsOffByDefault);
 
             Alchemist.LoadClassGroup(loadedSettings.Alchemist, NewSettingsOffByDefault);
             Arcanist.LoadClassGroup(loadedSettings.Arcanist, NewSettingsOffByDefault);

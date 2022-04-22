@@ -199,7 +199,12 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicFeats.MythicCriticalFocus.AddMythicCriticalFocus();
                 MythicFeats.MythicCleave.AddMythicCleave();
 
-                AlternateCapstones.MasterfulTalent.AddMasterfulTalent();
+                AlternateCapstones.Generic.AddAlternateCapstones();
+                AlternateCapstones.Alchemist.AddAlternateCapstones();
+                AlternateCapstones.Arcanist.AddAlternateCapstones();
+                AlternateCapstones.Cleric.AddAlternateCapstones();
+                AlternateCapstones.Rogue.AddAlternateCapstones();
+                AlternateCapstones.Wizard.AddAlternateCapstones();
             }
         }
     }

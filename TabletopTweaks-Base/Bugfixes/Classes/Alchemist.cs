@@ -7,11 +7,14 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -26,11 +29,56 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Alchemist Resources");
 
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchGrenadier();
                 PatchIncenseSynthesizer();
             }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Alchemist")) { return; }
 
+                var DiscoverySelection = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("cd86c437488386f438dcc9ae727ea2a6");
+                var GrandDiscoverySelection = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("2729af328ab46274394cedc3582d6e98");
+                var AlchemistAlternateCapstone = NewContent.AlternateCapstones.Alchemist.AlchemistAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+                var GrandDiscoveryProgression = NewContent.AlternateCapstones.Alchemist.AlchemistAlternateCapstone.ToReference<BlueprintUnitFactReference>();
+
+                GrandDiscoverySelection.Get().TemporaryContext(bp => {
+                    bp.SetDescription(TTTContext, "At 20th level, the alchemist makes a grand discovery. He immediately learns two normal discoveries, " +
+                        "but also learns a third discovery chosen from the list below, representing a truly astounding alchemical breakthrough of significant import. " +
+                        "For many alchemists, the promise of one of these grand discoveries is the primary goal of their experiments and hard work.");
+                    bp.AddComponent<AddFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] { GrandDiscoveryProgression };
+                    });
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.AlchemistClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == GrandDiscoverySelection.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(AlchemistAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => {
+                            entry.m_Features.RemoveAll(f => f.deserializedGuid == DiscoverySelection.deserializedGuid);
+                            entry.m_Features.Add(AlchemistAlternateCapstone);
+                        });
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == GrandDiscoverySelection.deserializedGuid))
+                            .ForEach(remove => {
+                                remove.m_Features.RemoveAll(f => f.deserializedGuid == DiscoverySelection.deserializedGuid);
+                                remove.m_Features.Add(AlchemistAlternateCapstone);
+                            });
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
+            }
             static void PatchBase() {
                 PatchMutagens();
 
@@ -98,7 +146,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     }
                 }
             }
-
             static void PatchGrenadier() {
                 PatchBrewPotions();
                 PatchPoisonResistance();
@@ -136,7 +183,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     TTTContext.Logger.LogPatch("Patched", GrenadierArchetype);
                 }
             }
-
             static void PatchIncenseSynthesizer() {
                 if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ImprovedIncense")) { return; }
 

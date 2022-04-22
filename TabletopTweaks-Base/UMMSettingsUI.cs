@@ -28,6 +28,7 @@ namespace TabletopTweaks.Base {
                 SetttingUI.SettingGroup("Demon", TabLevel, Fixes.Demon);
                 SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Lich);
                 SetttingUI.SettingGroup("Trickster", TabLevel, Fixes.Trickster);
+                SetttingUI.SettingGroup("Alternate Capstones", TabLevel, Fixes.AlternateCapstones);
                 SetttingUI.NestedSettingGroup("Alchemist", TabLevel, Fixes.Alchemist,
                     ("Base", Fixes.Alchemist.Base),
                     Fixes.Alchemist.Archetypes

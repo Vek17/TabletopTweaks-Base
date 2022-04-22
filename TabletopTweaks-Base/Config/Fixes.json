@@ -220,6 +220,142 @@
     },
     "IsExpanded": true
   },
+  "AlternateCapstones": {
+    "DisableAll": false,
+    "Settings": {
+      "Alchemist": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Arcanist": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Barbarian": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Bard": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Bloodrager": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Cavalier": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Cleric": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Druid": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Fighter": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Hunter": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Inquisitor": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Kineticist": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Magus": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "EldritchScion": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Monk": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Oracle": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Paladin": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Ranger": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Rogue": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Shaman": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Skald": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Slayer": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Sorcerer": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Warpriest": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Witch": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Wizard": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      }
+    },
+    "IsExpanded": true
+  },
   "Alchemist": {
     "DisableAll": false,
     "Base": {
