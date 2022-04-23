@@ -14,8 +14,10 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -30,6 +32,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Bloodrager");
 
+                PatchAlternateCapstone();
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchReformedFiend();
@@ -38,6 +41,37 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchTrueArcaneBloodrage();
                 PatchDisruptiveBloodrage();
                 PatchCastersBane();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Bloodrager")) { return; }
+
+                var BloodragerMightyBloodrage = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("a6cd3eca05ee24840ab159ca47b4cd88");
+                var BloodragerAlternateCapstone = NewContent.AlternateCapstones.Bloodrager.BloodragerAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                BloodragerMightyBloodrage.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.BloodragerClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == BloodragerMightyBloodrage.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(BloodragerAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(BloodragerAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == BloodragerMightyBloodrage.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(BloodragerAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
             }
             static void PatchBaseClass() {
                 PatchSpellbook();

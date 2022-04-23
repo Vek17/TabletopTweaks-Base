@@ -164,6 +164,7 @@
     <Compile Include="Bugfixes\Classes\Alchemist.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
+    <Compile Include="Bugfixes\Classes\Bard.cs" />
     <Compile Include="Bugfixes\Classes\Bloodrager.cs" />
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
     <Compile Include="Bugfixes\Classes\Cleric.cs" />
@@ -236,6 +237,9 @@
     <Compile Include="NewContent\AlternateCapstones\Alchemist.cs" />
     <Compile Include="NewContent\AlternateCapstones\Arcanist.cs" />
     <Compile Include="NewContent\AlternateCapstones\Barbarian.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Bard.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Bloodrager.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Cavalier.cs" />
     <Compile Include="NewContent\AlternateCapstones\Cleric.cs" />
     <Compile Include="NewContent\AlternateCapstones\Generic.cs" />
     <Compile Include="NewContent\AlternateCapstones\Rogue.cs" />

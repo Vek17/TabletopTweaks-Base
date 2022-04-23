@@ -12,8 +12,9 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
     internal static class Generic {
-        public static BlueprintProgression PerfectBodyFlawlessMindProgression = null;
         public static BlueprintFeature GreatBeastMasterFeature = null;
+        public static BlueprintProgression OldDogNewTricksProgression = null;
+        public static BlueprintProgression PerfectBodyFlawlessMindProgression = null;
         public static void AddAlternateCapstones() {
             var PerfectBodyFlawlessMindStrengthIncrease = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "PerfectBodyFlawlessMindStrengthIncrease", bp => {
                 bp.SetName(TTTContext, "Strength");
@@ -122,6 +123,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     )
                 };
             });
+
             var GreatBeastPetFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "GreatBeastPetFeature", bp => {
                 bp.SetName(TTTContext, "Great Beast");
                 bp.SetDescription(TTTContext, "At 20th level, the character’s animal companion is a paragon of its kind—a hero and legend in its own right.\n" +
@@ -168,6 +170,29 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.m_Feature = GreatBeastPetFeature.ToReference<BlueprintFeatureReference>();
                 });
                 bp.AddPrerequisite<PrerequisitePet>();
+            });
+
+            var FighterFeatSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("41c8486641f7d6d4283ca9dae4147a9f");
+            OldDogNewTricksProgression = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "OldDogNewTricksProgression", bp => {
+                bp.SetName(TTTContext, "Old Dog, New Tricks");
+                bp.SetDescription(TTTContext, "At 20th level, the character shows that a true warrior always has one more surprise the enemy hasn’t seen.\n" +
+                    "The character gains four combat feats. This capstone is available to characters of any class that gains at least four bonus combat feats.");
+                bp.Ranks = 1;
+                bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
+                bp.ReapplyOnLevelUp = true;
+                bp.m_Classes = new BlueprintProgression.ClassWithLevel[0];
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
+                bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
+                bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
+                bp.LevelEntries = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(20,
+                        FighterFeatSelection,
+                        FighterFeatSelection,
+                        FighterFeatSelection,
+                        FighterFeatSelection
+                    )
+                };
             });
         }
     }

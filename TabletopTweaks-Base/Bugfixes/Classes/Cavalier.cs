@@ -12,8 +12,10 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -28,10 +30,41 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Cavalier");
 
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchGendarme();
             }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Cavalier")) { return; }
 
+                var CavalierSupremeCharge = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("77af3c58e71118d4481c50694bd99e77");
+                var CavalierAlternateCapstone = NewContent.AlternateCapstones.Cavalier.CavalierAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                CavalierSupremeCharge.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.CavalierClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == CavalierSupremeCharge.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(CavalierAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(CavalierAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == CavalierSupremeCharge.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(CavalierAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
+            }
             static void PatchBase() {
                 PatchCavalierMobility();
                 PatchCavalierMountSelection();

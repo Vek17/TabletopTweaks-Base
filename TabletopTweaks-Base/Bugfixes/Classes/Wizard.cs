@@ -8,8 +8,8 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     internal class Wizard {
-            [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-            static class BlueprintsCache_Init_Patch {
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
             static void Postfix() {
