@@ -17,6 +17,7 @@ using Kingmaker.Utility;
 using System;
 using System.Linq;
 using TabletopTweaks.Core.MechanicsChanges;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -31,8 +32,40 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Fighter");
 
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchTwoHandedFighter();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Fighter")) { return; }
+
+                var WeaponMasterySelection = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("55f516d7d1fc5294aba352a5a1c92786");
+                var FighterAlternateCapstone = NewContent.AlternateCapstones.Fighter.FighterAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                WeaponMasterySelection.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.FighterClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == WeaponMasterySelection.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(FighterAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(FighterAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == WeaponMasterySelection.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(FighterAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
             }
             static void PatchBase() {
                 PatchTwoHandedWeaponTraining();

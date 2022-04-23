@@ -21,7 +21,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Barbarian");
 
-                //PatchAlternateCapstone();
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchWreckingBlows();
                 PatchCripplingBlows();

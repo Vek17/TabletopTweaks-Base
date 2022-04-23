@@ -18,7 +18,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Bard");
 
-                //PatchAlternateCapstone();
+                PatchAlternateCapstone();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Bard")) { return; }

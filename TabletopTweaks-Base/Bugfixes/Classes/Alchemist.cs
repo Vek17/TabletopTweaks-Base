@@ -28,7 +28,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Alchemist Resources");
 
-                //PatchAlternateCapstone();
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchGrenadier();
                 PatchIncenseSynthesizer();

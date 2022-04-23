@@ -3,6 +3,9 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Utility;
+using System.Linq;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -16,9 +19,43 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Hunter");
+
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchDivineHunter();
             }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Hunter")) { return; }
+
+                var MasterHunter = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("d8a126a3ed3b62943a597c937a4bf840");
+                var HunterAlternateCapstone = NewContent.AlternateCapstones.Hunter.HunterAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                MasterHunter.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.HunterClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == MasterHunter.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(HunterAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(HunterAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == MasterHunter.deserializedGuid));
+                            //.ForEach(remove => remove.m_Features.Add(HunterAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
+            }
+
             static void PatchBase() { }
 
             static void PatchDivineHunter() {

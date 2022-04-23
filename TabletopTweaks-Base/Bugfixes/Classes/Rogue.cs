@@ -27,7 +27,7 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Rogue");
 
-                //PatchAlternateCapstone();
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchEldritchScoundrel();
                 PatchSylvanTrickster();

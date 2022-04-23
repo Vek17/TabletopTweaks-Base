@@ -169,6 +169,7 @@
     <Compile Include="Bugfixes\Classes\Cavalier.cs" />
     <Compile Include="Bugfixes\Classes\Cleric.cs" />
     <Compile Include="Bugfixes\Classes\Demon.cs" />
+    <Compile Include="Bugfixes\Classes\Druid.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
     <Compile Include="Bugfixes\Classes\Hunter.cs" />
@@ -241,7 +242,10 @@
     <Compile Include="NewContent\AlternateCapstones\Bloodrager.cs" />
     <Compile Include="NewContent\AlternateCapstones\Cavalier.cs" />
     <Compile Include="NewContent\AlternateCapstones\Cleric.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Druid.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Fighter.cs" />
     <Compile Include="NewContent\AlternateCapstones\Generic.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Hunter.cs" />
     <Compile Include="NewContent\AlternateCapstones\Rogue.cs" />
     <Compile Include="NewContent\AlternateCapstones\Wizard.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />

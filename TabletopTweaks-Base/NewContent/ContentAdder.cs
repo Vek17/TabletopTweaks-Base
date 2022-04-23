@@ -199,16 +199,19 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicFeats.MythicCriticalFocus.AddMythicCriticalFocus();
                 MythicFeats.MythicCleave.AddMythicCleave();
 
-                //AlternateCapstones.Generic.AddAlternateCapstones();
-                //AlternateCapstones.Alchemist.AddAlternateCapstones();
-                //AlternateCapstones.Arcanist.AddAlternateCapstones();
-                //AlternateCapstones.Barbarian.AddAlternateCapstones();
-                //AlternateCapstones.Bard.AddAlternateCapstones();
-                //AlternateCapstones.Bloodrager.AddAlternateCapstones();
-                //AlternateCapstones.Cavalier.AddAlternateCapstones();
-                //AlternateCapstones.Cleric.AddAlternateCapstones();
-                //AlternateCapstones.Rogue.AddAlternateCapstones();
-                //AlternateCapstones.Wizard.AddAlternateCapstones();
+                AlternateCapstones.Generic.AddAlternateCapstones();
+                AlternateCapstones.Alchemist.AddAlternateCapstones();
+                AlternateCapstones.Arcanist.AddAlternateCapstones();
+                AlternateCapstones.Barbarian.AddAlternateCapstones();
+                AlternateCapstones.Bard.AddAlternateCapstones();
+                AlternateCapstones.Bloodrager.AddAlternateCapstones();
+                AlternateCapstones.Cavalier.AddAlternateCapstones();
+                AlternateCapstones.Cleric.AddAlternateCapstones();
+                AlternateCapstones.Druid.AddAlternateCapstones();
+                AlternateCapstones.Fighter.AddAlternateCapstones();
+                AlternateCapstones.Hunter.AddAlternateCapstones();
+                AlternateCapstones.Rogue.AddAlternateCapstones();
+                AlternateCapstones.Wizard.AddAlternateCapstones();
             }
         }
     }

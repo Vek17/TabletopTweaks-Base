@@ -7,7 +7,7 @@ using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
-    internal class Wizard {
+    internal class Druid {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
@@ -15,19 +15,19 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Wizard");
+                TTTContext.Logger.LogHeader("Patching Druid");
 
                 PatchAlternateCapstone();
             }
             static void PatchAlternateCapstone() {
-                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Wizard")) { return; }
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Druid")) { return; }
 
-                var WizardAlternateCapstone = NewContent.AlternateCapstones.Wizard.WizardAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+                var DruidAlternateCapstone = NewContent.AlternateCapstones.Druid.DruidAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
 
-                ClassTools.Classes.WizardClass.TemporaryContext(bp => {
+                ClassTools.Classes.DruidClass.TemporaryContext(bp => {
                     bp.Progression.LevelEntries
                         .Where(entry => entry.Level == 20)
-                        .ForEach(entry => entry.m_Features.Add(WizardAlternateCapstone));
+                        .ForEach(entry => entry.m_Features.Add(DruidAlternateCapstone));
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
             }
