@@ -30,7 +30,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Cavalier");
 
-                PatchAlternateCapstone();
+                //PatchAlternateCapstone();
                 PatchBase();
                 PatchGendarme();
             }

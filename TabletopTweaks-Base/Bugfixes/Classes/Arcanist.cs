@@ -26,7 +26,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Arcanist Resources");
 
-                PatchAlternateCapstone();
+                //PatchAlternateCapstone();
                 PatchBase();
             }
             static void PatchAlternateCapstone() {

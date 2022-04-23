@@ -3,6 +3,10 @@
     * Systems
         * Progressions no longer display features you will not get.
 
+## Version 2.1.1
+* Fixes
+    * Hotfix for immortal mythic enemies.
+
 ## Version 2.1.0
 * Fixes
     * Systems

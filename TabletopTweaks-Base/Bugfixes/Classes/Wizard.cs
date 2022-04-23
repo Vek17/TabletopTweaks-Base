@@ -17,7 +17,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Wizard");
 
-                PatchAlternateCapstone();
+                //PatchAlternateCapstone();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Wizard")) { return; }

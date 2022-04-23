@@ -32,7 +32,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Bloodrager");
 
-                PatchAlternateCapstone();
+                //PatchAlternateCapstone();
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchReformedFiend();

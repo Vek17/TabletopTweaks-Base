@@ -59,26 +59,33 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             }
         )]
         static class BuffCollection_AddBuff_CL_Patch {
-            static void Postfix(
+            static bool Prefix(
                 Kingmaker.UnitLogic.Buffs.BuffCollection __instance,
                 BlueprintBuff blueprint,
                 UnitEntityData caster,
                 TimeSpan? duration,
                 AbilityParams abilityParams,
-                Buff __result) {
-                if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return; }
-                var mechanicsContext = __result?.MaybeContext;
+                ref Buff __result) {
+                if (TTTContext.Fixes.BaseFixes.IsDisabled("FixPrebuffCasterLevels")) { return true; }
+
+                MechanicsContext mechanicsContext = new MechanicsContext(caster, __instance.Owner, blueprint, null, null);
+                if (abilityParams != null) {
+                    mechanicsContext.SetParams(abilityParams);
+                }
+
                 var actualCaster = caster?.Descriptor ?? __instance?.Owner;
-                if (actualCaster == null) { return; }
-                if (mechanicsContext == null) { return; }
+                if (actualCaster == null) { return true; }
+                if (mechanicsContext == null) { return true; }
                 if (abilityParams == null) {
                     var OwnerCR = actualCaster.Progression.CharacterLevel;// actualCaster.Blueprint?.GetComponent<Experience>()?.CR; ?? actualCaster.Progression.CharacterLevel;
-                    if (OwnerCR == 0) { return; }
+                    if (OwnerCR == 0) { return true; }
                     var clonedParams = mechanicsContext.Params.Clone();
                     clonedParams.CasterLevel = OwnerCR;
-                    __result.MaybeContext.m_Params = clonedParams;
-                    __result.Reapply();
+                    mechanicsContext.m_Params = clonedParams;
+                    //__result.Reapply();
                 }
+                __result = __instance.Manager.Add<Buff>(new Buff(blueprint, mechanicsContext, duration));
+                return false;
             }
         }
 
