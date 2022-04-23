@@ -1178,14 +1178,14 @@
       "esES": null
     },
     {
-      "Key": "af88278451f04eb8866a183f851f869c",
+      "Key": "0db6c30f2c194bf680045218d07d549a",
       "SimpleName": "BackgroundMwangianHunter.Description",
       "ProcessTemplates": true,
       "enGB": "Mwangi Hunter adds Lore (nature) and Stealth to the list of her class skills. She also becomes proficient with darts, throwing axes and javelins. In addition, Mwangi Hunter gets a +1 bonus to damage with all throwing weapons.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "芒吉猎人添加学识(自然)和潜行到她的职业技能列表。她变得熟练飞镖，投掷斧头和标枪。此外，芒吉猎人获得+1伤害加值于所有投掷武器。",
       "esES": null
     },
     {
@@ -3367,14 +3367,14 @@
       "esES": null
     },
     {
-      "Key": "447f62fcee2e48868763c8a8d0d95ddb",
+      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
       "enGB": "Incinerating",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "焚化",
       "esES": null
     },
     {
@@ -3873,25 +3873,25 @@
       "esES": null
     },
     {
-      "Key": "d2b7d354cb914d0b8d31637dabfa265c",
+      "Key": "cdce6acacae84b31ab5d555944e90157",
       "SimpleName": "CleaveMythicFeature.Description",
       "ProcessTemplates": true,
       "enGB": "You can cleave any foe within your reach.\nWhenever you use Cleave or Cleaving Finish, your attacks can be made against a foe that is within your reach, but not adjacent to the foe you attacked. You can’t use this ability to attack a foe more than once per round.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你能够顺势劈砍触及中的任何敌人。\n每当你使用顺势斩（Cleave）或大顺势斩（Great Cleave）时，你的其中一次攻击能够对抗在你触及范围的任何1名敌人，但是不能是与你攻击过的敌人相邻的敌人。你无法使用该能力攻击1名敌人的次数超过每轮1次。",
       "esES": null
     },
     {
-      "Key": "bcfd5a3eff744f23ae09b47194cf7037",
+      "Key": "71ce088a2670472a994cf2adef6756a4",
       "SimpleName": "CleaveMythicFeature.Name",
       "ProcessTemplates": false,
       "enGB": "Cleave (Mythic)",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "顺势斩（神话）",
       "esES": null
     },
     {
@@ -4071,25 +4071,25 @@
       "esES": null
     },
     {
-      "Key": "e834f56e5f484b589eadb8095abf848d",
+      "Key": "0b0365147b244a119830fca0e15ad7d2",
       "SimpleName": "DeathWardBuff.Description",
       "ProcessTemplates": true,
       "enGB": "The subject gains a +4 morale bonus on saves against all death spells and magical death effects. The subject is granted a save to negate such effects even if one is not normally allowed. The subject is immune to energy drain and any negative energy effects, including channeled negative energy. This spell does not remove negative levels that the subject has already gained, but it does remove the penalties from negative levels for the duration of its effect. Death ward does not protect against other sorts of attacks, even if those attacks might be lethal. ",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "目标在对抗所有死亡法术和魔法死亡效果时获得+4士气加值。即便正常来说不允许进行豁免，受术者也会获得一次豁免机会来使这些效果无效化。受者免疫能量吸取和任何负面能量影响，包括引导负面能量。这个法术不会移除受测者已经获得的负等级，但它会移除其效果持续期间负等级的惩罚。防死结界不能抵御其他类型的攻击，即使这些攻击可能是致命的。",
       "esES": null
     },
     {
-      "Key": "ef96d2aba1f74ae3892e365b7cdc88c2",
+      "Key": "dca51e91682641fd9518cb2aede02c2d",
       "SimpleName": "DeathWardBuff_IsFromSpell.Description",
       "ProcessTemplates": true,
       "enGB": "The subject gains a +4 morale bonus on saves against all death spells and magical death effects. The subject is granted a save to negate such effects even if one is not normally allowed. The subject is immune to energy drain and any negative energy effects, including channeled negative energy. This spell does not remove negative levels that the subject has already gained, but it does remove the penalties from negative levels for the duration of its effect. Death ward does not protect against other sorts of attacks, even if those attacks might be lethal. ",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "目标在对抗所有死亡法术和魔法死亡效果时获得+4士气加值。即便正常来说不允许进行豁免，受术者也会获得一次豁免机会来使这些效果无效化。受者免疫能量吸取和任何负面能量影响，包括引导负面能量。这个法术不会移除受测者已经获得的负等级，但它会移除其效果持续期间负等级的惩罚。防死结界不能抵御其他类型的攻击，即使这些攻击可能是致命的。",
       "esES": null
     },
     {
@@ -4808,14 +4808,14 @@
       "esES": null
     },
     {
-      "Key": "2cece7c1eba64efb8d470aaa9c7fba72",
+      "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
       "enGB": "Elder Incinerating",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "古焚化",
       "esES": null
     },
     {
@@ -8097,25 +8097,25 @@
       "esES": null
     },
     {
-      "Key": "91d59176ef1445e4a584c9d8c281a849",
+      "Key": "0495c85448db40a6ab54dc5af82e35f9",
       "SimpleName": "MindBlank.Description",
       "ProcessTemplates": true,
       "enGB": "The subject is protected from all devices and spells that gather information about the target through divination magic (such as true seeing, see invisability, or thoughtsense). This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "此法术能使受术者抵御所有通过预言系法术获取目标信息的法术或装置，比如识破隐形、侦测思想、真知术。该法术还会使目标在对抗所有影响心灵法术与效果时，豁免获得+8抗力加值。",
       "esES": null
     },
     {
-      "Key": "311f29863da341ebbb5c765176c492ff",
+      "Key": "d7756d43828e4d9f92d1196534d9ea3d",
       "SimpleName": "MindBlankCommunal.Description",
       "ProcessTemplates": true,
       "enGB": "This spell functions like mind blank, except it affects all party members and it lasts for 4 hours.\nMind Blank: The subject is protected from all devices and spells that gather information about the target through divination magic (such as true seeing, see invisability, or thoughtsense). This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个法术效果类似心灵屏障，但作用于所有队友，持续4小时。",
       "esES": null
     },
     {
@@ -8478,7 +8478,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "准备来自对立学派的法术现在只需要一个相应法术等级的法术位，而不是两个。",
       "esES": null
     },
     {
