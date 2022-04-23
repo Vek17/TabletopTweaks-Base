@@ -108,6 +108,11 @@
         "Homebrew": false,
         "Description": "Enemy buff now have the correct CL for applied buffs."
       },
+      "FixProgressionDisplay": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Progressions no longer display features you will not get."
+      },
       "FixShadowSpells": {
         "Enabled": true,
         "Homebrew": false,

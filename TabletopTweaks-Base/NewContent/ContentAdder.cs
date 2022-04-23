@@ -202,6 +202,7 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Generic.AddAlternateCapstones();
                 AlternateCapstones.Alchemist.AddAlternateCapstones();
                 AlternateCapstones.Arcanist.AddAlternateCapstones();
+                AlternateCapstones.Barbarian.AddAlternateCapstones();
                 AlternateCapstones.Cleric.AddAlternateCapstones();
                 AlternateCapstones.Rogue.AddAlternateCapstones();
                 AlternateCapstones.Wizard.AddAlternateCapstones();

@@ -4,6 +4,9 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Utility;
+using System.Linq;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -18,9 +21,41 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Barbarian");
 
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchWreckingBlows();
                 PatchCripplingBlows();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Barbarian")) { return; }
+
+                var MightyRage = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("06a7e5b60020ad947aed107d82d1f897");
+                var BarbarianAlternateCapstone = NewContent.AlternateCapstones.Barbarian.BarbarianAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                MightyRage.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.BarbarianClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == MightyRage.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(BarbarianAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(BarbarianAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == MightyRage.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(BarbarianAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
             }
             static void PatchBase() {
             }

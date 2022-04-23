@@ -1,4 +1,7 @@
 ## Version 2.2.0
+* Fixes
+    * Systems
+        * Progressions no longer display features you will not get.
 
 ## Version 2.1.0
 * Fixes

@@ -1,7 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
@@ -37,22 +36,32 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 };
             });
             GrandDiscoveryProgression = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "GrandDiscoveryProgression", bp => {
-                bp.SetName(TTTContext, "");
-                bp.SetDescription(TTTContext, "");
+                bp.m_DisplayName = GrandDiscoverySelection.m_DisplayName;
+                bp.SetDescription(TTTContext, "At 20th level, the alchemist makes a grand discovery. He immediately learns two normal discoveries, " +
+                    "but also learns a third discovery chosen from the list below, representing a truly astounding alchemical breakthrough of significant import. " +
+                    "For many alchemists, the promise of one of these grand discoveries is the primary goal of their experiments and hard work.");
+                bp.m_Icon = GrandDiscoverySelection.Icon;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
                 bp.ReapplyOnLevelUp = true;
+                bp.HideNotAvailibleInUI = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[0];
                 bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = new LevelEntry[] {
                     Helpers.CreateLevelEntry(20,
+                        GrandDiscoverySelection,
                         DiscoverySelection,
                         DiscoverySelection
                     )
                 };
+                bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                    c.CheckInProgression = true;
+                    c.HideInUI = true;
+                    c.Not = true;
+                });
             });
             AlchemistAlternateCapstone = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "AlchemistAlternateCapstone", bp => {
                 bp.SetName(TTTContext, "Capstone");
@@ -69,7 +78,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.CheckInProgression = true;
                     c.HideInUI = true;
                 });
-                bp.AddFeatures(GrandDiscoverySelection, VastExplosions, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                bp.AddFeatures(GrandDiscoveryProgression, VastExplosions, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
             });
         }
     }
