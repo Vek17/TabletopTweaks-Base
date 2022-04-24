@@ -173,6 +173,7 @@
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
     <Compile Include="Bugfixes\Classes\Hunter.cs" />
+    <Compile Include="Bugfixes\Classes\Inquisitor.cs" />
     <Compile Include="Bugfixes\Classes\Kineticist.cs" />
     <Compile Include="Bugfixes\Classes\Lich.cs" />
     <Compile Include="Bugfixes\Classes\Loremaster.cs" />
@@ -246,6 +247,9 @@
     <Compile Include="NewContent\AlternateCapstones\Fighter.cs" />
     <Compile Include="NewContent\AlternateCapstones\Generic.cs" />
     <Compile Include="NewContent\AlternateCapstones\Hunter.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Inquisitor.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Kineticist.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Magus.cs" />
     <Compile Include="NewContent\AlternateCapstones\Rogue.cs" />
     <Compile Include="NewContent\AlternateCapstones\Wizard.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />

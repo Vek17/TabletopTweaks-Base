@@ -210,6 +210,9 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Druid.AddAlternateCapstones();
                 AlternateCapstones.Fighter.AddAlternateCapstones();
                 AlternateCapstones.Hunter.AddAlternateCapstones();
+                AlternateCapstones.Inquisitor.AddAlternateCapstones();
+                AlternateCapstones.Kineticist.AddAlternateCapstones();
+                AlternateCapstones.Magus.AddAlternateCapstones();
                 AlternateCapstones.Rogue.AddAlternateCapstones();
                 AlternateCapstones.Wizard.AddAlternateCapstones();
             }
