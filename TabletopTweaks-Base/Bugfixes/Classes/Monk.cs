@@ -12,9 +12,11 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -29,10 +31,41 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Monk");
 
+                PatchAlternateCapstone();
                 PatchBase();
                 PatchZenArcher();
             }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Monk")) { return; }
 
+                var KiPerfectSelfFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("3854f693180168a4980646aee9494c72");
+                var MonkAlternateCapstone = NewContent.AlternateCapstones.Monk.MonkAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                KiPerfectSelfFeature.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.MonkClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == KiPerfectSelfFeature.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(MonkAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(MonkAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == KiPerfectSelfFeature.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(MonkAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
+            }
             static void PatchBase() {
             }
 

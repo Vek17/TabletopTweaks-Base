@@ -213,6 +213,8 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Inquisitor.AddAlternateCapstones();
                 AlternateCapstones.Kineticist.AddAlternateCapstones();
                 AlternateCapstones.Magus.AddAlternateCapstones();
+                AlternateCapstones.Monk.AddAlternateCapstones();
+                AlternateCapstones.Ranger.AddAlternateCapstones();
                 AlternateCapstones.Rogue.AddAlternateCapstones();
                 AlternateCapstones.Wizard.AddAlternateCapstones();
             }

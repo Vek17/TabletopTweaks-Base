@@ -250,6 +250,8 @@
     <Compile Include="NewContent\AlternateCapstones\Inquisitor.cs" />
     <Compile Include="NewContent\AlternateCapstones\Kineticist.cs" />
     <Compile Include="NewContent\AlternateCapstones\Magus.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Monk.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Ranger.cs" />
     <Compile Include="NewContent\AlternateCapstones\Rogue.cs" />
     <Compile Include="NewContent\AlternateCapstones\Wizard.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
