@@ -12,7 +12,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
         public static BlueprintProgression GrandDiscoveryProgression = null;
         public static void AddAlternateCapstones() {
             var DiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeature>("cd86c437488386f438dcc9ae727ea2a6");
-            var GrandDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeature>("2729af328ab46274394cedc3582d6e98");
+            var GrandDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("2729af328ab46274394cedc3582d6e98");
             var AlchemistBombsFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c59b2f256f5a70a4d896568658315b7d");
 
             var VastExplosions = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "VastExplosions", bp => {
@@ -80,6 +80,8 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.HideInUI = true;
                 });
                 bp.AddFeatures(GrandDiscoveryProgression, VastExplosions, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                if (TTTContext.Fixes.AlternateCapstones.IsDisabled("Alchemist")) { return; }
+                GrandDiscoverySelection.AddFeatures(VastExplosions);
             });
         }
     }

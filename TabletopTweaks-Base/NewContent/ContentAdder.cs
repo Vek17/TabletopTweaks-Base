@@ -214,8 +214,16 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Kineticist.AddAlternateCapstones();
                 AlternateCapstones.Magus.AddAlternateCapstones();
                 AlternateCapstones.Monk.AddAlternateCapstones();
+                AlternateCapstones.Oracle.AddAlternateCapstones();
+                AlternateCapstones.Paladin.AddAlternateCapstones();
                 AlternateCapstones.Ranger.AddAlternateCapstones();
                 AlternateCapstones.Rogue.AddAlternateCapstones();
+                AlternateCapstones.Shaman.AddAlternateCapstones();
+                AlternateCapstones.Skald.AddAlternateCapstones();
+                AlternateCapstones.Slayer.AddAlternateCapstones();
+                AlternateCapstones.Sorcerer.AddAlternateCapstones();
+                AlternateCapstones.Warpriest.AddAlternateCapstones();
+                AlternateCapstones.Witch.AddAlternateCapstones();
                 AlternateCapstones.Wizard.AddAlternateCapstones();
             }
         }

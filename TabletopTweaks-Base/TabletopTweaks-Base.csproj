@@ -251,8 +251,16 @@
     <Compile Include="NewContent\AlternateCapstones\Kineticist.cs" />
     <Compile Include="NewContent\AlternateCapstones\Magus.cs" />
     <Compile Include="NewContent\AlternateCapstones\Monk.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Oracle.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Paladin.cs" />
     <Compile Include="NewContent\AlternateCapstones\Ranger.cs" />
     <Compile Include="NewContent\AlternateCapstones\Rogue.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Shaman.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Skald.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Slayer.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Sorcerer.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Warpriest.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Witch.cs" />
     <Compile Include="NewContent\AlternateCapstones\Wizard.cs" />
     <Compile Include="NewContent\ArcanistExploits\Familiar.cs" />
     <Compile Include="NewContent\ArcanistExploits\ItemCrafting.cs" />
