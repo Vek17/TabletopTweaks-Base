@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.ChupaChupses;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.CharacterInfo.Sections.Progression.Main;
 using Kingmaker.UnitLogic;
@@ -8,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.UI {
@@ -25,7 +23,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
 
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
-                ILUtils.LogIL(TTTContext, codes);
+                //ILUtils.LogIL(TTTContext, codes);
                 codes.InsertRange(target, new CodeInstruction[] {
                     codes[target-3].Clone(),
                     codes[target-2].Clone(),
@@ -34,7 +32,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                     new CodeInstruction(OpCodes.Call, Method_FeatureIsNotAvailable),
                     new CodeInstruction(OpCodes.Or),
                 });
-                ILUtils.LogIL(TTTContext, codes);
+                //ILUtils.LogIL(TTTContext, codes);
                 return codes.AsEnumerable();
             }
             private static int FindInsertionTarget(List<CodeInstruction> codes) {

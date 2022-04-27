@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -169,18 +170,33 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 }
             }
             static void PatchIncenseSynthesizer() {
-                if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ImprovedIncense")) { return; }
+                PatchImprovedIncense();
+                PatchThickFog();
 
-                var IncenseFogImprovedIncenseFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("ccea52d8cc5f8d34d95196d0a885be06");
-                var IncenseFogEffectBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("d2facca5b5801234b95f0cd75ebac3c1");
-                IncenseFogEffectBuff.GetComponent<ContextRankConfig>().TemporaryContext(c => {
-                    c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
-                    c.m_Feature = IncenseFogImprovedIncenseFeature;
-                    c.m_Progression = ContextRankProgression.OnePlusDivStep;
-                    c.m_StepLevel = 1;
-                });
+                void PatchImprovedIncense(){
+                    if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ImprovedIncense")) { return; }
 
-                TTTContext.Logger.LogPatch("Patched", IncenseFogEffectBuff);
+                    var IncenseFogImprovedIncenseFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("ccea52d8cc5f8d34d95196d0a885be06");
+                    var IncenseFogEffectBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("d2facca5b5801234b95f0cd75ebac3c1");
+                    IncenseFogEffectBuff.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
+                        c.m_Feature = IncenseFogImprovedIncenseFeature;
+                        c.m_Progression = ContextRankProgression.OnePlusDivStep;
+                        c.m_StepLevel = 1;
+                    });
+
+                    TTTContext.Logger.LogPatch("Patched", IncenseFogEffectBuff);
+                }
+                void PatchThickFog() {
+                    if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ThickFog")) { return; }
+
+                    var IncenseFogThickFogBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f3716df1416d128469c2fc2fcd8dd85d");
+                    IncenseFogThickFogBuff.GetComponent<AddConcealment>().TemporaryContext(c => {
+                        c.Descriptor = ConcealmentDescriptor.Fog;
+                    });
+
+                    TTTContext.Logger.LogPatch("Patched", IncenseFogThickFogBuff);
+                }
             }
         }
     }

@@ -74,6 +74,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchWeaponFinesse();
                 PatchMagicalTail();
                 PatchLunge();
+                PatchOutflank();
+                PatchSiezeTheMoment();
                 PatchSelectiveMetamagic();
                 PatchSelectiveMetamagicPrerequisites();
             }
@@ -90,7 +92,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
 
                 TTTContext.Logger.LogPatch("Patched", AlliedSpellcaster);
             }
-
             static void PatchArcaneStrike() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("ArcaneStrike")) { return; }
 
@@ -131,7 +132,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                 }
             }
-
             static void PatchBrewPotions() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("BrewPotions")) { return; }
 
@@ -140,7 +140,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
 
                 TTTContext.Logger.LogPatch("Patched", BrewPotions);
             }
-
             static void PatchCleave() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("Cleave")) { return; }
 
@@ -170,7 +169,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 TTTContext.Logger.LogPatch(CleaveAction);
                 TTTContext.Logger.LogPatch(CleavingFinish);
             }
-
             static void PatchDestructiveDispel() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("DestructiveDispel")) { return; }
 
@@ -202,7 +200,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
 
                 TTTContext.Logger.LogPatch("Patched", DestructiveDispel);
             }
-
             static void PatchDestructiveDispelPrerequisites() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("DestructiveDispelPrerequisites")) { return; }
 
@@ -226,7 +223,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                 });
             }
-
             static void PatchDispelSynergy() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("DispelSynergy")) { return; }
 
@@ -238,7 +234,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     p.Value = 5;
                 });
             }
-
             static void PatchMagicalTail() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("MagicalTail")) { return; }
 
@@ -297,7 +292,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 TTTContext.Logger.LogPatch("Patched", magicalTail7);
                 TTTContext.Logger.LogPatch("Patched", magicalTail8);
             }
-
             static void PatchCraneWing() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("CraneWing")) { return; }
 
@@ -388,6 +382,25 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     c.m_CooldownBuff = IndomitableMountCooldownBuff.ToReference<BlueprintBuffReference>();
                 });
                 TTTContext.Logger.LogPatch("Patched", IndomitableMount);
+            }
+            static void PatchOutflank() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("Outflank")) { return; }
+
+                var Outflank = BlueprintTools.GetBlueprint<BlueprintFeature>("422dab7309e1ad343935f33a4d6e9f11");
+                Outflank.RemoveComponents<OutflankProvokeAttack>();
+                Outflank.AddComponent<OutflankProvokeAttackTTT>(c => {
+                    c.m_OutflankFact = Outflank.ToReference<BlueprintUnitFactReference>();
+                });
+            }
+            static void PatchSiezeTheMoment() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("SiezeTheMoment")) { return; }
+
+                var SiezeTheMoment = BlueprintTools.GetBlueprint<BlueprintFeature>("1191ef3065e6f8e4f9fbe1b7e3c0f760");
+                SiezeTheMoment.RemoveComponents<SiezeTheMoment>();
+                SiezeTheMoment.AddComponent<SiezeTheMomentTTT>(c => {
+                    c.m_SiezeTheMomentFact = SiezeTheMoment.ToReference<BlueprintUnitFactReference>();
+                });
+                TTTContext.Logger.LogPatch(SiezeTheMoment);
             }
             static void PatchPersistantMetamagic() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("PersistantMetamagic")) { return; }

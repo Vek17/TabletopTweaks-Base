@@ -14,6 +14,7 @@ using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
@@ -44,6 +45,8 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchHonorableJudgement();
                 PatchRadiance();
                 PatchTerribleTremble();
+                PatchSoundOfTheVoid();
+                PatchMusicOfDeath();
 
                 PatchThunderingBurst();
                 PatchVorpal();
@@ -143,6 +146,61 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     };
 
                     TTTContext.Logger.LogPatch("Patched", TerrifyingTrembleItem);
+                }
+                void PatchSoundOfTheVoid() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("SoundOfTheVoid")) { return; }
+
+                    var SoundOfVoidEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("69df5e137a08d9b4ead5d87bf4d5d0ac");
+                    var SoundOfVoidBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("4fefa9f7fd3f57743bcbec63b10121d8");
+
+                    SoundOfVoidEnchantment.TemporaryContext(bp => {
+                        bp.SetComponents();
+                        bp.AddComponent<WeaponAttackTrigger>(c => {
+                            c.OnlyHit = true;
+                            c.OnlyFlatFooted = true;
+                            c.Action = Helpers.CreateActionList(
+                                new ContextActionApplyBuff() { 
+                                    m_Buff = SoundOfVoidBuff.ToReference<BlueprintBuffReference>(),
+                                    DurationValue = new ContextDurationValue() { 
+                                        DiceType = DiceType.D4,
+                                        DiceCountValue = 1,
+                                        BonusValue = 0
+                                    }
+                                }
+                            );
+                        });
+                    });
+                    SoundOfVoidBuff.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddSpellResistance>();
+                        bp.AddComponent<AddSpellResistancePenaltyTTT>(c => {
+                            c.Penalty = 10000;
+                        });
+                    });
+                    
+                    TTTContext.Logger.LogPatch(SoundOfVoidBuff);
+                }
+                void PatchMusicOfDeath() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("MusicOfDeath")) { return; }
+
+                    var MusicOfDeathEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("183a4d2cc996c6f4db8641bed4b3b0c1");
+
+                    MusicOfDeathEnchantment.TemporaryContext(bp => {
+                        bp.SetComponents();
+                        bp.AddComponent<WeaponConditionalDamageDiceTTT>(c => {
+                            c.OnlyHit = true;
+                            c.OnlyFlatFooted = true;
+                            c.Damage = new DamageDescription() {
+                                Dice = new DiceFormula(2, DiceType.D6),
+                                Bonus = 0,
+                                TypeDescription = new DamageTypeDescription() { 
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Sonic
+                                }
+                            };
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(MusicOfDeathEnchantment);
                 }
                 void PatchRadiance() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("Radiance")) { return; }

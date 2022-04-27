@@ -4,6 +4,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.Utility;
+using System.Linq;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -18,9 +20,22 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Witch");
 
-                PatchBaseClass();
+                PatchAlternateCapstone();
+                PatchBase();
             }
-            static void PatchBaseClass() {
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Witch")) { return; }
+
+                var WitchAlternateCapstone = NewContent.AlternateCapstones.Witch.WitchAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                ClassTools.Classes.WitchClass.TemporaryContext(bp => {
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(WitchAlternateCapstone));
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
+            }
+            static void PatchBase() {
                 PatchAgilityPatron();
                 PatchAmelioratingHex();
                 PatchMajorAmelioratingHex();

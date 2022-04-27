@@ -481,15 +481,15 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 * Feats
     * AnimalAlly
         * You gain an animal companion as if you were a druid of your character level -3. Unlike normal animals of its kind, an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level.
-    * CelestialServant
+    * Celestial Servant
         * Your animal companion, familiar, or mount gains the celestial template and becomes a magical beast, though you may still treat it as an animal when using Handle Animal, wild empathy, or any other spells or class abilities that specifically affect animals.
-    * DervishDance
+    * Dervish Dance
         * When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls.
     * Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check.
     * Greater Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.
-    * ErastilsBlessing
+    * Erastils Blessing
         * You can use your Wisdom modifier instead of your Dexterity modifier on ranged attack rolls when using a bow.
     * Extra Arcana
         * You gain one additional magus arcana. You must meet all the prerequisites for this magus arcana.

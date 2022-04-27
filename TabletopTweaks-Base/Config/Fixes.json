@@ -398,6 +398,11 @@
             "Enabled": true,
             "Homebrew": false,
             "Description": "Fixes bonus calculation when the 30 foot discovery is taken."
+          },
+          "ThickFog": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes concealment to be of fog type instead of illusion based."
           }
         },
         "IsExpanded": true
@@ -1283,6 +1288,11 @@
         "Homebrew": false,
         "Description": "Now works correctly."
       },
+      "Outflank": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "No longer triggers on missed attacks."
+      },
       "PersistantMetamagic": {
         "Enabled": true,
         "Homebrew": false,
@@ -1302,6 +1312,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now requires you to hit a shaken target once before they become flat footed."
+      },
+      "SiezeTheMoment": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "No longer triggers on missed attacks."
       },
       "SlashingGrace": {
         "Enabled": true,
@@ -1539,10 +1554,20 @@
           "Homebrew": false,
           "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
         },
+        "MusicOfDeath": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now correctly deals bonus damage against flat footed."
+        },
         "Radiance": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now grants spell resistance correctly instead of spell penetration."
+        },
+        "SoundOfTheVoid": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now properly strips spell resistance."
         },
         "TerrifyingTremble": {
           "Enabled": true,

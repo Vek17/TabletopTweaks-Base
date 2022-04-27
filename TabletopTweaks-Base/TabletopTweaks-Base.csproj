@@ -184,6 +184,7 @@
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
     <Compile Include="Bugfixes\Classes\Rogue.cs" />
     <Compile Include="Bugfixes\Classes\Shaman.cs" />
+    <Compile Include="Bugfixes\Classes\Skald.cs" />
     <Compile Include="Bugfixes\Classes\Slayer.cs" />
     <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />

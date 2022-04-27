@@ -6,7 +6,9 @@ using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
@@ -21,7 +23,39 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Paladin");
+                PatchAlternateCapstone();
                 PatchBase();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Paladin")) { return; }
+
+                var HolyChampion = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("eff3b63f744868845a2f511e9929f0de");
+                var PaladinAlternateCapstone = NewContent.AlternateCapstones.Paladin.PaladinAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                HolyChampion.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.PaladinClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == HolyChampion.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(PaladinAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(PaladinAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == HolyChampion.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(PaladinAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
             }
             static void PatchBase() {
                 PatchDivineMount();

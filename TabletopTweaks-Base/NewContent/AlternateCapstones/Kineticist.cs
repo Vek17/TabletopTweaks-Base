@@ -10,7 +10,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
         public static void AddAlternateCapstones() {
 
             var UnbridledPower = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "UnbridledPower", bp => {
-                bp.SetName(TTTContext, "Veteran of Endless War");
+                bp.SetName(TTTContext, "Unbridled Power");
                 bp.SetDescription(TTTContext, "At 20th level, the kineticist wields her chosen element like a knife, cutting through all opposition.\n" +
                     "The kineticist chooses one blast. Her damage with that blast increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts), " +
                     "and the blast ignores the first 10 points of damage reduction or energy resistance that the target has.");

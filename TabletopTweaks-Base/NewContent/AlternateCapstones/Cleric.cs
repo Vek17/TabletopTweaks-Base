@@ -18,7 +18,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.IsClassFeature = true;
                 bp.m_Features = SecondDomainsSelection.m_Features;
                 bp.m_AllFeatures = SecondDomainsSelection.m_AllFeatures;
-                bp.Group = FeatureGroup.ClericSecondaryDomain;
+                bp.Group = FeatureGroup.None;
                 bp.m_Icon = SecondDomainsSelection.m_Icon;
             });
             ClericAlternateCapstone = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "ClericAlternateCapstone", bp => {

@@ -1,6 +1,9 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Utility;
+using System.Linq;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -15,7 +18,20 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Shaman");
 
+                PatchAlternateCapstone();
                 PatchBaseClass();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Shaman")) { return; }
+
+                var ShamanAlternateCapstone = NewContent.AlternateCapstones.Shaman.ShamanAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                ClassTools.Classes.ShamanClass.TemporaryContext(bp => {
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(ShamanAlternateCapstone));
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
             }
             static void PatchBaseClass() {
                 PatchAmelioratingHex();

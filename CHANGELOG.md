@@ -2,6 +2,19 @@
 * Fixes
     * Systems
         * Progressions no longer display features you will not get.
+    * Feats
+        * Outflank
+            * Outflank should no longer trigger on missed attacks.
+        * Sieze the Moment
+            * Sieze the moment should no longer trigger on missed attacks.
+    * Alchemist
+        * Fixed Thick Fog being an illusion based concealment instead of fog based.
+        * Fixed issue where Abundant Incense was not selectable ifyou had expanded range incense.
+    * Weapons
+        * Sound of Void
+            * Now correctly removes spell resistance when hitting a flat footed target.
+        * Music of Death
+            * Now correctly deals bonus damage when hitting a flat footed target.
 
 ## Version 2.1.1
 * Fixes

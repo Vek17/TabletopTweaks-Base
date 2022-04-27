@@ -7,8 +7,10 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -22,7 +24,39 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Warpriest");
+                PatchAlternateCapstone();
                 PatchBase();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Warpriest")) { return; }
+
+                var WarpriestAspectOfWar = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("65cc7abc21826a344aa156e2a40dcecc");
+                var WarpriestAlternateCapstone = NewContent.AlternateCapstones.Warpriest.WarpriestAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+
+                WarpriestAspectOfWar.Get().TemporaryContext(bp => {
+                    bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                    });
+                    bp.HideNotAvailibleInUI = true;
+                    TTTContext.Logger.LogPatch(bp);
+                });
+                ClassTools.Classes.WarpriestClass.TemporaryContext(bp => {
+                    bp.Progression.UIGroups
+                        .Where(group => group.m_Features.Any(f => f.deserializedGuid == WarpriestAspectOfWar.deserializedGuid))
+                        .ForEach(group => group.m_Features.Add(WarpriestAlternateCapstone));
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(WarpriestAlternateCapstone));
+                    bp.Archetypes.ForEach(a => {
+                        a.RemoveFeatures
+                            .Where(remove => remove.Level == 20)
+                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == WarpriestAspectOfWar.deserializedGuid))
+                            .ForEach(remove => remove.m_Features.Add(WarpriestAlternateCapstone));
+                    });
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
             }
             static void PatchBase() {
                 PatchAirBlessing();
