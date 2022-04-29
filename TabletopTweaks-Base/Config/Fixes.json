@@ -403,6 +403,11 @@
             "Enabled": true,
             "Homebrew": false,
             "Description": "Fixes concealment to be of fog type instead of illusion based."
+          },
+          "SacredIncense": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Replaces fake sickened and nausated effects with real versions."
           }
         },
         "IsExpanded": true

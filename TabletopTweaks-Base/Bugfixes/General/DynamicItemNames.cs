@@ -230,6 +230,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                     WeaponEnchants.MagicWeapon.UpdatePrefixSuffix(TTTContext, "Magic", "");
                     WeaponEnchants.Masterwork.UpdatePrefixSuffix(TTTContext, "Masterwork", "");
                     WeaponEnchants.Necrotic.UpdatePrefixSuffix(TTTContext, "Necrotic", "");
+                    WeaponEnchants.NullifyingEnchantment.UpdatePrefixSuffix(TTTContext, "Nullifying", "");
                     WeaponEnchants.Oversized.UpdatePrefixSuffix(TTTContext, "Oversized", "");
                     WeaponEnchants.Radiant.UpdatePrefixSuffix(TTTContext, "Radiant", "");
                     WeaponEnchants.Sacrificial.UpdatePrefixSuffix(TTTContext, "Sacrificial", "");
@@ -387,6 +388,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             public static BlueprintWeaponEnchantment MagicWeapon => BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("631cb72d11015374987c161a2451a1cf");
             public static BlueprintWeaponEnchantment Masterwork => BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("6b38844e2bffbac48b63036b66e735be");
             public static BlueprintWeaponEnchantment Necrotic => BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("bad4134798e182c4487819dce9b43003");
+            public static BlueprintWeaponEnchantment NullifyingEnchantment => BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("efbe3a35fc7349845ac9f96b4c63312e");
             public static BlueprintWeaponEnchantment Oversized => BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("d8e1ebc1062d8cc42abff78783856b0d");
             public static BlueprintWeaponEnchantment Radiant => BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("5ac5c88157f7dde48a2a5b24caf40131");
             public static BlueprintWeaponEnchantment Sacrificial => BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("b7f029a31452b26408bc75d715227993");

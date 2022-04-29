@@ -287,10 +287,12 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
         }
         private static void PatchBloodlines(BlueprintArchetype archetype) {
             var basicBloodlines = new BlueprintProgression[] {
+                BlueprintTools.GetModBlueprint<BlueprintProgression>(TTTContext, "BloodragerAberrantBloodline"),
                 //BloodlineTools.Bloodline.BloodragerAberrantBloodline,
                 BloodlineTools.Bloodline.BloodragerAbyssalBloodline,
                 BloodlineTools.Bloodline.BloodragerArcaneBloodline,
                 BloodlineTools.Bloodline.BloodragerCelestialBloodline,
+                BlueprintTools.GetModBlueprint<BlueprintProgression>(TTTContext, "BloodragerDestinedBloodline"),
                 //BloodlineTools.Bloodline.BloodragerDestinedBloodline,
                 BloodlineTools.Bloodline.BloodragerFeyBloodline,
                 BloodlineTools.Bloodline.BloodragerInfernalBloodline,

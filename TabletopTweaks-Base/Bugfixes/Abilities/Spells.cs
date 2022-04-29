@@ -247,7 +247,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     .OfType<ContextActionDispelMagic>()
                     .ForEach(dispel => {
                         dispel.OnlyTargetEnemyBuffs = true;
-                        //dispel.m_MaxSpellLevel.Value = 10;
+                        dispel.m_MaxSpellLevel.Value = 0;
                     });
                 TTTContext.Logger.LogPatch("Patched", BreakEnchantment);
             }

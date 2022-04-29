@@ -7,6 +7,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -172,6 +173,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             static void PatchIncenseSynthesizer() {
                 PatchImprovedIncense();
                 PatchThickFog();
+                PatchSacredIncense();
 
                 void PatchImprovedIncense(){
                     if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ImprovedIncense")) { return; }
@@ -186,6 +188,39 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
 
                     TTTContext.Logger.LogPatch("Patched", IncenseFogEffectBuff);
+                }
+                void PatchSacredIncense() {
+                    if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("SacredIncense")) { return; }
+                    
+                    var IncenseFogArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("4aeb5ae7923dac74d91069f13a7f0a95");
+                    var IncenseFog30Area = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("ffbbe6a2390245649ae5c7f2854d9cc2");
+                    var IncenseFogSickenedBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("e905c55936cb67a48b8adf36e0d71de9");
+                    var IncenseFogNauseatedBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("580df469d7a9460429265fafb231fc9a");
+                    var Sickened = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("4e42460798665fd4cb9173ffa7ada323");
+                    var Nauseated = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("956331dba5125ef48afe41875a00ca0e");
+                    IncenseFogArea.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .ForEach(c => {
+                            if (c.m_Buff.deserializedGuid == IncenseFogSickenedBuff.deserializedGuid) {
+                                c.m_Buff = Sickened;
+                            }
+                            if (c.m_Buff.deserializedGuid == IncenseFogNauseatedBuff.deserializedGuid) {
+                                c.m_Buff = Nauseated;
+                            }
+                        });
+                    IncenseFog30Area.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .ForEach(c => {
+                            if (c.m_Buff.deserializedGuid == IncenseFogSickenedBuff.deserializedGuid) {
+                                c.m_Buff = Sickened;
+                            }
+                            if (c.m_Buff.deserializedGuid == IncenseFogNauseatedBuff.deserializedGuid) {
+                                c.m_Buff = Nauseated;
+                            }
+                        });
+
+                    TTTContext.Logger.LogPatch(IncenseFogArea);
+                    TTTContext.Logger.LogPatch(IncenseFog30Area);
                 }
                 void PatchThickFog() {
                     if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ThickFog")) { return; }
