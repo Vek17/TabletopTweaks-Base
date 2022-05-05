@@ -2,6 +2,9 @@
 * Fixes
     * Systems
         * Progressions no longer display features you will not get.
+    * Features
+        * Mongrol's Blessing
+            * Now properly applies negative levels.
     * Feats
         * Outflank
             * Outflank should no longer trigger on missed attacks.

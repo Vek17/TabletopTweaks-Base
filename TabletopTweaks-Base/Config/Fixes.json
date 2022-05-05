@@ -1205,6 +1205,17 @@
     },
     "IsExpanded": true
   },
+  "Features": {
+    "DisableAll": false,
+    "Settings": {
+      "MongrolsBlessing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now properly applies negative levels."
+      }
+    },
+    "IsExpanded": true
+  },
   "Feats": {
     "DisableAll": false,
     "Settings": {

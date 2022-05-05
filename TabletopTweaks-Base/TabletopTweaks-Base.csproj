@@ -194,6 +194,7 @@
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Features\Bloodlines.cs" />
+    <Compile Include="Bugfixes\Features\Features.cs" />
     <Compile Include="Bugfixes\Features\Conditions.cs" />
     <Compile Include="Bugfixes\Features\Feats.cs" />
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />

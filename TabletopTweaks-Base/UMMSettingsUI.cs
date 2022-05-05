@@ -113,6 +113,7 @@ namespace TabletopTweaks.Base {
                 SetttingUI.SettingGroup("Loremaster", TabLevel, Fixes.Loremaster);
                 SetttingUI.SettingGroup("Spells", TabLevel, Fixes.Spells);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, Fixes.Bloodlines);
+                SetttingUI.SettingGroup("Features", TabLevel, Fixes.Features);
                 SetttingUI.SettingGroup("Feats", TabLevel, Fixes.Feats);
                 SetttingUI.SettingGroup("Mythic Abilities", TabLevel, Fixes.MythicAbilities);
                 SetttingUI.SettingGroup("Mythic Feats", TabLevel, Fixes.MythicFeats);

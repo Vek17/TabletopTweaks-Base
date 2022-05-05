@@ -36,6 +36,7 @@ namespace TabletopTweaks.Base.Config {
         public SettingGroup Loremaster = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
+        public SettingGroup Features = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
         public SettingGroup MythicFeats = new SettingGroup();
@@ -109,6 +110,7 @@ namespace TabletopTweaks.Base.Config {
 
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
+            Features.LoadSettingGroup(loadedSettings.Features, NewSettingsOffByDefault);
             Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
             MythicFeats.LoadSettingGroup(loadedSettings.MythicFeats, NewSettingsOffByDefault);
