@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -15,7 +16,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var Icon_LungingSpellTouch = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_LungingSpellTouch.png");
             var MountedCombat = BlueprintTools.GetBlueprint<BlueprintFeature>("f308a03bea0d69843a8ed0af003d47a9");
             var TrickRiding = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "TrickRiding");
-            var LungingSpellTouchBuff = Helpers.CreateBuff(TTTContext, "LungingSpellTouchBuff", bp => {
+            var LungingSpellTouchBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "LungingSpellTouchBuff", bp => {
                 bp.SetName(TTTContext, "Lunging Spell Touch Buff");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Icon = Icon_LungingSpellTouch;

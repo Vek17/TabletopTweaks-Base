@@ -10,7 +10,7 @@ namespace TabletopTweaks.Base.NewContent.Features {
     class PerfectStrikeZenArcherBuff {
         public static void AddPerfectStrikeZenArcherBuff() {
             var PerfectStrikeOwnerBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("9a41e6d073b42564b9f00ad83b7d3b52");
-            var PerfectStrikeZenArcherBuff = Helpers.CreateBuff(TTTContext, "PerfectStrikeZenArcherBuff", bp => {
+            var PerfectStrikeZenArcherBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "PerfectStrikeZenArcherBuff", bp => {
                 bp.SetName(PerfectStrikeOwnerBuff.m_DisplayName);
                 bp.SetDescription(TTTContext, $"{PerfectStrikeOwnerBuff.Description}\n" +
                     $"At 10th level, the monk can roll his attack roll three times and take the highest result.");

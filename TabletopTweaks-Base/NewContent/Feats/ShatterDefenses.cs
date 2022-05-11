@@ -13,13 +13,13 @@ namespace TabletopTweaks.Base.NewContent.Feats {
         public static void AddNewShatterDefenseBlueprints() {
             var ShatterDefenses = BlueprintTools.GetBlueprint<BlueprintFeature>("61a17ccbbb3d79445b0926347ec07577");
 
-            var ShatterDefensesDisplayBuff = Helpers.CreateBuff(TTTContext, "ShatterDefensesDisplayBuff", bp => {
+            var ShatterDefensesDisplayBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ShatterDefensesDisplayBuff", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
                 bp.Stacking = StackingType.Prolong;
                 bp.SetName(TTTContext, "Shattered Defenses");
                 bp.SetDescription(TTTContext, "An opponent you affect with Shatter Defenses is flat-footed to your attacks.");
             });
-            var ShatterDefensesBuff = Helpers.CreateBuff(TTTContext, "ShatterDefensesBuff", bp => {
+            var ShatterDefensesBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ShatterDefensesBuff", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.Stacking = StackingType.Stack;

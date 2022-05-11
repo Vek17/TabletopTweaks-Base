@@ -34,7 +34,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ArmorMastery {
             var PowerAttackFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("9972f33f977fc724c838e59641b2fca5");
             var PowerAttackBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("5898bcf75a0942449a5dc16adc97b279");
 
-            var KnockingBlowsBuff = Helpers.CreateBuff(TTTContext, "KnockingBlowsBuff", bp => {
+            var KnockingBlowsBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "KnockingBlowsBuff", bp => {
                 bp.SetName(TTTContext, "Knocking Blows");
                 bp.SetDescription(TTTContext, "The weight of your blows overwhelms your opponents.\n" +
                     "Benefit: While wearing heavy armor if you hit a creature that is no more than one size category larger than you with a Power Attack, " +

@@ -27,7 +27,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.m_EnchantmentCost = 1;
             });
 
-            var ArcaneWeaponFlamingBurstBuff_TTT = Helpers.CreateBuff(TTTContext, "ArcaneWeaponFlamingBurstBuff_TTT", bp => {
+            var ArcaneWeaponFlamingBurstBuff_TTT = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ArcaneWeaponFlamingBurstBuff_TTT", bp => {
                 bp.SetName(TTTContext, "Flaming Burst");
                 bp.SetDescription(TTTContext, "");
                 bp.IsClassFeature = true;
@@ -50,7 +50,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.m_Buff = ArcaneWeaponFlamingBurstBuff_TTT.ToReference<BlueprintBuffReference>();
             });
 
-            var ArcaneWeaponIcyBurstBuff_TTT = Helpers.CreateBuff(TTTContext, "ArcaneWeaponIcyBurstBuff_TTT", bp => {
+            var ArcaneWeaponIcyBurstBuff_TTT = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ArcaneWeaponIcyBurstBuff_TTT", bp => {
                 bp.SetName(TTTContext, "Icy Burst");
                 bp.SetDescription(TTTContext, "");
                 bp.IsClassFeature = true;
@@ -73,7 +73,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.m_Buff = ArcaneWeaponIcyBurstBuff_TTT.ToReference<BlueprintBuffReference>();
             });
 
-            var ArcaneWeaponShockingBurstBuff_TTT = Helpers.CreateBuff(TTTContext, "ArcaneWeaponShockingBurstBuff_TTT", bp => {
+            var ArcaneWeaponShockingBurstBuff_TTT = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ArcaneWeaponShockingBurstBuff_TTT", bp => {
                 bp.SetName(TTTContext, "Shocking Burst");
                 bp.SetDescription(TTTContext, "");
                 bp.IsClassFeature = true;

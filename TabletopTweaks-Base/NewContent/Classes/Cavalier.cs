@@ -18,7 +18,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             var MountedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
             var AnimalCompanionFeatureWolf = BlueprintTools.GetBlueprint<BlueprintFeature>("67a9dc42b15d0954ca4689b13e8dedea");
 
-            var CavalierMobilityBuff = Helpers.CreateBuff(TTTContext, "CavalierMobilityBuff", bp => {
+            var CavalierMobilityBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "CavalierMobilityBuff", bp => {
                 bp.SetName(TTTContext, "Cavalier Mobility");
                 bp.SetDescription(TTTContext, "A cavalier does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.IsClassFeature = true;

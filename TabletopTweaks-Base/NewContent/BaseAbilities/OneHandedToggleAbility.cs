@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Items;
 using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewUnitParts;
@@ -19,7 +20,7 @@ namespace TabletopTweaks.Base.NewContent.BaseAbilities {
             var FightDefensivelyToggleAbility = BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("09d742e8b50b0214fb71acfc99cc00b3");
             var icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_OneHandedToggle.png");
 
-            var OneHandedBuff = Helpers.CreateBuff(TTTContext, "OneHandedBuff", bp => {
+            var OneHandedBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "OneHandedBuff", bp => {
                 bp.m_Icon = icon;
                 bp.SetName(TTTContext, "Use Weapon One Handed");
                 bp.SetDescription(TTTContext, "");

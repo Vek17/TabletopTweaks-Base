@@ -77,7 +77,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 });
                 bp.AddPrerequisiteFeature(FlaringSpellFeat);
             });
-            var FlaringDazzledBuff = Helpers.CreateBuff(TTTContext, "FlaringDazzledBuff", bp => {
+            var FlaringDazzledBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "FlaringDazzledBuff", bp => {
                 bp.m_DisplayName = DazzledBuff.m_DisplayName;
                 bp.m_Description = DazzledBuff.m_Description;
                 bp.m_Icon = DazzledBuff.Icon;

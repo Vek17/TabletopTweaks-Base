@@ -18,7 +18,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var ArcaneStrikeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("0ab2f21a922feee4dab116238e3150b4");
             var ArcaneStrikeBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("98ac795afd1b2014eb9fdf2b9820808f");
 
-            var RivingStrikeEffectBuff = Helpers.CreateBuff(TTTContext, "RivingStrikeEffectBuff", bp => {
+            var RivingStrikeEffectBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "RivingStrikeEffectBuff", bp => {
                 bp.m_Icon = ArcaneStrikeFeature.m_Icon;
                 bp.SetName(TTTContext, "Riving Strike");
                 bp.SetDescription(TTTContext, "Creature takes a -2 penalty on saving throws against spells and spell-like abilities.");
@@ -33,7 +33,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.ModifierDescriptor = ModifierDescriptor.UntypedStackable;
                 });
             });
-            var RivingStrikeBuff = Helpers.CreateBuff(TTTContext, "RivingStrikeBuff", bp => {
+            var RivingStrikeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "RivingStrikeBuff", bp => {
                 bp.SetName(TTTContext, "Riving Strike");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Icon = ArcaneStrikeFeature.m_Icon;

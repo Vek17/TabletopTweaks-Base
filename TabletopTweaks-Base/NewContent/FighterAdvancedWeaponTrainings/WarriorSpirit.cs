@@ -101,7 +101,7 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedWeaponTrainings {
                 });
             });
 
-            var WarriorSpiritDurationBuff = Helpers.CreateBuff(TTTContext, "WarriorSpiritDurationBuff", bp => {
+            var WarriorSpiritDurationBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WarriorSpiritDurationBuff", bp => {
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Warrior Spirit");
                 bp.SetDescription(TTTContext, "");
@@ -247,7 +247,7 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedWeaponTrainings {
 
         private static BlueprintBuff CreateWarriorSpiritWeaponBuff(string blueprintName, Sprite icon, int cost, params BlueprintWeaponEnchantment[] enchants) {
 
-            var weaponBuff = Helpers.CreateBuff(TTTContext, blueprintName, bp => {
+            var weaponBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, blueprintName, bp => {
                 bp.m_DisplayName = enchants.First().m_EnchantName;
                 bp.m_Description = enchants.First().m_Description;
                 bp.m_Flags = BlueprintBuff.Flags.StayOnDeath | BlueprintBuff.Flags.HiddenInUi;

@@ -45,7 +45,8 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchHolySymbolofIomedae();
                 PatchHalfOfThePair();
                 PatchStormlordsResolve();
-                PatchFlawlessBeltOfPhysicalPerfection8();
+                PatchFlawlessBeltOfPhysicalPerfection8Availability();
+                PatchFlawlessBeltOfPhysicalPerfection8CritIncrease();
 
                 void PatchAspectOfTheAsp() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("AspectOfTheAsp")) { return; }
@@ -89,11 +90,9 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     });
                     TTTContext.Logger.LogPatch(AspectOfTheAspFeature);
                 }
-                void PatchFlawlessBeltOfPhysicalPerfection8() {
-                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FlawlessBeltOfPhysicalPerfection8")) { return; }
+                void PatchFlawlessBeltOfPhysicalPerfection8CritIncrease() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FlawlessBeltOfPhysicalPerfection8CritIncrease")) { return; }
 
-                    var DLC1_InevitableDarkness_CoreReward = BlueprintTools.GetBlueprint<BlueprintLoot>("b4ba9f9162694daeabca42b2de9a98d8");
-                    var BeltOfPerfection8Extra = BlueprintTools.GetBlueprintReference<BlueprintItemReference>("3c3a3a043b99422480b04940bc1edc73");
                     var BeltOfPerfection8ExtraFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("e1f419f50b5a45158080bb4cb4ff6858");
                     
                     if (BeltOfPerfection8ExtraFeature != null) {
@@ -104,9 +103,16 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         });
                         TTTContext.Logger.LogPatch(BeltOfPerfection8ExtraFeature);
                     }
+                }
+                void PatchFlawlessBeltOfPhysicalPerfection8Availability() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FlawlessBeltOfPhysicalPerfection8Availability")) { return; }
+
+                    var DLC1_InevitableDarkness_CoreReward = BlueprintTools.GetBlueprint<BlueprintLoot>("b4ba9f9162694daeabca42b2de9a98d8");
+                    var BeltOfPerfection8Extra = BlueprintTools.GetBlueprintReference<BlueprintItemReference>("3c3a3a043b99422480b04940bc1edc73");
+
                     if (DLC1_InevitableDarkness_CoreReward != null) {
                         DLC1_InevitableDarkness_CoreReward.Items = new LootEntry[] {
-                            new LootEntry(){ 
+                            new LootEntry(){
                                 m_Item = BeltOfPerfection8Extra,
                                 Count = 1
                             }

@@ -85,7 +85,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     StalwartImprovedFeature.ToReference<BlueprintUnitFactReference>()));
             });
 
-            var StalwartBuff = Helpers.CreateBuff(TTTContext, "StalwartBuff", bp => {
+            var StalwartBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StalwartBuff", bp => {
                 bp.SetName(TTTContext, "Stalwart");
                 bp.SetDescription(StalwartDescription());
                 bp.m_Icon = DefensiveStanceActivatableAbility.m_Icon;

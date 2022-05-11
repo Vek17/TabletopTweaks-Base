@@ -81,7 +81,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 2;
                 });
             });
-            var BloodragerDestinedStrikeBuff = Helpers.CreateBuff(TTTContext, "BloodragerDestinedStrikeBuff", bp => {
+            var BloodragerDestinedStrikeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerDestinedStrikeBuff", bp => {
                 bp.Stacking = StackingType.Rank;
                 bp.Ranks = 5;
                 bp.SetName(TTTContext, "Destined Strike");
@@ -173,7 +173,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 bp.IsClassFeature = true;
                 bp.Ranks = 5;
             });
-            var BloodragerDestinedFatedBloodragerBuff = Helpers.CreateBuff(TTTContext, "BloodragerDestinedFatedBloodragerBuff", bp => {
+            var BloodragerDestinedFatedBloodragerBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerDestinedFatedBloodragerBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedFatedBloodrager.m_DisplayName);
                 bp.SetDescription(BloodragerDestinedFatedBloodrager.m_Description);
@@ -227,7 +227,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     + "the die is rolled, but before the GM reveals the results. You must take the second result, even if it’s worse.");
                 bp.IsClassFeature = true;
             });
-            var BloodragerDestinedCertainStrikeBuff = Helpers.CreateBuff(TTTContext, "BloodragerDestinedCertainStrikeBuff", bp => {
+            var BloodragerDestinedCertainStrikeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerDestinedCertainStrikeBuff", bp => {
                 //bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.m_Icon = LuckDomain.Icon;
                 bp.SetName(BloodragerDestinedCertainStrike.m_DisplayName);
@@ -267,7 +267,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.RestoreAmount = true;
                 }));
             });
-            var BloodragerDestinedDefyDeathBuff = Helpers.CreateBuff(TTTContext, "BloodragerDestinedDefyDeathBuff", bp => {
+            var BloodragerDestinedDefyDeathBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerDestinedDefyDeathBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(BloodragerDestinedDefyDeath.m_DisplayName);
                 bp.SetDescription(BloodragerDestinedDefyDeath.m_Description);
@@ -287,7 +287,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     + "threats made against you confirm only if the second roll results in a natural 20 (or is automatically confirmed).");
                 bp.IsClassFeature = true;
             });
-            var BloodragerDestinedUnstoppableBuff = Helpers.CreateBuff(TTTContext, "BloodragerDestinedUnstoppableBuff", bp => {
+            var BloodragerDestinedUnstoppableBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerDestinedUnstoppableBuff", bp => {
                 bp.SetName(BloodragerDestinedUnstoppable.m_DisplayName);
                 bp.SetDescription(BloodragerDestinedUnstoppable.m_Description);
                 bp.IsClassFeature = true;
@@ -462,7 +462,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
             var BloodragerAberrantBloodlineWandering = BloodlineTools.CreateMixedBloodFeature(TTTContext, "BloodragerDestinedBloodlineWandering", BloodragerDestinedBloodline, bp => {
                 bp.m_Icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_DestinedBloodline.png");
             });
-            var BloodragerDestinedBaseBuff = Helpers.CreateBuff(TTTContext, "BloodragerDestinedBaseBuff", bp => {
+            var BloodragerDestinedBaseBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerDestinedBaseBuff", bp => {
                 bp.SetName(TTTContext, "Destined Bloodrage");
                 bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -526,7 +526,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 bp.Ranks = 1;
                 bp.m_Icon = BloodlineInfernalClassSkill.Icon;
             });
-            var SorcererDestinedBloodlineArcanaBuff1 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff1", bp => {
+            var SorcererDestinedBloodlineArcanaBuff1 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff1", bp => {
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
                 bp.SetDescription(TTTContext, "");
                 bp.IsClassFeature = true;
@@ -536,7 +536,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 1;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff2 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff2", bp => {
+            var SorcererDestinedBloodlineArcanaBuff2 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff2", bp => {
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
                 bp.SetDescription(TTTContext, "");
                 bp.IsClassFeature = true;
@@ -546,7 +546,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 2;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff3 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff3", bp => {
+            var SorcererDestinedBloodlineArcanaBuff3 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff3", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
@@ -556,7 +556,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 3;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff4 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff4", bp => {
+            var SorcererDestinedBloodlineArcanaBuff4 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff4", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
                 bp.SetDescription(TTTContext, "");
@@ -565,7 +565,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 4;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff5 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff5", bp => {
+            var SorcererDestinedBloodlineArcanaBuff5 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff5", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
@@ -575,7 +575,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 5;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff6 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff6", bp => {
+            var SorcererDestinedBloodlineArcanaBuff6 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff6", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
@@ -585,7 +585,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 6;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff7 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff7", bp => {
+            var SorcererDestinedBloodlineArcanaBuff7 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff7", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
@@ -595,7 +595,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 7;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff8 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff8", bp => {
+            var SorcererDestinedBloodlineArcanaBuff8 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff8", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
@@ -605,7 +605,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 8;
                 });
             });
-            var SorcererDestinedBloodlineArcanaBuff9 = Helpers.CreateBuff(TTTContext, "SorcererDestinedBloodlineArcanaBuff9", bp => {
+            var SorcererDestinedBloodlineArcanaBuff9 = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedBloodlineArcanaBuff9", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Destined Bloodline Arcana");
@@ -645,7 +645,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedTouchOfDestinyBuff = Helpers.CreateBuff(TTTContext, "SorcererDestinedTouchOfDestinyBuff", bp => {
+            var SorcererDestinedTouchOfDestinyBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedTouchOfDestinyBuff", bp => {
                 bp.m_Icon = LawDomainBaseAbility.Icon;
                 bp.SetName(TTTContext, "Touch of Destiny");
                 bp.SetDescription(TTTContext, "");
@@ -794,7 +794,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.RestoreAmount = true;
                 });
             });
-            var SorcererDestinedFatedBuff = Helpers.CreateBuff(TTTContext, "SorcererDestinedFatedBuff", bp => {
+            var SorcererDestinedFatedBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedFatedBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.SetName(TTTContext, "Fated");
                 bp.SetDescription(TTTContext, "Starting at 3rd level, you gain a +1 luck bonus on all of your saving throws and to your AC during the first"
@@ -908,7 +908,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Value = 1;
                 });
             });
-            var SorcererDestinedItWasMeantToBeBuff = Helpers.CreateBuff(TTTContext, "SorcererDestinedItWasMeantToBeBuff", bp => {
+            var SorcererDestinedItWasMeantToBeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedItWasMeantToBeBuff", bp => {
                 bp.SetName(TTTContext, "It Was Meant To Be");
                 bp.SetDescription(TTTContext, "You may reroll any one attack roll, critical hit confirmation roll, or level check made to "
                     + "overcome spell resistance.");
@@ -993,7 +993,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     m_ArchetypesDiv = new BlueprintArchetypeReference[0]
                 };
             });
-            var SorcererDestinedDestinyRealizedBuff = Helpers.CreateBuff(TTTContext, "SorcererDestinedDestinyRealizedBuff", bp => {
+            var SorcererDestinedDestinyRealizedBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SorcererDestinedDestinyRealizedBuff", bp => {
                 bp.SetName(TTTContext, "Destiny Realized");
                 bp.SetDescription(TTTContext, "You automatically succeed at one caster level check made to overcome spell resistance.");
                 bp.IsClassFeature = true;

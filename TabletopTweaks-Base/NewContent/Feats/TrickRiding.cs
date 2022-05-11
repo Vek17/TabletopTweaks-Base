@@ -28,7 +28,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 });
                 bp.AddPrerequisiteFeature(MountedCombat);
             });
-            var TrickRidingCooldownBuff = Helpers.CreateBuff(TTTContext, "TrickRidingCooldownBuff", bp => {
+            var TrickRidingCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "TrickRidingCooldownBuff", bp => {
                 bp.SetName(TTTContext, "Trick Riding Cooldown");
                 bp.SetDescription(TTTContext, "");
                 bp.IsClassFeature = true;

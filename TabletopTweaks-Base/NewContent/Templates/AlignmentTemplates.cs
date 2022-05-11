@@ -248,7 +248,7 @@ namespace TabletopTweaks.Base.NewContent.Templates {
             });
         }
         private static BlueprintBuff CreateAlignmentSmiteBuff(string name, BlueprintBuff buffEffects, Action<BlueprintBuff> init = null) {
-            var smiteBuff = Helpers.CreateBuff(TTTContext, name, bp => {
+            var smiteBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, name, bp => {
                 bp.IsClassFeature = true;
                 bp.Stacking = StackingType.Stack;
                 bp.m_Icon = buffEffects.Icon;

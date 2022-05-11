@@ -11,6 +11,7 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -19,7 +20,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
         public static void AddLongArms() {
             //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_LongArm.png");
-            var LongArmBuff = Helpers.CreateBuff(TTTContext, "LongArmBuff", bp => {
+            var LongArmBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "LongArmBuff", bp => {
                 bp.SetName(TTTContext, "Long Arm");
                 bp.SetDescription(TTTContext, "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.m_Icon = icon;
@@ -30,7 +31,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.Value = 5;
                 }));
             });
-            var applyBuff = Helpers.Create<Kingmaker.UnitLogic.Mechanics.Actions.ContextActionApplyBuff>(bp => {
+            var applyBuff = Helpers.Create<ContextActionApplyBuff>(bp => {
                 bp.IsFromSpell = true;
                 bp.m_Buff = LongArmBuff.ToReference<BlueprintBuffReference>();
                 bp.DurationValue = new ContextDurationValue() {

@@ -65,7 +65,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     + "each effect individually.");
                 bp.IsClassFeature = true;
             });
-            var BloodragerAberrantStaggeringStrikeBuff = Helpers.CreateBuff(TTTContext, "BloodragerAberrantStaggeringStrikeBuff", bp => {
+            var BloodragerAberrantStaggeringStrikeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerAberrantStaggeringStrikeBuff", bp => {
                 bp.SetName(BloodragerAberrantStaggeringStrike.m_DisplayName);
                 bp.SetDescription(BloodragerAberrantStaggeringStrike.m_Description);
                 bp.IsClassFeature = true;
@@ -108,7 +108,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 bp.SetDescription(TTTContext, "At 4th level, your limbs elongate and your reach increases by 5 feet.");
                 bp.IsClassFeature = true;
             });
-            var BloodragerAberrantAbnormalReachBuff = Helpers.CreateBuff(TTTContext, "BloodragerAberrantAbnormalReachBuff", bp => {
+            var BloodragerAberrantAbnormalReachBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerAberrantAbnormalReachBuff", bp => {
                 bp.SetName(BloodragerAberrantAbnormalReach.m_DisplayName);
                 bp.SetDescription(BloodragerAberrantAbnormalReach.m_Description);
                 bp.IsClassFeature = true;
@@ -124,7 +124,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 bp.SetDescription(TTTContext, "At 8th level, you become immune to the sickened and nauseated conditions.");
                 bp.IsClassFeature = true;
             });
-            var BloodragerAberrantFortitudeBuff = Helpers.CreateBuff(TTTContext, "BloodragerAberrantFortitudeBuff", bp => {
+            var BloodragerAberrantFortitudeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerAberrantFortitudeBuff", bp => {
                 bp.SetName(BloodragerAberrantFortitude.m_DisplayName);
                 bp.SetDescription(BloodragerAberrantFortitude.m_Description);
                 bp.IsClassFeature = true;
@@ -148,7 +148,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     + "any critical hit or sneak attack that hits you. The damage is instead rolled normally.");
                 bp.IsClassFeature = true;
             });
-            var BloodragerAberrantUnusualAnatomyBuff = Helpers.CreateBuff(TTTContext, "BloodragerAberrantUnusualAnatomyBuff", bp => {
+            var BloodragerAberrantUnusualAnatomyBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerAberrantUnusualAnatomyBuff", bp => {
                 bp.SetName(BloodragerAberrantUnusualAnatomy.m_DisplayName);
                 bp.SetDescription(BloodragerAberrantUnusualAnatomy.m_Description);
                 bp.IsClassFeature = true;
@@ -163,7 +163,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 bp.SetDescription(TTTContext, "At 16th level, you are immune to disease, exhaustion, fatigue, and poison, and to the staggered condition.");
                 bp.IsClassFeature = true;
             });
-            var BloodragerAberrantResistanceBuff = Helpers.CreateBuff(TTTContext, "BloodragerAberrantResistanceBuff", bp => {
+            var BloodragerAberrantResistanceBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerAberrantResistanceBuff", bp => {
                 bp.SetName(BloodragerAberrantResistance.m_DisplayName);
                 bp.SetDescription(BloodragerAberrantResistance.m_Description);
                 bp.IsClassFeature = true;
@@ -341,7 +341,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
             var BloodragerAberrantBloodlineWandering = BloodlineTools.CreateMixedBloodFeature(TTTContext, "BloodragerAberrantBloodlineWandering", BloodragerAberrantBloodline, bp => {
                 bp.m_Icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_AberrantBloodline.png");
             });
-            var BloodragerAberrantBaseBuff = Helpers.CreateBuff(TTTContext, "BloodragerAberrantBaseBuff", bp => {
+            var BloodragerAberrantBaseBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerAberrantBaseBuff", bp => {
                 bp.SetName(TTTContext, "Aberrant Bloodrage");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;

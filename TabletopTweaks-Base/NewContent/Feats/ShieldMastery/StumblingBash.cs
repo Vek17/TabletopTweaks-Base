@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -23,7 +24,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
             var ShieldBashFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("121811173a614534e8720d7550aae253");
             var ShieldBashBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("5566971fdebf7fe468a497bbee0d3ed5");
 
-            var StumblingBashBuff = Helpers.CreateBuff(TTTContext, "StumblingBashBuff", bp => {
+            var StumblingBashBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StumblingBashBuff", bp => {
                 bp.SetName(TTTContext, "Stumbling Bash");
                 bp.SetDescription(TTTContext, "Creature's AC is reduced by –2 after being hit by a shield bash.");
                 bp.m_Icon = ShieldBashFeature.Icon;

@@ -1509,7 +1509,12 @@
           "Homebrew": false,
           "Description": "Now is a free action to use."
         },
-        "FlawlessBeltOfPhysicalPerfection8": {
+        "FlawlessBeltOfPhysicalPerfection8Availability": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now is available as a DLC reward instead of a normal +6 belt."
+        },
+        "FlawlessBeltOfPhysicalPerfection8CritIncrease": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now increases critical threat range by 1 in all cases."

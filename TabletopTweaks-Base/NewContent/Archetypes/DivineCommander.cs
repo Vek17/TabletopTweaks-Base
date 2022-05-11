@@ -63,7 +63,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     " These leaders of armies do so to promote the agenda of their faith, and lead armies of devoted followers willing to give their lives for the cause.");
             });
 
-            var DivineCommanderMobilityBuff = Helpers.CreateBuff(TTTContext, "DivineCommanderMobilityBuff", bp => {
+            var DivineCommanderMobilityBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "DivineCommanderMobilityBuff", bp => {
                 bp.SetName(TTTContext, "Divine Commander Mobility");
                 bp.SetDescription(TTTContext, "A divine commander does not take an armor check penalty on Mobility checks while riding his mount.");
                 bp.IsClassFeature = true;

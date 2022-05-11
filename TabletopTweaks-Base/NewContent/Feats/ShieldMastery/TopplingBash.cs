@@ -31,7 +31,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
             var ShieldBashBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("5566971fdebf7fe468a497bbee0d3ed5");
             var StumblingBashFeature = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "StumblingBashFeature");
 
-            var TopplingBashPenalty = Helpers.CreateBuff(TTTContext, "TopplingBashPenalty", bp => {
+            var TopplingBashPenalty = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "TopplingBashPenalty", bp => {
                 bp.SetName(TTTContext, "Toppling Bash");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -43,7 +43,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
             });
-            var TopplingBashEffectBuff = Helpers.CreateBuff(TTTContext, "TopplingBashEffectBuff", bp => {
+            var TopplingBashEffectBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "TopplingBashEffectBuff", bp => {
                 bp.SetName(TTTContext, "Toppling Bash");
                 bp.SetDescription(TTTContext, "Your shield bash throws your enemies off balance.\n" +
                     "Benefit: As a swift action when you hit a creature with a shield bash, " +
@@ -112,7 +112,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ShieldMastery {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
             });
-            var TopplingBashBuff = Helpers.CreateBuff(TTTContext, "TopplingBashBuff", bp => {
+            var TopplingBashBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "TopplingBashBuff", bp => {
                 bp.SetName(TopplingBashEffectBuff.m_DisplayName);
                 bp.SetDescription(TopplingBashEffectBuff.m_Description);
                 bp.m_Icon = ShieldBashFeature.Icon;

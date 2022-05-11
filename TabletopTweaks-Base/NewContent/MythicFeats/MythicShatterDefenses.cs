@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints.Classes;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -7,7 +8,7 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
     static class MythicShatterDefenses {
         public static void AddMythicShatterDefenses() {
             var ShatterDefenses = BlueprintTools.GetBlueprint<BlueprintFeature>("61a17ccbbb3d79445b0926347ec07577");
-            var ShatterDefensesMythicBuff = Helpers.CreateBuff(TTTContext, "ShatterDefensesMythicBuff", bp => {
+            var ShatterDefensesMythicBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ShatterDefensesMythicBuff", bp => {
                 bp.m_Icon = ShatterDefenses.m_Icon;
                 bp.SetName(TTTContext, "Shattered Defenses (Mythic)");
                 bp.SetDescription(TTTContext, "An opponent affected by Shatter Defenses is flat-footed to all attacks.");

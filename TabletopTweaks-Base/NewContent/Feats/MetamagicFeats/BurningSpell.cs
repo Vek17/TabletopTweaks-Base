@@ -80,7 +80,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 });
                 bp.AddPrerequisiteFeature(BurningSpellFeat);
             });
-            var BurningSpellFireBuff = Helpers.CreateBuff(TTTContext, "BurningSpellFireBuff", bp => {
+            var BurningSpellFireBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BurningSpellFireBuff", bp => {
                 bp.SetName(TTTContext, "Burning Spell");
                 bp.SetDescription(TTTContext, "This target will take fire damage at the start of next round.");
                 bp.Stacking = StackingType.Stack;
@@ -125,7 +125,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Descriptor = SpellDescriptor.Fire;
                 });
             });
-            var BurningSpellAcidBuff = Helpers.CreateBuff(TTTContext, "BurningSpellAcidBuff", bp => {
+            var BurningSpellAcidBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BurningSpellAcidBuff", bp => {
                 bp.SetName(TTTContext, "Burning Spell");
                 bp.SetDescription(TTTContext, "This target will take acid damage at the start of next round.");
                 bp.Stacking = StackingType.Stack;

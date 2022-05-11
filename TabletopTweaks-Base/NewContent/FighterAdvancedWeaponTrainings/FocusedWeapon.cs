@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.Utilities;
@@ -16,7 +17,7 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedWeaponTrainings {
             var WeaponFinesse = BlueprintTools.GetBlueprint<BlueprintFeature>("90e54424d682d104ab36436bd527af09");
             var WeaponFocus = BlueprintTools.GetBlueprint<BlueprintParametrizedFeature>("1e1f627d26ad36f43bbd26cc2bf8ac7e");
 
-            var FocusedWeaponBuff = Helpers.CreateBuff(TTTContext, "FocusedWeaponBuff", bp => {
+            var FocusedWeaponBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "FocusedWeaponBuff", bp => {
                 bp.SetName(TTTContext, "Focused Weapon");
                 bp.SetDescription(TTTContext, "The fighter selects one weapon for which he has Weapon Focus and that belongs to the associated fighter weapon group. " +
                     "The fighter can deal damage with this weapon based on the damage of the warpriest’s sacred weapon class feature, treating his fighter" +

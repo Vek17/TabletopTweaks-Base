@@ -90,7 +90,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             TTTContext.Logger.LogPatch("Added", MetamagicRagerArchetype);
         }
         private static BlueprintBuff CreateMetamagicBuff(string name, BlueprintFeature metamagicFeat, int level, Action<BlueprintBuff> init = null) {
-            var result = Helpers.CreateBuff(TTTContext, name, bp => {
+            var result = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, name, bp => {
                 bp.m_Icon = metamagicFeat.Icon;
                 bp.AddComponent(Helpers.Create<AddAbilityUseTrigger>(c => {
                     c.m_Spellbooks = new BlueprintSpellbookReference[] { BloodragerSpellbook.ToReference<BlueprintSpellbookReference>() };

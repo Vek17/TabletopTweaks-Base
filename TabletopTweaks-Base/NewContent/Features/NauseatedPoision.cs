@@ -6,7 +6,7 @@ namespace TabletopTweaks.Base.NewContent.Features {
         public static void AddNauseatedPoision() {
             var Nauseated = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("956331dba5125ef48afe41875a00ca0e");
             /*
-            var NauseatedPoisionTTT = Helpers.CreateBuff("NauseatedPoisionTTT", bp => {
+            var NauseatedPoisionTTT = Helpers.CreateBlueprint<BlueprintBuff>("NauseatedPoisionTTT", bp => {
                 bp.SetName(TTTContext, "");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;

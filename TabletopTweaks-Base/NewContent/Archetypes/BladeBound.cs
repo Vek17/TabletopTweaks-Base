@@ -198,7 +198,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.WeilderProperty = BlackBladeProgressionProperty.ToReference<BlueprintUnitPropertyReference>();
                 });
             });
-            var BlackBladeStrikeBuff = Helpers.CreateBuff(TTTContext, "BlackBladeStrikeBuff", bp => {
+            var BlackBladeStrikeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlackBladeStrikeBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Black Blade Strike");
                 bp.SetDescription(TTTContext, "As a free action, the magus can spend a point from the black blade’s arcane pool " +
@@ -340,7 +340,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     };
                 });
             });
-            var BlackBladeEnergyAttunementBuff = Helpers.CreateBuff(TTTContext, "BlackBladeEnergyAttunementBuff", bp => {
+            var BlackBladeEnergyAttunementBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlackBladeEnergyAttunementBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Energy Attunement");
                 bp.SetDescription(TTTContext, "At 5th level, as a free action, the wielder can spend a point of his black blade’s arcane pool to have it deal " +
@@ -620,7 +620,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.m_Icon = BlackBladeTransferArcanaAbility.Icon;
             });
 
-            var BlackBladeSpellDefenseBuff = Helpers.CreateBuff(TTTContext, "BlackBladeSpellDefenseBuff", bp => {
+            var BlackBladeSpellDefenseBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlackBladeSpellDefenseBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Spell Defense");
                 bp.SetDescription(TTTContext, "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; " +
@@ -745,7 +745,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.TargetKilledByThisDamage = true;
                 });
             });
-            var BlackBladeLifeDrinkerBladeBuff = Helpers.CreateBuff(TTTContext, $"BlackBladeLifeDrinkerBladeBuff", bp => {
+            var BlackBladeLifeDrinkerBladeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, $"BlackBladeLifeDrinkerBladeBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Life Drinker — Blade");
                 bp.SetDescription(BlackBladeLifeDrinkerBladeEnchantment.m_Description);
@@ -824,7 +824,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.TargetKilledByThisDamage = true;
                 });
             });
-            var BlackBladeLifeDrinkerSharedBuff = Helpers.CreateBuff(TTTContext, $"BlackBladeLifeDrinkerSharedBuff", bp => {
+            var BlackBladeLifeDrinkerSharedBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, $"BlackBladeLifeDrinkerSharedBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Life Drinker — Shared (Magus)");
                 bp.SetDescription(BlackBladeLifeDrinkerSharedEnchantment.m_Description);
@@ -908,7 +908,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.TargetKilledByThisDamage = true;
                 });
             });
-            var BlackBladeLifeDrinkerSharedArcanistBuff = Helpers.CreateBuff(TTTContext, $"BlackBladeLifeDrinkerSharedArcanistBuff", bp => {
+            var BlackBladeLifeDrinkerSharedArcanistBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, $"BlackBladeLifeDrinkerSharedArcanistBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Life Drinker — Shared (Arcanist)");
                 bp.SetDescription(BlackBladeLifeDrinkerSharedArcanistEnchantment.m_Description);
@@ -946,7 +946,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 });
             });
 
-            var BlackBladeLifeDrinkerTempHPBuff = Helpers.CreateBuff(TTTContext, $"BlackBladeLifeDrinkerTempHPBuff", bp => {
+            var BlackBladeLifeDrinkerTempHPBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, $"BlackBladeLifeDrinkerTempHPBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Life Drinker Temp HP");
                 bp.SetDescription(TTTContext, "");
@@ -1006,7 +1006,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.TargetKilledByThisDamage = true;
                 });
             });
-            var BlackBladeLifeDrinkerWielderBuff = Helpers.CreateBuff(TTTContext, $"BlackBladeLifeDrinkerWielderBuff", bp => {
+            var BlackBladeLifeDrinkerWielderBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, $"BlackBladeLifeDrinkerWielderBuff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, "Life Drinker — Wielder");
                 bp.SetDescription(BlackBladeLifeDrinkerWielderEnchantment.m_Description);
@@ -1252,7 +1252,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             BlueprintBuff buff,
             Sprite icon = null) {
 
-            var EnergyAttunementBuff = Helpers.CreateBuff(TTTContext, $"{name}Buff", bp => {
+            var EnergyAttunementBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, $"{name}Buff", bp => {
                 bp.Ranks = 1;
                 bp.SetName(TTTContext, DisplayName);
                 bp.SetDescription(TTTContext, "");

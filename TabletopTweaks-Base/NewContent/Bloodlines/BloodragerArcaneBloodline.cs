@@ -52,7 +52,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 });
             });
 
-            var ProtectionFromArrowsArcaneBloodragerBuff = Helpers.CreateBuff(TTTContext, "ProtectionFromArrowsArcaneBloodrageBuff", bp => {
+            var ProtectionFromArrowsArcaneBloodragerBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ProtectionFromArrowsArcaneBloodrageBuff", bp => {
                 bp.m_DisplayName = ProtectionFromArrows.m_DisplayName;
                 bp.m_Description = ProtectionFromArrows.m_Description;
                 bp.m_DescriptionShort = ProtectionFromArrows.m_DescriptionShort;
@@ -234,7 +234,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
             var HasteBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("03464790f40c3c24aa684b57155f3280");
             var SlowBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("0bc608c3f2b548b44b7146b7530613ac");
 
-            BlueprintBuff BloodragerArcaneGreaterSpellHasteActivationBuff = Helpers.CreateBuff(TTTContext, "BloodragerArcaneGreaterSpellHasteActivationBuff", bp => {
+            BlueprintBuff BloodragerArcaneGreaterSpellHasteActivationBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerArcaneGreaterSpellHasteActivationBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.IsClassFeature = true;
                 bp.SetName(TTTContext, "Greater Arcane Bloodrage: Haste");
