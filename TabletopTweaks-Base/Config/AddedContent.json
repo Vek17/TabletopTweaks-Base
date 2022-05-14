@@ -127,6 +127,11 @@
         "Homebrew": false,
         "Description": "You can use your Wisdom modifier instead of your Dexterity modifier on ranged attack rolls when using a bow."
       },
+      "ExpandedSpellKenning": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "When you use your spell kenning class feature, you can select a spell from either the druid or the witch spell list."
+      },
       "ExtraArcana": {
         "Enabled": true,
         "Homebrew": false,
@@ -566,6 +571,11 @@
         "Enabled": true,
         "Homebrew": true,
         "Description": "You can use Fervor a number of additional times per day equal to your mythic rank."
+      },
+      "AbundantSpellKenning": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank."
       },
       "ArmoredMight": {
         "Enabled": true,

@@ -114,6 +114,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Classes.Cavalier.AddCavalierFeatures();
                 Classes.Oracle.AddOracleFeatures();
                 Classes.Magus.AddMagusFeatures();
+                Classes.Skald.AddSkaldFeatures();
                 //Features to support existing archetypes
                 Archetypes.MadDog.AddMadDogFeatures();
                 //New archetypes
@@ -145,6 +146,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.SecondPatron.AddSecondPatron();
                 MythicAbilities.EnhancedBlessings.AddEnhancedBlessings();
                 MythicAbilities.ImpossibleBlessing.AddImpossibleBlessing();
+                MythicAbilities.AbundantSpellKenning.AddAbundantSpellKenning();
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();
@@ -176,6 +178,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.VarisianTattoo.AddVarisianTattoo();
                 Feats.QuickenBlessing.AddQuickenBlessing();
                 Feats.RivingStrike.AddRivingStrike();
+                Feats.ExpandedSpellKenning.AddExpandedSpellKenning();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

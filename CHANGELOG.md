@@ -18,6 +18,15 @@
             * Now correctly removes spell resistance when hitting a flat footed target.
         * Music of Death
             * Now correctly deals bonus damage when hitting a flat footed target.
+* Addeded Content
+    * Skald
+        * Spell Kenning has been implemented.
+    * Feats
+        * Expanded Spell Kenning
+            * When you use your spell kenning class feature, you can select a spell from either the druid or the witch spell list.
+    * Mythic Abiltiies
+        * Abundant Spell Kenning.
+            * You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.
 
 ## Version 2.1.1
 * Fixes

@@ -859,6 +859,21 @@
     },
     "Archetypes": {}
   },
+  "Skald": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "SpellKenning": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Enables spell kenning as a feature."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
   "Slayer": {
     "DisableAll": false,
     "Base": {

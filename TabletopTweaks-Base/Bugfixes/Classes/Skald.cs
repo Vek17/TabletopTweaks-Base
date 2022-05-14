@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Utility;
 using System.Linq;
@@ -52,6 +53,26 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 });
             }
             static void PatchBase() {
+                AddSpellKenning();
+
+                void AddSpellKenning() {
+                    if (Main.TTTContext.Fixes.Skald.Base.IsDisabled("SpellKenning")) { return; }
+
+                    var SkaldSpellKenning = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("d385b8c302e720c43aa17b8170bc6ae2");
+                    var SkaldSpellKenningExtraUse = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("590d0f09d7da13d4a9382d144b8439f6");
+                    var SkaldProgression = BlueprintTools.GetBlueprint<BlueprintProgression>("26418fed2bc153245972a5b54204ed75");
+                    var HeraldOfTheHornArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("72fa7b1c7a6ede44eb490080bf4a2f90");
+
+                    SkaldProgression.LevelEntries.Where(entry => entry.Level == 5).FirstOrDefault()?.m_Features.Add(SkaldSpellKenning);
+                    SkaldProgression.LevelEntries.Where(entry => entry.Level == 11).FirstOrDefault()?.m_Features.Add(SkaldSpellKenningExtraUse);
+                    SkaldProgression.LevelEntries.Where(entry => entry.Level == 17).FirstOrDefault()?.m_Features.Add(SkaldSpellKenningExtraUse);
+
+                    HeraldOfTheHornArchetype.RemoveFeatures = HeraldOfTheHornArchetype.RemoveFeatures.AppendToArray(
+                        //Helpers.CreateLevelEntry(5, SkaldSpellKenning),
+                        Helpers.CreateLevelEntry(11, SkaldSpellKenningExtraUse),
+                        Helpers.CreateLevelEntry(17, SkaldSpellKenningExtraUse)
+                    );
+                }
             }
         }
     }

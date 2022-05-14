@@ -289,6 +289,7 @@
     <Compile Include="NewContent\Classes\Loremaster.cs" />
     <Compile Include="NewContent\Classes\Magus.cs" />
     <Compile Include="NewContent\Classes\Oracle.cs" />
+    <Compile Include="NewContent\Classes\Skald.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\ArmorMastery.cs" />
@@ -296,6 +297,7 @@
     <Compile Include="NewContent\Feats\ArmorMastery\KnockingBlows.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\SecuredArmor.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\SprightlyArmor.cs" />
+    <Compile Include="NewContent\Feats\ExpandedSpellKenning.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\BurningSpell.cs" />
     <Compile Include="NewContent\Feats\CelestialServant.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
@@ -370,6 +372,7 @@
     <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantSpellKenning.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
     <Compile Include="NewContent\MythicAbilities\EnhancedBlessings.cs" />
