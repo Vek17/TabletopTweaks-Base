@@ -27,7 +27,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             });
 
             SkaldSpellKenningExtraUse.TemporaryContext(bp => {
-                bp.Ranks = 3;
+                bp.Ranks = 2;
                 bp.SetComponents();
                 bp.AddComponent<IncreaseResourceAmount>(c => {
                     c.m_Resource = SkaldSpellKenningResource.ToReference<BlueprintAbilityResourceReference>();
@@ -36,7 +36,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             });
 
             SkaldSpellKenning.TemporaryContext(bp => {
-                bp.Ranks = 3;
+                bp.Ranks = 1;
                 bp.SetComponents();
                 bp.AddComponent<SpellKenningComponent>(c => {
                     c.m_Resource = SkaldSpellKenningResource.ToReference<BlueprintAbilityResourceReference>();

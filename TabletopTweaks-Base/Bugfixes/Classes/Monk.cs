@@ -139,13 +139,19 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         }
                     });
                     SaveGameFix.AddUnitPatch((unit) => {
-                        if (unit.Progression.GetClassLevel(MonkClass) >= 10 && unit.Progression.IsArchetype(ZenArcherArchetype)) {
-                            if (!unit.HasFact(PerfectStrikeZenArcherUpgrade)) {
-                                if (unit.AddFact(PerfectStrikeZenArcherUpgrade) != null) {
-                                    TTTContext.Logger.Log($"Added: {PerfectStrikeZenArcherUpgrade.name} To: {unit.CharacterName}");
-                                    return;
+                        var progressionData = unit.Progression;
+                        var classData = unit.Progression.GetClassData(ClassTools.Classes.MonkClass);
+                        if (classData == null) { return; }
+                        var levelEntries = progressionData.SureProgressionData(classData.CharacterClass.Progression).LevelEntries;
+                        foreach (LevelEntry entry in levelEntries.Where(e => e.Level <= classData.Level)) {
+                            foreach (BlueprintFeatureBase feature in entry.Features) {
+                                if (feature.AssetGuid == PerfectStrikeZenArcherUpgrade.AssetGuid) {
+                                    if (progressionData.Features.HasFact(PerfectStrikeZenArcherUpgrade)) { continue; }
+                                    var addedFeature = progressionData.Features.AddFeature((BlueprintFeature)feature, null);
+                                    var characterClass = classData.CharacterClass;
+                                    addedFeature.SetSource(characterClass.Progression, entry.Level);
+                                    TTTContext.Logger.Log($"{unit.CharacterName}: Applied PerfectStrikeZenArcherUpgrade");
                                 }
-                                TTTContext.Logger.Log($"Failed Add: {PerfectStrikeZenArcherUpgrade.name} To: {unit.CharacterName}");
                             }
                         }
                     });

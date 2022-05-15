@@ -1,9 +1,13 @@
 ﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
+using System;
 using System.Linq;
+using TabletopTweaks.Core;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -72,6 +76,35 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         Helpers.CreateLevelEntry(11, SkaldSpellKenningExtraUse),
                         Helpers.CreateLevelEntry(17, SkaldSpellKenningExtraUse)
                     );
+
+                    TTTContext.Logger.LogPatch(SkaldProgression);
+
+                    SaveGameFix.AddUnitPatch((unit) => {
+                        var progressionData = unit.Progression;
+                        var classData = unit.Progression.GetClassData(ClassTools.Classes.SkaldClass);
+                        if (classData == null) { return; }
+                        var levelEntries = progressionData.SureProgressionData(classData.CharacterClass.Progression).LevelEntries;
+                        foreach (LevelEntry entry in levelEntries.Where(e => e.Level <= classData.Level)) {
+                            foreach (BlueprintFeatureBase feature in entry.Features) {
+                                if (feature.AssetGuid == SkaldSpellKenning.deserializedGuid) {
+                                    if (progressionData.Features.HasFact(SkaldSpellKenning)) { continue; }
+                                    var addedFeature = progressionData.Features.AddFeature((BlueprintFeature)feature, null);
+                                    var characterClass = classData.CharacterClass;
+                                    addedFeature.SetSource(characterClass.Progression, entry.Level);
+                                    TTTContext.Logger.Log($"{unit.CharacterName}: Applied Spell Kenning");
+                                } else if (feature.AssetGuid == SkaldSpellKenningExtraUse.deserializedGuid) {
+                                    if (progressionData.Features.HasFact(SkaldSpellKenningExtraUse)) {
+                                        if (entry.Level == 11) { continue; }
+                                        if (entry.Level == 17 && progressionData.Features.GetRank((BlueprintFeature)SkaldSpellKenningExtraUse.Get()) >= 2) { continue; }
+                                    }
+                                    var addedFeature = progressionData.Features.AddFeature((BlueprintFeature)feature, null);
+                                    var characterClass = classData.CharacterClass;
+                                    addedFeature.SetSource(characterClass.Progression, entry.Level);
+                                    TTTContext.Logger.Log($"{unit.CharacterName}: Applied Spell Kenning Extra Use {addedFeature.Rank}");
+                                }
+                            }
+                        }
+                    });
                 }
             }
         }
