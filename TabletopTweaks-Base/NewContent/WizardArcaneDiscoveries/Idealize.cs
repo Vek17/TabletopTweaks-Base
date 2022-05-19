@@ -3,9 +3,11 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Mechanics;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewEvents;
@@ -75,27 +77,38 @@ namespace TabletopTweaks.Base.NewContent.WizardArcaneDiscoveries {
 
             private IdealizeMechanics() { }
             public static IdealizeMechanics Instance = new();
-            public void StatBonusCalculated(ref int value, StatType stat, ModifierDescriptor descriptor, MechanicsContext context) {
+            public void StatBonusCalculated(ref int value, StatType stat, ModifierDescriptor descriptor, Buff buff) {
                 if (descriptor != ModifierDescriptor.Enhancement) { return; }
 
+                var context = buff?.MaybeContext;
                 var owner = context?.MaybeOwner;
                 var caster = context?.MaybeCaster;
                 var attribute = owner?.Stats?.GetAttribute(stat);
 
-                if (caster == null) { return; }
                 if (owner == null) { return; }
+                if (context == null) { return; }
+                if (caster == null) { return; }
                 if (attribute == null || value < 0) { return; }
-                if (!context.SourceAbility?.IsSpell ?? true
-                    || context.SpellLevel <= 0
-                    || context.SpellSchool != SpellSchool.Transmutation) {
+                if (context.SpellSchool != SpellSchool.Transmutation) { return;}
+                var metadataPart = owner.Get<UnitPartBuffMetadata>();
+                if (metadataPart != null && metadataPart.HasBuff(buff)) {
+                    if (metadataPart.HasBuffWithFeature(buff, CustomMechanicsFeature.IdealizeDiscovery)) {
+                        value += 2;
+                    }
+                    if (metadataPart.HasBuffWithFeature(buff, CustomMechanicsFeature.IdealizeDiscoveryUpgrade)) {
+                        value += 2;
+                    }
                     return;
                 }
-
+                owner.Ensure<UnitPartBuffMetadata>().AddBuffEntry(buff);
+                if (context.SourceItem != null) { return; }
                 if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscovery)) {
                     value += 2;
+                    owner.Ensure<UnitPartBuffMetadata>().AddBuffEntry(buff, CustomMechanicsFeature.IdealizeDiscovery);
                 }
                 if (caster.CustomMechanicsFeature(CustomMechanicsFeature.IdealizeDiscoveryUpgrade)) {
                     value += 2;
+                    owner.Ensure<UnitPartBuffMetadata>().AddBuffEntry(buff, CustomMechanicsFeature.IdealizeDiscoveryUpgrade);
                 }
             }
         }

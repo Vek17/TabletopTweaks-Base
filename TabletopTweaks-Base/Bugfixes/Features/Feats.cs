@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
@@ -144,15 +145,80 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("Cleave")) { return; }
 
                 var CleaveAction = BlueprintTools.GetBlueprint<BlueprintAbility>("6447d104a2222c14d9c9b8a36e4eb242");
+                var PowerAttackFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("9972f33f977fc724c838e59641b2fca5");
+                var CleaveFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("d809b6c4ff2aaff4fa70d712a70f7d7b");
                 var GreatCleaveFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("cc9c862ef2e03af4f89be5088851ea35");
                 var CleaveMythicFeature = BlueprintTools.GetModBlueprintReference<BlueprintFeatureReference>(TTTContext, "CleaveMythicFeature");
                 var CleavingFinish = BlueprintTools.GetBlueprint<BlueprintFeature>("59bd93899149fa44687ff4121389b3a9");
+                var ImprovedCleavingFinish = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("ffa1b373190af4f4db7a5501904a1983");
+                var CleavingFinishCooldown = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("d868546877b2de24388fbdd5741d0c95");
 
                 CleaveAction.RemoveComponents<AbilityCustomCleave>();
                 CleaveAction.AddComponent<AbilityCustomCleaveTTT>(c => {
                     c.m_GreaterFeature = GreatCleaveFeature;
                     c.m_MythicFeature = CleaveMythicFeature;
                 });
+                CleavingFinish.TemporaryContext(bp => {
+                    bp.SetComponents();
+                    bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
+                        c.OnlyHit = true;
+                        c.CheckWeaponRangeType = true;
+                        c.RangeType = WeaponRangeType.Melee;
+                        c.ReduceHPToZero = true;
+                        c.Action = Helpers.CreateActionList(
+                            new Conditional() {
+                                ConditionsChecker = new ConditionsChecker() {
+                                    Conditions = new Condition[] {
+                                        new ContextConditionCasterHasFact(){
+                                            m_Fact = CleavingFinishCooldown.Get().ToReference<BlueprintUnitFactReference>()
+                                        }
+                                    }
+                                },
+                                IfTrue = Helpers.CreateActionList(),
+                                IfFalse = Helpers.CreateActionList(
+                                    new ContextActionCleaveAttack() {
+                                        ExtraAttack = true,
+                                        m_MythicFeature = CleaveMythicFeature
+                                    },
+                                    new Conditional() {
+                                        ConditionsChecker = new ConditionsChecker() {
+                                            Conditions = new Condition[] {
+                                                new ContextConditionCasterHasFact(){
+                                                    m_Fact = ImprovedCleavingFinish
+                                                }
+                                            }
+                                        },
+                                        IfTrue = Helpers.CreateActionList(),
+                                        IfFalse = Helpers.CreateActionList(
+                                            new ContextActionApplyBuff() {
+                                                m_Buff = CleavingFinishCooldown,
+                                                DurationValue = new ContextDurationValue() {
+                                                    Rate = DurationRate.Rounds,
+                                                    DiceCountValue = 0,
+                                                    BonusValue = 1
+                                                },
+                                                ToCaster = true
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        );
+                    });
+                    bp.AddPrerequisiteFeature(CleaveFeature);
+                    bp.AddPrerequisiteFeature(PowerAttackFeature);
+                    bp.AddPrerequisite<PrerequisiteStatValue>(c => {
+                        c.Stat = StatType.Strength;
+                        c.Value = 13;
+                    });
+                    bp.AddComponent<PureRecommendation>(c => {
+                        c.Priority = RecommendationPriority.Good;
+                    });
+                    bp.AddComponent<FeatureTagsComponent>(c => {
+                        c.FeatureTags = FeatureTag.Attack | FeatureTag.Damage | FeatureTag.Melee;
+                    });
+                });
+                /*
                 CleavingFinish
                     .GetComponent<AddInitiatorAttackWithWeaponTrigger>(c => c.ReduceHPToZero == true)?
                     .Action
@@ -166,6 +232,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             a.m_MythicFeature = CleaveMythicFeature;
                         }));
                     });
+                */
                 TTTContext.Logger.LogPatch(CleaveAction);
                 TTTContext.Logger.LogPatch(CleavingFinish);
             }

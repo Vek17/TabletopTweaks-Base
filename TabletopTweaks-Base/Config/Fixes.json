@@ -1121,6 +1121,11 @@
         "Homebrew": false,
         "Description": "Hellfire Ray no longer has the Fire descriptor and deals the correct half damage."
       },
+      "LegendaryProportions": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now only increases size by one step instead of two to correctly match tabletop."
+      },
       "MagicalVestment": {
         "Enabled": true,
         "Homebrew": false,

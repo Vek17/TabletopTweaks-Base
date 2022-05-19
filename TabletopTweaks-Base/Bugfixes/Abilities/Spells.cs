@@ -63,6 +63,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchFrightfulAspect();
                 PatchGeniekind();
                 PatchHellfireRay();
+                PatchLegendaryProportions();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchMicroscopicProportions();
@@ -436,6 +437,28 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     a.Value.BonusValue = new ContextValue();
                 });
                 TTTContext.Logger.LogPatch("Patched", HellfireRay);
+            }
+
+            static void PatchLegendaryProportions() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("LegendaryProportions")) { return; }
+
+                var LegendaryProportions = BlueprintTools.GetBlueprint<BlueprintAbility>("da1b292d91ba37948893cdbe9ea89e28");
+                var LegendaryProportionsBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("4ce640f9800d444418779a214598d0a3");
+
+                LegendaryProportions.SetDescription(TTTContext, "You call upon the primordial power of ancient megafauna to boost the size of your target. " +
+                    "Because of its connection to living creatures of the distant past, the spell does not function on outsiders, undead, and summoned creatures. " +
+                    "Your target grows to legendary proportions, increasing in size by one category. " +
+                    "The creature's height doubles and its weight increases by a factor of 8. " +
+                    "The target gains a +6 size bonus to its Strength score and a +4 size bonus to its Constitution score. " +
+                    "It gains a +6 size bonus to its natural armor, and DR 10/adamantine. " +
+                    "Melee and ranged weapons used by this creature deal more damage.");
+                LegendaryProportionsBuff.TemporaryContext(bp => {
+                    bp.SetDescription(LegendaryProportions.m_Description);
+                    bp.GetComponent<ChangeUnitSize>().SizeDelta = 1;
+                });
+
+                TTTContext.Logger.LogPatch(LegendaryProportions);
+                TTTContext.Logger.LogPatch(LegendaryProportionsBuff);
             }
 
             static void PatchMagicalVestment() {

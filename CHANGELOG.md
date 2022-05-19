@@ -5,6 +5,9 @@
     * Features
         * Mongrol's Blessing
             * Now properly applies negative levels.
+    * Spells
+        * Legendary Proportions
+            * Now only increases size by one step instead of two.
     * Feats
         * Outflank
             * Outflank should no longer trigger on missed attacks.
