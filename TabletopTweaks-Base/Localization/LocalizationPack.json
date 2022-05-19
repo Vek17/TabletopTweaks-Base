@@ -133,6 +133,28 @@
       "esES": null
     },
     {
+      "Key": "428f3252bf874889b0664ad5dbb7b17a",
+      "SimpleName": "AbundantSpellKenning.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've mastery of magic allows you to more redily duplicate spells of other classes.\nBenefit: You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fb09d06e1fd84bae98492436859409c0",
+      "SimpleName": "AbundantSpellKenning.Name",
+      "ProcessTemplates": false,
+      "enGB": "Abundant Spell Kenning",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "e9aae2041a39be92e0a20c9f4d8d8439",
       "SimpleName": "AbyssalBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -221,6 +243,28 @@
       "esES": null
     },
     {
+      "Key": "70ca0f53510e45309fea9a0ab3cb8dd2",
+      "SimpleName": "AgainstTheOdds.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the slayer is used to fighting when the numbers are not in his favor.\nWhen the slayer uses studied target, he can study up to two additional foes with the same action.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4480c513b18f4adc8af986c2a8c4ca7d",
+      "SimpleName": "AgainstTheOdds.Name",
+      "ProcessTemplates": false,
+      "enGB": "Against the Odds",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "13103c339c5647fe828b03e8fa8797a3",
       "SimpleName": "Agile.Prefix",
       "ProcessTemplates": false,
@@ -251,6 +295,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "炼金亲和",
+      "esES": null
+    },
+    {
+      "Key": "289b54b7b69f4eaa9c305f55a8a7e838",
+      "SimpleName": "AlchemistAlternateCapstone.Description",
+      "ProcessTemplates": true,
+      "enGB": "When a character reaches the 20th level of a class, she gains a powerful class feature or ability, sometimes referred to as a capstone. The following section provides new capstones for characters to select at 20th level. A character can select one of the following capstones in place of the capstone provided by her class. A character can’t select a new capstone if she has previously traded away her class capstone via an archetype. Clerics and wizards can receive a capstone at 20th level, despite not having one to begin with.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "17ac22e2e55440b6bc6512fe0dff2cc7",
+      "SimpleName": "AlchemistAlternateCapstone.Name",
+      "ProcessTemplates": false,
+      "enGB": "Capstone",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1277,10 +1343,10 @@
       "esES": null
     },
     {
-      "Key": "ffefe480122242e1b53c6ac2e9836219",
+      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1288,10 +1354,10 @@
       "esES": null
     },
     {
-      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
+      "Key": "ffefe480122242e1b53c6ac2e9836219",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -4071,14 +4137,25 @@
       "esES": null
     },
     {
-      "Key": "0b0365147b244a119830fca0e15ad7d2",
-      "SimpleName": "DeathWardBuff.Description",
+      "Key": "7d470ad7d0fa45f785a43035ab1972f1",
+      "SimpleName": "CrusaderChampion.Description",
       "ProcessTemplates": true,
-      "enGB": "The subject gains a +4 morale bonus on saves against all death spells and magical death effects. The subject is granted a save to negate such effects even if one is not normally allowed. The subject is immune to energy drain and any negative energy effects, including channeled negative energy. This spell does not remove negative levels that the subject has already gained, but it does remove the penalties from negative levels for the duration of its effect. Death ward does not protect against other sorts of attacks, even if those attacks might be lethal. ",
+      "enGB": "At 20th level, the paladin’s zeal is so inspiring that it affects all around her.\nThe ranges of all of the paladin’s auras increase by 30 feet.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "目标在对抗所有死亡法术和魔法死亡效果时获得+4士气加值。即便正常来说不允许进行豁免，受术者也会获得一次豁免机会来使这些效果无效化。受者免疫能量吸取和任何负面能量影响，包括引导负面能量。这个法术不会移除受测者已经获得的负等级，但它会移除其效果持续期间负等级的惩罚。防死结界不能抵御其他类型的攻击，即使这些攻击可能是致命的。",
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c62f3a58a050485db85e109f8089377c",
+      "SimpleName": "CrusaderChampion.Name",
+      "ProcessTemplates": false,
+      "enGB": "Crusader Champion",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -4090,6 +4167,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "目标在对抗所有死亡法术和魔法死亡效果时获得+4士气加值。即便正常来说不允许进行豁免，受术者也会获得一次豁免机会来使这些效果无效化。受者免疫能量吸取和任何负面能量影响，包括引导负面能量。这个法术不会移除受测者已经获得的负等级，但它会移除其效果持续期间负等级的惩罚。防死结界不能抵御其他类型的攻击，即使这些攻击可能是致命的。",
+      "esES": null
+    },
+    {
+      "Key": "1ef4797a874a4dccab5595f03d467741",
+      "SimpleName": "DeepReservoir.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the arcanist has enough power to blast things all day long.\nHer arcane reservoir increases by 10.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4acff90ab3ab43bf8318fb8456c6b1da",
+      "SimpleName": "DeepReservoir.Name",
+      "ProcessTemplates": false,
+      "enGB": "Deep Reservoir",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -4255,6 +4354,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "瓦解",
+      "esES": null
+    },
+    {
+      "Key": "d6e7c5d9a34c4bdab109de769c241281",
+      "SimpleName": "DiverseMysteries.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the oracle knows that sometimes she needs different tools to do her patron’s work.\nThe oracle can select two revelations from another mystery. She must meet the prerequisites for these revelations.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ffabe42cedaf4d3f90665177f02a0224",
+      "SimpleName": "DiverseMysteries.Name",
+      "ProcessTemplates": false,
+      "enGB": "Diverse Mysteries",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5193,6 +5314,50 @@
       "esES": null
     },
     {
+      "Key": "57151df6aee84d919b441d1f88717997",
+      "SimpleName": "ExpandedSpellKenning.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are learned in a broader range of spell traditions than most.\nWhen you use your spell kenning class feature, you can select a spell from either the druid or the witch spell list.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "db08a5618fe84bef9c2a5c70f4a6fe5f",
+      "SimpleName": "ExpandedSpellKenning.Name",
+      "ProcessTemplates": false,
+      "enGB": "Expanded Spell Kenning",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "92074b81610e4197a0330a1b5c2a4d46",
+      "SimpleName": "ExpandedSpellKenningDruid.Name",
+      "ProcessTemplates": false,
+      "enGB": "Expanded Spell Kenning — Druid",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1166408214e8492a832b78904ec7de67",
+      "SimpleName": "ExpandedSpellKenningWitch.Name",
+      "ProcessTemplates": false,
+      "enGB": "Expanded Spell Kenning — Witch",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "998048a34dbe436e91b8ee7710b04968",
       "SimpleName": "ExpertTrainer.Description",
       "ProcessTemplates": true,
@@ -5974,6 +6139,61 @@
       "esES": null
     },
     {
+      "Key": "a27742dcf2df423d8bea14b799faa6bb",
+      "SimpleName": "GrandDiscoveryProgression.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the alchemist makes a grand discovery. He immediately learns two normal discoveries, but also learns a third discovery chosen from the list below, representing a truly astounding alchemical breakthrough of significant import. For many alchemists, the promise of one of these grand discoveries is the primary goal of their experiments and hard work.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "521eeff0ee7b4150829e0da905e3f319",
+      "SimpleName": "GreatBeastPetFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the character’s animal companion is a paragon of its kind—a hero and legend in its own right.\nThe animal companion’s Strength, Dexterity, Constitution, and Wisdom scores each increase by 4. This capstone is available to any class with an animal companion.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1b7715b2a313434a98742f5bcfe43a12",
+      "SimpleName": "GreatBeastPetFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Great Beast",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c779d24f024d442c9eb3cf7d352aa9a6",
+      "SimpleName": "GreatKenning.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the skald’s knowledge of other magic grows ever wider.\nThe skald can use spell kenning three additional times per day and can select one additional spell list from which he can cast spells with spell kenning.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0220250a76fd4caa86c699818ccdba44",
+      "SimpleName": "GreatKenning.Name",
+      "ProcessTemplates": false,
+      "enGB": "Great Kenning",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "684322c723cd4ee1baca828c33a89e49",
       "SimpleName": "HalflingAbilityModifiers.Description",
       "ProcessTemplates": true,
@@ -6084,6 +6304,28 @@
       "esES": null
     },
     {
+      "Key": "370702a09460454781c03fbb9caa42d3",
+      "SimpleName": "HammerOfGod.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the warpriest has become one of his deity’s favorite weapons—the first tool that comes to hand when destruction is called for.\nThe warpriest gains two additional blessings from the list offered by his deity. He can also call upon his blessings two more times each day.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1d305557fb984cea9742b82d4798eb27",
+      "SimpleName": "HammerOfGod.Name",
+      "ProcessTemplates": false,
+      "enGB": "Hammer of God",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "455c438a721c49828b3bdca47398a64d",
       "SimpleName": "HarmoniousMageFeature.Description",
       "ProcessTemplates": true,
@@ -6114,6 +6356,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "觅心",
+      "esES": null
+    },
+    {
+      "Key": "0586606679704adc9849247a26948083",
+      "SimpleName": "HexMastery.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the shaman has learned ever more terrible hexes.\nShe can select one grand hex from the list available to witches.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a374b0f5919044aa96eddd25dfed4a99",
+      "SimpleName": "HexMastery.Name",
+      "ProcessTemplates": false,
+      "enGB": "Hex Mastery",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6158,6 +6422,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "骑术大师等级",
+      "esES": null
+    },
+    {
+      "Key": "2c815251fd4b4202bdbb7981eb5d4671",
+      "SimpleName": "HuntMasterAnimalCompanionRank.Name",
+      "ProcessTemplates": false,
+      "enGB": "Huntmaster Rank",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a8e00cb475a245b893721fcf7fd79152",
+      "SimpleName": "HuntMasterAnimalCompanionSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the hunter learns to control all manner of beasts.\nThe hunter gains a second animal companion. Her level is considered four lower for the purposes of her second animal companion.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "af9d4e6f4ac74c4e9d4f4cce73196340",
+      "SimpleName": "HuntMasterAnimalCompanionSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Huntmaster",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6411,6 +6708,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "知识就是力量",
+      "esES": null
+    },
+    {
+      "Key": "3300be88d35b4d708186cb947b30e303",
+      "SimpleName": "LegendaryBlade.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the magus can turn his weapon into a thing of terror and wonder.\nWhen the magus enhances his weapon with his arcane pool, he grants it an additional +2 enhancement bonus (for a total of +7).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b783e0336d5046fb9e0e01401a15068b",
+      "SimpleName": "LegendaryBlade.Name",
+      "ProcessTemplates": false,
+      "enGB": "Legendary Blade",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8edf3c88276f403fbd357b8f6cbeb21b",
+      "SimpleName": "LegendaryProportions.Description",
+      "ProcessTemplates": true,
+      "enGB": "You call upon the primordial power of ancient megafauna to boost the size of your target. Because of its connection to living creatures of the distant past, the spell does not function on outsiders, undead, and summoned creatures. Your target grows to legendary proportions, increasing in size by one category. The creature's height doubles and its weight increases by a factor of 8. The target gains a +6 size bonus to its Strength score and a +4 size bonus to its Constitution score. It gains a +6 size bonus to its natural armor, and DR 10/adamantine. Melee and ranged weapons used by this creature deal more damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -7162,14 +7492,14 @@
       "esES": null
     },
     {
-      "Key": "680a368176184652bb12c80a5eb69da0",
+      "Key": "5105fc54a1ac43f890bf28cba507e009",
       "SimpleName": "MasterfulTalent.Description",
       "ProcessTemplates": true,
-      "enGB": "At 20th level, the rogue has been a thief, an actor, a merchant, a scout, a confessor, a friend, an assassin, and a dozen more things besides. The rogue gains a +4 bonus on all of her skills.",
+      "enGB": "At 20th level, the rogue has been a thief, an actor, a merchant, a scout, a confessor, a friend, an assassin, and a dozen more things besides.\nThe rogue gains a +4 bonus on all of her skills.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "20级时，你在所有技能鉴定上获得+4加值。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8438,6 +8768,61 @@
       "esES": null
     },
     {
+      "Key": "a5a593cadf5248fc9065a0283a1a6f9c",
+      "SimpleName": "NullifyingEnchantment.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Nullifying",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2c815ca0296f43079e756c79c0907035",
+      "SimpleName": "OldDogNewTricksProgression.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the character shows that a true warrior always has one more surprise the enemy hasn’t seen.\nThe character gains four combat feats. This capstone is available to characters of any class that gains at least four bonus combat feats.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f3c45a66df82479088f46a312aa13dfc",
+      "SimpleName": "OldDogNewTricksProgression.Name",
+      "ProcessTemplates": false,
+      "enGB": "Old Dog, New Tricks",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "438a98030b784c34ac4bef9c2213fe9c",
+      "SimpleName": "OldMasterFeatureFlurryFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Old Master",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "49069cb894ed47cfa99e89fd9831dc7d",
+      "SimpleName": "OldMasterUnlockZenArcherFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the monk has reached the highest levels of his martial arts school.\nThe monk gains one additional attack at his highest base attack bonus when using flurry of blows, and he gains a dodge bonus to AC of 2.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "f2056f025a014945a101244df685d503",
       "SimpleName": "OneHandedBuff.Name",
       "ProcessTemplates": false,
@@ -8680,6 +9065,182 @@
       "esES": null
     },
     {
+      "Key": "73fb4dba8b4a48f5916785cfe67bc1c5",
+      "SimpleName": "PerfectBodyFlawlessMindCharismaIncrease.Description",
+      "ProcessTemplates": true,
+      "enGB": "Increase your charisma score by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9f7719df8bef482c902e3b734ac37f31",
+      "SimpleName": "PerfectBodyFlawlessMindCharismaIncrease.Name",
+      "ProcessTemplates": false,
+      "enGB": "Charisma",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e4b463d0d27f40ada80fa5d75c6bf784",
+      "SimpleName": "PerfectBodyFlawlessMindConstitutionIncrease.Description",
+      "ProcessTemplates": true,
+      "enGB": "Increase your constitution score by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f7e443fe82fd4ce2b3d8d608ec7a6a92",
+      "SimpleName": "PerfectBodyFlawlessMindConstitutionIncrease.Name",
+      "ProcessTemplates": false,
+      "enGB": "Constitution",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ba330f367c254dc89e49ed08bb81f2f6",
+      "SimpleName": "PerfectBodyFlawlessMindDexterityIncrease.Description",
+      "ProcessTemplates": true,
+      "enGB": "Increase your dexterity score by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "980cd3d0beea4b709765a7adf899f62a",
+      "SimpleName": "PerfectBodyFlawlessMindDexterityIncrease.Name",
+      "ProcessTemplates": false,
+      "enGB": "Dexterity",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f447e3edde544fb5b490ddefa76007e5",
+      "SimpleName": "PerfectBodyFlawlessMindIntelligenceIncrease.Description",
+      "ProcessTemplates": true,
+      "enGB": "Increase your intelligence score by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ff2a096a4b9e4f21992fc3f51117f5df",
+      "SimpleName": "PerfectBodyFlawlessMindIntelligenceIncrease.Name",
+      "ProcessTemplates": false,
+      "enGB": "Intelligence",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bc0f0be3ef1e4e2a9de8e9ae8542de1c",
+      "SimpleName": "PerfectBodyFlawlessMindProgression.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the character’s endless training and study has resulted in an unmatched mastery of the self. The character increases her ability scores by a collective total of 8. For example, she can increase one score by 8, or one score by 5 and another by 3, or four scores by 2, and so on. Characters of any class can select this ability.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2fec42e1ad2a4d62a9c364aace89fba2",
+      "SimpleName": "PerfectBodyFlawlessMindProgression.Name",
+      "ProcessTemplates": false,
+      "enGB": "Perfect Body, Flawless Mind",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8d2fd0be68674109bc8125cd4d69151d",
+      "SimpleName": "PerfectBodyFlawlessMindSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "Select bonus stat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6c6f89969bda4f80beca473c60d7acd1",
+      "SimpleName": "PerfectBodyFlawlessMindSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Stat Increase",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b97adabf0647401fb24f39063429697d",
+      "SimpleName": "PerfectBodyFlawlessMindStrengthIncrease.Description",
+      "ProcessTemplates": true,
+      "enGB": "Increase your strength score by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "67e9e61d07bc498c8d6f5532e7c2d6b0",
+      "SimpleName": "PerfectBodyFlawlessMindStrengthIncrease.Name",
+      "ProcessTemplates": false,
+      "enGB": "Strength",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f91f8efb74a24460b07fb5c281d08ded",
+      "SimpleName": "PerfectBodyFlawlessMindWisdomIncrease.Description",
+      "ProcessTemplates": true,
+      "enGB": "Increase your wisdom score by 1.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6a08767692664756a84279b3347c3792",
+      "SimpleName": "PerfectBodyFlawlessMindWisdomIncrease.Name",
+      "ProcessTemplates": false,
+      "enGB": "Wisdom",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "5bf12dc240684c19a0959bc027b77fc8",
       "SimpleName": "PerfectStrikeZenArcherBuff.Description",
       "ProcessTemplates": true,
@@ -8798,6 +9359,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "原怒者狂暴",
+      "esES": null
+    },
+    {
+      "Key": "7078c594c0c34cb587e61468387a2b50",
+      "SimpleName": "Proxy.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the cleric forges a direct, personal connection to her deity.\nShe can select an additional domain from the list offered by her deity.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2ef146420fd44be3afadd79b9aec9d52",
+      "SimpleName": "Proxy.Name",
+      "ProcessTemplates": false,
+      "enGB": "Proxy",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -9315,6 +9898,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "探寻者血承",
+      "esES": null
+    },
+    {
+      "Key": "101a3c3929264b3cb188ce6bc5ebf52d",
+      "SimpleName": "SeenItBefore.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the ranger is wise to all the tricks of his prey.\nThe ranger adds his favored enemy bonus as an insight bonus on saves against spells and abilities used by his favored enemies.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "900ac7d7d813428389a990d3758d2677",
+      "SimpleName": "SeenItBefore.Name",
+      "ProcessTemplates": false,
+      "enGB": "Seen It Before",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10473,6 +11078,17 @@
       "esES": null
     },
     {
+      "Key": "add2b98d12d943f0bfd61c1b18267de8",
+      "SimpleName": "TeamLeader.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the inquisitor has grown accustomed to teaching farmers to fight, but what she can do with trained warriors is far more terrifying.\nWhen the inquisitor regains her spells each day, she can also spend 1 hour training a number of characters up to her Wisdom modifier in battle tactics. These characters receive three of the inquisitor’s teamwork feats (the inquisitor’s choice) as bonus feats for the next 24 hours.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "1598b94c552849b89b1b31c755579246",
       "SimpleName": "TemplateCelestial.Description",
       "ProcessTemplates": true,
@@ -11122,6 +11738,28 @@
       "esES": null
     },
     {
+      "Key": "082aa70ed6ab41c09f7e387af936fa84",
+      "SimpleName": "UnbridledPower.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the kineticist wields her chosen element like a knife, cutting through all opposition.\nThe kineticist chooses one blast. Her damage with that blast increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts), and the blast ignores the first 10 points of damage reduction or energy resistance that the target has.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b6e5b80d6e3348be8182efbb4f1f50d4",
+      "SimpleName": "UnbridledPower.Name",
+      "ProcessTemplates": false,
+      "enGB": "Unbridled Power",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "d3685e6c7de4d4b2b2b72a3f0c921905",
       "SimpleName": "UndeadBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -11166,6 +11804,39 @@
       "esES": null
     },
     {
+      "Key": "9113296cb2af4f2eb0354109a179745b",
+      "SimpleName": "UniqueBloodline.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the sorcerer’s blood grows wild and strange, become less about her ancestors and more about her specifically.\nThe sorcerer selects a second bloodline and gains the bloodline arcana and the 1st-, 3rd-, and 9th-level bloodline powers. Her level for these powers is the same as for her primary bloodline.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8f5ee4e62cd24279b2aeb3811e4e961f",
+      "SimpleName": "UniqueBloodline.Name",
+      "ProcessTemplates": false,
+      "enGB": "Unique Bloodline",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "037420a26cd243adb3b1da3634941ce2",
+      "SimpleName": "Unstoppable.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, nothing can kill the barbarian, though not for lack of trying.\nThe barbarian gains DR 3/— or increases the value of any existing damage reduction by 3. In addition, she gains 20 energy resistance to acid, cold, electricity, and fire.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "25213db84a60431996d695edecabcb08",
       "SimpleName": "VarisianTattooFeature.Description",
       "ProcessTemplates": true,
@@ -11185,6 +11856,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "瓦里西安纹身",
+      "esES": null
+    },
+    {
+      "Key": "a13ce2500902421889d650b751f8b807",
+      "SimpleName": "VastExplosions.Description",
+      "ProcessTemplates": true,
+      "enGB": "The alchemist has been practicing his demolitions for years, and it’s paid off with ever larger explosions.\nThe alchemist’s bomb damage increases by 3d6.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "20ce4e065bd74e55839334c7f2070acd",
+      "SimpleName": "VastExplosions.Name",
+      "ProcessTemplates": false,
+      "enGB": "Vast Explosions",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7bdbc197f8d5469686069ad5872aeed6",
+      "SimpleName": "VeteranOfEndlessWar.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the fighter has seen more combat than entire platoons of soldiers put together.\nThe bonuses granted by his armor training and weapon training increase by 2 each.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "09b7b5a85d9c47fb97456b49242b1b49",
+      "SimpleName": "VeteranOfEndlessWar.Name",
+      "ProcessTemplates": false,
+      "enGB": "Veteran of Endless War",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11262,6 +11977,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "1分钟",
+      "esES": null
+    },
+    {
+      "Key": "21271437e2004982a32c69a09a2f72ca",
+      "SimpleName": "WellPrepared.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the wizard has a spell for every occasion he can imagine—and a few he can’t.\nThe wizard gains six additional 1st- and 2nd-level spell slots, four additional 3rd- and 4th-level spell slots, two additional 5th-level spell slots, and one additional 6th-level spell slot.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bec0741d1e234ba2b1c34c53e42d4c34",
+      "SimpleName": "WellPrepared.Name",
+      "ProcessTemplates": false,
+      "enGB": "Well-Prepared",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5a62d92494504256a538480af0d5cc82",
+      "SimpleName": "WitchsDance.Description",
+      "ProcessTemplates": true,
+      "enGB": "Once per day as a standard action, the witch can proclaim a celebration, leading her friends in a riotous and bloodthirsty dance. All allies within 30 feet gain the ability to fly (as per the flight hex) and a +2 dodge bonus to AC, and when they take a 5-foot step, they can instead move up to 10 feet instead of just 5 feet. The benefits remain for 1 round but can be extended with the cackle hex.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "be5bef65b1a2484887259cf3e15fadf0",
+      "SimpleName": "WitchsDance.Name",
+      "ProcessTemplates": false,
+      "enGB": "Witch's Dance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

@@ -13,6 +13,8 @@
             * Outflank should no longer trigger on missed attacks.
         * Sieze the Moment
             * Sieze the moment should no longer trigger on missed attacks.
+        * Cleaving Finish
+            * Cleave fixes now include a working cleaving finish that will not randomly stop after three targets.
     * Alchemist
         * Fixed Thick Fog being an illusion based concealment instead of fog based.
         * Fixed issue where Abundant Incense was not selectable ifyou had expanded range incense.
