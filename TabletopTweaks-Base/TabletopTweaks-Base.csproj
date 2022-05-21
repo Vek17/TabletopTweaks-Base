@@ -291,6 +291,7 @@
     <Compile Include="NewContent\Classes\Oracle.cs" />
     <Compile Include="NewContent\Classes\Skald.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
+    <Compile Include="NewContent\Feats\AbilityFocusStunningFist.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\ArmorMastery.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\IntenseBlows.cs" />
@@ -298,6 +299,7 @@
     <Compile Include="NewContent\Feats\ArmorMastery\SecuredArmor.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\SprightlyArmor.cs" />
     <Compile Include="NewContent\Feats\ExpandedSpellKenning.cs" />
+    <Compile Include="NewContent\Feats\MantisStyle.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\BurningSpell.cs" />
     <Compile Include="NewContent\Feats\CelestialServant.cs" />
     <Compile Include="NewContent\Feats\DervishDance.cs" />
@@ -659,6 +661,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_LungingSpellTouch.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_MantisStyle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_MountedManiac.png">

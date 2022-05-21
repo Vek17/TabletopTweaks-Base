@@ -97,6 +97,11 @@
   "Feats": {
     "DisableAll": false,
     "Settings": {
+      "AbilityFocusStunningFist": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Add +2 to the DC for all saving throws against your stunning fist."
+      },
       "AnimalAlly": {
         "Enabled": true,
         "Homebrew": false,

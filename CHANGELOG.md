@@ -2,6 +2,7 @@
 * Fixes
     * Systems
         * Progressions no longer display features you will not get.
+        * Scoll UMD DCs are now calculated correctly at 20 + Scroll CL instead of 20 + Scroll spell level.
     * Features
         * Mongrol's Blessing
             * Now properly applies negative levels.
@@ -27,8 +28,11 @@
     * Skald
         * Spell Kenning has been implemented.
     * Feats
+        * Ability Focus - Stunning Fist
+            * Add +2 to the DC for all saving throws against your stunning fist.
         * Expanded Spell Kenning
             * When you use your spell kenning class feature, you can select a spell from either the druid or the witch spell list.
+        * Mantis Style
     * Mythic Abiltiies
         * Abundant Spell Kenning.
             * You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.

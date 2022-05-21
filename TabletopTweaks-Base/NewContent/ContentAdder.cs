@@ -179,6 +179,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.QuickenBlessing.AddQuickenBlessing();
                 Feats.RivingStrike.AddRivingStrike();
                 Feats.ExpandedSpellKenning.AddExpandedSpellKenning();
+                Feats.AbilityFocusStunningFist.AddAbilityFocusStunningFist();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

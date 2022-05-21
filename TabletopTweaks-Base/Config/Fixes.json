@@ -1529,6 +1529,11 @@
           "Homebrew": false,
           "Description": "Now is a free action to use."
         },
+        "FixScrollUMDDCs": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now properly uses 20 + Scroll CL instead of 20 + Scroll spell level."
+        },
         "FlawlessBeltOfPhysicalPerfection8Availability": {
           "Enabled": true,
           "Homebrew": false,

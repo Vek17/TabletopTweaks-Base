@@ -3,15 +3,20 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums.Damage;
+using Kingmaker.Items;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UI.Common;
+using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
@@ -237,6 +242,22 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         TTTContext.Logger.LogPatch("Patched", ability);
                     });
                 }
+            }
+        }
+        [HarmonyPatch(typeof(ItemStatHelper), nameof(ItemStatHelper.GetUseMagicDeviceDC))]
+        static class ItemStatHelper_GetUseMagicDeviceDC_Patch {
+            static void Postfix(ItemEntity item, UnitEntityData caster, ref int? __result) {
+                if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FixScrollUMDDCs")) { return; }
+                BlueprintItemEquipmentUsable blueprintItemEquipmentUsable = item.Blueprint as BlueprintItemEquipmentUsable;
+                if (blueprintItemEquipmentUsable == null) {
+                    __result = null;
+                    return;
+                }
+                if (caster != null && !blueprintItemEquipmentUsable.IsUnitNeedUMDForUse(caster)) {
+                    __result = null;
+                    return;
+                }
+                __result = blueprintItemEquipmentUsable.Type == UsableItemType.Scroll ? 20 + item.GetCasterLevel() : 20;
             }
         }
     }
