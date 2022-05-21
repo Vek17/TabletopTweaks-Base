@@ -1,15 +1,15 @@
-﻿## This is a TabletopTweaks mod and requires [TabletopTweaks-Core](https://github.com/Vek17/TabletopTweaks-Core/releases).
+## This is a TabletopTweaks mod and requires [TabletopTweaks-Core](https://github.com/Vek17/TabletopTweaks-Core/releases).
 
 This module provides tabletop based fixes and new content to Wrath of the Righteous. 
 
-Once a game is saved with this mod is enabled it will require this mod to be present to load so do not remove or disable the mod once enabled. You can however disable any feature of the mod at will without breaking saves.
+Once a game is saved with this mod is enabled it will require this mod to be present to load, so do not remove or disable the mod once enabled. You can however disable any feature of the mod at will without breaking saves.
 
 All changes are configurable and can be disabled via the unity mod manager menu.
 
 **How to install**
 
 1. Download and install [Unity Mod Manager](https://github.com/newman55/unity-mod-manager), make sure it is at least version.
-2. Run Unity Mod Manger and set it up to find Wrath of the Righteous.
+2. Run Unity Mod Manager and set it up to find Wrath of the Righteous.
 3. Download the [TabletopTweaks-Core](https://github.com/Vek17/TabletopTweaks-Core/releases) mod from the releases page.
 4. Download the [TabletopTweaks-MythicReworks](https://github.com/Vek17/TabletopTweaks-MythicReworks/releases) mod from the releases page.
 5. Install the mods by dragging the zip file from step 3 & 4 into the Unity Mod Manager window under the Mods tab.
@@ -17,7 +17,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 ## Fixes
 * UI Fixes
     * Dynamic Item Naming
-        * Allows Weapon/Armor names to be modified by any additional enchants they gain outside of thier base enchants.
+        * Allows Weapon/Armor names to be modified by any additional enchants they gain outside of their base enchants.
     * Saving Throw Overtips
         * Overhead saving throw rolls now display the correct values
     * Spell Tooltips
@@ -32,12 +32,12 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Unlimited Abilities Combat Behavior
         * Allows abilities that have become unlimited to remain on after combat ends.
     * Natural Armor
-        * Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack.
+        * Prevents Natural Armor bonuses from stacking unless they are specified to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancement bonus will still stack.
     * Polymorph Effects
         * Prevents multiple polymorph effects from being applied to a character at a time.
         * Active Polymorph effects will correctly suppress size effects from non polymorph spells.
     * Size Effects
-        * Prevents multiple size changing buffs granting benifits at the same time. Old buffs are suppressed.
+        * Prevents multiple size changing buffs granting benefits at the same time. Old buffs are suppressed.
     * Size Limits
         * Size shifts are now supported from Fine to Colossal.
     * Feat Selections
@@ -47,18 +47,18 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Critical Confirmation
         * Allows a natural 20 to always confirm a critical.
     * Inherent Stat Bonuses
-        * Allows Inhernt bonuses to intelligence to now grant bonus skill points.
+        * Allows Inherent bonuses to intelligence to now grant bonus skill points.
     * Mounted Longspear
-        * Spears now grant additional damage during a mounted charge in the same mannor a lance would.
+        * Spears now grant additional damage during a mounted charge in the same manor a lance would.
     * Enemy Buff CL
-        * Enemy buffs now have the correct CL for applied buffs as defined on thier blueprints.
+        * Enemy buffs now have the correct CL for applied buffs as defined on their blueprints.
         * Prebuffs will be applied at a more correct level instead of nearly always CL 20.
     * Shadow Spells
         * Shadow spells now are correctly treated as being from the Illusion school for all effects.
     * Mounted Movement
         * Prevents full round actions after moving while mounted.
     * Nauseated Condition
-        * Removes the poison descripotor from nauseated.
+        * Removes the poison descriptor from nauseated.
     * Staggered Condition
         * Removes the movement impairing descriptor from staggered.
     * Invisibility
@@ -68,7 +68,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 * Spells
     * Spell flags
-        * Retags buffs from spells as coming from spells to allow them to be dispeled correctly.
+        * Retags buffs from spells as coming from spells to allow them to be dispelled correctly.
     * Abyssal Storm 
         * Abyssal Storm no longer saves for half and no longer kills the caster.
     * Acid Maw 
@@ -88,7 +88,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Crusader's Edge
         * Crusaders Edge's nauseate effect now only procs on critical hits.
     * Death Ward
-        * Death Ward now Supresses existing negative levels.
+        * Death Ward now suppresses existing negative levels.
     * Dispel Magic Greater
         * Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs.
     * Eye Of The Sun
@@ -125,16 +125,16 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Sun Form
         * Sun Form now deals the correct amount of damage.
     * Unbreakable Heart
-        * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead supresses correctly.
+        * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead suppresses correctly.
     * WrackingRay
         * Wracking Ray now deals the correct amount of ability damage.
-    * Vamperic Blade
-        * Vamperic Blade no longer triggers extra fake attacks.
+    * Vampiric Blade
+        * Vampiric Blade no longer triggers extra fake attacks.
     * Zero State
         * Zero State now uses a single dispel roll for all buffs like other dispels.
 
 * Feats
-    * AlliedSpellcaster
+    * Allied Spellcaster
         * Allied Spellcaster no longer applies globally.
     * Arcane Strike 
         * Arcane Strike no longer causes too many damage instances when used by a dragonheir scion.
@@ -146,20 +146,20 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Cleave now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
     * Cleaving Finish
         * Cleaving Finish now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
-    * EmpowerMetamagic
+    * Empower Metamagic
         * Sticky touch spells can now be empowered.
         * Prevents extra dice from empowered metamagic from being maximized by maximize metamagic.
     * Bolster Metamagic
         * No longer applies twice on spells with pre rolled values.
     * Maximize Metamagic
         * Sticky touch spells can now be maximized.
-    * Persistant Metamagic
-        * Allows any spell with a saving throw to be made persistant.
+    * Persistent Metamagic
+        * Allows any spell with a saving throw to be made persistent.
     * Selective Metamagic
         * Retags selective spells to exclude non instantaneous spells.
         * Now requires 10 ranks of knowledge arcana.
     * Crane Wing
-        * Now requires a free hand to recieve the bonuses.
+        * Now requires a free hand to receive the bonuses.
     * Destructive Dispel
         * Now calculates the DC based on the effective CL of the dispel and the highest mental stat to better support edge cases. Formula is 10 + 1/2 CL + Highest Mental Stat.
     * Endurance
@@ -177,7 +177,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * SlashingGrace
         * Fixed an edge case that sometimes allowed slashing grace from applying to two handed weapons.
     * Spell Specialization
-        * Enables spell sepecialization selection on all levelups.
+        * Enables spell specialization selection on all levelups.
     * Spirited Charge
         * Bonus damage no longer can crit.
     * Vital Strike
@@ -187,7 +187,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 * Mythic Feats
     * Expanded Arsenal
-        * No longer allows stacking multiple spell focuses on the same school to increase DC, you can only benifit from spell focus once.
+        * No longer allows stacking multiple spell focuses on the same school to increase DC, you can only benefit from spell focus once.
     * Extra Feat
         * Can no longer be picked more than once.
     * Extra Mythic Ability
@@ -226,14 +226,14 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 * Trickster
     * Use Magic Device 2
-        * Allows trickster to ignore class/alignment restricitons of equipment with UMD2 trick.
+        * Allows trickster to ignore class/alignment restrictions of equipment with UMD2 trick.
 
 * Alchemist
     * Mutagen
         * Prevents the stacking of mutagens. Only one may be active at a time.
     * Grenadier
         * Removed brew potions from the archetype
-        * Removed posion resistance from the archetype
+        * Removed poison resistance from the archetype
     * Incense Synthesizer
         * Incense Fog now scales correctly if you take expanded area.
 
@@ -248,10 +248,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Allows crippling blows to work when raging.
 
 * Bloodrager
-    * Abysal Bulk
+    * Abyssal Bulk
         * Enables abysal bulk to not dispel existing enlarge person when rage ends.
     * Arcane Bloodrage
-        * Completly rebuilds arcane bloodrage with new UI
+        * Completely rebuilds arcane bloodrage with new UI
     * Disruptive Bloodrage
         * Now properly triggers for arcane bloodragers.
     * Caster's Bane
@@ -267,19 +267,19 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 * Cavalier
     * Cavalier Mobility
-        * Allows Cavalier to ignore thier armor check penalty while mounted for mobility skill checks.
+        * Allows Cavalier to ignore their armor check penalty while mounted for mobility skill checks.
     * Mount Selection
         * Allows the Cavalier to select a wolf for a mount if they are of small size.
     * Order of the Star
         * Order of the Star's Calling ability should now properly apply bonuses.
     * Supreme Charge
-        * Prevents Supreme Charge damage from criting and moves it into the new charage damage system.
+        * Prevents Supreme Charge damage from criting and moves it into the new charge damage system.
     * Gendarme
-        * Prevents Transfixing Charge damage from criting and moves it into the new charage damage system.
+        * Prevents Transfixing Charge damage from criting and moves it into the new charge damage system.
 
 * Cleric
     * Glory Domain
-        * Glory domain no longer grants an untyped bonus the the raw Charsima stat.
+        * Glory domain no longer grants an untyped bonus the the raw Charisma stat.
 
 * Fighter
     * Advanced Weapon Training
@@ -300,8 +300,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Arcane Weapon
         * Adds: Flaming Burst, Icy Burst, Shocking Burst enchant options.
     * Spell COmbat
-        * Lets spell combat work with spells that have variants like dimention door.
-        * Disables spell combat immediatly when toggled off instead of having to wait until the next round.
+        * Lets spell combat work with spells that have variants like dimension door.
+        * Disables spell combat immediately when toggled off instead of having to wait until the next round.
         * Prevents spells that are not in the magus spellbook from working with spell combat.
     * Sword Saint
         * Updates perfect critical's cost to 2 points of arcane pool instead of 1.
@@ -324,7 +324,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 * Ranger
     * Favored Enemy
-        * Favored enemy outsider now applies to ALL demons. The Demons of X are disabled unless you already have ranks, but otherwise function identicly to favored enemy outsider and you can keep picking them for compatability with existing characters.
+        * Favored enemy outsider now applies to ALL demons. The Demons of X are disabled unless you already have ranks, but otherwise function identically to favored enemy outsider and you can keep picking them for compatibility with existing characters.
     * Espionage Expert
         * Trapfinding now grants bonuses to perception and trickery.
 
@@ -345,7 +345,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 * Shaman
     * Ameliorating Hex 
-        * Ameliorating Hex  no longer grants complete immunity to effects and instead supresses correctly.
+        * Ameliorating Hex no longer grants complete immunity to effects and instead suppresses correctly.
 
 * Slayer
     * Trapfinding
@@ -364,7 +364,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Fire Minor blessing no longer causes excessive damage instances.
     * Water Blessing
         * Water Minor blessing no longer causes excessive damage instances.
-    * Weather Blessinggit
+    * Weather Blessing
         * Weather Minor blessing no longer causes excessive damage instances.
     * Luck Blessing
         * Luck Blessing now grants the correct major ability.
@@ -373,13 +373,13 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Agility Patron
         * Agility Patron now gets Animal Shapes at 16th level and Shapechange at 18th.
     * Ameliorating Hex 
-        * Ameliorating Hex  no longer grants complete immunity to effects and instead supresses correctly.
+        * Ameliorating Hex  no longer grants complete immunity to effects and instead suppresses correctly.
     * Major Ameliorating Hex 
-        * Major Ameliorating Hex no longer grants complete immunity to effects and instead supresses correctly.
+        * Major Ameliorating Hex no longer grants complete immunity to effects and instead suppresses correctly.
 
 * Hellknight
     * Pentamic Faith
-        * Pentamic Faith now requires the Godclaw hellknight order not the diety.
+        * Pentamic Faith now requires the Godclaw hellknight order not the deity.
 
 * Loremaster
     * Prerequisites
@@ -389,7 +389,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Spell Secrets
         * Spell Secrets now work.
     * Trickster Tricks
-        * Remvoes trickster tricks from the combat feat selection.
+        * Removes trickster tricks from the combat feat selection.
 
 * Crusade
     * TrainingGrounds
@@ -406,7 +406,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Now increases critical hit range by 1 in all cases.
         * Now appears as a DLC1 reward.
     * Half Of The Pair
-        * Will more accuratly update the bonus with range.
+        * Will more accurately update the bonus with range.
     * Holy Symbol of Iomedae
         * Will now stay on after saving/loading or changing areas.
     * Magicians Ring
@@ -479,7 +479,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * When casting a shadow spell, that spell is 20% more real than normal.
 
 * Feats
-    * AnimalAlly
+    * Animal Ally
         * You gain an animal companion as if you were a druid of your character level -3. Unlike normal animals of its kind, an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level.
     * Celestial Servant
         * Your animal companion, familiar, or mount gains the celestial template and becomes a magical beast, though you may still treat it as an animal when using Handle Animal, wild empathy, or any other spells or class abilities that specifically affect animals.
@@ -489,7 +489,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check.
     * Greater Dispel Focus
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.
-    * Erastils Blessing
+    * Erastil's Blessing
         * You can use your Wisdom modifier instead of your Dexterity modifier on ranged attack rolls when using a bow.
     * Extra Arcana
         * You gain one additional magus arcana. You must meet all the prerequisites for this magus arcana.
@@ -551,7 +551,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * You can make a check using Mounted Combat to negate a hit on your mount twice per round instead of just once.
     * Undersized Mount
         * You can ride creatures equal to your own size category instead of only creatures larger than you.
-    * VarisianTattoo
+    * Varisian Tattoo
         * Select a school of magic in which you have Spell Focus. Spells from this school are cast at +1 caster level.
 
 * Armor Mastery Feats
@@ -610,7 +610,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Armored Might
         * You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.
     * Armor Master
-        * While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank.
+        * While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank.
     * Enhanced Blessings
         * The effects from your blessings now last twice as long.
     * Favorite Metamagic Persistent
@@ -630,7 +630,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Precision Critical
         * Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. These dice are only doubled, not multiplied by the weapon's critical modifier.
     * Second Patron
-        * You select a second patron, gaining all its benifits.
+        * You select a second patron, gaining all its benefits.
 
 * Bloodlines
     * Aberrant Sorcerer Bloodline
@@ -672,7 +672,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Warrior Spirit
         * The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to unlock the weapon's potential. Each day he gains a number of points of spiritual energy equal to 1 + his maximum weapon training bonus. While wielding a weapon he has weapon traiing with, he can spend 1 point of spiritual energy to grant the weapon an enhancement bonus equal to his weapon training bonus. Enhancement bonuses gained by this advanced weapon training option stack with those of the weapon, to a maximum of +5. The fighter can also imbue the weapon with any one weapon special ability with an equivalent enhancement bonus less than or equal to his maximum bonus by reducing the granted enhancement bonus by the amount of the equivalent enhancement bonus. These bonuses last for 1 minute.
 
-* MagusArcana
+* Magus Arcana
     * Broad Study
         * The magus selects another one of his spellcasting classes. The magus can use his spellstrike and spell combat abilities while casting or using spells from the spell list of that class. This does not allow him to cast arcane spells from that class's spell list without suffering the normal chances of arcane spell failure, unless the spell lacks somatic components.
     * Spell Blending
