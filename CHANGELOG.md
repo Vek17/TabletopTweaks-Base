@@ -27,6 +27,17 @@
 * Addeded Content
     * Skald
         * Spell Kenning has been implemented.
+    * Monk
+        * Scaled Fist
+            * Draconic Fury now uses the correct unchained version of the progression isntead of the chained.
+            * Fixes stunning fist to use the same version as other monks for compatability.
+        * Stunning Fist: Stagger
+            * This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
+        * Stunning Fist: Blind
+            * This ability works as Stunning Fist, but it permantly blinds the target on a failed save instead of stunning for 1 round.
+        * Stunning Fist: Paralyze
+            * This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
+    * Alternate Capstones
     * Feats
         * Ability Focus - Stunning Fist
             * Add +2 to the DC for all saving throws against your stunning fist.

@@ -402,8 +402,6 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     c.m_ScaledFist = ScaledFistArchetype;
                 });
             });
-
-            //MonkProgression.UIGroups = MonkProgression.UIGroups.AppendToArray(Helpers.CreateUIGroup(SkaldSpellKenning, SkaldSpellKenningExtraUse));
         }
     }
 }

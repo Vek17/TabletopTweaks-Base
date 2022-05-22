@@ -702,7 +702,13 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "StunningFistVarriants": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Adds the missing stunning fist variants at level 12, 16 and 20 of monk."
+        }
+      },
       "IsExpanded": true
     },
     "Archetypes": {
@@ -713,6 +719,22 @@
             "Enabled": true,
             "Homebrew": false,
             "Description": "At level 10 a zen archer will roll 3 dice instead of 2 with perfect strike."
+          }
+        },
+        "IsExpanded": true
+      },
+      "ScaledFist": {
+        "DisableAll": false,
+        "Settings": {
+          "FixStunningStrike": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes stunning fist to use the normal version instead of an unnecessary specific version."
+          },
+          "DraconicFury": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes draconic fury to use the unchained version of the monk progression instead of the chained."
           }
         },
         "IsExpanded": true
