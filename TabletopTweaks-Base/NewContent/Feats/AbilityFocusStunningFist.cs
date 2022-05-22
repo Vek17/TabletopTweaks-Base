@@ -13,6 +13,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var StunningFistAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("732ae7773baf15447a6737ae6547fc1e");
             var StunningFistFatigueAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("32f92fea1ab81c843a436a49f522bfa1");
             var StunningFistSickenedAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("c81906c75821cbe4c897fa11bdaeee01");
+            var StunningFistStaggeredAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "StunningFistStaggeredAbility");
+            var StunningFistBlindAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "StunningFistBlindAbility");
+            var StunningFistParalyzeAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "StunningFistParalyzeAbility");
 
             var AbilityFocusStunningFist = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "AbilityFocusStunningFist", bp => {
                 bp.SetName(TTTContext, "Ability Focus — Stunning Fist");
@@ -36,6 +39,21 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.BonusDC = 2;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.m_Spell = StunningFistSickenedAbility;
+                });
+                bp.AddComponent<IncreaseSpellDC>(c => {
+                    c.BonusDC = 2;
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.m_Spell = StunningFistStaggeredAbility;
+                });
+                bp.AddComponent<IncreaseSpellDC>(c => {
+                    c.BonusDC = 2;
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.m_Spell = StunningFistBlindAbility;
+                });
+                bp.AddComponent<IncreaseSpellDC>(c => {
+                    c.BonusDC = 2;
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.m_Spell = StunningFistParalyzeAbility;
                 });
                 bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.ClassSpecific;
