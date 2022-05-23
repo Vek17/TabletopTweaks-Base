@@ -13,6 +13,8 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
             var StunningFistStaggeredBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistStaggeredBuff");
             var StunningFistBlindBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistBlindBuff");
             var StunningFistParalyzeBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistParalyzeBuff");
+            var MantisTormentOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "MantisTormentOwnerBuff");
+            
 
             var ImprovedUnarmedStrikeMythicFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("e086a07dae105244291fb11e05d0715f");
             var TitanStrikeFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "TitanStrikeFeature", bp => {
@@ -32,7 +34,8 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
                         StunningFistOwnerFatigueBuff,
                         StunningFistStaggeredBuff,
                         StunningFistBlindBuff,
-                        StunningFistParalyzeBuff
+                        StunningFistParalyzeBuff,
+                        MantisTormentOwnerBuff
                     };
                 });
                 bp.AddPrerequisiteFeature(ImprovedUnarmedStrikeMythicFeat);

@@ -893,6 +893,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                 a.WriteResultToSharedValue = true;
                                 a.ResultSharedValue = AbilitySharedValue.Heal;
                                 a.IgnoreWeapon = true;
+                                a.IgnoreCritical = true;
                             })
                         );
                     });

@@ -28,6 +28,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             var MonkClass = BlueprintTools.GetBlueprintReference<BlueprintCharacterClassReference>("e8f21e5b58e0569468e420ebea456124");
             var MonkProgression = BlueprintTools.GetBlueprint<BlueprintProgression>("8a91753b978e3b34b9425419179aafd6");
 
+            var StunningFistMythicFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("a29a582c3daa4c24bb0e991c596ccb28");
             var StunningFist = BlueprintTools.GetBlueprint<BlueprintFeature>("a29a582c3daa4c24bb0e991c596ccb28");
             var StunningFistResource = BlueprintTools.GetBlueprintReference<BlueprintAbilityResourceReference>("d2bae584db4bf4f4f86dd9d15ae56558");
             var StunningFistAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("732ae7773baf15447a6737ae6547fc1e");
@@ -36,6 +37,11 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             var StunningFistFatigueAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("32f92fea1ab81c843a436a49f522bfa1");
             var StunningFistSickenedAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("c81906c75821cbe4c897fa11bdaeee01");
             var DragonFerocityBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("8709a00782de26d4a8524732879000fa");
+
+            var StunningFistOwnerBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("d9eaeba5690a7704da8bbf626456a50e");
+            var StunningFistOwnerFatigueBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("696b29374599d4141be64e46a91bd09b");
+            var StunningFistOwnerSickenedBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("4d7da6df5cb3b3940a9d96311a2dc311");
+
             var Shaken = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("25ec6cb6ab1845c48a95f9c20b034220");
             var Staggered = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("df3950af5a783bd4d91ab73eb8fa0fd3");
             var BlindnessBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("187f88d96a0ef464280706b63635f2af");
@@ -105,6 +111,8 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     );
                 });
                 bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
+                    c.OnlyHit = false;
+                    c.ActionsOnInitiator = true;
                     c.CheckWeaponCategory = true;
                     c.Category = WeaponCategory.UnarmedStrike;
                     c.Action = Helpers.CreateActionList(
@@ -148,6 +156,11 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { };
                 });
+                StunningFistMythicFeat.AddComponent<IncreaseSpellDC>(c => {
+                    c.m_Spell = bp.ToReference<BlueprintAbilityReference>();
+                    c.HalfMythicRank = true;
+                    c.Value = new ContextValue();
+                });
             });
             var StunningFistStaggeredFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "StunningFistStaggeredFeature", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Stagger");
@@ -167,7 +180,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
 
             var StunningFistBlindBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StunningFistBlindBuff", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Blind");
-                bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it permantly blinds the target on a failed save instead of stunning for 1 round.");
+                bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.");
                 bp.m_Icon = Icon_StunningFistBlind;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
@@ -223,6 +236,8 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     );
                 });
                 bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
+                    c.OnlyHit = false;
+                    c.ActionsOnInitiator = true;
                     c.CheckWeaponCategory = true;
                     c.Category = WeaponCategory.UnarmedStrike;
                     c.Action = Helpers.CreateActionList(
@@ -232,7 +247,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             });
             var StunningFistBlindAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "StunningFistBlindAbility", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Blind");
-                bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it permantly blinds the target on a failed save instead of stunning for 1 round.");
+                bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.");
                 bp.m_Icon = Icon_StunningFistBlind;
                 bp.ActionType = UnitCommand.CommandType.Free;
                 bp.Type = AbilityType.Special;
@@ -266,10 +281,15 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { };
                 });
+                StunningFistMythicFeat.AddComponent<IncreaseSpellDC>(c => {
+                    c.m_Spell = bp.ToReference<BlueprintAbilityReference>();
+                    c.HalfMythicRank = true;
+                    c.Value = new ContextValue();
+                });
             });
             var StunningFistBlindFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "StunningFistBlindFeature", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Blind");
-                bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it permantly blinds the target on a failed save instead of stunning for 1 round.");
+                bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.");
                 bp.m_Icon = Icon_StunningFistBlind;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
@@ -343,6 +363,8 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     );
                 });
                 bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
+                    c.OnlyHit = false;
+                    c.ActionsOnInitiator = true;
                     c.CheckWeaponCategory = true;
                     c.Category = WeaponCategory.UnarmedStrike;
                     c.Action = Helpers.CreateActionList(
@@ -386,6 +408,11 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { };
                 });
+                StunningFistMythicFeat.AddComponent<IncreaseSpellDC>(c => {
+                    c.m_Spell = bp.ToReference<BlueprintAbilityReference>();
+                    c.HalfMythicRank = true;
+                    c.Value = new ContextValue();
+                });
             });
             var StunningFistParalyzeFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "StunningFistParalyzeFeature", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Paralyze");
@@ -402,6 +429,49 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     c.m_ScaledFist = ScaledFistArchetype;
                 });
             });
+
+            AddAbilityRestrictions(StunningFistAbility);
+            AddAbilityRestrictions(StunningFistFatigueAbility);
+            AddAbilityRestrictions(StunningFistSickenedAbility);
+            AddAbilityRestrictions(StunningFistStaggeredAbility);
+            AddAbilityRestrictions(StunningFistBlindAbility);
+            AddAbilityRestrictions(StunningFistParalyzeAbility);
+
+            void AddAbilityRestrictions(BlueprintAbility ability) {
+                ability.TemporaryContext(bp => {
+                    bp.RemoveComponents<AbilityCasterHasNoFacts>();
+                    bp.AddComponent<AbilityCasterHasNoFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] {
+                            StunningFistOwnerBuff
+                        };
+                    });
+                    bp.AddComponent<AbilityCasterHasNoFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] {
+                            StunningFistOwnerFatigueBuff
+                        };
+                    });
+                    bp.AddComponent<AbilityCasterHasNoFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] {
+                            StunningFistOwnerSickenedBuff
+                        };
+                    });
+                    bp.AddComponent<AbilityCasterHasNoFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] {
+                            StunningFistStaggeredBuff.ToReference<BlueprintUnitFactReference>()
+                        };
+                    });
+                    bp.AddComponent<AbilityCasterHasNoFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] {
+                            StunningFistBlindBuff.ToReference<BlueprintUnitFactReference>()
+                        };
+                    });
+                    bp.AddComponent<AbilityCasterHasNoFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] {
+                            StunningFistParalyzeBuff.ToReference<BlueprintUnitFactReference>()
+                        };
+                    });
+                });
+            }
         }
     }
 }

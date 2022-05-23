@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -11,6 +12,7 @@ using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Collections.Generic;
@@ -68,9 +70,10 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 });
             }
             static void PatchBase() {
-                PatchStunningFist();
+                PatchStunningFistVarriants();
+                PatchStunningFistDescriptors();
 
-                void PatchStunningFist() {
+                void PatchStunningFistVarriants() {
                     if (TTTContext.Fixes.Monk.Base.IsDisabled("StunningFistVarriants")) { return; }
                     var MonkProgression = BlueprintTools.GetBlueprint<BlueprintProgression>("8a91753b978e3b34b9425419179aafd6");
 
@@ -80,6 +83,18 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var StunningFistStaggeredFeature = BlueprintTools.GetModBlueprintReference<BlueprintFeatureBaseReference>(TTTContext, "StunningFistStaggeredFeature");
                     var StunningFistBlindFeature = BlueprintTools.GetModBlueprintReference<BlueprintFeatureBaseReference>(TTTContext, "StunningFistBlindFeature");
                     var StunningFistParalyzeFeature = BlueprintTools.GetModBlueprintReference<BlueprintFeatureBaseReference>(TTTContext, "StunningFistParalyzeFeature");
+
+                    var StunningFistAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("732ae7773baf15447a6737ae6547fc1e");
+                    var StunningFistFatigueAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("32f92fea1ab81c843a436a49f522bfa1");
+                    var StunningFistSickenedAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("c81906c75821cbe4c897fa11bdaeee01");
+                    var StunningFistOwnerFatigueBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("696b29374599d4141be64e46a91bd09b");
+
+                    StunningFistAbility.RemoveComponents<SpellDescriptorComponent>();
+                    StunningFistFatigueAbility.RemoveComponents<SpellDescriptorComponent>();
+                    StunningFistSickenedAbility.RemoveComponents<SpellDescriptorComponent>();
+                    StunningFistOwnerFatigueBuff
+                        .GetComponents<AddInitiatorAttackWithWeaponTrigger>(c => c.ActionsOnInitiator)
+                        .ForEach(c => c.OnlyHit = false);
 
                     MonkProgression.LevelEntries
                         .Where(entry => entry.Level == 12)
@@ -128,6 +143,21 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             }
                         }
                     });
+                }
+                void PatchStunningFistDescriptors() {
+                    if (TTTContext.Fixes.Monk.Base.IsDisabled("StunningFistDescriptors")) { return; }
+
+                    var StunningFistAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("732ae7773baf15447a6737ae6547fc1e");
+                    var StunningFistFatigueAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("32f92fea1ab81c843a436a49f522bfa1");
+                    var StunningFistSickenedAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("c81906c75821cbe4c897fa11bdaeee01");
+                    var StunningFistOwnerFatigueBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("696b29374599d4141be64e46a91bd09b");
+
+                    StunningFistAbility.RemoveComponents<SpellDescriptorComponent>();
+                    StunningFistFatigueAbility.RemoveComponents<SpellDescriptorComponent>();
+                    StunningFistSickenedAbility.RemoveComponents<SpellDescriptorComponent>();
+                    StunningFistOwnerFatigueBuff
+                        .GetComponents<AddInitiatorAttackWithWeaponTrigger>(c => c.ActionsOnInitiator)
+                        .ForEach(c => c.OnlyHit = false);
                 }
             }
 

@@ -16,6 +16,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var StunningFistStaggeredAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "StunningFistStaggeredAbility");
             var StunningFistBlindAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "StunningFistBlindAbility");
             var StunningFistParalyzeAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "StunningFistParalyzeAbility");
+            var MantisTormentAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "MantisTormentAbility");
 
             var AbilityFocusStunningFist = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "AbilityFocusStunningFist", bp => {
                 bp.SetName(TTTContext, "Ability Focus — Stunning Fist");
@@ -54,6 +55,11 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.BonusDC = 2;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                     c.m_Spell = StunningFistParalyzeAbility;
+                });
+                bp.AddComponent<IncreaseSpellDC>(c => {
+                    c.BonusDC = 2;
+                    c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    c.m_Spell = MantisTormentAbility;
                 });
                 bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.ClassSpecific;

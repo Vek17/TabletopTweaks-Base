@@ -707,6 +707,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Adds the missing stunning fist variants at level 12, 16 and 20 of monk."
+        },
+        "StunningFistDescriptors": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes descriptors on stunning fist that prevents activation if you are immune to the effect."
         }
       },
       "IsExpanded": true

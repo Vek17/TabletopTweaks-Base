@@ -34,11 +34,6 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.AddComponent<BuffExtraAttack>(c => {
                     c.Number = 1;
                 });
-                bp.AddComponent<AddStatBonus>(c => {
-                    c.Stat = StatType.AC;
-                    c.Descriptor = ModifierDescriptor.Dodge;
-                    c.Value = 2;
-                });
             });
             var OldMasterFeatureACFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "OldMasterFeatureACFeature", bp => {
                 bp.SetName(TTTContext, "Old Master");
