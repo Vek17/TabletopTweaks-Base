@@ -51,7 +51,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             var Icon_StunningFistBlind = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_StunningFistBlind.png");
             var Icon_StunningFistParalyze = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_StunningFistParalyze.png");
 
-            var StunningFistStaggeredBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StunningFistStaggeredBuff", bp => {
+            var StunningFistStaggeredOwnerBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StunningFistStaggeredOwnerBuff", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Stagger");
                 bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.");
                 bp.m_Icon = Icon_StunningFistStagger;
@@ -133,7 +133,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
                         Helpers.Create<ContextActionApplyBuff>(applyBuff => {
-                            applyBuff.m_Buff = StunningFistStaggeredBuff.ToReference<BlueprintBuffReference>();
+                            applyBuff.m_Buff = StunningFistStaggeredOwnerBuff.ToReference<BlueprintBuffReference>();
                             applyBuff.Permanent = true;
                             applyBuff.DurationValue = new ContextDurationValue() {
                                 m_IsExtendable = true,
@@ -178,7 +178,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 });
             });
 
-            var StunningFistBlindBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StunningFistBlindBuff", bp => {
+            var StunningFistBlindOwnerBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StunningFistBlindOwnerBuff", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Blind");
                 bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.");
                 bp.m_Icon = Icon_StunningFistBlind;
@@ -258,7 +258,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
                         Helpers.Create<ContextActionApplyBuff>(applyBuff => {
-                            applyBuff.m_Buff = StunningFistBlindBuff.ToReference<BlueprintBuffReference>();
+                            applyBuff.m_Buff = StunningFistBlindOwnerBuff.ToReference<BlueprintBuffReference>();
                             applyBuff.Permanent = true;
                             applyBuff.DurationValue = new ContextDurationValue() {
                                 m_IsExtendable = true,
@@ -303,7 +303,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 });
             });
 
-            var StunningFistParalyzeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StunningFistParalyzeBuff", bp => {
+            var StunningFistParalyzeOwnerBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "StunningFistParalyzeOwnerBuff", bp => {
                 bp.SetName(TTTContext, "Stunning Fist: Paralyze");
                 bp.SetDescription(TTTContext, "This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.");
                 bp.m_Icon = Icon_StunningFistParalyze;
@@ -385,7 +385,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
                         Helpers.Create<ContextActionApplyBuff>(applyBuff => {
-                            applyBuff.m_Buff = StunningFistParalyzeBuff.ToReference<BlueprintBuffReference>();
+                            applyBuff.m_Buff = StunningFistParalyzeOwnerBuff.ToReference<BlueprintBuffReference>();
                             applyBuff.Permanent = true;
                             applyBuff.DurationValue = new ContextDurationValue() {
                                 m_IsExtendable = true,
@@ -457,17 +457,17 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     });
                     bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                         c.m_Facts = new BlueprintUnitFactReference[] {
-                            StunningFistStaggeredBuff.ToReference<BlueprintUnitFactReference>()
+                            StunningFistStaggeredOwnerBuff.ToReference<BlueprintUnitFactReference>()
                         };
                     });
                     bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                         c.m_Facts = new BlueprintUnitFactReference[] {
-                            StunningFistBlindBuff.ToReference<BlueprintUnitFactReference>()
+                            StunningFistBlindOwnerBuff.ToReference<BlueprintUnitFactReference>()
                         };
                     });
                     bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                         c.m_Facts = new BlueprintUnitFactReference[] {
-                            StunningFistParalyzeBuff.ToReference<BlueprintUnitFactReference>()
+                            StunningFistParalyzeOwnerBuff.ToReference<BlueprintUnitFactReference>()
                         };
                     });
                 });

@@ -10,9 +10,9 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
             var StunningFistOwnerBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("d9eaeba5690a7704da8bbf626456a50e");
             var StunningFistOwnerFatigueBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("696b29374599d4141be64e46a91bd09b");
             var StunningFistOwnerSickenedBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("4d7da6df5cb3b3940a9d96311a2dc311");
-            var StunningFistStaggeredBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistStaggeredBuff");
-            var StunningFistBlindBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistBlindBuff");
-            var StunningFistParalyzeBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistParalyzeBuff");
+            var StunningFistStaggeredOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistStaggeredOwnerBuff");
+            var StunningFistBlindOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistBlindOwnerBuff");
+            var StunningFistParalyzeOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistParalyzeOwnerBuff");
             var MantisTormentOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "MantisTormentOwnerBuff");
             
 
@@ -32,9 +32,9 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
                         StunningFistOwnerBuff,
                         StunningFistOwnerSickenedBuff,
                         StunningFistOwnerFatigueBuff,
-                        StunningFistStaggeredBuff,
-                        StunningFistBlindBuff,
-                        StunningFistParalyzeBuff,
+                        StunningFistStaggeredOwnerBuff,
+                        StunningFistBlindOwnerBuff,
+                        StunningFistParalyzeOwnerBuff,
                         MantisTormentOwnerBuff
                     };
                 });

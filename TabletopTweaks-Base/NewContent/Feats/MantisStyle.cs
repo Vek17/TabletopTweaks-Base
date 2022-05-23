@@ -49,9 +49,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var StunningFistOwnerBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("d9eaeba5690a7704da8bbf626456a50e");
             var StunningFistOwnerFatigueBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("696b29374599d4141be64e46a91bd09b");
             var StunningFistOwnerSickenedBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("4d7da6df5cb3b3940a9d96311a2dc311");
-            var StunningFistStaggeredBuff = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "StunningFistStaggeredBuff");
-            var StunningFistBlindBuff = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "StunningFistBlindBuff");
-            var StunningFistParalyzeBuff = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "StunningFistParalyzeBuff");
+            var StunningFistStaggeredOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "StunningFistStaggeredOwnerBuff");
+            var StunningFistBlindOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "StunningFistBlindOwnerBuff");
+            var StunningFistParalyzeOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "StunningFistParalyzeOwnerBuff");
 
             var DragonFerocityBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("8709a00782de26d4a8524732879000fa");
             var Shaken = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("25ec6cb6ab1845c48a95f9c20b034220");
@@ -304,17 +304,17 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 });
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
-                        StunningFistStaggeredBuff
+                        StunningFistStaggeredOwnerBuff
                     };
                 });
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
-                        StunningFistBlindBuff
+                        StunningFistBlindOwnerBuff
                     };
                 });
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
-                        StunningFistParalyzeBuff
+                        StunningFistParalyzeOwnerBuff
                     };
                 });
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
@@ -418,9 +418,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                         StunningFistOwnerBuff,
                         StunningFistOwnerFatigueBuff,
                         StunningFistOwnerSickenedBuff,
-                        StunningFistStaggeredBuff,
-                        StunningFistBlindBuff,
-                        StunningFistParalyzeBuff,
+                        StunningFistStaggeredOwnerBuff,
+                        StunningFistBlindOwnerBuff,
+                        StunningFistParalyzeOwnerBuff,
                         MantisTormentOwnerBuff.ToReference<BlueprintUnitFactReference>()
                     };
                 });
