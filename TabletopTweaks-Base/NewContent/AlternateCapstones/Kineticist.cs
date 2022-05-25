@@ -1,5 +1,7 @@
-﻿using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -8,15 +10,23 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
     internal class Kineticist {
         public static BlueprintFeatureSelection KineticistAlternateCapstone = null;
         public static void AddAlternateCapstones() {
+            var KineticBlastFeature = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("93efbde2764b5504e98e6824cab3d27c");
 
             var UnbridledPower = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "UnbridledPower", bp => {
                 bp.SetName(TTTContext, "Unbridled Power");
-                bp.SetDescription(TTTContext, "At 20th level, the kineticist wields her chosen element like a knife, cutting through all opposition.\n" +
-                    "The kineticist chooses one blast. Her damage with that blast increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts), " +
-                    "and the blast ignores the first 10 points of damage reduction or energy resistance that the target has.");
+                bp.SetDescription(TTTContext, "At 20th level, the kineticist wields her chosen elements like a knife, cutting through all opposition.\n" +
+                    "Her damage with her blasts increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts).");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
+                bp.AddComponent<AddFeatureIfHasFact>(c => {
+                    c.m_CheckedFact = KineticBlastFeature;
+                    c.m_Feature = KineticBlastFeature;
+                });
+                bp.AddComponent<AddFeatureIfHasFact>(c => {
+                    c.m_CheckedFact = KineticBlastFeature;
+                    c.m_Feature = KineticBlastFeature;
+                });
             });
             KineticistAlternateCapstone = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "KineticistAlternateCapstone", bp => {
                 bp.SetName(TTTContext, "Capstone");
