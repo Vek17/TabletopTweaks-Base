@@ -1,7 +1,9 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using System.Collections.Generic;
+using System.Linq;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -11,12 +13,24 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
         public static BlueprintFeatureSelection OracleAlternateCapstone = null;
         public static void AddAlternateCapstones() {
             var OracleFinalRevelation = BlueprintTools.GetBlueprint<BlueprintFeature>("0336dc22538ba5f42b73da4fb3f50849");
+            var OracleRevelationSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("60008a10ad7ad6543b1f63016741a5d2");
+            var OracleMysterySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("5531b975dcdf0e24c98f1ff7e017e741");
 
-            var DiverseMysteries = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "DiverseMysteries", bp => {
-                bp.SetName(TTTContext, "Diverse Mysteries");
-                bp.SetDescription(TTTContext, "At 20th level, the oracle knows that sometimes she needs different tools to do her patron’s work.\n" +
-                    "The oracle can select two revelations from another mystery. She must meet the prerequisites for these revelations.");
-                //bp.m_Icon = GrandDiscoverySelection.Icon;
+            var OracleFinalRevelationSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "OracleFinalRevelationSelection", bp => {
+                bp.SetName(OracleFinalRevelation.m_DisplayName);
+                bp.SetDescription(OracleFinalRevelation.m_Description);
+                bp.IsClassFeature = true;
+                bp.m_Icon = OracleFinalRevelation.Icon;
+                bp.Ranks = 1;
+                bp.AddFeatures(
+                    OracleMysterySelection.AllFeatures
+                        .Select(mystery => mystery.GetComponent<AddFeatureOnClassLevel>(c => c.Level == 20).Feature)
+                        .ToArray()
+                );
+            });
+            var OracleFinalRevelationProgression = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "OracleFinalRevelationProgression", bp => {
+                bp.SetName(OracleFinalRevelation.m_DisplayName);
+                bp.SetDescription(OracleFinalRevelation.m_Description);
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
@@ -27,6 +41,30 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(20, OracleFinalRevelationSelection)
+                };
+                bp.AddComponent<PrerequisiteInPlayerParty>(c => {
+                    c.CheckInProgression = true;
+                    c.HideInUI = true;
+                    c.Not = true;
+                });
+            });
+            var DiverseMysteries = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "DiverseMysteries", bp => {
+                bp.SetName(TTTContext, "Diverse Mysteries");
+                bp.SetDescription(TTTContext, "At 20th level, the oracle knows that sometimes she needs different tools to do her patron’s work.\n" +
+                    "The oracle can select two revelations from another mystery. She must meet the prerequisites for these revelations.");
+                bp.Ranks = 1;
+                bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
+                bp.ReapplyOnLevelUp = true;
+                bp.HideNotAvailibleInUI = true;
+                bp.m_Classes = new BlueprintProgression.ClassWithLevel[0];
+                bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
+                bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
+                bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
+                bp.LevelEntries = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(19, OracleRevelationSelection),
+                    Helpers.CreateLevelEntry(20, OracleRevelationSelection)
                 };
                 bp.AddComponent<PrerequisiteInPlayerParty>(c => {
                     c.CheckInProgression = true;
@@ -50,7 +88,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.HideInUI = true;
                 });
                 bp.AddFeatures(
-                    OracleFinalRevelation,
+                    OracleFinalRevelationProgression,
                     DiverseMysteries,
                     Generic.PerfectBodyFlawlessMindProgression,
                     Generic.GreatBeastMasterFeature

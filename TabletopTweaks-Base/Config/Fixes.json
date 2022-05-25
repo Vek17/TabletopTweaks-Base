@@ -1255,6 +1255,11 @@
   "Features": {
     "DisableAll": false,
     "Settings": {
+      "IncorporealCharm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now properly updates when charisma is modified."
+      },
       "MongrolsBlessing": {
         "Enabled": true,
         "Homebrew": false,

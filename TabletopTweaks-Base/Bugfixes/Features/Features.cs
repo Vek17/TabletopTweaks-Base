@@ -1,7 +1,8 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics;
@@ -22,6 +23,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Features");
                 PatchMongrolsBlessing();
+                PatchIncorporealCharm();
 
                 void PatchMongrolsBlessing() {
                     if (Main.TTTContext.Fixes.Features.IsDisabled("MongrolsBlessing")) { return; }
@@ -50,6 +52,15 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
 
                     TTTContext.Logger.LogPatch(MongrelsBlessingFeature);
+                }
+                void PatchIncorporealCharm() {
+                    if (Main.TTTContext.Fixes.Features.IsDisabled("IncorporealCharm")) { return; }
+
+                    var IncorporealCharmFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("8ee86ca474114d8d8eb0946a2ff43eb8");
+                    IncorporealCharmFeature.AddComponent<RecalculateOnStatChange>(c => {
+                        c.Stat = StatType.Charisma;
+                    });
+                    TTTContext.Logger.LogPatch(IncorporealCharmFeature);
                 }
             }
         }

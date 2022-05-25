@@ -6,6 +6,8 @@
     * Features
         * Mongrol's Blessing
             * Now properly applies negative levels.
+        * Incorperal Charm
+            * Now properly updates when charisma changes.
     * Spells
         * Legendary Proportions
             * Now only increases size by one step instead of two.
@@ -44,6 +46,11 @@
         * Expanded Spell Kenning
             * When you use your spell kenning class feature, you can select a spell from either the druid or the witch spell list.
         * Mantis Style
+            * You gain one additional Stunning Fist attempt per day. While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.
+        * Mantis Wisdom
+            * Treat half your levels in classes other than monk as monk levels for determining effects you can apply to a target of your Stunning Fist per the Stunning Fist monk class feature. While using Mantis Style, you gain a +2 bonus on unarmed attack rolls with which you are using Stunning Fist attempts.
+        * Mantis Torment
+            * While using Mantis Style, you make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.
     * Mythic Abiltiies
         * Abundant Spell Kenning.
             * You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.

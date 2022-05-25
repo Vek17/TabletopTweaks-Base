@@ -430,6 +430,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="NewContent\KiPowers\" />
     <Folder Include="Patches\" />
   </ItemGroup>
   <ItemGroup>

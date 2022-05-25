@@ -111,16 +111,14 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = new LevelEntry[] {
-                    Helpers.CreateLevelEntry(20, 
-                        PerfectBodyFlawlessMindSelection,
-                        PerfectBodyFlawlessMindSelection,
-                        PerfectBodyFlawlessMindSelection,
-                        PerfectBodyFlawlessMindSelection,
-                        PerfectBodyFlawlessMindSelection,
-                        PerfectBodyFlawlessMindSelection,
-                        PerfectBodyFlawlessMindSelection,
-                        PerfectBodyFlawlessMindSelection
-                    )
+                    Helpers.CreateLevelEntry(13, PerfectBodyFlawlessMindSelection),
+                    Helpers.CreateLevelEntry(14, PerfectBodyFlawlessMindSelection),
+                    Helpers.CreateLevelEntry(15, PerfectBodyFlawlessMindSelection),
+                    Helpers.CreateLevelEntry(16, PerfectBodyFlawlessMindSelection),
+                    Helpers.CreateLevelEntry(17, PerfectBodyFlawlessMindSelection),
+                    Helpers.CreateLevelEntry(18, PerfectBodyFlawlessMindSelection),
+                    Helpers.CreateLevelEntry(19, PerfectBodyFlawlessMindSelection),
+                    Helpers.CreateLevelEntry(20, PerfectBodyFlawlessMindSelection)
                 };
             });
 
