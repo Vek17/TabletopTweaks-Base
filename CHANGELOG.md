@@ -9,6 +9,10 @@
         * Incorperal Charm
             * Now properly updates when charisma changes.
     * Spells
+        * Command
+            * Now has missing compulsion descriptor.
+        * Greater Command
+            * Now has missing compulsion descriptor.
         * Legendary Proportions
             * Now only increases size by one step instead of two.
     * Feats

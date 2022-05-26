@@ -24,6 +24,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Kineticist")) { return; }
 
                 var KineticistAlternateCapstone = NewContent.AlternateCapstones.Kineticist.KineticistAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+                var BloodKineticistArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("365b50dba54efb74fa24c07e9b7a838c");
 
                 ClassTools.Classes.KineticistClass.TemporaryContext(bp => {
                     bp.Progression.LevelEntries
@@ -31,6 +32,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         .ForEach(entry => entry.m_Features.Add(KineticistAlternateCapstone));
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+                BloodKineticistArchetype.RemoveFeatures = BloodKineticistArchetype.RemoveFeatures.AppendToArray(Helpers.CreateLevelEntry(20, KineticistAlternateCapstone));
             }
             static void PatchBase() {
                 var ElementalOverflowProgression = BlueprintTools.GetBlueprint<BlueprintFeatureBase>("86beb0391653faf43aec60d5ec05b538");

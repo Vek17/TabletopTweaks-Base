@@ -1,17 +1,53 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Sorcerer {
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class Sorcerer_AlternateCapstone_Patch {
+            static bool Initialized;
+            [HarmonyPriority(Priority.Last)]
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                PatchAlternateCapstone();
+            }
+            static void PatchAlternateCapstone() {
+                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Sorcerer")) { return; }
+
+                var SorcererAlternateCapstone = NewContent.AlternateCapstones.Sorcerer.SorcererAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
+                var BloodlineAscendance = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
+                var BloodlineCapstoneSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(TTTContext, "BloodlineCapstoneSelection");
+
+                BloodlineAscendance.AllFeatures.ForEach(capstone => {
+                    capstone.AddComponent<PrerequisiteInPlayerParty>(c => {
+                        c.CheckInProgression = true;
+                        c.HideInUI = true;
+                        c.Not = true;
+                        c.IgnoreLevelsBelow = 20;
+                        c.m_BypassInSelection = BloodlineCapstoneSelection.ToReference<BlueprintFeatureSelectionReference>();
+                    });
+                    capstone.HideNotAvailibleInUI = true;
+                });
+                ClassTools.Classes.SorcererClass.TemporaryContext(bp => {
+                    bp.Progression.LevelEntries
+                        .Where(entry => entry.Level == 20)
+                        .ForEach(entry => entry.m_Features.Add(SorcererAlternateCapstone));
+                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
+                });
+            }
+        }
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
@@ -21,22 +57,10 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Sorcerer");
 
-                PatchAlternateCapstone();
                 PatchBase();
                 PatchCrossblooded();
             }
-            static void PatchAlternateCapstone() {
-                if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Sorcerer")) { return; }
-
-                var SorcererAlternateCapstone = NewContent.AlternateCapstones.Sorcerer.SorcererAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
-
-                ClassTools.Classes.SorcererClass.TemporaryContext(bp => {
-                    bp.Progression.LevelEntries
-                        .Where(entry => entry.Level == 20)
-                        .ForEach(entry => entry.m_Features.Add(SorcererAlternateCapstone));
-                    TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
-                });
-            }
+            
             static void PatchBase() {
                 PatchDraconicBloodlineDescriptions();
                 PatchElementalBloodlineDescriptions();

@@ -57,6 +57,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         c.m_Feature = capstone;
                     });
                     capstone.Get().AddPrerequisiteFeature(mystery);
+                    capstone.Get().HideNotAvailibleInUI = true;
                     OracleRevelationSelection.AllFeatures.ForEach(revelation => {
                         var prerequisite = revelation.GetComponent<PrerequisiteFeaturesFromList>(c => c.m_Features.Any(f => f.deserializedGuid == mystery.AssetGuid));
                         if (prerequisite == null) { return; }

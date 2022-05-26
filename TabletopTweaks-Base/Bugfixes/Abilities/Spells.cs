@@ -53,6 +53,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchBestowCurseGreater();
                 PatchBreakEnchantment();
                 PatchChainLightning();
+                PatchCommand();
+                PatchCommandGreater();
                 PatchCorruptMagic();
                 PatchCrusadersEdge();
                 PatchDeathWard();
@@ -248,7 +250,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     .OfType<ContextActionDispelMagic>()
                     .ForEach(dispel => {
                         dispel.OnlyTargetEnemyBuffs = true;
-                        dispel.m_MaxSpellLevel = 0;
+                        dispel.m_MaxSpellLevel = new ContextValue();
                     });
                 TTTContext.Logger.LogPatch("Patched", BreakEnchantment);
             }
@@ -264,6 +266,40 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         damage.Value.DiceCountValue.ValueRank = AbilityRankType.DamageDice;
                     });
                 TTTContext.Logger.LogPatch("Patched", ChainLightning);
+            }
+
+            static void PatchCommand() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("Command")) { return; }
+
+                var Command = BlueprintTools.GetBlueprint<BlueprintAbility>("feb70aab86cc17f4bb64432c83737ac2");
+
+                Command.AbilityAndVariants()
+                    .ForEach(ability => {
+                        var descriptors = ability.GetComponent<SpellDescriptorComponent>();
+                        if(descriptors is null) {
+                            ability.AddComponent<SpellDescriptorComponent>();
+                            descriptors = ability.GetComponent<SpellDescriptorComponent>();
+                        }
+                        descriptors.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion;
+                        TTTContext.Logger.LogPatch(ability);
+                    });
+            }
+
+            static void PatchCommandGreater() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("CommandGreater")) { return; }
+
+                var CommandGreater = BlueprintTools.GetBlueprint<BlueprintAbility>("cb15cc8d7a5480648855a23b3ba3f93d");
+
+                CommandGreater.AbilityAndVariants()
+                    .ForEach(ability => {
+                        var descriptors = ability.GetComponent<SpellDescriptorComponent>();
+                        if (descriptors is null) {
+                            ability.AddComponent<SpellDescriptorComponent>();
+                            descriptors = ability.GetComponent<SpellDescriptorComponent>();
+                        }
+                        descriptors.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion;
+                        TTTContext.Logger.LogPatch(ability);
+                    });
             }
 
             static void PatchCorruptMagic() {

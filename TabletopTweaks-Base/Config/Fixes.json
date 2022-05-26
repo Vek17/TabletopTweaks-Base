@@ -1088,6 +1088,16 @@
         "Homebrew": false,
         "Description": "Chain Lightning now respect the 20 CL max for damage dice."
       },
+      "Command": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds missing spell descriptors to match tabletop."
+      },
+      "CommandGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds missing spell descriptors to match tabletop."
+      },
       "CorruptMagic": {
         "Enabled": true,
         "Homebrew": false,
