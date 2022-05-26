@@ -46,6 +46,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Spells");
+                PatchAbsoluteOrder();
                 PatchAbyssalStorm();
                 PatchAcidMaw();
                 PatchAnimalGrowth();
@@ -71,6 +72,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchMicroscopicProportions();
                 PatchMindBlank();
                 PatchPerfectForm();
+                PatchPowerFromDeath();
                 PatchRemoveFear();
                 PatchRemoveSickness();
                 PatchShadowConjuration();
@@ -85,6 +87,23 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchVampiricBlade();
                 PatchZeroState();
                 PatchFromSpellFlags();
+            }
+
+            static void PatchAbsoluteOrder() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("AbsoluteOrder")) { return; }
+
+                var AbsoluteOrder = BlueprintTools.GetBlueprint<BlueprintAbility>("b1723a0239d428243a1be2299696eb85");
+
+                AbsoluteOrder.AbilityAndVariants()
+                    .ForEach(ability => {
+                        var descriptors = ability.GetComponent<SpellDescriptorComponent>();
+                        if (descriptors is null) {
+                            ability.AddComponent<SpellDescriptorComponent>();
+                            descriptors = ability.GetComponent<SpellDescriptorComponent>();
+                        }
+                        descriptors.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion;
+                        TTTContext.Logger.LogPatch(ability);
+                    });
             }
 
             static void PatchAbyssalStorm() {
@@ -655,6 +674,17 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     }
                 }
                 TTTContext.Logger.LogPatch(PerfectForm);
+            }
+            static void PatchPowerFromDeath() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("PowerFromDeath")) { return; }
+
+                var PowerFromDeath = BlueprintTools.GetBlueprint<BlueprintAbility>("9c2c85a3782af804880c81c1712e3a7b");
+
+                PowerFromDeath.FlattenAllActions()
+                    .OfType<ContextActionApplyBuff>()
+                    .ForEach(a => a.DurationValue.Rate = DurationRate.Rounds);
+
+                TTTContext.Logger.LogPatch(PowerFromDeath);
             }
             static void PatchRemoveFear() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("RemoveFear")) { return; }

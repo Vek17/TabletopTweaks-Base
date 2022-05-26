@@ -9,12 +9,16 @@
         * Incorperal Charm
             * Now properly updates when charisma changes.
     * Spells
+        * Absolute Order
+            * Now has missing compulsion descriptor.
         * Command
             * Now has missing compulsion descriptor.
         * Greater Command
             * Now has missing compulsion descriptor.
         * Legendary Proportions
             * Now only increases size by one step instead of two.
+        * Power From Death
+            * Now correctly lasts rounds per level instead of minutes per level.
     * Feats
         * Outflank
             * Outflank should no longer trigger on missed attacks.
