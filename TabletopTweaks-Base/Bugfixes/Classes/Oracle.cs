@@ -33,6 +33,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 var OracleFinalRevelation = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("0336dc22538ba5f42b73da4fb3f50849");
                 var OracleAlternateCapstone = NewContent.AlternateCapstones.Oracle.OracleAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
                 var DiverseMysteries = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "DiverseMysteries");
+                var DiverseMysteriesRevelationSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(TTTContext, "DiverseMysteriesRevelationSelection");
                 var OracleRevelationSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("60008a10ad7ad6543b1f63016741a5d2");
                 var OracleMysterySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("5531b975dcdf0e24c98f1ff7e017e741");
 
@@ -62,12 +63,16 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         var prerequisite = revelation.GetComponent<PrerequisiteFeaturesFromList>(c => c.m_Features.Any(f => f.deserializedGuid == mystery.AssetGuid));
                         if (prerequisite == null) { return; }
                         revelation.AddComponent<PrerequisiteOracleMystery>(c => {
-                            c.m_BypassFeature = DiverseMysteries.ToReference<BlueprintFeatureReference>();
+                            c.m_BypassSelections = new BlueprintFeatureSelectionReference[] {
+                                DiverseMysteriesRevelationSelection.ToReference<BlueprintFeatureSelectionReference>()
+                            };
                             c.m_Features = prerequisite.m_Features.ToArray();
                             c.Amount = 1;
                         });
                         revelation.RemoveComponent(prerequisite);
                     });
+                    DiverseMysteriesRevelationSelection.m_AllFeatures = OracleRevelationSelection.m_AllFeatures;
+                    DiverseMysteriesRevelationSelection.m_Features = OracleRevelationSelection.m_Features;
                 }
                 ClassTools.Classes.OracleClass.TemporaryContext(bp => {
                     bp.Progression.UIGroups

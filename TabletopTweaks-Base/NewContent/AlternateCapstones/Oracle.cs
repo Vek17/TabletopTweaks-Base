@@ -49,6 +49,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.Not = true;
                 });
             });
+            var DiverseMysteriesRevelationSelection = OracleRevelationSelection.CreateCopy(TTTContext, "DiverseMysteriesRevelationSelection");
             var DiverseMysteries = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "DiverseMysteries", bp => {
                 bp.SetName(TTTContext, "Diverse Mysteries");
                 bp.SetDescription(TTTContext, "At 20th level, the oracle knows that sometimes she needs different tools to do her patron’s work.\n" +
@@ -63,8 +64,8 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = new LevelEntry[] {
-                    Helpers.CreateLevelEntry(19, OracleRevelationSelection),
-                    Helpers.CreateLevelEntry(20, OracleRevelationSelection)
+                    Helpers.CreateLevelEntry(19, DiverseMysteriesRevelationSelection),
+                    Helpers.CreateLevelEntry(20, DiverseMysteriesRevelationSelection)
                 };
                 bp.AddComponent<PrerequisiteInPlayerParty>(c => {
                     c.CheckInProgression = true;

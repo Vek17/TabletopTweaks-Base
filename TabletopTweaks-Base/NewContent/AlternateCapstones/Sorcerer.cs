@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using System.Collections.Generic;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
@@ -61,8 +62,14 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.CheckInProgression = true;
                     c.HideInUI = true;
                 });
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = BloodlineAscendance.ToReference<BlueprintFeatureReference>();
+                    c.CheckInProgression = true;
+                    c.HideInUI = true;
+                });
                 bp.AddFeatures(
                     //UniqueBloodline, 
+                    //BloodlineCapstoneSelection,
                     BloodlineCapstoneProgression,
                     Generic.PerfectBodyFlawlessMindProgression, 
                     Generic.GreatBeastMasterFeature
