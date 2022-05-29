@@ -121,6 +121,30 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             group.m_Features.Add(StunningFistBlindFeature);
                             group.m_Features.Add(StunningFistParalyzeFeature);
                         });
+                    ClassTools.Classes.MonkClass.TemporaryContext(bp => {
+                        bp.Archetypes.ForEach(a => {
+                            if (a.RemoveFeatures.Any(entry => entry.Features.Any(f => f.AssetGuid == StunningFist.AssetGuid))) {
+                                var Remove12 = a.RemoveFeatures.Where(remove => remove.Level == 12).FirstOrDefault();
+                                var Remove16 = a.RemoveFeatures.Where(remove => remove.Level == 16).FirstOrDefault();
+                                var Remove20 = a.RemoveFeatures.Where(remove => remove.Level == 20).FirstOrDefault();
+                                if (Remove12 is not null) {
+                                    Remove12.m_Features.Add(StunningFistStaggeredFeature);
+                                } else {
+                                    a.RemoveFeatures = a.RemoveFeatures.AppendToArray(Helpers.CreateLevelEntry(12, StunningFistStaggeredFeature));
+                                }
+                                if (Remove16 is not null) {
+                                    Remove16.m_Features.Add(StunningFistBlindFeature);
+                                } else {
+                                    a.RemoveFeatures = a.RemoveFeatures.AppendToArray(Helpers.CreateLevelEntry(16, StunningFistBlindFeature));
+                                }
+                                if (Remove20 is not null) {
+                                    Remove20.m_Features.Add(StunningFistParalyzeFeature);
+                                } else {
+                                    a.RemoveFeatures = a.RemoveFeatures.AppendToArray(Helpers.CreateLevelEntry(20, StunningFistParalyzeFeature));
+                                }
+                            }
+                        });
+                    });
                     SaveGameFix.AddUnitPatch((unit) => {
                         var progressionData = unit.Progression;
                         var classData = unit.Progression.GetClassData(ClassTools.Classes.MonkClass);
