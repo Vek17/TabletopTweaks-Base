@@ -23,6 +23,28 @@
       "esES": null
     },
     {
+      "Key": "710eb387aeda4685a6c0feeb6146d52c",
+      "SimpleName": "AbilityFocusStunningFist.Description",
+      "ProcessTemplates": true,
+      "enGB": "Add +2 to the DC for the effects you deliver with your Stunning Fist.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "94b59b8f1adc4a5aad1086433602b187",
+      "SimpleName": "AbilityFocusStunningFist.Name",
+      "ProcessTemplates": false,
+      "enGB": "Ability Focus — Stunning Fist",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "c45b586ef5cd459a912089ed4c95998f",
       "SimpleName": "AbundantBlessingFeature.Description",
       "ProcessTemplates": true,
@@ -247,6 +269,17 @@
       "SimpleName": "AgainstTheOdds.Description",
       "ProcessTemplates": true,
       "enGB": "At 20th level, the slayer is used to fighting when the numbers are not in his favor.\nWhen the slayer uses studied target, he can study up to two additional foes with the same action.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3285879e035346bda97d872592e60321",
+      "SimpleName": "AgainstTheOdds.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the slayer is used to fighting when the numbers are not in his favor.\nWhen the slayer uses studied target, he can study up to two additional foes within 30 feet in the same action.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2523,7 +2556,7 @@
       "Key": "d2c707a34bf647dc9aad7b09dd5b5a4e",
       "SimpleName": "BlackBladeTransferArcanaArcanistAbility.Description",
       "ProcessTemplates": true,
-      "enGB": "At 13th level a magus can attempt to siphon points from his black blade’s arcane pool into his own arcane reservoir. Doing so takes a full-round action and the arcanist must succeed at a Will saving throw with a DC equal to the black blade’s ego. If the arcanist succeeds, he regains 1 point to his arcane reservoir for every 2 points he saps from his black blade. If he fails the saving throw, the magus becomes fatigued. If he is fatigued, he becomes exhausted instead. He cannot use this ability if he is exhausted.",
+      "enGB": "At 13th level an arcanist can attempt to siphon points from his black blade’s arcane pool into his own arcane reservoir. Doing so takes a full-round action and the arcanist must succeed at a Will saving throw with a DC equal to the black blade’s ego. If the arcanist succeeds, he regains 1 point to his arcane reservoir for every 2 points he saps from his black blade. If he fails the saving throw, the magus becomes fatigued. If he is fatigued, he becomes exhausted instead. He cannot use this ability if he is exhausted.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2605,6 +2638,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "流血",
+      "esES": null
+    },
+    {
+      "Key": "a546e3a1e4c842ad84c41b7e95e6ba83",
+      "SimpleName": "BloodlineCapstoneSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the sorcerer gains the final power of thier bloodline.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4ccce8d2c3e14676bc966c119531b939",
+      "SimpleName": "BloodlineCapstoneSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bloodline Capstone",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -7459,6 +7514,127 @@
       "esES": null
     },
     {
+      "Key": "065ed245f2e54cfd9e98ef4492d26406",
+      "SimpleName": "MantisStyleBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8c0441657af14cb7b9658d61e8ca1da7",
+      "SimpleName": "MantisStyleFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You have learned to target vital areas with crippling accuracy.\nYou gain one additional Stunning Fist attempt per day. While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d0b27d3611b24fb2ab4b55b37462abe3",
+      "SimpleName": "MantisStyleFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mantis Style",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c2901529e603470cac122500b7a32042",
+      "SimpleName": "MantisStyleToggle.Description",
+      "ProcessTemplates": true,
+      "enGB": "While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d78f9b27dc1f42818a56bda2dfe948c5",
+      "SimpleName": "MantisTormentAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6cb3f4e377534aed854f15c4ff0bd8b0",
+      "SimpleName": "MantisTormentBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ed24d60203944839998a49ccf03632fd",
+      "SimpleName": "MantisTormentBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mantis Torment",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "115e36e8f4d04c8eaec4fdb48c4eeeee",
+      "SimpleName": "MantisTormentFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your knowledge of the mysteries of anatomy allows you to cause debilitating pain with a simple touch.\nYou gain one additional Stunning Fist attempt per day. While using Mantis Style, you make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ca9ecb1193ac46b8ab5387ed315e307b",
+      "SimpleName": "MantisTormentOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5a8f7f6e79314819ae34972e55eb0ab8",
+      "SimpleName": "MantisWisdomFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your knowledge of vital areas allows you to land debilitating strikes with precision.\nTreat half your levels in classes other than monk as monk levels for determining effects you can apply to a target of your Stunning Fist per the Stunning Fist monk class feature. While using Mantis Style, you gain a +2 bonus on unarmed attack rolls with which you are using Stunning Fist attempts.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a8b5cb3c743c4bc0a1bd5ca61293bf7e",
+      "SimpleName": "MantisWisdomFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mantis Wisdom",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "1078a52fd5b8422bb50ba767d8ffaff4",
       "SimpleName": "ManyshotMythicFeature.Description",
       "ProcessTemplates": true,
@@ -11056,6 +11232,72 @@
       "esES": null
     },
     {
+      "Key": "e5707e46b1bd45c88b6e4cbfb88b9ad1",
+      "SimpleName": "StunningFistBlindOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "362fd1d8fff946cb8767ee093a38edd1",
+      "SimpleName": "StunningFistBlindOwnerBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Stunning Fist: Blind",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "51be151c2c8c4f4aa5e9d605868f54a0",
+      "SimpleName": "StunningFistParalyzeOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2a6248b512d7416aa376e5f6b5bff3c2",
+      "SimpleName": "StunningFistParalyzeOwnerBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Stunning Fist: Paralyze",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a9d17201f49e4919b0125e5061a0b522",
+      "SimpleName": "StunningFistStaggeredOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f42d707244e840899aa42ef89c827f27",
+      "SimpleName": "StunningFistStaggeredOwnerBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Stunning Fist: Stagger",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "54c6c03378f2480d9a5c8cb319f80649",
       "SimpleName": "SuppressedBuff.UIString",
       "ProcessTemplates": true,
@@ -11082,6 +11324,39 @@
       "SimpleName": "TeamLeader.Description",
       "ProcessTemplates": true,
       "enGB": "At 20th level, the inquisitor has grown accustomed to teaching farmers to fight, but what she can do with trained warriors is far more terrifying.\nWhen the inquisitor regains her spells each day, she can also spend 1 hour training a number of characters up to her Wisdom modifier in battle tactics. These characters receive three of the inquisitor’s teamwork feats (the inquisitor’s choice) as bonus feats for the next 24 hours.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d1dbf0de91a3420a86410d2582506b6f",
+      "SimpleName": "TeamLeaderAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "As a standard action the inquisitor can spend a standard action granting characters up to three of the inquisitor’s teamwork feats (the inquisitor’s choice) as bonus feats for the next 24 hours.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ab5761eda3f44c20b7c28bc48a90922b",
+      "SimpleName": "TeamLeaderAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Team Leader",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2c2ed1dd992542d2a6ae0f2f0c82dc40",
+      "SimpleName": "TeamLeaderFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the inquisitor has grown accustomed to teaching farmers to fight, but what she can do with trained warriors is far more terrifying.\nAs a standard action the inquisitor can spend a standard action granting characters up to three of the inquisitor’s teamwork feats (the inquisitor’s choice) as bonus feats for the next 24 hours.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -11735,6 +12010,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "高等雷鸣",
+      "esES": null
+    },
+    {
+      "Key": "3db2e247c61146adb0fd8c6ef5252b43",
+      "SimpleName": "UnbridledPower.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the kineticist wields her chosen elements like a knife, cutting through all opposition.\nHer damage with her blasts increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

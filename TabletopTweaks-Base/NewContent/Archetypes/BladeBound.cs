@@ -508,7 +508,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             });
             var BlackBladeTransferArcanaArcanistAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "BlackBladeTransferArcanaArcanistAbility", bp => {
                 bp.SetName(TTTContext, "Transfer Arcana — Arcanist");
-                bp.SetDescription(TTTContext, "At 13th level a magus can attempt to siphon points from his black blade’s arcane pool " +
+                bp.SetDescription(TTTContext, "At 13th level an arcanist can attempt to siphon points from his black blade’s arcane pool " +
                     "into his own arcane reservoir. Doing so takes a full-round action and the arcanist must succeed at a Will saving throw with " +
                     "a DC equal to the black blade’s ego. If the arcanist succeeds, he regains 1 point to his arcane reservoir for every 2 points " +
                     "he saps from his black blade. If he fails the saving throw, the magus becomes fatigued. If he is " +
