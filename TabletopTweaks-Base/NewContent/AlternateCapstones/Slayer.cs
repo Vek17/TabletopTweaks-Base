@@ -1,5 +1,8 @@
-﻿using Kingmaker.Blueprints.Classes;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Utility;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -9,12 +12,22 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
         public static BlueprintFeatureSelection SlayerAlternateCapstone = null;
         public static void AddAlternateCapstones() {
             var MasterSlayerFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("a26c0279a423fc94cabeea898f4d9f8a");
+            var SlayerStudyTargetAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("b96d810ceb1708b4e895b695ddbb1813");
+            var SlayerSwiftStudyTargetAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("90fdfeb61368f15488031bee72ab7c18");
 
             var AgainstTheOdds = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "AgainstTheOdds", bp => {
                 bp.SetName(TTTContext, "Against the Odds");
                 bp.SetDescription(TTTContext, "At 20th level, the slayer is used to fighting when the numbers are not in his favor.\n" +
-                    "When the slayer uses studied target, he can study up to two additional foes with the same action.");
+                    "When the slayer uses studied target, he can study up to two additional foes within 30 feet in the same action.");
                 bp.IsClassFeature = true;
+                bp.AddComponent<DuplicateAbilityComponent>(c => {
+                    c.Radius = 30.Feet();
+                    c.AdditionalTargets = 2;
+                    c.m_Abilities = new BlueprintAbilityReference[] {
+                        SlayerStudyTargetAbility,
+                        SlayerSwiftStudyTargetAbility
+                    };
+                });
             });
             SlayerAlternateCapstone = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "SlayerAlternateCapstone", bp => {
                 bp.SetName(TTTContext, "Capstone");

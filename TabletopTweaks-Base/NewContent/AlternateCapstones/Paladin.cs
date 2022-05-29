@@ -33,7 +33,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 });
                 bp.AddFeatures(
                     HolyChampion,
-                    CrusaderChampion,
+                    //CrusaderChampion,
                     Generic.PerfectBodyFlawlessMindProgression,
                     Generic.GreatBeastMasterFeature
                 );

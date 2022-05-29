@@ -42,7 +42,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 });
                 bp.AddFeatures(
                     TrueMagusFeature,
-                    LegendaryBlade,
+                    //LegendaryBlade,
                     Generic.PerfectBodyFlawlessMindProgression,
                     Generic.GreatBeastMasterFeature
                 );

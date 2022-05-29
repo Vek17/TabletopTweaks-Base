@@ -36,10 +36,9 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 });
                 bp.AddFeatures(
                     //WitchHexSelection,
-                    WitchsDance,
+                    //WitchsDance,
                     Generic.PerfectBodyFlawlessMindProgression,
-                    Generic.GreatBeastMasterFeature,
-                    Generic.OldDogNewTricksProgression
+                    Generic.GreatBeastMasterFeature
                 );
             });
         }

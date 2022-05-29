@@ -28,10 +28,8 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = new LevelEntry[] {
-                    Helpers.CreateLevelEntry(20,
-                        ArmorTraining,
-                        ArmorTraining
-                    )
+                    Helpers.CreateLevelEntry(19, ArmorTraining),
+                    Helpers.CreateLevelEntry(20, ArmorTraining)
                 };
                 bp.AddComponent<IncreaseFeatRankByGroup>(c => {
                     c.Group = FeatureGroup.WeaponTraining;

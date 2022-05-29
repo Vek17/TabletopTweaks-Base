@@ -302,7 +302,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_TargetType = TargetType.Ally;
                     c.m_Condition = new ConditionsChecker();
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.MaxClassLevelWithArchetype;
                     c.m_Progression = ContextRankProgression.DelayedStartPlusDivStep;
                     c.m_StartLevel = 5;
@@ -310,7 +310,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_Max = 20;
                     c.m_Class = new BlueprintCharacterClassReference[] { WarpriestClass.ToReference<BlueprintCharacterClassReference>() };
                     c.Archetype = DivineCommanderArchetype.ToReference<BlueprintArchetypeReference>();
-                }));
+                });
                 bp.AddComponent<AbilityApplyFact>(c => {
                     c.m_Restriction = AbilityApplyFact.FactRestriction.CasterHasFact;
                     c.m_Facts = CavalierTacticianAbility.GetComponent<AbilityApplyFact>().m_Facts;
