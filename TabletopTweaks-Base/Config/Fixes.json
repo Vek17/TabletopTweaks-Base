@@ -1511,6 +1511,11 @@
     "Bosses": {
       "DisableAll": false,
       "Settings": {
+        "Deskari": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Made more of the hidden features visible in the inspect UI to make his mechanics make more sense."
+        },
         "StauntonVane": {
           "Enabled": true,
           "Homebrew": false,

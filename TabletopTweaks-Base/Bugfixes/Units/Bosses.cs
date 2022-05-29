@@ -15,6 +15,7 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Bosses");
+                PatchDeskari();
                 PatchStauntonVane();
             }
         }
@@ -33,6 +34,17 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                     c.m_Selection = WarpriestFeatSelection;
                 });
             TTTContext.Logger.LogPatch(StauntonVane_Boss);
+        }
+        static void PatchDeskari() {
+            if (TTTContext.Fixes.Units.Bosses.IsDisabled("Deskari")) { return; }
+
+            PatchArmorOfFlies();
+
+            void PatchArmorOfFlies() {
+                var DeskariArmorOfFliesFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("8d0acc38f1aee9549b38798dfa016e83");
+                DeskariArmorOfFliesFeature.HideInUI = false;
+                TTTContext.Logger.LogPatch(DeskariArmorOfFliesFeature);
+            }
         }
     }
 }

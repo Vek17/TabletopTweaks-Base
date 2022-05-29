@@ -31,7 +31,7 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
             FeatTools.AddAsMythicFeat(ManyshotMythicFeature);
         }
         [HarmonyPatch(typeof(RuleAttackWithWeapon), nameof(RuleAttackWithWeapon.LaunchProjectiles), new Type[] { typeof(BlueprintProjectileReference[]) })]
-        static class ItemEntityWeapon_HoldInTwoHands_Patch {
+        static class MythicManyShot_RuleAttackWithWeapon_LaunchProjectiles_Patch {
             static bool Prefix(RuleAttackWithWeapon __instance, BlueprintProjectileReference[] projectiles) {
                 if (TTTContext.AddedContent.MythicFeats.IsDisabled("MythicManyshot")) { return true; }
                 foreach (BlueprintProjectileReference blueprintProjectileReference in projectiles) {
