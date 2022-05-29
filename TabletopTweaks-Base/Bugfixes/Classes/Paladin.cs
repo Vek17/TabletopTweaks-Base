@@ -16,15 +16,13 @@ using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Paladin {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Paladin_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Paladin");
                 PatchAlternateCapstone();
-                PatchBase();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Paladin")) { return; }
@@ -56,6 +54,17 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+            }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Paladin");
+                PatchBase();
             }
             static void PatchBase() {
                 PatchDivineMount();

@@ -10,16 +10,13 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Shaman {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Shaman_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Shaman");
-
                 PatchAlternateCapstone();
-                PatchBaseClass();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Shaman")) { return; }
@@ -32,6 +29,18 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         .ForEach(entry => entry.m_Features.Add(ShamanAlternateCapstone));
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+            }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Shaman");
+
+                PatchBaseClass();
             }
             static void PatchBaseClass() {
                 PatchAmelioratingHex();

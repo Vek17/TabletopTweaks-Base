@@ -25,18 +25,13 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Monk {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Monk_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Monk");
-
                 PatchAlternateCapstone();
-                PatchBase();
-                PatchZenArcher();
-                PatchScaledFist();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Monk")) { return; }
@@ -68,6 +63,20 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+            }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Monk");
+
+                PatchBase();
+                PatchZenArcher();
+                PatchScaledFist();
             }
             static void PatchBase() {
                 PatchStunningFistVarriants();

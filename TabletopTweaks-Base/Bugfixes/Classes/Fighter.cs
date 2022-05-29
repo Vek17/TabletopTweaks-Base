@@ -24,17 +24,13 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Fighter {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Fighter_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Fighter");
-
                 PatchAlternateCapstone();
-                PatchBase();
-                PatchTwoHandedFighter();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Fighter")) { return; }
@@ -66,6 +62,19 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+            }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Fighter");
+
+                PatchBase();
+                PatchTwoHandedFighter();
             }
             static void PatchBase() {
                 PatchTwoHandedWeaponTraining();

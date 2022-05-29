@@ -13,18 +13,13 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Barbarian {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Barbarian_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Barbarian");
-
                 PatchAlternateCapstone();
-                PatchBase();
-                PatchWreckingBlows();
-                PatchCripplingBlows();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Barbarian")) { return; }
@@ -57,6 +52,21 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
             }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Barbarian");
+
+                PatchBase();
+                PatchWreckingBlows();
+                PatchCripplingBlows();
+            }
+            
             static void PatchBase() {
             }
 

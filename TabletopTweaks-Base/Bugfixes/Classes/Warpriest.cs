@@ -17,15 +17,13 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Warpriest {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Warpriest_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Warpriest");
                 PatchAlternateCapstone();
-                PatchBase();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Warpriest")) { return; }
@@ -57,6 +55,17 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+            }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Warpriest");
+                PatchBase();
             }
             static void PatchBase() {
                 PatchAirBlessing();

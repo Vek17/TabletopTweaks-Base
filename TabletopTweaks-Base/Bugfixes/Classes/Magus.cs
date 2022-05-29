@@ -21,17 +21,13 @@ using static TabletopTweaks.Core.MechanicsChanges.ActivatableAbilitySpendLogic;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Magus {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Magus_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Magus Resources");
-
                 PatchAlternateCapstone();
-                PatchBase();
-                PatchSwordSaint();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Magus")) { return; }
@@ -63,6 +59,19 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+            }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Magus Resources");
+
+                PatchBase();
+                PatchSwordSaint();
             }
             static void PatchBase() {
                 PatchSpellCombatDisableImmediatly();

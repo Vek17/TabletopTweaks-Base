@@ -19,18 +19,13 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Clases {
     class Rogue {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        static class BlueprintsCache_Init_Patch {
+        static class Rogue_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Rogue");
-
                 PatchAlternateCapstone();
-                PatchBase();
-                PatchEldritchScoundrel();
-                PatchSylvanTrickster();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Rogue")) { return; }
@@ -62,6 +57,20 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                     });
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
+            }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        static class BlueprintsCache_Init_Patch {
+            static bool Initialized;
+
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Rogue");
+
+                PatchBase();
+                PatchEldritchScoundrel();
+                PatchSylvanTrickster();
             }
             static void PatchBase() {
                 PatchTrapfinding();

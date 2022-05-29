@@ -15,17 +15,13 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Cleric {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        [HarmonyPriority(Priority.First)]
-        static class BlueprintsCache_Init_Domain_Patch {
+        static class Cleric_AlternateCapstone_Patch {
             static bool Initialized;
-
+            [HarmonyPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
-                TTTContext.Logger.LogHeader("Patching Cleric");
-
                 PatchAlternateCapstone();
-                PatchBaseClass();
             }
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Cleric")) { return; }
@@ -39,6 +35,19 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
             }
+        }
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]    
+        static class BlueprintsCache_Init_Domain_Patch {
+            static bool Initialized;
+            [HarmonyPriority(Priority.First)]
+            static void Postfix() {
+                if (Initialized) return;
+                Initialized = true;
+                TTTContext.Logger.LogHeader("Patching Cleric");
+
+                PatchBaseClass();
+            }
+            
             static void PatchBaseClass() {
                 PatchGloryDomain();
 
