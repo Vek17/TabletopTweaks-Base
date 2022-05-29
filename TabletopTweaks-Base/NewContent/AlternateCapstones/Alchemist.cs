@@ -12,6 +12,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
         public static BlueprintProgression GrandDiscoveryProgression = null;
         public static void AddAlternateCapstones() {
             var DiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeature>("cd86c437488386f438dcc9ae727ea2a6");
+            var VivsectionistDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("67f499218a0e22944abab6fe1c9eaeee");
             var GrandDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("2729af328ab46274394cedc3582d6e98");
             var AlchemistBombsFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c59b2f256f5a70a4d896568658315b7d");
 
@@ -55,7 +56,9 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     Helpers.CreateLevelEntry(20,
                         GrandDiscoverySelection,
                         DiscoverySelection,
-                        DiscoverySelection
+                        DiscoverySelection,
+                        VivsectionistDiscoverySelection,
+                        VivsectionistDiscoverySelection
                     )
                 };
                 bp.AddComponent<PrerequisiteInPlayerParty>(c => {

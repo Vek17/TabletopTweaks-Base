@@ -1,3 +1,7 @@
+## Version 2.2.1
+* Fixes
+    * Fixed issue where vivisectionist was unselectable with alternate capstones enabled.
+
 ## Version 2.2.0
 * Fixes
     * Systems

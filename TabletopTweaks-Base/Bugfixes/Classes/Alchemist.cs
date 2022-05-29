@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
@@ -33,31 +35,66 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             static void PatchAlternateCapstone() {
                 if (Main.TTTContext.Fixes.AlternateCapstones.IsDisabled("Alchemist")) { return; }
 
-                var DiscoverySelection = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("cd86c437488386f438dcc9ae727ea2a6");
-                var VivsectionistDiscoverySelection = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("67f499218a0e22944abab6fe1c9eaeee");
+                var DiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("cd86c437488386f438dcc9ae727ea2a6");
+                var VivsectionistDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("67f499218a0e22944abab6fe1c9eaeee");
+                var VivisectionistArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("68cbcd9fbf1fb1d489562f829bb97e38");
                 var GrandDiscoverySelection = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("2729af328ab46274394cedc3582d6e98");
                 var AlchemistAlternateCapstone = NewContent.AlternateCapstones.Alchemist.AlchemistAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
                 var GrandDiscoveryProgression = NewContent.AlternateCapstones.Alchemist.GrandDiscoveryProgression.ToReference<BlueprintUnitFactReference>();
+
+                DiscoverySelection.TemporaryContext(bp => {
+                    bp.HideNotAvailibleInUI = true;
+                    bp.AddPrerequisite<PrerequisiteNoArchetype>(c => {
+                        c.m_Archetype = VivisectionistArchetype.ToReference<BlueprintArchetypeReference>();
+                        c.m_CharacterClass = ClassTools.Classes.AlchemistClass.ToReference<BlueprintCharacterClassReference>();
+                        c.HideInUI = true;
+                        c.CheckInProgression = true;
+                    });
+                });
+                VivsectionistDiscoverySelection.TemporaryContext(bp => {
+                    bp.HideNotAvailibleInUI = true;
+                    bp.AddPrerequisite<PrerequisiteArchetypeLevel>(c => {
+                        c.m_Archetype = VivisectionistArchetype.ToReference<BlueprintArchetypeReference>();
+                        c.m_CharacterClass = ClassTools.Classes.AlchemistClass.ToReference<BlueprintCharacterClassReference>();
+                        c.HideInUI = true;
+                        c.CheckInProgression = true;
+                    });
+                });
 
                 ClassTools.Classes.AlchemistClass.TemporaryContext(bp => {
                     bp.Progression.UIGroups = bp.Progression.UIGroups.AppendToArray(Helpers.CreateUIGroup(DiscoverySelection, VivsectionistDiscoverySelection, AlchemistAlternateCapstone));
                     bp.Progression.LevelEntries
                         .Where(entry => entry.Level == 20)
                         .ForEach(entry => {
-                            entry.m_Features.RemoveAll(f => f.deserializedGuid == DiscoverySelection.deserializedGuid);
+                            entry.m_Features.RemoveAll(f => f.deserializedGuid == DiscoverySelection.AssetGuid);
                             entry.m_Features.RemoveAll(f => f.deserializedGuid == GrandDiscoverySelection.deserializedGuid);
                             entry.m_Features.Add(AlchemistAlternateCapstone);
                         });
-                    bp.Archetypes.ForEach(a => {
-                        a.RemoveFeatures
-                            .Where(remove => remove.Level == 20)
-                            .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == GrandDiscoverySelection.deserializedGuid))
-                            .ForEach(remove => {
-                                remove.m_Features.RemoveAll(f => f.deserializedGuid == DiscoverySelection.deserializedGuid);
-                                remove.m_Features.RemoveAll(f => f.deserializedGuid == GrandDiscoverySelection.deserializedGuid);
-                                remove.m_Features.Add(AlchemistAlternateCapstone);
+                    bp.Archetypes
+                        .ForEach(a => {
+                            a.RemoveFeatures
+                                .Where(remove => remove.Level == 20)
+                                .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == GrandDiscoverySelection.deserializedGuid))
+                                .ForEach(remove => {
+                                    remove.m_Features.RemoveAll(f => f.deserializedGuid == DiscoverySelection.AssetGuid);
+                                    remove.m_Features.RemoveAll(f => f.deserializedGuid == GrandDiscoverySelection.deserializedGuid);
+                                    remove.m_Features.Add(AlchemistAlternateCapstone);
+                                });
+                            a.RemoveFeatures
+                                .Where(remove => remove.Level == 20)
+                                .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == DiscoverySelection.AssetGuid))
+                                .ForEach(remove => {
+                                    remove.m_Features.RemoveAll(f => f.deserializedGuid == DiscoverySelection.AssetGuid);
+                                });
+                        });
+                    VivisectionistArchetype.TemporaryContext(bp => {
+                        bp.AddFeatures
+                            .Where(add => add.Level == 20)
+                            .ForEach(add => {
+                                add.m_Features.RemoveAll(f => f.deserializedGuid == VivsectionistDiscoverySelection.AssetGuid);
                             });
                     });
+                    
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
             }
