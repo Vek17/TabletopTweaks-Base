@@ -130,7 +130,11 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.CheckInProgression = true;
                     c.HideInUI = true;
                 });
-                bp.AddFeatures(MasterHunter, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                bp.AddFeatures(
+                    MasterHunter,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature
+                );
             });
             BlueprintFeature CreaterHuntmasterCompanion(BlueprintFeature companionFeature, BlueprintFeature rank) {
                 return companionFeature.CreateCopy(TTTContext, $"Huntmaster{companionFeature.name}", bp => {

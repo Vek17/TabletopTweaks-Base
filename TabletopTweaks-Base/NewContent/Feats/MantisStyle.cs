@@ -1,10 +1,8 @@
-﻿using Kingmaker;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
@@ -218,10 +216,10 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     );
                 });
                 StunningFistAbility.Get().AddComponent<AbilityCasterHasNoFacts>(c => {
-                     c.m_Facts = new BlueprintUnitFactReference[] {
+                    c.m_Facts = new BlueprintUnitFactReference[] {
                         bp.ToReference<BlueprintUnitFactReference>()
                     };
-                 });
+                });
                 StunningFistFatigueAbility.Get().AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {
                         bp.ToReference<BlueprintUnitFactReference>()
@@ -284,7 +282,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.Category = new WeaponCategory[] { WeaponCategory.UnarmedStrike };
                 });
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] { 
+                    c.m_Facts = new BlueprintUnitFactReference[] {
                     };
                 });
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
@@ -442,7 +440,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.m_ActivateWithUnitCommand = UnitCommand.CommandType.Swift;
             });
             MantisStyleFeature.AddComponent<AddFacts>(c => {
-                c.m_Facts = new BlueprintUnitFactReference[] { MantisStyleToggle.ToReference<BlueprintUnitFactReference>()};
+                c.m_Facts = new BlueprintUnitFactReference[] { MantisStyleToggle.ToReference<BlueprintUnitFactReference>() };
             });
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MantisStyle")) { return; }

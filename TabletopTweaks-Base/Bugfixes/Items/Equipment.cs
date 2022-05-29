@@ -1,9 +1,7 @@
 ﻿using HarmonyLib;
-using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
@@ -15,8 +13,6 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UI.Common;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
@@ -99,7 +95,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FlawlessBeltOfPhysicalPerfection8CritIncrease")) { return; }
 
                     var BeltOfPerfection8ExtraFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("e1f419f50b5a45158080bb4cb4ff6858");
-                    
+
                     if (BeltOfPerfection8ExtraFeature != null) {
                         BeltOfPerfection8ExtraFeature.SetComponents();
                         BeltOfPerfection8ExtraFeature.AddComponent<AddFlatCriticalRangeIncrease>(c => {

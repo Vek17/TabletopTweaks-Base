@@ -175,7 +175,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchThickFog();
                 PatchSacredIncense();
 
-                void PatchImprovedIncense(){
+                void PatchImprovedIncense() {
                     if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("ImprovedIncense")) { return; }
 
                     var IncenseFogImprovedIncenseFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("ccea52d8cc5f8d34d95196d0a885be06");
@@ -191,7 +191,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 }
                 void PatchSacredIncense() {
                     if (TTTContext.Fixes.Alchemist.Archetypes["IncenseSynthesizer"].IsDisabled("SacredIncense")) { return; }
-                    
+
                     var IncenseFogArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("4aeb5ae7923dac74d91069f13a7f0a95");
                     var IncenseFog30Area = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("ffbbe6a2390245649ae5c7f2854d9cc2");
                     var IncenseFogSickenedBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("e905c55936cb67a48b8adf36e0d71de9");

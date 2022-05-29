@@ -35,10 +35,15 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.m_Icon = MasterStrike.Icon;
                 bp.Ranks = 1;
                 bp.AddPrerequisite<PrerequisiteInPlayerParty>(c => {
-                     c.CheckInProgression = true;
-                     c.HideInUI = true;
-                 });
-                bp.AddFeatures(MasterStrike, MasterfulTalent, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                    c.CheckInProgression = true;
+                    c.HideInUI = true;
+                });
+                bp.AddFeatures(
+                    MasterStrike,
+                    MasterfulTalent,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature
+                );
             });
         }
     }

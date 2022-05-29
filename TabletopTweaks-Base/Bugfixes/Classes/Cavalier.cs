@@ -125,7 +125,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 void PatchOrderOfTheStar() {
                     PatchCalling();
 
-                    void PatchCalling(){
+                    void PatchCalling() {
                         if (TTTContext.Fixes.Cavalier.Base.IsDisabled("OrderOfTheStarCalling")) { return; }
 
                         var CavalierCallingBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6074c0e8bd593024c9866c7b99c6d826");

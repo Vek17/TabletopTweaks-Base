@@ -37,7 +37,12 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.CheckInProgression = true;
                     c.HideInUI = true;
                 });
-                bp.AddFeatures(ArcanistMagicalSupremacy, DeepReservoir, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                bp.AddFeatures(
+                    ArcanistMagicalSupremacy,
+                    DeepReservoir,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature
+                );
             });
         }
     }

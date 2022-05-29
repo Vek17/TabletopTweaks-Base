@@ -40,7 +40,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.SetComponents();
                 bp.AddComponent<SpellKenningComponent>(c => {
                     c.m_Resource = SkaldSpellKenningResource.ToReference<BlueprintAbilityResourceReference>();
-                    c.m_SpellLists = new BlueprintSpellListReference[] { 
+                    c.m_SpellLists = new BlueprintSpellListReference[] {
                         SpellTools.SpellList.WizardSpellList.ToReference<BlueprintSpellListReference>(),
                         SpellTools.SpellList.ClericSpellList.ToReference<BlueprintSpellListReference>(),
                         SpellTools.SpellList.BardSpellList.ToReference<BlueprintSpellListReference>()

@@ -159,9 +159,9 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                             c.OnlyHit = true;
                             c.OnlyFlatFooted = true;
                             c.Action = Helpers.CreateActionList(
-                                new ContextActionApplyBuff() { 
+                                new ContextActionApplyBuff() {
                                     m_Buff = SoundOfVoidBuff.ToReference<BlueprintBuffReference>(),
-                                    DurationValue = new ContextDurationValue() { 
+                                    DurationValue = new ContextDurationValue() {
                                         DiceType = DiceType.D4,
                                         DiceCountValue = 1,
                                         BonusValue = 0
@@ -176,7 +176,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                             c.Penalty = 10000;
                         });
                     });
-                    
+
                     TTTContext.Logger.LogPatch(SoundOfVoidBuff);
                 }
                 void PatchMusicOfDeath() {
@@ -192,7 +192,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                             c.Damage = new DamageDescription() {
                                 Dice = new DiceFormula(2, DiceType.D6),
                                 Bonus = 0,
-                                TypeDescription = new DamageTypeDescription() { 
+                                TypeDescription = new DamageTypeDescription() {
                                     Type = DamageType.Energy,
                                     Energy = DamageEnergyType.Sonic
                                 }

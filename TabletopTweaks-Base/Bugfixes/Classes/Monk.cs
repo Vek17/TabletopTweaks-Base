@@ -358,7 +358,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         .ForEach(entry => entry.m_Features.Remove(ScaledFistDragonSelection));
                     ScaledFistArchetype.AddFeatures
                         .Where(entry => entry.Level == 4)
-                        .ForEach(entry => { 
+                        .ForEach(entry => {
                             entry.m_Features.Remove(ScaledFistKiPowerSelection);
                             entry.m_Features.Add(ScaledFistDragonSelection);
                         });

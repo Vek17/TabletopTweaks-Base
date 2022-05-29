@@ -79,7 +79,11 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.CheckInProgression = true;
                     c.HideInUI = true;
                 });
-                bp.AddFeatures(GrandDiscoveryProgression, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                bp.AddFeatures(
+                    GrandDiscoveryProgression,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature
+                );
                 if (TTTContext.Fixes.AlternateCapstones.IsDisabled("Alchemist")) { return; }
                 GrandDiscoverySelection.AddFeatures(VastExplosions);
             });

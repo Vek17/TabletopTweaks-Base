@@ -36,7 +36,11 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.CheckInProgression = true;
                     c.HideInUI = true;
                 });
-                bp.AddFeatures(Proxy, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                bp.AddFeatures(
+                    Proxy,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature
+                );
             });
         }
     }

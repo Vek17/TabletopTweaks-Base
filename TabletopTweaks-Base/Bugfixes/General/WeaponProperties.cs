@@ -1,10 +1,8 @@
 ﻿using HarmonyLib;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using System;
 using System.Linq;
-using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     static class WeaponProperties {

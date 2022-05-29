@@ -38,12 +38,12 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                                     m_Type = ContextActionDealDamage.Type.EnergyDrain,
                                     EnergyDrainType = EnergyDrainType.Permanent,
                                     DamageType = new DamageTypeDescription(),
-                                    Duration = new ContextDurationValue() { 
+                                    Duration = new ContextDurationValue() {
                                         Rate = DurationRate.Days,
                                         DiceCountValue = 0,
                                         BonusValue = 1,
                                     },
-                                    Value = new ContextDiceValue() { 
+                                    Value = new ContextDiceValue() {
                                         DiceCountValue = 0,
                                         BonusValue = 1
                                     }

@@ -1,11 +1,8 @@
 ﻿using HarmonyLib;
-using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
-using System;
 using System.Linq;
 using TabletopTweaks.Core;
 using TabletopTweaks.Core.NewComponents.Prerequisites;

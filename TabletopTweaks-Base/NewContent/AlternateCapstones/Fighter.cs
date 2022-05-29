@@ -56,10 +56,10 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.HideInUI = true;
                 });
                 bp.AddFeatures(
-                    WeaponMasterySelection, 
-                    VeteranOfEndlessWar, 
-                    Generic.PerfectBodyFlawlessMindProgression, 
-                    Generic.GreatBeastMasterFeature, 
+                    WeaponMasterySelection,
+                    VeteranOfEndlessWar,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature,
                     Generic.OldDogNewTricksProgression
                 );
             });

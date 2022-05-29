@@ -33,7 +33,11 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.CheckInProgression = true;
                     c.HideInUI = true;
                 });
-                bp.AddFeatures(MasterSkald, Generic.PerfectBodyFlawlessMindProgression, Generic.GreatBeastMasterFeature);
+                bp.AddFeatures(
+                    MasterSkald,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature
+                );
                 if (TTTContext.Fixes.Skald.Base.IsEnabled("SpellKenning")) {
                     bp.AddFeatures(GreatKenning);
                 }

@@ -80,7 +80,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                                             };
                                         }),
                                         Helpers.Create<Conditional>(conditional => {
-                                            conditional.ConditionsChecker = new ConditionsChecker() { 
+                                            conditional.ConditionsChecker = new ConditionsChecker() {
                                                 Conditions = new Condition[] {
                                                     new ContextConditionCasterHasFact(){
                                                         m_Fact = DragonFerocityBuff
@@ -96,7 +96,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                                                         Rate = DurationRate.Rounds,
                                                         DiceType = DiceType.D4,
                                                         DiceCountValue = 1,
-                                                        BonusValue = new ContextValue() { 
+                                                        BonusValue = new ContextValue() {
                                                             ValueType = ContextValueType.CasterProperty,
                                                             Property = UnitProperty.StatBonusStrength
                                                         }
@@ -107,7 +107,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                                     );
                                 })
                             );
-                        })    
+                        })
                     );
                 });
                 bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
@@ -151,7 +151,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     c.ResourceCostDecreasingFacts = new();
                 });
                 bp.AddComponent<AbilityCasterMainWeaponCheck>(c => {
-                    c.Category = new WeaponCategory[] { WeaponCategory.UnarmedStrike};
+                    c.Category = new WeaponCategory[] { WeaponCategory.UnarmedStrike };
                 });
                 bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { };

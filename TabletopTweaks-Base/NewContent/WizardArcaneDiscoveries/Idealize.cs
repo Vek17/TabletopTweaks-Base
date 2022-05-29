@@ -3,12 +3,10 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic.Buffs;
-using Kingmaker.UnitLogic.Mechanics;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewEvents;
 using TabletopTweaks.Core.NewUnitParts;
@@ -89,7 +87,7 @@ namespace TabletopTweaks.Base.NewContent.WizardArcaneDiscoveries {
                 if (context == null) { return; }
                 if (caster == null) { return; }
                 if (attribute == null || value < 0) { return; }
-                if (context.SpellSchool != SpellSchool.Transmutation) { return;}
+                if (context.SpellSchool != SpellSchool.Transmutation) { return; }
                 var metadataPart = owner.Get<UnitPartBuffMetadata>();
                 if (metadataPart != null && metadataPart.HasBuff(buff)) {
                     if (metadataPart.HasBuffWithFeature(buff, CustomMechanicsFeature.IdealizeDiscovery)) {

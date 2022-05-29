@@ -58,10 +58,10 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.HideInUI = true;
                 });
                 bp.AddFeatures(
-                    WarpriestAspectOfWar, 
-                    HammerOfGod, 
-                    Generic.PerfectBodyFlawlessMindProgression, 
-                    Generic.GreatBeastMasterFeature, 
+                    WarpriestAspectOfWar,
+                    HammerOfGod,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature,
                     Generic.OldDogNewTricksProgression
                 );
             });

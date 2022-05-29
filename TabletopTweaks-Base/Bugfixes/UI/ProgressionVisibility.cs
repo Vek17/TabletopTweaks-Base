@@ -38,7 +38,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
             private static int FindInsertionTarget(List<CodeInstruction> codes) {
                 for (int i = 0; i < codes.Count; i++) {
                     if (codes[i].LoadsField(BlueprintFeatureBase_HideInUI)) {
-                        return i+1;
+                        return i + 1;
                     }
                 }
                 TTTContext.Logger.LogError("ProgressionVM_PlaceFeatures_HideUnavailableFeatures_Patch: COULD NOT FIND TARGET");

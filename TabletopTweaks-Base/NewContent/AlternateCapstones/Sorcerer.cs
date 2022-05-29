@@ -71,7 +71,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     //UniqueBloodline, 
                     //BloodlineCapstoneSelection,
                     BloodlineCapstoneProgression,
-                    Generic.PerfectBodyFlawlessMindProgression, 
+                    Generic.PerfectBodyFlawlessMindProgression,
                     Generic.GreatBeastMasterFeature
                 );
             });

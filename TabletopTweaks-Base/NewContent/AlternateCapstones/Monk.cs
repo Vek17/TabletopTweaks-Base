@@ -66,7 +66,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.IsClassFeature = true;
                 bp.AddComponent<MonkNoArmorAndMonkWeaponFeatureUnlock>(c => {
                     c.m_NewFact = OldMasterFeatureFlurryFeature.ToReference<BlueprintUnitFactReference>();
-                    c.m_BowWeaponTypes = new BlueprintWeaponTypeReference[] { 
+                    c.m_BowWeaponTypes = new BlueprintWeaponTypeReference[] {
                         Longbow,
                         CompositeLongbow,
                         Shortbow,
@@ -125,9 +125,9 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 });
                 bp.AddFeatures(
                     KiPerfectSelfFeature,
-                    OldMasterUnlockBaseFeature, 
-                    Generic.PerfectBodyFlawlessMindProgression, 
-                    Generic.GreatBeastMasterFeature, 
+                    OldMasterUnlockBaseFeature,
+                    Generic.PerfectBodyFlawlessMindProgression,
+                    Generic.GreatBeastMasterFeature,
                     Generic.OldDogNewTricksProgression
                 );
             });

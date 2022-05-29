@@ -50,7 +50,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         a.RemoveFeatures
                             .Where(remove => remove.Level == 20)
                             .Where(remove => remove.m_Features.Any(f => f.deserializedGuid == MasterHunter.deserializedGuid));
-                            //.ForEach(remove => remove.m_Features.Add(HunterAlternateCapstone));
+                        //.ForEach(remove => remove.m_Features.Add(HunterAlternateCapstone));
                     });
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });

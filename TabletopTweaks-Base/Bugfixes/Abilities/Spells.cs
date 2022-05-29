@@ -295,7 +295,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 Command.AbilityAndVariants()
                     .ForEach(ability => {
                         var descriptors = ability.GetComponent<SpellDescriptorComponent>();
-                        if(descriptors is null) {
+                        if (descriptors is null) {
                             ability.AddComponent<SpellDescriptorComponent>();
                             descriptors = ability.GetComponent<SpellDescriptorComponent>();
                         }

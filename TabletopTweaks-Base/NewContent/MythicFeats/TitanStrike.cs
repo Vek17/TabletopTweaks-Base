@@ -14,7 +14,7 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
             var StunningFistBlindOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistBlindOwnerBuff");
             var StunningFistParalyzeOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "StunningFistParalyzeOwnerBuff");
             var MantisTormentOwnerBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "MantisTormentOwnerBuff");
-            
+
 
             var ImprovedUnarmedStrikeMythicFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("e086a07dae105244291fb11e05d0715f");
             var TitanStrikeFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "TitanStrikeFeature", bp => {

@@ -36,7 +36,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         c.HideInUI = true;
                         c.Not = true;
                         c.IgnoreLevelsBelow = 20;
-                        c.m_BypassSelections = new BlueprintFeatureSelectionReference[] { 
+                        c.m_BypassSelections = new BlueprintFeatureSelectionReference[] {
                             BloodlineCapstoneSelection.ToReference<BlueprintFeatureSelectionReference>(),
                             BloodlineAscendance.ToReference<BlueprintFeatureSelectionReference>()
                         };
@@ -63,7 +63,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchBase();
                 PatchCrossblooded();
             }
-            
+
             static void PatchBase() {
                 PatchDraconicBloodlineDescriptions();
                 PatchElementalBloodlineDescriptions();
