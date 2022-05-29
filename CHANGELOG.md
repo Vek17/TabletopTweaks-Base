@@ -6,7 +6,7 @@
     * Features
         * Mongrol's Blessing
             * Now properly applies negative levels.
-        * Incorperal Charm
+        * Incorporeal Charm
             * Now properly updates when charisma changes.
     * Spells
         * Absolute Order
@@ -22,30 +22,30 @@
     * Feats
         * Outflank
             * Outflank should no longer triggers on missed attacks.
-        * Sieze the Moment
-            * Sieze the moment should no longer trigger on missed attacks.
+        * Seize the Moment
+            * Seize the moment should no longer trigger on missed attacks.
         * Cleaving Finish
             * Cleave fixes now includes a working cleaving finish that will not randomly stop after three targets.
     * Alchemist
         * Fixed Thick Fog being an illusion based concealment instead of fog based.
-        * Fixed issue where Abundant Incense was not selectable ifyou had expanded range incense.
+        * Fixed issue where Abundant Incense was not selectable if you had expanded range incense.
     * Monk
         * Scaled Fist
-            * Draconic Fury now uses the correct unchained version of the progression isntead of the chained.
-            * Fixes stunning fist to use the same version as other monks for compatability.
+            * Draconic Fury now uses the correct unchained version of the progression instead of the chained.
+            * Fixes stunning fist to use the same version as other monks for compatibility.
     * Weapons
         * Sound of Void
             * Now correctly removes spell resistance when hitting a flat footed target.
         * Music of Death
             * Now correctly deals bonus damage when hitting a flat footed target.
-* Addeded Content
+* Added Content
     * Skald
         * Spell Kenning has been implemented.
     * Monk
         * Stunning Fist: Stagger
             * This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
         * Stunning Fist: Blind
-            * This ability works as Stunning Fist, but it permantly blinds the target on a failed save instead of stunning for 1 round.
+            * This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.
         * Stunning Fist: Paralyze
             * This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
     * Alternate Capstones
@@ -112,9 +112,9 @@
             * Treat half your levels in classes other than monk as monk levels for determining effects you can apply to a target of your Stunning Fist per the Stunning Fist monk class feature. While using Mantis Style, you gain a +2 bonus on unarmed attack rolls with which you are using Stunning Fist attempts.
         * Mantis Torment
             * While using Mantis Style, you make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.
-    * Mythic Abiltiies
+    * Mythic Abilities
         * Abundant Spell Kenning.
-            * You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.
+            * You can use Spell Kenning a number of additional times per day equal to one third your mythic rank.
 
 ## Version 2.1.1
 * Fixes
