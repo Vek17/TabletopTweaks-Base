@@ -49,7 +49,7 @@
         * Stunning Fist: Paralyze
             * This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
     * Alternate Capstones
-        * Genetic Capstones
+        * Generic Capstones
             * Perfect Body, Flawless Mind
                 * The character increases her ability scores by a collective total of 8.
             * Great Beast
@@ -59,7 +59,7 @@
         * Alchemist
             * Vast Explosions
                 * The alchemist’s bomb damage increases by 3d6.
-        * Arcansit
+        * Arcanist
             * Deep Reservoir
                 * Her arcane reservoir increases by 10.
         * Barbarian
