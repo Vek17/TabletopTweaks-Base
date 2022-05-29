@@ -493,7 +493,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Enables a complete archetype from Owlcat.
     
 * Alternate Capstones
-    * Genetic Capstones
+    * Generic Capstones
         * Perfect Body, Flawless Mind
             * The character increases her ability scores by a collective total of 8.
         * Great Beast
