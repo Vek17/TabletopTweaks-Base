@@ -65,10 +65,16 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Invisibility now properly grants concealment.
     * Loading
         * Saves will now properly remember who cast buffs which should fix several bugs including idealize discovery not working on save load.
+    * Scrolls
+        * Scoll UMD DCs are now calculated correctly at 20 + Scroll CL instead of 20 + Scroll spell level.
+    * Progressions
+        * Progressions no longer display features you will not get.
 
 * Spells
     * Spell flags
         * Retags buffs from spells as coming from spells to allow them to be dispelled correctly.
+    * Absolute Order
+        * Now has missing compulsion descriptor.
     * Abyssal Storm 
         * Abyssal Storm no longer saves for half and no longer kills the caster.
     * Acid Maw 
@@ -83,6 +89,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Break Enchantment no longer affects friendly buffs.
     * Chain Lightning
         * Chain Lightning now respect the 20 CL max for damage dice.
+    * Command
+        * Now has missing compulsion descriptor.
+    * Greater Command
+        * Now has missing compulsion descriptor.
     * Corrupt Magic
         * Corrupt Magic now uses a single dispel roll for all buffs like other dispels.
     * Crusader's Edge
@@ -101,12 +111,16 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Greater Magic Weapon no longer stacks with existing enhancement bonuses.
     * Hellfire Ray
         * Hellfire Ray no longer has the Fire descriptor.
+    * Legendary Proportions
+        * Now only increases size by one step instead of two.
     * Magical Vestment
         * Magical Vestment now enhances your armor instead of granting a floating modifier.
     * Microscopic Proportions 
         * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
     * Mind Blank
         * Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing.
+    * Power From Death
+        * Now correctly lasts rounds per level instead of minutes per level.
     * Remove Fear
         * Remove Fear no longer grants immunity to shaken and fear.
     * Remove Sickness
@@ -145,6 +159,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Cleave
         * Cleave now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
     * Cleaving Finish
+        * Cleaving Finish will no longer randomly stop after three targets.
+    * Cleaving Finish
         * Cleaving Finish now checks for adjacency to the last target (Adjacent = within 5ft) instead of just reach.
     * Empower Metamagic
         * Sticky touch spells can now be empowered.
@@ -172,8 +188,12 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Magical Tail gives Hideous Laughter at 2 and Heroism at 5 instead of sleep spells.
     * Mounted Combat
         * Now works correctly
+    * Outflank
+        * Outflank should no longer triggers on missed attacks.
     * ShatterDefenses
         * Now requires you to hit a shaken target once before they become flat footed.
+    * Sieze the Moment
+        * Sieze the moment should no longer trigger on missed attacks.
     * SlashingGrace
         * Fixed an edge case that sometimes allowed slashing grace from applying to two handed weapons.
     * Spell Specialization
@@ -236,6 +256,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Removed poison resistance from the archetype
     * Incense Synthesizer
         * Incense Fog now scales correctly if you take expanded area.
+        * Thick Fog is no longer illusion based concealment.
+        * Sacred Incense no longer bypass all immunities. 
 
 * Arcanist
     * Prepared Spell UI
@@ -307,8 +329,17 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Updates perfect critical's cost to 2 points of arcane pool instead of 1.
 
 * Monk
+    * Stunning Fist: Stagger
+        * This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
+    * Stunning Fist: Blind
+        * This ability works as Stunning Fist, but it permantly blinds the target on a failed save instead of stunning for 1 round.
+    * Stunning Fist: Paralyze
+        * This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
     * ZenArcher
         * At level 10 a zen archer will roll 3 dice instead of 2 with perfect strike.
+    * Scaled Fist
+        * Draconic Fury now uses the correct unchained version of the progression isntead of the chained.
+        * Fixes stunning fist to use the same version as other monks for compatability.
 
 * Oracle
     * Nature's Oracle
@@ -346,6 +377,9 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 * Shaman
     * Ameliorating Hex 
         * Ameliorating Hex no longer grants complete immunity to effects and instead suppresses correctly.
+
+* Skald
+    * Spell Kenning has been added.
 
 * Slayer
     * Trapfinding
@@ -431,6 +465,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Implements the missing on kill effect. Whenever the wielder of this weapon lands a killing blow, he deals sonic damage equal to his ranks in the Athletics skill to all enemies within 10 feet. Successful Reflex save (DC 30) halves the damage.
     * Thundering Burst
         * Fixes thundering burst to deal D10s like the description says instead of D8s.
+    * Sound of Void
+        * Now correctly removes spell resistance when hitting a flat footed target.
+    * Music of Death
+        * Now correctly deals bonus damage when hitting a flat footed target.
     * Vorpal
         * Vorpal now works correctly.
 
@@ -454,6 +492,61 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Witch - Cauldron Witch
         * Enables a complete archetype from Owlcat.
     
+* Alternate Capstones
+    * Genetic Capstones
+        * Perfect Body, Flawless Mind
+            * The character increases her ability scores by a collective total of 8.
+        * Great Beast
+            * The animal companion’s Strength, Dexterity, Constitution, and Wisdom scores each increase by 4. This capstone is available to any class with an animal companion.
+        * Old Dog, New Tricks
+            * The character gains four combat feats. This capstone is available to characters of any class that gains at least four bonus combat feats.
+    * Alchemist
+        * Vast Explosions
+            * The alchemist’s bomb damage increases by 3d6.
+    * Arcansit
+        * Deep Reservoir
+            * Her arcane reservoir increases by 10.
+    * Barbarian
+        * Unstoppable
+            * The barbarian gains DR 3/— or increases the value of any existing damage reduction by 3. In addition, she gains 20 energy resistance to acid, cold, electricity, and fire.
+    * Cleric
+        * Proxy
+            * She can select an additional domain from the list offered by her deity.
+    * Fighter
+        * Veteran of Endless War
+            * The bonuses granted by his armor training and weapon training increase by 2 each.
+    * Inquisitor
+        * Team Leader
+            * As a standard action the inquisitor can spend a standard action granting characters up to three of the inquisitor’s teamwork feats (the inquisitor’s choice) as bonus feats for the next 24 hours.
+    * Kineticist
+        * Unbridled Power
+            * Her damage with her blasts increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts).
+    * Monk
+        * Old Master
+            * The monk gains one additional attack at his highest base attack bonus when using flurry of blows, and he gains a dodge bonus to AC of 2.
+    * Oracle
+        * Diverse Mysteries
+            * The oracle can select two revelations from another mystery. She must meet the prerequisites for these revelations.
+    * Ranger
+        * Seen It Before
+            * The ranger adds his favored enemy bonus as an insight bonus on saves against spells and abilities used by his favored enemies.
+    * Rogue
+        * Masterful Talent
+            * The rogue gains a +4 bonus on all of her skills.
+    * Skald
+        * Great Kenning
+            * The skald can use spell kenning three additional times per day and can select one additional spell list from which he can cast spells with spell kenning.
+    * Slayer
+        * Against the Odds
+            * When the slayer uses studied target, he can study up to two additional foes within 30 feet in the same action.
+    * Warpriest
+        * Hammer of God
+            * The warpriest gains two additional blessings from the list offered by his deity. He can also call upon his blessings two more times each day.
+    * Wizard
+        * Well-Prepared
+            * The wizard gains six additional 1st- and 2nd-level spell slots, four additional 3rd- and 4th-level spell slots, two additional 5th-level spell slots, and one additional 6th-level spell slot.
+
+
 * Spells
     * Long Arm
         * Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.
@@ -479,6 +572,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * When casting a shadow spell, that spell is 20% more real than normal.
 
 * Feats
+    * Ability Focus - Stunning Fist
+        * Add +2 to the DC for all saving throws against your stunning fist.
     * Animal Ally
         * You gain an animal companion as if you were a druid of your character level -3. Unlike normal animals of its kind, an animal companion's Hit Dice, abilities, skills, and feats advance as you advance in level.
     * Celestial Servant
@@ -491,6 +586,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Whenever you attempt a dispel check based on your caster level, you gain a +2 bonus to the check. This stacks with the bonus from Dispel Focus.
     * Erastil's Blessing
         * You can use your Wisdom modifier instead of your Dexterity modifier on ranged attack rolls when using a bow.
+    * Expanded Spell Kenning
+        * When you use your spell kenning class feature, you can select a spell from either the druid or the witch spell list.
     * Extra Arcana
         * You gain one additional magus arcana. You must meet all the prerequisites for this magus arcana.
     * Extra Arcanist Exploit
@@ -521,6 +618,12 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * You can increase the reach of your spells’ melee touch attacks by 5 feet until the end of your turn by taking a –2 penalty to your AC until your next turn. You must decide to use this ability before you attempt any attacks on your turn.
     * Magical Aptitude
         * You get a +2 bonus on Knowledge (Arcana) and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.
+    * Mantis Style
+        * You gain one additional Stunning Fist attempt per day. While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.
+    * Mantis Wisdom
+        * Treat half your levels in classes other than monk as monk levels for determining effects you can apply to a target of your Stunning Fist per the Stunning Fist monk class feature. While using Mantis Style, you gain a +2 bonus on unarmed attack rolls with which you are using Stunning Fist attempts.
+    * Mantis Torment
+        * While using Mantis Style, you make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.
     * Mounted Skirmisher
         * If your mount moves its speed or less, you can still take a full-attack action.
     * Nature Soul
@@ -607,6 +710,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * You can use incense fog for an additional number of rounds equal to your mythic rank.
     * Abundant Fervor
         * You can use Fervor a number of additional times per day equal to your mythic rank.
+    * Abundant Spell Kenning.
+        * You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.
     * Armored Might
         * You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.
     * Armor Master

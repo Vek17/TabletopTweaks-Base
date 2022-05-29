@@ -21,14 +21,18 @@
             * Now correctly lasts rounds per level instead of minutes per level.
     * Feats
         * Outflank
-            * Outflank should no longer trigger on missed attacks.
+            * Outflank should no longer triggers on missed attacks.
         * Sieze the Moment
             * Sieze the moment should no longer trigger on missed attacks.
         * Cleaving Finish
-            * Cleave fixes now include a working cleaving finish that will not randomly stop after three targets.
+            * Cleave fixes now includes a working cleaving finish that will not randomly stop after three targets.
     * Alchemist
         * Fixed Thick Fog being an illusion based concealment instead of fog based.
         * Fixed issue where Abundant Incense was not selectable ifyou had expanded range incense.
+    * Monk
+        * Scaled Fist
+            * Draconic Fury now uses the correct unchained version of the progression isntead of the chained.
+            * Fixes stunning fist to use the same version as other monks for compatability.
     * Weapons
         * Sound of Void
             * Now correctly removes spell resistance when hitting a flat footed target.
@@ -38,9 +42,6 @@
     * Skald
         * Spell Kenning has been implemented.
     * Monk
-        * Scaled Fist
-            * Draconic Fury now uses the correct unchained version of the progression isntead of the chained.
-            * Fixes stunning fist to use the same version as other monks for compatability.
         * Stunning Fist: Stagger
             * This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
         * Stunning Fist: Blind
@@ -48,6 +49,58 @@
         * Stunning Fist: Paralyze
             * This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.
     * Alternate Capstones
+        * Genetic Capstones
+            * Perfect Body, Flawless Mind
+                * The character increases her ability scores by a collective total of 8.
+            * Great Beast
+                * The animal companion’s Strength, Dexterity, Constitution, and Wisdom scores each increase by 4. This capstone is available to any class with an animal companion.
+            * Old Dog, New Tricks
+                * The character gains four combat feats. This capstone is available to characters of any class that gains at least four bonus combat feats.
+        * Alchemist
+            * Vast Explosions
+                * The alchemist’s bomb damage increases by 3d6.
+        * Arcansit
+            * Deep Reservoir
+                * Her arcane reservoir increases by 10.
+        * Barbarian
+            * Unstoppable
+                * The barbarian gains DR 3/— or increases the value of any existing damage reduction by 3. In addition, she gains 20 energy resistance to acid, cold, electricity, and fire.
+        * Cleric
+            * Proxy
+                * She can select an additional domain from the list offered by her deity.
+        * Fighter
+            * Veteran of Endless War
+                * The bonuses granted by his armor training and weapon training increase by 2 each.
+        * Inquisitor
+            * Team Leader
+                * As a standard action the inquisitor can spend a standard action granting characters up to three of the inquisitor’s teamwork feats (the inquisitor’s choice) as bonus feats for the next 24 hours.
+        * Kineticist
+            * Unbridled Power
+                * Her damage with her blasts increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts).
+        * Monk
+            * Old Master
+                * The monk gains one additional attack at his highest base attack bonus when using flurry of blows, and he gains a dodge bonus to AC of 2.
+        * Oracle
+            * Diverse Mysteries
+                * The oracle can select two revelations from another mystery. She must meet the prerequisites for these revelations.
+        * Ranger
+            * Seen It Before
+                * The ranger adds his favored enemy bonus as an insight bonus on saves against spells and abilities used by his favored enemies.
+        * Rogue
+            * Masterful Talent
+                * The rogue gains a +4 bonus on all of her skills.
+        * Skald
+            * Great Kenning
+                * The skald can use spell kenning three additional times per day and can select one additional spell list from which he can cast spells with spell kenning.
+        * Slayer
+            * Against the Odds
+                * When the slayer uses studied target, he can study up to two additional foes within 30 feet in the same action.
+        * Warpriest
+            * Hammer of God
+                * The warpriest gains two additional blessings from the list offered by his deity. He can also call upon his blessings two more times each day.
+        * Wizard
+            * Well-Prepared
+                * The wizard gains six additional 1st- and 2nd-level spell slots, four additional 3rd- and 4th-level spell slots, two additional 5th-level spell slots, and one additional 6th-level spell slot.
     * Feats
         * Ability Focus - Stunning Fist
             * Add +2 to the DC for all saving throws against your stunning fist.

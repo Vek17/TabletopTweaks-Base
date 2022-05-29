@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Designers.Mechanics.Facts;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -17,13 +16,6 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     "When the magus enhances his weapon with his arcane pool, he grants it an additional +2 enhancement bonus (for a total of +7).");
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
-                bp.ReapplyOnLevelUp = true;
-                bp.AddComponent<IncreaseFeatRankByGroup>(c => {
-                    c.Group = FeatureGroup.WeaponTraining;
-                });
-                bp.AddComponent<IncreaseFeatRankByGroup>(c => {
-                    c.Group = FeatureGroup.WeaponTraining;
-                });
             });
             MagusAlternateCapstone = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "MagusAlternateCapstone", bp => {
                 bp.SetName(TTTContext, "Capstone");

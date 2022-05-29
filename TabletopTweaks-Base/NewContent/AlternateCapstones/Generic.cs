@@ -105,7 +105,6 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
-                bp.ReapplyOnLevelUp = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[0];
                 bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
@@ -178,18 +177,15 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
-                bp.ReapplyOnLevelUp = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[0];
                 bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
                 bp.m_ExclusiveProgression = new BlueprintCharacterClassReference();
                 bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = new LevelEntry[] {
-                    Helpers.CreateLevelEntry(20,
-                        FighterFeatSelection,
-                        FighterFeatSelection,
-                        FighterFeatSelection,
-                        FighterFeatSelection
-                    )
+                    Helpers.CreateLevelEntry(17, FighterFeatSelection),
+                    Helpers.CreateLevelEntry(18, FighterFeatSelection),
+                    Helpers.CreateLevelEntry(19, FighterFeatSelection),
+                    Helpers.CreateLevelEntry(20, FighterFeatSelection)
                 };
             });
         }

@@ -21,7 +21,6 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;
                 bp.GiveFeaturesForPreviousLevels = true;
-                bp.ReapplyOnLevelUp = true;
                 bp.m_Classes = new BlueprintProgression.ClassWithLevel[0];
                 bp.m_Archetypes = new BlueprintProgression.ArchetypeWithLevel[0];
                 bp.m_AlternateProgressionClasses = new BlueprintProgression.ClassWithLevel[0];
