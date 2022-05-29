@@ -503,7 +503,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Alchemist
         * Vast Explosions
             * The alchemist’s bomb damage increases by 3d6.
-    * Arcansit
+    * Arcanist
         * Deep Reservoir
             * Her arcane reservoir increases by 10.
     * Barbarian
