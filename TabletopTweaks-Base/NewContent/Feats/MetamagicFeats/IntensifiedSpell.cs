@@ -98,14 +98,15 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicIntensifiedSpell")) { return; }
 
-            UpdateSpells();
             AddRodsToVenders();
             FeatTools.AddAsFeat(IntensifiedSpellFeat);
             FeatTools.AddAsMetamagicFeat(IntensifiedSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicIntensified);
         }
 
-        private static void UpdateSpells() {
+        public static void UpdateSpells() {
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicIntensifiedSpell")) { return; }
+
             var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
                 bool isIntensifiedSpell = spell.AbilityAndVariants()

@@ -121,13 +121,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicFlaringSpell")) { return; }
 
-            UpdateSpells();
             AddRodsToVenders();
             FeatTools.AddAsFeat(FlaringSpellFeat);
             FeatTools.AddAsMetamagicFeat(FlaringSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicFlaring);
         }
-        private static void UpdateSpells() {
+        public static void UpdateSpells() {
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicFlaringSpell")) { return; }
+
             var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
 

@@ -196,13 +196,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicBurningSpell")) { return; }
 
-            UpdateSpells();
             AddRodsToVenders();
             FeatTools.AddAsFeat(BurningSpellFeat);
             FeatTools.AddAsMetamagicFeat(BurningSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicBurning);
         }
-        private static void UpdateSpells() {
+        public static void UpdateSpells() {
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicBurningSpell")) { return; }
+
             var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
                 bool isBurningSpell = spell.AbilityAndVariants()

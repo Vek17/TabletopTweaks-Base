@@ -77,7 +77,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 bp.AddPrerequisiteFeature(EncouragingSpellFeat);
             });
 
-            if (TTTContext.AddedContent.Feats.IsEnabled("MetamagicPiercingSpell")) {
+            if (TTTContext.AddedContent.Feats.IsEnabled("MetamagicEncouragingSpell")) {
                 MetamagicExtention.RegisterMetamagic(
                     context: TTTContext,
                     metamagic: (Metamagic)CustomMetamagic.Encouraging,
@@ -101,13 +101,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicEncouragingSpell")) { return; }
 
-            UpdateSpells();
             //AddRodsToVenders();
             FeatTools.AddAsFeat(EncouragingSpellFeat);
             FeatTools.AddAsMetamagicFeat(EncouragingSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicEncouraging);
         }
-        private static void UpdateSpells() {
+        public static void UpdateSpells() {
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicEncouragingSpell")) { return; }
+
             var spells = SpellTools.GetAllSpells()
                 .Where(s => s.AssetGuid.m_Guid != Guid.Parse("8bc64d869456b004b9db255cdd1ea734") /*Exclude Bane*/);
             foreach (var spell in spells) {

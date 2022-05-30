@@ -11,7 +11,8 @@ namespace TabletopTweaks.Base.NewContent {
             static bool Initialized;
 
             [HarmonyPriority(Priority.First)]
-            static void Postfix() {
+            [HarmonyPostfix]
+            static void CreateNewBlueprints() {
                 var test = BlueprintTools.GetBlueprint<BlueprintSharedVendorTable>("c773973cd73d4cd7aa4ccf3868dfeba9");
                 test.TemporaryContext(bp => {
                     bp.SetComponents();
@@ -231,6 +232,17 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Warpriest.AddAlternateCapstones();
                 AlternateCapstones.Witch.AddAlternateCapstones();
                 AlternateCapstones.Wizard.AddAlternateCapstones();
+            }
+            [HarmonyPriority(Priority.Last)]
+            [HarmonyPostfix]
+            static void ApplyNewMetamagics() {
+                Feats.MetamagicFeats.BurningSpell.UpdateSpells();
+                Feats.MetamagicFeats.EncouragingSpell.UpdateSpells();
+                Feats.MetamagicFeats.FlaringSpell.UpdateSpells();
+                Feats.MetamagicFeats.IntensifiedSpell.UpdateSpells();
+                Feats.MetamagicFeats.PiercingSpell.UpdateSpells();
+                Feats.MetamagicFeats.RimeSpell.UpdateSpells();
+                Feats.MetamagicFeats.SolidShadows.UpdateSpells();
             }
         }
     }

@@ -53,7 +53,17 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
             });
-
+            if (TTTContext.AddedContent.Feats.IsEnabled("MetamagicSolidShadows")) {
+                MetamagicExtention.RegisterMetamagic(
+                   context: TTTContext,
+                   metamagic: (Metamagic)CustomMetamagic.SolidShadows,
+                   name: "Solid Shadows",
+                   icon: Icon_SolidShadowsMetamagic,
+                   defaultCost: 1,
+                   favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicSolidShadows,
+                   metamagicMechanics: SolidShadowsMechanics.Instance
+               );
+            }
             var FavoriteMetamagicSolidShadows = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicSolidShadows", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Solid Shadows");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
@@ -69,21 +79,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             });
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicSolidShadows")) { return; }
-            MetamagicExtention.RegisterMetamagic(
-                context: TTTContext,
-                metamagic: (Metamagic)CustomMetamagic.SolidShadows,
-                name: "Solid Shadows",
-                icon: Icon_SolidShadowsMetamagic,
-                defaultCost: 1,
-                favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicSolidShadows,
-                metamagicMechanics: SolidShadowsMechanics.Instance
-            );
-            UpdateSpells();
+
             FeatTools.AddAsFeat(SolidShadowsSpellFeat);
             FeatTools.AddAsMetamagicFeat(SolidShadowsSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicSolidShadows);
         }
-        private static void UpdateSpells() {
+        public static void UpdateSpells() {
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicSolidShadows")) { return; }
+
             var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
                 bool validShadow = spell.GetComponent<AbilityShadowSpell>();

@@ -119,13 +119,15 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             );
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
-            UpdateSpells();
+
             AddRodsToVenders();
             FeatTools.AddAsFeat(RimeSpellFeat);
             FeatTools.AddAsMetamagicFeat(RimeSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicRime);
         }
-        private static void UpdateSpells() {
+        public  static void UpdateSpells() {
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
+
             var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
                 bool isColdSpell = spell.AbilityAndVariants()

@@ -93,13 +93,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
 
-            UpdateSpells();
             AddRodsToVenders();
             FeatTools.AddAsFeat(PiercingSpellFeat);
             FeatTools.AddAsMetamagicFeat(PiercingSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPiercing);
         }
-        private static void UpdateSpells() {
+        public static void UpdateSpells() {
+            if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
+
             var spells = SpellTools.GetAllSpells();
             foreach (var spell in spells) {
                 bool validPiercing = spell.AbilityAndVariants()
