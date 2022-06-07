@@ -14,8 +14,8 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
 
             var AbundantSpellKenning = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "AbundantSpellKenning", bp => {
                 bp.SetName(TTTContext, "Abundant Spell Kenning");
-                bp.SetDescription(TTTContext, "You've mastery of magic allows you to more redily duplicate spells of other classes.\n" +
-                    "Benefit: You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.");
+                bp.SetDescription(TTTContext, "Your mastery of magic allows you to more readily duplicate spells of other classes.\n" +
+                    "Benefit: You can use Spell Kenning a number of additional times per day equal to one third your mythic rank.");
                 bp.m_Icon = SkaldSpellKenning.Icon;
                 bp.Ranks = 1;
                 bp.IsClassFeature = true;

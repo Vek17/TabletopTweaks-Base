@@ -119,6 +119,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         return s.FlattenAllActions()
                             .OfType<ContextActionApplyBuff>()
                             .Select(c => c.Buff)
+                            .Where(buff => buff is not null)
                             .Any(buff => {
                                 foreach (var component in buff.ComponentsArray) {
                                     Type type = component.GetType();
