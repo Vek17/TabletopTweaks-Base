@@ -1,8 +1,8 @@
 ## Version 2.2.1
 * Fixes
     * Fixed broken config options for some metamagic.
-    * Improved mod compatability with metamagics.
-    * Fixed mod compatability issue with world crawl.
+    * Improved mod compatibility with metamagics.
+    * Fixed mod compatibility issue with world crawl.
 
 ## Version 2.2.1
 * Fixes
