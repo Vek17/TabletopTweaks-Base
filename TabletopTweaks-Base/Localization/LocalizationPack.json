@@ -155,10 +155,10 @@
       "esES": null
     },
     {
-      "Key": "428f3252bf874889b0664ad5dbb7b17a",
+      "Key": "75ce68095a4646fe8376639328bf9e38",
       "SimpleName": "AbundantSpellKenning.Description",
       "ProcessTemplates": true,
-      "enGB": "You've mastery of magic allows you to more redily duplicate spells of other classes.\nBenefit: You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank.",
+      "enGB": "Your mastery of magic allows you to more readily duplicate spells of other classes.\nBenefit: You can use Spell Kenning a number of additional times per day equal to one third your mythic rank.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -262,17 +262,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "进阶武器训练",
-      "esES": null
-    },
-    {
-      "Key": "70ca0f53510e45309fea9a0ab3cb8dd2",
-      "SimpleName": "AgainstTheOdds.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 20th level, the slayer is used to fighting when the numbers are not in his favor.\nWhen the slayer uses studied target, he can study up to two additional foes with the same action.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -4973,17 +4962,6 @@
       "esES": null
     },
     {
-      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Flaming",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古炽焰",
-      "esES": null
-    },
-    {
       "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -4992,6 +4970,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古焚化",
+      "esES": null
+    },
+    {
+      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Flaming",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "古炽焰",
       "esES": null
     },
     {
@@ -7514,17 +7503,6 @@
       "esES": null
     },
     {
-      "Key": "065ed245f2e54cfd9e98ef4492d26406",
-      "SimpleName": "MantisStyleBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "8c0441657af14cb7b9658d61e8ca1da7",
       "SimpleName": "MantisStyleFeature.Description",
       "ProcessTemplates": true,
@@ -7551,28 +7529,6 @@
       "SimpleName": "MantisStyleToggle.Description",
       "ProcessTemplates": true,
       "enGB": "While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "d78f9b27dc1f42818a56bda2dfe948c5",
-      "SimpleName": "MantisTormentAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "You make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "6cb3f4e377534aed854f15c4ff0bd8b0",
-      "SimpleName": "MantisTormentBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "You make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -11320,17 +11276,6 @@
       "esES": null
     },
     {
-      "Key": "add2b98d12d943f0bfd61c1b18267de8",
-      "SimpleName": "TeamLeader.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 20th level, the inquisitor has grown accustomed to teaching farmers to fight, but what she can do with trained warriors is far more terrifying.\nWhen the inquisitor regains her spells each day, she can also spend 1 hour training a number of characters up to her Wisdom modifier in battle tactics. These characters receive three of the inquisitor’s teamwork feats (the inquisitor’s choice) as bonus feats for the next 24 hours.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "d1dbf0de91a3420a86410d2582506b6f",
       "SimpleName": "TeamLeaderAbility.Description",
       "ProcessTemplates": true,
@@ -12017,17 +11962,6 @@
       "SimpleName": "UnbridledPower.Description",
       "ProcessTemplates": true,
       "enGB": "At 20th level, the kineticist wields her chosen elements like a knife, cutting through all opposition.\nHer damage with her blasts increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts).",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "082aa70ed6ab41c09f7e387af936fa84",
-      "SimpleName": "UnbridledPower.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 20th level, the kineticist wields her chosen element like a knife, cutting through all opposition.\nThe kineticist chooses one blast. Her damage with that blast increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts), and the blast ignores the first 10 points of damage reduction or energy resistance that the target has.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,

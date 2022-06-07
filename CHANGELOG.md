@@ -1,5 +1,11 @@
 ## Version 2.2.1
 * Fixes
+    * Fixed broken config options for some metamagic.
+    * Improved mod compatability with metamagics.
+    * Fixed mod compatability issue with world crawl.
+
+## Version 2.2.1
+* Fixes
     * Fixed issue where vivisectionist was unselectable with alternate capstones enabled.
 
 ## Version 2.2.0
