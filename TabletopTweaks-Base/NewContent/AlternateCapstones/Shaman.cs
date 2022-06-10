@@ -27,7 +27,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.HideInUI = true;
                 });
                 bp.AddFeatures(
-                    HexMastery,
+                    //HexMastery,
                     Generic.PerfectBodyFlawlessMindProgression,
                     Generic.GreatBeastMasterFeature
                 );

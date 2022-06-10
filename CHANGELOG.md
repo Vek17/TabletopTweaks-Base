@@ -1,4 +1,8 @@
-## Version 2.2.1
+## Version 2.2.3
+* Fixes
+    * Fixed issue where Bloodline Ascendence was not selectable when it should have been.
+
+## Version 2.2.2
 * Fixes
     * Fixed broken config options for some metamagic.
     * Improved mod compatibility with metamagics.

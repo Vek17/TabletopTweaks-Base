@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.ActivatableAbilities;
@@ -29,20 +30,34 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 var SorcererAlternateCapstone = NewContent.AlternateCapstones.Sorcerer.SorcererAlternateCapstone.ToReference<BlueprintFeatureBaseReference>();
                 var BloodlineAscendance = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var BloodlineCapstoneSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(TTTContext, "BloodlineCapstoneSelection");
+                var MythicAbilitySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("ba0e5a900b775be4a99702f1ed08914d");
+                var MythicFeatSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("9ee0f6745f555484299b0a1563b99d81");
+                var ExtraMythicAbilityMythicFeat = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
 
-                BloodlineAscendance.AllFeatures.ForEach(capstone => {
-                    capstone.AddComponent<PrerequisiteInPlayerParty>(c => {
-                        c.CheckInProgression = true;
-                        c.HideInUI = true;
-                        c.Not = true;
-                        c.IgnoreLevelsBelow = 20;
-                        c.m_BypassSelections = new BlueprintFeatureSelectionReference[] {
-                            BloodlineCapstoneSelection.ToReference<BlueprintFeatureSelectionReference>(),
-                            BloodlineAscendance.ToReference<BlueprintFeatureSelectionReference>()
-                        };
+                BloodlineAscendance.TemporaryContext(bp => {
+                    bp.AllFeatures.ForEach(capstone => {
+                        capstone.AddComponent<PrerequisiteInPlayerParty>(c => {
+                            c.CheckInProgression = true;
+                            c.HideInUI = true;
+                            c.Not = true;
+                            c.IgnoreLevelsBelow = 20;
+                            c.m_BypassSelections = new BlueprintFeatureSelectionReference[] {
+                                BloodlineCapstoneSelection.ToReference<BlueprintFeatureSelectionReference>(),
+                                BloodlineAscendance.ToReference<BlueprintFeatureSelectionReference>(),
+                                MythicAbilitySelection.ToReference<BlueprintFeatureSelectionReference>(),
+                                BloodlineAscendance.ToReference<BlueprintFeatureSelectionReference>(),
+                                BloodlineAscendance.ToReference<BlueprintFeatureSelectionReference>(),
+                                MythicFeatSelection.ToReference<BlueprintFeatureSelectionReference>(),
+                                ExtraMythicAbilityMythicFeat.ToReference<BlueprintFeatureSelectionReference>()
+                            };
+                        });
+                        capstone.HideNotAvailibleInUI = true;
                     });
-                    capstone.HideNotAvailibleInUI = true;
+                    bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                        c.m_Feature = NewContent.AlternateCapstones.Sorcerer.SorcererAlternateCapstone.ToReference<BlueprintFeatureReference>();
+                    });
                 });
+                
                 ClassTools.Classes.SorcererClass.TemporaryContext(bp => {
                     bp.Progression.LevelEntries
                         .Where(entry => entry.Level == 20)
