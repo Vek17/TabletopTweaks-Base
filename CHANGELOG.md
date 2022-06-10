@@ -1,6 +1,6 @@
 ## Version 2.2.3
 * Fixes
-    * Fixed issue where Bloodline Ascendence was not selectable when it should have been.
+    * Fixed issue where Bloodline Ascendance was not selectable when it should have been.
 
 ## Version 2.2.2
 * Fixes
