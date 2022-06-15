@@ -34,32 +34,32 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.AddComponent(Helpers.Create<AttackStatReplacementTTT>(c => {
+                bp.AddComponent<AttackStatReplacementTTT>(c => {
                     c.ReplacementStat = StatType.Dexterity;
                     c.m_WeaponTypes = new BlueprintWeaponTypeReference[] {
                         Scimitar.ToReference<BlueprintWeaponTypeReference>()
                     };
                     c.CheckWeaponTypes = true;
-                }));
-                bp.AddComponent(Helpers.Create<DamageGraceTTT>(c => {
+                });
+                bp.AddComponent<DamageGraceTTT>(c => {
                     c.Category = WeaponCategory.Scimitar;
-                }));
-                bp.AddComponent(Helpers.Create<PrerequisiteStatValue>(c => {
+                });
+                bp.AddComponent<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.SkillMobility;
                     c.Value = 2;
-                }));
-                bp.AddComponent(Helpers.Create<PrerequisiteStatValue>(c => {
+                });
+                bp.AddComponent<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.Dexterity;
                     c.Value = 13;
-                }));
-                bp.AddComponent(Helpers.Create<RecommendationBaseAttackPart>(c => {
+                });
+                bp.AddComponent<RecommendationBaseAttackPart>(c => {
                     c.MinPart = 0.7f;
-                }));
-                bp.AddComponent(Helpers.Create<RecommendationStatMiminum>(c => {
+                });
+                bp.AddComponent<RecommendationStatMiminum>(c => {
                     c.Stat = StatType.Dexterity;
                     c.MinimalValue = 16;
-                }));
-                bp.AddComponent(Helpers.Create<RecommendationNoFeatFromGroup>(c => {
+                });
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
                     c.m_Features = new BlueprintUnitFactReference[] {
                         PointBlankShot.ToReference<BlueprintUnitFactReference>(),
                         PreciseShot.ToReference<BlueprintUnitFactReference>(),
@@ -68,14 +68,14 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                         DeftStrike.ToReference<BlueprintUnitFactReference>(),
                         FinesseTrainingSelection.ToReference<BlueprintUnitFactReference>()
                     };
-                }));
-                bp.AddComponent(Helpers.Create<RecommendationWeaponCategoryFocus>(c => {
+                });
+                bp.AddComponent<RecommendationWeaponCategoryFocus>(c => {
                     c.Catagory = WeaponCategory.Scimitar;
                     c.HasFocus = true;
-                }));
-                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Attack | FeatureTag.Melee;
-                }));
+                });
                 bp.AddPrerequisiteFeature(WeaponFinesse);
             });
             FixRecommendations(SlashingGrace, DervishDance);
