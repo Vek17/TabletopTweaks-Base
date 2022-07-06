@@ -199,6 +199,7 @@
     <Compile Include="Bugfixes\Features\Feats.cs" />
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Bugfixes\Features\MythicFeats.cs" />
+    <Compile Include="Bugfixes\General\ArmorEnhancementBonuses.cs" />
     <Compile Include="Bugfixes\General\PrebuffCasterCLFix.cs" />
     <Compile Include="Bugfixes\General\BuffCasterLoadingFix.cs" />
     <Compile Include="Bugfixes\General\ConcealmentFix.cs" />
@@ -403,6 +404,7 @@
     <Compile Include="NewContent\Races\Gnome.cs" />
     <Compile Include="NewContent\Races\Halfling.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
+    <Compile Include="NewContent\Spells\MagesDisjunction.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />

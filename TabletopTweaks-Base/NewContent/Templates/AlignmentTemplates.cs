@@ -177,12 +177,12 @@ namespace TabletopTweaks.Base.NewContent.Templates {
                         ValueRank = AbilityRankType.StatBonus
                     };
                 });
-                bp.AddComponent(Helpers.CreateContextRankConfig(c => {
+                bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.CharacterLevel;
                     c.m_Progression = ContextRankProgression.BonusValue;
                     c.m_StepLevel = 5;
-                }));
+                });
                 resists.ForEach(resist => {
                     bp.AddComponent<AddDamageResistanceEnergy>(c => {
                         c.Type = resist;

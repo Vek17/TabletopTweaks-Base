@@ -30,6 +30,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.ShadowEnchantment.AddShadowEnchantment();
                 Spells.ShadowEnchantment.AddShadowEnchantmentGreater();
                 Spells.MagicalTailSpells.AddNewMagicalTailSpells();
+                Spells.MagesDisjunction.AddMagesDisjunction();
 
                 //Added early as some things depend on them for selections
                 Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();
