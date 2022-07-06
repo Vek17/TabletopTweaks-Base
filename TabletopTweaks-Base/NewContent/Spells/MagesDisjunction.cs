@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Craft;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
@@ -21,7 +22,8 @@ namespace TabletopTweaks.Base.NewContent.Spells {
     static class MagesDisjunction {
         public static void AddMagesDisjunction() {
             //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
-            var icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_LongArm.png");
+            var Icon_MagesDisjunctionAbility = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_MagesDisjunctionAbility.png");
+            var Icon_MagesDisjunctionScroll = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MagesDisjunctionScroll.png");
             var dispelmagic00fx = new PrefabLink() { 
                 AssetId = "3eda0e7f710821045a35ebe432af667c"
             };
@@ -33,6 +35,8 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var MithralWeaponEnchantment = BlueprintTools.GetBlueprintReference<BlueprintEquipmentEnchantmentReference>("0ae8fc9f2e255584faf4d14835224875");
             var MithralArmorEnchant = BlueprintTools.GetBlueprintReference<BlueprintEquipmentEnchantmentReference>("7b95a819181574a4799d93939aa99aff");
             var Masterwork = BlueprintTools.GetBlueprintReference<BlueprintEquipmentEnchantmentReference>("6b38844e2bffbac48b63036b66e735be");
+
+            var SummonedCreatureVisual = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("706c182e86d9be848b59ddccca73d13e");
 
             var MagesDisjunctionEnchantment = Helpers.CreateBlueprint<BlueprintEquipmentEnchantment>(TTTContext, $"MagesDisjunctionEnchantment", bp => {
                 bp.SetName(TTTContext, "Disjoined");
@@ -62,7 +66,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     "An item in a creature’s possession uses its possessor’s Will save bonus.");
                 bp.SetLocalizedDuration(TTTContext, "1 minute/level");
                 bp.SetLocalizedSavingThrow(TTTContext, "Will partial");
-                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Reach | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Selective | Metamagic.Persistent;
+                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Reach | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Persistent;
                 bp.Range = AbilityRange.Medium;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
                 bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
@@ -71,31 +75,45 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.CanTargetPoint = true;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Directional;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
-                bp.m_Icon = icon;
+                bp.m_Icon = Icon_MagesDisjunctionAbility;
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
-                        new ContextActionDispelMagic() { 
-                            m_StopAfterCountRemoved = false,
-                            m_CountToRemove = new ContextValue(),
-                            m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
-                            m_MaxSpellLevel = new ContextValue(),
-                            m_MaxCasterLevel = new ContextValue(),
-                            m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.None,
-                            ContextBonus = new ContextValue(),
-                            Schools = new SpellSchool[0],
-                            OnSuccess = Helpers.CreateActionList(),
-                            OnFail = Helpers.CreateActionList()
-                        },
-                        new ContextActionDisjointEnchantments() { 
-                            m_DisjointEnchantment = MagesDisjunctionEnchantment.ToReference<BlueprintEquipmentEnchantmentReference>(),
-                            Duration = new ContextDurationValue() { 
-                                Rate = DurationRate.Minutes,
-                                DiceCountValue = new ContextValue(),
-                                BonusValue = new ContextValue() { 
-                                    ValueType = ContextValueType.Rank
+                        new Conditional() { 
+                            ConditionsChecker = new ConditionsChecker() { 
+                                Conditions = new Condition[] { 
+                                    new ContextConditionHasFact(){ 
+                                        m_Fact = SummonedCreatureVisual
+                                    }
                                 }
-                            }
+                            },
+                            IfTrue = Helpers.CreateActionList(
+                                new ContextActionKill()
+                            ),
+                            IfFalse = Helpers.CreateActionList(
+                                new ContextActionDispelMagic() {
+                                    m_StopAfterCountRemoved = false,
+                                    m_CountToRemove = new ContextValue(),
+                                    m_BuffType = ContextActionDispelMagic.BuffType.FromSpells,
+                                    m_MaxSpellLevel = new ContextValue(),
+                                    m_MaxCasterLevel = new ContextValue(),
+                                    m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.None,
+                                    ContextBonus = new ContextValue(),
+                                    Schools = new SpellSchool[0],
+                                    OnSuccess = Helpers.CreateActionList(),
+                                    OnFail = Helpers.CreateActionList()
+                                },
+                                new ContextActionDisjointEnchantments() {
+                                    m_DisjointEnchantment = MagesDisjunctionEnchantment.ToReference<BlueprintEquipmentEnchantmentReference>(),
+                                    Duration = new ContextDurationValue() {
+                                        Rate = DurationRate.Minutes,
+                                        DiceCountValue = new ContextValue(),
+                                        BonusValue = new ContextValue() {
+                                            ValueType = ContextValueType.Rank
+                                        }
+                                    }
+                                }
+                            )
                         }
                     );
                 });
@@ -129,10 +147,9 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.AOEType = CraftAOE.AOE;
                 });
             });
+            var MagesDisjunctionScroll = ItemTools.CreateScroll(TTTContext, "ScrollOfMagesDisjunction", Icon_MagesDisjunctionScroll, MagesDisjunctionAbility, 9, 17);
             //if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
             MagesDisjunctionAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList, 9);
         }
-
-
     }
 }
