@@ -148,7 +148,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 });
             });
             var MagesDisjunctionScroll = ItemTools.CreateScroll(TTTContext, "ScrollOfMagesDisjunction", Icon_MagesDisjunctionScroll, MagesDisjunctionAbility, 9, 17);
-            //if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
+            if (TTTContext.AddedContent.Spells.IsDisabled("MagesDisjunction")) { return; }
             MagesDisjunctionAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList, 9);
         }
     }

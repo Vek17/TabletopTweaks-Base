@@ -23,6 +23,28 @@
       "esES": null
     },
     {
+      "Key": "710eb387aeda4685a6c0feeb6146d52c",
+      "SimpleName": "AbilityFocusStunningFist.Description",
+      "ProcessTemplates": true,
+      "enGB": "Add +2 to the DC for the effects you deliver with your Stunning Fist.",
+      "ruRU": "Увеличьте на 2 сложность эффектов, вызываемых вашим Шокирующим кулаком.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "94b59b8f1adc4a5aad1086433602b187",
+      "SimpleName": "AbilityFocusStunningFist.Name",
+      "ProcessTemplates": false,
+      "enGB": "Ability Focus — Stunning Fist",
+      "ruRU": "Любимая способность - Шокирующий кулак.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "c45b586ef5cd459a912089ed4c95998f",
       "SimpleName": "AbundantBlessingFeature.Description",
       "ProcessTemplates": true,
@@ -199,14 +221,14 @@
       "esES": null
     },
     {
-      "Key": "5f7a6639ba7a4648a14bc71d36d8af15",
+      "Key": "aaccf7c4716c46b98faa3543ff926346",
       "SimpleName": "AdvancedArmorTrainingSelection.Description",
       "ProcessTemplates": true,
-      "enGB": "Beginning at 7th level, instead of increasing the benefits provided by armor training (reducing his armor check penalty by 1 and increasing its maximum Dexterity bonus by 1), a fighter can choose an advanced armor training option (see Advanced Armor Training below). If the fighter does so, he still gains the ability to move at his normal speed while wearing medium armor at 3rd level, and while wearing heavy armor at 7th level.",
-      "ruRU": "Начиная с 7-го уровня, вместо усиления предоставляемых Мастерством Ношения Брони преимуществ (понижения на 1 штрафа к навыкам и повышение на 1 максимального бонуса от Ловкости) Воин может выбрать один из вариантов продвиного мастерства (см. Продвинутое Мастерство Ношения Брони ниже). Даже если Воин решит так поступить, он всё равно получит на 3-ем уровне способность двигаться с нормальной скоростью в средней броне, а на 7-ом уровне - в тяжёлой.",
+      "enGB": "Beginning at 7th level, instead of increasing the benefits provided by armor training (reducing his armor check penalty by 1 and increasing its maximum Dexterity bonus by 1), a fighter can choose an advanced armor training option (see Advanced Armor Training below) . If the fighter does so, he still gains the ability to move at his normal speed while wearing medium armor at 3rd level, and while wearing heavy armor at 7th level.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "7级起，每当战士本该获取额外一级的防具训练时，他可以转而获得一项进阶防具训练作为替代。注意，即使你在7级时如此做，你也能获得穿甲时不降低移动速度的能力。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -243,11 +265,11 @@
       "esES": null
     },
     {
-      "Key": "70ca0f53510e45309fea9a0ab3cb8dd2",
+      "Key": "7dcc8b0c99bf4fcfb8f2601b637ba603",
       "SimpleName": "AgainstTheOdds.Description",
       "ProcessTemplates": true,
-      "enGB": "At 20th level, the slayer is used to fighting when the numbers are not in his favor.\nWhen the slayer uses studied target, he can study up to two additional foes with the same action.",
-      "ruRU": "На 20-ом уровне Палач привык сражаться в боях, в которых численное преимущество не на его стороне. \nКогда Палач использует способность Изучить Цель, он может тем же действием изучить до двух дополнительных целей.",
+      "enGB": "At 20th level, the slayer is used to fighting when the numbers are not in his favor.\nWhen the slayer uses studied target, he can study up to two additional foes within 30 feet in the same action.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
       "zhCN": null,
@@ -1343,22 +1365,22 @@
       "esES": null
     },
     {
-      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
+      "Key": "ffefe480122242e1b53c6ac2e9836219",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
-      "Key": "ffefe480122242e1b53c6ac2e9836219",
+      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
@@ -2421,14 +2443,14 @@
       "esES": null
     },
     {
-      "Key": "b86c237dd30844ada28626ecbe6ee7ef",
+      "Key": "a9e52b6bac804aa68285c7a872e1fe0c",
       "SimpleName": "BlackBladeSpellDefenseBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A wielder of a black blade of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
-      "ruRU": "Достигнув 17-го уровня, владелец чёрного клинка может в качестве свободного действия потратить 1 очко из мистического мистической энергии своего оружия. Это даст ему Сопротивление магии, численно равное значению Эго его чёрного клинка, до начала своего следующего хода.",
+      "enGB": "A wielder of a black black of 17th level or higher can expend an arcane point from his weapon’s arcane pool as a free action; he then gains SR equal to his black blade’s ego until the start of his next turn.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "17级起，魔战士以一个自由动作，从黑刃奥能池中消耗1点，直到他下回合开始前，他会获得等同于黑刃觉醒度的法术抗力。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2608,6 +2630,39 @@
       "esES": null
     },
     {
+      "Key": "57f767921ade4dde83cbad5723e980a0",
+      "SimpleName": "BloodlineCapstoneSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 20th level, the sorcerer gains the final power of thier bloodline.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4ccce8d2c3e14676bc966c119531b939",
+      "SimpleName": "BloodlineCapstoneSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bloodline Capstone",
+      "ruRU": "Венчающая способность наследия",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ff95e06937864985b443652004274200",
+      "SimpleName": "BloodlineDraconicBrassArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "75e9db820d134588b14956a1868d0bda",
       "SimpleName": "BloodlineDraconicBronzeArcana.Description",
       "ProcessTemplates": true,
@@ -2616,6 +2671,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "每当你释放一个包含电标识符的法术，它的每个伤害骰额外造成1点伤害。",
+      "esES": null
+    },
+    {
+      "Key": "1c17d5389f464e48991fb1d2f0374b27",
+      "SimpleName": "BloodlineDraconicGoldArcana.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2630,14 +2696,14 @@
       "esES": null
     },
     {
-      "Key": "6c3ad9db76ae4ff48f07ed5a0f1badf3",
+      "Key": "d5bdf23d07ef43aa9e6ca47353a93521",
       "SimpleName": "BloodlineDraconicRedArcana.Description",
       "ProcessTemplates": true,
-      "enGB": "Когда вы творите заклинание с дескриптором Огонь, это заклинание наносит +1 очко урона за каждую брошенную кость.",
+      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "每当你释放一个包含火标识符的法术，它的每个伤害骰额外造成1点伤害。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -4588,14 +4654,14 @@
       "esES": null
     },
     {
-      "Key": "7d64795573364600a84a2462d8196163",
+      "Key": "8e58161839574574b276492b140f60a2",
       "SimpleName": "DivineCommanderCompanionSelection.Description",
       "ProcessTemplates": true,
-      "enGB": "A divine commander gains the service of a loyal and trusty steed to carry her into battle. This mount functions as a druid’s animal companion, using the divine commander’s level as her effective druid level. The creature must be one that she is capable of riding and must be suitable as a mount. A Medium divine commander can select a horse. A Small divine commander can select a wolf. A divine commander does not take an armor check penalty on Mobility checks while riding this mount.",
-      "ruRU": "Предводитель священного воинства получает в своё распоряжение верное и надёжного скакуна, который будет нести его в бой. К этому скакуну применяются правила верного зверя друида, с учётом уровня предводителя священного воинства в качестве уровня друида. Выбранное существо должно подходить для верховой езды и соответствовать всаднику по размеру. Предводитель священного овинства Маленького размера может выбрать волка. ",
+      "enGB": "A divine commander gains the service of a loyal and trusty steed to carry her into battle. This mount functions as a druid’s animal companion, using the divine commander’s level as her effective druid level. The creature must be one that she is capable of riding and must be suitable as a mount. A Medium divine commander can select a horse. A Small divine commander can select a wolf A divine commander does not take an armor check penalty on Mobility checks while riding this mount.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "圣战指挥官在1级时获得动物伙伴，以职业等级作为德鲁伊等级。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -4918,17 +4984,6 @@
       "esES": null
     },
     {
-      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Flaming",
-      "ruRU": "Великий огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古炽焰",
-      "esES": null
-    },
-    {
       "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -4937,6 +4992,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古焚化",
+      "esES": null
+    },
+    {
+      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Flaming",
+      "ruRU": "Великий огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "古炽焰",
       "esES": null
     },
     {
@@ -7415,6 +7481,61 @@
       "esES": null
     },
     {
+      "Key": "035c274a11e14937a838ef174b8d55af",
+      "SimpleName": "MagesDisjunctionAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "All magical effects and magic items within the radius of the spell, except for those that you carry or touch, are disjoined. That is, spells and spell-like effects are unraveled and destroyed completely (ending the effect as a dispel magic spell does), and each permanent magic item must make a successful Will save or be turned into a normal item for the duration of this spell. An item in a creature’s possession uses its possessor’s Will save bonus.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "aacb7534a6bd46b99c61c99df4ef146c",
+      "SimpleName": "MagesDisjunctionAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mage's Disjunction",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2280f96309544ac0a73c62dac47910a1",
+      "SimpleName": "MagesDisjunctionAbility.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Will partial",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cce59baaf2094784ad84b94d8a800563",
+      "SimpleName": "MagesDisjunctionEnchantment.Description",
+      "ProcessTemplates": true,
+      "enGB": "Magical effects of this item are suppressed.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3d0f271edff54e99ae05231c4c731f96",
+      "SimpleName": "MagesDisjunctionEnchantment.Name",
+      "ProcessTemplates": false,
+      "enGB": "Disjoined",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "ca89a2430e1b4f33b4bdda48d02f6ea4",
       "SimpleName": "MagicalAptitude.Description",
       "ProcessTemplates": true,
@@ -7456,6 +7577,94 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "魔法",
+      "esES": null
+    },
+    {
+      "Key": "8c0441657af14cb7b9658d61e8ca1da7",
+      "SimpleName": "MantisStyleFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You have learned to target vital areas with crippling accuracy.\nYou gain one additional Stunning Fist attempt per day. While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
+      "ruRU": "Вы научились целиться в жизненно важные органы противника с калечащей точностью.\nВы получаете дополнительное ежедневное использование Шокирующго кулака. При использовании этого стиля вы получаете бонус +2 к сложности эффектов, вызываемых Шокирующим кулаком.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d0b27d3611b24fb2ab4b55b37462abe3",
+      "SimpleName": "MantisStyleFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mantis Style",
+      "ruRU": "Стиль богомола",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c2901529e603470cac122500b7a32042",
+      "SimpleName": "MantisStyleToggle.Description",
+      "ProcessTemplates": true,
+      "enGB": "While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
+      "ruRU": "При использовании этого стиля вы получаете бонус +2 к сложности эффектов, вызываемых Шокирующим кулаком.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ed24d60203944839998a49ccf03632fd",
+      "SimpleName": "MantisTormentBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mantis Torment",
+      "ruRU": "Мучающий богомол",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "115e36e8f4d04c8eaec4fdb48c4eeeee",
+      "SimpleName": "MantisTormentFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your knowledge of the mysteries of anatomy allows you to cause debilitating pain with a simple touch.\nYou gain one additional Stunning Fist attempt per day. While using Mantis Style, you make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
+      "ruRU": "Ваши познания в строении тела позволяют вам вызывать у цели неописуемые страдания одним прикосновением.\nВы получаете дополнительное ежедневное использование Шокирующего кулака. При использовании Стиля богомола, вы можете совершить безоружную атаку, которая расходует два использования Шокирующего кулака. Если атака попадает по цели, она должна совершить удачный спасбросок против Шокирующего кулака или оказаться растерянной и ошеломлённой до начала вашего следующего хода из-за невыносимой боли, после чего остаётя обессиленной.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ca9ecb1193ac46b8ab5387ed315e307b",
+      "SimpleName": "MantisTormentOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
+      "ruRU": "Вы совершиаете безоружную атаку, которая расходует два использования Шокирующего кулака. Если атака попадает по цели, она должна совершить удачный спасбросок против Шокирующего кулака или оказаться растерянной и ошеломлённой до начала вашего следующего хода из-за невыносимой боли, после чего остаётя обессиленной.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5a8f7f6e79314819ae34972e55eb0ab8",
+      "SimpleName": "MantisWisdomFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your knowledge of vital areas allows you to land debilitating strikes with precision.\nTreat half your levels in classes other than monk as monk levels for determining effects you can apply to a target of your Stunning Fist per the Stunning Fist monk class feature. While using Mantis Style, you gain a +2 bonus on unarmed attack rolls with which you are using Stunning Fist attempts.",
+      "ruRU": "Ваше знание жизненно важных зон противника позволяетвам с безупречной точностью наносить калечащие удары.\nСчитайте свои уровни в классах отличных от Монаха уровнями Монаха при определении эффектов, которые вы можете применить к цели, используя Шокирующий кулак. При использовании Стиля богомола, вы получаете бонус +2 к броскам на попадание безоружными атакми во время использования Шокирующего кулака.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a8b5cb3c743c4bc0a1bd5ca61293bf7e",
+      "SimpleName": "MantisWisdomFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mantis Wisdom",
+      "ruRU": "Мудрость богомола",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10099,14 +10308,14 @@
       "esES": null
     },
     {
-      "Key": "3e5c8c986ba842baba970858dc7b9685",
+      "Key": "86c6240dcda1444ba6d7be59c15e43c5",
       "SimpleName": "ShingleRunner.Name",
       "ProcessTemplates": false,
-      "enGB": "Single Runner",
-      "ruRU": "Одинокий бегун",
+      "enGB": "Shingle Runner",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "短跑健将",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10209,14 +10418,14 @@
       "esES": null
     },
     {
-      "Key": "acaa1dc5834945669400408961f6ee25",
+      "Key": "4981bf38d3184372a07c4e28156cbb8b",
       "SimpleName": "SorcererAberrantBloodline.Description",
       "ProcessTemplates": true,
-      "enGB": "There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\nBonus Feats of the Aberrant Bloodline: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge (World)).",
-      "ruRU": "В вашем наследии кроется поганая скверна, чуждая и противоестественная. Ваши рассуждения строятся на странной логике, позволяя рассматривать проблемы с неожиданных углов. Постепенно эта скверна начинает проявляться во вём вашем естестве.\nДополнительные черты наследия аберраций: Боевая магия, Разоружение, Грязный трюк, Улучшенная инициатива, Мастер кулачного боя, Железная воля, Длительное Заклинание, Эксперт (Знание (Мир)).",
+      "enGB": "There is a taint in your blood, one that is alien and bizarre. You tend to think in odd ways, approaching problems from an angle that most would not expect. Over time, this taint manifests itself in your physical form.\nBonus Feats of the Aberrant Bloodline:: Combat Casting, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will, Extend Spell, Skill Focus (Knowledge (World)).",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "在你的血统中，有一个外来和怪异的污点。你趋向于使用奇怪的方式思考，从大多数人所不希望的角度接近问题。随着时间的推移，这个污点在你的外形上得以显现。\n额外专长可选列表：战斗施法、精通缴械、精通阴招、精通先攻、精通徒手打击、钢铁意志、法术延时、技能专攻。\n",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10330,14 +10539,14 @@
       "esES": null
     },
     {
-      "Key": "7297bfb7ace94bd686ed16f34ec23a9a",
+      "Key": "77f278e02a894b628af681d2c1bcffd0",
       "SimpleName": "SorcererAberrantSpell13.Description",
       "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nEyebite: Each round, you can target a single living creature, striking it with waves of power. Depending on the target's HD, this attack has as many as three effects:\nIf the target's HD is 10 or more, it is sickened for 10 minutes per caster level.\nIf the target's HD is 5–9, it is frightened and sickened for 10 minutes per caster level.\nIf the target's HD is 4 or less, it is paralyzed, frightened, and sickened\nThe effects are cumulative and concurrent for 10 minutes per caster level.\nYou must spend a swift action each round after the first to target a foe.",
-      "ruRU": "На 3-ем уровне и каждые два уровня псле этого колдун узнаёт дополнительное заклинание, присущее его наследству.\nГрозные очи: каждый раунд вы грозно смотрите на одно живое существо, поражая его волнами энергии. Эффекты зависят от костей здоровья цели:\nЕсли у цели 10 или более костей здоровья, оно дезориентировано на 10 минут за каждый уровень заклинателя.\nЕсли у цели от 5 до 9 костей здоровья, оно напугано и оно дезориентировано на 10 минут за каждый уровень заклинателя.\nЕсли у цели от 4 или менее костей здоровья, оно парализовано, напугано и дезориентировано.\nКаждый раунд вы можете совершить быстрое действие, чтобы взглянуть на нового противника.",
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nEyebite: Each round, you can target a single living creature, striking it with waves of power. The target must make a successful Fortitude saving throw, or suffer the spell's harmful effects. Depending on the target's HD, this attack has as many as three effects:\nIf the target's HD is 10 or more, it is sickened for 10 minutes per caster level.\nIf the target's HD is 5–9, it is frightened and sickened for 10 minutes per caster level.\nIf the target's HD is 4 or less, it is paralyzed, frightened, and sickened\nThe effects are cumulative and concurrent for 10 minutes per caster level.\nYou must spend a swift action each round after the first to target a foe.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：摄心目光",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10352,14 +10561,14 @@
       "esES": null
     },
     {
-      "Key": "d4ce914ea0fe4d7f88ae3615e94c8131",
+      "Key": "df73e43fbf1549089405ce32d4a0ef55",
       "SimpleName": "SorcererAberrantSpell17.Description",
       "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nMind Blank: This spell grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.",
-      "ruRU": "На 3-ем уровне и каждые два уровня псле этого колдун узнаёт дополнительное заклинание, присущее его наследству.\nЭто заклинание защищает цель от всех магических предметов и заклинаний, собирающих информацию при помощи магии школы прорицания (таких как Истинное зрение, Увидеть незримое или Мыслезрение). Это заклинание также даёт бонус сопротивления +8 к спасброскам против все воздействующих на разум заклинаний и эффектов.",
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nMind Blank: This spell grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects. The subject is also protected from all items, spells, and other effects that gather information about the target through divination magic (such as thoughtsense, true seeing, and see invisibility).",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "3级和之后的每2级，术士从血承中学习一个额外法术：心灵屏障",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11053,6 +11262,72 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "被你盾击击中的生物AC承受-2减值，直至你的下一回合结束。",
+      "esES": null
+    },
+    {
+      "Key": "e5707e46b1bd45c88b6e4cbfb88b9ad1",
+      "SimpleName": "StunningFistBlindOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.",
+      "ruRU": "Эта способность действует как Шокирующий кулак, но ослепляет цель при неудачном спасброске не на 1 раунд, а навсегда.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "362fd1d8fff946cb8767ee093a38edd1",
+      "SimpleName": "StunningFistBlindOwnerBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Stunning Fist: Blind",
+      "ruRU": "Шокирующий кулак: ослепление",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "51be151c2c8c4f4aa5e9d605868f54a0",
+      "SimpleName": "StunningFistParalyzeOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.",
+      "ruRU": "Эта способность действует как Шокирующий кулак, но вместо шокирования цели при неудачном спасброске на 1 раунд, парализует цель на 1d6 + 1 раундов.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2a6248b512d7416aa376e5f6b5bff3c2",
+      "SimpleName": "StunningFistParalyzeOwnerBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Stunning Fist: Paralyze",
+      "ruRU": "Шокирующий кулак: паралич",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a9d17201f49e4919b0125e5061a0b522",
+      "SimpleName": "StunningFistStaggeredOwnerBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.",
+      "ruRU": "Эта способность действует как Шокирующий кулак, но вместо шокирования цели при неудачном спасброске на 1 раунд, ошеломляет цель на 1d6 + 1 раундов.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f42d707244e840899aa42ef89c827f27",
+      "SimpleName": "StunningFistStaggeredOwnerBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Stunning Fist: Stagger",
+      "ruRU": "Шокирующий кулак: ошеломление",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11760,11 +12035,11 @@
       "esES": null
     },
     {
-      "Key": "082aa70ed6ab41c09f7e387af936fa84",
+      "Key": "1a242071f1a54c69aa6cf022d52ed802",
       "SimpleName": "UnbridledPower.Description",
       "ProcessTemplates": true,
-      "enGB": "At 20th level, the kineticist wields her chosen element like a knife, cutting through all opposition.\nThe kineticist chooses one blast. Her damage with that blast increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts), and the blast ignores the first 10 points of damage reduction or energy resistance that the target has.",
-      "ruRU": "На 20-ом уровне выбранный Кнетиком элементом в его руках становится подобен клинку, что рассекает любую преграду.\nКинетик выбирает заряд. Урон этого заряда увеличивается на 2d6+2 (для физических зарядов) или на 2d6 (для энергетических зарядов); этот заряд также игнорирует первые 10 очков Уменьшения урона или Устойчивости к стихии цели.",
+      "enGB": "At 20th level, the kineticist wields her chosen elements like a knife, cutting through all opposition.\nHer damage with her blasts increases by 2d6+2 (for physical blasts) or by 2d6 (for energy blasts).",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
       "zhCN": null,
@@ -12065,204 +12340,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "Yuelral的赐福",
-      "esES": null
-    },
-    {
-      "Key": "710eb387aeda4685a6c0feeb6146d52c",
-      "SimpleName": "AbilityFocusStunningFist.Description",
-      "ProcessTemplates": true,
-      "enGB": "Add +2 to the DC for the effects you deliver with your Stunning Fist.",
-      "ruRU": "Увеличьте на 2 сложность эффектов, вызываемых вашим Шокирующим кулаком.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "94b59b8f1adc4a5aad1086433602b187",
-      "SimpleName": "AbilityFocusStunningFist.Name",
-      "ProcessTemplates": false,
-      "enGB": "Ability Focus — Stunning Fist",
-      "ruRU": "Любимая способность - Шокирующий кулак.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a546e3a1e4c842ad84c41b7e95e6ba83",
-      "SimpleName": "BloodlineCapstoneSelection.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 20th level, the sorcerer gains the final power of their bloodline.",
-      "ruRU": "На 20-ом уровне Колдун получает последнюю силу своего наследия.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "4ccce8d2c3e14676bc966c119531b939",
-      "SimpleName": "BloodlineCapstoneSelection.Name",
-      "ProcessTemplates": false,
-      "enGB": "Bloodline Capstone",
-      "ruRU": "Венчающая способность наследия",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "8c0441657af14cb7b9658d61e8ca1da7",
-      "SimpleName": "MantisStyleFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "You have learned to target vital areas with crippling accuracy.\nYou gain one additional Stunning Fist attempt per day. While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
-      "ruRU": "Вы научились целиться в жизненно важные органы противника с калечащей точностью.\nВы получаете дополнительное ежедневное использование Шокирующго кулака. При использовании этого стиля вы получаете бонус +2 к сложности эффектов, вызываемых Шокирующим кулаком.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "d0b27d3611b24fb2ab4b55b37462abe3",
-      "SimpleName": "MantisStyleFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Mantis Style",
-      "ruRU": "Стиль богомола",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "c2901529e603470cac122500b7a32042",
-      "SimpleName": "MantisStyleToggle.Description",
-      "ProcessTemplates": true,
-      "enGB": "While using this style, you gain a +2 bonus to the DC of effects you deliver with your Stunning Fist.",
-      "ruRU": "При использовании этого стиля вы получаете бонус +2 к сложности эффектов, вызываемых Шокирующим кулаком.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "ed24d60203944839998a49ccf03632fd",
-      "SimpleName": "MantisTormentBuff.Name",
-      "ProcessTemplates": false,
-      "enGB": "Mantis Torment",
-      "ruRU": "Мучающий богомол",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "115e36e8f4d04c8eaec4fdb48c4eeeee",
-      "SimpleName": "MantisTormentFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "Your knowledge of the mysteries of anatomy allows you to cause debilitating pain with a simple touch.\nYou gain one additional Stunning Fist attempt per day. While using Mantis Style, you make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
-      "ruRU": "Ваши познания в строении тела позволяют вам вызывать у цели неописуемые страдания одним прикосновением.\nВы получаете дополнительное ежедневное использование Шокирующего кулака. При использовании Стиля богомола, вы можете совершить безоружную атаку, которая расходует два использования Шокирующего кулака. Если атака попадает по цели, она должна совершить удачный спасбросок против Шокирующего кулака или оказаться растерянной и ошеломлённой до начала вашего следующего хода из-за невыносимой боли, после чего остаётя обессиленной.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "ca9ecb1193ac46b8ab5387ed315e307b",
-      "SimpleName": "MantisTormentOwnerBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "You make an unarmed attack that expends two daily attempts of your Stunning Fist. If you hit, your opponent must succeed at a saving throw against your Stunning Fist or become dazzled and staggered with crippling pain until the start of your next turn, and at that point the opponent becomes fatigued.",
-      "ruRU": "Вы совершиаете безоружную атаку, которая расходует два использования Шокирующего кулака. Если атака попадает по цели, она должна совершить удачный спасбросок против Шокирующего кулака или оказаться растерянной и ошеломлённой до начала вашего следующего хода из-за невыносимой боли, после чего остаётя обессиленной.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "5a8f7f6e79314819ae34972e55eb0ab8",
-      "SimpleName": "MantisWisdomFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "Your knowledge of vital areas allows you to land debilitating strikes with precision.\nTreat half your levels in classes other than monk as monk levels for determining effects you can apply to a target of your Stunning Fist per the Stunning Fist monk class feature. While using Mantis Style, you gain a +2 bonus on unarmed attack rolls with which you are using Stunning Fist attempts.",
-      "ruRU": "Ваше знание жизненно важных зон противника позволяетвам с безупречной точностью наносить калечащие удары.\nСчитайте свои уровни в классах отличных от Монаха уровнями Монаха при определении эффектов, которые вы можете применить к цели, используя Шокирующий кулак. При использовании Стиля богомола, вы получаете бонус +2 к броскам на попадание безоружными атакми во время использования Шокирующего кулака.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a8b5cb3c743c4bc0a1bd5ca61293bf7e",
-      "SimpleName": "MantisWisdomFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Mantis Wisdom",
-      "ruRU": "Мудрость богомола",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "e5707e46b1bd45c88b6e4cbfb88b9ad1",
-      "SimpleName": "StunningFistBlindOwnerBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This ability works as Stunning Fist, but it permanently blinds the target on a failed save instead of stunning for 1 round.",
-      "ruRU": "Эта способность действует как Шокирующий кулак, но ослепляет цель при неудачном спасброске не на 1 раунд, а навсегда.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "362fd1d8fff946cb8767ee093a38edd1",
-      "SimpleName": "StunningFistBlindOwnerBuff.Name",
-      "ProcessTemplates": false,
-      "enGB": "Stunning Fist: Blind",
-      "ruRU": "Шокирующий кулак: ослепление",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "51be151c2c8c4f4aa5e9d605868f54a0",
-      "SimpleName": "StunningFistParalyzeOwnerBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This ability works as Stunning Fist, but it paralyzes the target for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.",
-      "ruRU": "Эта способность действует как Шокирующий кулак, но вместо шокирования цели при неудачном спасброске на 1 раунд, парализует цель на 1d6 + 1 раундов.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "2a6248b512d7416aa376e5f6b5bff3c2",
-      "SimpleName": "StunningFistParalyzeOwnerBuff.Name",
-      "ProcessTemplates": false,
-      "enGB": "Stunning Fist: Paralyze",
-      "ruRU": "Шокирующий кулак: паралич",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a9d17201f49e4919b0125e5061a0b522",
-      "SimpleName": "StunningFistStaggeredOwnerBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This ability works as Stunning Fist, but it makes the target staggered for 1d6 + 1 rounds on a failed save instead of stunning for 1 round.",
-      "ruRU": "Эта способность действует как Шокирующий кулак, но вместо шокирования цели при неудачном спасброске на 1 раунд, ошеломляет цель на 1d6 + 1 раундов.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "f42d707244e840899aa42ef89c827f27",
-      "SimpleName": "StunningFistStaggeredOwnerBuff.Name",
-      "ProcessTemplates": false,
-      "enGB": "Stunning Fist: Stagger",
-      "ruRU": "Шокирующий кулак: ошеломление",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     }
   ]

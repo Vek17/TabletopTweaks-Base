@@ -551,6 +551,11 @@
         "Homebrew": false,
         "Description": "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet."
       },
+      "MagesDisjunction": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "All magical effects and magic items within the radius of the spell, except for those that you carry or touch, are disjoined. That is, spells and spell-like effects are unraveled and destroyed completely (ending the effect as a dispel magic spell does), and each permanent magic item must make a successful Will save or be turned into a normal item for the duration of this spell."
+      },
       "ShadowEnchantment": {
         "Enabled": true,
         "Homebrew": false,
