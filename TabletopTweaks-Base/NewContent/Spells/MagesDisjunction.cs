@@ -13,6 +13,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
+using System.Linq;
 using TabletopTweaks.Core.NewActions;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.Utilities;
@@ -150,6 +151,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var MagesDisjunctionScroll = ItemTools.CreateScroll(TTTContext, "ScrollOfMagesDisjunction", Icon_MagesDisjunctionScroll, MagesDisjunctionAbility, 9, 17);
             if (TTTContext.AddedContent.Spells.IsDisabled("MagesDisjunction")) { return; }
             MagesDisjunctionAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList, 9);
+            SpellTools.SpellList.MagicDomainSpellList.SpellsByLevel
+                .Where(level => level.SpellLevel == 9)
+                .ForEach(level => level.Spells.Clear());
+            MagesDisjunctionAbility.AddToSpellList(SpellTools.SpellList.MagicDomainSpellList, 9);
         }
     }
 }

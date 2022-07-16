@@ -1,3 +1,9 @@
+## Version 2.3.0
+* Added Content
+    * Spells
+        * Mage's Disjunction
+            * All magical effects and magic items within the radius of the spell, except for those that you carry or touch, are disjoined. That is, spells and spell-like effects are unraveled and destroyed completely (ending the effect as a dispel magic spell does), and each permanent magic item must make a successful Will save or be turned into a normal item for the duration of this spell.
+
 ## Version 2.2.3
 * Fixes
     * Fixed issue where Bloodline Ascendance was not selectable when it should have been.
