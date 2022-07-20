@@ -16,12 +16,12 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             if (TTTContext.AddedContent.Archetypes.IsDisabled("CauldronWitchArchetype")) { return; }
             var CauldronWitchArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("e0012a7015774e140be217f4a1480b6f");
             var CauldronWitchMixtureAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("bde7657b0338dab4e835673725abd385");
-            var WitchClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("1b9873f1e7bfe5449bc84d03e9c8e3cc");
+            var WitchClass = ClassTools.Classes.WitchClass;
 
             CauldronWitchMixtureAbility.AbilityAndVariants().ForEach(ability => {
                 ability.GetComponents<ContextRankConfig>().ForEach(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.Classes.WitchClass.ToReference<BlueprintCharacterClassReference>() };
+                    c.m_Class = new BlueprintCharacterClassReference[] { WitchClass.ToReference<BlueprintCharacterClassReference>() };
                 });
             });
             CauldronWitchMixtureAbility.AbilityAndVariants()
@@ -33,7 +33,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 .ForEach(buff => {
                     buff.GetComponents<ContextRankConfig>().ForEach(c => {
                         c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                        c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.Classes.WitchClass.ToReference<BlueprintCharacterClassReference>() };
+                        c.m_Class = new BlueprintCharacterClassReference[] { WitchClass.ToReference<BlueprintCharacterClassReference>() };
                     });
                 });
 
