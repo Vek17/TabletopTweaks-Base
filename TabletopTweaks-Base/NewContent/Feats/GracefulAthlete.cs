@@ -44,6 +44,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (TTTContext.AddedContent.Feats.IsDisabled("GracefulAthlete")) { return; }
             FeatTools.AddAsFeat(GracefulAthlete);
             FeatTools.AddAsRogueTalent(GracefulAthlete);
+            FeatTools.AddAsBardTalent(GracefulAthlete);
         }
     }
 }

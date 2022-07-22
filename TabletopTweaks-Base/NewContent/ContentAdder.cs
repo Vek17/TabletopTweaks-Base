@@ -57,6 +57,9 @@ namespace TabletopTweaks.Base.NewContent {
 
                 Backgrounds.Lecturer.AddLecturer();
 
+                RogueTalents.EmboldeningStrike.AddEmboldeningStrike();
+                RogueTalents.BleedingAttack.AddBleedingAttack();
+
                 ArcanistExploits.QuickStudy.AddQuickStudy();
                 ArcanistExploits.ItemCrafting.AddItemCrafting();
                 ArcanistExploits.MetamagicKnowledge.AddMetamagicKnowledge();

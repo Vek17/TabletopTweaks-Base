@@ -1,5 +1,13 @@
 ## Version 2.3.0
+* Fixes
+    * Witch
+        * Fixed Cauldren Witch incorrectly scaling with character level instead of witch level.
 * Added Content
+    * Rogue Talents
+        * Bleeding Attack
+            * A rogue with this ability can cause living opponents to bleed by hitting them with a sneak attack. This attack causes the target to take 1 additional point of damage each round for each die of the rogue’s sneak attack.
+        * Emboldening Strike
+            * When a rogue with this talent hits a creature with a melee attack that deals sneak attack damage, she gains a +1 circumstance bonus on saving throws for every 2 sneak attack dice rolled (minimum +1) for 1 round.
     * Spells
         * Mage's Disjunction
             * All magical effects and magic items within the radius of the spell, except for those that you carry or touch, are disjoined. That is, spells and spell-like effects are unraveled and destroyed completely (ending the effect as a dispel magic spell does), and each permanent magic item must make a successful Will save or be turned into a normal item for the duration of this spell.

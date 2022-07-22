@@ -147,14 +147,15 @@ namespace TabletopTweaks.Base {
 
                 SetttingUI.SettingGroup("Archetypes", TabLevel, AddedContent.Archetypes);
                 SetttingUI.SettingGroup("Base Abilities", TabLevel, AddedContent.BaseAbilities);
-                SetttingUI.SettingGroup("Bloodlines", TabLevel, AddedContent.Bloodlines);
-                SetttingUI.SettingGroup("Arcanist Exploits", TabLevel, AddedContent.ArcanistExploits);
+                SetttingUI.SettingGroup("Bloodlines", TabLevel, AddedContent.Bloodlines);          
                 SetttingUI.SettingGroup("Feats", TabLevel, AddedContent.Feats);
                 SetttingUI.SettingGroup("Armor Mastery Feats", TabLevel, AddedContent.ArmorMasteryFeats);
                 SetttingUI.SettingGroup("Shield Mastery Feats", TabLevel, AddedContent.ShieldMasteryFeats);
                 SetttingUI.SettingGroup("Fighter Advanced Armor Training", TabLevel, AddedContent.FighterAdvancedArmorTraining);
                 SetttingUI.SettingGroup("Fighter Advanced Weapon Training", TabLevel, AddedContent.FighterAdvancedWeaponTraining);
+                SetttingUI.SettingGroup("Arcanist Exploits", TabLevel, AddedContent.ArcanistExploits);
                 SetttingUI.SettingGroup("Magus Arcana", TabLevel, AddedContent.MagusArcana);
+                SetttingUI.SettingGroup("Rogue Talents", TabLevel, AddedContent.RogueTalents);
                 SetttingUI.SettingGroup("Wizard Arcane Discoveries", TabLevel, AddedContent.WizardArcaneDiscoveries);
                 SetttingUI.SettingGroup("Races", TabLevel, AddedContent.Races);
                 SetttingUI.SettingGroup("Backgrounds", TabLevel, AddedContent.Backgrounds);

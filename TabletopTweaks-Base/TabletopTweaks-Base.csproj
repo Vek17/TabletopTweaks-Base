@@ -403,6 +403,9 @@
     <Compile Include="NewContent\Races\Elf.cs" />
     <Compile Include="NewContent\Races\Gnome.cs" />
     <Compile Include="NewContent\Races\Halfling.cs" />
+    <Compile Include="NewContent\RogueTalents\BleedingAttack.cs" />
+    <Compile Include="NewContent\RogueTalents\EmboldeningStrike.cs" />
+    <Compile Include="NewContent\RogueTalents\RogueTalentProperties.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\MagesDisjunction.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
@@ -482,6 +485,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_BlackBlade_TransferArcana.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_BleedingAttack.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_ChannelEntropy.png">
