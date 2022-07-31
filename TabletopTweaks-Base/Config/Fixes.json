@@ -828,11 +828,6 @@
           "Homebrew": false,
           "Description": "Prevents you from selecting the same talent more than once."
         },
-        "SlipperyMind": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Slippery mind is now an advanced talent and correctly updates its save bonuses when your dexterity changes."
-        },
         "Trapfinding": {
           "Enabled": true,
           "Homebrew": false,
