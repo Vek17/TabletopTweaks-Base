@@ -2630,6 +2630,39 @@
       "esES": null
     },
     {
+      "Key": "5fd05ccde30c4159996f386253a13698",
+      "SimpleName": "BleedingAttackBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "A rogue with this ability can cause living opponents to bleed by hitting them with a sneak attack. This attack causes the target to take 1 additional point of damage each round for each die of the rogue’s sneak attack (e.g., 4d6 equals 4 points of bleed). Bleeding creatures take that amount of damage every round at the start of each of their turns. The bleeding can be stopped by the application of any effect that heals hit point damage. Bleed damage from this ability does not stack with itself. Bleed damage bypasses any damage reduction the creature might possess.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "47c124c5500b483fa6cea76b00ff18c7",
+      "SimpleName": "BleedingAttackBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bleeding Attack",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "27d1b7344e654453b0a3926eb5648159",
+      "SimpleName": "BleedingAttackFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "A rogue with this ability can cause living opponents to bleed by hitting them with a sneak attack. This attack causes the target to take 1 additional point of damage each round for each die of the rogue’s sneak attack (e.g., 4d6 equals 4 points of bleed). Bleeding creatures take that amount of damage every round at the start of each of their turns. The bleeding can be stopped by the application of any effect that heals hit point damage. Bleed damage from this ability does not stack with itself. Bleed damage bypasses any damage reduction the creature might possess.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "57f767921ade4dde83cbad5723e980a0",
       "SimpleName": "BloodlineCapstoneSelection.Description",
       "ProcessTemplates": true,
@@ -4082,6 +4115,17 @@
       "esES": null
     },
     {
+      "Key": "3cba779099e54d25935982b65fe6b27f",
+      "SimpleName": "CombatTrick.Description",
+      "ProcessTemplates": true,
+      "enGB": "A character that selects this talent gains a bonus combat feat.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "2e696bf572ef4208b5b917976fccf3aa",
       "SimpleName": "Corrosive.Prefix",
       "ProcessTemplates": false,
@@ -5267,6 +5311,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "警觉",
+      "esES": null
+    },
+    {
+      "Key": "cbbc7f0c1aa2485280179b9a0ebd3cb1",
+      "SimpleName": "EmboldeningStrikeBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "When a rogue with this talent hits a creature with a melee attack that deals sneak attack damage, she gains a +1 circumstance bonus on saving throws for every 2 sneak attack dice rolled (minimum +1) for 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e2210f7836c24a529d3d5780a2d99c62",
+      "SimpleName": "EmboldeningStrikeBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Emboldening Strike",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9cf8c0fbab9c4723912bbc3300a8ce35",
+      "SimpleName": "EmboldeningStrikeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When a rogue with this talent hits a creature with a melee attack that deals sneak attack damage, she gains a +1 circumstance bonus on saving throws for every 2 sneak attack dice rolled (minimum +1) for 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
