@@ -36,8 +36,8 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 for (int i = 0; i < codes.Count; i++) {
                     if (codes[i].opcode == OpCodes.Call && codes[i].Calls(get_CriticalConfirmationRoll)) {
                         for (int e = i; i < codes.Count; e++) {
-                            if (codes[e].opcode == OpCodes.Br_S && codes[e].operand.GetHashCode() == 40) {
-                                return e;
+                            if (codes[e].opcode == OpCodes.Ceq) {
+                                return e + 1;
                             }
                         }
                         break;

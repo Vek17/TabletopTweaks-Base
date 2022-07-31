@@ -102,7 +102,7 @@ namespace TabletopTweaks.Base {
                     Fixes.Slayer.Archetypes
                 );
                 SetttingUI.NestedSettingGroup("Sorcerer", TabLevel, Fixes.Sorcerer,
-                    ("Base", Fixes.Slayer.Base),
+                    ("Base", Fixes.Sorcerer.Base),
                     Fixes.Sorcerer.Archetypes
                 );
                 SetttingUI.NestedSettingGroup("Warpriest", TabLevel, Fixes.Warpriest,

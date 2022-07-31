@@ -33,7 +33,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
                 bp.AddComponent<AttackStatReplacementTTT>(c => {
                     c.ReplacementStat = StatType.Dexterity;
                     c.m_WeaponTypes = new BlueprintWeaponTypeReference[] {

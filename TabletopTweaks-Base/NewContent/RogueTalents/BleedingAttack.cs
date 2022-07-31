@@ -16,6 +16,7 @@ using Kingmaker.UnitLogic.Mechanics.Properties;
 using TabletopTweaks.Core.NewComponents.Properties;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
+using StatValueGetter = Kingmaker.UnitLogic.Mechanics.Properties.StatValueGetter;
 
 namespace TabletopTweaks.Base.NewContent.RogueTalents {
     internal static class BleedingAttack {

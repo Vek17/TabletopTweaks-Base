@@ -37,6 +37,7 @@ using TabletopTweaks.Core.Utilities;
 using UnityEngine;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.NewUnitParts.CustomStatTypes;
+using StatValueGetter = Kingmaker.UnitLogic.Mechanics.Properties.StatValueGetter;
 
 namespace TabletopTweaks.Base.NewContent.Archetypes {
     static class BladeBound {
