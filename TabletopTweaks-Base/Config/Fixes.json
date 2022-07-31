@@ -1178,11 +1178,6 @@
         "Homebrew": false,
         "Description": "Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus."
       },
-      "MindBlank": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing."
-      },
       "PerfectForm": {
         "Enabled": true,
         "Homebrew": false,
