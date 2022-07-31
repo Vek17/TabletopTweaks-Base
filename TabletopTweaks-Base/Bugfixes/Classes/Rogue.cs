@@ -92,7 +92,9 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                 }
                 void PatchRogueTalentSelection() {
                     if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("RogueTalentSelection")) { return; }
+
                     var RogueTalentSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
+                    var CombatTrick = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("c5158a6622d0b694a99efb1d0025d2c1");
                     RogueTalentSelection.AllFeatures.ForEach(feature => {
                         if (!feature.HasGroup(FeatureGroup.Feat) && feature.HasGroup(FeatureGroup.RogueTalent)) {
                             feature.AddPrerequisite<PrerequisiteNoFeature>(p => {
@@ -101,8 +103,9 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                             });
                         }
                     });
-                    //RogueTalentSelection.Mode = SelectionMode.OnlyNew;
-                    TTTContext.Logger.LogPatch("Patched", RogueTalentSelection);
+                    CombatTrick.SetDescription(TTTContext, "A character that selects this talent gains a bonus combat feat.");
+                    TTTContext.Logger.LogPatch(RogueTalentSelection);
+                    TTTContext.Logger.LogPatch(CombatTrick);
                 }
                 void PatchDispellingAttack() {
                     if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("DispellingAttack")) { return; }
