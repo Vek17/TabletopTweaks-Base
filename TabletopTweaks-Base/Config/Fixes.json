@@ -1133,6 +1133,11 @@
         "Homebrew": false,
         "Description": "Firebrand no longer causes excessive damage instances to trigger when attacking."
       },
+      "SunMarked": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Sun Marked no longer causes excessive damage instances to trigger when attacking."
+      },
       "FixSpellFlags": {
         "Enabled": true,
         "Homebrew": false,
