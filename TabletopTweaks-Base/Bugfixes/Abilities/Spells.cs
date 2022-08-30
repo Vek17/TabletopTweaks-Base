@@ -62,6 +62,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchDispelMagicGreater();
                 PatchEyeOfTheSun();
                 PatchFirebrand();
+                PatchSunMarked();
                 PatchFlamestrike();
                 PatchFrightfulAspect();
                 PatchGeniekind();
@@ -423,6 +424,29 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     };
                 });
                 TTTContext.Logger.LogPatch("Patched", FirebrandBuff);
+            }
+
+            static void PatchSunMarked() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("SunMarked")) { return; }
+
+                var AngelSunMarkedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("35407948549e61f4c80e6b59633d82b0");
+
+                AngelSunMarkedBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                AngelSunMarkedBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
+                    c.Value = new ContextDiceValue() {
+                        DiceType = DiceType.D6,
+                        DiceCountValue = new ContextValue() {
+                            ValueType=ContextValueType.Rank,
+                            ValueRank=AbilityRankType.DamageDice,
+                        },
+                        BonusValue = 0
+                    };
+                    c.DamageType = new DamageTypeDescription() {
+                        Type = DamageType.Energy,
+                        Energy = DamageEnergyType.Holy
+                    };
+                });
+                TTTContext.Logger.LogPatch("Patched", AngelSunMarkedBuff);
             }
 
             static void PatchFlamestrike() {
