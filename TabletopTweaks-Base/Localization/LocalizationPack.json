@@ -2630,17 +2630,6 @@
       "esES": null
     },
     {
-      "Key": "5fd05ccde30c4159996f386253a13698",
-      "SimpleName": "BleedingAttackBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "A rogue with this ability can cause living opponents to bleed by hitting them with a sneak attack. This attack causes the target to take 1 additional point of damage each round for each die of the rogue’s sneak attack (e.g., 4d6 equals 4 points of bleed). Bleeding creatures take that amount of damage every round at the start of each of their turns. The bleeding can be stopped by the application of any effect that heals hit point damage. Bleed damage from this ability does not stack with itself. Bleed damage bypasses any damage reduction the creature might possess.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "47c124c5500b483fa6cea76b00ff18c7",
       "SimpleName": "BleedingAttackBuff.Name",
       "ProcessTemplates": false,
@@ -2685,17 +2674,6 @@
       "esES": null
     },
     {
-      "Key": "ff95e06937864985b443652004274200",
-      "SimpleName": "BloodlineDraconicBrassArcana.Description",
-      "ProcessTemplates": true,
-      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "75e9db820d134588b14956a1868d0bda",
       "SimpleName": "BloodlineDraconicBronzeArcana.Description",
       "ProcessTemplates": true,
@@ -2704,17 +2682,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "每当你释放一个包含电标识符的法术，它的每个伤害骰额外造成1点伤害。",
-      "esES": null
-    },
-    {
-      "Key": "1c17d5389f464e48991fb1d2f0374b27",
-      "SimpleName": "BloodlineDraconicGoldArcana.Description",
-      "ProcessTemplates": true,
-      "enGB": "Whenever you cast a spell with the fire descriptor, that spell deals +1 point of damage per die rolled.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -5311,17 +5278,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "警觉",
-      "esES": null
-    },
-    {
-      "Key": "cbbc7f0c1aa2485280179b9a0ebd3cb1",
-      "SimpleName": "EmboldeningStrikeBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "When a rogue with this talent hits a creature with a melee attack that deals sneak attack damage, she gains a +1 circumstance bonus on saving throws for every 2 sneak attack dice rolled (minimum +1) for 1 round.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8710,28 +8666,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得甄选超魔。",
-      "esES": null
-    },
-    {
-      "Key": "0495c85448db40a6ab54dc5af82e35f9",
-      "SimpleName": "MindBlank.Description",
-      "ProcessTemplates": true,
-      "enGB": "The subject is protected from all devices and spells that gather information about the target through divination magic (such as true seeing, see invisability, or thoughtsense). This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.",
-      "ruRU": "Это заклинание защищает цель от всех магических предметов и заклинаний, собирающих информацию при помощи магии школы прорицания (таких как Истинное зрение, Увидеть незримое или Мыслезрение). Это заклинание также даёт бонус сопротивления +8 к спасброскам против все воздействующих на разум заклинаний и эффектов.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "此法术能使受术者抵御所有通过预言系法术获取目标信息的法术或装置，比如识破隐形、侦测思想、真知术。该法术还会使目标在对抗所有影响心灵法术与效果时，豁免获得+8抗力加值。",
-      "esES": null
-    },
-    {
-      "Key": "d7756d43828e4d9f92d1196534d9ea3d",
-      "SimpleName": "MindBlankCommunal.Description",
-      "ProcessTemplates": true,
-      "enGB": "This spell functions like mind blank, except it affects all party members and it lasts for 4 hours.\nMind Blank: The subject is protected from all devices and spells that gather information about the target through divination magic (such as true seeing, see invisability, or thoughtsense). This spell also grants a +8 resistance bonus on saving throws against all mind-affecting spells and effects.",
-      "ruRU": "Это заклинание действует как Сокрытие Разума, но воздействует на всех членов отряда и длится 4 часа.\nСокрытие разума: Это заклинание защищает цель от всех магических предметов и заклинаний, собирающих информацию при помощи магии школы прорицания (таких как Истинное зрение, Увидеть незримое или Мыслезрение). Это заклинание также даёт бонус сопротивления +8 к спасброскам против все воздействующих на разум заклинаний и эффектов.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这个法术效果类似心灵屏障，但作用于所有队友，持续4小时。",
       "esES": null
     },
     {

@@ -1,3 +1,6 @@
+## Version 2.3.1
+* Release for 1.4.0
+
 ## Version 2.3.0
 * Fixes
     * Witch
