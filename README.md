@@ -105,6 +105,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs.
     * Eye Of The Sun
         * Eye Of The Sun now deals the correct amount of damage.
+    * Sun Marked
+        * Sun Marked no longer causes excessive damage instances to trigger when attacking.
     * Firebrand
         * Firebrand no longer causes excessive damage instances to trigger when attacking.
     * Geniekind
