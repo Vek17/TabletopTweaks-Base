@@ -65,7 +65,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchSunMarked();
                 PatchFlamestrike();
                 PatchFrightfulAspect();
-                PatchGeniekind();
+                PatchGeniekindBuff();
                 PatchHellfireRay();
                 PatchLegendaryProportions();
                 PatchMagicalVestment();
@@ -469,8 +469,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 TTTContext.Logger.LogPatch(FrightfulAspectArea);
             }
 
-            static void PatchGeniekind() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("Geniekind")) { return; }
+            static void PatchGeniekindBuff() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("GeniekindBuff")) { return; }
 
                 var GeniekindDjinniBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("082caf8c1005f114ba6375a867f638cf");
                 var GeniekindEfreetiBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("d47f45f29c4cfc0469f3734d02545e0b");

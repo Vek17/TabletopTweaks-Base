@@ -1159,7 +1159,7 @@
         "Homebrew": false,
         "Description": "Now correctly applies fear when hit in melee."
       },
-      "Geniekind": {
+      "GeniekindBuff": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Geniekind no longer causes excessive damage instances to trigger when attacking."
