@@ -66,6 +66,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchFlamestrike();
                 PatchFrightfulAspect();
                 PatchGeniekindBuff();
+                PatchGeniekindDescriptor();
                 PatchHellfireRay();
                 PatchLegendaryProportions();
                 PatchMagicalVestment();
@@ -500,6 +501,16 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     });
                     TTTContext.Logger.LogPatch("Patched", GeniekindBuff);
                 }
+            }
+
+            static void PatchGeniekindDescriptor() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("GeniekindDescriptor")) { return; }
+                var GeniekindAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("07b608fab304f894880898dc0764e6e5");
+
+                GeniekindAbility.AddComponent<SpellDescriptorComponent>();
+                var descriptors = GeniekindAbility.GetComponent<SpellDescriptorComponent>();
+                descriptors.Descriptor = SpellDescriptor.Polymorph;
+                TTTContext.Logger.LogPatch("Patched", GeniekindAbility);
             }
 
             static void PatchHellfireRay() {

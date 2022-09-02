@@ -109,6 +109,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Firebrand no longer causes excessive damage instances to trigger when attacking.
     * Geniekind
         * Geniekind no longer causes excessive damage instances to trigger when attacking.
+        * Geniekind now has Polymorph descriptor.
     * Greater Magic Weapon
         * Greater Magic Weapon no longer stacks with existing enhancement bonuses.
     * Hellfire Ray

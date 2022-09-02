@@ -1164,6 +1164,11 @@
         "Homebrew": false,
         "Description": "Geniekind no longer causes excessive damage instances to trigger when attacking."
       },
+      "GeniekindDescriptor": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Geniekind now has Polymorph descriptor."
+      },
       "GreaterMagicWeapon": {
         "Enabled": true,
         "Homebrew": false,
