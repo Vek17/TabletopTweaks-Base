@@ -42,7 +42,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var MagesDisjunctionEnchantment = Helpers.CreateBlueprint<BlueprintEquipmentEnchantment>(TTTContext, $"MagesDisjunctionEnchantment", bp => {
                 bp.SetName(TTTContext, "Disjoined");
                 bp.SetDescription(TTTContext, "Magical effects of this item are suppressed.");
-                bp.SetPrefix(TTTContext, "");
+                bp.SetPrefix(TTTContext, "Disjoined");
                 bp.SetSuffix(TTTContext, "");
                 bp.AddComponent<DisjointedEffect>(c => {
                     c.m_IgnoreEnchantments = new BlueprintEquipmentEnchantmentReference[] {

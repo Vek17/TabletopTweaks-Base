@@ -11,10 +11,10 @@ namespace TabletopTweaks.Base.NewContent.Features {
                 bp.SetName(TTTContext, "Longspear Charge");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
-                bp.AddComponent(Helpers.Create<AddOutgoingWeaponDamageBonus>(c => {
+                bp.AddComponent<AddOutgoingWeaponDamageBonus>(c => {
                     c.BonusDamageMultiplier = 1;
-                }));
-                bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
+                    c.RemoveAfterTrigger = true;
+                });
             });
         }
     }

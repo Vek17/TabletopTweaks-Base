@@ -18,5 +18,11 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                 c.Archetype = BlueprintTools.GetModBlueprintReference<BlueprintArchetypeReference>(TTTContext, "NatureFangArcehtype");
             });
         });
+        public static BlueprintUnitProperty SneakAttackDiceProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>(TTTContext, "SneakAttackDiceProperty", bp => {
+            bp.AddComponent<StatValueGetter>(c => {
+                c.Stat = Kingmaker.EntitySystem.Stats.StatType.SneakAttack;
+                c.ValueType = StatValueGetter.ReturnType.ModifiedValue;
+            });
+        });
     }
 }

@@ -116,8 +116,10 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     CavalierSupremeChargeBuff.RemoveComponents<OutcomingDamageAndHealingModifier>();
                     CavalierSupremeChargeBuff.AddComponent<AddOutgoingWeaponDamageBonus>(c => {
                         c.BonusDamageMultiplier = 1;
+                        c.RemoveAfterTrigger = true;
                     });
-                    CavalierSupremeChargeBuff.AddComponent<RemoveBuffOnAttack>();
+                    CavalierSupremeChargeBuff.SetName(CavalierSupremeCharge.m_DisplayName);
+
                     TTTContext.Logger.LogPatch("Patched", CavalierSupremeCharge);
                     TTTContext.Logger.LogPatch("Patched", CavalierSupremeChargeBuff);
                 }
@@ -183,8 +185,10 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     GendarmeTransfixingChargeBuff.RemoveComponents<OutcomingDamageAndHealingModifier>();
                     GendarmeTransfixingChargeBuff.AddComponent<AddOutgoingWeaponDamageBonus>(c => {
                         c.BonusDamageMultiplier = 2;
+                        c.RemoveAfterTrigger = true;
                     });
-                    GendarmeTransfixingChargeBuff.AddComponent<RemoveBuffOnAttack>();
+                    GendarmeTransfixingChargeBuff.SetName(GendarmeTransfixingCharge.m_DisplayName);
+
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingCharge);
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingChargeBuff);
                 }

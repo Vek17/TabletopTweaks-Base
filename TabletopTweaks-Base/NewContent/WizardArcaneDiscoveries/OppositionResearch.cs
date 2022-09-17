@@ -28,8 +28,6 @@ namespace TabletopTweaks.Base.NewContent.WizardArcaneDiscoveries {
                 bp.m_AllFeatures = new BlueprintFeatureReference[0];
                 bp.m_Features = new BlueprintFeatureReference[0];
                 bp.IsClassFeature = true;
-                bp.Group = FeatureGroup.Feat;
-                bp.Group2 = FeatureGroup.WizardFeat;
                 bp.AddPrerequisite<PrerequisiteNoFeature>(p => {
                     p.m_Feature = BlueprintTools.GetModBlueprintReference<BlueprintFeatureReference>(TTTContext, "HarmoniousMageFeature");
                     p.Group = Prerequisite.GroupType.All;

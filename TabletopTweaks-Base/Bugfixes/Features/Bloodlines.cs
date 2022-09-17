@@ -346,7 +346,9 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     var draconicBloodline = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                         c.Group = Prerequisite.GroupType.Any;
-                        c.m_Features = DragonDiscipleClass.GetComponent<PrerequisiteFeaturesFromList>().m_Features;
+                        c.m_Features = new BlueprintFeatureReference[] { 
+                            DragonDiscipleClass.GetComponent<PrerequisiteNoFeature>().m_Feature 
+                        };
                     });
                     archetype.AddComponents(noBloodline, draconicBloodline);
                 }

@@ -11,7 +11,7 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.MechanicsChanges {
     internal class MetamagicDamage {
-        [HarmonyPatch(typeof(RuleCalculateDamage), "CalculateDamageValue", new[] { typeof(BaseDamage) })]
+        //[HarmonyPatch(typeof(RuleCalculateDamage), "CalculateDamageValue", new[] { typeof(BaseDamage) })]
         static class RuleCalculateDamage_Metamagic_Patch {
 
             static void Postfix(RuleCalculateDamage __instance, ref DamageValue __result, BaseDamage damage) {
@@ -29,28 +29,29 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 int num2 = (!__instance.Target.IsPlayerFaction || enemyCriticalHits == CriticalHitPower.Normal || damage.Bonus + damage.BonusTargetRelated < 0) ? num : 1;
                 float empowerBonus = damage.EmpowerBonus;
                 float num3;
+                int num4 = 0;
                 if (damage.PreRolledValue != null) {
                     num3 = damage.PreRolledValue.Value;
                 } else {
-                    int num4;
+                    DiceFormula modifiedValue = damage.Dice.ModifiedValue;
+                    
                     if (__instance.RerollAndTakeBest) {
-                        int a = __instance.Roll(damage.Dice, criticalModifier, __instance.UnitsCount, damage.CalculationType);
-                        int b = __instance.Roll(damage.Dice, criticalModifier, __instance.UnitsCount, damage.CalculationType);
+                        int a = __instance.Roll(modifiedValue, __instance.UnitsCount, damage.CalculationType);
+                        int b = __instance.Roll(modifiedValue, __instance.UnitsCount, damage.CalculationType);
                         num4 = Mathf.Max(a, b);
                     } else {
-                        num4 = __instance.Roll(damage.Dice, criticalModifier, __instance.UnitsCount, damage.CalculationType);
+                        num4 = __instance.Roll(modifiedValue, __instance.UnitsCount, damage.CalculationType);
                     }
                     //Custom Empower Logic
                     int empowerExtraDamage = 0;
                     if (empowerBonus > 1) {
                         var empowerMultiplier = empowerBonus - 1;
                         empowerExtraDamage = (int)Math.Round(__instance.Roll(
-                            new DiceFormula((damage.Dice.Rolls), damage.Dice.Dice),
-                            criticalModifier,
+                            new DiceFormula((damage.Dice.ModifiedValue.Rolls), damage.Dice.ModifiedValue.Dice),
                             __instance.UnitsCount,
                             DamageCalculationType.Normal
                         ) * empowerMultiplier);
-                        TTTContext.Logger.LogVerbose($"Empower Bonus {empowerMultiplier}: {damage.Dice.Rolls}{damage.Dice.Dice}/{1 / empowerMultiplier} = {empowerExtraDamage}");
+                        TTTContext.Logger.LogVerbose($"Empower Bonus {empowerMultiplier}: {damage.Dice.ModifiedValue.Rolls}{damage.Dice.ModifiedValue.Dice}/{1 / empowerMultiplier} = {empowerExtraDamage}");
                     }
                     num3 = ((num4 + empowerExtraDamage) + (damage.Bonus * __instance.UnitsCount) * empowerBonus * num2) * damage.TacticalCriticalModifier;
                 }
@@ -81,7 +82,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 int num8 = Math.Max(1, (int)Math.Floor(num6 * num7));
                 num8 = __instance.TryApplyShadowDamageFactor(__instance.Target, num8);
                 num8 = (damage.Immune ? 0 : num8);
-                __result = new DamageValue(damage, num8, rolledValue, __instance.TacticalCombatDRModifier);
+                __result = new DamageValue(damage, num8, rolledValue, num4, __instance.TacticalCombatDRModifier);
             }
         }
         [HarmonyPatch]

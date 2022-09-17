@@ -7,8 +7,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Properties;
-using TabletopTweaks.Core.NewComponents.Properties;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -16,11 +14,6 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
     internal static class EmboldeningStrike {
         public static void AddEmboldeningStrike() {
 
-            var EmboldeningStrikeProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>(TTTContext, "EmboldeningStrikeProperty", bp => {
-                bp.AddComponent<StatValueGetter>(c => {
-                    c.Stat = StatType.SneakAttack;
-                });
-            });
             var EmboldeningStrikeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "EmboldeningStrikeBuff", bp => {
                 bp.SetName(TTTContext, "Emboldening Strike");
                 bp.SetDescription(TTTContext, "When a rogue with this talent hits a creature with a melee attack that deals sneak attack damage, " +
@@ -52,7 +45,7 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
-                    c.m_CustomProperty = EmboldeningStrikeProperty.ToReference<BlueprintUnitPropertyReference>();
+                    c.m_CustomProperty = RogueTalentProperties.SneakAttackDiceProperty.ToReference<BlueprintUnitPropertyReference>();
                     c.m_Progression = ContextRankProgression.Div2;
                     c.m_UseMin = true;
                     c.m_Min = 1;
@@ -85,7 +78,7 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
-                    c.m_CustomProperty = EmboldeningStrikeProperty.ToReference<BlueprintUnitPropertyReference>();
+                    c.m_CustomProperty = RogueTalentProperties.SneakAttackDiceProperty.ToReference<BlueprintUnitPropertyReference>();
                     c.m_Progression = ContextRankProgression.Div2;
                     c.m_UseMin = true;
                     c.m_Min = 1;

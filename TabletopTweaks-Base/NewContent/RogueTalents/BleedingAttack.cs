@@ -70,7 +70,7 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.CustomProperty;
-                    c.m_CustomProperty = RogueTalentProperties.RougeLevelProperty.ToReference<BlueprintUnitPropertyReference>();
+                    c.m_CustomProperty = RogueTalentProperties.SneakAttackDiceProperty.ToReference<BlueprintUnitPropertyReference>();
                     c.m_Progression = ContextRankProgression.AsIs;
                     c.m_UseMin = true;
                     c.m_Min = 1;

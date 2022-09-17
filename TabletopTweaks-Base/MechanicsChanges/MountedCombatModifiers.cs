@@ -27,12 +27,12 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 var MountedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
                 var LongspearChargeBuff = BlueprintTools.GetModBlueprint<BlueprintBuff>(TTTContext, "LongspearChargeBuff");
 
-                MountedBuff.AddComponent(Helpers.Create<BuffExtraEffectsRequirements>(c => {
+                MountedBuff.AddComponent<BuffExtraEffectsRequirements>(c => {
                     c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
                     c.CheckWeaponCategory = true;
                     c.WeaponCategory = WeaponCategory.Longspear;
                     c.ExtraEffectBuff = LongspearChargeBuff.ToReference<BlueprintBuffReference>();
-                }));
+                });
                 TTTContext.Logger.LogPatch("Patched", MountedBuff);
             }
         }
