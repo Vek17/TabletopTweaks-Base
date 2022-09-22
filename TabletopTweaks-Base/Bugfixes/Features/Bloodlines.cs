@@ -346,7 +346,18 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     var draconicBloodline = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                         c.Group = Prerequisite.GroupType.Any;
-                        c.m_Features = DragonDiscipleClass.GetComponent<PrerequisiteFeaturesFromList>().m_Features;
+                        c.m_Features = new BlueprintFeatureReference[] {
+                            DraconicBlackBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicBlueBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicBrassBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicBronzeBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicCopperBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicGoldBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicGreenBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicRedBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicSilverBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicWhiteBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>()
+                        };
                     });
                     archetype.AddComponents(noBloodline, draconicBloodline);
                 }

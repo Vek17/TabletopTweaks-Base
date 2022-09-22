@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29102.190
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A53D1DF2-A1EA-4579-A8C8-88EC564393F9}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,9 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TabletopTweaks-Base", "TabletopTweaks-Base\TabletopTweaks-Base.csproj", "{C03B79A7-F087-44A4-92E1-DD3EDFCA487B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{E6F4977C-F1BD-45EC-96BA-4BF093C2DFBA} = {E6F4977C-F1BD-45EC-96BA-4BF093C2DFBA}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E6F4977C-F1BD-45EC-96BA-4BF093C2DFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6F4977C-F1BD-45EC-96BA-4BF093C2DFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E6F4977C-F1BD-45EC-96BA-4BF093C2DFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E6F4977C-F1BD-45EC-96BA-4BF093C2DFBA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C03B79A7-F087-44A4-92E1-DD3EDFCA487B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C03B79A7-F087-44A4-92E1-DD3EDFCA487B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C03B79A7-F087-44A4-92E1-DD3EDFCA487B}.Release|Any CPU.ActiveCfg = Release|Any CPU
