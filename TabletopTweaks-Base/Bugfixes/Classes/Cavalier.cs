@@ -176,12 +176,12 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var GendarmeTransfixingChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6334e70d212add149909a36340ef5300");
 
                     GendarmeTransfixingCharge.RemoveComponents<BuffExtraEffects>();
-                    GendarmeTransfixingCharge.AddComponent(Helpers.Create<BuffExtraEffectsRequirements>(c => {
+                    GendarmeTransfixingCharge.AddComponent<BuffExtraEffectsRequirements>(c => {
                         c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
                         c.CheckFacts = true;
                         c.CheckedFacts = new BlueprintUnitFactReference[] { MountedBuff };
                         c.ExtraEffectBuff = GendarmeTransfixingChargeBuff.ToReference<BlueprintBuffReference>();
-                    }));
+                    });
                     GendarmeTransfixingChargeBuff.RemoveComponents<OutcomingDamageAndHealingModifier>();
                     GendarmeTransfixingChargeBuff.AddComponent<AddOutgoingWeaponDamageBonus>(c => {
                         c.BonusDamageMultiplier = 2;

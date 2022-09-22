@@ -51,7 +51,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     c.m_Max = 20;
                     c.m_Min = 1;
                 });
-                bp.AddComponent(Helpers.Create<RemoveBuffOnAttack>());
+                bp.AddComponent<RemoveBuffOnAttack>();
             });
             var MountedManiacAbility = DazzlingDisplayAction.CreateCopy(TTTContext, "MountedManiacAbility", bp => {
                 bp.m_Icon = icon;

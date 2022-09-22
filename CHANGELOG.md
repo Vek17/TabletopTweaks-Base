@@ -1,3 +1,8 @@
+## Version 2.4.0
+* Release for 2.0.0
+* Fixes
+    * Fixed broken charge mechanics
+
 ## Version 2.3.1
 * Release for 1.4.0
 
