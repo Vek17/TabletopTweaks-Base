@@ -93,20 +93,31 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var AdvancedWeaponTraining4 = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("0b55d725ded1ae549bb858fba1d84114");
                     var AdvancedWeapontrainingSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(TTTContext, "AdvancedWeaponTrainingSelection");
 
-                    WeaponTrainingSelection.m_AllFeatures = WeaponTrainingSelection.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
-                    WeaponTrainingSelection.Mode = SelectionMode.Default;
-                    WeaponTrainingSelection.AddFeatures(AdvancedWeapontrainingSelection);
-                    TTTContext.Logger.LogPatch("Patched", WeaponTrainingSelection);
-                    WeaponTrainingRankUpSelection.m_AllFeatures = WeaponTrainingRankUpSelection.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
-                    WeaponTrainingRankUpSelection.m_AllFeatures.ForEach(feature => {
-                        feature.Get().AddComponent(Helpers.Create<PrerequisiteNoFeature>(c => {
-                            c.m_Feature = feature;
-                            c.HideInUI = true;
-                        }));
-                        TTTContext.Logger.LogPatch("Patched", feature.Get());
-                    });
-                    WeaponTrainingRankUpSelection.IgnorePrerequisites = true;
-                    TTTContext.Logger.LogPatch("Patched", WeaponTrainingRankUpSelection);
+                    var SoheiWeaponRankUpTrainingSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("bcb63879905b4b00b44b6309d137935e");
+
+                    WeaponTrainingSelection.TemporaryContext(bp => {
+                        bp.m_AllFeatures = bp.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
+                        bp.Mode = SelectionMode.Default;
+                        bp.AddFeatures(AdvancedWeapontrainingSelection);
+                        TTTContext.Logger.LogPatch("Patched", bp);
+                    });                    
+                    WeaponTrainingRankUpSelection.TemporaryContext(bp => {
+                        bp.m_AllFeatures = bp.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
+                        bp.m_AllFeatures.ForEach(feature => {
+                            feature.Get().AddPrerequisite<PrerequisiteNoFeature>(c => {
+                                c.m_Feature = feature;
+                                c.HideInUI = true;
+                            });
+                            TTTContext.Logger.LogPatch("Patched", feature.Get());
+                        });
+                        bp.IgnorePrerequisites = true;
+                        TTTContext.Logger.LogPatch("Patched", WeaponTrainingRankUpSelection);
+                    });  
+                    SoheiWeaponRankUpTrainingSelection.TemporaryContext(bp => {
+                        bp.IgnorePrerequisites = true;
+                        bp.HideInCharacterSheetAndLevelUp = false;
+                    });  
+                    
                     AdvancedWeapontrainingSelection.m_AllFeatures.ForEach(feature => {
                         feature.Get().RemoveComponents<PrerequisiteClassLevel>();
                         TTTContext.Logger.LogPatch("Patched", feature.Get());

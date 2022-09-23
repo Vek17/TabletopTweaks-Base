@@ -41,9 +41,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                 });
 
-                TTTContext.Logger.LogPatch("Patched", SpellFocus);
-                TTTContext.Logger.LogPatch("Patched", SpellFocusGreater);
-                TTTContext.Logger.LogPatch("Patched", ExpandedArsenalSchool);
+                TTTContext.Logger.LogPatch(SpellFocus);
+                TTTContext.Logger.LogPatch(SpellFocusGreater);
+                TTTContext.Logger.LogPatch(SchoolMasteryMythicFeat);
+                TTTContext.Logger.LogPatch(ExpandedArsenalSchool);
             }
             static void PatchExtraMythicAbility() {
                 if (TTTContext.Fixes.MythicFeats.IsDisabled("ExtraMythicAbility")) { return; }

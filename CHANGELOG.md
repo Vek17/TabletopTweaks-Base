@@ -2,6 +2,7 @@
 * Release for 2.0.0
 * Fixes
     * Fixed broken charge mechanics
+    * Sohei should now work correctly with weapon training changes if enabled
 
 ## Version 2.3.1
 * Release for 1.4.0
