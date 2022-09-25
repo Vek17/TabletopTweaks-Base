@@ -705,17 +705,6 @@
       "esES": null
     },
     {
-      "Key": "30403b099bed4cf79d1619ad891aecd3",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
-      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Снижение Урона от этой способности суммируется со Снижением Урона из других источников.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。",
-      "esES": null
-    },
-    {
       "Key": "9fd71c48669a40c1a071aa9195fc988e",
       "SimpleName": "ArmoredJuggernautFeature.Description",
       "ProcessTemplates": true,
@@ -724,6 +713,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
+      "esES": null
+    },
+    {
+      "Key": "30403b099bed4cf79d1619ad891aecd3",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
+      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Снижение Урона от этой способности суммируется со Снижением Урона из других источников.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。",
       "esES": null
     },
     {
@@ -2520,17 +2520,6 @@
       "esES": null
     },
     {
-      "Key": "9f48856f97714024a5cb846de75da34e",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana — Magus",
-      "ruRU": "Перенос мистической энергии - магус",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换（魔战士）",
-      "esES": null
-    },
-    {
       "Key": "add3b25fd1214142995be3b8965b0bc8",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2539,6 +2528,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换",
+      "esES": null
+    },
+    {
+      "Key": "9f48856f97714024a5cb846de75da34e",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana — Magus",
+      "ruRU": "Перенос мистической энергии - магус",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换（魔战士）",
       "esES": null
     },
     {
@@ -5105,6 +5105,50 @@
       "esES": null
     },
     {
+      "Key": "676143e3221040e0b7b907b49671e3e5",
+      "SimpleName": "Elemental — AcidSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Acid",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Cold",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
+      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Electricity",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ea0c0046250245418d59ce476be8566e",
+      "SimpleName": "Elemental — FireSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Fire",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "3c8de39968f1ed02201672cf10eccdc7",
       "SimpleName": "ElementalAirBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -5135,6 +5179,138 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素血脉：火焰",
+      "esES": null
+    },
+    {
+      "Key": "d1af6361d81548168d78aa6fde59a062",
+      "SimpleName": "ElementalSpellFeatAcid.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can manipulate the elemental nature of your spells.\nBenefit: You may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.\nLevel Increase: +1 (an elemental spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7c13fa3fb21341bebb80710d4a0f4a84",
+      "SimpleName": "ElementalSpellFeatAcid.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Elemental Spell — Acid)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a8d469d1d33b4b77b46bc482a4ff88af",
+      "SimpleName": "ElementalSpellFeatCold.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can manipulate the elemental nature of your spells.\nBenefit: You may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.\nLevel Increase: +1 (an elemental spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ddc5d1feef2348718c41dfd2336befc9",
+      "SimpleName": "ElementalSpellFeatCold.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Elemental Spell — Cold)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "66f473b79928459fa84e72b4b8ab01bf",
+      "SimpleName": "ElementalSpellFeatElectricity.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can manipulate the elemental nature of your spells.\nBenefit: You may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.\nLevel Increase: +1 (an elemental spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2b295c369cf44174a08580e62723179c",
+      "SimpleName": "ElementalSpellFeatElectricity.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Elemental Spell — Electricity)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e483bbbb6f9043f1817dd2025503cc8a",
+      "SimpleName": "ElementalSpellFeatFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can manipulate the elemental nature of your spells.\nBenefit: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.\nLevel Increase: +1 (an elemental spell uses up a spell slot one level higher than the spell’s actual level.)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "18aaf3065c974bb58000e3854013a3be",
+      "SimpleName": "ElementalSpellFeatFire.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Elemental Spell — Fire)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "179d9af9451a474bb3ba43aa8e333780",
+      "SimpleName": "ElementalSpellFeatSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can manipulate the elemental nature of your spells.\nBenefit: Choose one energy type: acid, cold, electricity, or fire. You may replace a spell’s normal damage with that energy type or split the spell’s damage, so that half is of that energy type and half is of its normal type.\nLevel Increase: +1 (an elemental spell uses up a spell slot one level higher than the spell’s actual level.)\nSpecial: You can gain this feat multiple times. Each time you must choose a different energy type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7b3a4578fc96440c97fca906a96a6b6c",
+      "SimpleName": "ElementalSpellFeatSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Metamagic (Elemental Spell)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5c64338fd88d48f7acec2b322b2bc246",
+      "SimpleName": "ElementalSpellSplitAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "When using a spell with the Elemental Spell Metamagic you may choose to deal half of your damage with the chosen elemental type and half with the original type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ff1690854f204e52ac643cdcab7711e3",
+      "SimpleName": "ElementalSpellSplitBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental Spell Split Damage",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5795,6 +5971,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "偏好超魔：燃烧",
+      "esES": null
+    },
+    {
+      "Key": "c3f2932c35794edf86a6c2905dae9c13",
+      "SimpleName": "FavoriteMetamagicElemental.Name",
+      "ProcessTemplates": false,
+      "enGB": "Favorite Metamagic — Elemental Spell",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -7822,6 +8009,182 @@
       "esES": null
     },
     {
+      "Key": "b41c3f5b463e40c4963f2c89099e18c8",
+      "SimpleName": "MetamagicRodGreaterElementalAcid.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "57386ef4a5f6426186f7a6c73243f869",
+      "SimpleName": "MetamagicRodGreaterElementalAcidBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "03b4f3f7748045c7af22aa58807c8811",
+      "SimpleName": "MetamagicRodGreaterElementalAcidBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Elemental — Acid Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "29755df38cac49ebaa4cb23e6e8462a2",
+      "SimpleName": "MetamagicRodGreaterElementalAcidToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0b48788878d44ceeb5de3e6f468e61cf",
+      "SimpleName": "MetamagicRodGreaterElementalCold.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c7ec571e2ac148a697aa1a9dcacf4cb8",
+      "SimpleName": "MetamagicRodGreaterElementalColdBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "74fe1f1e1ea04ff0be714048761322ac",
+      "SimpleName": "MetamagicRodGreaterElementalColdBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Elemental — Cold Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bd639640177345d2b97af3741a39525d",
+      "SimpleName": "MetamagicRodGreaterElementalColdToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6b309d90002f41c79395d6b5870cb801",
+      "SimpleName": "MetamagicRodGreaterElementalElectricity.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "77aa9c575b984eadaf421929ce7bf592",
+      "SimpleName": "MetamagicRodGreaterElementalElectricityBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "36a523fd22b241a18791f636a2b0b89a",
+      "SimpleName": "MetamagicRodGreaterElementalElectricityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Elemental — Electricity Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ac56306f3d2343b68f229b9020781012",
+      "SimpleName": "MetamagicRodGreaterElementalElectricityToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cf4d6117dd44487eaa8d08a54b32a203",
+      "SimpleName": "MetamagicRodGreaterElementalFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "77f4f8fb9cb24b768c132cfc62727a59",
+      "SimpleName": "MetamagicRodGreaterElementalFireBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "da316f4e6086410e92359b9dd3142c5e",
+      "SimpleName": "MetamagicRodGreaterElementalFireBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Elemental — Fire Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "aad7953c84d14674a4d983a00cf380b6",
+      "SimpleName": "MetamagicRodGreaterElementalFireToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "908eb6dffe7241f088b0eb812faf63f9",
       "SimpleName": "MetamagicRodGreaterEncouragingBuff.Name",
       "ProcessTemplates": false,
@@ -7951,6 +8314,182 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这柄权杖赋予持有者每天加强释放三个法术的能力，如同使用了专长“法术燃烧”。\n次级权杖可被用于不超过3级的法术。\n法术燃烧:当一个生物受到受影响的法术的酸或火伤害时，该生物在下一回合开始时受到等于该法术实际等级的2倍的伤害。伤害是酸或火，由法术描述符决定。",
+      "esES": null
+    },
+    {
+      "Key": "74b2f2b508834ebfa8883379fcb1ffe9",
+      "SimpleName": "MetamagicRodLesserElementalAcid.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c9d8523188f94970a261e80358092ce4",
+      "SimpleName": "MetamagicRodLesserElementalAcidBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "399c6c7b14a54870911dbaf78b8a824e",
+      "SimpleName": "MetamagicRodLesserElementalAcidBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Elemental — Acid Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4fc70324649f47fd9ad3bd943dceaad3",
+      "SimpleName": "MetamagicRodLesserElementalAcidToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e3322722f529407fa35ce235610c3eb6",
+      "SimpleName": "MetamagicRodLesserElementalCold.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "06ade03c6f914fbf815934482a8a6fcd",
+      "SimpleName": "MetamagicRodLesserElementalColdBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "13fb5106d52846b0b420006ed53fdb44",
+      "SimpleName": "MetamagicRodLesserElementalColdBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Elemental — Cold Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "443c15ccea1d46338263374c9a6c42c6",
+      "SimpleName": "MetamagicRodLesserElementalColdToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "00979c18d9a64b7ebbb465c86de418ea",
+      "SimpleName": "MetamagicRodLesserElementalElectricity.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "34d66d7777ef49b78de0567b219a8ba6",
+      "SimpleName": "MetamagicRodLesserElementalElectricityBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f6ae4eb4ab7d4a80a85a1364d0010cad",
+      "SimpleName": "MetamagicRodLesserElementalElectricityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Elemental — Electricity Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c4314a2b759e4aa8800d1f372e74e729",
+      "SimpleName": "MetamagicRodLesserElementalElectricityToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1a99c2d21dc246d296b241b6d5f7fcbb",
+      "SimpleName": "MetamagicRodLesserElementalFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5dff8536850f4005ad2c357fcfba0204",
+      "SimpleName": "MetamagicRodLesserElementalFireBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e1fe60c827174c98911a6852f3eedfb6",
+      "SimpleName": "MetamagicRodLesserElementalFireBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Lesser Elemental — Fire Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b0e0408c04c94573b4a46ef85bb70950",
+      "SimpleName": "MetamagicRodLesserElementalFireToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8094,6 +8633,182 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这柄权杖赋予持有者每天加强释放三个法术的能力，如同使用了专长“法术燃烧”。\n普通权杖可被用于不超过6级的法术。\n法术燃烧:当一个生物受到受影响的法术的酸或火伤害时，该生物在下一回合开始时受到等于该法术实际等级的2倍的伤害。伤害是酸或火，由法术描述符决定。",
+      "esES": null
+    },
+    {
+      "Key": "b12a485da2224015b65ab5af8ac76c52",
+      "SimpleName": "MetamagicRodNormalElementalAcid.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "86dc3427ea9040c5ae0679cb5ca04609",
+      "SimpleName": "MetamagicRodNormalElementalAcidBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5e91ded76d0840a18d0d914167b1c473",
+      "SimpleName": "MetamagicRodNormalElementalAcidBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Acid Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f694614ce6be4213adbe544fa2424934",
+      "SimpleName": "MetamagicRodNormalElementalAcidToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5a2009046e024ad2b43d17c0ccc38a8d",
+      "SimpleName": "MetamagicRodNormalElementalCold.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9a344f7416534800a9a6003d0811f89b",
+      "SimpleName": "MetamagicRodNormalElementalColdBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "64f60a845ccf4c3e8866b3f80a2c85e9",
+      "SimpleName": "MetamagicRodNormalElementalColdBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Cold Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4ce6f8d291df4389988307f94915b179",
+      "SimpleName": "MetamagicRodNormalElementalColdToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "02c5442c35d247f5b661c0c16de71e7d",
+      "SimpleName": "MetamagicRodNormalElementalElectricity.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8b062914fe3f47a29f166bbb422e4cfd",
+      "SimpleName": "MetamagicRodNormalElementalElectricityBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0df88030bfe545dea956475c975084f6",
+      "SimpleName": "MetamagicRodNormalElementalElectricityBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Electricity Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "aac57a6e537b418382dd9f13c412a2dd",
+      "SimpleName": "MetamagicRodNormalElementalElectricityToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cfef5f2b924c43afa28e543112ec633a",
+      "SimpleName": "MetamagicRodNormalElementalFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b4269ddf53174d5f92650e292bcfeaba",
+      "SimpleName": "MetamagicRodNormalElementalFireBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "93847feb4ee9448487228b1084813ddb",
+      "SimpleName": "MetamagicRodNormalElementalFireBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Fire Metamagic Rod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e4cc6e70fc1448cfbfe989203c0dcdec",
+      "SimpleName": "MetamagicRodNormalElementalFireToggleAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

@@ -3,6 +3,9 @@
 * Fixes
     * Fixed broken charge mechanics
     * Sohei should now work correctly with weapon training changes if enabled
+* Added Metamagic
+	* Elemental Spell Metamagic
+		* Choose one energy type: acid, cold, electricity, or fire. You may replace a spell’s normal damage with that energy type "or split the spell’s damage, so that half is of that energy type and half is of its normal type.
 
 ## Version 2.3.1
 * Release for 1.4.0

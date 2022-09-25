@@ -114,7 +114,15 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     .Any(s => s.FlattenAllActions()
                         .OfType<ContextActionDealDamage>()?
                         .Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank) ?? false)
-                    || spell.GetComponent<AbilityShadowSpell>();
+                    || spell.GetComponent<AbilityShadowSpell>()
+                    || spell.AbilityAndVariants()
+                        .SelectMany(s => s.AbilityAndStickyTouch())
+                        .Any(s => s.FlattenAllActions()
+                            .OfType<ContextActionSpawnAreaEffect>()
+                            .Where(a => a.AreaEffect.FlattenAllActions()
+                                .OfType<ContextActionDealDamage>()
+                                .Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank))
+                            .Any()); 
                 if (isIntensifiedSpell) {
                     if (!spell.AvailableMetamagic.HasMetamagic((Metamagic)CustomMetamagic.Intensified)) {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Intensified;

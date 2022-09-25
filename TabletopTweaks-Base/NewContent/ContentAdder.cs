@@ -40,6 +40,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.MetamagicFeats.PiercingSpell.AddPiercingSpell();
                 Feats.MetamagicFeats.SolidShadows.AddSolidShadows();
                 Feats.MetamagicFeats.EncouragingSpell.AddEncouragingSpell();
+                Feats.MetamagicFeats.ElementalSpell.AddElementalSpell();
 
                 Templates.AlignmentTemplates.AddCelestialTemplate();
                 Templates.AlignmentTemplates.AddEntropicTemplate();
@@ -247,6 +248,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.MetamagicFeats.PiercingSpell.UpdateSpells();
                 Feats.MetamagicFeats.RimeSpell.UpdateSpells();
                 Feats.MetamagicFeats.SolidShadows.UpdateSpells();
+                Feats.MetamagicFeats.ElementalSpell.UpdateSpells();
             }
         }
     }
