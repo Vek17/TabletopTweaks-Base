@@ -1056,7 +1056,18 @@
       "TricksterTricks": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Remvoes trickster tricks from the combat feat selection"
+        "Description": "Remvoes trickster tricks from the combat feat selection."
+      }
+    },
+    "IsExpanded": true
+  },
+  "WinterWitch": {
+    "DisableAll": false,
+    "Settings": {
+      "UnearthlyCold": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes unearthly cold to properly apply metamagic and bonus damage."
       }
     },
     "IsExpanded": true

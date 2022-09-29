@@ -190,6 +190,7 @@
     <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
     <Compile Include="Bugfixes\Classes\Trickster.cs" />
     <Compile Include="Bugfixes\Classes\Warpriest.cs" />
+    <Compile Include="Bugfixes\Classes\WinterWitch.cs" />
     <Compile Include="Bugfixes\Classes\Witch.cs" />
     <Compile Include="Bugfixes\Classes\Wizard.cs" />
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />

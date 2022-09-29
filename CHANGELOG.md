@@ -2,7 +2,10 @@
 * Release for 2.0.0
 * Fixes
     * Fixed broken charge mechanics
-    * Sohei should now work correctly with weapon training changes if enabled
+    * Sohei
+        * Sohei should now work correctly with weapon training changes if enabled
+    * Winter Witch
+        * Unearly Cold's direct damage should now properly respect metamagic and added bonus damage
 * Added Metamagic
 	* Elemental Spell Metamagic
 		* Choose one energy type: acid, cold, electricity, or fire. You may replace a spell’s normal damage with that energy type "or split the spell’s damage, so that half is of that energy type and half is of its normal type.

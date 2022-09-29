@@ -115,6 +115,7 @@ namespace TabletopTweaks.Base {
                 );
                 SetttingUI.SettingGroup("Hellknight", TabLevel, Fixes.Hellknight);
                 SetttingUI.SettingGroup("Loremaster", TabLevel, Fixes.Loremaster);
+                SetttingUI.SettingGroup("Winter Witch", TabLevel, Fixes.WinterWitch);
                 SetttingUI.SettingGroup("Spells", TabLevel, Fixes.Spells);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, Fixes.Bloodlines);
                 SetttingUI.SettingGroup("Features", TabLevel, Fixes.Features);

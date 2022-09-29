@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Utility;
 using System.Collections.Generic;
+using TabletopTweaks.Base.Bugfixes.Classes;
 using TabletopTweaks.Core.Config;
 
 namespace TabletopTweaks.Base.Config {
@@ -35,6 +36,7 @@ namespace TabletopTweaks.Base.Config {
         public ClassGroup Witch = new ClassGroup();
         public SettingGroup Hellknight = new SettingGroup();
         public SettingGroup Loremaster = new SettingGroup();
+        public SettingGroup WinterWitch = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup Features = new SettingGroup();
@@ -110,6 +112,7 @@ namespace TabletopTweaks.Base.Config {
 
             Hellknight.LoadSettingGroup(loadedSettings.Hellknight, NewSettingsOffByDefault);
             Loremaster.LoadSettingGroup(loadedSettings.Loremaster, NewSettingsOffByDefault);
+            WinterWitch.LoadSettingGroup(loadedSettings.WinterWitch, NewSettingsOffByDefault);
 
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
