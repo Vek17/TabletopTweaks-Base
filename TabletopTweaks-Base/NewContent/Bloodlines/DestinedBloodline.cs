@@ -723,27 +723,19 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.m_IsSpendResource = true;
                     c.Amount = 1;
                 });
-                var addInsightBonus = Helpers.Create<ContextActionApplyBuff>(c => {
-                    c.m_Buff = SorcererDestinedTouchOfDestinyBuff.ToReference<BlueprintBuffReference>();
-                    c.IsNotDispelable = false;
-                    c.Permanent = false;
-                    c.DurationValue = new ContextDurationValue() {
-                        Rate = DurationRate.Rounds,
-                        DiceType = DiceType.One,
-                        DiceCountValue = new ContextValue() {
-                            ValueType = ContextValueType.Simple,
-                            Value = 0
-                        },
-                        BonusValue = new ContextValue() {
-                            ValueType = ContextValueType.Simple,
-                            Value = 1
-                        }
-                    };
-                });
                 bp.AddComponent<AbilityEffectRunAction>(c => {
-                    c.Actions = new ActionList {
-                        Actions = new GameAction[] { addInsightBonus }
-                    };
+                    c.Actions = Helpers.CreateActionList(
+                        Helpers.Create<ContextActionApplyBuff>(c => {
+                            c.m_Buff = SorcererDestinedTouchOfDestinyBuff.ToReference<BlueprintBuffReference>();
+                            c.IsNotDispelable = false;
+                            c.Permanent = false;
+                            c.DurationValue = new ContextDurationValue() {
+                                Rate = DurationRate.Rounds,
+                                DiceCountValue = 0,
+                                BonusValue = 1
+                            };
+                        })
+                    );
                 });
             });
             var SorcererDestinedTouchOfDestiny = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "SorcererDestinedTouchOfDestiny", bp => {

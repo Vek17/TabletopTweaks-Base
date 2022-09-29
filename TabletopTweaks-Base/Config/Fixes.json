@@ -839,6 +839,11 @@
           "Homebrew": false,
           "Description": "Prevents you from selecting the same talent more than once."
         },
+        "SlipperyMind": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Sets Slippery Mind to correctly be an advanced talent.."
+        },
         "Trapfinding": {
           "Enabled": true,
           "Homebrew": false,

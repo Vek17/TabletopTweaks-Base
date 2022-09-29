@@ -76,6 +76,7 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                 PatchTrapfinding();
                 PatchRogueTalentSelection();
                 PatchDispellingAttack();
+                PatchSlipperyMind();
 
                 void PatchTrapfinding() {
                     if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("Trapfinding")) { return; }
@@ -123,6 +124,16 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                             a.OnlyTargetEnemyBuffs = true;
                             a.OneRollForAll = true;
                         });
+                    TTTContext.Logger.LogPatch(DispellingAttack);
+                }
+                void PatchSlipperyMind() {
+                    if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("SlipperyMind")) { return; }
+
+                    var SlipperyMind = BlueprintTools.GetBlueprint<BlueprintFeature>("a14e8c1801911334f96d410f10eab7bf");
+                    var AdvanceTalents = BlueprintTools.GetBlueprint<BlueprintFeature>("a33b99f95322d6741af83e9381b2391c");
+
+                    SlipperyMind.AddPrerequisiteFeature(AdvanceTalents);
+                    TTTContext.Logger.LogPatch(SlipperyMind);
                 }
             }
             static void PatchEldritchScoundrel() {

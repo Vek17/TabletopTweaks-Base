@@ -340,7 +340,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             });
         }
 
-        private class ElementalSpellMechanics : IGlobalRulebookHandler<RulePrepareDamage>, IGlobalRulebookHandler<RuleDealDamage>, IGlobalSubscriber {
+        private class ElementalSpellMechanics : IAfterRulebookEventTriggerHandler<RulePrepareDamage>, IAfterRulebookEventTriggerHandler<RuleDealDamage>, IGlobalSubscriber {
 
             BlueprintFeature ElementalSpellFeatAcid;
             BlueprintFeature ElementalSpellFeatCold;
@@ -355,7 +355,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 this.ElementalSpellFeatFire = fire;
             }
 
-            public void OnEventAboutToTrigger(RulePrepareDamage evt) {
+            public void OnAfterRulebookEventTrigger(RulePrepareDamage evt) {
                 var ability = evt.Reason.Ability;
                 if (ability == null || !ability.Blueprint.IsSpell) {
                     return;
@@ -379,7 +379,11 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                             if (energyDamage is null) { continue; }
                             if (energyDamage.EnergyType == element) { continue; }
                             if (caster?.CustomMechanicsFeature(CustomMechanicsFeature.ElementalSpellSplitDamage) ?? false) {
-                                energyDamage.Half.Set(true, sourceFact);
+                                if (energyDamage.Half) {
+                                    energyDamage.Durability *= 0.5f;
+                                } else {
+                                    energyDamage.Half.Set(true, sourceFact);
+                                }
                             } else {
                                 energyDamage.ReplaceEnergy(element);
                             }
@@ -388,13 +392,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 };
             }
 
-            public void OnEventDidTrigger(RulePrepareDamage evt) {
-            }
-
-            public void OnEventAboutToTrigger(RuleDealDamage evt) {
-            }
-
-            public void OnEventDidTrigger(RuleDealDamage evt) {
+            public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {
                 var ability = evt.Reason.Ability;
                 if (ability == null || !ability.Blueprint.IsSpell) {
                     return;
