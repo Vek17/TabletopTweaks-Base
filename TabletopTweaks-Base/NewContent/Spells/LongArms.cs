@@ -31,23 +31,11 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.Value = 5;
                 }));
             });
-            var applyBuff = Helpers.Create<ContextActionApplyBuff>(bp => {
-                bp.IsFromSpell = true;
-                bp.m_Buff = LongArmBuff.ToReference<BlueprintBuffReference>();
-                bp.DurationValue = new ContextDurationValue() {
-                    Rate = DurationRate.Minutes,
-                    BonusValue = new ContextValue() {
-                        ValueType = ContextValueType.Rank
-                    },
-                    DiceCountValue = new ContextValue(),
-                    DiceType = DiceType.One
-                };
-            });
             var LongArmAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "LongArmAbility", bp => {
                 bp.SetName(TTTContext, "Long Arm");
                 bp.SetDescription(TTTContext, "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
-                bp.LocalizedDuration = Helpers.CreateString(TTTContext, "LongArmAbility.Duration", "1 minute/level");
-                bp.LocalizedSavingThrow = new Kingmaker.Localization.LocalizedString();
+                bp.SetLocalizedDuration(TTTContext, "1 minute/level");
+                bp.SetLocalizedSavingThrow(TTTContext, "");
                 bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal;
                 bp.Range = AbilityRange.Personal;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
@@ -56,9 +44,20 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.m_Icon = icon;
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<AbilityEffectRunAction>(c => {
-                    c.Actions = new ActionList {
-                        Actions = new GameAction[] { applyBuff }
-                    };
+                    c.Actions = Helpers.CreateActionList(
+                        new ContextActionApplyBuff() {
+                            IsFromSpell = true,
+                            m_Buff = LongArmBuff.ToReference<BlueprintBuffReference>(),
+                            DurationValue = new ContextDurationValue() {
+                                Rate = DurationRate.Minutes,
+                                BonusValue = new ContextValue() {
+                                    ValueType = ContextValueType.Rank
+                                },
+                                DiceCountValue = new ContextValue(),
+                                DiceType = DiceType.One
+                            }
+                        }
+                    );
                 });
                 bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Transmutation;
@@ -70,7 +69,9 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.AOEType = CraftAOE.None;
                 });
             });
+
             if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
+
             LongArmAbility.AddToSpellList(SpellTools.SpellList.AlchemistSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.BloodragerSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.MagusSpellList, 1);

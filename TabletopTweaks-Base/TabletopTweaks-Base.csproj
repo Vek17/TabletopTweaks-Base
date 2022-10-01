@@ -533,6 +533,9 @@
     <Content Include="Assets\Abilities\Icon_ShadowEnchantmentGreater.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Abilities\Icon_StunningBarrierGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Abilities\Icon_WarriorSpirit_Activation.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -28,7 +28,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var Stunned = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("09d39b38bb7c6014394b6daced9bacd3");
             var StunningBarrierStun = BlueprintTools.GetBlueprint<BlueprintAbility>("a08c6ca24141e9e4ea7a679dfecf8007");
             var ScrollOfStunningBarrier = BlueprintTools.GetBlueprint<BlueprintItemEquipmentUsable>("e029ec259c9a37249b113060df32a01d");
-            var Icon_StunningBarrierGreater = StunningBarrierStun.Icon;
+            var Icon_StunningBarrierGreater = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_StunningBarrierGreater.png");
             var Icon_ScrollOfStunningBarrierGreater = ScrollOfStunningBarrier.Icon;
 
             var StunningBarrierName = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Name", 
