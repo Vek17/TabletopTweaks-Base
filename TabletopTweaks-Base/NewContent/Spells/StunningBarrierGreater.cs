@@ -193,10 +193,11 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.AOEType = CraftAOE.None;
                 });
             });
-            var MagesDisjunctionScroll = ItemTools.CreateScroll(TTTContext, "ScrollOfStunningBarrierGreater", Icon_ScrollOfStunningBarrierGreater, StunningBarrierGreaterAbility, 3, 5);
+            var ScrollOfStunningBarrierGreater = ItemTools.CreateScroll(TTTContext, "ScrollOfStunningBarrierGreater", Icon_ScrollOfStunningBarrierGreater, StunningBarrierGreaterAbility, 3, 5);
 
             if (TTTContext.AddedContent.Spells.IsDisabled("StunningBarrierGreater")) { return; }
 
+            VenderTools.AddScrollToLeveledVenders(ScrollOfStunningBarrierGreater, 99);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.ClericSpellList, 3);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.InquisitorSpellList, 3);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.PaladinSpellList, 3);

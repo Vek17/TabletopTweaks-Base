@@ -1,11 +1,15 @@
 ﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.PubSubSystem;
 using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.Utility;
+using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -103,6 +107,61 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 TTTContext.Logger.Log("ARCANIST SPELLBOOK ACTION BAR PATCH: COULD NOT FIND TARGET");
                 return -1;
+            }
+        }
+
+        [HarmonyPatch(typeof(Spellbook), nameof(Spellbook.Memorize), new Type[] { typeof(AbilityData), typeof(SpellSlot) })]
+        static class Arcanist_SpellMemorization_Patch {
+            static bool Prefix(Spellbook __instance, AbilityData data, SpellSlot slot, ref bool __result) {
+                if (TTTContext.Fixes.Arcanist.Base.IsDisabled("EnableMultipleMemorization")) { return true; }
+                if (!__instance.Blueprint.IsArcanist) { return true; }
+                Spellbook spellbook = data.Spellbook;
+                if (((spellbook != null) ? spellbook.Blueprint : null) != __instance.Blueprint) {
+                    PFLog.Default.Warning("Trying to memorize spell from different spellbook", Array.Empty<object>());
+                    __result = false;
+                    return false;
+                }
+                if (!__instance.Blueprint.MemorizeSpells) {
+                    PFLog.Default.Warning("Trying to memorize or forget memorized spell for spontaneous casters.", Array.Empty<object>());
+                    __result = false;
+                    return false;
+                }
+                int spellLevel = __instance.GetSpellLevel(data);
+                if (spellLevel < 0) {
+                    __result = false;
+                    return false;
+                }
+                if (__instance.Blueprint.IsArcanist && __instance.SureMemorizedSpells(spellLevel).HasItem(delegate (SpellSlot i)
+                {
+                    AbilityData spellShell = i.SpellShell;
+                    return spellShell?.Blueprint == data.Blueprint && Equals(spellShell?.MetamagicData, data?.MetamagicData);
+                })) {
+                    PFLog.Default.Warning("Arcanist can't memorize same spell twice.", Array.Empty<object>());
+                    __result = false;
+                    return false;
+                }
+                if (slot != null && slot.SpellShell == data) {
+                    __result = false;
+                    return false;
+                }
+                List<SpellSlot> spells = __instance.SureMemorizedSpells(spellLevel);
+                SpellSlot[] memorizeSlots = __instance.GetMemorizeSlots(spells, data, slot);
+                if (memorizeSlots == null) {
+                    __result = false;
+                    return false;
+                }
+                Spellbook.ClearSlots(memorizeSlots);
+                foreach (SpellSlot spellSlot in memorizeSlots) {
+                    spellSlot.SpellShell = data;
+                    spellSlot.LinkedSlots = memorizeSlots;
+                    spellSlot.IsOpposition = (__instance.OppositionSchools.Contains(data.Blueprint.School) || __instance.OppositionDescriptors.HasAnyFlag(data.Blueprint.SpellDescriptor));
+                }
+                EventBus.RaiseEvent<ISpellBookUIHandler>(delegate (ISpellBookUIHandler h)
+                {
+                    h.HandleMemorizedSpell(data, __instance.Owner);
+                }, true);
+                __result = true;
+                return false;
             }
         }
     }

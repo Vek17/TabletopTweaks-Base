@@ -599,7 +599,10 @@
     <Content Include="Assets\Abilities\Icon_WarriorSpirit_Unholy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Equipment\Icon_MagesDisjunctionScroll.png">
+    <Content Include="Assets\Equipment\Icon_ScrollOfLongArm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfMagesDisjunction.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Equipment\Icon_MetamagicRodBurningGreater.png">

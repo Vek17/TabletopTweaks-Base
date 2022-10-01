@@ -423,6 +423,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Makes arcanist spellbook behave like a prepared caster not a spontaneous one."
+        },
+        "EnableMultipleMemorization": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Makes arcanist spellbook capable of memorizing the same spell multiple times if they have differnt metamagic."
         }
       },
       "IsExpanded": true

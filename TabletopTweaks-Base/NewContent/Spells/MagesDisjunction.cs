@@ -24,7 +24,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
         public static void AddMagesDisjunction() {
             //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var Icon_MagesDisjunctionAbility = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_MagesDisjunctionAbility.png");
-            var Icon_MagesDisjunctionScroll = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MagesDisjunctionScroll.png");
+            var Icon_MagesDisjunctionScroll = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfMagesDisjunction.png");
             var dispelmagic00fx = new PrefabLink() { 
                 AssetId = "3eda0e7f710821045a35ebe432af667c"
             };
@@ -149,7 +149,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 });
             });
             var MagesDisjunctionScroll = ItemTools.CreateScroll(TTTContext, "ScrollOfMagesDisjunction", Icon_MagesDisjunctionScroll, MagesDisjunctionAbility, 9, 17);
+
             if (TTTContext.AddedContent.Spells.IsDisabled("MagesDisjunction")) { return; }
+
+            VenderTools.AddScrollToLeveledVenders(MagesDisjunctionScroll, 1);
             MagesDisjunctionAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList, 9);
             SpellTools.SpellList.MagicDomainSpellList.SpellsByLevel
                 .Where(level => level.SpellLevel == 9)

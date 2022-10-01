@@ -19,11 +19,12 @@ namespace TabletopTweaks.Base.NewContent.Spells {
     static class LongArms {
         public static void AddLongArms() {
             //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
-            var icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_LongArm.png");
+            var Icon_LongArm = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_LongArm.png");
+            var Icon_ScrollOfLongArm = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfLongArm.png");
             var LongArmBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "LongArmBuff", bp => {
                 bp.SetName(TTTContext, "Long Arm");
                 bp.SetDescription(TTTContext, "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
-                bp.m_Icon = icon;
+                bp.m_Icon = Icon_LongArm;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
                 bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
                     c.Stat = StatType.Reach;
@@ -41,7 +42,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.EffectOnAlly = AbilityEffectOnUnit.Helpful;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Self;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
-                bp.m_Icon = icon;
+                bp.m_Icon = Icon_LongArm;
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
@@ -69,8 +70,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.AOEType = CraftAOE.None;
                 });
             });
+            var LongArmScroll = ItemTools.CreateScroll(TTTContext, "ScrollOfLongArm", Icon_ScrollOfLongArm, LongArmAbility, 1, 1);
 
             if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
+            VenderTools.AddScrollToLeveledVenders(LongArmScroll, 99);
 
             LongArmAbility.AddToSpellList(SpellTools.SpellList.AlchemistSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.BloodragerSpellList, 1);
