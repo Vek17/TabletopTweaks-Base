@@ -46,7 +46,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchHolySymbolofIomedae();
                 PatchHalfOfThePair();
                 PatchStormlordsResolve();
-                PatchFlawlessBeltOfPhysicalPerfection8Availability();
+                //PatchFlawlessBeltOfPhysicalPerfection8Availability();
                 PatchFlawlessBeltOfPhysicalPerfection8CritIncrease();
 
                 void PatchAspectOfTheAsp() {

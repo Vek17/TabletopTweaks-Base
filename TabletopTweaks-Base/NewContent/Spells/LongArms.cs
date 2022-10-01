@@ -55,20 +55,20 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
                 bp.m_Icon = icon;
                 bp.ResourceAssetIds = new string[0];
-                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
+                bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList {
                         Actions = new GameAction[] { applyBuff }
                     };
-                }));
-                bp.AddComponent(Helpers.Create<SpellComponent>(c => {
+                });
+                bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Transmutation;
-                }));
-                bp.AddComponent(Helpers.Create<CraftInfoComponent>(c => {
+                });
+                bp.AddComponent<CraftInfoComponent>(c => {
                     c.OwnerBlueprint = bp;
                     c.SpellType = CraftSpellType.Buff;
                     c.SavingThrow = CraftSavingThrow.None;
                     c.AOEType = CraftAOE.None;
-                }));
+                });
             });
             if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
             LongArmAbility.AddToSpellList(SpellTools.SpellList.AlchemistSpellList, 1);

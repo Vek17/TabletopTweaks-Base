@@ -1,3 +1,8 @@
+## Version 2.4.1
+* Added Spells
+    * Stunning Barrier Greater
+        * This spell functions as stunning barrier, except it provides a +2 bonus to AC and on saving throws and it is not discharged until it has stunned a number of creatures equal to your caster level.
+
 ## Version 2.4.0
 * Release for 2.0.0
 * Fixes
