@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Craft;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -12,11 +13,13 @@ using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.Spells {
-    class ShadowEnchantment {
+    internal class ShadowEnchantment {
         public static void AddShadowEnchantment() {
             //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_ShadowEnchantment.png");
-            var icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_ShadowEnchantment.png");
+            var Icon_ShadowEnchantment = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_ShadowEnchantment.png");
+            var Icon_ScrollOfShadowEnchantment = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfShadowEnchantment.png");
             var PowerfulShadows = BlueprintTools.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
+
             var ShadowEnchantmentProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>(TTTContext, "ShadowEnchantmentProperty", bp => {
                 bp.BaseValue = 20;
                 bp.AddComponent<FactRankGetter>(c => {
@@ -53,13 +56,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.CanTargetSelf = true;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Self;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
-                bp.m_Icon = icon;
+                bp.m_Icon = Icon_ShadowEnchantment;
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Illusion;
-                });
-                bp.AddComponent<SpellDescriptorComponent>(c => {
-                    //No Descriptor?
                 });
                 bp.AddComponent<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
@@ -91,16 +91,27 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.m_Class = new BlueprintCharacterClassReference[0];
                     c.m_CustomPropertyList = new BlueprintUnitPropertyReference[0];
                 });
+                bp.AddComponent<CraftInfoComponent>(c => {
+                    c.OwnerBlueprint = bp;
+                    c.SpellType = CraftSpellType.Other;
+                    c.SavingThrow = CraftSavingThrow.None;
+                    c.AOEType = CraftAOE.None;
+                });
             });
+            var ScrollOfShadowEnchantment = ItemTools.CreateScroll(TTTContext, "ScrollOfShadowEnchantment", Icon_ScrollOfShadowEnchantment, ShadowEnchantment, 3, 5);
+
             if (TTTContext.AddedContent.Spells.IsDisabled("ShadowEnchantment")) { return; }
+
+            VenderTools.AddScrollToLeveledVenders(ScrollOfShadowEnchantment);
             ShadowEnchantment.AddToSpellList(SpellTools.SpellList.BardSpellList, 3);
             ShadowEnchantment.AddToSpellList(SpellTools.SpellList.TricksterSpelllist, 3);
             ShadowEnchantment.AddToSpellList(SpellTools.SpellList.WizardSpellList, 3);
         }
         public static void AddShadowEnchantmentGreater() {
-            //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_ShadowEnchantmentGreater.png");
-            var icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_ShadowEnchantmentGreater.png");
+            var Icon_ShadowEnchantmentGreater = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_ShadowEnchantmentGreater.png");
+            var Icon_ScrollOfShadowEnchantmentGreater = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfShadowEnchantmentGreater.png");
             var PowerfulShadows = BlueprintTools.GetBlueprint<BlueprintFeature>("6a9448ec047c642408af6debb8536c38");
+
             var ShadowEnchantmentGreaterProperty = Helpers.CreateBlueprint<BlueprintUnitProperty>(TTTContext, "ShadowEnchantmentGreaterProperty", bp => {
                 bp.BaseValue = 60;
                 bp.AddComponent<FactRankGetter>(c => {
@@ -131,13 +142,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.CanTargetSelf = true;
                 bp.Animation = Kingmaker.Visual.Animation.Kingmaker.Actions.UnitAnimationActionCastSpell.CastAnimationStyle.Self;
                 bp.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Standard;
-                bp.m_Icon = icon;
+                bp.m_Icon = Icon_ShadowEnchantmentGreater;
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Illusion;
-                });
-                bp.AddComponent<SpellDescriptorComponent>(c => {
-                    //No Descriptor?
                 });
                 bp.AddComponent<AbilityShadowSpell>(c => {
                     c.School = SpellSchool.Enchantment;
@@ -169,8 +177,18 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.m_Class = new BlueprintCharacterClassReference[0];
                     c.m_CustomPropertyList = new BlueprintUnitPropertyReference[0];
                 });
+                bp.AddComponent<CraftInfoComponent>(c => {
+                    c.OwnerBlueprint = bp;
+                    c.SpellType = CraftSpellType.Other;
+                    c.SavingThrow = CraftSavingThrow.None;
+                    c.AOEType = CraftAOE.None;
+                });
             });
+            var ScrollOfShadowEnchantmentGreater = ItemTools.CreateScroll(TTTContext, "ScrollOfShadowEnchantmentGreater", Icon_ScrollOfShadowEnchantmentGreater, ShadowEnchantmentGreater, 6, 11);
+
             if (TTTContext.AddedContent.Spells.IsDisabled("ShadowEnchantmentGreater")) { return; }
+
+            VenderTools.AddScrollToLeveledVenders(ScrollOfShadowEnchantmentGreater);
             ShadowEnchantmentGreater.AddToSpellList(SpellTools.SpellList.BardSpellList, 6);
             ShadowEnchantmentGreater.AddToSpellList(SpellTools.SpellList.TricksterSpelllist, 6);
             ShadowEnchantmentGreater.AddToSpellList(SpellTools.SpellList.WizardSpellList, 6);
