@@ -32,6 +32,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.MagicalTailSpells.AddNewMagicalTailSpells();
                 Spells.MagesDisjunction.AddMagesDisjunction();
                 Spells.StunningBarrierGreater.AddStunningBarrierGreater();
+                Spells.CloakOfWinds.AddCloakOfWinds();
 
                 //Added early as some things depend on them for selections
                 Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();

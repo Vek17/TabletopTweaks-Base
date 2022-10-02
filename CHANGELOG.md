@@ -1,8 +1,12 @@
 ## Version 2.4.1
 * Scrolls of new spells should now be available at appropriate venders.
+* Dragon Disciple Prerequistes with TTT have been fixed.
+
 * Added Spells
     * Stunning Barrier Greater
         * This spell functions as stunning barrier, except it provides a +2 bonus to AC and on saving throws and it is not discharged until it has stunned a number of creatures equal to your caster level.
+    * Cloak of Winds
+        * You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty.
 
 ## Version 2.4.0
 * Release for 2.0.0

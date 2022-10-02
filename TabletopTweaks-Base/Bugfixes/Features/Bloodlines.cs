@@ -291,15 +291,31 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             void FixDragonDisciple() {
                 var DragonDiscipleClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("72051275b1dbb2d42ba9118237794f7c");
                 var DragonDiscipleSpellbookSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("8c1ba14c0b6dcdb439c56341385ee474");
-                var noBloodline = Helpers.Create<PrerequisiteNoFeature>(c => {
-                    c.Group = Prerequisite.GroupType.Any;
-                    c.m_Feature = BloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
-                });
 
                 DragonDiscipleClass.SetComponents(DragonDiscipleClass.ComponentsArray
                     .Where(c => !(c is PrerequisiteNoFeature)) // Remove old Bloodline Feature
                     .Where(c => !(c is PrerequisiteNoArchetype)) // Remove Sorcerer Archetype Restrictions
-                    .Append(noBloodline));
+                    .Where(c => !(c is PrerequisiteCondition)) // Remove Sorcerer Archetype Restrictions
+                );
+                DragonDiscipleClass.AddComponent<PrerequisiteNoFeature>(c => {
+                    c.Group = Prerequisite.GroupType.Any;
+                    c.m_Feature = BloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>();
+                });
+                DragonDiscipleClass.AddComponent<PrerequisiteFeaturesFromList>(c => {
+                    c.Group = Prerequisite.GroupType.Any;
+                    c.m_Features = new BlueprintFeatureReference[] {
+                        DraconicBlackBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicBlueBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicBrassBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicBronzeBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicCopperBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicGoldBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicGreenBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicRedBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicSilverBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                        DraconicWhiteBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>()
+                    };
+                });
                 BloodOfDragonsSelection.GetComponent<NoSelectionIfAlreadyHasFeature>()
                     .m_Features = new BlueprintFeatureReference[] { BloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>() };
                 DragonDiscipleSpellbookSelection.AddFeatures(
@@ -346,8 +362,17 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     var draconicBloodline = Helpers.Create<PrerequisiteFeaturesFromList>(c => {
                         c.Group = Prerequisite.GroupType.Any;
-                        c.m_Features = new BlueprintFeatureReference[] { 
-                            DragonDiscipleClass.GetComponent<PrerequisiteNoFeature>().m_Feature 
+                        c.m_Features = new BlueprintFeatureReference[] {
+                            DraconicBlackBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicBlueBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicBrassBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicBronzeBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicCopperBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicGoldBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicGreenBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicRedBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicSilverBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>(),
+                            DraconicWhiteBloodlineRequisiteFeature.ToReference<BlueprintFeatureReference>()
                         };
                     });
                     archetype.AddComponents(noBloodline, draconicBloodline);

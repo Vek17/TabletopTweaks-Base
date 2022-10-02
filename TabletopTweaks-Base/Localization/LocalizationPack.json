@@ -1365,22 +1365,22 @@
       "esES": null
     },
     {
-      "Key": "ffefe480122242e1b53c6ac2e9836219",
+      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
-      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
+      "Key": "ffefe480122242e1b53c6ac2e9836219",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
@@ -4024,6 +4024,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "顺势斩（神话）",
+      "esES": null
+    },
+    {
+      "Key": "a78bf95d5a1b4276b89bab04235408d5",
+      "SimpleName": "CloakOfWindsAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "41f7c67a1e5f4852b5d308b90f2e40a3",
+      "SimpleName": "CloakOfWindsBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "34a478cb791e40b28b3154b16abfffb5",
+      "SimpleName": "CloakOfWindsBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Cloak Of Winds",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -12002,10 +12035,10 @@
       "esES": null
     },
     {
-      "Key": "9b3ade0576a54a5292186ebfbacb48bf",
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "Greater Stunning Barrier",
+      "enGB": "Will negates stun",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -12024,10 +12057,10 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "Key": "9b3ade0576a54a5292186ebfbacb48bf",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "Will negates stun",
+      "enGB": "Greater Stunning Barrier",
       "ruRU": null,
       "deDE": null,
       "frFR": null,

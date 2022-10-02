@@ -26,11 +26,11 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.SetDescription(TTTContext, "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.");
                 bp.m_Icon = Icon_LongArm;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
-                bp.AddComponent(Helpers.Create<AddStatBonus>(c => {
+                bp.AddComponent<AddStatBonus>(c => {
                     c.Stat = StatType.Reach;
                     c.Descriptor = ModifierDescriptor.Enhancement;
                     c.Value = 5;
-                }));
+                });
             });
             var LongArmAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "LongArmAbility", bp => {
                 bp.SetName(TTTContext, "Long Arm");
