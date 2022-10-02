@@ -197,7 +197,8 @@ namespace TabletopTweaks.Base.NewContent.Spells {
 
             if (TTTContext.AddedContent.Spells.IsDisabled("StunningBarrierGreater")) { return; }
 
-            VenderTools.AddScrollToLeveledVenders(ScrollOfStunningBarrierGreater, 99);
+            VenderTools.AddScrollToLeveledVenders(ScrollOfStunningBarrierGreater);
+
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.ClericSpellList, 3);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.InquisitorSpellList, 3);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.PaladinSpellList, 3);

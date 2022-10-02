@@ -153,6 +153,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             if (TTTContext.AddedContent.Spells.IsDisabled("MagesDisjunction")) { return; }
 
             VenderTools.AddScrollToLeveledVenders(MagesDisjunctionScroll, 1);
+
             MagesDisjunctionAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList, 9);
             SpellTools.SpellList.MagicDomainSpellList.SpellsByLevel
                 .Where(level => level.SpellLevel == 9)

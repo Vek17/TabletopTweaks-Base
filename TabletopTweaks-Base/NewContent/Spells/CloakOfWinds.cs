@@ -73,7 +73,9 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var PotionOfCloakOfWinds = ItemTools.CreatePotion(TTTContext, "PotionOfCloakOfWinds", ItemTools.PotionColor.Blue, CloakOfWindsAbility, 3, 5);
 
             if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
-            VenderTools.AddScrollToLeveledVenders(ScrollOfCloakOfWinds, 99);
+
+            VenderTools.AddScrollToLeveledVenders(ScrollOfCloakOfWinds);
+            VenderTools.AddPotionToLeveledVenders(PotionOfCloakOfWinds);
 
             CloakOfWindsAbility.AddToSpellList(SpellTools.SpellList.BloodragerSpellList, 3);
             CloakOfWindsAbility.AddToSpellList(SpellTools.SpellList.DruidSpellList, 3);

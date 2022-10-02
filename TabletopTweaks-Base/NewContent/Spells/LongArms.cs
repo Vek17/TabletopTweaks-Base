@@ -73,7 +73,8 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var LongArmScroll = ItemTools.CreateScroll(TTTContext, "ScrollOfLongArm", Icon_ScrollOfLongArm, LongArmAbility, 1, 1);
 
             if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
-            VenderTools.AddScrollToLeveledVenders(LongArmScroll, 99);
+
+            VenderTools.AddScrollToLeveledVenders(LongArmScroll);
 
             LongArmAbility.AddToSpellList(SpellTools.SpellList.AlchemistSpellList, 1);
             LongArmAbility.AddToSpellList(SpellTools.SpellList.BloodragerSpellList, 1);
