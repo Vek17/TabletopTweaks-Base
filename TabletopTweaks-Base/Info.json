@@ -4,11 +4,11 @@
   "DisplayName": "Tabletop Tweaks Base",
   "EntryMethod": "TabletopTweaks.Base.Main.Load",
   "GameVersion": "2.0.0",
-  "HomePage": "https://github.com/Vek17/TabletopTweaks-Base/releases",
+  "HomePage": "https://github.com/Vek17/TabletopTweaks-Base",
   "Id": "TabletopTweaks-Base",
   "ManagerVersion": "0.23.0",
   "Repository": "https://raw.githubusercontent.com/Vek17/TabletopTweaks-Base/master/Repository.json",
-  "Requirements": [ "TabletopTweaks-Core" ],
+  "Requirements": [ "TabletopTweaks-Core-0.5.1" ],
   "LoadAfter": [ "TabletopTweaks-Core" ],
   "Version": "2.4.1"
 }
