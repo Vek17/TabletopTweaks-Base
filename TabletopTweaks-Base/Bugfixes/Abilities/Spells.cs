@@ -129,14 +129,14 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 var PerfectForm = BlueprintTools.GetBlueprint<BlueprintAbility>("91d04f9180e94065ac768959323d2002");
                 var perfectFormBuffs = new BlueprintBuffReference[] {
-                        BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("ccd363424d954c668a81b0024012a66a"),    // PerfectFormEqualToCharismaBuff
-                        BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("774567a0bcf54a83807f7387d5dd9c23"),    // PerfectFormEqualToConstitutionBuff
-                        BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("23b87498fac14465bc9c22cc3366e6e7"),    // PerfectFormEqualToDexterityBuff
-                        BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("3bc3d8660ddc467aabea43b070fcd10b"),    // PerfectFormEqualToIntelligenceBuff
-                        BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("149e7d34927146a8804404087bf9703f"),    // PerfectFormEqualToStrengthBuff
-                        BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("06785b5665264ad1b257fa3e724ed68f")     // PerfectFormEqualToWisdomBuff
+                    BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("ccd363424d954c668a81b0024012a66a"),    // PerfectFormEqualToCharismaBuff
+                    BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("774567a0bcf54a83807f7387d5dd9c23"),    // PerfectFormEqualToConstitutionBuff
+                    BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("23b87498fac14465bc9c22cc3366e6e7"),    // PerfectFormEqualToDexterityBuff
+                    BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("3bc3d8660ddc467aabea43b070fcd10b"),    // PerfectFormEqualToIntelligenceBuff
+                    BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("149e7d34927146a8804404087bf9703f"),    // PerfectFormEqualToStrengthBuff
+                    BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("06785b5665264ad1b257fa3e724ed68f")     // PerfectFormEqualToWisdomBuff
   
-                    };
+                };
                 PerfectForm
                     .GetComponent<AbilityEffectRunAction>()
                     .TemporaryContext(c => {
@@ -377,32 +377,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 var BurstOfSonicEnergy = BlueprintTools.GetBlueprint<BlueprintAbility>("b5a2d0e400dd38e428c953f8a2be5f0b");
                 var BurstOfSonicEnergy10Feet = BlueprintTools.GetBlueprint<BlueprintAbility>("980554934d1aa354bbb08f4b150bd9da");
                 var BurstOfSonicEnergyAdjacent = BlueprintTools.GetBlueprint<BlueprintAbility>("65010ad20b1f57a4f86cd09115728831");
+                var Mythic1lvlAzata_ElysiumBolt00 = BlueprintTools.GetBlueprintReference<BlueprintProjectileReference>("f00eb27234fbc39448b142f1257c8886"); 
 
-                BurstOfSonicEnergy10Feet.TemporaryContext(bp => {
-                    bp.DisableLog = true;
-                    bp.GetComponent<AbilityTargetsAround>().TemporaryContext(c => {
-                        c.m_Condition = new ConditionsChecker() {
-                            Conditions = new Condition[] {
-                                new ContextConditionIsCaster(){
-                                    Not = true
-                                }
-                            }
-                        };
-                    });
-                });
-                BurstOfSonicEnergyAdjacent.TemporaryContext(bp => {
-                    bp.SetName(BurstOfSonicEnergy10Feet.m_DisplayName);
-                    bp.DisableLog = true;
-                    bp.GetComponent<AbilityTargetsAround>().TemporaryContext(c => {
-                        c.m_Condition = new ConditionsChecker() {
-                            Conditions = new Condition[] {
-                                new ContextConditionIsCaster(){
-                                    Not = true
-                                }
-                            }
-                        };
-                    });
-                });
                 BurstOfSonicEnergy.TemporaryContext(bp => {
                     bp.AvailableMetamagic |= Metamagic.Empower
                         | Metamagic.Maximize
@@ -413,21 +389,85 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         | (Metamagic)CustomMetamagic.ElementalCold
                         | (Metamagic)CustomMetamagic.ElementalElectricity
                         | (Metamagic)CustomMetamagic.ElementalFire;
-                    bp.GetComponent<AbilityEffectRunAction>()
-                        .Actions = Helpers.CreateActionList(
-                            new ContextActionCastSpell() {
-                                m_Spell = BurstOfSonicEnergyAdjacent.ToReference<BlueprintAbilityReference>(),
-                                DC = new ContextValue(),
-                                SpellLevel = new ContextValue(),
+                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => { 
+                        c.Actions = Helpers.CreateActionList(
+                            new Conditional() {
+                                ConditionsChecker = new ConditionsChecker() {
+                                    Conditions = new Condition[] {
+                                        new ContextConditionDistanceToTarget(){
+                                            DistanceGreater = 5.Feet(),
+                                            Not = true
+                                        }
+                                    }
+                                },
+                                IfTrue = Helpers.CreateActionList(
+                                    new ContextActionDealDamage() {
+                                        DamageType = new DamageTypeDescription() {
+                                            Type = DamageType.Energy,
+                                            Energy = DamageEnergyType.Sonic
+                                        },
+                                        Duration = new ContextDurationValue() {
+                                            DiceCountValue = new ContextValue(),
+                                            BonusValue = new ContextValue()
+                                        },
+                                        Value = new ContextDiceValue() {
+                                            DiceType = DiceType.D6,
+                                            DiceCountValue = new ContextValue() {
+                                                ValueType = ContextValueType.Rank,
+                                                ValueRank = AbilityRankType.DamageDice
+                                            },
+                                            BonusValue = 0
+                                        }
+                                    }
+                                ),
+                                IfFalse = Helpers.CreateActionList()
                             },
-                            new ContextActionCastSpell() {
-                                m_Spell = BurstOfSonicEnergy10Feet.ToReference<BlueprintAbilityReference>(),
-                                DC = new ContextValue(),
-                                SpellLevel = new ContextValue()
+                            new ContextActionDealDamage() {
+                                DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Sonic
+                                },
+                                Duration = new ContextDurationValue() {
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                },
+                                Value = new ContextDiceValue() {
+                                    DiceCountValue = 0,
+                                    BonusValue = new ContextValue() {
+                                        ValueType = ContextValueType.Rank,
+                                        ValueRank = AbilityRankType.DamageBonus
+                                    }
+                                }
                             }
                         );
-                    bp.AddComponent<AbilityAoERadius>(c => {
+                    });
+                    bp.AddComponent<AbilityTargetsAround>(c => {
                         c.m_Radius = 10.Feet();
+                        c.m_TargetType = TargetType.Any;
+                        c.m_Condition = new ConditionsChecker() {
+                            Conditions = new Condition[] {
+                                new ContextConditionIsCaster(){
+                                    Not = true
+                                }
+                            }
+                        };
+                    });
+                    bp.AddContextRankConfig(c => {
+                        c.m_Type = AbilityRankType.DamageDice;
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.Div2;
+                    });
+                    bp.AddContextRankConfig(c => {
+                        c.m_Type = AbilityRankType.DamageBonus;
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.Div2;
+                    });
+                    bp.AddComponent<AbilityDeliverProjectile>(c => {
+                        c.m_Projectiles = new BlueprintProjectileReference[] {
+                            Mythic1lvlAzata_ElysiumBolt00
+                        };
+                        c.m_Weapon = new BlueprintItemWeaponReference();
+                        c.m_ControlledProjectileHolderBuff = new BlueprintBuffReference();
                     });
                 });
                 TTTContext.Logger.LogPatch(BurstOfSonicEnergy);
