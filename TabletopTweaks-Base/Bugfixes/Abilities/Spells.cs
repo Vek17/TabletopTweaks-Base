@@ -12,13 +12,16 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
+using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
@@ -46,13 +49,25 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Spells");
+                //Azata Spells
+                PatchBelieveInYourself();
+                PatchBurstOfSonicEnergy();
+                PatchWindsOfFall();
+                PatchFieldOfFlowers();
+                PatchRepulsiveNature();
+                PatchWaterPush();
+                PatchNaturesGrasp();
+                PatchSuddenSquall();
+                PatchFriendlyHug();
+                PatchUnbreakableBond();
+                PatchWaterTorrent();
+                //General Spells
                 PatchAbsoluteOrder();
                 PatchAbyssalStorm();
                 PatchAcidMaw();
                 PatchAnimalGrowth();
-                PatchBelieveInYourself();
                 PatchBestowCurseGreater();
-                PatchBreakEnchantment();
+                PatchBreakEnchantment(); 
                 PatchChainLightning();
                 PatchCommand();
                 PatchCommandGreater();
@@ -82,13 +97,459 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchSunForm();
                 PatchSupernova();
                 PatchUnbreakableHeart();
-                PatchWindsOfFall();
                 PatchWrachingRay();
                 PatchVampiricBlade();
                 PatchZeroState();
                 PatchFromSpellFlags();
             }
+            //Azata Spells
+            static void PatchBelieveInYourself() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("BelieveInYourself")) { return; }
 
+                var BelieveInYourself = BlueprintTools.GetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
+                var BelieveInYourselfVariants = BelieveInYourself
+                    .GetComponent<AbilityVariants>()
+                    .Variants;
+                foreach (BlueprintAbility variant in BelieveInYourselfVariants) {
+                    variant.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .Select(action => action.Buff)
+                        .ForEach(buff => {
+                            buff.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                                c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                                c.m_Progression = ContextRankProgression.DivStep;
+                                c.m_StepLevel = 4;
+                                TTTContext.Logger.LogPatch(buff);
+                            });
+                        });
+                    variant.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.DivStep;
+                        c.m_StepLevel = 4;
+                        TTTContext.Logger.LogPatch(variant);
+                    });
+                }
+            }
+            static void PatchBurstOfSonicEnergy() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("BreakEnchantment")) { return; }
+
+                var BurstOfSonicEnergy = BlueprintTools.GetBlueprint<BlueprintAbility>("b5a2d0e400dd38e428c953f8a2be5f0b");
+                var BurstOfSonicEnergy10Feet = BlueprintTools.GetBlueprint<BlueprintAbility>("980554934d1aa354bbb08f4b150bd9da");
+                var BurstOfSonicEnergyAdjacent = BlueprintTools.GetBlueprint<BlueprintAbility>("65010ad20b1f57a4f86cd09115728831");
+
+                BurstOfSonicEnergy10Feet.TemporaryContext(bp => {
+                    bp.DisableLog = true;
+                    bp.GetComponent<AbilityTargetsAround>().TemporaryContext(c => {
+                        c.m_Condition = new ConditionsChecker() {
+                            Conditions = new Condition[] {
+                                new ContextConditionIsCaster(){
+                                    Not = true
+                                }
+                            }
+                        };
+                    });
+                });
+                BurstOfSonicEnergyAdjacent.TemporaryContext(bp => {
+                    bp.SetName(BurstOfSonicEnergy10Feet.m_DisplayName);
+                    bp.DisableLog = true;
+                    bp.GetComponent<AbilityTargetsAround>().TemporaryContext(c => {
+                        c.m_Condition = new ConditionsChecker() {
+                            Conditions = new Condition[] {
+                                new ContextConditionIsCaster(){
+                                    Not = true
+                                }
+                            }
+                        };
+                    });
+                });
+                BurstOfSonicEnergy.TemporaryContext(bp => {
+                    bp.AvailableMetamagic |= Metamagic.Empower
+                        | Metamagic.Maximize
+                        | Metamagic.Bolstered
+                        | Metamagic.Selective
+                        | Metamagic.CompletelyNormal
+                        | (Metamagic)CustomMetamagic.ElementalAcid
+                        | (Metamagic)CustomMetamagic.ElementalCold
+                        | (Metamagic)CustomMetamagic.ElementalElectricity
+                        | (Metamagic)CustomMetamagic.ElementalFire;
+                    bp.GetComponent<AbilityEffectRunAction>()
+                        .Actions = Helpers.CreateActionList(
+                            new ContextActionCastSpell() {
+                                m_Spell = BurstOfSonicEnergyAdjacent.ToReference<BlueprintAbilityReference>(),
+                                DC = new ContextValue(),
+                                SpellLevel = new ContextValue(),
+                            },
+                            new ContextActionCastSpell() {
+                                m_Spell = BurstOfSonicEnergy10Feet.ToReference<BlueprintAbilityReference>(),
+                                DC = new ContextValue(),
+                                SpellLevel = new ContextValue()
+                            }
+                        );
+                    bp.AddComponent<AbilityAoERadius>(c => {
+                        c.m_Radius = 10.Feet();
+                    });
+                });
+                TTTContext.Logger.LogPatch(BurstOfSonicEnergy);
+            }
+            static void PatchWindsOfFall() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("WindsOfFall")) { return; }
+
+                var WindsOfTheFall = BlueprintTools.GetBlueprint<BlueprintAbility>("af2ed41c7894b934c9a9ca5048af3f58");
+                var WindsOfTheFallBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b90339c580288eb48b7fea4abba0507e");
+
+                WindsOfTheFall.TemporaryContext(bp => {
+                    bp.Range = AbilityRange.Projectile;
+                    bp.CanTargetEnemies = true;
+                    bp.CanTargetFriends = true;
+                    bp.CanTargetPoint = true;
+                });
+                WindsOfTheFallBuff.TemporaryContext(bp => {
+                    bp.SetComponents();
+                    bp.AddComponent<ModifyD20>(c => {
+                        c.Rule = RuleType.All;
+                        c.RollsAmount = 1;
+                        c.TakeBest = false;
+                        c.m_SavingThrowType = ModifyD20.InnerSavingThrowType.All;
+                        c.m_TandemTripFeature = new BlueprintFeatureReference();
+                        c.RollResult = new ContextValue();
+                        c.Bonus = new ContextValue();
+                        c.Chance = new ContextValue();
+                        c.ValueToCompareRoll = new ContextValue();
+                        c.Skill = new StatType[0];
+                        c.Value = new ContextValue();
+                    });
+                });
+                TTTContext.Logger.LogPatch(WindsOfTheFall);
+                TTTContext.Logger.LogPatch(WindsOfTheFallBuff);
+            }
+            static void PatchFieldOfFlowers() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("FieldOfFlowers")) { return; }
+
+                var FieldOfFlowers = BlueprintTools.GetBlueprint<BlueprintAbility>("b2d9ad1cc95d718459c09499a2e9dbf9");
+                var FieldOfFlowersArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("d8f51712fce75fe42aa4cc6d3d1cf7d0");
+                var FieldOfFlowersBuffDistracted = BlueprintTools.GetBlueprint<BlueprintBuff>("cfe72018943bcd446803fc8a825bb391");
+                var FieldOfFlowersBuffImmunity = BlueprintTools.GetBlueprint<BlueprintBuff>("2edcd52dc77e89145b2817d23606c1b8");
+                var RepulsiveNatureNauseatedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("c9b528fbbd8f3b84fb068bcf9b2c0ebb");
+                var RepulsiveNatureBuffImmunity = BlueprintTools.GetBlueprint<BlueprintBuff>("7401fdfea49b9874db8a72579aec7c1f");
+
+                FieldOfFlowersArea.TemporaryContext(bp => {
+                    bp.RemoveComponents<AddFactContextActions>();
+                    bp.FlattenAllActions()
+                        .OfType<Conditional>()
+                        .Where(c => c.ConditionsChecker.Conditions.Any(condition => condition is ContextConditionIsEnemy))
+                        .ForEach(c => {
+                            c.ConditionsChecker.Conditions = c.ConditionsChecker.Conditions.AppendToArray(
+                                new ContextConditionHasBuff() {
+                                    m_Buff = FieldOfFlowersBuffImmunity.ToReference<BlueprintBuffReference>(),
+                                    Not = true
+                                }
+                            );
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .Where(action => action.Buff == RepulsiveNatureNauseatedBuff)
+                        .ForEach(action => {
+                            action.m_Buff = FieldOfFlowersBuffDistracted.ToReference<BlueprintBuffReference>();
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<Conditional>()
+                        .SelectMany(c => c.ConditionsChecker.Conditions)
+                        .OfType<ContextConditionHasBuff>()
+                        .Where(condition => condition.Buff == RepulsiveNatureNauseatedBuff)
+                        .ForEach(condition => {
+                            condition.m_Buff = FieldOfFlowersBuffDistracted.ToReference<BlueprintBuffReference>();
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionRemoveBuff>()
+                        .Where(action => action.Buff == RepulsiveNatureNauseatedBuff)
+                        .ForEach(action => {
+                            action.m_Buff = FieldOfFlowersBuffDistracted.ToReference<BlueprintBuffReference>();
+                        });
+
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .Where(action => action.Buff == RepulsiveNatureBuffImmunity)
+                        .ForEach(action => {
+                            action.m_Buff = FieldOfFlowersBuffImmunity.ToReference<BlueprintBuffReference>();
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<Conditional>()
+                        .SelectMany(c => c.ConditionsChecker.Conditions)
+                        .OfType<ContextConditionHasBuff>()
+                        .Where(condition => condition.Buff == RepulsiveNatureBuffImmunity)
+                        .ForEach(condition => {
+                            condition.m_Buff = FieldOfFlowersBuffImmunity.ToReference<BlueprintBuffReference>();
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionRemoveBuff>()
+                        .Where(action => action.Buff == RepulsiveNatureBuffImmunity)
+                        .ForEach(action => {
+                            action.m_Buff = FieldOfFlowersBuffImmunity.ToReference<BlueprintBuffReference>();
+                        });
+                });
+                FieldOfFlowers.GetComponent<SpellDescriptorComponent>().TemporaryContext(c => {
+                    c.Descriptor = SpellDescriptor.Ground;
+                });
+                TTTContext.Logger.LogPatch(FieldOfFlowers);
+                TTTContext.Logger.LogPatch(FieldOfFlowersArea);
+            }
+            static void PatchRepulsiveNature() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("RepulsiveNature")) { return; }
+
+                var RepulsiveNature = BlueprintTools.GetBlueprint<BlueprintAbility>("1b148617dac4f0341a9b0dec00b11b3a");
+                var RepulsiveNatureArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("e2182d05755d9a54fa4967a5f6b3ecdf");
+                var RepulsiveNatureNauseatedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("c9b528fbbd8f3b84fb068bcf9b2c0ebb");
+                var RepulsiveNatureBuffImmunity = BlueprintTools.GetBlueprint<BlueprintBuff>("7401fdfea49b9874db8a72579aec7c1f");
+                var NasuseatedEffect = new PrefabLink() { AssetId = "02b8a5bbb308cbb408f0206cef7cf9d6" }; // Nasueated Visual Effect
+
+                RepulsiveNature.TemporaryContext(bp => {
+                    bp.GetComponent<SpellDescriptorComponent>().TemporaryContext(c => {
+                        c.Descriptor = SpellDescriptor.Ground;
+                    });
+                    bp.AddComponent<AbilityAoERadius>(c => {
+                        c.m_Radius = 30.Feet();
+                    });
+                    bp.AddComponent<ContextCalculateSharedValue>(c => {
+                        c.ValueType = AbilitySharedValue.Duration;
+                        c.Value = new ContextDiceValue() {
+                            DiceCountValue = 0,
+                            BonusValue = new ContextValue() {
+                                ValueType = ContextValueType.Rank
+                            },
+                        };
+                        c.Modifier = 1;
+                    });
+                });
+                RepulsiveNatureArea.TemporaryContext(bp => {
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionSavingThrow>()
+                        .ForEach(action => {
+                            action.HasCustomDC = false;
+                            action.CustomDC = new ContextValue();
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionApplyBuff>()
+                        .Where(action => action.Buff == RepulsiveNatureNauseatedBuff)
+                        .ForEach(action => {
+                            action.DurationValue = new ContextDurationValue() {
+                                Rate = DurationRate.Rounds,
+                                DiceCountValue = 0,
+                                BonusValue = new ContextValue() {
+                                    ValueType = ContextValueType.Shared,
+                                    ValueShared = AbilitySharedValue.Duration
+                                }
+                            };
+                        });
+                    bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
+                });
+                RepulsiveNatureNauseatedBuff.TemporaryContext(bp => {
+                    bp.FxOnStart = NasuseatedEffect;
+                    bp.ResourceAssetIds = new string[] { NasuseatedEffect.AssetId };
+                    bp.SetComponents();
+                    bp.AddComponent<AddCondition>(c => {
+                        c.Condition = UnitCondition.Nauseated;
+                    });
+                    bp.AddComponent<AddFactContextActions>(c => {
+                        c.Activated = Helpers.CreateActionList(
+                            new ContextActionDealDamage() {
+                                DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Acid
+                                },
+                                Duration = new ContextDurationValue() {
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                },
+                                Value = new ContextDiceValue() {
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 2,
+                                    BonusValue = 0
+                                }
+                            }
+                        );
+                        c.Deactivated = Helpers.CreateActionList();
+                        c.NewRound = Helpers.CreateActionList(
+                            new ContextActionSavingThrow() { 
+                                Type = SavingThrowType.Fortitude,
+                                CustomDC = new ContextValue(),
+                                Actions = Helpers.CreateActionList(
+                                    new ContextActionConditionalSaved() { 
+                                        Succeed = Helpers.CreateActionList(
+                                            new ContextActionApplyBuff() {
+                                                m_Buff = RepulsiveNatureBuffImmunity.ToReference<BlueprintBuffReference>(),
+                                                Permanent = false,
+                                                AsChild = false,
+                                                DurationValue = new ContextDurationValue() {
+                                                    Rate = DurationRate.Rounds,
+                                                    DiceCountValue = 0,
+                                                    BonusValue = new ContextValue() {
+                                                        ValueType = ContextValueType.Shared,
+                                                        ValueShared = AbilitySharedValue.Duration
+                                                    }
+                                                }
+                                            },
+                                            new ContextActionRemoveSelf()
+                                        ),
+                                        Failed = Helpers.CreateActionList(
+                                            new ContextActionDealDamage() {
+                                                DamageType = new DamageTypeDescription() {
+                                                    Type = DamageType.Energy,
+                                                    Energy = DamageEnergyType.Acid
+                                                },
+                                                Duration = new ContextDurationValue() {
+                                                    DiceCountValue = new ContextValue(),
+                                                    BonusValue = new ContextValue()
+                                                },
+                                                Value = new ContextDiceValue() {
+                                                    DiceType = DiceType.D6,
+                                                    DiceCountValue = 2,
+                                                    BonusValue = 0
+                                                }
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        );
+                    });
+                    bp.AddComponent<SpellDescriptorComponent>(c => {
+                        c.Descriptor = SpellDescriptor.Nauseated;
+                    });
+                    bp.AddComponent<RemoveWhenCombatEnded>();
+                });
+                RepulsiveNatureBuffImmunity.TemporaryContext(bp => {
+                    bp.GetComponent<CombatStateTrigger>().TemporaryContext(c => {
+                        c.CombatStartActions = Helpers.CreateActionList(
+                            new ContextActionRemoveSelf()    
+                        );
+                    });
+                });
+                TTTContext.Logger.LogPatch(RepulsiveNature);
+                TTTContext.Logger.LogPatch(RepulsiveNatureArea);
+                TTTContext.Logger.LogPatch(RepulsiveNatureNauseatedBuff);
+                TTTContext.Logger.LogPatch(RepulsiveNatureBuffImmunity);
+            }
+            static void PatchWaterPush() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("WaterPush")) { return; }
+
+                var WaterPush = BlueprintTools.GetBlueprint<BlueprintAbility>("17712729faf427f4fa0463bc919a0ff4");
+
+                WaterPush.TemporaryContext(bp => {
+                    bp.Range = AbilityRange.Projectile;
+                    bp.CanTargetEnemies = true;
+                    bp.CanTargetFriends = true;
+                    bp.CanTargetPoint = true;
+                    bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.DivStep;
+                        c.m_StepLevel = 4;
+                    });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionPush>()
+                        .ForEach(c => {
+                            c.Distance = 3;
+                        });
+                });
+                TTTContext.Logger.LogPatch(WaterPush);
+            }
+            static void PatchNaturesGrasp() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("NaturesGrasp")) { return; }
+
+                var NaturesGrasp = BlueprintTools.GetBlueprint<BlueprintAbility>("2b9db9808a1aad74b94f651c5732fd3c");
+                var NaturesGraspBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b506053d4279ee347b56095c9714c008");
+
+                NaturesGraspBuff.TemporaryContext(bp => {
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionDealDamage>()
+                        .ForEach(a => {
+                            a.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = new ContextValue() {
+                                    ValueType = ContextValueType.Rank,
+                                    ValueRank = AbilityRankType.DamageDice
+                                }
+                            };
+                        });
+                });
+                TTTContext.Logger.LogPatch(NaturesGraspBuff);
+            }
+            static void PatchSuddenSquall() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("SuddenSquall")) { return; }
+
+                var SuddenSquall = BlueprintTools.GetBlueprint<BlueprintAbility>("4e22d7cfda74b3644b31de8e7c044e21");
+                var SuddenSquallBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("e30d46f2ac194424694df9c7f1893ef1");
+
+                SuddenSquall.TemporaryContext(bp => {
+                    bp.Range = AbilityRange.Projectile;
+                    bp.CanTargetEnemies = true;
+                    bp.CanTargetFriends = true;
+                    bp.CanTargetPoint = true;
+                    bp.GetComponent<AbilityDeliverProjectile>().TemporaryContext(c => {
+                        c.m_Length = 15.Feet();
+                    });
+                });
+                SuddenSquallBuff.TemporaryContext(bp => {
+                    bp.SetComponents();
+                    bp.AddComponent<ForbidSpellCasting>(c => {
+                        c.m_IgnoreFeature = new BlueprintFeatureReference();
+                    });
+                });
+                TTTContext.Logger.LogPatch(SuddenSquall);
+            }
+            static void PatchFriendlyHug() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("FriendlyHug")) { return; }
+
+                var FriendlyHugBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("3906504d59286b640856b3da63f389a8");
+                FriendlyHugBuff.AddComponent<SpellImmunityToSpellDescriptor>(c => {
+                    c.Descriptor = SpellDescriptor.MindAffecting;
+                    c.m_CasterIgnoreImmunityFact = new BlueprintUnitFactReference();
+                });
+
+                TTTContext.Logger.LogPatch(FriendlyHugBuff);
+            }
+            static void PatchUnbreakableBond() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("UnbreakableBond")) { return; }
+
+                var UnbreakableBondImmunityBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("e60806180806b4c488f0d45af1035917");
+                UnbreakableBondImmunityBuff.AddComponent<SpellImmunityToSpellDescriptor>(c => {
+                    c.Descriptor = SpellDescriptor.MindAffecting 
+                        | SpellDescriptor.Fear
+                        | SpellDescriptor.Compulsion
+                        | SpellDescriptor.Charm
+                        | SpellDescriptor.Emotion
+                        | SpellDescriptor.Shaken
+                        | SpellDescriptor.Confusion;
+                    c.m_CasterIgnoreImmunityFact = new BlueprintUnitFactReference();
+                });
+
+                TTTContext.Logger.LogPatch(UnbreakableBondImmunityBuff);
+            }
+            static void PatchWaterTorrent() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("WaterTorrent")) { return; }
+
+                var WaterTorrent = BlueprintTools.GetBlueprint<BlueprintAbility>("cd7b6981218a0274c916db0a2fc29855");
+                var WaterTorrentBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("62a04b00cef8bba4ca63e956f6184e6e");
+
+                WaterTorrent.TemporaryContext(bp => {
+                    bp.Range = AbilityRange.Projectile;
+                    bp.CanTargetEnemies = true;
+                    bp.CanTargetFriends = true;
+                    bp.CanTargetPoint = true;
+                    bp.GetComponent<AbilityDeliverProjectile>().TemporaryContext(c => {
+                        c.Type = AbilityProjectileType.Cone;
+                    });
+                });
+                WaterTorrentBuff.TemporaryContext(bp => {
+                    bp.SetName(WaterTorrent.m_DisplayName);
+                    bp.SetDescription(WaterTorrent.m_Description);
+                });
+                TTTContext.Logger.LogPatch(WaterTorrent);
+            }
+            //General Spells
             static void PatchAbsoluteOrder() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("AbsoluteOrder")) { return; }
 
@@ -105,7 +566,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         TTTContext.Logger.LogPatch(ability);
                     });
             }
-
             static void PatchAbyssalStorm() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("AbyssalStorm")) { return; }
 
@@ -136,7 +596,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", AbyssalStorm);
             }
-
             static void PatchAcidMaw() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("AcidMaw")) { return; }
 
@@ -160,7 +619,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", AcidMawBuff);
             }
-
             static void PatchAnimalGrowth() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("AnimalGrowth")) { return; }
 
@@ -190,28 +648,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     }
                     TTTContext.Logger.LogPatch("Patched", bp);
                 });
-            }
-
-            static void PatchBelieveInYourself() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("BelieveInYourself")) { return; }
-
-                BlueprintAbility BelieveInYourself = BlueprintTools.GetBlueprint<BlueprintAbility>("3ed3cef7c267cb847bfd44ed4708b726");
-                BlueprintAbilityReference[] BelieveInYourselfVariants = BelieveInYourself
-                    .GetComponent<AbilityVariants>()
-                    .Variants;
-                foreach (BlueprintAbility Variant in BelieveInYourselfVariants) {
-                    Variant.FlattenAllActions()
-                        .OfType<ContextActionApplyBuff>()
-                        .ForEach(b => {
-                            var ContextRankConfig = b.Buff.GetComponent<ContextRankConfig>();
-                            ContextRankConfig.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                            ContextRankConfig.m_Progression = ContextRankProgression.DivStep;
-                            ContextRankConfig.m_StepLevel = 4;
-                            TTTContext.Logger.LogPatch("Patched", b.Buff);
-                        });
-                }
-            }
-
+            }            
             static void PatchBestowCurseGreater() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("BestowCurseGreater")) { return; }
 
@@ -259,7 +696,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     TTTContext.Logger.LogPatch("Patched", curseBuff);
                 }
             }
-
             static void PatchBreakEnchantment() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("BreakEnchantment")) { return; }
 
@@ -272,8 +708,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         dispel.m_MaxSpellLevel = new ContextValue();
                     });
                 TTTContext.Logger.LogPatch("Patched", BreakEnchantment);
-            }
-
+            }            
             static void PatchChainLightning() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ChainLightning")) { return; }
 
@@ -286,7 +721,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     });
                 TTTContext.Logger.LogPatch("Patched", ChainLightning);
             }
-
             static void PatchCommand() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Command")) { return; }
 
@@ -303,7 +737,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         TTTContext.Logger.LogPatch(ability);
                     });
             }
-
             static void PatchCommandGreater() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("CommandGreater")) { return; }
 
@@ -320,7 +753,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         TTTContext.Logger.LogPatch(ability);
                     });
             }
-
             static void PatchCorruptMagic() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("CorruptMagic")) { return; }
 
@@ -333,7 +765,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     });
                 TTTContext.Logger.LogPatch("Patched", CorruptMagic);
             }
-
             static void PatchCrusadersEdge() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("CrusadersEdge")) { return; }
 
@@ -341,7 +772,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 CrusadersEdgeBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>().CriticalHit = true;
                 TTTContext.Logger.LogPatch("Patched", CrusadersEdgeBuff);
             }
-
             static void PatchDeathWard() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("DeathWard")) { return; }
 
@@ -376,7 +806,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 TTTContext.Logger.LogPatch("Patched", DeathWardBuff);
                 TTTContext.Logger.LogPatch("Patched", DeathWardBuff_IsFromSpell);
             }
-
             static void PatchDispelMagicGreater() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("DispelMagicGreater")) { return; }
 
@@ -389,7 +818,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     "one spell affecting the target, or you have failed to dispel every spell.");
                 TTTContext.Logger.LogPatch("Patched", DispelMagicGreaterTarget);
             }
-
             static void PatchEyeOfTheSun() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("EyeOfTheSun")) { return; }
 
@@ -405,7 +833,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", AngelEyeOfTheSun);
             }
-
             static void PatchFirebrand() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Firebrand")) { return; }
 
@@ -425,7 +852,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", FirebrandBuff);
             }
-
             static void PatchSunMarked() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("SunMarked")) { return; }
 
@@ -448,7 +874,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", AngelSunMarkedBuff);
             }
-
             static void PatchFlamestrike() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FlameStrike")) { return; }
 
@@ -459,7 +884,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", FlameStrike);
             }
-
             static void PatchFrightfulAspect() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FrightfulAspect")) { return; }
 
@@ -468,7 +892,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 FrightfulAspectArea.GetComponent<AbilityAreaEffectBuff>().m_Buff = FrightfulAspectShakenBuff;
                 TTTContext.Logger.LogPatch(FrightfulAspectArea);
             }
-
             static void PatchGeniekind() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Geniekind")) { return; }
 
@@ -501,7 +924,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     TTTContext.Logger.LogPatch("Patched", GeniekindBuff);
                 }
             }
-
             static void PatchHellfireRay() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("HellfireRay")) { return; }
 
@@ -516,7 +938,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", HellfireRay);
             }
-
             static void PatchLegendaryProportions() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("LegendaryProportions")) { return; }
                 if (Harmony.HasAnyPatches("WorldCrawl")) { return; } //Breaks WorldCrawl saves due to how things get patched
@@ -539,7 +960,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 TTTContext.Logger.LogPatch(LegendaryProportions);
                 TTTContext.Logger.LogPatch(LegendaryProportionsBuff);
             }
-
             static void PatchMagicalVestment() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("MagicalVestment")) { return; }
 
@@ -602,7 +1022,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     TTTContext.Logger.LogPatch("Patched", MagicalVestmentArmorBuff);
                 }
             }
-
             static void PatchMagicWeaponGreater() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("GreaterMagicWeapon")) { return; }
 
@@ -693,7 +1112,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 RemoveFearBuff.RemoveComponents<AddConditionImmunity>();
                 QuickFixTools.ReplaceSuppression(RemoveFearBuff, TTTContext);
             }
-
             static void PatchRemoveSickness() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("RemoveSickness")) { return; }
 
@@ -704,7 +1122,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", RemoveSicknessBuff);
             }
-
             static void PatchShadowConjuration() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ShadowConjuration")) { return; }
 
@@ -712,7 +1129,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 ShadowConjuration.AddToSpellList(SpellTools.SpellList.WizardSpellList, 4);
                 TTTContext.Logger.LogPatch("Patched", ShadowConjuration);
             }
-
             static void PatchShadowEvocation() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ShadowEvocation")) { return; }
 
@@ -728,7 +1144,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     | Metamagic.Bolstered;
                 TTTContext.Logger.LogPatch("Patched", ShadowEvocation);
             }
-
             static void PatchShadowEvocationGreater() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ShadowEvocationGreater")) { return; }
 
@@ -746,7 +1161,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 ShadowEvocationGreaterProperty.BaseValue = 60;
                 TTTContext.Logger.LogPatch("Patched", ShadowEvocationGreater);
             }
-
             static void PatchStarlight() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Starlight")) { return; }
 
@@ -754,7 +1168,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 StarlightAllyBuff.GetComponent<AddConcealment>().Descriptor = ConcealmentDescriptor.InitiatorIsBlind;
                 TTTContext.Logger.LogPatch("Patched", StarlightAllyBuff);
             }
-
             static void PatchSunForm() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("SunForm")) { return; }
 
@@ -776,7 +1189,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", AngelSunFormRay);
             }
-
             static void PatchSupernova() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Supernova")) { return; }
                 var Supernova = BlueprintTools.GetBlueprint<BlueprintAbility>("1325e698f4a3f224b880e3b83a551228");
@@ -875,46 +1287,12 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     });
                 }
             }
-
             static void PatchUnbreakableHeart() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("UnbreakableHeart")) { return; }
 
                 var UnbreakableHeartBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6603b27034f694e44a407a9cdf77c67e");
                 QuickFixTools.ReplaceSuppression(UnbreakableHeartBuff, TTTContext);
             }
-
-            static void PatchWindsOfFall() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("WindsOfFall")) { return; }
-
-                var WindsOfTheFall = BlueprintTools.GetBlueprint<BlueprintAbility>("af2ed41c7894b934c9a9ca5048af3f58");
-                var WindsOfTheFallBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b90339c580288eb48b7fea4abba0507e");
-
-                WindsOfTheFall.TemporaryContext(bp => {
-                    bp.Range = AbilityRange.Projectile;
-                    bp.CanTargetEnemies = true;
-                    bp.CanTargetFriends = true;
-                    bp.CanTargetPoint = true;
-                });
-                WindsOfTheFallBuff.TemporaryContext(bp => {
-                    bp.SetComponents();
-                    bp.AddComponent<ModifyD20>(c => {
-                        c.Rule = RuleType.All;
-                        c.RollsAmount = 1;
-                        c.TakeBest = false;
-                        c.m_SavingThrowType = ModifyD20.InnerSavingThrowType.All;
-                        c.m_TandemTripFeature = new BlueprintFeatureReference();
-                        c.RollResult = new ContextValue();
-                        c.Bonus = new ContextValue();
-                        c.Chance = new ContextValue();
-                        c.ValueToCompareRoll = new ContextValue();
-                        c.Skill = new StatType[0];
-                        c.Value = new ContextValue();
-                    });
-                });
-                TTTContext.Logger.LogPatch(WindsOfTheFall);
-                TTTContext.Logger.LogPatch(WindsOfTheFallBuff);
-            }
-
             static void PatchWrachingRay() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("WrackingRay")) { return; }
 
@@ -926,7 +1304,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 }
                 TTTContext.Logger.LogPatch("Patched", WrackingRay);
             }
-
             static void PatchVampiricBlade() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("VampiricBlade")) { return; }
 
@@ -977,7 +1354,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     });
                 TTTContext.Logger.LogPatch("Patched", ZeroState);
             }
-
             static void PatchFromSpellFlags() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FixSpellFlags")) { return; }
 

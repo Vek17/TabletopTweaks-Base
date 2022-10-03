@@ -3,6 +3,11 @@
   "BaseFixes": {
     "DisableAll": false,
     "Settings": {
+      "AreaOfEffectDoubleTrigger": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes persistant area of effects from triggering multiple times off the initial cast as if an extra round had passed."
+      },
       "CoupDeGrace": {
         "Enabled": true,
         "Homebrew": false,
@@ -1165,6 +1170,11 @@
         "Homebrew": false,
         "Description": "Sun Marked no longer causes excessive damage instances to trigger when attacking."
       },
+      "FieldOfFlowers": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "FieldOfFlowers ow correctly applies the Field of Flower debuffs instead of Repulsive Nature ones."
+      },
       "FixSpellFlags": {
         "Enabled": true,
         "Homebrew": false,
@@ -1175,10 +1185,15 @@
         "Homebrew": false,
         "Description": "Now correctly halfs divine damage on saving throw."
       },
+      "FriendlyHug": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Friendly Hug now correctly applies all immunities."
+      },
       "FrightfulAspect": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Now correctly applies fear when hit in melee."
+        "Description": "Frightful Aspect now correctly applies fear when hit in melee."
       },
       "Geniekind": {
         "Enabled": true,
@@ -1198,7 +1213,7 @@
       "LegendaryProportions": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Now only increases size by one step instead of two to correctly match tabletop."
+        "Description": "LegendaryProportions now only increases size by one step instead of two to correctly match tabletop."
       },
       "MagicalVestment": {
         "Enabled": true,
@@ -1209,6 +1224,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus."
+      },
+      "NaturesGrasp": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Natures Grasp now deals the correct amount of damage."
       },
       "PerfectForm": {
         "Enabled": true,
@@ -1230,6 +1250,11 @@
         "Homebrew": false,
         "Description": "Remove Sickness no longer makes you immune to sickness and nausea."
       },
+      "RepulsiveNature": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "RepulsiveNature now uses the correct spell DC and actually applies its debuffs on fail."
+      },
       "ShadowConjuration": {
         "Enabled": true,
         "Homebrew": false,
@@ -1250,6 +1275,11 @@
         "Homebrew": false,
         "Description": "Starlight no longer is affected by true sight."
       },
+      "SuddenSquall": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Sudden Squall now can be targeted and has a working debuff."
+      },
       "SunForm": {
         "Enabled": true,
         "Homebrew": false,
@@ -1260,15 +1290,30 @@
         "Homebrew": false,
         "Description": "Supernova now respects the saving throw for the blind and always deals the correct amount of damage."
       },
+      "UnbreakableBond": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Friendly Hug now correctly applies all immunities."
+      },
       "UnbreakableHeart": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly."
       },
+      "WaterPush": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Water Push now can be targeted and has the correct damage scaling and push distance."
+      },
+      "WaterTorrent": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Water Torrent now can be targeted and has a working debuff."
+      },
       "WindsOfFall": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Winds of the fall now can be targeted and has a working debuff."
+        "Description": "Winds of the Fall now can be targeted and has a working debuff."
       },
       "WrackingRay": {
         "Enabled": true,
@@ -1619,7 +1664,7 @@
           "Description": "Now properly uses 20 + Scroll CL instead of 20 + Scroll spell level."
         },
         "FlawlessBeltOfPhysicalPerfection8Availability": {
-          "Enabled": true,
+          "Enabled": false,
           "Homebrew": false,
           "Description": "Now is available as a DLC reward instead of a normal +6 belt."
         },

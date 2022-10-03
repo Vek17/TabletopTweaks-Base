@@ -1,3 +1,30 @@
+## Version 2.4.2
+
+* Fixes
+    * General
+        * Area of Effects should no longer double trigger on cast as if an extra round had elapsed.
+    * Spells
+        * Shadow Enchantment 
+            * Scrolls should now be available and craftable.
+        * Burst of Sonic Energy
+            * Now applies the correct amount of damage instead of triggering chaotic healing.
+        * Field of Flowers
+            * Now applies the correct debuffs instead of using Repulsive Nature's debuffs.
+        * Repulsive Nature
+            * Now uses the correct spell DC and actually applies its debuffs on fail.
+        * Water Push
+            * Now has working targeting and effects.
+        * Nature's Grasp
+            * Now deals the correct amount of damage.
+        * Sudden Squall
+            * Now has working targeting and debuff.
+        * Friendly Hug
+            * Now has fully working immunities.
+        * Unbreakable Bond
+            * Now has fully working immunities.
+        * Water Torrent
+            * Now has working targeting and debuff.
+
 ## Version 2.4.1
 * Scrolls of new spells should now be available at appropriate venders.
 * Dragon Disciple Prerequistes with TTT have been fixed.

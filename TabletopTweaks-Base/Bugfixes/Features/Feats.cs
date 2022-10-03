@@ -810,10 +810,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                                     || (evt.Initiator.IsPlayerFaction && !evt.Initiator.Body.IsPolymorphed) 
                                     || evt.IsDefaultUnit)) 
                         {
-                            DiceFormula diceFormula = WeaponDamageScaleTable.Scale(evt.WeaponDamageDice.ModifiedValue, evt.WeaponSize, Size.Medium, evt.Weapon.Blueprint);
-                            if (diceFormula != evt.WeaponDamageDice.ModifiedValue) {
-                                evt.WeaponDamageDice.Modify(diceFormula, ModifierDescriptor.Size);
-                            }
+                            //DiceFormula diceFormula = WeaponDamageScaleTable.Scale(evt.WeaponDamageDice.ModifiedValue, evt.WeaponSize, Size.Medium, evt.Weapon.Blueprint);
+                            //if (diceFormula != evt.WeaponDamageDice.ModifiedValue) {
+                            //    evt.WeaponDamageDice.Modify(diceFormula, ModifierDescriptor.Size);
+                            //}
                         }
                         var vitalDamage = CalculateVitalDamage(evt);
                         //new DamageDescription() {
@@ -832,6 +832,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
 
                 private DamageDescription CalculateVitalDamage(RuleCalculateWeaponStats evt) {
                     var WeaponDice = new ModifiableDiceFormula(evt.WeaponDamageDice.ModifiedValue);
+                    //var WeaponDice = new ModifiableDiceFormula(evt.WeaponDamageDice.BaseFormula);
+                    //WeaponDice.m_Modifications = evt.WeaponDamageDice.Modifications.ToList();
                     WeaponDice.Modify(new DiceFormula(WeaponDice.ModifiedValue.Rolls * Math.Max(1, this.m_DamageMod - 1), WeaponDice.ModifiedValue.Dice), m_Fact);
 
                     DamageDescription damageDescriptor = evt.Weapon.Blueprint.DamageType.GetDamageDescriptor(WeaponDice, evt.Initiator.Stats.AdditionalDamage.BaseValue);
