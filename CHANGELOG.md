@@ -6,6 +6,8 @@
     * Spells
         * Shadow Enchantment 
             * Scrolls should now be available and craftable.
+        * Believe In Yourself
+            * Now correctly has CL scale buff duration.
         * Burst of Sonic Energy
             * Now applies the correct amount of damage instead of triggering chaotic healing.
         * Field of Flowers

@@ -41,6 +41,8 @@ using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 
 namespace TabletopTweaks.Base.Bugfixes.Abilities {
     class Spells {
+        //private static string path = @"C:\Users\spetrie\Documents\Exported";
+
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
@@ -60,6 +62,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchSunForm();
                 PatchSunMarked();
                 //Azata Spells
+                ///*
                 PatchBelieveInYourself();
                 PatchBurstOfSonicEnergy();
                 PatchWindsOfFall();
@@ -71,6 +74,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchFriendlyHug();
                 PatchUnbreakableBond();
                 PatchWaterTorrent();
+                //*/
                 //Demon Spells
                 PatchAbyssalStorm();
                 //Lich Spells
@@ -365,8 +369,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         });
                     variant.GetComponent<ContextRankConfig>().TemporaryContext(c => {
                         c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                        c.m_Progression = ContextRankProgression.DivStep;
-                        c.m_StepLevel = 4;
+                        c.m_Progression = ContextRankProgression.AsIs;
                         TTTContext.Logger.LogPatch(variant);
                     });
                 }
@@ -590,16 +593,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     bp.AddComponent<AbilityAoERadius>(c => {
                         c.m_Radius = 30.Feet();
                     });
-                    bp.AddComponent<ContextCalculateSharedValue>(c => {
-                        c.ValueType = AbilitySharedValue.Duration;
-                        c.Value = new ContextDiceValue() {
-                            DiceCountValue = 0,
-                            BonusValue = new ContextValue() {
-                                ValueType = ContextValueType.Rank
-                            },
-                        };
-                        c.Modifier = 1;
-                    });
                 });
                 RepulsiveNatureArea.TemporaryContext(bp => {
                     bp.FlattenAllActions()
@@ -616,12 +609,12 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                 Rate = DurationRate.Rounds,
                                 DiceCountValue = 0,
                                 BonusValue = new ContextValue() {
-                                    ValueType = ContextValueType.Shared,
-                                    ValueShared = AbilitySharedValue.Duration
+                                    ValueType = ContextValueType.Rank
                                 }
                             };
                         });
                     bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_Type = AbilityRankType.Default;
                         c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
                         c.m_Progression = ContextRankProgression.AsIs;
                     });
@@ -667,8 +660,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                                     Rate = DurationRate.Rounds,
                                                     DiceCountValue = 0,
                                                     BonusValue = new ContextValue() {
-                                                        ValueType = ContextValueType.Shared,
-                                                        ValueShared = AbilitySharedValue.Duration
+                                                        ValueType = ContextValueType.Rank
                                                     }
                                                 }
                                             },
@@ -696,17 +688,14 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             }
                         );
                     });
+                    bp.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
                     bp.AddComponent<SpellDescriptorComponent>(c => {
-                        c.Descriptor = SpellDescriptor.Nauseated;
+                        c.Descriptor = SpellDescriptor.Nauseated;// | SpellDescriptor.Poison;
                     });
                     bp.AddComponent<RemoveWhenCombatEnded>();
-                });
-                RepulsiveNatureBuffImmunity.TemporaryContext(bp => {
-                    bp.GetComponent<CombatStateTrigger>().TemporaryContext(c => {
-                        c.CombatStartActions = Helpers.CreateActionList(
-                            new ContextActionRemoveSelf()    
-                        );
-                    });
                 });
                 TTTContext.Logger.LogPatch(RepulsiveNature);
                 TTTContext.Logger.LogPatch(RepulsiveNatureArea);
@@ -730,8 +719,15 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     });
                     bp.FlattenAllActions()
                         .OfType<ContextActionPush>()
+                        .Where(c => c.Distance.Value == 10)
                         .ForEach(c => {
-                            c.Distance = 3;
+                            c.Distance = 4;
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionPush>()
+                        .Where(c => c.Distance.Value == 5)
+                        .ForEach(c => {
+                            c.Distance = 2;
                         });
                 });
                 TTTContext.Logger.LogPatch(WaterPush);
@@ -767,10 +763,24 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 SuddenSquall.TemporaryContext(bp => {
                     bp.Range = AbilityRange.Projectile;
                     bp.CanTargetEnemies = true;
-                    bp.CanTargetFriends = true;
+                    bp.CanTargetFriends = false;
                     bp.CanTargetPoint = true;
                     bp.GetComponent<AbilityDeliverProjectile>().TemporaryContext(c => {
                         c.m_Length = 15.Feet();
+                    });
+                    var actionList = bp.GetComponent<AbilityEffectRunAction>().Actions;
+                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => {
+                        c.Actions = Helpers.CreateActionList(
+                            new Conditional() { 
+                                ConditionsChecker = new ConditionsChecker() { 
+                                    Conditions = new Condition[] { 
+                                        new ContextConditionIsAlly()
+                                    }
+                                },
+                                IfFalse = actionList,
+                                IfTrue = Helpers.CreateActionList()
+                            }    
+                        );
                     });
                 });
                 SuddenSquallBuff.TemporaryContext(bp => {
