@@ -18,6 +18,11 @@
         "Homebrew": false,
         "Description": "Prevents most forms of damage reduction from stacking unless specifically specified."
       },
+      "DamageVulnerability": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Damage vulnerability now properly works on damage with multiple types."
+      },
       "DiceReplacementUI": {
         "Enabled": true,
         "Homebrew": false,

@@ -62,7 +62,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchSunForm();
                 PatchSunMarked();
                 //Azata Spells
-                ///*
                 PatchBelieveInYourself();
                 PatchBurstOfSonicEnergy();
                 PatchWindsOfFall();
@@ -74,7 +73,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchFriendlyHug();
                 PatchUnbreakableBond();
                 PatchWaterTorrent();
-                //*/
                 //Demon Spells
                 PatchAbyssalStorm();
                 //Lich Spells
@@ -805,18 +803,67 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
             static void PatchUnbreakableBond() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("UnbreakableBond")) { return; }
 
+                string path = @"C:\Users\spetrie\Documents\Exported";
+                var UnbreakableBond = BlueprintTools.GetBlueprint<BlueprintAbility>("947a929f3347d3e458a524424fbceccb");
+                var UnbreakableBondArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("9063d387e8d90a24f8bdd8c0c95f72f4");
                 var UnbreakableBondImmunityBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("e60806180806b4c488f0d45af1035917");
-                UnbreakableBondImmunityBuff.AddComponent<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.MindAffecting 
-                        | SpellDescriptor.Fear
-                        | SpellDescriptor.Compulsion
-                        | SpellDescriptor.Charm
-                        | SpellDescriptor.Emotion
-                        | SpellDescriptor.Shaken
-                        | SpellDescriptor.Confusion;
-                    c.m_CasterIgnoreImmunityFact = new BlueprintUnitFactReference();
+                
+                UnbreakableBond.TemporaryContext(bp => {
+                    Conditional embedded = null;
+                    bp.FlattenAllActions()
+                        .OfType<Conditional>()
+                        .Where(conditional => conditional.ConditionsChecker.Conditions.OfType<ContextConditionIsPartyMember>().Any())
+                        .ForEach(conditional => {
+                            conditional.IfTrue.AddAction(
+                                new ContextActionApplyBuff() {
+                                    m_Buff = UnbreakableBondImmunityBuff.ToReference<BlueprintBuffReference>(),
+                                    DurationValue = new ContextDurationValue() {
+                                        Rate = DurationRate.Minutes,
+                                        DiceCountValue = 0,
+                                        BonusValue = new ContextValue() {
+                                            ValueType = ContextValueType.Rank
+                                        }
+                                    }
+                                }
+                            );
+                            embedded = conditional;
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<Conditional>()
+                        .ForEach(c => c.IfFalse = Helpers.CreateActionList());
+                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => {
+                        if (embedded != null) {
+                            c.Actions.AddAction(embedded);
+                        }
+                    });
+                    BlueprintTools.TryExportBlueprint(bp, path);
                 });
+                UnbreakableBondArea.TemporaryContext(bp => {
+                    bp.GetComponent<AbilityAreaEffectRunAction>().TemporaryContext(c => {
+                        c.UnitExit.RemoveActions<ContextActionRemoveBuff>(a => a.Buff == UnbreakableBondImmunityBuff);
+                    });
+                    bp.FlattenAllActions()
+                        .OfType<Conditional>()
+                        .ForEach(c => {
+                            c.IfTrue.RemoveActions<ContextActionApplyBuff>(a => a.Buff == UnbreakableBondImmunityBuff);
+                            c.IfFalse.RemoveActions<ContextActionApplyBuff>(a => a.Buff == UnbreakableBondImmunityBuff);
+                        });
+                    BlueprintTools.TryExportBlueprint(bp, path);
+                });
+                UnbreakableBondImmunityBuff.TemporaryContext(bp => {
+                    bp.AddComponent<SpellImmunityToSpellDescriptor>(c => {
+                        c.Descriptor = SpellDescriptor.MindAffecting
+                            | SpellDescriptor.Fear
+                            | SpellDescriptor.Compulsion
+                            | SpellDescriptor.Charm
+                            | SpellDescriptor.Emotion
+                            | SpellDescriptor.Shaken
+                            | SpellDescriptor.Confusion;
+                        c.m_CasterIgnoreImmunityFact = new BlueprintUnitFactReference();
 
+                    });
+                    BlueprintTools.TryExportBlueprint(UnbreakableBondImmunityBuff, path);
+                });
                 TTTContext.Logger.LogPatch(UnbreakableBondImmunityBuff);
             }
             static void PatchWaterTorrent() {

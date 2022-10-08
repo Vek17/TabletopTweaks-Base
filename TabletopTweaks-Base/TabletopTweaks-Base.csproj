@@ -215,6 +215,7 @@
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
     <Compile Include="Bugfixes\General\SizeShiftLimits.cs" />
     <Compile Include="Bugfixes\General\TemporaryHitPointDisplayFix.cs" />
+    <Compile Include="Bugfixes\General\VulnerabilityFix.cs" />
     <Compile Include="Bugfixes\General\WeaponEnhancementBonuses.cs" />
     <Compile Include="Bugfixes\General\WeaponProperties.cs" />
     <Compile Include="Bugfixes\Items\Armor.cs" />

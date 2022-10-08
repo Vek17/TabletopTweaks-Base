@@ -1,8 +1,8 @@
 ## Version 2.4.2
-
 * Fixes
     * General
         * Area of Effects should no longer double trigger on cast as if an extra round had elapsed.
+        * Vulnerability now works properly on combined damage types (IE: Slashing/Bludgeoning)
     * Spells
         * Shadow Enchantment 
             * Scrolls should now be available and craftable.

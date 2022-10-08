@@ -476,8 +476,8 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.Actions = new ActionList();
                     c.Actions.Actions = new GameAction[] { dealDamage };
                 });
-                bp.AddComponent<ContextRankConfig>(c => {
-                    c.m_Type = AbilityRankType.StatBonus;
+                bp.AddContextRankConfig(c => {
+                    c.m_Type = AbilityRankType.DamageBonus;
                     c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
                     c.m_Progression = ContextRankProgression.Div2;
                     c.m_StartLevel = 1;
