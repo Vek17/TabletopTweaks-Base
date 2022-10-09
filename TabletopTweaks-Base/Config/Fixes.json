@@ -1235,6 +1235,11 @@
         "Homebrew": false,
         "Description": "Natures Grasp now deals the correct amount of damage."
       },
+      "OdeToMiraculousMagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Ode to Miraculous Magic's duration now correctly scales off CL instead of mythic rank."
+      },
       "PerfectForm": {
         "Enabled": true,
         "Homebrew": false,
@@ -1274,6 +1279,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Greater Shadow Evocation can now have the correct metamagic applied and get the correct shadow factor of 60."
+      },
+      "SongsOfSteel": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Songs of Steel bonus weapon damage now works correctly."
       },
       "Starlight": {
         "Enabled": true,
@@ -1653,6 +1663,11 @@
     "Equipment": {
       "DisableAll": false,
       "Settings": {
+        "AmuletOfQuickDraw": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer creates a seperate damage instance and works with critical hits."
+        },
         "AspectOfTheAsp": {
           "Enabled": true,
           "Homebrew": false,

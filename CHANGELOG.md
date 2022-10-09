@@ -26,6 +26,13 @@
             * Now has fully working immunities.
         * Water Torrent
             * Now has working targeting and debuff.
+        * Ode to Miraculous Magic
+            * Now correctly has CL scale buff duration.
+        * Songs of Steel
+            * No longer procs extra spell effects from the spell damage and applies only on first hit.
+    * Equipment
+        * Amulet Of Quick Draw
+            * No longer creates excessive damage instance and now functions correctly with critical hits.
 
 ## Version 2.4.1
 * Scrolls of new spells should now be available at appropriate venders.

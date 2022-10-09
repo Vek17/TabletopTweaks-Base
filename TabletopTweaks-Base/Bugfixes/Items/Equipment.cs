@@ -9,6 +9,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
@@ -19,6 +20,7 @@ using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
@@ -39,6 +41,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 Initialized = true;
 
                 TTTContext.Logger.LogHeader("Patching Equipment");
+                PatchAmuletOfQuickDraw();
                 PatchAspectOfTheAsp();
                 PatchMagiciansRing();
                 PatchManglingFrenzy();
@@ -49,6 +52,37 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchFlawlessBeltOfPhysicalPerfection8Availability();
                 PatchFlawlessBeltOfPhysicalPerfection8CritIncrease();
 
+                void PatchAmuletOfQuickDraw() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("AmuletOfQuickDraw")) { return; }
+
+                    var AmuletOfQuickDrawItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentNeck>("eb22f2919c30a9e4fa4e8cc3160b2432");
+                    var AmuletOfQuickDrawFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("60c9144d13674a445aa303fa272aae0a");
+                    var RayType = BlueprintTools.GetBlueprintReference<BlueprintWeaponTypeReference>("1d39a22f206840e40b2255fc0175b8d0");
+
+                    AmuletOfQuickDrawFeature.TemporaryContext(bp => {
+                        bp.m_DisplayName = AmuletOfQuickDrawItem.m_DisplayNameText;
+                        bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                        bp.AddComponent<IncreaseSpellDescriptorDC>(c => {
+                            c.Descriptor = SpellDescriptor.Poison;
+                            c.BonusDC = 2;
+                        });
+                        bp.AddComponent<AddConditionalWeaponDamageBonus>(c => {
+                            c.TargetConditions = new ConditionsChecker() {
+                                Conditions = new Condition[] {
+                                    new ContextConditionSize(){
+                                        Size = Size.Large
+                                    }
+                                }
+                            };
+                            c.Descriptor = ModifierDescriptor.Insight;
+                            c.Value = 2;
+                            c.CheckWeaponRangeType = true;
+                            c.RangeType = WeaponRangeType.Ranged;
+                        });
+                    });
+                    
+                    TTTContext.Logger.LogPatch(AmuletOfQuickDrawFeature);
+                }
                 void PatchAspectOfTheAsp() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("AspectOfTheAsp")) { return; }
 

@@ -73,6 +73,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchFriendlyHug();
                 PatchUnbreakableBond();
                 PatchWaterTorrent();
+                PatchOdeToMiraculousMagic();
+                PatchSongsOfSteel();
                 //Demon Spells
                 PatchAbyssalStorm();
                 //Lich Spells
@@ -886,6 +888,46 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     bp.SetDescription(WaterTorrent.m_Description);
                 });
                 TTTContext.Logger.LogPatch(WaterTorrent);
+            }
+            static void PatchOdeToMiraculousMagic() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("OdeToMiraculousMagic")) { return; }
+
+                var OdeToMiraculousMagic = BlueprintTools.GetBlueprint<BlueprintAbility>("f1a0dd9c0b6f9654fb025875dc4b905d");
+                OdeToMiraculousMagic.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                    c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                    c.m_Progression = ContextRankProgression.AsIs;
+                });
+
+                TTTContext.Logger.LogPatch(OdeToMiraculousMagic);
+            }
+            static void PatchSongsOfSteel() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("SongsOfSteel")) { return; }
+
+                var SongsOfSteelBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6867deda1eda183499ae61813c2f5ebb");
+                SongsOfSteelBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    bp.AddComponent<AddAdditionalWeaponDamageOnHit>(c => {
+                        c.OnlyOnFirstHit = true;
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Energy,
+                            Energy = DamageEnergyType.Sonic
+                        };
+                        c.Value = new ContextDiceValue() { 
+                            DiceType = DiceType.D6,
+                            DiceCountValue = 2,
+                            BonusValue = new ContextValue() { 
+                                ValueType = ContextValueType.Rank
+                            }
+                        };
+                    });
+                    bp.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
+                    //AddAdditionalWeaponDamageOnHit
+                });
+
+                TTTContext.Logger.LogPatch(SongsOfSteelBuff);
             }
             //Demon Spells
             static void PatchAbyssalStorm() {
