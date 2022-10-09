@@ -29,7 +29,11 @@
         * Ode to Miraculous Magic
             * Now correctly has CL scale buff duration.
         * Songs of Steel
-            * No longer procs extra spell effects from the spell damage and applies only on first hit.
+            * No longer procs extra spell effects from the spell damage, deals the bonus damage based on CL, and applies only on first hit.
+        * Protection of Nature
+            * Concealment no longer is bypassed by true seeing.
+        * Joy of Life
+            * Now converts outgoing damage to Holy.
     * Equipment
         * Amulet Of Quick Draw
             * No longer creates excessive damage instance and now functions correctly with critical hits.

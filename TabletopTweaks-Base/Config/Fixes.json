@@ -1215,6 +1215,11 @@
         "Homebrew": false,
         "Description": "Hellfire Ray no longer has the Fire descriptor and deals the correct half damage."
       },
+      "JoyOfLife": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Joy of Life now converts outgoing damage to Holy."
+      },
       "LegendaryProportions": {
         "Enabled": true,
         "Homebrew": false,
@@ -1249,6 +1254,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now correctly lasts rounds per level instead of minutes per level."
+      },
+      "ProtectionOfNature": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Protection of Nature's conealment is no longer bypassed by true seeing."
       },
       "RemoveFear": {
         "Enabled": true,

@@ -75,6 +75,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchWaterTorrent();
                 PatchOdeToMiraculousMagic();
                 PatchSongsOfSteel();
+                PatchProtectionOfNature();
+                PatchJoyOfLife();
                 //Demon Spells
                 PatchAbyssalStorm();
                 //Lich Spells
@@ -893,9 +895,36 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("OdeToMiraculousMagic")) { return; }
 
                 var OdeToMiraculousMagic = BlueprintTools.GetBlueprint<BlueprintAbility>("f1a0dd9c0b6f9654fb025875dc4b905d");
-                OdeToMiraculousMagic.GetComponent<ContextRankConfig>().TemporaryContext(c => {
-                    c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                    c.m_Progression = ContextRankProgression.AsIs;
+                var OdeToMiraculousMagicBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("f6ef0e25745114d46bf16fd5a1d93cc9");
+
+                OdeToMiraculousMagic.TemporaryContext(bp => {
+                    bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
+                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => {
+                        c.Actions = Helpers.CreateActionList(
+                            new ContextActionApplyBuff() {
+                                m_Buff = OdeToMiraculousMagicBuff,
+                                DurationValue = new ContextDurationValue() {
+                                    Rate = DurationRate.TenMinutes,
+                                    DiceCountValue = 0,
+                                    BonusValue = new ContextValue() {
+                                        ValueType = ContextValueType.Rank
+                                    }
+                                }
+                            }
+                        );
+                    });
+                    bp.AddComponent<AbilityTargetsAround>(c => {
+                        c.m_Radius = 60.Feet();
+                        c.m_TargetType = TargetType.Ally;
+                        c.m_Condition = new ConditionsChecker() {
+                            Conditions = new Condition[] {
+                                new ContextConditionIsPartyMember()
+                            }
+                        };
+                    });
                 });
 
                 TTTContext.Logger.LogPatch(OdeToMiraculousMagic);
@@ -924,10 +953,39 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
                         c.m_Progression = ContextRankProgression.AsIs;
                     });
-                    //AddAdditionalWeaponDamageOnHit
                 });
 
                 TTTContext.Logger.LogPatch(SongsOfSteelBuff);
+            }
+            static void PatchProtectionOfNature() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("ProtectionOfNature")) { return; }
+
+                var ProtectionOfNatureBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("4652211718a2d9f4f860af19ad689663");
+                ProtectionOfNatureBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<AddConcealment>();
+                    bp.AddComponent<SetAttackerMissChance>(c => {
+                        c.Value = 50;
+                        c.m_Type = SetAttackerMissChance.Type.All;
+                        c.Conditions = new ConditionsChecker();
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(ProtectionOfNatureBuff);
+            }
+            static void PatchJoyOfLife() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("JoyOfLife")) { return; }
+
+                var JoyOfLifeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("c3adfe620be4a0749904d8942aaabf38");
+                JoyOfLifeBuff.TemporaryContext(bp => {
+                    bp.AddComponent<ChangeOutgoingDamageType>(c => {
+                        c.Type = new DamageTypeDescription() { 
+                            Type = DamageType.Energy,
+                            Energy = DamageEnergyType.Holy
+                        };
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(JoyOfLifeBuff);
             }
             //Demon Spells
             static void PatchAbyssalStorm() {
