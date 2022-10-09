@@ -64,19 +64,19 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 //Azata Spells
                 PatchBelieveInYourself();
                 PatchBurstOfSonicEnergy();
-                PatchWindsOfFall();
                 PatchFieldOfFlowers();
-                PatchRepulsiveNature();
-                PatchWaterPush();
-                PatchNaturesGrasp();
-                PatchSuddenSquall();
                 PatchFriendlyHug();
-                PatchUnbreakableBond();
-                PatchWaterTorrent();
-                PatchOdeToMiraculousMagic();
-                PatchSongsOfSteel();
-                PatchProtectionOfNature();
                 PatchJoyOfLife();
+                PatchNaturesGrasp();
+                PatchOdeToMiraculousMagic();
+                PatchProtectionOfNature();
+                PatchRepulsiveNature();
+                PatchSongsOfSteel();
+                PatchSuddenSquall();
+                PatchUnbreakableBond();
+                PatchWaterPush();
+                PatchWaterTorrent();
+                PatchWindsOfFall();
                 //Demon Spells
                 PatchAbyssalStorm();
                 //Lich Spells
@@ -477,37 +477,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch(BurstOfSonicEnergy);
             }
-            static void PatchWindsOfFall() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("WindsOfFall")) { return; }
-
-                var WindsOfTheFall = BlueprintTools.GetBlueprint<BlueprintAbility>("af2ed41c7894b934c9a9ca5048af3f58");
-                var WindsOfTheFallBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b90339c580288eb48b7fea4abba0507e");
-
-                WindsOfTheFall.TemporaryContext(bp => {
-                    bp.Range = AbilityRange.Projectile;
-                    bp.CanTargetEnemies = true;
-                    bp.CanTargetFriends = true;
-                    bp.CanTargetPoint = true;
-                });
-                WindsOfTheFallBuff.TemporaryContext(bp => {
-                    bp.SetComponents();
-                    bp.AddComponent<ModifyD20>(c => {
-                        c.Rule = RuleType.All;
-                        c.RollsAmount = 1;
-                        c.TakeBest = false;
-                        c.m_SavingThrowType = ModifyD20.InnerSavingThrowType.All;
-                        c.m_TandemTripFeature = new BlueprintFeatureReference();
-                        c.RollResult = new ContextValue();
-                        c.Bonus = new ContextValue();
-                        c.Chance = new ContextValue();
-                        c.ValueToCompareRoll = new ContextValue();
-                        c.Skill = new StatType[0];
-                        c.Value = new ContextValue();
-                    });
-                });
-                TTTContext.Logger.LogPatch(WindsOfTheFall);
-                TTTContext.Logger.LogPatch(WindsOfTheFallBuff);
-            }
             static void PatchFieldOfFlowers() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FieldOfFlowers")) { return; }
 
@@ -578,6 +547,107 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch(FieldOfFlowers);
                 TTTContext.Logger.LogPatch(FieldOfFlowersArea);
+            }
+            static void PatchFriendlyHug() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("FriendlyHug")) { return; }
+
+                var FriendlyHugBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("3906504d59286b640856b3da63f389a8");
+                FriendlyHugBuff.AddComponent<SpellImmunityToSpellDescriptor>(c => {
+                    c.Descriptor = SpellDescriptor.MindAffecting;
+                    c.m_CasterIgnoreImmunityFact = new BlueprintUnitFactReference();
+                });
+
+                TTTContext.Logger.LogPatch(FriendlyHugBuff);
+            }
+            static void PatchJoyOfLife() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("JoyOfLife")) { return; }
+
+                var JoyOfLifeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("c3adfe620be4a0749904d8942aaabf38");
+                JoyOfLifeBuff.TemporaryContext(bp => {
+                    bp.AddComponent<ChangeOutgoingDamageType>(c => {
+                        c.Type = new DamageTypeDescription() {
+                            Type = DamageType.Energy,
+                            Energy = DamageEnergyType.Holy
+                        };
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(JoyOfLifeBuff);
+            }
+            static void PatchNaturesGrasp() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("NaturesGrasp")) { return; }
+
+                var NaturesGrasp = BlueprintTools.GetBlueprint<BlueprintAbility>("2b9db9808a1aad74b94f651c5732fd3c");
+                var NaturesGraspBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b506053d4279ee347b56095c9714c008");
+
+                NaturesGraspBuff.TemporaryContext(bp => {
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionDealDamage>()
+                        .ForEach(a => {
+                            a.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = new ContextValue() {
+                                    ValueType = ContextValueType.Rank,
+                                    ValueRank = AbilityRankType.DamageDice
+                                }
+                            };
+                        });
+                });
+                TTTContext.Logger.LogPatch(NaturesGraspBuff);
+            }
+            static void PatchOdeToMiraculousMagic() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("OdeToMiraculousMagic")) { return; }
+
+                var OdeToMiraculousMagic = BlueprintTools.GetBlueprint<BlueprintAbility>("f1a0dd9c0b6f9654fb025875dc4b905d");
+                var OdeToMiraculousMagicBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("f6ef0e25745114d46bf16fd5a1d93cc9");
+
+                OdeToMiraculousMagic.TemporaryContext(bp => {
+                    bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
+                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => {
+                        c.Actions = Helpers.CreateActionList(
+                            new ContextActionApplyBuff() {
+                                m_Buff = OdeToMiraculousMagicBuff,
+                                DurationValue = new ContextDurationValue() {
+                                    Rate = DurationRate.TenMinutes,
+                                    DiceCountValue = 0,
+                                    BonusValue = new ContextValue() {
+                                        ValueType = ContextValueType.Rank
+                                    }
+                                }
+                            }
+                        );
+                    });
+                    bp.AddComponent<AbilityTargetsAround>(c => {
+                        c.m_Radius = 60.Feet();
+                        c.m_TargetType = TargetType.Ally;
+                        c.m_Condition = new ConditionsChecker() {
+                            Conditions = new Condition[] {
+                                new ContextConditionIsPartyMember()
+                            }
+                        };
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(OdeToMiraculousMagic);
+            }
+            static void PatchProtectionOfNature() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("ProtectionOfNature")) { return; }
+
+                var ProtectionOfNatureBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("4652211718a2d9f4f860af19ad689663");
+                ProtectionOfNatureBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<AddConcealment>();
+                    bp.AddComponent<SetAttackerMissChance>(c => {
+                        c.Value = 50;
+                        c.m_Type = SetAttackerMissChance.Type.All;
+                        c.Conditions = new ConditionsChecker();
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(ProtectionOfNatureBuff);
             }
             static void PatchRepulsiveNature() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("RepulsiveNature")) { return; }
@@ -704,57 +774,33 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 TTTContext.Logger.LogPatch(RepulsiveNatureNauseatedBuff);
                 TTTContext.Logger.LogPatch(RepulsiveNatureBuffImmunity);
             }
-            static void PatchWaterPush() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("WaterPush")) { return; }
+            static void PatchSongsOfSteel() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("SongsOfSteel")) { return; }
 
-                var WaterPush = BlueprintTools.GetBlueprint<BlueprintAbility>("17712729faf427f4fa0463bc919a0ff4");
-
-                WaterPush.TemporaryContext(bp => {
-                    bp.Range = AbilityRange.Projectile;
-                    bp.CanTargetEnemies = true;
-                    bp.CanTargetFriends = true;
-                    bp.CanTargetPoint = true;
-                    bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
-                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                        c.m_Progression = ContextRankProgression.DivStep;
-                        c.m_StepLevel = 4;
+                var SongsOfSteelBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6867deda1eda183499ae61813c2f5ebb");
+                SongsOfSteelBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    bp.AddComponent<AddAdditionalWeaponDamageOnHit>(c => {
+                        c.OnlyOnFirstHit = true;
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Energy,
+                            Energy = DamageEnergyType.Sonic
+                        };
+                        c.Value = new ContextDiceValue() {
+                            DiceType = DiceType.D6,
+                            DiceCountValue = 2,
+                            BonusValue = new ContextValue() {
+                                ValueType = ContextValueType.Rank
+                            }
+                        };
                     });
-                    bp.FlattenAllActions()
-                        .OfType<ContextActionPush>()
-                        .Where(c => c.Distance.Value == 10)
-                        .ForEach(c => {
-                            c.Distance = 4;
-                        });
-                    bp.FlattenAllActions()
-                        .OfType<ContextActionPush>()
-                        .Where(c => c.Distance.Value == 5)
-                        .ForEach(c => {
-                            c.Distance = 2;
-                        });
+                    bp.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
                 });
-                TTTContext.Logger.LogPatch(WaterPush);
-            }
-            static void PatchNaturesGrasp() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("NaturesGrasp")) { return; }
 
-                var NaturesGrasp = BlueprintTools.GetBlueprint<BlueprintAbility>("2b9db9808a1aad74b94f651c5732fd3c");
-                var NaturesGraspBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b506053d4279ee347b56095c9714c008");
-
-                NaturesGraspBuff.TemporaryContext(bp => {
-                    bp.FlattenAllActions()
-                        .OfType<ContextActionDealDamage>()
-                        .ForEach(a => {
-                            a.Value = new ContextDiceValue() {
-                                DiceType = DiceType.D6,
-                                DiceCountValue = 1,
-                                BonusValue = new ContextValue() {
-                                    ValueType = ContextValueType.Rank,
-                                    ValueRank = AbilityRankType.DamageDice
-                                }
-                            };
-                        });
-                });
-                TTTContext.Logger.LogPatch(NaturesGraspBuff);
+                TTTContext.Logger.LogPatch(SongsOfSteelBuff);
             }
             static void PatchSuddenSquall() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("SuddenSquall")) { return; }
@@ -773,15 +819,15 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     var actionList = bp.GetComponent<AbilityEffectRunAction>().Actions;
                     bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => {
                         c.Actions = Helpers.CreateActionList(
-                            new Conditional() { 
-                                ConditionsChecker = new ConditionsChecker() { 
-                                    Conditions = new Condition[] { 
+                            new Conditional() {
+                                ConditionsChecker = new ConditionsChecker() {
+                                    Conditions = new Condition[] {
                                         new ContextConditionIsAlly()
                                     }
                                 },
                                 IfFalse = actionList,
                                 IfTrue = Helpers.CreateActionList()
-                            }    
+                            }
                         );
                     });
                 });
@@ -793,17 +839,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch(SuddenSquall);
             }
-            static void PatchFriendlyHug() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("FriendlyHug")) { return; }
-
-                var FriendlyHugBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("3906504d59286b640856b3da63f389a8");
-                FriendlyHugBuff.AddComponent<SpellImmunityToSpellDescriptor>(c => {
-                    c.Descriptor = SpellDescriptor.MindAffecting;
-                    c.m_CasterIgnoreImmunityFact = new BlueprintUnitFactReference();
-                });
-
-                TTTContext.Logger.LogPatch(FriendlyHugBuff);
-            }
             static void PatchUnbreakableBond() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("UnbreakableBond")) { return; }
 
@@ -811,7 +846,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 var UnbreakableBond = BlueprintTools.GetBlueprint<BlueprintAbility>("947a929f3347d3e458a524424fbceccb");
                 var UnbreakableBondArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("9063d387e8d90a24f8bdd8c0c95f72f4");
                 var UnbreakableBondImmunityBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("e60806180806b4c488f0d45af1035917");
-                
+
                 UnbreakableBond.TemporaryContext(bp => {
                     Conditional embedded = null;
                     bp.FlattenAllActions()
@@ -870,6 +905,36 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch(UnbreakableBondImmunityBuff);
             }
+            static void PatchWaterPush() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("WaterPush")) { return; }
+
+                var WaterPush = BlueprintTools.GetBlueprint<BlueprintAbility>("17712729faf427f4fa0463bc919a0ff4");
+
+                WaterPush.TemporaryContext(bp => {
+                    bp.Range = AbilityRange.Projectile;
+                    bp.CanTargetEnemies = true;
+                    bp.CanTargetFriends = true;
+                    bp.CanTargetPoint = true;
+                    bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.DivStep;
+                        c.m_StepLevel = 4;
+                    });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionPush>()
+                        .Where(c => c.Distance.Value == 10)
+                        .ForEach(c => {
+                            c.Distance = 4;
+                        });
+                    bp.FlattenAllActions()
+                        .OfType<ContextActionPush>()
+                        .Where(c => c.Distance.Value == 5)
+                        .ForEach(c => {
+                            c.Distance = 2;
+                        });
+                });
+                TTTContext.Logger.LogPatch(WaterPush);
+            }
             static void PatchWaterTorrent() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("WaterTorrent")) { return; }
 
@@ -890,102 +955,37 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     bp.SetDescription(WaterTorrent.m_Description);
                 });
                 TTTContext.Logger.LogPatch(WaterTorrent);
-            }
-            static void PatchOdeToMiraculousMagic() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("OdeToMiraculousMagic")) { return; }
+            }  
+            static void PatchWindsOfFall() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("WindsOfFall")) { return; }
 
-                var OdeToMiraculousMagic = BlueprintTools.GetBlueprint<BlueprintAbility>("f1a0dd9c0b6f9654fb025875dc4b905d");
-                var OdeToMiraculousMagicBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("f6ef0e25745114d46bf16fd5a1d93cc9");
+                var WindsOfTheFall = BlueprintTools.GetBlueprint<BlueprintAbility>("af2ed41c7894b934c9a9ca5048af3f58");
+                var WindsOfTheFallBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b90339c580288eb48b7fea4abba0507e");
 
-                OdeToMiraculousMagic.TemporaryContext(bp => {
-                    bp.GetComponent<ContextRankConfig>().TemporaryContext(c => {
-                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                        c.m_Progression = ContextRankProgression.AsIs;
-                    });
-                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => {
-                        c.Actions = Helpers.CreateActionList(
-                            new ContextActionApplyBuff() {
-                                m_Buff = OdeToMiraculousMagicBuff,
-                                DurationValue = new ContextDurationValue() {
-                                    Rate = DurationRate.TenMinutes,
-                                    DiceCountValue = 0,
-                                    BonusValue = new ContextValue() {
-                                        ValueType = ContextValueType.Rank
-                                    }
-                                }
-                            }
-                        );
-                    });
-                    bp.AddComponent<AbilityTargetsAround>(c => {
-                        c.m_Radius = 60.Feet();
-                        c.m_TargetType = TargetType.Ally;
-                        c.m_Condition = new ConditionsChecker() {
-                            Conditions = new Condition[] {
-                                new ContextConditionIsPartyMember()
-                            }
-                        };
+                WindsOfTheFall.TemporaryContext(bp => {
+                    bp.Range = AbilityRange.Projectile;
+                    bp.CanTargetEnemies = true;
+                    bp.CanTargetFriends = true;
+                    bp.CanTargetPoint = true;
+                });
+                WindsOfTheFallBuff.TemporaryContext(bp => {
+                    bp.SetComponents();
+                    bp.AddComponent<ModifyD20>(c => {
+                        c.Rule = RuleType.All;
+                        c.RollsAmount = 1;
+                        c.TakeBest = false;
+                        c.m_SavingThrowType = ModifyD20.InnerSavingThrowType.All;
+                        c.m_TandemTripFeature = new BlueprintFeatureReference();
+                        c.RollResult = new ContextValue();
+                        c.Bonus = new ContextValue();
+                        c.Chance = new ContextValue();
+                        c.ValueToCompareRoll = new ContextValue();
+                        c.Skill = new StatType[0];
+                        c.Value = new ContextValue();
                     });
                 });
-
-                TTTContext.Logger.LogPatch(OdeToMiraculousMagic);
-            }
-            static void PatchSongsOfSteel() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("SongsOfSteel")) { return; }
-
-                var SongsOfSteelBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6867deda1eda183499ae61813c2f5ebb");
-                SongsOfSteelBuff.TemporaryContext(bp => {
-                    bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
-                    bp.AddComponent<AddAdditionalWeaponDamageOnHit>(c => {
-                        c.OnlyOnFirstHit = true;
-                        c.DamageType = new DamageTypeDescription() {
-                            Type = DamageType.Energy,
-                            Energy = DamageEnergyType.Sonic
-                        };
-                        c.Value = new ContextDiceValue() { 
-                            DiceType = DiceType.D6,
-                            DiceCountValue = 2,
-                            BonusValue = new ContextValue() { 
-                                ValueType = ContextValueType.Rank
-                            }
-                        };
-                    });
-                    bp.AddContextRankConfig(c => {
-                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
-                        c.m_Progression = ContextRankProgression.AsIs;
-                    });
-                });
-
-                TTTContext.Logger.LogPatch(SongsOfSteelBuff);
-            }
-            static void PatchProtectionOfNature() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("ProtectionOfNature")) { return; }
-
-                var ProtectionOfNatureBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("4652211718a2d9f4f860af19ad689663");
-                ProtectionOfNatureBuff.TemporaryContext(bp => {
-                    bp.RemoveComponents<AddConcealment>();
-                    bp.AddComponent<SetAttackerMissChance>(c => {
-                        c.Value = 50;
-                        c.m_Type = SetAttackerMissChance.Type.All;
-                        c.Conditions = new ConditionsChecker();
-                    });
-                });
-
-                TTTContext.Logger.LogPatch(ProtectionOfNatureBuff);
-            }
-            static void PatchJoyOfLife() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("JoyOfLife")) { return; }
-
-                var JoyOfLifeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("c3adfe620be4a0749904d8942aaabf38");
-                JoyOfLifeBuff.TemporaryContext(bp => {
-                    bp.AddComponent<ChangeOutgoingDamageType>(c => {
-                        c.Type = new DamageTypeDescription() { 
-                            Type = DamageType.Energy,
-                            Energy = DamageEnergyType.Holy
-                        };
-                    });
-                });
-
-                TTTContext.Logger.LogPatch(JoyOfLifeBuff);
+                TTTContext.Logger.LogPatch(WindsOfTheFall);
+                TTTContext.Logger.LogPatch(WindsOfTheFallBuff);
             }
             //Demon Spells
             static void PatchAbyssalStorm() {
