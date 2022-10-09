@@ -25,7 +25,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var Icon_MagesDisjunctionAbility = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_MagesDisjunctionAbility.png");
             var Icon_MagesDisjunctionScroll = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfMagesDisjunction.png");
-            var dispelmagic00fx = new PrefabLink() { 
+            var dispelmagic00fx = new PrefabLink() {
                 AssetId = "3eda0e7f710821045a35ebe432af667c"
             };
             var AdamantineWeaponEnchantment = BlueprintTools.GetBlueprintReference<BlueprintEquipmentEnchantmentReference>("ab39e7d59dd12f4429ffef5dca88dc7b");
@@ -80,10 +80,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
-                        new Conditional() { 
-                            ConditionsChecker = new ConditionsChecker() { 
-                                Conditions = new Condition[] { 
-                                    new ContextConditionHasFact(){ 
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Conditions = new Condition[] {
+                                    new ContextConditionHasFact(){
                                         m_Fact = SummonedCreatureVisual
                                     }
                                 }
@@ -131,8 +131,8 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.m_Radius = 40.Feet();
                     c.m_TargetType = TargetType.Any;
                     c.m_Condition = new ConditionsChecker() {
-                        Conditions = new Condition[] { 
-                            new ContextConditionIsCaster(){ 
+                        Conditions = new Condition[] {
+                            new ContextConditionIsCaster(){
                                 Not = true
                             }
                         }

@@ -2,12 +2,12 @@
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers;
 using Kingmaker.Items;
-using System.Linq;
 using System;
+using System.Linq;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     class ArmorEnhancementBonuses {
-        [HarmonyPatch(typeof(GameHelper), nameof(GameHelper.GetItemEnhancementBonus), new Type[]{ typeof(ItemEntity) })]
+        [HarmonyPatch(typeof(GameHelper), nameof(GameHelper.GetItemEnhancementBonus), new Type[] { typeof(ItemEntity) })]
         class GameHelper_GetItemEnhancementBonus_Patch {
             static void Postfix(ref int __result, ItemEntity item) {
                 ItemEntityWeapon weapon;

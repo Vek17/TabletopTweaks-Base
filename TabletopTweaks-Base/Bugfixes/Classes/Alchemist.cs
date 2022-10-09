@@ -94,7 +94,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                 add.m_Features.RemoveAll(f => f.deserializedGuid == VivsectionistDiscoverySelection.AssetGuid);
                             });
                     });
-                    
+
                     TTTContext.Logger.LogPatch("Enabled Alternate Capstones", bp);
                 });
             }

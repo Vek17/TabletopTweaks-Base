@@ -4,7 +4,6 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -15,8 +14,6 @@ using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
-using Kingmaker.Items;
-using Kingmaker.Items.Slots;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -31,7 +28,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -804,12 +800,11 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
                     DamageDescription damageDescription = evt.DamageDescription.FirstItem();
                     if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
-                        if (!evt.DoNotScaleDamage 
-                                && (evt.WeaponDamageDice.HasModifications 
-                                    || !evt.Weapon.Blueprint.IsDamageDiceOverridden 
-                                    || (evt.Initiator.IsPlayerFaction && !evt.Initiator.Body.IsPolymorphed) 
-                                    || evt.IsDefaultUnit)) 
-                        {
+                        if (!evt.DoNotScaleDamage
+                                && (evt.WeaponDamageDice.HasModifications
+                                    || !evt.Weapon.Blueprint.IsDamageDiceOverridden
+                                    || (evt.Initiator.IsPlayerFaction && !evt.Initiator.Body.IsPolymorphed)
+                                    || evt.IsDefaultUnit)) {
                             //DiceFormula diceFormula = WeaponDamageScaleTable.Scale(evt.WeaponDamageDice.ModifiedValue, evt.WeaponSize, Size.Medium, evt.Weapon.Blueprint);
                             //if (diceFormula != evt.WeaponDamageDice.ModifiedValue) {
                             //    evt.WeaponDamageDice.Modify(diceFormula, ModifierDescriptor.Size);

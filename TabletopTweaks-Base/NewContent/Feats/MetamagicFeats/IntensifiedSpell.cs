@@ -122,7 +122,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                             .Where(a => a.AreaEffect.FlattenAllActions()
                                 .OfType<ContextActionDealDamage>()
                                 .Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank))
-                            .Any()); 
+                            .Any());
                 if (isIntensifiedSpell) {
                     if (!spell.AvailableMetamagic.HasMetamagic((Metamagic)CustomMetamagic.Intensified)) {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Intensified;

@@ -100,7 +100,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         bp.Mode = SelectionMode.Default;
                         bp.AddFeatures(AdvancedWeapontrainingSelection);
                         TTTContext.Logger.LogPatch("Patched", bp);
-                    });                    
+                    });
                     WeaponTrainingRankUpSelection.TemporaryContext(bp => {
                         bp.m_AllFeatures = bp.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
                         bp.m_AllFeatures.ForEach(feature => {
@@ -112,12 +112,12 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         });
                         bp.IgnorePrerequisites = true;
                         TTTContext.Logger.LogPatch("Patched", WeaponTrainingRankUpSelection);
-                    });  
+                    });
                     SoheiWeaponRankUpTrainingSelection.TemporaryContext(bp => {
                         bp.IgnorePrerequisites = true;
                         bp.HideInCharacterSheetAndLevelUp = false;
-                    });  
-                    
+                    });
+
                     AdvancedWeapontrainingSelection.m_AllFeatures.ForEach(feature => {
                         feature.Get().RemoveComponents<PrerequisiteClassLevel>();
                         TTTContext.Logger.LogPatch("Patched", feature.Get());

@@ -57,7 +57,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         c.m_Feature = NewContent.AlternateCapstones.Sorcerer.SorcererAlternateCapstone.ToReference<BlueprintFeatureReference>();
                     });
                 });
-                
+
                 ClassTools.Classes.SorcererClass.TemporaryContext(bp => {
                     bp.Progression.LevelEntries
                         .Where(entry => entry.Level == 20)

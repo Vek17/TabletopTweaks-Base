@@ -2,9 +2,7 @@
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Craft;
-using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities;
@@ -31,23 +29,23 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var Icon_StunningBarrierGreater = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_StunningBarrierGreater.png");
             var Icon_ScrollOfStunningBarrierGreater = ScrollOfStunningBarrier.Icon;
 
-            var StunningBarrierName = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Name", 
-                "Greater Stunning Barrier", 
-                shouldProcess:false
+            var StunningBarrierName = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Name",
+                "Greater Stunning Barrier",
+                shouldProcess: false
             );
-            var StunningBarrierDescription = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Description", 
+            var StunningBarrierDescription = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Description",
                 "You are closely surrounded by a barely visible magical field. " +
                 "The field provides a +2 deflection bonus to AC and a +2 resistance bonus on saves. " +
                 "Any creature that strikes you with a melee attack is stunned for 1 round (Will negates). " +
-                "Once the field has stunned a number of creatures equal to your caster level, the spell is discharged.", 
+                "Once the field has stunned a number of creatures equal to your caster level, the spell is discharged.",
                 shouldProcess: true
             );
-            var StunningBarrierLocalizedDuration = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Name", 
-                "1 round/level or until discharged", 
+            var StunningBarrierLocalizedDuration = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Name",
+                "1 round/level or until discharged",
                 shouldProcess: false
             );
-            var StunningBarrierLocalizedSavingThrow = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Name", 
-                "Will negates stun", 
+            var StunningBarrierLocalizedSavingThrow = Helpers.CreateString(TTTContext, "StunningBarrierGreater.Name",
+                "Will negates stun",
                 shouldProcess: false
             );
             //Stub for reference creation
@@ -71,12 +69,12 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.SavingThrowType = SavingThrowType.Will;
                     c.Actions = Helpers.CreateActionList(
-                        new ContextActionConditionalSaved() { 
+                        new ContextActionConditionalSaved() {
                             Succeed = Helpers.CreateActionList(),
                             Failed = Helpers.CreateActionList(
-                                new ContextActionApplyBuff() { 
+                                new ContextActionApplyBuff() {
                                     m_Buff = Stunned,
-                                    DurationValue = new ContextDurationValue() { 
+                                    DurationValue = new ContextDurationValue() {
                                         DiceCountValue = 0,
                                         BonusValue = 1
                                     }
@@ -138,7 +136,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.OnlyMelee = true;
                     c.ActionOnSelf = Helpers.CreateActionList();
                     c.ActionsOnAttacker = Helpers.CreateActionList(
-                        new ContextActionCastSpell() { 
+                        new ContextActionCastSpell() {
                             m_Spell = StunningBarrierGreaterStun.ToReference<BlueprintAbilityReference>(),
                             DC = new ContextValue(),
                             SpellLevel = new ContextValue()

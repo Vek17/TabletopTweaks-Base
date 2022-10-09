@@ -9,7 +9,6 @@ using Kingmaker.UI.MVVM._VM.ActionBar;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.Utility;
-using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,8 +130,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     __result = false;
                     return false;
                 }
-                if (__instance.Blueprint.IsArcanist && __instance.SureMemorizedSpells(spellLevel).HasItem(delegate (SpellSlot i)
-                {
+                if (__instance.Blueprint.IsArcanist && __instance.SureMemorizedSpells(spellLevel).HasItem(delegate (SpellSlot i) {
                     AbilityData spellShell = i.SpellShell;
                     return spellShell?.Blueprint == data.Blueprint && Equals(spellShell?.MetamagicData, data?.MetamagicData);
                 })) {
@@ -156,8 +154,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     spellSlot.LinkedSlots = memorizeSlots;
                     spellSlot.IsOpposition = (__instance.OppositionSchools.Contains(data.Blueprint.School) || __instance.OppositionDescriptors.HasAnyFlag(data.Blueprint.SpellDescriptor));
                 }
-                EventBus.RaiseEvent<ISpellBookUIHandler>(delegate (ISpellBookUIHandler h)
-                {
+                EventBus.RaiseEvent<ISpellBookUIHandler>(delegate (ISpellBookUIHandler h) {
                     h.HandleMemorizedSpell(data, __instance.Owner);
                 }, true);
                 __result = true;

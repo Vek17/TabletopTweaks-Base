@@ -1,19 +1,14 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.UnitLogic.Mechanics.Properties;
-using TabletopTweaks.Core.NewComponents.Properties;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 using StatValueGetter = Kingmaker.UnitLogic.Mechanics.Properties.StatValueGetter;
@@ -44,25 +39,25 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                     c.OnHealDamage = true;
                     c.AllowZeroHealDamage = true;
                 });
-                bp.AddComponent<AddFactContextActions>(c => { 
+                bp.AddComponent<AddFactContextActions>(c => {
                     c.Activated = Helpers.CreateActionList();
                     c.Deactivated = Helpers.CreateActionList();
                     c.NewRound = Helpers.CreateActionList(
-                        new ContextActionDealDamage() { 
-                            DamageType = new DamageTypeDescription() { 
+                        new ContextActionDealDamage() {
+                            DamageType = new DamageTypeDescription() {
                                 Type = DamageType.Direct
                             },
-                            Duration = new ContextDurationValue() { 
+                            Duration = new ContextDurationValue() {
                                 DiceCountValue = new ContextValue(),
                                 BonusValue = new ContextValue()
                             },
-                            Value = new ContextDiceValue() { 
+                            Value = new ContextDiceValue() {
                                 DiceCountValue = 0,
-                                BonusValue = new ContextValue() { 
+                                BonusValue = new ContextValue() {
                                     ValueType = ContextValueType.Rank
                                 }
                             }
-                        }    
+                        }
                     );
                 });
                 bp.AddComponent<SpellDescriptorComponent>(c => {

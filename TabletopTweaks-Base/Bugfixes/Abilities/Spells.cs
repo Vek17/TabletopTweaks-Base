@@ -89,14 +89,14 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchAcidMaw();
                 PatchAnimalGrowth();
                 PatchBestowCurseGreater();
-                PatchBreakEnchantment(); 
+                PatchBreakEnchantment();
                 PatchChainLightning();
                 PatchCommand();
                 PatchCommandGreater();
                 PatchCrusadersEdge();
                 PatchDeathWard();
                 PatchDispelMagicGreater();
-                PatchFirebrand();     
+                PatchFirebrand();
                 PatchFlamestrike();
                 PatchFrightfulAspect();
                 PatchGeniekind();
@@ -108,7 +108,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchRemoveSickness();
                 PatchShadowConjuration();
                 PatchShadowEvocation();
-                PatchShadowEvocationGreater();            
+                PatchShadowEvocationGreater();
                 PatchUnbreakableHeart();
                 PatchWrachingRay();
                 PatchFromSpellFlags();
@@ -382,7 +382,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 var BurstOfSonicEnergy = BlueprintTools.GetBlueprint<BlueprintAbility>("b5a2d0e400dd38e428c953f8a2be5f0b");
                 var BurstOfSonicEnergy10Feet = BlueprintTools.GetBlueprint<BlueprintAbility>("980554934d1aa354bbb08f4b150bd9da");
                 var BurstOfSonicEnergyAdjacent = BlueprintTools.GetBlueprint<BlueprintAbility>("65010ad20b1f57a4f86cd09115728831");
-                var Mythic1lvlAzata_ElysiumBolt00 = BlueprintTools.GetBlueprintReference<BlueprintProjectileReference>("f00eb27234fbc39448b142f1257c8886"); 
+                var Mythic1lvlAzata_ElysiumBolt00 = BlueprintTools.GetBlueprintReference<BlueprintProjectileReference>("f00eb27234fbc39448b142f1257c8886");
 
                 BurstOfSonicEnergy.TemporaryContext(bp => {
                     bp.AvailableMetamagic |= Metamagic.Empower
@@ -394,7 +394,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         | (Metamagic)CustomMetamagic.ElementalCold
                         | (Metamagic)CustomMetamagic.ElementalElectricity
                         | (Metamagic)CustomMetamagic.ElementalFire;
-                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => { 
+                    bp.GetComponent<AbilityEffectRunAction>().TemporaryContext(c => {
                         c.Actions = Helpers.CreateActionList(
                             new Conditional() {
                                 ConditionsChecker = new ConditionsChecker() {
@@ -718,11 +718,11 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         );
                         c.Deactivated = Helpers.CreateActionList();
                         c.NewRound = Helpers.CreateActionList(
-                            new ContextActionSavingThrow() { 
+                            new ContextActionSavingThrow() {
                                 Type = SavingThrowType.Fortitude,
                                 CustomDC = new ContextValue(),
                                 Actions = Helpers.CreateActionList(
-                                    new ContextActionConditionalSaved() { 
+                                    new ContextActionConditionalSaved() {
                                         Succeed = Helpers.CreateActionList(
                                             new ContextActionApplyBuff() {
                                                 m_Buff = RepulsiveNatureBuffImmunity.ToReference<BlueprintBuffReference>(),
@@ -955,7 +955,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     bp.SetDescription(WaterTorrent.m_Description);
                 });
                 TTTContext.Logger.LogPatch(WaterTorrent);
-            }  
+            }
             static void PatchWindsOfFall() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("WindsOfFall")) { return; }
 
@@ -1144,7 +1144,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     }
                     TTTContext.Logger.LogPatch("Patched", bp);
                 });
-            }            
+            }
             static void PatchBestowCurseGreater() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("BestowCurseGreater")) { return; }
 
@@ -1204,7 +1204,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         dispel.m_MaxSpellLevel = new ContextValue();
                     });
                 TTTContext.Logger.LogPatch("Patched", BreakEnchantment);
-            }            
+            }
             static void PatchChainLightning() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ChainLightning")) { return; }
 
@@ -1248,7 +1248,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         descriptors.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion;
                         TTTContext.Logger.LogPatch(ability);
                     });
-            }   
+            }
             static void PatchCrusadersEdge() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("CrusadersEdge")) { return; }
 
@@ -1560,7 +1560,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     }
                 }
                 TTTContext.Logger.LogPatch("Patched", WrackingRay);
-            } 
+            }
             static void PatchFromSpellFlags() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FixSpellFlags")) { return; }
 

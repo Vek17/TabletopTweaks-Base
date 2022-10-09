@@ -36,7 +36,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 });
             }
         }
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]    
+        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Domain_Patch {
             static bool Initialized;
             [HarmonyPriority(Priority.First)]
@@ -47,7 +47,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 PatchBaseClass();
             }
-            
+
             static void PatchBaseClass() {
                 PatchGloryDomain();
 

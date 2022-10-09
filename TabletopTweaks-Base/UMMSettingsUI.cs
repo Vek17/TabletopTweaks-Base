@@ -148,7 +148,7 @@ namespace TabletopTweaks.Base {
 
                 SetttingUI.SettingGroup("Archetypes", TabLevel, AddedContent.Archetypes);
                 SetttingUI.SettingGroup("Base Abilities", TabLevel, AddedContent.BaseAbilities);
-                SetttingUI.SettingGroup("Bloodlines", TabLevel, AddedContent.Bloodlines);          
+                SetttingUI.SettingGroup("Bloodlines", TabLevel, AddedContent.Bloodlines);
                 SetttingUI.SettingGroup("Feats", TabLevel, AddedContent.Feats);
                 SetttingUI.SettingGroup("Armor Mastery Feats", TabLevel, AddedContent.ArmorMasteryFeats);
                 SetttingUI.SettingGroup("Shield Mastery Feats", TabLevel, AddedContent.ShieldMasteryFeats);

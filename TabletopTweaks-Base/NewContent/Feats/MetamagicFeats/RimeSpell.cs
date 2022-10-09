@@ -125,7 +125,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             FeatTools.AddAsMetamagicFeat(RimeSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicRime);
         }
-        public  static void UpdateSpells() {
+        public static void UpdateSpells() {
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicRimeSpell")) { return; }
 
             var spells = SpellTools.GetAllSpells();

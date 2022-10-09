@@ -39,7 +39,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Wizard");
 
-            }    
+            }
         }
     }
 }

@@ -81,7 +81,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             CloakOfWindsAbility.AddToSpellList(SpellTools.SpellList.DruidSpellList, 3);
             CloakOfWindsAbility.AddToSpellList(SpellTools.SpellList.MagusSpellList, 3);
             CloakOfWindsAbility.AddToSpellList(SpellTools.SpellList.RangerSpellList, 3);
-            CloakOfWindsAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList,3);
+            CloakOfWindsAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList, 3);
         }
     }
 }

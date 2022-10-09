@@ -80,7 +80,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                             c.RangeType = WeaponRangeType.Ranged;
                         });
                     });
-                    
+
                     TTTContext.Logger.LogPatch(AmuletOfQuickDrawFeature);
                 }
                 void PatchAspectOfTheAsp() {

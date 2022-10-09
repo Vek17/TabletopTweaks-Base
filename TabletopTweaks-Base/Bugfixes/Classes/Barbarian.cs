@@ -66,7 +66,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchWreckingBlows();
                 PatchCripplingBlows();
             }
-            
+
             static void PatchBase() {
             }
 

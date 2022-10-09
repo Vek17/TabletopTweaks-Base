@@ -18,7 +18,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                     && __instance.m_AbilityData.Spellbook != null
                     && __instance.m_AbilityData.Blueprint.Type == AbilityType.Spell) {
                     var spellbookName = __instance.m_AbilityData.Spellbook.Blueprint.DisplayName;
-                    var newTypeName = string.IsNullOrEmpty(spellbookName) ? __instance.m_Type : $"{ __instance.m_Type } — { spellbookName }";
+                    var newTypeName = string.IsNullOrEmpty(spellbookName) ? __instance.m_Type : $"{__instance.m_Type} — {spellbookName}";
                     var list = __result.ToList();
                     if (list.Count > 0) {
                         list[0] = new TooltipBrickEntityHeader(__instance.m_Name, __instance.m_Icon, newTypeName, __instance.m_School, __instance.m_Level, isItem: false);

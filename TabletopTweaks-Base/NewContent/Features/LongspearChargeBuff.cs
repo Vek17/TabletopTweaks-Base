@@ -1,5 +1,4 @@
-﻿using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
+﻿using Kingmaker.UnitLogic.Buffs.Blueprints;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;

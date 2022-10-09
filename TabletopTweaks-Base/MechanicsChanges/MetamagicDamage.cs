@@ -34,7 +34,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                     num3 = damage.PreRolledValue.Value;
                 } else {
                     DiceFormula modifiedValue = damage.Dice.ModifiedValue;
-                    
+
                     if (__instance.RerollAndTakeBest) {
                         int a = __instance.Roll(modifiedValue, __instance.UnitsCount, damage.CalculationType);
                         int b = __instance.Roll(modifiedValue, __instance.UnitsCount, damage.CalculationType);

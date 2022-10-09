@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Utility;
 using System.Collections.Generic;
-using TabletopTweaks.Base.Bugfixes.Classes;
 using TabletopTweaks.Core.Config;
 
 namespace TabletopTweaks.Base.Config {
