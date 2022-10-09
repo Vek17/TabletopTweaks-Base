@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Utility;
 using System.Linq;
@@ -61,6 +62,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Skald");
                 PatchBase();
+                PatchBattleScion();
             }
             static void PatchBase() {
                 AddSpellKenning();
@@ -111,6 +113,18 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             }
                         }
                     });
+                }
+            }
+            static void PatchBattleScion() {
+                PatchDamageReduction();
+
+                void PatchDamageReduction() {
+                    if (TTTContext.Fixes.Skald.Archetypes["BattleScion"].IsDisabled("BattleProwessSelection")) { return; }
+                    var SkaldRagePowerSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("2476514e31791394fa140f1a07941c96");
+                    var BattleProwessSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("29b480a26a88f9e47a10d8c9fab84ee6");
+
+                    BattleProwessSelection.AddFeatures(SkaldRagePowerSelection.AllFeatures);
+                    TTTContext.Logger.LogPatch(BattleProwessSelection);
                 }
             }
         }

@@ -519,17 +519,6 @@
         },
         "IsExpanded": true
       },
-      "BattleScion": {
-        "DisableAll": false,
-        "Settings": {
-          "BattleProwessSelection": {
-            "Enabled": true,
-            "Homebrew": false,
-            "Description": "Adds missing rage powers to selection."
-          }
-        },
-        "IsExpanded": true
-      },
       "ReformedFiend": {
         "DisableAll": false,
         "Settings": {
@@ -925,7 +914,19 @@
       },
       "IsExpanded": true
     },
-    "Archetypes": {}
+    "Archetypes": {
+      "BattleScion": {
+        "DisableAll": false,
+        "Settings": {
+          "BattleProwessSelection": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Adds missing rage powers to selection."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
   },
   "Slayer": {
     "DisableAll": false,

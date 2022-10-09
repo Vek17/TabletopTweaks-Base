@@ -76,7 +76,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchBaseClass();
                 PatchPrimalist();
                 PatchReformedFiend();
-                PatchBattleScion();
                 PatchArcaneBloodrage();
                 PatchGreaterArcaneBloodrage();
                 PatchTrueArcaneBloodrage();
@@ -335,19 +334,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     ReformedFiendDamageReductionFeature.GetComponent<AddDamageResistancePhysical>().BypassedByAlignment = true;
                 }
             }
-            static void PatchBattleScion() {
-                PatchDamageReduction();
-
-                void PatchDamageReduction() {
-                    if (TTTContext.Fixes.Bloodrager.Archetypes["BattleScion"].IsDisabled("BattleProwessSelection")) { return; }
-                    var SkaldRagePowerSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("2476514e31791394fa140f1a07941c96");
-                    var BattleProwessSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("29b480a26a88f9e47a10d8c9fab84ee6");
-
-                    BattleProwessSelection.AddFeatures(SkaldRagePowerSelection.AllFeatures);
-                    TTTContext.Logger.LogPatch(BattleProwessSelection);
-                }
-            }
-
             static void PatchArcaneBloodrage() {
                 if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("ArcaneBloodrage")) { return; }
                 var BloodragerArcaneSpellAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("3151dfeeb202e38448d1fea1e8bc237e");
