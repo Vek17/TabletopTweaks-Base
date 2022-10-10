@@ -27,10 +27,14 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Suppressed Buffs
         * Suppressed buffs now have custom UI rules to better indicate them.
 * Bases Fixes
+    * Area of Effects
+        * Area of Effects should no longer double trigger on cast as if an extra round had elapsed.
     * Coup De Grace
         * Coup De Grace saving throw DC is now based on damage dealt.
     * Damage Reduction
         * Prevents most forms of damage reduction from stacking unless specifically specified.
+    * Damage Vulnerability
+        * Now works properly on combined damage types (IE: Slashing/Bludgeoning)
     * Unlimited Abilities Combat Behavior
         * Allows abilities that have become unlimited to remain on after combat ends.
     * Natural Armor
@@ -84,11 +88,13 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Animal Growth
         * Animal Growth should now work correctly with animal companions.
     * Believe In Yourself
-        * Believe in yourself now grants the correct bonus amount.
+        * Believe in yourself now grants the correct bonus amount. Now correctly has CL scale buff duration.
     * Bestow Greater Curse
         * Bestow Greater Curse now actually bestows a greater curse not a normal curse.
     * Break Enchantment
         * Break Enchantment no longer affects friendly buffs.
+    * Burst of Sonic Energy
+        * Now applies the correct amount of damage instead of triggering chaotic healing.
     * Chain Lightning
         * Chain Lightning now respect the 20 CL max for damage dice.
     * Command
@@ -105,14 +111,20 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs.
     * Eye Of The Sun
         * Eye Of The Sun now deals the correct amount of damage.
+    * Field of Flowers
+        * Now applies the correct debuffs instead of using Repulsive Nature's debuffs.
     * Firebrand
         * Firebrand no longer causes excessive damage instances to trigger when attacking.
+    * Friendly Hug
+        * Now has fully working immunities.
     * Geniekind
         * Geniekind no longer causes excessive damage instances to trigger when attacking.
     * Greater Magic Weapon
         * Greater Magic Weapon no longer stacks with existing enhancement bonuses.
     * Hellfire Ray
         * Hellfire Ray no longer has the Fire descriptor.
+    * Joy of Life
+        * Now converts outgoing damage to Holy.
     * Legendary Proportions
         * Now only increases size by one step instead of two.
     * Magical Vestment
@@ -121,28 +133,46 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus.
     * Mind Blank
         * Mind blank now makes you immune to detection with divination effects like see invisibility and true seeing.
+    * Nature's Grasp
+        * Now deals the correct amount of damage.
+    * Ode to Miraculous Magic
+        * Now correctly has CL scale buff duration.
     * Power From Death
         * Now correctly lasts rounds per level instead of minutes per level.
+    * Protection of Nature
+        * Concealment no longer is bypassed by true seeing.
     * Remove Fear
         * Remove Fear no longer grants immunity to shaken and fear.
     * Remove Sickness
         * Remove Sickness no longer grants immunity to sickness and nausea.
+    * Repulsive Nature
+        * Now uses the correct spell DC and actually applies its debuffs on fail.
     * Shadow Conjuration
         * Shadow Conjuration has been added to the Wizard spell list.
     * Shadow Conjuration Greater 
         * Now has the correct shadow factor of 60 instead of 40.
     * Shadow Evocation
         * Shadow Evocation can now have the correct metamagics applied.
+    * Songs of Steel
+        * No longer procs extra spell effects from the spell damage, deals the bonus damage based on CL, and applies only on first hit.
     * Greater Shadow Evocation
         * Greater Shadow Evocation can now have the correct metamagic applied.
         * Now has the correct shadow factor of 60 instead of 40.
     * Starlight
         * Starlight no longer is affected by true sight.
+    * Sudden Squall
+        * Now has working targeting and debuff.
     * Sun Form
         * Sun Form now deals the correct amount of damage.
+    * Unbreakable Bond
+        * Now has fully working immunities.
     * Unbreakable Heart
         * Unbreakable Heart no longer grants complete immunity to confusion and emotion effects and instead suppresses correctly.
-    * WrackingRay
+    * Water Push
+        * Now has working targeting and effects.
+    * Water Torrent
+        * Now has working targeting and debuff.
+    * Wracking Ray
         * Wracking Ray now deals the correct amount of ability damage.
     * Vampiric Blade
         * Vampiric Blade no longer triggers extra fake attacks.
@@ -427,6 +457,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Trickster Tricks
         * Removes trickster tricks from the combat feat selection.
 
+* Winter Witch
+    * Unearthly Cold
+        * Direct damage should now properly respect metamagic and added bonus damage.
+
 * Crusade
     * TrainingGrounds
         * Now grants the correct damage bonus.
@@ -438,6 +472,10 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Singing Steel now works properly.
 
 * Equipment
+    * Amulet of the Asp
+        * Now correctly works with Ray attacks.
+    * Amulet of Quick Draw
+        * No longer creates excessive damage instance and now functions correctly with critical hits.
     * Flawless Belt Of Physical Perfection 8
         * Now increases critical hit range by 1 in all cases.
         * Now appears as a DLC1 reward.
@@ -550,6 +588,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 
 * Spells
+    * Cloak of Winds
+        * You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty.
     * Long Arm
         * Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet.
     * Mage's Disjunction
@@ -558,6 +598,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * You use material from the Shadow Plane to cast a quasi-real, illusory version of a psychic, sorcerer, or wizard enchantment spell of 2nd level or lower. Spells that deal damage or have other effects work as normal unless the affected creature succeeds at a Will save. If the disbelieved enchantment spell has a damaging effect, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. If recognized as a shadow enchantment, a damaging spell deals only one-fifth (20%) the normal amount of damage. If the disbelieved attack has a special effect other than damage, that effect is one-fifth as strong (if applicable) or only 20% likely to occur. Regardless of the result of the save to disbelieve, an affected creature is also allowed any save (or spell resistance) that the spell being simulated allows, but the save DC is set according to shadow enchantment's level (3rd) rather than the spell's normal level.
     * Shadow Enchantment Greater
         * This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it's only three-fifths (60%) as effective.
+    * Stunning Barrier Greater
+        * This spell functions as stunning barrier, except it provides a +2 bonus to AC and on saving throws and it is not discharged until it has stunned a number of creatures equal to your caster level.
 
 * Metamagic
     * Burning Spell (Metamagic)
@@ -574,6 +616,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * The frost of your cold spell clings to the target, impeding it for a short time. A rime spell causes creatures that takes cold damage from the spell to become entangled for a number of rounds equal to the original level of the spell.
     * Solid Shadows (Metamagic)
         * When casting a shadow spell, that spell is 20% more real than normal.
+    * Elemental Spell (Metamagic)
+        * Choose one energy type: acid, cold, electricity, or fire. You may replace a spell’s normal damage with that energy type "or split the spell’s damage, so that half is of that energy type and half is of its normal type.
 
 * Feats
     * Ability Focus - Stunning Fist
