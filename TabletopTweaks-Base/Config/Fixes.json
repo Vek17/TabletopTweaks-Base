@@ -6,7 +6,7 @@
       "AreaOfEffectDoubleTrigger": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Fixes persistant area of effects from triggering multiple times off the initial cast as if an extra round had passed."
+        "Description": "Fixes persistent area of effects from triggering multiple times off the initial cast as if an extra round had passed."
       },
       "CoupDeGrace": {
         "Enabled": true,
@@ -36,12 +36,12 @@
       "DisableCannyDefenseStacking": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Prevents the Sword Saint and Duelest canny defense AC bonus from stacking."
+        "Description": "Prevents the Sword Saint and Duelist canny defense AC bonus from stacking."
       },
       "DisableNaturalArmorStacking": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Prevents Natural Armor bonuses from stacking unless they are specficed to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancment bonus will still stack."
+        "Description": "Prevents Natural Armor bonuses from stacking unless they are specified to stack. These use normal descriptor rules still so a natural armor bonus and a natural armor enhancement bonus will still stack."
       },
       "DisablePolymorphSizeStacking": {
         "Enabled": true,
@@ -66,7 +66,7 @@
       "DynamicItemNaming": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Allows Weapon/Armor names to be modified by any additional enchants they gain outside of thier base enchants."
+        "Description": "Allows Weapon/Armor names to be modified by any additional enchants they gain outside of their base enchants."
       },
       "DynamicItemNamingTemporary": {
         "Enabled": false,
@@ -101,12 +101,12 @@
       "FixInherentBonuses": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Allows Inhernt bonuses to count for feat prerequisites."
+        "Description": "Allows Inherent bonuses to count for feat prerequisites."
       },
       "FixInherentSkillpoints": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Allows Inhernt bonuses to intelligence to now grant bonus skill points."
+        "Description": "Allows Inherent bonuses to intelligence to now grant bonus skill points."
       },
       "FixMountedLongspearModifer": {
         "Enabled": true,
@@ -131,7 +131,7 @@
       "FixSizeShiftLimits": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Size shifts are now legal for the full size range of Fine to Collasal. This primarily affects microscopic proportions."
+        "Description": "Size shifts are now legal for the full size range of Fine to Colossal. This primarily affects microscopic proportions."
       },
       "FixWeaponEnhancmentBonusModifiers": {
         "Enabled": true,
@@ -161,7 +161,7 @@
       "SelectiveMetamagicNonInstantaneous": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Allows only instaneous effects to be treated as selective by selective metamagic."
+        "Description": "Allows only instantaneous effects to be treated as selective by selective metamagic."
       },
       "StaggeredDescriptors": {
         "Enabled": true,
@@ -171,7 +171,7 @@
       "SuppressedBuffUI": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Alters how buffs that have been supressed have been rendeered."
+        "Description": "Alters how buffs that have been suppressed have been rendered."
       }
     },
     "IsExpanded": true
@@ -230,7 +230,7 @@
       "UseMagicDevice2": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Allows trickster to ignore class/alignment restricitons of equipment with UMD2 trick."
+        "Description": "Allows trickster to ignore class/alignment restrictions of equipment with UMD2 trick."
       }
     },
     "IsExpanded": true
@@ -396,7 +396,7 @@
           "PoisonResistance": {
             "Enabled": true,
             "Homebrew": false,
-            "Description": "Removes posion resistiance from the archetype."
+            "Description": "Removes poison resistance from the archetype."
           }
         },
         "IsExpanded": true
@@ -417,7 +417,7 @@
           "SacredIncense": {
             "Enabled": true,
             "Homebrew": false,
-            "Description": "Replaces fake sickened and nausated effects with real versions."
+            "Description": "Replaces fake sickened and nauseated effects with real versions."
           }
         },
         "IsExpanded": true
@@ -437,7 +437,7 @@
         "EnableMultipleMemorization": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Makes arcanist spellbook capable of memorizing the same spell multiple times if they have differnt metamagic."
+          "Description": "Makes arcanist spellbook capable of memorizing the same spell multiple times if they have different metamagic."
         }
       },
       "IsExpanded": true
@@ -472,7 +472,7 @@
         "AbysalBulk": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Enables abysal bulk to not dispel existing enlarge person when rage ends."
+          "Description": "Enables abyssal bulk to not dispel existing enlarge person when rage ends."
         },
         "ArcaneBloodrage": {
           "Enabled": true,
@@ -482,7 +482,7 @@
         "CastersBane": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Enables Caster's basne arcane bloodrager capstone."
+          "Description": "Enables Caster's bane arcane bloodrager capstone."
         },
         "DisruptiveBloodrage": {
           "Enabled": true,
@@ -545,7 +545,7 @@
         "CavalierMobility": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Allows Cavalier to ignore thier armor check penalty while mounted for mobility skill checks."
+          "Description": "Allows Cavalier to ignore their armor check penalty while mounted for mobility skill checks."
         },
         "CavalierMountSelection": {
           "Enabled": true,
@@ -560,7 +560,7 @@
         "SupremeCharge": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Prevents Supreme Charge damage from criting and moves it into the new charage damage system."
+          "Description": "Prevents Supreme Charge damage from criting and moves it into the new charge damage system."
         }
       },
       "IsExpanded": true
@@ -572,7 +572,7 @@
           "TransfixingCharge": {
             "Enabled": true,
             "Homebrew": false,
-            "Description": "Prevents Transfixing Charge damage from criting and moves it into the new charage damage system."
+            "Description": "Prevents Transfixing Charge damage from criting and moves it into the new charge damage system."
           }
         },
         "IsExpanded": true
@@ -587,7 +587,7 @@
         "GloryDomain": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Glory domain no longer grants an untyped bonus the the raw Charsima stat."
+          "Description": "Glory domain no longer grants an untyped bonus the the raw Charisma stat."
         }
       },
       "IsExpanded": true
@@ -602,7 +602,7 @@
         "AdvancedArmorTraining": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Enables the fighter to take advanced armor training instead of increasing thier armor training rank."
+          "Description": "Enables the fighter to take advanced armor training instead of increasing their armor training rank."
         },
         "AdvancedWeaponTraining": {
           "Enabled": true,
@@ -684,12 +684,12 @@
         "SpellCombatAbilityVariants": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Lets spell combat work with spells that have variants like dimention door."
+          "Description": "Lets spell combat work with spells that have variants like dimension door."
         },
         "SpellCombatDisableImmediatly": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Disables spell combat immediatly when toggled off instead of having to wait until the next round."
+          "Description": "Disables spell combat immediately when toggled off instead of having to wait until the next round."
         },
         "SpellCombatSpellbookRestrictions": {
           "Enabled": true,
@@ -809,7 +809,7 @@
         "FavoredEnemy": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Favored enemy outsider now applies to ALL demons. The Demons of X are disabled unless you already have ranks, but otherwise function identicly to favored enemy outsider and you can keep picking them for compatability with existing characters."
+          "Description": "Favored enemy outsider now applies to ALL demons. The Demons of X are disabled unless you already have ranks, but otherwise function identically to favored enemy outsider and you can keep picking them for compatibility with existing characters."
         }
       },
       "IsExpanded": true
@@ -836,7 +836,7 @@
         "DispellingAttack": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Makes Dispelling attack use the correct CL for the dispell and prevents Dispelling attack from removing debuffs."
+          "Description": "Makes Dispelling attack use the correct CL for the dispel and prevents Dispelling attack from removing debuffs."
         },
         "RogueTalentSelection": {
           "Enabled": true,
@@ -894,7 +894,7 @@
         "AmelioratingHex": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
+          "Description": "No longer grants complete immunity to effects and instead suppresses correctly."
         }
       },
       "IsExpanded": true
@@ -951,7 +951,7 @@
         "DraconicBloodlineDescriptions": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Fixes the arcana descriptions to better refelect what they actually do."
+          "Description": "Fixes the arcana descriptions to better reflect what they actually do."
         },
         "PatchElementalBloodlineDescriptions": {
           "Enabled": true,
@@ -1028,12 +1028,12 @@
         "AmelioratingHex": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
+          "Description": "No longer grants complete immunity to effects and instead suppresses correctly."
         },
         "MajorAmelioratingHex": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "No longer grants complete immunity to effects and instead supresses correctly."
+          "Description": "No longer grants complete immunity to effects and instead suppresses correctly."
         }
       },
       "IsExpanded": true
@@ -1046,7 +1046,7 @@
       "PentamicFaith": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Pentamic Faith now requires the Godclaw hellknight order not the diety."
+        "Description": "Pentamic Faith now requires the Godclaw hellknight order not the deity."
       }
     },
     "IsExpanded": true
@@ -1072,7 +1072,7 @@
       "TricksterTricks": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Remvoes trickster tricks from the combat feat selection."
+        "Description": "Removes trickster tricks from the combat feat selection."
       }
     },
     "IsExpanded": true
@@ -1154,7 +1154,7 @@
       "DeathWard": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Now supresses existing negative levels."
+        "Description": "Now suppresses existing negative levels."
       },
       "DispelMagicGreater": {
         "Enabled": true,
@@ -1184,12 +1184,12 @@
       "FixSpellFlags": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Retags buffs from spells as coming from spells to allow them to be dispeled correctly."
+        "Description": "Retags buffs from spells as coming from spells to allow them to be dispelled correctly."
       },
       "FlameStrike": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Now correctly halfs divine damage on saving throw."
+        "Description": "Now correctly halves divine damage on saving throw."
       },
       "FriendlyHug": {
         "Enabled": true,
@@ -1259,7 +1259,7 @@
       "ProtectionOfNature": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Protection of Nature's conealment is no longer bypassed by true seeing."
+        "Description": "Protection of Nature's concealment is no longer bypassed by true seeing."
       },
       "RemoveFear": {
         "Enabled": true,
@@ -1324,7 +1324,7 @@
       "UnbreakableHeart": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead supresses correctly."
+        "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead suppresses correctly."
       },
       "WaterPush": {
         "Enabled": true,
@@ -1417,7 +1417,7 @@
       "CraneWing": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Now requires a free hand to recieve the bonuses."
+        "Description": "Now requires a free hand to receive the bonuses."
       },
       "DestructiveDispel": {
         "Enabled": true,
@@ -1482,7 +1482,7 @@
       "PersistantMetamagic": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Allows any spell with a saving throw to be made persistant."
+        "Description": "Allows any spell with a saving throw to be made persistent."
       },
       "SelectiveMetamagic": {
         "Enabled": true,
@@ -1512,7 +1512,7 @@
       "SpellSpecialization": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Enables spell sepecialization selection on all classes."
+        "Description": "Enables spell specialization selection on all classes."
       },
       "SpiritedCharge": {
         "Enabled": true,
@@ -1584,7 +1584,7 @@
       "ExpandedArsenal": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "No longer allows stacking multiple spell focuses, or school mastery on the same school to increase DC and CL, you can only benifit from spell focus and school mastery once."
+        "Description": "No longer allows stacking multiple spell focuses, or school mastery on the same school to increase DC and CL, you can only benefit from spell focus and school mastery once."
       },
       "ExtraFeat": {
         "Enabled": true,
@@ -1677,7 +1677,7 @@
         "AmuletOfQuickDraw": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "No longer creates a seperate damage instance and works with critical hits."
+          "Description": "No longer creates a separate damage instance and works with critical hits."
         },
         "AspectOfTheAsp": {
           "Enabled": true,
@@ -1707,7 +1707,7 @@
         "HalfOfThePair": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Will more accuratly update the bonus with range."
+          "Description": "Will more accurately update the bonus with range."
         },
         "HolySymbolofIomedae": {
           "Enabled": true,
@@ -1732,7 +1732,7 @@
         "StormlordsResolve": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Can now be deactivated immediatly instead of taking 1 turn to turn off."
+          "Description": "Can now be deactivated immediately instead of taking 1 turn to turn off."
         }
       },
       "IsExpanded": true
