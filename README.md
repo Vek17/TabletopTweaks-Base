@@ -884,4 +884,4 @@ Acknowledgments:
 -   Pathfinder Wrath of The Righteous Discord channel members
 -   @Balkoth, @Narria, @edoipi, @SpaceHamster and the rest of our great Discord modding community - help.
 -   PS: Wolfie's [Modding Wiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki) is an excellent place to start if you want to start modding on your own.
--   Join our [Discord](https://discord.com/invite/wotr)
+-   Join our [Discord](https://discord.gg/owlcat)
