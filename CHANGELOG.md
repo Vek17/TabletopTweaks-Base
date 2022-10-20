@@ -1,3 +1,10 @@
+## Version 2.4.3
+* Fixes
+    * Removed Overtip Fixes as they are now in vanilla.
+    * Spells
+        * Magical Vestment
+            * Now properly handles loading and area changes.
+
 ## Version 2.4.2
 * Fixes
     * General

@@ -10,7 +10,7 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.Bugfixes.UI {
     class OvertipFixes {
 
-        [HarmonyPatch(typeof(OvertipsVM), "OnEventDidTrigger", new[] { typeof(RuleSavingThrow) })]
+        //[HarmonyPatch(typeof(OvertipsVM), "OnEventDidTrigger", new[] { typeof(RuleSavingThrow) })]
         static class DisplayFix_OvertipsVM_SavingThrow_Patch {
             static readonly MethodInfo RuleSavingThrow_SuccessBonus = AccessTools.PropertyGetter(typeof(RuleSavingThrow), "SuccessBonus");
             static readonly MethodInfo RuleSavingThrow_StatValue = AccessTools.PropertyGetter(typeof(RuleSavingThrow), "StatValue");

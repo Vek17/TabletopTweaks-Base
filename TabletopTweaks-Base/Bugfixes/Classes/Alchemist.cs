@@ -111,6 +111,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchBase();
                 PatchGrenadier();
                 PatchIncenseSynthesizer();
+                PatchVivisectionist();
             }
             static void PatchBase() {
                 PatchMutagens();
@@ -277,6 +278,24 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
 
                     TTTContext.Logger.LogPatch("Patched", IncenseFogThickFogBuff);
+                }
+            }
+            static void PatchVivisectionist() {
+                //PatchMedicalDiscovery();
+
+                void PatchMedicalDiscovery() {
+                    if (TTTContext.Fixes.Alchemist.Archetypes["Grenadier"].IsDisabled("BrewPotions")) { return; }
+
+                    var GrenadierArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("6af888a7800b3e949a40f558ff204aae");
+                    var BrewPotions = BlueprintTools.GetBlueprint<BlueprintFeature>("c0f8c4e513eb493408b8070a1de93fc0");
+
+                    GrenadierArchetype.RemoveFeatures = GrenadierArchetype.RemoveFeatures.AppendToArray(new LevelEntry() {
+                        Level = 1,
+                        m_Features = new List<BlueprintFeatureBaseReference>() {
+                            BrewPotions.ToReference<BlueprintFeatureBaseReference>()
+                        }
+                    }); ;
+                    TTTContext.Logger.LogPatch("Patched", GrenadierArchetype);
                 }
             }
         }
