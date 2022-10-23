@@ -31,7 +31,7 @@
       "MetamagicRager": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "A bloodrager archetype that can spend rage rounds to apply metamagic effects to thier spells."
+        "Description": "A bloodrager archetype that can spend rage rounds to apply metamagic effects to their spells."
       },
       "NatureFang": {
         "Enabled": true,
@@ -413,7 +413,7 @@
       "ArmorSpecialization": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The fighter selects one specific type of armor with which he is proficient, such as light or heavy. While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor''s armor bonus, up to a maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the armor bonus doesn't increase the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor's base armor bonus, including other advanced armor training options."
+        "Description": "The fighter selects one specific type of armor with which he is proficient, such as light or heavy. While wearing the selected type of armor, the fighter adds one-quarter of his fighter level to the armor's armor bonus, up to a maximum bonus of +3 for light armor, +4 for medium armor, or +5 for heavy armor. This increase to the armor bonus doesn't increase the benefit that the fighter gains from feats, class abilities, or other effects that are determined by his armor's base armor bonus, including other advanced armor training options."
       },
       "CriticalDeflection": {
         "Enabled": true,
@@ -428,7 +428,7 @@
       "SteelHeadbutt": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter's base attack bonus - 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter's Strength modifier. Treat this attack as a weapon attack made using the same special material and echantment bonus (if any) as the armor."
+        "Description": "While wearing medium or heavy armor, a fighter can deliver a headbutt with his helm as part of a full attack action. This headbutt is in addition to his normal attacks, and is made using the fighter's base attack bonus - 5. A helmet headbutt deals 1d3 points of damage if the fighter is wearing medium armor, or 1d4 points of damage if he is wearing heavy armor (1d2 and 1d3, respectively, for Small creatures), plus an amount of damage equal to 1/2 the fighter's Strength modifier. Treat this attack as a weapon attack made using the same special material and enchantment bonus (if any) as the armor."
       }
     },
     "IsExpanded": true
@@ -459,7 +459,7 @@
       "WarriorSpirit": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to unlock the weapon's potential. Each day he gains a number of points of spiritual energy equal to 1 + his maximum weapon training bonus. While wielding a weapon he has weapon traiing with, he can spend 1 point of spiritual energy to grant the weapon an enhancement bonus equal to his weapon training bonus. Enhancement bonuses gained by this advanced weapon training option stack with those of the weapon, to a maximum of +5. The fighter can also imbue the weapon with any one weapon special ability with an equivalent enhancement bonus less than or equal to his maximum bonus by reducing the granted enhancement bonus by the amount of the equivalent enhancement bonus. These bonuses last for 1 minute."
+        "Description": "The fighter can forge a spiritual bond with a weapon that belongs to the associated weapon group, allowing him to unlock the weapon's potential. Each day he gains a number of points of spiritual energy equal to 1 + his maximum weapon training bonus. While wielding a weapon he has weapon training with, he can spend 1 point of spiritual energy to grant the weapon an enhancement bonus equal to his weapon training bonus. Enhancement bonuses gained by this advanced weapon training option stack with those of the weapon, to a maximum of +5. The fighter can also imbue the weapon with any one weapon special ability with an equivalent enhancement bonus less than or equal to his maximum bonus by reducing the granted enhancement bonus by the amount of the equivalent enhancement bonus. These bonuses last for 1 minute."
       }
     },
     "IsExpanded": true
@@ -626,7 +626,7 @@
       "AbundantSpellKenning": {
         "Enabled": true,
         "Homebrew": true,
-        "Description": "You can use Spell Kenning a number of additional times per day equal to one thrid your mythic rank."
+        "Description": "You can use Spell Kenning a number of additional times per day equal to one third your mythic rank."
       },
       "ArmoredMight": {
         "Enabled": true,
@@ -641,7 +641,7 @@
       "ArmorMasterHomebrew": {
         "Enabled": true,
         "Homebrew": true,
-        "Description": "Alternate versrion of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank."
+        "Description": "Alternate version of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank."
       },
       "EnhancedBlessings": {
         "Enabled": true,
@@ -691,7 +691,7 @@
       "SecondPatron": {
         "Enabled": true,
         "Homebrew": true,
-        "Description": "You select a second patron, gaining all its benifits."
+        "Description": "You select a second patron, gaining all its benefits."
       }
     },
     "IsExpanded": true
