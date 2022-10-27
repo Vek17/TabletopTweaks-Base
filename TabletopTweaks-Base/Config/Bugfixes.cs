@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Utility;
 using System.Collections.Generic;
+using TabletopTweaks.Base.Bugfixes.Features;
 using TabletopTweaks.Core.Config;
 
 namespace TabletopTweaks.Base.Config {
@@ -37,6 +38,7 @@ namespace TabletopTweaks.Base.Config {
         public SettingGroup Loremaster = new SettingGroup();
         public SettingGroup WinterWitch = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
+        public SettingGroup AnimalCompanions = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
         public SettingGroup Features = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
@@ -114,6 +116,7 @@ namespace TabletopTweaks.Base.Config {
             WinterWitch.LoadSettingGroup(loadedSettings.WinterWitch, NewSettingsOffByDefault);
 
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
+            AnimalCompanions.LoadSettingGroup(loadedSettings.AnimalCompanions, NewSettingsOffByDefault);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
             Features.LoadSettingGroup(loadedSettings.Features, NewSettingsOffByDefault);
             Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);

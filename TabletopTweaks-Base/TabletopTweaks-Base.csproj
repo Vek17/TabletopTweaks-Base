@@ -193,6 +193,7 @@
     <Compile Include="Bugfixes\Classes\WinterWitch.cs" />
     <Compile Include="Bugfixes\Classes\Witch.cs" />
     <Compile Include="Bugfixes\Classes\Wizard.cs" />
+    <Compile Include="Bugfixes\Features\AnimalCompanions.cs" />
     <Compile Include="Bugfixes\Features\Backgrounds.cs" />
     <Compile Include="Bugfixes\Features\BaseAbilities.cs" />
     <Compile Include="Bugfixes\Features\Bloodlines.cs" />

@@ -117,6 +117,7 @@ namespace TabletopTweaks.Base {
                 SetttingUI.SettingGroup("Loremaster", TabLevel, Fixes.Loremaster);
                 SetttingUI.SettingGroup("Winter Witch", TabLevel, Fixes.WinterWitch);
                 SetttingUI.SettingGroup("Spells", TabLevel, Fixes.Spells);
+                SetttingUI.SettingGroup("Animal Companions", TabLevel, Fixes.AnimalCompanions);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, Fixes.Bloodlines);
                 SetttingUI.SettingGroup("Features", TabLevel, Fixes.Features);
                 SetttingUI.SettingGroup("Feats", TabLevel, Fixes.Feats);
