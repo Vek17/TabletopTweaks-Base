@@ -907,9 +907,9 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
 
                 private readonly UnitEntityData m_Unit;
                 private readonly EntityFact m_Fact;
-                private int m_DamageMod;
-                private bool m_Mythic;
-                private bool m_Rowdy;
+                private readonly int m_DamageMod;
+                private readonly bool m_Mythic;
+                private readonly bool m_Rowdy;
             }
         }
     }

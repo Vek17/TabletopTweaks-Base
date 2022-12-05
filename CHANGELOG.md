@@ -1,3 +1,12 @@
+## Version 2.4.5
+* Fix for 2.0.5o
+
+## Version 2.4.4
+* Fixes
+    * Spells
+        * Cone of Cold
+            * Added to the Witch spell list.
+
 ## Version 2.4.3
 * Fixes
     * Removed Overtip Fixes as they are now in vanilla.

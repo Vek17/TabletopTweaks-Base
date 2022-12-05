@@ -93,6 +93,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchChainLightning();
                 PatchCommand();
                 PatchCommandGreater();
+                PatchConeOfCold();
                 PatchCrusadersEdge();
                 PatchDeathWard();
                 PatchDispelMagicGreater();
@@ -842,7 +843,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
             static void PatchUnbreakableBond() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("UnbreakableBond")) { return; }
 
-                string path = @"C:\Users\spetrie\Documents\Exported";
                 var UnbreakableBond = BlueprintTools.GetBlueprint<BlueprintAbility>("947a929f3347d3e458a524424fbceccb");
                 var UnbreakableBondArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("9063d387e8d90a24f8bdd8c0c95f72f4");
                 var UnbreakableBondImmunityBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("e60806180806b4c488f0d45af1035917");
@@ -875,7 +875,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             c.Actions.AddAction(embedded);
                         }
                     });
-                    BlueprintTools.TryExportBlueprint(bp, path);
                 });
                 UnbreakableBondArea.TemporaryContext(bp => {
                     bp.GetComponent<AbilityAreaEffectRunAction>().TemporaryContext(c => {
@@ -887,7 +886,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             c.IfTrue.RemoveActions<ContextActionApplyBuff>(a => a.Buff == UnbreakableBondImmunityBuff);
                             c.IfFalse.RemoveActions<ContextActionApplyBuff>(a => a.Buff == UnbreakableBondImmunityBuff);
                         });
-                    BlueprintTools.TryExportBlueprint(bp, path);
                 });
                 UnbreakableBondImmunityBuff.TemporaryContext(bp => {
                     bp.AddComponent<SpellImmunityToSpellDescriptor>(c => {
@@ -901,7 +899,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         c.m_CasterIgnoreImmunityFact = new BlueprintUnitFactReference();
 
                     });
-                    BlueprintTools.TryExportBlueprint(UnbreakableBondImmunityBuff, path);
                 });
                 TTTContext.Logger.LogPatch(UnbreakableBondImmunityBuff);
             }
@@ -1248,6 +1245,13 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         descriptors.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion;
                         TTTContext.Logger.LogPatch(ability);
                     });
+            }
+            static void PatchConeOfCold() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("ConeOfCold")) { return; }
+
+                var ConeOfCold = BlueprintTools.GetBlueprint<BlueprintAbility>("e7c530f8137630f4d9d7ee1aa7b1edc0");
+                ConeOfCold.AddToSpellList(SpellTools.SpellList.WitchSpellList, 6);
+                TTTContext.Logger.LogPatch(ConeOfCold);
             }
             static void PatchCrusadersEdge() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("CrusadersEdge")) { return; }

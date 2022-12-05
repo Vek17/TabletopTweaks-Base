@@ -23,7 +23,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
 
                     TTTContext.Logger.LogHeader("Patching Feat Selections");
                     var allFeats = FeatTools.Selections.BasicFeatSelection.m_AllFeatures;
-                    foreach (var feat in allFeats) {
+                    foreach (var feat in allFeats.Where(f => f.Get() is not null)) {
                         FeatTools.Selections.FeatSelections
                             .Where(selection => feat.Get().HasGroup(selection.Group) || feat.Get().HasGroup(selection.Group2))
                             .ForEach(selection => selection.AddFeatures(feat));

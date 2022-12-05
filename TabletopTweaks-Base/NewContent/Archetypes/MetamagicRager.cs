@@ -92,7 +92,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
         private static BlueprintBuff CreateMetamagicBuff(string name, BlueprintFeature metamagicFeat, int level, Action<BlueprintBuff> init = null) {
             var result = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, name, bp => {
                 bp.m_Icon = metamagicFeat.Icon;
-                bp.AddComponent(Helpers.Create<AddAbilityUseTrigger>(c => {
+                bp.AddComponent<AddAbilityUseTrigger>(c => {
                     c.m_Spellbooks = new BlueprintSpellbookReference[] { BloodragerSpellbook.ToReference<BlueprintSpellbookReference>() };
                     c.m_Ability = new BlueprintAbilityReference();
                     c.Action = new ActionList() {
@@ -102,14 +102,14 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     };
                     c.AfterCast = true;
                     c.FromSpellbook = true;
-                }));
-                bp.AddComponent(Helpers.Create<AutoMetamagic>(c => {
+                });
+                bp.AddComponent<AutoMetamagic>(c => {
                     c.m_Spellbook = BloodragerSpellbook.ToReference<BlueprintSpellbookReference>();
                     c.Metamagic = metamagicFeat.GetComponent<AddMetamagicFeat>().Metamagic;
                     c.School = SpellSchool.None;
                     c.MaxSpellLevel = level;
                     c.CheckSpellbook = true;
-                }));
+                });
             });
             init?.Invoke(result);
             return result;
@@ -124,7 +124,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.LocalizedDuration = new LocalizedString();
                 bp.LocalizedSavingThrow = new LocalizedString();
                 bp.m_Icon = metamagicFeat.Icon;
-                bp.AddComponent(Helpers.Create<AbilityEffectRunAction>(c => {
+                bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = new ActionList() {
                         Actions = new GameAction[] {
                             Helpers.Create<ContextActionApplyBuff>(a => {
@@ -141,18 +141,18 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         }
                     };
 
-                }));
-                bp.AddComponent(Helpers.Create<AbilityResourceLogic>(c => {
+                });
+                bp.AddComponent<AbilityResourceLogic>(c => {
                     c.m_RequiredResource = BloodragerRageResource.ToReference<BlueprintAbilityResourceReference>();
                     c.m_IsSpendResource = true;
                     c.Amount = buff.GetComponent<AutoMetamagic>().MaxSpellLevel * 2 + cost;
-                }));
-                bp.AddComponent(Helpers.Create<AbilityShowIfCasterHasFact>(c => {
+                });
+                bp.AddComponent<AbilityShowIfCasterHasFact>(c => {
                     c.m_UnitFact = metamagicFeat.ToReference<BlueprintUnitFactReference>();
-                }));
-                bp.AddComponent(Helpers.Create<AbilityCasterHasNoFacts>(c => {
+                });
+                bp.AddComponent<AbilityCasterHasNoFacts>(c => {
                     c.m_Facts = blockedBuffs;
-                }));
+                });
             });
             init?.Invoke(result);
             return result;
@@ -265,7 +265,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.LocalizedDuration = new LocalizedString();
                 bp.LocalizedSavingThrow = new LocalizedString();
                 bp.m_Icon = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: $"Icon_MetaRage{level}.png");
-                bp.AddComponent(Helpers.Create<AbilityVariants>(c => {
+                bp.AddComponent<AbilityVariants>(c => {
                     c.m_Variants = new BlueprintAbilityReference[] {
                         MetaRageEmpowerAbility.ToReference<BlueprintAbilityReference>(),
                         MetaRageExtendAbility.ToReference<BlueprintAbilityReference>(),
@@ -276,11 +276,11 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         MetaRageSelectiveAbility.ToReference<BlueprintAbilityReference>(),
                         MetaRageBolsteredAbility.ToReference<BlueprintAbilityReference>()
                     };
-                }));
-                bp.AddComponent(Helpers.Create<AbilityShowIfCasterCanCastSpells>(c => {
+                });
+                bp.AddComponent<AbilityShowIfCasterCanCastSpells>(c => {
                     c.Class = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                     c.Level = level;
-                }));
+                });
             });
 
             return MetaRageBaseAbility;

@@ -346,7 +346,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             BlueprintFeature ElementalSpellFeatCold;
             BlueprintFeature ElementalSpellFeatElectricity;
             BlueprintFeature ElementalSpellFeatFire;
-            private readonly Metamagic elementalMetamagicMask = (Metamagic)(CustomMetamagic.ElementalAcid | CustomMetamagic.ElementalCold | CustomMetamagic.ElementalElectricity | CustomMetamagic.ElementalFire);
+            private static readonly Metamagic elementalMetamagicMask = (Metamagic)(CustomMetamagic.ElementalAcid | CustomMetamagic.ElementalCold | CustomMetamagic.ElementalElectricity | CustomMetamagic.ElementalFire);
 
             internal ElementalSpellMechanics(BlueprintFeature acid, BlueprintFeature cold, BlueprintFeature electricity, BlueprintFeature fire) {
                 this.ElementalSpellFeatAcid = acid;

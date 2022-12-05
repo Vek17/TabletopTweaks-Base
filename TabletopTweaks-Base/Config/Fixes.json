@@ -1141,6 +1141,11 @@
         "Homebrew": false,
         "Description": "Adds missing spell descriptors to match tabletop."
       },
+      "ConeOfCold": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds Cone of Cold to the Witch spell list."
+      },
       "CorruptMagic": {
         "Enabled": true,
         "Homebrew": false,
@@ -1363,7 +1368,7 @@
     "DisableAll": false,
     "Settings": {
       "AnimalCompanionProgression": {
-        "Enabled": true,
+        "Enabled": false,
         "Homebrew": false,
         "Description": "Updates animal companion progressions to reflect tabletop values."
       }
