@@ -426,7 +426,7 @@
       "ruRU": "Непробиваемый",
       "deDE": null,
       "frFR": null,
-      "zhCN": "坚韧",
+      "zhCN": "无懈",
       "esES": null
     },
     {
@@ -1537,7 +1537,7 @@
       "ruRU": "Губительный для рептилоидов",
       "deDE": null,
       "frFR": null,
-      "zhCN": "爬行类破敌",
+      "zhCN": "类人生物（爬虫）破敌",
       "esES": null
     },
     {
@@ -1559,7 +1559,7 @@
       "ruRU": "Губительный для оборотней",
       "deDE": null,
       "frFR": null,
-      "zhCN": "狼人破敌",
+      "zhCN": "兽化人破敌",
       "esES": null
     },
     {
@@ -1581,7 +1581,7 @@
       "ruRU": "Губительный для гуманоидных чудовищ",
       "deDE": null,
       "frFR": null,
-      "zhCN": "类人生物破敌",
+      "zhCN": "人形怪物破敌",
       "esES": null
     },
     {
@@ -1592,7 +1592,7 @@
       "ruRU": "Губительный для орков",
       "deDE": null,
       "frFR": null,
-      "zhCN": "兽人破敌",
+      "zhCN": "兽人与地精破敌",
       "esES": null
     },
     {
@@ -3506,7 +3506,7 @@
       "ruRU": "Испепеляющий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "焚化",
+      "zhCN": "焚炎",
       "esES": null
     },
     {
@@ -4067,7 +4067,7 @@
       "ruRU": "Устойчивый к холоду",
       "deDE": null,
       "frFR": null,
-      "zhCN": "寒冷抗力",
+      "zhCN": "寒冷抗性",
       "esES": null
     },
     {
@@ -4133,7 +4133,7 @@
       "ruRU": "Кислотный",
       "deDE": null,
       "frFR": null,
-      "zhCN": "酸蚀",
+      "zhCN": "烈酸",
       "esES": null
     },
     {
@@ -4144,7 +4144,7 @@
       "ruRU": "Разйедающий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等酸蚀",
+      "zhCN": "侵蚀",
       "esES": null
     },
     {
@@ -4155,7 +4155,7 @@
       "ruRU": "Кислотного взрыва",
       "deDE": null,
       "frFR": null,
-      "zhCN": "酸爆",
+      "zhCN": "爆发",
       "esES": null
     },
     {
@@ -4397,7 +4397,7 @@
       "ruRU": "Разрушающий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等活物破敌",
+      "zhCN": "衰亡",
       "esES": null
     },
     {
@@ -5046,18 +5046,18 @@
       "ruRU": "Великий испепеляющий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "古焚化",
+      "zhCN": "古焚炎",
       "esES": null
     },
     {
       "Key": "843210f1c3d54f7a88e8fadb2bcbfb89",
       "SimpleName": "ElderCorrosive.Prefix",
       "ProcessTemplates": false,
-      "enGB": "Elder Greater Corrosive",
-      "ruRU": "Великий усиленный кислотный",
+      "enGB": "Elder Corrosive",
+      "ruRU": "Великий кислотный",
       "deDE": null,
       "frFR": null,
-      "zhCN": "古高等烈酸",
+      "zhCN": "古烈酸",
       "esES": null
     },
     {
@@ -5068,7 +5068,7 @@
       "ruRU": "Великий разъедающий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "古烈酸",
+      "zhCN": "古侵蚀",
       "esES": null
     },
     {
@@ -5090,7 +5090,7 @@
       "ruRU": "Великий замораживающий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "古冰寒",
+      "zhCN": "古冻寒",
       "esES": null
     },
     {
@@ -5101,7 +5101,7 @@
       "ruRU": "Великий грозовой",
       "deDE": null,
       "frFR": null,
-      "zhCN": "古雷鸣",
+      "zhCN": "古震电",
       "esES": null
     },
     {
@@ -5112,7 +5112,7 @@
       "ruRU": "Великий усиленный грозовой",
       "deDE": null,
       "frFR": null,
-      "zhCN": "古高等雷鸣",
+      "zhCN": "古高等震电",
       "esES": null
     },
     {
@@ -5130,11 +5130,11 @@
       "Key": "e8f4c27bc18d48e298392713f5dac3db",
       "SimpleName": "ElectricityResistance10Enchant.Prefix",
       "ProcessTemplates": false,
-      "enGB": "Shock Resistant",
+      "enGB": "Electricity Resistant",
       "ruRU": "Устойчивый к молниям",
       "deDE": null,
       "frFR": null,
-      "zhCN": "电击抗力",
+      "zhCN": "电击抗性",
       "esES": null
     },
     {
@@ -5574,7 +5574,7 @@
       "ruRU": "Устойчивый к энергии",
       "deDE": null,
       "frFR": null,
-      "zhCN": "能量抗力",
+      "zhCN": "能量抗性",
       "esES": null
     },
     {
@@ -6135,7 +6135,7 @@
       "ruRU": "Устойчивый к огню",
       "deDE": null,
       "frFR": null,
-      "zhCN": "火焰抗力",
+      "zhCN": "火焰抗性",
       "esES": null
     },
     {
@@ -6190,7 +6190,7 @@
       "ruRU": "Сосредоточение на оружии",
       "deDE": null,
       "frFR": null,
-      "zhCN": "专注武器",
+      "zhCN": "专攻武器",
       "esES": null
     },
     {
@@ -6201,7 +6201,7 @@
       "ruRU": "Легко укреплённый",
       "deDE": null,
       "frFR": null,
-      "zhCN": "轻型护命",
+      "zhCN": "轻度护命",
       "esES": null
     },
     {
@@ -6212,7 +6212,7 @@
       "ruRU": "Укреплённый",
       "deDE": null,
       "frFR": null,
-      "zhCN": "护命",
+      "zhCN": "中度护命",
       "esES": null
     },
     {
@@ -6223,7 +6223,7 @@
       "ruRU": "Хорошо укреплённый",
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等护命",
+      "zhCN": "重度护命",
       "esES": null
     },
     {
@@ -6256,7 +6256,7 @@
       "ruRU": "Яростный",
       "deDE": null,
       "frFR": null,
-      "zhCN": "狂怒",
+      "zhCN": "暴怒",
       "esES": null
     },
     {
@@ -6267,7 +6267,7 @@
       "ruRU": "Ненавидящий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "狂怒",
+      "zhCN": "渐狂",
       "esES": null
     },
     {
@@ -6784,7 +6784,7 @@
       "ruRU": "Замораживающий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等寒霜",
+      "zhCN": "冻寒",
       "esES": null
     },
     {
@@ -9699,7 +9699,7 @@
       "ruRU": "Некротический",
       "deDE": null,
       "frFR": null,
-      "zhCN": "负能",
+      "zhCN": "死灵",
       "esES": null
     },
     {
@@ -9721,7 +9721,7 @@
       "ruRU": "Устойчивый к негативной энергии",
       "deDE": null,
       "frFR": null,
-      "zhCN": "负向能量抗力",
+      "zhCN": "负向能量抗性",
       "esES": null
     },
     {
@@ -9743,7 +9743,7 @@
       "ruRU": "Антимагический",
       "deDE": null,
       "frFR": null,
-      "zhCN": "无效化",
+      "zhCN": "抵消",
       "esES": null
     },
     {
@@ -10282,7 +10282,7 @@
       "ruRU": "Устойчивый к позитивной энергии",
       "deDE": null,
       "frFR": null,
-      "zhCN": "正向能量抗力",
+      "zhCN": "正向能量抗性",
       "esES": null
     },
     {
@@ -10678,7 +10678,7 @@
       "ruRU": "Лучащийся",
       "deDE": null,
       "frFR": null,
-      "zhCN": "光亮",
+      "zhCN": "辐光",
       "esES": null
     },
     {
@@ -10755,7 +10755,7 @@
       "ruRU": "Жертвенный",
       "deDE": null,
       "frFR": null,
-      "zhCN": "残忍",
+      "zhCN": "献祭",
       "esES": null
     },
     {
@@ -11129,7 +11129,7 @@
       "ruRU": "Устойчивый к звуку",
       "deDE": null,
       "frFR": null,
-      "zhCN": "音波抗力",
+      "zhCN": "音波抗性",
       "esES": null
     },
     {
@@ -12834,7 +12834,7 @@
       "ruRU": "Ультразвуковой",
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等雷鸣",
+      "zhCN": "超音",
       "esES": null
     },
     {
@@ -13131,7 +13131,7 @@
       "ruRU": "Когда вы творите заклинание, присутствующее одновременно в списках заклинаний Мага и Друида, ваш Уровень заклинателя расчитывается как если бы он был выше на 1, а сложность спасбросков против таких заклинаний повышается на 1.",
       "deDE": null,
       "frFR": null,
-      "zhCN": "当你施放的法术同时出现在法师和德鲁伊的法术列表上时，你会将你的施法者等级视为比普通等级高1，并且这种法术的豁免DC增加1。",
+      "zhCN": "当你施放的法术同时出现在法师和德鲁伊的法术列表上时，你会将你的施法者等级视为比通常高1，并且这种法术的豁免DC增加1。",
       "esES": null
     },
     {
