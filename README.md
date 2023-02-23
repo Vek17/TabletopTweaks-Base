@@ -147,8 +147,6 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Remove Sickness no longer grants immunity to sickness and nausea.
     * Repulsive Nature
         * Now uses the correct spell DC and actually applies its debuffs on fail.
-    * Shadow Conjuration
-        * Shadow Conjuration has been added to the Wizard spell list.
     * Shadow Conjuration Greater 
         * Now has the correct shadow factor of 60 instead of 40.
     * Shadow Evocation
@@ -232,8 +230,6 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Enables spell specialization selection on all levelups.
     * Spirited Charge
         * Bonus damage no longer can crit.
-    * Vital Strike
-        * Bonus damage no longer can crit.
     * Weapon Finesse
         * No longer treats any weapon with Fencing/Slashing grace into a finesse weapon.
 
@@ -252,8 +248,6 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Fixes the magic gore's damage multiplier to be 1.5 instead of 0.5
     * Enduring Spells
         * Now works on equipment enhancing effects like crusader's edge.
-    * Mythic Charge
-        * Prevents Mythic charge from triggering multiple fake attacks and procing weapon effects more often than it should.
     * Second Bloodline
         * All bloodlines now qualify for second bloodline including mutated ones.
     * Second Bloodrager Bloodline
@@ -322,6 +316,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 * Cavalier
     * Cavalier Mobility
         * Allows Cavalier to ignore their armor check penalty while mounted for mobility skill checks.
+    * Mighty Charge
+        Allows Cavalier to activate both bull rush and trip at the same time.
     * Mount Selection
         * Allows the Cavalier to select a wolf for a mount if they are of small size.
     * Order of the Star
@@ -396,8 +392,6 @@ All changes are configurable and can be disabled via the unity mod manager menu.
         * Dispelling Attack now uses the correct CL and no longer removes debuffs.
     * Rogue Talents
         * Prevents you from selecting the same talent more than once.
-    * Slippery Mind
-        * Slippery mind is now an advanced talent and correctly updates its save bonuses when your dexterity changes.
     * Trapfinding
         * Trapfinding now grants bonuses to perception and trickery.
     * Eldritch Scoundrel
