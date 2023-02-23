@@ -86,7 +86,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 if (TTTContext.Fixes.Arcanist.Base.IsDisabled("PreparedSpellUI")) { return instructions; }
                 var codes = new List<CodeInstruction>(instructions);
                 int target = FindInsertionTarget(codes);
-                //Utilities.ILUtils.LogIL(codes);
+                //ILUtils.LogIL(TTTContext, codes);
                 codes.InsertRange(target, new CodeInstruction[] {
                     new CodeInstruction(OpCodes.Ldloc_S, 2),
                     new CodeInstruction(OpCodes.Ldfld, Spellbook_BlueprintSpellbook),
@@ -94,7 +94,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     new CodeInstruction(OpCodes.Not),
                     new CodeInstruction(OpCodes.And),
                 });
-                //Utilities.ILUtils.LogIL(codes);
+                //ILUtils.LogIL(TTTContext, codes);
                 return codes.AsEnumerable();
             }
             private static int FindInsertionTarget(List<CodeInstruction> codes) {

@@ -79,7 +79,7 @@ namespace TabletopTweaks.Base.NewContent {
                 WizardArcaneDiscoveries.YuelralsBlessing.AddYuelralsBlessing();
 
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
-                Features.LongspearChargeBuff.AddLongspearChargeBuff();
+                Features.SpearChargeBuff.AddSpearChargeBuff();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
                 Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
                 Features.FighterTrainingFakeLevel.AddFighterTrainingFakeLevel();

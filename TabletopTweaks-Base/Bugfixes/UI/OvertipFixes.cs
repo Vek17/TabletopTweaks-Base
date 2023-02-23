@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Kingmaker.RuleSystem.Rules;
-using Kingmaker.UI._ConsoleUI.Overtips;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;

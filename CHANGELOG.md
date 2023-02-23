@@ -1,3 +1,19 @@
+## Version 2.5.0
+* Fix for 2.1.0j
+* Removed unneeded Vital Strike patch.
+* Removed unneeded Mythic Charge patch.
+* Removed unneeded Slippery Mind patch.
+* Removed uneeded Cone of Cold patch.
+* Removed uneeded Shadow Conjuration patch.
+* Fixes
+    * Updated charge bonus damage to use the new post crit damage system for better damage breakdowns.
+    * Cavalier
+        * Mighty Charge
+            * Can now activate both Bull Rush and Trip at the same time.
+    * Spells
+        * Freedom of Movement
+            * No longer grants immunity to stagger.
+
 ## Version 2.4.5
 * Fix for 2.0.5o
 

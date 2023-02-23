@@ -4,10 +4,10 @@ using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.Features {
-    class LongspearChargeBuff {
-        public static void AddLongspearChargeBuff() {
-            var LongspearChargeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "LongspearChargeBuff", bp => {
-                bp.SetName(TTTContext, "Longspear Charge");
+    class SpearChargeBuff {
+        public static void AddSpearChargeBuff() {
+            var LongspearChargeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SpearChargeBuff", bp => {
+                bp.SetName(TTTContext, "Spear Charge");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<AddOutgoingWeaponDamageBonus>(c => {

@@ -93,12 +93,12 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchChainLightning();
                 PatchCommand();
                 PatchCommandGreater();
-                PatchConeOfCold();
                 PatchCrusadersEdge();
                 PatchDeathWard();
                 PatchDispelMagicGreater();
                 PatchFirebrand();
                 PatchFlamestrike();
+                PatchFreedomOfMovement();
                 PatchFrightfulAspect();
                 PatchGeniekind();
                 PatchHellfireRay();
@@ -107,7 +107,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchMagicWeaponGreater();
                 PatchRemoveFear();
                 PatchRemoveSickness();
-                PatchShadowConjuration();
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
                 PatchUnbreakableHeart();
@@ -1041,40 +1040,56 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
             }
             static void PatchVampiricBlade() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("VampiricBlade")) { return; }
-
                 var VampiricBladeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f6007b38909c3b248a8a77b316f5bc2d");
 
-                VampiricBladeBuff.GetComponents<AddInitiatorAttackWithWeaponTrigger>()
-                    .Where(c => c.ActionsOnInitiator == false)
-                    .FirstOrDefault()
-                    .TemporaryContext(c => {
-                        c.Action = Helpers.CreateActionList(
-                            Helpers.Create<ContextActionDealDamageTTT>(a => {
-                                a.DamageType = new DamageTypeDescription() {
-                                    Type = DamageType.Energy,
-                                    Energy = DamageEnergyType.Unholy,
-                                    Common = new DamageTypeDescription.CommomData(),
-                                    Physical = new DamageTypeDescription.PhysicalData()
-                                };
-                                a.Duration = new ContextDurationValue() {
-                                    m_IsExtendable = true,
-                                    DiceCountValue = 0,
-                                    BonusValue = 0
-                                };
-                                a.Value = new ContextDiceValue() {
-                                    DiceType = DiceType.D6,
-                                    DiceCountValue = 1,
-                                    BonusValue = new ContextValue() {
-                                        ValueType = ContextValueType.Rank
-                                    }
-                                };
-                                a.WriteResultToSharedValue = true;
-                                a.ResultSharedValue = AbilitySharedValue.Heal;
-                                a.IgnoreWeapon = true;
-                                a.IgnoreCritical = true;
-                            })
-                        );
-                    });
+                VampiricBladeBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                VampiricBladeBuff.RemoveComponents<ContextCalculateSharedValue>();
+                VampiricBladeBuff.RemoveComponents<RecalculateOnFactsChange>();
+                VampiricBladeBuff.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
+                    c.OnlyHit = true;
+                    c.ActionsOnInitiator = false;
+                    c.Action = Helpers.CreateActionList(
+                        Helpers.Create<ContextActionDealDamageTTT>(a => {
+                            a.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Unholy,
+                                Common = new DamageTypeDescription.CommomData(),
+                                Physical = new DamageTypeDescription.PhysicalData()
+                            };
+                            a.Duration = new ContextDurationValue() {
+                                m_IsExtendable = true,
+                                DiceCountValue = 0,
+                                BonusValue = 0
+                            };
+                            a.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = new ContextValue() {
+                                    ValueType = ContextValueType.Rank
+                                }
+                            };
+                            a.WriteResultToSharedValue = true;
+                            a.ResultSharedValue = AbilitySharedValue.Heal;
+                            a.IgnoreWeapon = true;
+                            a.IgnoreCritical = true;
+                        })
+                    );
+                });
+                VampiricBladeBuff.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
+                    c.OnlyHit = true;
+                    c.ActionsOnInitiator = true;
+                    c.Action = Helpers.CreateActionList(
+                        Helpers.Create<ContextActionHealTarget>(a => {
+                            a.Value = new ContextDiceValue() {
+                                DiceCountValue = new ContextValue(),
+                                BonusValue = new ContextValue() {
+                                    ValueType = ContextValueType.Shared,
+                                    ValueShared = AbilitySharedValue.Heal
+                                }
+                            };
+                        })
+                    );
+                });
                 TTTContext.Logger.LogPatch("Patched", VampiricBladeBuff);
             }
             //Trickster Spells
@@ -1094,9 +1109,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 var AcidMawBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f1a6799b05a40144d9acdbdca1d7c228");
 
-                var EnergyType = AcidMawBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
-                var AttackWithWeaponTrigger = AcidMawBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
-                AttackWithWeaponTrigger.Action.Actions = AttackWithWeaponTrigger.Action.Actions.OfType<ContextActionApplyBuff>().ToArray();
+                var AdditionalDiceOnAttack = AcidMawBuff.GetComponent<AdditionalDiceOnAttack>();
+                var EnergyType = AdditionalDiceOnAttack.DamageType.Energy;
                 AcidMawBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
                     c.Value = new ContextDiceValue() {
                         DiceType = DiceType.D4,
@@ -1110,6 +1124,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     c.CheckWeaponCatergoy = true;
                     c.Category = WeaponCategory.Bite;
                 });
+                AcidMawBuff.RemoveComponent(AdditionalDiceOnAttack);
                 TTTContext.Logger.LogPatch("Patched", AcidMawBuff);
             }
             static void PatchAnimalGrowth() {
@@ -1246,13 +1261,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         TTTContext.Logger.LogPatch(ability);
                     });
             }
-            static void PatchConeOfCold() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("ConeOfCold")) { return; }
-
-                var ConeOfCold = BlueprintTools.GetBlueprint<BlueprintAbility>("e7c530f8137630f4d9d7ee1aa7b1edc0");
-                ConeOfCold.AddToSpellList(SpellTools.SpellList.WitchSpellList, 6);
-                TTTContext.Logger.LogPatch(ConeOfCold);
-            }
             static void PatchCrusadersEdge() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("CrusadersEdge")) { return; }
 
@@ -1311,7 +1319,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 var FirebrandBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("c6cc1c5356db4674dbd2be20ea205c86");
 
-                FirebrandBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                FirebrandBuff.RemoveComponents<AdditionalDiceOnAttack>();
                 FirebrandBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
                     c.Value = new ContextDiceValue() {
                         DiceType = DiceType.D6,
@@ -1335,6 +1343,29 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", FlameStrike);
             }
+            static void PatchFreedomOfMovement() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("FreedomOfMovement")) { return; }
+
+                var FreedomOfMovementBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("1533e782fca42b84ea370fc1dcbf4fc1");
+                var FreedomOfMovementBuffPermanent = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("235533b62159790499ced35860636bb2");
+                var FreedomOfMovementBuff_FD = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("60906dd9e4ddec14c8ac9a0f4e47f54c");
+                var DLC3_FreedomOfMovementBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("d6fb42ec153f4d699e57891522d7f4c9");
+                var FreedomOfMovementLinnorm = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("67519ff6ba615c045afca2347608bfe3");
+
+                RemoveStaggerImmunity(FreedomOfMovementBuff);
+                RemoveStaggerImmunity(FreedomOfMovementBuffPermanent);
+                RemoveStaggerImmunity(FreedomOfMovementBuff_FD);
+                RemoveStaggerImmunity(DLC3_FreedomOfMovementBuff);
+                RemoveStaggerImmunity(FreedomOfMovementLinnorm);
+
+                static void RemoveStaggerImmunity(BlueprintBuff buff) {
+                    buff.RemoveComponents<AddConditionImmunity>(p => p.Condition == UnitCondition.Staggered);
+                    buff.GetComponents<BuffDescriptorImmunity>().ForEach(c => {
+                        c.Descriptor &= ~SpellDescriptor.Staggered;
+                    });
+                    TTTContext.Logger.LogPatch(buff);
+                }
+            }
             static void PatchFrightfulAspect() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FrightfulAspect")) { return; }
 
@@ -1357,8 +1388,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 ReplaceComponents(GeniekindShaitanBuff);
 
                 void ReplaceComponents(BlueprintBuff GeniekindBuff) {
-                    var EnergyType = GeniekindBuff.FlattenAllActions().OfType<ContextActionDealDamage>().First().DamageType.Energy;
-                    GeniekindBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    var EnergyType = GeniekindBuff.GetComponent<AdditionalDiceOnAttack>().DamageType.Energy;
+                    GeniekindBuff.RemoveComponents<AdditionalDiceOnAttack>();
                     GeniekindBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
                         c.CheckWeaponRangeType = true;
                         c.RangeType = WeaponRangeType.Melee;
@@ -1508,13 +1539,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     c.Descriptor = SpellDescriptor.Sickened | SpellDescriptor.Nauseated;
                 });
                 TTTContext.Logger.LogPatch("Patched", RemoveSicknessBuff);
-            }
-            static void PatchShadowConjuration() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("ShadowConjuration")) { return; }
-
-                var ShadowConjuration = BlueprintTools.GetBlueprint<BlueprintAbility>("caac251ca7601324bbe000372a0a1005");
-                ShadowConjuration.AddToSpellList(SpellTools.SpellList.WizardSpellList, 4);
-                TTTContext.Logger.LogPatch("Patched", ShadowConjuration);
             }
             static void PatchShadowEvocation() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ShadowEvocation")) { return; }

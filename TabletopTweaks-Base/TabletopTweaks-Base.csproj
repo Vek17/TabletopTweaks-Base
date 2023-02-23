@@ -359,7 +359,7 @@
     <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
     <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
-    <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
+    <Compile Include="NewContent\Features\SpearChargeBuff.cs" />
     <Compile Include="NewContent\Features\MartialWeaponProficencySelection.cs" />
     <Compile Include="NewContent\Features\NauseatedPoision.cs" />
     <Compile Include="NewContent\Features\PerfectStrikeZenArcherBuff.cs" />

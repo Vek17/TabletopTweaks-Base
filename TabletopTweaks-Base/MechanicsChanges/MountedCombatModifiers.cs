@@ -25,12 +25,24 @@ namespace TabletopTweaks.Base.MechanicsChanges {
             static void FixModifers() {
                 var ChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f36da144a379d534cad8e21667079066");
                 var MountedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
-                var LongspearChargeBuff = BlueprintTools.GetModBlueprint<BlueprintBuff>(TTTContext, "LongspearChargeBuff");
+                var LongspearChargeBuff = BlueprintTools.GetModBlueprint<BlueprintBuff>(TTTContext, "SpearChargeBuff");
 
                 MountedBuff.AddComponent<BuffExtraEffectsRequirements>(c => {
                     c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
                     c.CheckWeaponCategory = true;
                     c.WeaponCategory = WeaponCategory.Longspear;
+                    c.ExtraEffectBuff = LongspearChargeBuff.ToReference<BlueprintBuffReference>();
+                });
+                MountedBuff.AddComponent<BuffExtraEffectsRequirements>(c => {
+                    c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
+                    c.CheckWeaponCategory = true;
+                    c.WeaponCategory = WeaponCategory.Spear;
+                    c.ExtraEffectBuff = LongspearChargeBuff.ToReference<BlueprintBuffReference>();
+                });
+                MountedBuff.AddComponent<BuffExtraEffectsRequirements>(c => {
+                    c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();
+                    c.CheckWeaponCategory = true;
+                    c.WeaponCategory = WeaponCategory.Shortspear;
                     c.ExtraEffectBuff = LongspearChargeBuff.ToReference<BlueprintBuffReference>();
                 });
                 TTTContext.Logger.LogPatch("Patched", MountedBuff);

@@ -552,6 +552,11 @@
           "Homebrew": false,
           "Description": "Allows the Cavalier to select a wolf for a mount if they are of small size."
         },
+        "MightyCharge": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Can now select both trip and bull rush at the same time."
+        },
         "OrderOfTheStarCalling": {
           "Enabled": true,
           "Homebrew": false,
@@ -842,11 +847,6 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Prevents you from selecting the same talent more than once."
-        },
-        "SlipperyMind": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Sets Slippery Mind to correctly be an advanced talent.."
         },
         "Trapfinding": {
           "Enabled": true,
@@ -1141,11 +1141,6 @@
         "Homebrew": false,
         "Description": "Adds missing spell descriptors to match tabletop."
       },
-      "ConeOfCold": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Adds Cone of Cold to the Witch spell list."
-      },
       "CorruptMagic": {
         "Enabled": true,
         "Homebrew": false,
@@ -1195,6 +1190,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now correctly halves divine damage on saving throw."
+      },
+      "FreedomOfMovement": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Freedom of Movement no longer grants immunity to stagger."
       },
       "FriendlyHug": {
         "Enabled": true,
@@ -1280,11 +1280,6 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "RepulsiveNature now uses the correct spell DC and actually applies its debuffs on fail."
-      },
-      "ShadowConjuration": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Shadow Conjuration has been added to the Wizard spell list."
       },
       "ShadowEvocation": {
         "Enabled": true,
@@ -1535,11 +1530,6 @@
         "Homebrew": false,
         "Description": "Bonus damage no longer can crit."
       },
-      "VitalStrike": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Bonus damage no longer can crit."
-      },
       "WeaponFinesse": {
         "Enabled": true,
         "Homebrew": false,
@@ -1575,11 +1565,6 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now no longer critically hits and procs additional weapons effects."
-      },
-      "MythicCharge": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Prevents Mythic charge from triggering multiple fake attacks and procing weapon effects more often than it should."
       },
       "SecondBloodline": {
         "Enabled": true,
