@@ -50,6 +50,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Templates.AlignmentTemplates.AddResoluteTemplate();
 
                 WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
+                WeaponEnchantments.NonStackingTempEnchantments.AddArmorEnhancements();
                 WeaponEnchantments.TwoHandedDamageMultiplier.AddTwoHandedDamageMultiplierEnchantment();
                 WeaponEnchantments.TerrifyingTremble.AddTerrifyingTrembleEnchant();
 

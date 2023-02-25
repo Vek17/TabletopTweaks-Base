@@ -299,6 +299,7 @@
     <Compile Include="NewContent\Classes\Oracle.cs" />
     <Compile Include="NewContent\Classes\Skald.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
+    <Compile Include="NewContent\FavoredClassBonuses\Generic.cs" />
     <Compile Include="NewContent\Feats\AbilityFocusStunningFist.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\ArmorMastery.cs" />

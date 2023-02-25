@@ -1459,11 +1459,11 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             ValueType = ContextValueType.Rank
                         };
                         c.m_EnchantmentBlueprints = new BlueprintItemEnchantmentReference[] {
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("1d9b60d57afb45c4f9bb0a3c21bb3b98"), // TemporaryArmorEnhancementBonus1
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("d45bfd838c541bb40bde7b0bf0e1b684"), // TemporaryArmorEnhancementBonus2
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("51c51d841e9f16046a169729c13c4d4f"), // TemporaryArmorEnhancementBonus3
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("a23bcee56c9fcf64d863dafedb369387"), // TemporaryArmorEnhancementBonus4
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("15d7d6cbbf56bd744b37bbf9225ea83b")  // TemporaryArmorEnhancementBonus5
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor1TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor2TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor3TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor4TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor5TTT")
                         };
                     });
                     MagicalVestmentShieldBuff.AddContextRankConfig(c => {
@@ -1486,11 +1486,11 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             ValueType = ContextValueType.Rank
                         };
                         c.m_EnchantmentBlueprints = new BlueprintItemEnchantmentReference[] {
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("1d9b60d57afb45c4f9bb0a3c21bb3b98"), // TemporaryArmorEnhancementBonus1
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("d45bfd838c541bb40bde7b0bf0e1b684"), // TemporaryArmorEnhancementBonus2
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("51c51d841e9f16046a169729c13c4d4f"), // TemporaryArmorEnhancementBonus3
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("a23bcee56c9fcf64d863dafedb369387"), // TemporaryArmorEnhancementBonus4
-                            BlueprintTools.GetBlueprintReference<BlueprintItemEnchantmentReference>("15d7d6cbbf56bd744b37bbf9225ea83b")  // TemporaryArmorEnhancementBonus5
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor1TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor2TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor3TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor4TTT"),
+                            BlueprintTools.GetModBlueprintReference<BlueprintItemEnchantmentReference>(TTTContext, "TemporaryEnhancementArmor5TTT")
                         };
                     });
                     MagicalVestmentArmorBuff.AddContextRankConfig(c => {

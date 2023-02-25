@@ -1,3 +1,9 @@
+## Version 2.5.1
+* Fixes
+    * Spells
+        * Magical Vestment
+            * Fixed incorrect stacking with armor bonuses.
+
 ## Version 2.5.0
 * Fix for 2.1.0j
 * Removed unneeded Vital Strike patch.
