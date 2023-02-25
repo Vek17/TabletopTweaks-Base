@@ -7,6 +7,17 @@
     * Weapons
         * Devastating Blow From Above
             * Fixed incorrect triggering of fake attacks.
+* Added Content
+    * Feats
+        * Chain Challenge
+            * When the target of your challenge ability is killed or knocked unconscious, you can declare a new challenge on the nearest target within 30 feet as a free action. If you declare a new challenge using this feat, it doesn’t count against your total daily uses of challenge.
+    * Mythic Abilities
+        * Abundant Challenge
+            * You can use Challenge a number of additional times per day equal to half your mythic rank.
+        * Mythic Banner
+            * All allies within 60 feet gain a +2 morale bonus to AC. They gain an additional bonus to AC against attack rolls made to confirm a critical hit equal to half your mythic rank.
+        * Second Order
+            * You select a second order, gaining all its benifits.
 
 ## Version 2.5.0
 * Fix for 2.1.0j

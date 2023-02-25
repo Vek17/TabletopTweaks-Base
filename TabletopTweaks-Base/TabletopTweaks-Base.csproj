@@ -396,8 +396,10 @@
     <Compile Include="NewContent\MythicAbilities\ImpossibleBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
+    <Compile Include="NewContent\MythicAbilities\MythicBanner.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
     <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
+    <Compile Include="NewContent\MythicAbilities\SecondOrder.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCleave.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatExpertise.cs" />

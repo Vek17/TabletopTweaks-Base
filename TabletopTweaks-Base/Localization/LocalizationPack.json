@@ -89,6 +89,28 @@
       "esES": null
     },
     {
+      "Key": "8eefbe98555b4897b4c1435464bd4beb",
+      "SimpleName": "AbundantChallengeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You've learned a way to increase the number of uses of your Challenge ability.\nBenefit: You can use Challenge a number of additional times per day equal to half your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "655d0ee9c73d499bac08caf2e40b401d",
+      "SimpleName": "AbundantChallengeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Abundant Challenge",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "b3cfc7ddaeb240b98eccff42bece2a25",
       "SimpleName": "AbundantFervorFeature.Description",
       "ProcessTemplates": true,
@@ -1123,14 +1145,14 @@
       "esES": null
     },
     {
-      "Key": "256bf124be339e7439a1cc653f374475",
+      "Key": "0862b421fec24c03afb457032288286c",
       "SimpleName": "BackgroundGebianNecromancer.Description",
       "ProcessTemplates": true,
-      "enGB": "Gebbite Necromancer adds Lore (religion) to the list of her class skills. Gebbite Necromancer's summoned undead creatures and companions get a +3 bonus to maximum Hit Points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Гебский некромант добавляет к своему списку классовых навыков Знание (религия). Призванная Гебским некромантом нежить также получает бонус +3 к максимальному здоровью. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Gebbite Necromancer adds Lore (religion) to the list of her class skills. Gebbite Necromancer's summoned undead creatures and companions get a +3 bonus to maximum hit points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "盖布死灵师将{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她召唤的不死生物和伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1288,14 +1310,14 @@
       "esES": null
     },
     {
-      "Key": "33eac3316294af643811822209c5da87",
+      "Key": "ffda5ceaaf564d9bb5c72b3cef3d802b",
       "SimpleName": "BackgroundNomad.Description",
       "ProcessTemplates": true,
-      "enGB": "Nomad adds Lore (nature) to the list of her class skills. She also becomes proficient with scimitars. Nomad's animal companion gets a +3 bonus to maximum Hit Points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Кочевник добавляет к своему списку классовых навыков Знание (природа). Она также учится обращаться со скимитарами. Верный зверь кочевника получает бонус +3 к максимальному здоровью \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Nomad adds Lore (nature) to the list of her class skills. She also becomes proficient with scimitars. Nomad's animal companion gets a +3 bonus to maximum hit points.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "游民将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会擅长弯刀。游民的动物伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1310,14 +1332,14 @@
       "esES": null
     },
     {
-      "Key": "9d76fc2ec9ff01947a125802fdb75224",
+      "Key": "86bfb501246f40f3aedff59b7c5ca983",
       "SimpleName": "BackgroundPickpocket.Description",
       "ProcessTemplates": true,
-      "enGB": "Pickpocket adds Trickery and Stealth to the list of her class skills. She also gains a +2 bonus on Initiative rolls.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Карманник добавляет к своему списку классовых навыков Плутовство и Скрытность. Она также получает бонус +2 к броскам на инициативу. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Pickpocket adds Trickery and Stealth to the list of her class skills. She also gains a +2 bonus on initiative rolls.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "扒手将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。她还会在{g|Encyclopedia:Initiative}先攻检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1365,22 +1387,22 @@
       "esES": null
     },
     {
-      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
+      "Key": "ffefe480122242e1b53c6ac2e9836219",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
-      "Key": "ffefe480122242e1b53c6ac2e9836219",
+      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
@@ -1395,6 +1417,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师",
+      "esES": null
+    },
+    {
+      "Key": "6b2fe73219424932acc6d94a96252218",
+      "SimpleName": "BackgroundsDruidSpellLikeSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "Nature Scholar adds Use Magic Device and Lore (nature) to the list of her class skills. She also selects one orison from the druid spell list and gets it as a spell-like ability which she can use at will.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -3862,6 +3895,28 @@
       "esES": null
     },
     {
+      "Key": "751981d319ea443fa5898377f246fae5",
+      "SimpleName": "ChainChallengeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "You feed off the rush of victory over your enemies, and channel that fervor into battle.\nBenefit(s): When the target of your challenge ability is killed or knocked unconscious, you can declare a new challenge on the nearest target within 30 feet as a free action.\nIf you declare a new challenge using this feat, it doesn’t count against your total daily uses of challenge. You can chain together a number of challenges beyond the first equal to your Charisma bonus (minimum 1).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7251eac7c87141529f7d6b0dc21e1a2e",
+      "SimpleName": "ChainChallengeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Chain Challenge",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "3ad960155d244fa984e38fe7ce06c62c",
       "SimpleName": "ChannelerOfTheUnknownArchetype.Description",
       "ProcessTemplates": true,
@@ -4024,17 +4079,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "顺势斩（神话）",
-      "esES": null
-    },
-    {
-      "Key": "a78bf95d5a1b4276b89bab04235408d5",
-      "SimpleName": "CloakOfWindsAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8042,28 +8086,6 @@
       "esES": null
     },
     {
-      "Key": "b41c3f5b463e40c4963f2c89099e18c8",
-      "SimpleName": "MetamagicRodGreaterElementalAcid.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "57386ef4a5f6426186f7a6c73243f869",
-      "SimpleName": "MetamagicRodGreaterElementalAcidBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "03b4f3f7748045c7af22aa58807c8811",
       "SimpleName": "MetamagicRodGreaterElementalAcidBuff.Name",
       "ProcessTemplates": false,
@@ -8079,28 +8101,6 @@
       "SimpleName": "MetamagicRodGreaterElementalAcidToggleAbility.Description",
       "ProcessTemplates": true,
       "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "0b48788878d44ceeb5de3e6f468e61cf",
-      "SimpleName": "MetamagicRodGreaterElementalCold.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "c7ec571e2ac148a697aa1a9dcacf4cb8",
-      "SimpleName": "MetamagicRodGreaterElementalColdBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -8130,28 +8130,6 @@
       "esES": null
     },
     {
-      "Key": "6b309d90002f41c79395d6b5870cb801",
-      "SimpleName": "MetamagicRodGreaterElementalElectricity.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "77aa9c575b984eadaf421929ce7bf592",
-      "SimpleName": "MetamagicRodGreaterElementalElectricityBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "36a523fd22b241a18791f636a2b0b89a",
       "SimpleName": "MetamagicRodGreaterElementalElectricityBuff.Name",
       "ProcessTemplates": false,
@@ -8167,28 +8145,6 @@
       "SimpleName": "MetamagicRodGreaterElementalElectricityToggleAbility.Description",
       "ProcessTemplates": true,
       "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "cf4d6117dd44487eaa8d08a54b32a203",
-      "SimpleName": "MetamagicRodGreaterElementalFire.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "77f4f8fb9cb24b768c132cfc62727a59",
-      "SimpleName": "MetamagicRodGreaterElementalFireBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -8350,28 +8306,6 @@
       "esES": null
     },
     {
-      "Key": "74b2f2b508834ebfa8883379fcb1ffe9",
-      "SimpleName": "MetamagicRodLesserElementalAcid.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "c9d8523188f94970a261e80358092ce4",
-      "SimpleName": "MetamagicRodLesserElementalAcidBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "399c6c7b14a54870911dbaf78b8a824e",
       "SimpleName": "MetamagicRodLesserElementalAcidBuff.Name",
       "ProcessTemplates": false,
@@ -8387,28 +8321,6 @@
       "SimpleName": "MetamagicRodLesserElementalAcidToggleAbility.Description",
       "ProcessTemplates": true,
       "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "e3322722f529407fa35ce235610c3eb6",
-      "SimpleName": "MetamagicRodLesserElementalCold.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "06ade03c6f914fbf815934482a8a6fcd",
-      "SimpleName": "MetamagicRodLesserElementalColdBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -8438,28 +8350,6 @@
       "esES": null
     },
     {
-      "Key": "00979c18d9a64b7ebbb465c86de418ea",
-      "SimpleName": "MetamagicRodLesserElementalElectricity.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "34d66d7777ef49b78de0567b219a8ba6",
-      "SimpleName": "MetamagicRodLesserElementalElectricityBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "f6ae4eb4ab7d4a80a85a1364d0010cad",
       "SimpleName": "MetamagicRodLesserElementalElectricityBuff.Name",
       "ProcessTemplates": false,
@@ -8475,28 +8365,6 @@
       "SimpleName": "MetamagicRodLesserElementalElectricityToggleAbility.Description",
       "ProcessTemplates": true,
       "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "1a99c2d21dc246d296b241b6d5f7fcbb",
-      "SimpleName": "MetamagicRodLesserElementalFire.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "5dff8536850f4005ad2c357fcfba0204",
-      "SimpleName": "MetamagicRodLesserElementalFireBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -8669,28 +8537,6 @@
       "esES": null
     },
     {
-      "Key": "b12a485da2224015b65ab5af8ac76c52",
-      "SimpleName": "MetamagicRodNormalElementalAcid.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "86dc3427ea9040c5ae0679cb5ca04609",
-      "SimpleName": "MetamagicRodNormalElementalAcidBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "5e91ded76d0840a18d0d914167b1c473",
       "SimpleName": "MetamagicRodNormalElementalAcidBuff.Name",
       "ProcessTemplates": false,
@@ -8706,28 +8552,6 @@
       "SimpleName": "MetamagicRodNormalElementalAcidToggleAbility.Description",
       "ProcessTemplates": true,
       "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "5a2009046e024ad2b43d17c0ccc38a8d",
-      "SimpleName": "MetamagicRodNormalElementalCold.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "9a344f7416534800a9a6003d0811f89b",
-      "SimpleName": "MetamagicRodNormalElementalColdBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -8757,28 +8581,6 @@
       "esES": null
     },
     {
-      "Key": "02c5442c35d247f5b661c0c16de71e7d",
-      "SimpleName": "MetamagicRodNormalElementalElectricity.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "8b062914fe3f47a29f166bbb422e4cfd",
-      "SimpleName": "MetamagicRodNormalElementalElectricityBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "0df88030bfe545dea956475c975084f6",
       "SimpleName": "MetamagicRodNormalElementalElectricityBuff.Name",
       "ProcessTemplates": false,
@@ -8794,28 +8596,6 @@
       "SimpleName": "MetamagicRodNormalElementalElectricityToggleAbility.Description",
       "ProcessTemplates": true,
       "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "cfef5f2b924c43afa28e543112ec633a",
-      "SimpleName": "MetamagicRodNormalElementalFire.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "b4269ddf53174d5f92650e292bcfeaba",
-      "SimpleName": "MetamagicRodNormalElementalFireBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -9557,6 +9337,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "1级时，秘术师选择一个他已有的神术施法职业，他将秘术师等级加在该职业的SCL上。",
+      "esES": null
+    },
+    {
+      "Key": "f177d4e768184f55872f93fde40626e9",
+      "SimpleName": "MythicBannerAreaBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Banner Area",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "467f435a5f234e1aa5bdd7f16d6198a6",
+      "SimpleName": "MythicBannerBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Banner",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "93c5756f24094cf19363593e8443fae5",
+      "SimpleName": "MythicBannerFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your banner has been touched by mythic power and now protects those nearby.\nAll allies within 60 feet gain a +2 morale bonus to AC. They gain an additional bonus to AC against attack rolls made to confirm a critical hit equal to half your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10789,6 +10602,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "学者",
+      "esES": null
+    },
+    {
+      "Key": "28311346c1e9458d9dbcf1746ae818cc",
+      "SimpleName": "SecondOrderSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "You're devotion to your order has granted you additional powers of another order.\nYou select a second order, gaining all its benifits.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "44a3af8b450c4616b2f17b7b233f9fe5",
+      "SimpleName": "SecondOrderSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Second Order",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -12560,6 +12395,72 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "+6",
+      "esES": null
+    },
+    {
+      "Key": "002f25e35d074a668bd749ad7bc0a064",
+      "SimpleName": "TemporaryEnhancementArmor1TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "This armor provides a +1 enhancement bonus to Armor Class. The armor check penalty of magic armor is lessened by 1 compared to ordinary armor of its type..",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "16c8e7e7c0a84f50be8287cae975433a",
+      "SimpleName": "TemporaryEnhancementArmor2TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "This armor provides a +2 enhancement bonus to Armor Class. The armor check penalty of magic armor is lessened by 2 compared to ordinary armor of its type..",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8159a8c5692347dfa473177067dca9dd",
+      "SimpleName": "TemporaryEnhancementArmor3TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "This armor provides a +3 enhancement bonus to Armor Class. The armor check penalty of magic armor is lessened by 3 compared to ordinary armor of its type..",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "808d843d39e340a8ac0d1dd43494a838",
+      "SimpleName": "TemporaryEnhancementArmor4TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "This armor provides a +4 enhancement bonus to Armor Class. The armor check penalty of magic armor is lessened by 4 compared to ordinary armor of its type..",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "585fa163f19c44c2b74ccc70412aa803",
+      "SimpleName": "TemporaryEnhancementArmor5TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "This armor provides a +5 enhancement bonus to Armor Class. The armor check penalty of magic armor is lessened by 5 compared to ordinary armor of its type..",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "04230811d418436da82a8fc7fe94434f",
+      "SimpleName": "TemporaryEnhancementArmor6TTT.Description",
+      "ProcessTemplates": true,
+      "enGB": "This armor provides a +6 enhancement bonus to Armor Class. The armor check penalty of magic armor is lessened by 6 compared to ordinary armor of its type..",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

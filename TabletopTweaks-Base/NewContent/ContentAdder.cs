@@ -158,6 +158,8 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.EnhancedBlessings.AddEnhancedBlessings();
                 MythicAbilities.ImpossibleBlessing.AddImpossibleBlessing();
                 MythicAbilities.AbundantSpellKenning.AddAbundantSpellKenning();
+                MythicAbilities.SecondOrder.AddSecondOrder();
+                MythicAbilities.MythicBanner.AddMythicBanner();
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();

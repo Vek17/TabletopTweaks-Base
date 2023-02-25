@@ -56,7 +56,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.AddPrerequisiteFeature(CavalierChallengeFeature);
             });
 
-            if (TTTContext.AddedContent.MythicAbilities.IsDisabled("AbundantChallenge")) { return; }
+            if (TTTContext.AddedContent.Feats.IsDisabled("ChainChallenge")) { return; }
             FeatTools.AddAsFeat(ChainChallengeFeature);
         }
     }
