@@ -6,7 +6,7 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.Features {
     class SpearChargeBuff {
         public static void AddSpearChargeBuff() {
-            var LongspearChargeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SpearChargeBuff", bp => {
+            var SpearChargeBuffTTT = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SpearChargeBuffTTT", bp => {
                 bp.SetName(TTTContext, "Spear Charge");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;

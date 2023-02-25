@@ -1,5 +1,6 @@
 ## Version 2.5.1
 * Fixes
+    * Fixed issues where spear charges did twice as much damage as intended.
     * Spells
         * Magical Vestment
             * Fixed incorrect stacking with armor bonuses.

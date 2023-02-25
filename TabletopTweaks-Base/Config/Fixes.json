@@ -557,6 +557,11 @@
           "Homebrew": false,
           "Description": "Can now select both trip and bull rush at the same time."
         },
+        "OrderOfTheCockatriceChallenge": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Bonuses should now be applied when both the rider and the mount threaten."
+        },
         "OrderOfTheStarCalling": {
           "Enabled": true,
           "Homebrew": false,
