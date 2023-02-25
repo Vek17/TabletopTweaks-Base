@@ -31,6 +31,8 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StepLevel = 3;
+                    c.m_UseMin = true;
+                    c.m_Min = 1;
                 });
                 bp.AddPrerequisiteFeature(SkaldSpellKenning);
             });

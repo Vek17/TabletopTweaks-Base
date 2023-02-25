@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using Kingmaker.View.MapObjects;
@@ -20,7 +22,9 @@ namespace TabletopTweaks.Base.Bugfixes.General {
         static class AreaOfEffectsTick_Round_Patch {
             static void Postfix(AreaEffectEntityData __instance) {
                 if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("AreaOfEffectDoubleTrigger")) { return; }
-                __instance.m_TimeToNextRound = 6f;
+                if (__instance.Blueprint.GetComponent<AbilityAreaEffectRunAction>().UnitEnter.HasActions) {
+                    //__instance.m_TimeToNextRound = 6f;
+                }
             }
         }
     }

@@ -149,6 +149,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.PrecisionCritical.AddPrecisionCritical();
                 MythicAbilities.AbundantBlessing.AddAbundantBlessing();
                 MythicAbilities.AbundantBombs.AddAbundantBombs();
+                MythicAbilities.AbundantChallenge.AddAbundantChallenge();
                 MythicAbilities.AbundantFervor.AddAbundantFervor();
                 MythicAbilities.AbundantIncense.AddAbundantIncense();
                 MythicAbilities.AbundantLayOnHands.AddAbundantLayOnHands();
@@ -191,6 +192,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.ExpandedSpellKenning.AddExpandedSpellKenning();
                 Feats.MantisStyle.AddMantisStyle();
                 Feats.AbilityFocusStunningFist.AddAbilityFocusStunningFist();
+                Feats.ChainChallenge.AddChainChallenge();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

@@ -4,6 +4,9 @@
     * Spells
         * Magical Vestment
             * Fixed incorrect stacking with armor bonuses.
+    * Weapons
+        * Devastating Blow From Above
+            * Fixed incorrect triggering of fake attacks.
 
 ## Version 2.5.0
 * Fix for 2.1.0j

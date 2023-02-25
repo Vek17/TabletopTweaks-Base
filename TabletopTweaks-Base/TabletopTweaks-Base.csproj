@@ -307,6 +307,7 @@
     <Compile Include="NewContent\Feats\ArmorMastery\KnockingBlows.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\SecuredArmor.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\SprightlyArmor.cs" />
+    <Compile Include="NewContent\Feats\ChainChallenge.cs" />
     <Compile Include="NewContent\Feats\ExpandedSpellKenning.cs" />
     <Compile Include="NewContent\Feats\MantisStyle.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\BurningSpell.cs" />
@@ -381,6 +382,7 @@
     <Compile Include="NewContent\MagusArcana\SpellBlending.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantChallenge.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />

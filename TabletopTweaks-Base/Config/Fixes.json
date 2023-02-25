@@ -1751,6 +1751,11 @@
           "Homebrew": false,
           "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
         },
+        "DevastatingBlowFromAbove": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
         "EnergyBurst": {
           "Enabled": true,
           "Homebrew": false,

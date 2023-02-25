@@ -608,6 +608,11 @@
         "Homebrew": true,
         "Description": "You can throw additional bombs per day equal to twice your mythic rank."
       },
+      "AbundantChallenge": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Challenge a number of additional times per day equal to half your mythic rank."
+      },
       "AbundantLayOnHands": {
         "Enabled": true,
         "Homebrew": true,
