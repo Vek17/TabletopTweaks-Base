@@ -1218,10 +1218,25 @@
         "Homebrew": false,
         "Description": "Eye Of The Sun now deals the correct amount of damage."
       },
+      "FieryBody": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fiery Body is no longer considered a polymorph spell."
+      },
       "Firebrand": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Firebrand no longer causes excessive damage instances to trigger when attacking."
+      },
+      "IcyBody": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Icy Body is no longer considered a polymorph spell."
+      },
+      "IronBody": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Iron Body is no longer considered a polymorph spell."
       },
       "SunMarked": {
         "Enabled": true,
@@ -1507,10 +1522,25 @@
         "Homebrew": true,
         "Description": "Endurance now grants +4 Athletics if you have 10 ranks in Athletics like similar feats."
       },
+      "EnergizedWildShapeDamage": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Energized Wild Shape no longer creates excessive damage triggers."
+      },
+      "EnergizedWildShapePrerequisites": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Energized Wild Shape now has more correct prerequites for non druid classes with Wild Shape."
+      },
       "FencingGrace": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now only works on one handed weapons always."
+      },
+      "FrightfulShape": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Frightful Shape now has more correct prerequites for non druid classes with Wild Shape."
       },
       "Lunge": {
         "Enabled": true,
@@ -1537,6 +1567,11 @@
         "Homebrew": false,
         "Description": "Now works correctly."
       },
+      "NaturalSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Natural Spell now has more correct prerequites for non druid classes with Wild Shape."
+      },
       "Outflank": {
         "Enabled": true,
         "Homebrew": false,
@@ -1561,6 +1596,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now requires you to hit a shaken target once before they become flat footed."
+      },
+      "ShifterRush": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shifter Rush now has more correct prerequites for non druid classes with Wild Shape."
       },
       "SiezeTheMoment": {
         "Enabled": true,

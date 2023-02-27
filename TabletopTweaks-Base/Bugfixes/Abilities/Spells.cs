@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
@@ -20,6 +21,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
@@ -96,12 +98,15 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchCrusadersEdge();
                 PatchDeathWard();
                 PatchDispelMagicGreater();
+                PatchFieryBody();
                 PatchFirebrand();
                 PatchFlamestrike();
                 PatchFreedomOfMovement();
                 PatchFrightfulAspect();
                 PatchGeniekind();
                 PatchHellfireRay();
+                PatchIcyBody();
+                PatchIronBody();
                 PatchLegendaryProportions();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
@@ -1040,40 +1045,24 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
             }
             static void PatchVampiricBlade() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("VampiricBlade")) { return; }
+
                 var VampiricBladeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f6007b38909c3b248a8a77b316f5bc2d");
 
                 VampiricBladeBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
                 VampiricBladeBuff.RemoveComponents<ContextCalculateSharedValue>();
                 VampiricBladeBuff.RemoveComponents<RecalculateOnFactsChange>();
-                VampiricBladeBuff.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
-                    c.OnlyHit = true;
-                    c.ActionsOnInitiator = false;
-                    c.Action = Helpers.CreateActionList(
-                        Helpers.Create<ContextActionDealDamageTTT>(a => {
-                            a.DamageType = new DamageTypeDescription() {
-                                Type = DamageType.Energy,
-                                Energy = DamageEnergyType.Unholy,
-                                Common = new DamageTypeDescription.CommomData(),
-                                Physical = new DamageTypeDescription.PhysicalData()
-                            };
-                            a.Duration = new ContextDurationValue() {
-                                m_IsExtendable = true,
-                                DiceCountValue = 0,
-                                BonusValue = 0
-                            };
-                            a.Value = new ContextDiceValue() {
-                                DiceType = DiceType.D6,
-                                DiceCountValue = 1,
-                                BonusValue = new ContextValue() {
-                                    ValueType = ContextValueType.Rank
-                                }
-                            };
-                            a.WriteResultToSharedValue = true;
-                            a.ResultSharedValue = AbilitySharedValue.Heal;
-                            a.IgnoreWeapon = true;
-                            a.IgnoreCritical = true;
-                        })
-                    );
+                VampiricBladeBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
+                    c.Value = new ContextDiceValue() {
+                        DiceType = DiceType.D6,
+                        DiceCountValue = 1,
+                        BonusValue = new ContextValue() {
+                            ValueType = ContextValueType.Rank
+                        }
+                    };
+                    c.DamageType = new DamageTypeDescription() {
+                        Type = DamageType.Energy,
+                        Energy = DamageEnergyType.Unholy
+                    };
                 });
                 VampiricBladeBuff.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
                     c.OnlyHit = true;
@@ -1081,16 +1070,16 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     c.Action = Helpers.CreateActionList(
                         Helpers.Create<ContextActionHealTarget>(a => {
                             a.Value = new ContextDiceValue() {
-                                DiceCountValue = new ContextValue(),
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
                                 BonusValue = new ContextValue() {
-                                    ValueType = ContextValueType.Shared,
-                                    ValueShared = AbilitySharedValue.Heal
+                                    ValueType = ContextValueType.Rank
                                 }
                             };
                         })
                     );
                 });
-                TTTContext.Logger.LogPatch("Patched", VampiricBladeBuff);
+                TTTContext.Logger.LogPatch(VampiricBladeBuff);
             }
             //Trickster Spells
             static void PatchMicroscopicProportions() {
@@ -1314,6 +1303,24 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     "one spell affecting the target, or you have failed to dispel every spell.");
                 TTTContext.Logger.LogPatch("Patched", DispelMagicGreaterTarget);
             }
+            static void PatchFieryBody() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("FieryBody")) { return; }
+
+                var FieryBody = BlueprintTools.GetBlueprint<BlueprintAbility>("08ccad78cac525040919d51963f9ac39");
+                var FieryBodyBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b574e1583768798468335d8cdb77e94c");
+
+                FieryBody.TemporaryContext(bp => {
+                    bp.GetComponent<SpellDescriptorComponent>().Descriptor = SpellDescriptor.Fire | SpellDescriptor.RestoreHP;
+                    bp.RemoveComponents<AbilityExecuteActionOnCast>();
+                });
+                FieryBodyBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<SpellDescriptorComponent>();
+                    bp.RemoveComponents<PolymorphBonuses>();
+                });
+
+                TTTContext.Logger.LogPatch(FieryBody);
+                TTTContext.Logger.LogPatch(FieryBodyBuff);
+            }
             static void PatchFirebrand() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Firebrand")) { return; }
 
@@ -1419,6 +1426,42 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     a.Value.BonusValue = new ContextValue();
                 });
                 TTTContext.Logger.LogPatch("Patched", HellfireRay);
+            }
+            static void PatchIcyBody() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("IcyBody")) { return; }
+
+                var IceBody = BlueprintTools.GetBlueprint<BlueprintAbility>("89778dc261fe6094bb2445cb389842d2");
+                var IceBodyBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("a6da7d6a5c9377047a7bd2680912860f");
+
+                IceBody.TemporaryContext(bp => {
+                    bp.GetComponent<SpellDescriptorComponent>().Descriptor = SpellDescriptor.Cold;
+                    bp.RemoveComponents<AbilityExecuteActionOnCast>();
+                });
+                IceBodyBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<SpellDescriptorComponent>();
+                    bp.RemoveComponents<PolymorphBonuses>();
+                });
+
+                TTTContext.Logger.LogPatch(IceBody);
+                TTTContext.Logger.LogPatch(IceBodyBuff);
+            }
+            static void PatchIronBody() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("IronBody")) { return; }
+
+                var IronBody = BlueprintTools.GetBlueprint<BlueprintAbility>("198fcc43490993f49899ed086fe723c1");
+                var IronBodyBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("2eabea6a1f9a58246a822f207e8ca79e");
+
+                IronBody.TemporaryContext(bp => {
+                    bp.RemoveComponents<SpellDescriptorComponent>();
+                    bp.RemoveComponents<AbilityExecuteActionOnCast>();
+                });
+                IronBodyBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<SpellDescriptorComponent>();
+                    bp.RemoveComponents<PolymorphBonuses>();
+                });
+
+                TTTContext.Logger.LogPatch(IronBody);
+                TTTContext.Logger.LogPatch(IronBodyBuff);
             }
             static void PatchLegendaryProportions() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("LegendaryProportions")) { return; }

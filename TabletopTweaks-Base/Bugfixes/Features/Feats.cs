@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -56,14 +57,18 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchDestructiveDispelPrerequisites();
                 PatchDispelSynergy();
                 PatchEndurance();
+                PatchEnergizedWildShape();
                 PatchFencingGrace();
+                PatchFrightfulShape();
                 PatchIndomitableMount();
                 PatchMountedCombat();
                 PatchPersistantMetamagic();
                 PatchBolsteredMetamagic();
                 PatchEmpowerMetamagic();
                 PatchMaximizeMetamagic();
+                PatchNaturalSpell();
                 PatchShatterDefenses();
+                PatchShifterRush();
                 PatchSlashingGrace();
                 PatchSpellSpecialization();
                 PatchSpiritedCharge();
@@ -382,6 +387,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             }
             static void PatchEndurance() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("Endurance")) { return; }
+
                 var Endurance = BlueprintTools.GetBlueprint<BlueprintFeature>("54ee847996c25cd4ba8773d7b8555174");
                 Endurance.SetDescription(TTTContext, "Harsh conditions or long exertions do not easily tire you.\nBenefit: You gain +4 bonus on Fortitude " +
                     "saves against fatigue and exhaustion and +2 " +
@@ -418,6 +424,174 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 });
                 TTTContext.Logger.LogPatch("Patched", Endurance);
             }
+            static void PatchEnergizedWildShape() {
+                PatchDamageTriggers();
+                PatchPrerequisites();
+
+                static void PatchPrerequisites() {
+                    if (Main.TTTContext.Fixes.Feats.IsDisabled("EnergizedWildShapePrerequisites")) { return; }
+
+                    var EnergizedWildShapeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("92df031ed2cb4153950853d6a3b9813e");
+
+                    var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                    var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                    var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                    var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                    var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                    var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                    var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                    EnergizedWildShapeFeature.TemporaryContext(bp => {
+                        bp.RemoveComponents<PrerequisiteCondition>();
+                        bp.AddPrerequisiteFeaturesFromList(1,
+                            WildShapeIWolfFeature,
+                            FeralChampnionWildShapeIWolfFeature,
+                            MajorFormFeature,
+                            ShifterDragonFormFeature,
+                            GriffonheartShifterGriffonShapeFakeFeature,
+                            ShifterWildShapeFeyFeatureLevelUp,
+                            ShifterWildShapeManticoreFeatureLevelUp
+                        );
+                    });
+                    TTTContext.Logger.LogPatch(EnergizedWildShapeFeature);
+                }
+                static void PatchDamageTriggers() {
+                    if (Main.TTTContext.Fixes.Feats.IsDisabled("EnergizedWildShapeDamage")) { return; }
+
+                    var EnergizedDamageFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d808863c4bd44fd8bd9cf5892460705d");
+                    var EnergizedWildShapeAcidBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("d5cad83598c84964b9e743c3b485b1c6");
+                    var EnergizedWildShapeColdBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("e66bff2197724a508111f26cb8071a31");
+                    var EnergizedWildShapeElectricityBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("9cdacfc7e8a940fea80312ba3f1a02b8");
+                    var EnergizedWildShapeFireBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("5d2155c13f9842b2be8196edc82ef057");
+
+                    EnergizedDamageFeature.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                            EnergizedWildShapeAcidBuff
+                        };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Acid
+                            };
+                        });
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                            EnergizedWildShapeColdBuff
+                        };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Cold
+                            };
+                        });
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                            EnergizedWildShapeElectricityBuff
+                        };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Electricity
+                            };
+                        });
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                                EnergizedWildShapeFireBuff
+                            };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Fire
+                            };
+                        });
+                    });
+                    TTTContext.Logger.LogPatch(EnergizedDamageFeature);
+                }
+            }
+            static void PatchFrightfulShape() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("FrightfulShape")) { return; }
+
+                var FrightfulShape = BlueprintTools.GetBlueprint<BlueprintFeature>("8e8a34c754d649aa9286fe8ee5cc3f10");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                FrightfulShape.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteCondition>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(FrightfulShape);
+            }
+            static void PatchShifterRush() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ShifterRush")) { return; }
+
+                var ShiftersRushFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("4ddc88f422a84f76a952e24bec7b53e1");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                ShiftersRushFeature.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteCondition>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(ShiftersRushFeature);
+            }
             static void PatchMountedCombat() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("MountedCombat")) { return; }
 
@@ -453,6 +627,33 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 Outflank.AddComponent<OutflankProvokeAttackTTT>(c => {
                     c.m_OutflankFact = Outflank.ToReference<BlueprintUnitFactReference>();
                 });
+            }
+            static void PatchNaturalSpell() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("NaturalSpell")) { return; }
+
+                var NaturalSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("c806103e27cce6f429e5bf47067966cf");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                NaturalSpell.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteFeature>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(NaturalSpell);
             }
             static void PatchSiezeTheMoment() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("SiezeTheMoment")) { return; }

@@ -5,9 +5,25 @@
     * Shifter
         * Griffon Heart Shifter has been made selectable in character creation.
         * Wild Effigy has been adjusted to work correctly when multiple archetypes are used.
+    * Feats
+        * Energized Wild Shape
+            * Fixed incorrect triggering of fake attacks.
+            * Fixed prerequites for non druid classes with Wild Shape.
+        * Frightful Shape
+            * Fixed prerequites for non druid classes with Wild Shape.
+        * Natural Spell
+            * Fixed prerequites for non druid classes with Wild Shape.
+        * Shifter Rush
+            * Fixed prerequites for non druid classes with Wild Shape.
     * Spells
         * Magical Vestment
             * Fixed incorrect stacking with armor bonuses.
+        * Fiery Body
+            * Fiery Body is no longer considered a polymorph spell.
+        * Icy Body
+            * Icy Body is no longer considered a polymorph spell.
+        * Iron Body
+            * Iron Body is no longer considered a polymorph spell.    
     * Weapons
         * Devastating Blow From Above
             * Fixed incorrect triggering of fake attacks.
