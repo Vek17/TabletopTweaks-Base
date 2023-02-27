@@ -929,6 +929,27 @@
           }
         },
         "IsExpanded": true
+      },
+      "WildEffigy": {
+        "DisableAll": false,
+        "Settings": {
+          "ArmorPlating": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes interactions when multiple archetypes are stacked."
+          },
+          "HeartOfEarth": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes interactions when multiple archetypes are stacked."
+          },
+          "StoneclawStrike": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes interactions when multiple archetypes are stacked."
+          }
+        },
+        "IsExpanded": true
       }
     }
   },

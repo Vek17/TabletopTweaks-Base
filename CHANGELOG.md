@@ -1,9 +1,10 @@
 ## Version 2.5.1
-* AreaOfEffectDoubleTrigger set to off by default due to some issues with some areas.
 * Fixes
+    * AreaOfEffectDoubleTrigger set to off by default due to some issues with some areas.
     * Fixed issues where spear charges did twice as much damage as intended.
     * Shifter
         * Griffon Heart Shifter has been made selectable in character creation.
+        * Wild Effigy has been adjusted to work correctly when multiple archetypes are used.
     * Spells
         * Magical Vestment
             * Fixed incorrect stacking with armor bonuses.
