@@ -1,6 +1,9 @@
 ## Version 2.5.1
+* AreaOfEffectDoubleTrigger set to off by default due to some issues with some areas.
 * Fixes
     * Fixed issues where spear charges did twice as much damage as intended.
+    * Shifter
+        * Griffon Heart Shifter has been made selectable in character creation.
     * Spells
         * Magical Vestment
             * Fixed incorrect stacking with armor bonuses.
@@ -8,6 +11,8 @@
         * Devastating Blow From Above
             * Fixed incorrect triggering of fake attacks.
 * Added Content
+    * Alternate Capstones
+        * Shifter support has been added.
     * Feats
         * Chain Challenge
             * When the target of your challenge ability is killed or knocked unconscious, you can declare a new challenge on the nearest target within 30 feet as a free action. If you declare a new challenge using this feat, it doesn’t count against your total daily uses of challenge.

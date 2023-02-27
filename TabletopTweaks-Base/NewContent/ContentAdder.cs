@@ -238,6 +238,7 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Ranger.AddAlternateCapstones();
                 AlternateCapstones.Rogue.AddAlternateCapstones();
                 AlternateCapstones.Shaman.AddAlternateCapstones();
+                AlternateCapstones.Shifter.AddAlternateCapstones();
                 AlternateCapstones.Skald.AddAlternateCapstones();
                 AlternateCapstones.Slayer.AddAlternateCapstones();
                 AlternateCapstones.Sorcerer.AddAlternateCapstones();

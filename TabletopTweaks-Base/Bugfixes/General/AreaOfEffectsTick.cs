@@ -23,7 +23,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             static void Postfix(AreaEffectEntityData __instance) {
                 if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("AreaOfEffectDoubleTrigger")) { return; }
                 if (__instance.Blueprint.GetComponent<AbilityAreaEffectRunAction>().UnitEnter.HasActions) {
-                    //__instance.m_TimeToNextRound = 6f;
+                    __instance.m_TimeToNextRound = 6f;
                 }
             }
         }

@@ -4,7 +4,7 @@
     "DisableAll": false,
     "Settings": {
       "AreaOfEffectDoubleTrigger": {
-        "Enabled": true,
+        "Enabled": false,
         "Homebrew": false,
         "Description": "Fixes persistent area of effects from triggering multiple times off the initial cast as if an extra round had passed."
       },
@@ -334,6 +334,11 @@
         "Description": "Enable alternate capstone for this class."
       },
       "Shaman": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
+      "Shifter": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Enable alternate capstone for this class."
@@ -905,6 +910,27 @@
       "IsExpanded": true
     },
     "Archetypes": {}
+  },
+  "Shifter": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "GriffonheartShifter": {
+        "DisableAll": false,
+        "Settings": {
+          "PlayerUsable": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Allows created character to use this archetype."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
   },
   "Skald": {
     "DisableAll": false,

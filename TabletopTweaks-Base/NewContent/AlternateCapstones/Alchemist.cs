@@ -66,6 +66,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.HideInUI = true;
                     c.Not = true;
                 });
+                bp.AddClass(ClassTools.Classes.AlchemistClass);
             });
             AlchemistAlternateCapstone = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "AlchemistAlternateCapstone", bp => {
                 bp.SetName(TTTContext, "Capstone");
