@@ -138,6 +138,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Archetypes.NatureFang.AddNatureFang();
                 Archetypes.ChannelerOfTheUnknown.AddChannelerOfTheUnknown();
                 Archetypes.Myrmidarch.AddMyrmidarch();
+                Archetypes.HolyBeast.AddHolyBeast();
                 //Features to support existing prestige clases
                 Classes.Loremaster.AddLoremasterFeatures();
 

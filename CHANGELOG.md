@@ -30,6 +30,9 @@
 * Added Content
     * Alternate Capstones
         * Shifter support has been added.
+    * Archetypes
+        * Holy Beast
+            * Shifter archetype with bonuses against Outsiders and modified claws.
     * Feats
         * Chain Challenge
             * When the target of your challenge ability is killed or knocked unconscious, you can declare a new challenge on the nearest target within 30 feet as a free action. If you declare a new challenge using this feat, it doesn’t count against your total daily uses of challenge.

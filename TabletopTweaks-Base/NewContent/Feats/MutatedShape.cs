@@ -62,7 +62,6 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 });
             });
             var MutatedShapeWeapon = Slam1d6.CreateCopy(TTTContext, "MutatedShapeWeapon", bp => {
-                bp.m_DisplayNameText = Helpers.CreateString(TTTContext, $"{bp.name}.Name", "Mutated Shape Slam");
                 bp.KeepInPolymorph = true;
             });
             var MutatedShapeEffect = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "MutatedShapeEffect", bp => {

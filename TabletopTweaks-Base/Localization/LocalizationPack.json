@@ -1387,22 +1387,22 @@
       "esES": null
     },
     {
-      "Key": "ffefe480122242e1b53c6ac2e9836219",
+      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
       "esES": null
     },
     {
-      "Key": "5f3fc9de50c6004b2fab9a4939fc5269",
+      "Key": "ffefe480122242e1b53c6ac2e9836219",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 в случае навыков, +1 в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": "Лектор добавляет к своему списку классовых навыков Убеждение и Знание (мир). Он также может использовать Интеллект вместо Харизмы при проверках Убеждения. \nЕсли у персонажа уже есть классовый навык, умение обращения с оружием или умение ношения брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие бонусы биографии меняются на +1 бонус мастерства в случае навыков, +1 бонус усиления в случае умения обращения с оружием и понижение штрафа за доспех на 1 в случае умения ношения брони.",
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师将知识（世界）和沟通加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、武器或防具擅长，则改为获得1点对应技能上的特性加值，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定减值。",
@@ -2685,6 +2685,160 @@
       "esES": null
     },
     {
+      "Key": "409fae0bae244ae5885503aacea0ef66",
+      "SimpleName": "BlessedClawBuffLevel1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Blessed Claws",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2059048e269f4bcd940e14607f33920d",
+      "SimpleName": "BlessedClawsChaosBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fb5200ad2dff4ce6a41bb9035c418e10",
+      "SimpleName": "BlessedClawsChaosFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "79694b8c1d8d48259fffd3b8654615c4",
+      "SimpleName": "BlessedClawsChaosFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Blessed Claws — Chaotic",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3010f85596074af98b3a5b4535eafaa1",
+      "SimpleName": "BlessedClawsEvilBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a48b0da9ca4e4eae94b4e72596d70adb",
+      "SimpleName": "BlessedClawsEvilFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "732672a0b9d14a9d9fd8159aa8689572",
+      "SimpleName": "BlessedClawsEvilFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Blessed Claws — Evil",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9ab516816c364bfaabb66c0c352c9c2d",
+      "SimpleName": "BlessedClawsGoodBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "097b5ec9b18f400bac8a19e924de779b",
+      "SimpleName": "BlessedClawsGoodFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ddecddc731574073b8ea3a913d6f4e7c",
+      "SimpleName": "BlessedClawsGoodFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Blessed Claws — Good",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f012949d35ed4726a7d59923ae5836bd",
+      "SimpleName": "BlessedClawsLawBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a351cae468af4e4cbe663f922afc6213",
+      "SimpleName": "BlessedClawsLawFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a628e4e82d714657942d0d3440e39172",
+      "SimpleName": "BlessedClawsLawFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Blessed Claws — Lawful",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "59f074a72fb4476ea4e2160418627618",
+      "SimpleName": "BlessedClawsSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "57f767921ade4dde83cbad5723e980a0",
       "SimpleName": "BloodlineCapstoneSelection.Description",
       "ProcessTemplates": true,
@@ -3521,17 +3675,6 @@
       "esES": null
     },
     {
-      "Key": "37df8bdd9bcf476e82186546ba976884",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Flaming",
-      "ruRU": "Огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "炽焰",
-      "esES": null
-    },
-    {
       "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3540,6 +3683,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "焚化",
+      "esES": null
+    },
+    {
+      "Key": "37df8bdd9bcf476e82186546ba976884",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Flaming",
+      "ruRU": "Огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -5072,17 +5226,6 @@
       "esES": null
     },
     {
-      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Flaming",
-      "ruRU": "Великий огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古炽焰",
-      "esES": null
-    },
-    {
       "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -5091,6 +5234,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古焚化",
+      "esES": null
+    },
+    {
+      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Flaming",
+      "ruRU": "Великий огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "古炽焰",
       "esES": null
     },
     {
@@ -6752,6 +6906,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "神圣",
+      "esES": null
+    },
+    {
+      "Key": "87efd735f1014a5dad35e13c7b750c29",
+      "SimpleName": "HolyBeastArchetype.Description",
+      "ProcessTemplates": true,
+      "enGB": "Thousands of gods are venerated in Vudra, and devoted followers might have personal relationships with their chosen deities. Holy beast shifters pledge to hunt down their deity’s enemies to earn that deity’s blessing. These shifters tend to take on the aspect of their deity’s sacred animal, and many of them seek to destroy rakshasas.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "93231d1368044aeebc1e0c9772ac59e0",
+      "SimpleName": "HolyBeastArchetype.Name",
+      "ProcessTemplates": false,
+      "enGB": "Holy Beast",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b3e4a8b17db74d62820edcc6853ae9a7",
+      "SimpleName": "HolyBeastDivineFury.Description",
+      "ProcessTemplates": true,
+      "enGB": "A holy beast shifter focuses entirely on hunting down specific outsiders on behalf of her deity. She gains the ranger’s favored enemy class feature against outsiders except the bonus starts at 1 instead of 2. The bonus against her favored enemy automatically increases by 1 at 5th level and every 5 levels thereafter.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "763f8aa6378d4759ad44c3a191316b77",
+      "SimpleName": "HolyBeastDivineFury.Name",
+      "ProcessTemplates": false,
+      "enGB": "Divine Fury",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -9249,6 +9447,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "骑乘散兵",
+      "esES": null
+    },
+    {
+      "Key": "2a1d21c36b784b719ee6ebf4e70801a0",
+      "SimpleName": "MutatedShapeEffect.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mutated Shape - Gore",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a02210cd7fcb46158a2fbcd268f65a8b",
+      "SimpleName": "MutatedShapeFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your wild shape form gains an additional appendage you can use to attack your foes.\nWhen you use wild shape, you gain an additional primary slam attack. This slam can be used as part of a full attack using your highest base attack bonus, and it deals 1d6 bludgeoning damage. This lasts for as long as you stay in the form taken with wild shape.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e4024f3919f24e969a96b3d5755316a4",
+      "SimpleName": "MutatedShapeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mutated Shape",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11870,17 +12101,6 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "Will negates stun",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "bd0091dbc839447abb004474f38b7c75",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -11896,6 +12116,17 @@
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
       "enGB": "Greater Stunning Barrier",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Will negates stun",
       "ruRU": null,
       "deDE": null,
       "frFR": null,

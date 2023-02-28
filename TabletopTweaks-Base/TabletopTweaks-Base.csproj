@@ -283,6 +283,7 @@
     <Compile Include="NewContent\Archetypes\ChannelerOfTheUnknown.cs" />
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Archetypes\HolyBeast.cs" />
     <Compile Include="NewContent\Archetypes\MadDog.cs" />
     <Compile Include="NewContent\Archetypes\MetamagicRager.cs" />
     <Compile Include="NewContent\Archetypes\Myrmidarch.cs" />

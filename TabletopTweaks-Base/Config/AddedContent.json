@@ -28,6 +28,11 @@
         "Homebrew": false,
         "Description": "Enables an incomplete archetype from Owlcat."
       },
+      "HolyBeast": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A shifter archetype that gets bonuses against outsiders and modifies thier claws."
+      },
       "MetamagicRager": {
         "Enabled": true,
         "Homebrew": false,
