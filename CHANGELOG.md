@@ -33,6 +33,8 @@
     * Feats
         * Chain Challenge
             * When the target of your challenge ability is killed or knocked unconscious, you can declare a new challenge on the nearest target within 30 feet as a free action. If you declare a new challenge using this feat, it doesn’t count against your total daily uses of challenge.
+        * Mutated Shape
+            * When you use wild shape, you gain an additional primary slam attack.
     * Mythic Abilities
         * Abundant Challenge
             * You can use Challenge a number of additional times per day equal to half your mythic rank.

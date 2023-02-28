@@ -195,6 +195,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.MantisStyle.AddMantisStyle();
                 Feats.AbilityFocusStunningFist.AddAbilityFocusStunningFist();
                 Feats.ChainChallenge.AddChainChallenge();
+                Feats.MutatedShape.AddMutatedShape();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

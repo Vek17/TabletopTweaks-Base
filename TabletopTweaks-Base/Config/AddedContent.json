@@ -272,6 +272,11 @@
         "Homebrew": false,
         "Description": "If your mount moves its speed or less, you can still take a full-attack action."
       },
+      "MutatedShape": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you use wild shape, you gain an additional primary slam attack."
+      },
       "NatureSoul": {
         "Enabled": true,
         "Homebrew": false,

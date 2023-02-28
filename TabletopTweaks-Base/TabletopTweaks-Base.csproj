@@ -337,6 +337,7 @@
     <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
     <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
+    <Compile Include="NewContent\Feats\MutatedShape.cs" />
     <Compile Include="NewContent\Feats\NatureSoul.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\PiercingSpell.cs" />
     <Compile Include="NewContent\Feats\QuickChannel.cs" />
