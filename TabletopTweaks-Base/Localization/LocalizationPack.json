@@ -2553,17 +2553,6 @@
       "esES": null
     },
     {
-      "Key": "add3b25fd1214142995be3b8965b0bc8",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana",
-      "ruRU": "Перенос мистической энергии",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换",
-      "esES": null
-    },
-    {
       "Key": "9f48856f97714024a5cb846de75da34e",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2572,6 +2561,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换（魔战士）",
+      "esES": null
+    },
+    {
+      "Key": "add3b25fd1214142995be3b8965b0bc8",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana",
+      "ruRU": "Перенос мистической энергии",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换",
       "esES": null
     },
     {
@@ -2696,54 +2696,10 @@
       "esES": null
     },
     {
-      "Key": "2059048e269f4bcd940e14607f33920d",
-      "SimpleName": "BlessedClawsChaosBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "fb5200ad2dff4ce6a41bb9035c418e10",
-      "SimpleName": "BlessedClawsChaosFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "79694b8c1d8d48259fffd3b8654615c4",
       "SimpleName": "BlessedClawsChaosFeature.Name",
       "ProcessTemplates": false,
       "enGB": "Blessed Claws — Chaotic",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "3010f85596074af98b3a5b4535eafaa1",
-      "SimpleName": "BlessedClawsEvilBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a48b0da9ca4e4eae94b4e72596d70adb",
-      "SimpleName": "BlessedClawsEvilFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2762,54 +2718,10 @@
       "esES": null
     },
     {
-      "Key": "9ab516816c364bfaabb66c0c352c9c2d",
-      "SimpleName": "BlessedClawsGoodBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "097b5ec9b18f400bac8a19e924de779b",
-      "SimpleName": "BlessedClawsGoodFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "ddecddc731574073b8ea3a913d6f4e7c",
       "SimpleName": "BlessedClawsGoodFeature.Name",
       "ProcessTemplates": false,
       "enGB": "Blessed Claws — Good",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "f012949d35ed4726a7d59923ae5836bd",
-      "SimpleName": "BlessedClawsLawBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a351cae468af4e4cbe663f922afc6213",
-      "SimpleName": "BlessedClawsLawFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -4236,17 +4148,6 @@
       "esES": null
     },
     {
-      "Key": "a78bf95d5a1b4276b89bab04235408d5",
-      "SimpleName": "CloakOfWindsAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "你将一个生物笼罩在强烈呼啸的旋风中。对受术者的远程攻击检定受到-4惩罚。",
-      "esES": null
-    },
-    {
       "Key": "41f7c67a1e5f4852b5d308b90f2e40a3",
       "SimpleName": "CloakOfWindsBuff.Description",
       "ProcessTemplates": true,
@@ -5237,17 +5138,6 @@
       "esES": null
     },
     {
-      "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Incinerating",
-      "ruRU": "Великий испепеляющий",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古焚化",
-      "esES": null
-    },
-    {
       "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -5259,14 +5149,25 @@
       "esES": null
     },
     {
-      "Key": "843210f1c3d54f7a88e8fadb2bcbfb89",
-      "SimpleName": "ElderCorrosive.Prefix",
+      "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
+      "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
-      "enGB": "Elder Corrosive",
-      "ruRU": "Великий кислотный",
+      "enGB": "Elder Incinerating",
+      "ruRU": "Великий испепеляющий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "古烈酸",
+      "zhCN": "古焚化",
+      "esES": null
+    },
+    {
+      "Key": "ed770eb3d523479d8475ca0d70617f9b",
+      "SimpleName": "ElderCorrosive.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Greater Corrosive",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5336,14 +5237,14 @@
       "esES": null
     },
     {
-      "Key": "e8f4c27bc18d48e298392713f5dac3db",
+      "Key": "5fc05109eb4f4f44a1a86050c0ab6664",
       "SimpleName": "ElectricityResistance10Enchant.Prefix",
       "ProcessTemplates": false,
-      "enGB": "Electricity Resistant",
-      "ruRU": "Устойчивый к молниям",
+      "enGB": "Shock Resistant",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "电击抗性",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8306,61 +8207,6 @@
       "esES": null
     },
     {
-      "Key": "29755df38cac49ebaa4cb23e6e8462a2",
-      "SimpleName": "MetamagicRodGreaterElementalAcidToggleAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "74fe1f1e1ea04ff0be714048761322ac",
-      "SimpleName": "MetamagicRodGreaterElementalColdBuff.Name",
-      "ProcessTemplates": false,
-      "enGB": "Greater Elemental — Cold Metamagic Rod",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "高等酸元素超魔权杖",
-      "esES": null
-    },
-    {
-      "Key": "bd639640177345d2b97af3741a39525d",
-      "SimpleName": "MetamagicRodGreaterElementalColdToggleAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "0b48788878d44ceeb5de3e6f468e61cf",
-      "SimpleName": "MetamagicRodGreaterElementalCold.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "c7ec571e2ac148a697aa1a9dcacf4cb8",
-      "SimpleName": "MetamagicRodGreaterElementalColdBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
-      "esES": null
-    },
-    {
       "Key": "74fe1f1e1ea04ff0be714048761322ac",
       "SimpleName": "MetamagicRodGreaterElementalColdBuff.Name",
       "ProcessTemplates": false,
@@ -8375,33 +8221,22 @@
       "Key": "bd639640177345d2b97af3741a39525d",
       "SimpleName": "MetamagicRodGreaterElementalColdToggleAbility.Description",
       "ProcessTemplates": true,
+      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
+      "esES": null
+    },
+    {
+      "Key": "bd639640177345d2b97af3741a39525d",
+      "SimpleName": "MetamagicRodGreaterElementalColdToggleAbility.Description",
+      "ProcessTemplates": true,
       "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
       "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "6b309d90002f41c79395d6b5870cb801",
-      "SimpleName": "MetamagicRodGreaterElementalElectricity.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "77aa9c575b984eadaf421929ce7bf592",
-      "SimpleName": "MetamagicRodGreaterElementalElectricityBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
       "esES": null
     },
     {
@@ -8424,28 +8259,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "cf4d6117dd44487eaa8d08a54b32a203",
-      "SimpleName": "MetamagicRodGreaterElementalFire.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "77f4f8fb9cb24b768c132cfc62727a59",
-      "SimpleName": "MetamagicRodGreaterElementalFireBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nGreater rods can be used with spells of 9th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
       "esES": null
     },
     {
@@ -8603,28 +8416,6 @@
       "esES": null
     },
     {
-      "Key": "74b2f2b508834ebfa8883379fcb1ffe9",
-      "SimpleName": "MetamagicRodLesserElementalAcid.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "c9d8523188f94970a261e80358092ce4",
-      "SimpleName": "MetamagicRodLesserElementalAcidBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
       "Key": "399c6c7b14a54870911dbaf78b8a824e",
       "SimpleName": "MetamagicRodLesserElementalAcidBuff.Name",
       "ProcessTemplates": false,
@@ -8644,28 +8435,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "e3322722f529407fa35ce235610c3eb6",
-      "SimpleName": "MetamagicRodLesserElementalCold.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "06ade03c6f914fbf815934482a8a6fcd",
-      "SimpleName": "MetamagicRodLesserElementalColdBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
       "esES": null
     },
     {
@@ -8691,28 +8460,6 @@
       "esES": null
     },
     {
-      "Key": "00979c18d9a64b7ebbb465c86de418ea",
-      "SimpleName": "MetamagicRodLesserElementalElectricity.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "34d66d7777ef49b78de0567b219a8ba6",
-      "SimpleName": "MetamagicRodLesserElementalElectricityBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
       "Key": "f6ae4eb4ab7d4a80a85a1364d0010cad",
       "SimpleName": "MetamagicRodLesserElementalElectricityBuff.Name",
       "ProcessTemplates": false,
@@ -8732,28 +8479,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "1a99c2d21dc246d296b241b6d5f7fcbb",
-      "SimpleName": "MetamagicRodLesserElementalFire.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "5dff8536850f4005ad2c357fcfba0204",
-      "SimpleName": "MetamagicRodLesserElementalFireBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nLesser rods can be used with spells of 3rd level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
       "esES": null
     },
     {
@@ -8922,28 +8647,6 @@
       "esES": null
     },
     {
-      "Key": "b12a485da2224015b65ab5af8ac76c52",
-      "SimpleName": "MetamagicRodNormalElementalAcid.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "86dc3427ea9040c5ae0679cb5ca04609",
-      "SimpleName": "MetamagicRodNormalElementalAcidBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with acid or split the spell’s damage, so that half is acid and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
       "Key": "5e91ded76d0840a18d0d914167b1c473",
       "SimpleName": "MetamagicRodNormalElementalAcidBuff.Name",
       "ProcessTemplates": false,
@@ -8963,28 +8666,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "5a2009046e024ad2b43d17c0ccc38a8d",
-      "SimpleName": "MetamagicRodNormalElementalCold.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "9a344f7416534800a9a6003d0811f89b",
-      "SimpleName": "MetamagicRodNormalElementalColdBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with cold or split the spell’s damage, so that half is cold and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
       "esES": null
     },
     {
@@ -9010,28 +8691,6 @@
       "esES": null
     },
     {
-      "Key": "02c5442c35d247f5b661c0c16de71e7d",
-      "SimpleName": "MetamagicRodNormalElementalElectricity.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "8b062914fe3f47a29f166bbb422e4cfd",
-      "SimpleName": "MetamagicRodNormalElementalElectricityBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nYou may replace a spell’s normal damage with electricity or split the spell’s damage, so that half is electricity and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
       "Key": "0df88030bfe545dea956475c975084f6",
       "SimpleName": "MetamagicRodNormalElementalElectricityBuff.Name",
       "ProcessTemplates": false,
@@ -9051,28 +8710,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "cfef5f2b924c43afa28e543112ec633a",
-      "SimpleName": "MetamagicRodNormalElementalFire.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
-      "esES": null
-    },
-    {
-      "Key": "b4269ddf53174d5f92650e292bcfeaba",
-      "SimpleName": "MetamagicRodNormalElementalFireBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "This rod grants its wielder the ability to make up to three spells they cast per day elemental, as though using the Elemental Spell feat.\nRegular rods can be used with spells of 6th level or lower.\nElemental Spell: You may replace a spell’s normal damage with fire or split the spell’s damage, so that half is fire and half is of its normal type.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
       "esES": null
     },
     {
