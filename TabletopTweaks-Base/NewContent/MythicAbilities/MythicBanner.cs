@@ -1,7 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
-using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
@@ -18,7 +17,6 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
-using System.Linq;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -41,7 +39,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     c.Descriptor = ModifierDescriptor.Morale;
                 });
                 bp.AddComponent<CriticalConfirmationACBonus>(c => {
-                    c.Value = new ContextValue() { 
+                    c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank
                     };
                     c.Bonus = 0;
@@ -64,17 +62,17 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                                 Conditions = new Condition[] { new ContextConditionIsAlly() }
                             };
                             condition.IfTrue = Helpers.CreateActionList(
-                                new ContextActionApplyBuff() { 
+                                new ContextActionApplyBuff() {
                                     m_Buff = MythicBannerBuff.ToReference<BlueprintBuffReference>(),
                                     Permanent = true,
-                                    DurationValue = new ContextDurationValue() { 
+                                    DurationValue = new ContextDurationValue() {
                                         DiceCountValue = 0,
                                         BonusValue = 0
                                     }
                                 }
                             );
                             condition.IfFalse = Helpers.CreateActionList();
-                        })    
+                        })
                     );
                     c.UnitExit = Helpers.CreateActionList(
                         Helpers.Create<Conditional>(condition => {

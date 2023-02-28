@@ -7,7 +7,6 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System.Linq;
-using System.Security.Cryptography;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -78,7 +77,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchBase();
                 PatchArchetypes();
             }
-            static void PatchBase() { 
+            static void PatchBase() {
             }
 
             static void PatchArchetypes() {
@@ -638,7 +637,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         });
 
                         TTTContext.Logger.LogPatch(ArmorPlatingShifterFeature);
-                    }         
+                    }
                     void PatchStoneclawStrike() {
                         if (TTTContext.Fixes.Shifter.Archetypes["WildEffigy"].IsDisabled("StoneclawStrike")) { return; }
 
@@ -669,7 +668,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             };
                         });
                         StoneclawStrikeShifterBuff.TemporaryContext(bp => {
-                            
+
                         });
                     }
                 }

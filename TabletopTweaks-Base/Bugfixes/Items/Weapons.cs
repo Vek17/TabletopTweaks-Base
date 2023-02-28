@@ -94,7 +94,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                             },
                             TypeDescription = new DamageTypeDescription() {
                                 Type = DamageType.Physical,
-                                Physical = new PhysicalData() { 
+                                Physical = new PhysicalData() {
                                     Form = PhysicalDamageForm.Piercing
                                 },
                                 Common = new CommomData()

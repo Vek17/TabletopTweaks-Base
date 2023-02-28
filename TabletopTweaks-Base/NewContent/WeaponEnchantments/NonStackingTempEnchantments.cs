@@ -1,5 +1,4 @@
 ﻿using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
