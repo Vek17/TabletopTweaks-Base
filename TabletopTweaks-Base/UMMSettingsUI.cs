@@ -93,6 +93,10 @@ namespace TabletopTweaks.Base {
                     ("Base", Fixes.Shaman.Base),
                     Fixes.Shaman.Archetypes
                 );
+                SetttingUI.NestedSettingGroup("Shifter", TabLevel, Fixes.Shifter,
+                    ("Base", Fixes.Shifter.Base),
+                    Fixes.Shifter.Archetypes
+                );
                 SetttingUI.NestedSettingGroup("Skald", TabLevel, Fixes.Skald,
                     ("Base", Fixes.Skald.Base),
                     Fixes.Skald.Archetypes

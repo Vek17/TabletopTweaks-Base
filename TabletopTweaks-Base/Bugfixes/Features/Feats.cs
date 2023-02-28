@@ -4,21 +4,18 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
-using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
-using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -32,14 +29,11 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
 using TabletopTweaks.Core.NewActions;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
-using TabletopTweaks.Core.NewRules;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -63,14 +57,18 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchDestructiveDispelPrerequisites();
                 PatchDispelSynergy();
                 PatchEndurance();
+                PatchEnergizedWildShape();
                 PatchFencingGrace();
+                PatchFrightfulShape();
                 PatchIndomitableMount();
                 PatchMountedCombat();
                 PatchPersistantMetamagic();
                 PatchBolsteredMetamagic();
                 PatchEmpowerMetamagic();
                 PatchMaximizeMetamagic();
+                PatchNaturalSpell();
                 PatchShatterDefenses();
+                PatchShifterRush();
                 PatchSlashingGrace();
                 PatchSpellSpecialization();
                 PatchSpiritedCharge();
@@ -389,6 +387,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             }
             static void PatchEndurance() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("Endurance")) { return; }
+
                 var Endurance = BlueprintTools.GetBlueprint<BlueprintFeature>("54ee847996c25cd4ba8773d7b8555174");
                 Endurance.SetDescription(TTTContext, "Harsh conditions or long exertions do not easily tire you.\nBenefit: You gain +4 bonus on Fortitude " +
                     "saves against fatigue and exhaustion and +2 " +
@@ -425,6 +424,174 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 });
                 TTTContext.Logger.LogPatch("Patched", Endurance);
             }
+            static void PatchEnergizedWildShape() {
+                PatchDamageTriggers();
+                PatchPrerequisites();
+
+                static void PatchPrerequisites() {
+                    if (Main.TTTContext.Fixes.Feats.IsDisabled("EnergizedWildShapePrerequisites")) { return; }
+
+                    var EnergizedWildShapeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("92df031ed2cb4153950853d6a3b9813e");
+
+                    var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                    var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                    var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                    var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                    var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                    var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                    var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                    EnergizedWildShapeFeature.TemporaryContext(bp => {
+                        bp.RemoveComponents<PrerequisiteCondition>();
+                        bp.AddPrerequisiteFeaturesFromList(1,
+                            WildShapeIWolfFeature,
+                            FeralChampnionWildShapeIWolfFeature,
+                            MajorFormFeature,
+                            ShifterDragonFormFeature,
+                            GriffonheartShifterGriffonShapeFakeFeature,
+                            ShifterWildShapeFeyFeatureLevelUp,
+                            ShifterWildShapeManticoreFeatureLevelUp
+                        );
+                    });
+                    TTTContext.Logger.LogPatch(EnergizedWildShapeFeature);
+                }
+                static void PatchDamageTriggers() {
+                    if (Main.TTTContext.Fixes.Feats.IsDisabled("EnergizedWildShapeDamage")) { return; }
+
+                    var EnergizedDamageFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d808863c4bd44fd8bd9cf5892460705d");
+                    var EnergizedWildShapeAcidBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("d5cad83598c84964b9e743c3b485b1c6");
+                    var EnergizedWildShapeColdBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("e66bff2197724a508111f26cb8071a31");
+                    var EnergizedWildShapeElectricityBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("9cdacfc7e8a940fea80312ba3f1a02b8");
+                    var EnergizedWildShapeFireBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("5d2155c13f9842b2be8196edc82ef057");
+
+                    EnergizedDamageFeature.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                            EnergizedWildShapeAcidBuff
+                        };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Acid
+                            };
+                        });
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                            EnergizedWildShapeColdBuff
+                        };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Cold
+                            };
+                        });
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                            EnergizedWildShapeElectricityBuff
+                        };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Electricity
+                            };
+                        });
+                        bp.AddComponent<AddAdditionalWeaponDamage>(c => {
+                            c.CheckFacts = true;
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                                EnergizedWildShapeFireBuff
+                            };
+                            c.CheckWeaponGroup = true;
+                            c.Group = WeaponFighterGroup.Natural;
+                            c.Value = new ContextDiceValue() {
+                                DiceType = DiceType.D6,
+                                DiceCountValue = 1,
+                                BonusValue = 0
+                            };
+                            c.DamageType = new DamageTypeDescription() {
+                                Type = DamageType.Energy,
+                                Energy = DamageEnergyType.Fire
+                            };
+                        });
+                    });
+                    TTTContext.Logger.LogPatch(EnergizedDamageFeature);
+                }
+            }
+            static void PatchFrightfulShape() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("FrightfulShape")) { return; }
+
+                var FrightfulShape = BlueprintTools.GetBlueprint<BlueprintFeature>("8e8a34c754d649aa9286fe8ee5cc3f10");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                FrightfulShape.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteCondition>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(FrightfulShape);
+            }
+            static void PatchShifterRush() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ShifterRush")) { return; }
+
+                var ShiftersRushFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("4ddc88f422a84f76a952e24bec7b53e1");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                ShiftersRushFeature.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteCondition>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(ShiftersRushFeature);
+            }
             static void PatchMountedCombat() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("MountedCombat")) { return; }
 
@@ -460,6 +627,33 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 Outflank.AddComponent<OutflankProvokeAttackTTT>(c => {
                     c.m_OutflankFact = Outflank.ToReference<BlueprintUnitFactReference>();
                 });
+            }
+            static void PatchNaturalSpell() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("NaturalSpell")) { return; }
+
+                var NaturalSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("c806103e27cce6f429e5bf47067966cf");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                NaturalSpell.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteFeature>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(NaturalSpell);
             }
             static void PatchSiezeTheMoment() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("SiezeTheMoment")) { return; }
@@ -723,193 +917,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
         static class MetamagicHelper_GetBolsteredAreaEffectUnits_Patch {
             static void Postfix(TargetWrapper origin, ref List<UnitEntityData> __result) {
                 __result = __result.Where(unit => unit.AttackFactions.IsPlayerEnemy).ToList();
-            }
-        }
-
-        [HarmonyPatch]
-        static class VitalStrike_OnEventDidTrigger_Rowdy_Patch {
-            private static Type _type = typeof(AbilityCustomVitalStrike).GetNestedType("<Deliver>d__7", AccessTools.all);
-            internal static MethodInfo TargetMethod(Harmony instance) {
-                return AccessTools.Method(_type, "MoveNext");
-            }
-
-            static readonly MethodInfo AbilityCustomVitalStrike_get_RowdyFeature = AccessTools.PropertyGetter(
-                typeof(AbilityCustomVitalStrike),
-                "RowdyFeature"
-            );
-            static readonly ConstructorInfo VitalStrikeEventHandler_Constructor = AccessTools.Constructor(
-                typeof(VitalStrikeEventHandler),
-                new Type[] {
-                    typeof(UnitEntityData),
-                    typeof(int),
-                    typeof(bool),
-                    typeof(bool),
-                    typeof(EntityFact)
-                }
-            );
-            // ------------before------------
-            // eventHandlers.Add(new AbilityCustomVitalStrike.VitalStrike(maybeCaster, this.VitalStrikeMod, maybeCaster.HasFact(this.MythicBlueprint), maybeCaster.HasFact(this.RowdyFeature)));
-            // ------------after-------------
-            // eventHandlers.Add(new VitalStrikeEventHandler(maybeCaster, this.VitalStrikeMod, maybeCaster.HasFact(this.MythicBlueprint), maybeCaster.HasFact(this.RowdyFeature)));
-            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
-                var codes = new List<CodeInstruction>(instructions);
-                if (Main.TTTContext.Fixes.Feats.IsDisabled("VitalStrike")) { return instructions; }
-                int target = FindInsertionTarget(codes);
-                //TTTContext.Logger.Log($"OpperandType: {codes[71].operand.GetType()}");
-                //Utilities.ILUtils.LogIL(codes);
-                codes[target] = new CodeInstruction(OpCodes.Newobj, VitalStrikeEventHandler_Constructor);
-                //Utilities.ILUtils.LogIL(codes);
-                return codes.AsEnumerable();
-            }
-            private static int FindInsertionTarget(List<CodeInstruction> codes) {
-                //Looking for the arguments that define the object creation because searching for the object creation itself is hard
-                for (int i = 0; i < codes.Count; i++) {
-                    if (codes[i].opcode == OpCodes.Call && codes[i].Calls(AbilityCustomVitalStrike_get_RowdyFeature)) {
-                        if (codes[i + 6].opcode == OpCodes.Newobj) {
-                            return i + 6;
-                        }
-                    }
-                }
-                TTTContext.Logger.Log("VITALSTRIKEPATCH: COULD NOT FIND TARGET");
-                return -1;
-            }
-
-            private class VitalStrikeEventHandler : IInitiatorRulebookHandler<RuleCalculateWeaponStats>,
-                IRulebookHandler<RuleCalculateWeaponStats>,
-                IInitiatorRulebookHandler<RulePrepareDamage>,
-                IRulebookHandler<RulePrepareDamage>,
-                IInitiatorRulebookHandler<RuleAttackWithWeapon>,
-                IRulebookHandler<RuleAttackWithWeapon>,
-                ISubscriber, IInitiatorRulebookSubscriber {
-
-                public VitalStrikeEventHandler(UnitEntityData unit, int damageMod, bool mythic, bool rowdy, EntityFact fact) {
-                    this.m_Unit = unit;
-                    this.m_DamageMod = damageMod;
-                    this.m_Mythic = mythic;
-                    this.m_Rowdy = rowdy;
-                    this.m_Fact = fact;
-                }
-
-                public UnitEntityData GetSubscribingUnit() {
-                    return this.m_Unit;
-                }
-
-                public void OnEventAboutToTrigger(RuleCalculateWeaponStats evt) {
-                }
-
-                public void OnEventDidTrigger(RuleCalculateWeaponStats evt) {
-                    DamageDescription damageDescription = evt.DamageDescription.FirstItem();
-                    if (damageDescription != null && damageDescription.TypeDescription.Type == DamageType.Physical) {
-                        if (!evt.DoNotScaleDamage
-                                && (evt.WeaponDamageDice.HasModifications
-                                    || !evt.Weapon.Blueprint.IsDamageDiceOverridden
-                                    || (evt.Initiator.IsPlayerFaction && !evt.Initiator.Body.IsPolymorphed)
-                                    || evt.IsDefaultUnit)) {
-                            //DiceFormula diceFormula = WeaponDamageScaleTable.Scale(evt.WeaponDamageDice.ModifiedValue, evt.WeaponSize, Size.Medium, evt.Weapon.Blueprint);
-                            //if (diceFormula != evt.WeaponDamageDice.ModifiedValue) {
-                            //    evt.WeaponDamageDice.Modify(diceFormula, ModifierDescriptor.Size);
-                            //}
-                        }
-                        var vitalDamage = CalculateVitalDamage(evt);
-                        //new DamageDescription() {
-                        //Dice = new DiceFormula(damageDescription.Dice.Rolls * Math.Max(1, this.m_DamageMod - 1), damageDescription.Mo.Dice.Dice),
-                        //Bonus = this.m_Mythic ? damageDescription.Bonus * Math.Max(1, this.m_DamageMod - 1) : 0,
-                        //TypeDescription = damageDescription.TypeDescription,
-                        //IgnoreReduction = damageDescription.IgnoreReduction,
-                        //IgnoreImmunities = damageDescription.IgnoreImmunities,
-                        //SourceFact = this.m_Fact,
-                        //CausedByCheckFail = damageDescription.CausedByCheckFail,
-                        //m_BonusWithSource = 0
-                        //};
-                        evt.DamageDescription.Insert(1, vitalDamage);
-                    }
-                }
-
-                private DamageDescription CalculateVitalDamage(RuleCalculateWeaponStats evt) {
-                    var WeaponDice = new ModifiableDiceFormula(evt.WeaponDamageDice.ModifiedValue);
-                    //var WeaponDice = new ModifiableDiceFormula(evt.WeaponDamageDice.BaseFormula);
-                    //WeaponDice.m_Modifications = evt.WeaponDamageDice.Modifications.ToList();
-                    WeaponDice.Modify(new DiceFormula(WeaponDice.ModifiedValue.Rolls * Math.Max(1, this.m_DamageMod - 1), WeaponDice.ModifiedValue.Dice), m_Fact);
-
-                    DamageDescription damageDescriptor = evt.Weapon.Blueprint.DamageType.GetDamageDescriptor(WeaponDice, evt.Initiator.Stats.AdditionalDamage.BaseValue);
-                    damageDescriptor.TemporaryContext(dd => {
-                        dd.TypeDescription.Physical.Enhancement = evt.Enhancement;
-                        dd.TypeDescription.Physical.EnhancementTotal = evt.EnhancementTotal + evt.Weapon.EnchantmentValue;
-                        if (this.m_Mythic) {
-                            dd.AddModifier(new Modifier(evt.DamageDescription.FirstItem().Bonus * Math.Max(1, this.m_DamageMod - 1), evt.Initiator.GetFact(m_Fact.Blueprint.GetComponent<AbilityCustomVitalStrike>().MythicBlueprint), ModifierDescriptor.UntypedStackable));
-                        }
-                        dd.TypeDescription.Common.Alignment = evt.Alignment;
-                        dd.SourceFact = m_Fact;
-                    });
-                    return damageDescriptor;
-                }
-
-                public void OnEventAboutToTrigger(RuleAttackWithWeapon evt) {
-                }
-
-                //For Ranged - Handling of damage calcs does not occur the same due to projectiles
-                public void OnEventDidTrigger(RuleAttackWithWeapon evt) {
-                    if (!m_Rowdy) { return; }
-                    var RowdyFact = evt.Initiator.GetFact(m_Fact.Blueprint.GetComponent<AbilityCustomVitalStrike>().RowdyFeature);
-                    RuleAttackRoll ruleAttackRoll = evt.AttackRoll;
-                    if (ruleAttackRoll == null) { return; }
-                    if (evt.Initiator.Stats.SneakAttack < 1) { return; }
-                    if (!ruleAttackRoll.TargetUseFortification) {
-                        var FortificationCheck = Rulebook.Trigger<RuleFortificationCheck>(new RuleFortificationCheck(ruleAttackRoll));
-                        if (FortificationCheck.UseFortification) {
-                            ruleAttackRoll.FortificationChance = FortificationCheck.FortificationChance;
-                            ruleAttackRoll.FortificationRoll = FortificationCheck.Roll;
-                        }
-                    }
-                    if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
-                        DamageTypeDescription damageTypeDescription = evt.ResolveRules
-                            .Select(e => e.Damage).First()
-                            .DamageBundle.First<BaseDamage>().CreateTypeDescription();
-                        var rowdyDice = new ModifiableDiceFormula(new DiceFormula(evt.Initiator.Stats.SneakAttack * 2, DiceType.D6));
-                        var RowdyDamage = damageTypeDescription.GetDamageDescriptor(rowdyDice, 0);
-                        RowdyDamage.SourceFact = RowdyFact;
-                        BaseDamage baseDamage = RowdyDamage.CreateDamage();
-                        baseDamage.Precision = true;
-                        evt.ResolveRules.Select(e => e.Damage)
-                            .ForEach(e => e.Add(baseDamage));
-                    }
-                }
-
-                //For Melee
-                public void OnEventAboutToTrigger(RulePrepareDamage evt) {
-                    if (!m_Rowdy) { return; }
-                    var RowdyFact = evt.Initiator.GetFact(m_Fact.Blueprint.GetComponent<AbilityCustomVitalStrike>().RowdyFeature);
-                    RuleAttackRoll ruleAttackRoll = evt.ParentRule.AttackRoll;
-                    if (ruleAttackRoll == null) { return; }
-                    if (evt.Initiator.Stats.SneakAttack < 1) { return; }
-                    if (!ruleAttackRoll.TargetUseFortification) {
-                        var FortificationCheck = Rulebook.Trigger<RuleFortificationCheck>(new RuleFortificationCheck(ruleAttackRoll));
-                        if (FortificationCheck.UseFortification) {
-                            ruleAttackRoll.FortificationChance = FortificationCheck.FortificationChance;
-                            ruleAttackRoll.FortificationRoll = FortificationCheck.Roll;
-                        }
-                    }
-                    if (!ruleAttackRoll.TargetUseFortification || ruleAttackRoll.FortificationOvercomed) {
-                        DamageTypeDescription damageTypeDescription = evt.DamageBundle
-                            .First()
-                            .CreateTypeDescription();
-                        var rowdyDice = new ModifiableDiceFormula(new DiceFormula(evt.Initiator.Stats.SneakAttack * 2, DiceType.D6));
-                        var RowdyDamage = damageTypeDescription.GetDamageDescriptor(rowdyDice, 0);
-                        RowdyDamage.SourceFact = RowdyFact;
-                        BaseDamage baseDamage = RowdyDamage.CreateDamage();
-                        baseDamage.Precision = true;
-                        evt.Add(baseDamage);
-                    }
-                }
-
-                public void OnEventDidTrigger(RulePrepareDamage evt) {
-                }
-
-                private readonly UnitEntityData m_Unit;
-                private readonly EntityFact m_Fact;
-                private readonly int m_DamageMod;
-                private readonly bool m_Mythic;
-                private readonly bool m_Rowdy;
             }
         }
     }

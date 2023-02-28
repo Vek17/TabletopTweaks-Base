@@ -3,14 +3,17 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -75,7 +78,6 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                 PatchTrapfinding();
                 PatchRogueTalentSelection();
                 PatchDispellingAttack();
-                PatchSlipperyMind();
 
                 void PatchTrapfinding() {
                     if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("Trapfinding")) { return; }
@@ -111,6 +113,50 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                     if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("DispellingAttack")) { return; }
 
                     var DispellingAttack = BlueprintTools.GetBlueprint<BlueprintFeature>("1b92146b8a9830d4bb97ab694335fa7c");
+                    DispellingAttack.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddOutgoingDamageTrigger>();
+                        bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                        bp.AddComponent<AddSneakAttackDamageTrigger>(c => {
+                            c.Action = Helpers.CreateActionList(
+                                Helpers.Create<ContextActionDispelMagic>(a => {
+                                    a.m_CheckType = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel;
+                                    a.OnlyTargetEnemyBuffs = true;
+                                    a.OneRollForAll = true;
+                                    a.m_CountToRemove = 1;
+                                    a.m_StopAfterCountRemoved = true;
+                                    a.m_BuffType = ContextActionDispelMagic.BuffType.FromSpells;
+                                    a.m_MaxSpellLevel = new ContextValue();
+                                    a.m_UseMaxCasterLevel = true;
+                                    a.m_MaxCasterLevel = new ContextValue() {
+                                        ValueType = ContextValueType.Rank
+                                    };
+                                    a.ContextBonus = new ContextValue();
+                                    a.Schools = new SpellSchool[0];
+                                    a.OnSuccess = Helpers.CreateActionList();
+                                    a.OnFail = Helpers.CreateActionList();
+                                })
+                            );
+                        });
+                        bp.AddComponent<ContextSetAbilityParams>(c => {
+                            c.CasterLevel = 40;
+                        });
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                            c.m_Progression = ContextRankProgression.AsIs;
+                            c.m_Class = new BlueprintCharacterClassReference[] {
+                                ClassTools.Classes.RogueClass.ToReference<BlueprintCharacterClassReference>(),
+                                ClassTools.Classes.SlayerClass.ToReference<BlueprintCharacterClassReference>(),
+                                ClassTools.Classes.AlchemistClass.ToReference<BlueprintCharacterClassReference>(),
+                                ClassTools.Classes.DruidClass.ToReference<BlueprintCharacterClassReference>()
+                            };
+                            c.Archetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("68cbcd9fbf1fb1d489562f829bb97e38"); //Vivisectionist
+                            c.m_AdditionalArchetypes = new BlueprintArchetypeReference[] {
+                                BlueprintTools.GetModBlueprintReference<BlueprintArchetypeReference>(TTTContext, "NatureFangArcehtype")
+                        };
+                        });
+                    });
+
+                    /*
                     DispellingAttack.FlattenAllActions()
                         .OfType<ContextActionDispelMagic>()
                         .ForEach(a => {
@@ -123,16 +169,8 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                             a.OnlyTargetEnemyBuffs = true;
                             a.OneRollForAll = true;
                         });
+                    */
                     TTTContext.Logger.LogPatch(DispellingAttack);
-                }
-                void PatchSlipperyMind() {
-                    if (Main.TTTContext.Fixes.Rogue.Base.IsDisabled("SlipperyMind")) { return; }
-
-                    var SlipperyMind = BlueprintTools.GetBlueprint<BlueprintFeature>("a14e8c1801911334f96d410f10eab7bf");
-                    var AdvanceTalents = BlueprintTools.GetBlueprint<BlueprintFeature>("a33b99f95322d6741af83e9381b2391c");
-
-                    SlipperyMind.AddPrerequisiteFeature(AdvanceTalents);
-                    TTTContext.Logger.LogPatch(SlipperyMind);
                 }
             }
             static void PatchEldritchScoundrel() {

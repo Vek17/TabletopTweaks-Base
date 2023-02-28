@@ -26,6 +26,7 @@ using System.Reflection.Emit;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
+using static Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Items {
@@ -41,6 +42,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 TTTContext.Logger.LogHeader("Patching Weapons");
 
                 PatchBladeOfTheMerciful();
+                PatchDevastatingBlowFromAbove();
                 PatchFinnean();
                 PatchHonorableJudgement();
                 PatchRadiance();
@@ -78,13 +80,42 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     });
                     TTTContext.Logger.LogPatch("Patched", BladeOfTheMercifulEnchant);
                 }
+                void PatchDevastatingBlowFromAbove() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("DevastatingBlowFromAbove")) { return; }
+
+                    var MountedBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
+                    var DevastatingBlowFromAboveEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("1684be60cc3f8fd46b7aec30dc03e227");
+                    DevastatingBlowFromAboveEnchantment.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    DevastatingBlowFromAboveEnchantment.AddComponent<WeaponConditionalDamageDice>(c => {
+                        c.Damage = new DamageDescription() {
+                            Dice = new DiceFormula() {
+                                m_Dice = DiceType.D4,
+                                m_Rolls = 1
+                            },
+                            TypeDescription = new DamageTypeDescription() {
+                                Type = DamageType.Physical,
+                                Physical = new PhysicalData() { 
+                                    Form = PhysicalDamageForm.Piercing
+                                },
+                                Common = new CommomData()
+                            },
+                        };
+                        c.Conditions = new ConditionsChecker() {
+                            Conditions = new Condition[] {
+                                new ContextConditionCasterHasFact(){
+                                    m_Fact = MountedBuff
+                                }
+                            }
+                        };
+                    });
+                    TTTContext.Logger.LogPatch("Patched", DevastatingBlowFromAboveEnchantment);
+                }
                 void PatchHonorableJudgement() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("HonorableJudgement")) { return; }
 
                     var JudgementOfRuleItem = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("f40895a7dfab41c40b42657fc3f5bdfe");
                     var JudgementOfRuleSecondItem = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("ca0e81e14d675c34b862aad509be573d");
                     var JudgementOfRuleEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("74a8dc2f9ce6ced4fa211c20fa4def32");
-                    var BaneOutsiderEvil = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("20ba9055c6ae1e44ca270c03feacc53b");
                     JudgementOfRuleEnchantment.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
                     JudgementOfRuleEnchantment.AddComponent<WeaponConditionalDamageDice>(c => {
                         c.Damage = new DamageDescription() {

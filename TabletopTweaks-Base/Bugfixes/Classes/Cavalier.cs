@@ -7,6 +7,7 @@ using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -15,9 +16,11 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.MechanicsChanges.AdditionalActivatableAbilityGroups;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Cavalier {
@@ -77,9 +80,28 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             static void PatchBase() {
                 PatchCavalierMobility();
                 PatchCavalierMountSelection();
+                PatchMightyCharge();
                 PatchSupremeCharge();
+                PatchOrderOfTheCockatrice();
                 PatchOrderOfTheStar();
 
+                void PatchMightyCharge() {
+                    if (TTTContext.Fixes.Cavalier.Base.IsDisabled("MightyCharge")) { return; }
+
+                    var CavalierMightyCharge = BlueprintTools.GetBlueprint<BlueprintFeature>("ded43678aa1fbe241827175b65e9a749");
+                    var Cavalier_Charge_ToggleBullrush = BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("f40883b0b70140b590a83de1f39de956");
+                    var Cavalier_Charge_ToggleTrip = BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("95bf5a18b4ff46faac9fb22167f0de16");
+
+                    CavalierMightyCharge.AddComponent<IncreaseActivatableAbilityGroupSize>(c => {
+                        c.Group = (ActivatableAbilityGroup)ExtentedActivatableAbilityGroup.CavalierCharge;
+                    });
+                    Cavalier_Charge_ToggleBullrush.Group = (ActivatableAbilityGroup)ExtentedActivatableAbilityGroup.CavalierCharge;
+                    Cavalier_Charge_ToggleTrip.Group = (ActivatableAbilityGroup)ExtentedActivatableAbilityGroup.CavalierCharge;
+
+                    TTTContext.Logger.LogPatch(CavalierMightyCharge);
+                    TTTContext.Logger.LogPatch(Cavalier_Charge_ToggleBullrush);
+                    TTTContext.Logger.LogPatch(Cavalier_Charge_ToggleTrip);
+                }
                 void PatchCavalierMountSelection() {
                     if (TTTContext.Fixes.Cavalier.Base.IsDisabled("CavalierMountSelection")) { return; }
 
@@ -132,6 +154,24 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                     CavalierProgression.LevelEntries.Where(l => l.Level == 1).First().m_Features.Add(CavalierMobilityFeature.ToReference<BlueprintFeatureBaseReference>());
                     DiscipleOfThePikeArchetype.RemoveFeatures.Where(l => l.Level == 1).First().m_Features.Add(CavalierMobilityFeature.ToReference<BlueprintFeatureBaseReference>());
+                }
+                void PatchOrderOfTheCockatrice() {
+                    PatchChallenge();
+
+                    void PatchChallenge() {
+                        if (TTTContext.Fixes.Cavalier.Base.IsDisabled("OrderOfTheCockatriceChallenge")) { return; }
+
+                        var CavalierCockatriceChallenge = BlueprintTools.GetBlueprint<BlueprintFeature>("ba176bca404967b47bf9e583e80c3fd5");
+                        CavalierCockatriceChallenge.TemporaryContext(bp => {
+                            var oldComponent = bp.GetComponent<DamageBonusOrderOfCockatrice>();
+                            bp.AddComponent<DamageBonusOrderOfCockatriceTTT>(c => {
+                                c.m_CheckedFact = oldComponent.m_CheckedFact;
+                                c.Bonus = oldComponent.Bonus;
+                                c.Descriptor = oldComponent.Descriptor;
+                            });
+                            bp.RemoveComponents<DamageBonusOrderOfCockatrice>();
+                        });
+                    }
                 }
                 void PatchOrderOfTheStar() {
                     PatchCalling();

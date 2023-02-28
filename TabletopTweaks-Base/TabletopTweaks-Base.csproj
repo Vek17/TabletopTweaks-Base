@@ -185,6 +185,7 @@
     <Compile Include="Bugfixes\Classes\Ranger.cs" />
     <Compile Include="Bugfixes\Classes\Rogue.cs" />
     <Compile Include="Bugfixes\Classes\Shaman.cs" />
+    <Compile Include="Bugfixes\Classes\Shifter.cs" />
     <Compile Include="Bugfixes\Classes\Skald.cs" />
     <Compile Include="Bugfixes\Classes\Slayer.cs" />
     <Compile Include="Bugfixes\Classes\Sorcerer.cs" />
@@ -265,6 +266,7 @@
     <Compile Include="NewContent\AlternateCapstones\Ranger.cs" />
     <Compile Include="NewContent\AlternateCapstones\Rogue.cs" />
     <Compile Include="NewContent\AlternateCapstones\Shaman.cs" />
+    <Compile Include="NewContent\AlternateCapstones\Shifter.cs" />
     <Compile Include="NewContent\AlternateCapstones\Skald.cs" />
     <Compile Include="NewContent\AlternateCapstones\Slayer.cs" />
     <Compile Include="NewContent\AlternateCapstones\Sorcerer.cs" />
@@ -281,6 +283,7 @@
     <Compile Include="NewContent\Archetypes\ChannelerOfTheUnknown.cs" />
     <Compile Include="NewContent\Archetypes\DivineCommander.cs" />
     <Compile Include="NewContent\Archetypes\ElementalMaster.cs" />
+    <Compile Include="NewContent\Archetypes\HolyBeast.cs" />
     <Compile Include="NewContent\Archetypes\MadDog.cs" />
     <Compile Include="NewContent\Archetypes\MetamagicRager.cs" />
     <Compile Include="NewContent\Archetypes\Myrmidarch.cs" />
@@ -299,6 +302,7 @@
     <Compile Include="NewContent\Classes\Oracle.cs" />
     <Compile Include="NewContent\Classes\Skald.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
+    <Compile Include="NewContent\FavoredClassBonuses\Generic.cs" />
     <Compile Include="NewContent\Feats\AbilityFocusStunningFist.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\ArmorMastery.cs" />
@@ -306,6 +310,7 @@
     <Compile Include="NewContent\Feats\ArmorMastery\KnockingBlows.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\SecuredArmor.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\SprightlyArmor.cs" />
+    <Compile Include="NewContent\Feats\ChainChallenge.cs" />
     <Compile Include="NewContent\Feats\ExpandedSpellKenning.cs" />
     <Compile Include="NewContent\Feats\MantisStyle.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\BurningSpell.cs" />
@@ -333,6 +338,7 @@
     <Compile Include="NewContent\Feats\LungingSpellTouch.cs" />
     <Compile Include="NewContent\Feats\MagicalAptitude.cs" />
     <Compile Include="NewContent\Feats\MountedSkirmisher.cs" />
+    <Compile Include="NewContent\Feats\MutatedShape.cs" />
     <Compile Include="NewContent\Feats\NatureSoul.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\PiercingSpell.cs" />
     <Compile Include="NewContent\Feats\QuickChannel.cs" />
@@ -359,7 +365,7 @@
     <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
     <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
-    <Compile Include="NewContent\Features\LongspearChargeBuff.cs" />
+    <Compile Include="NewContent\Features\SpearChargeBuff.cs" />
     <Compile Include="NewContent\Features\MartialWeaponProficencySelection.cs" />
     <Compile Include="NewContent\Features\NauseatedPoision.cs" />
     <Compile Include="NewContent\Features\PerfectStrikeZenArcherBuff.cs" />
@@ -380,6 +386,7 @@
     <Compile Include="NewContent\MagusArcana\SpellBlending.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBombs.cs" />
+    <Compile Include="NewContent\MythicAbilities\AbundantChallenge.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantFervor.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
@@ -393,8 +400,10 @@
     <Compile Include="NewContent\MythicAbilities\ImpossibleBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
+    <Compile Include="NewContent\MythicAbilities\MythicBanner.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
     <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
+    <Compile Include="NewContent\MythicAbilities\SecondOrder.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondPatron.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCleave.cs" />
     <Compile Include="NewContent\MythicFeats\MythicCombatExpertise.cs" />

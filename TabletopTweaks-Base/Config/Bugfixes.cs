@@ -1,6 +1,6 @@
 ﻿using Kingmaker.Utility;
 using System.Collections.Generic;
-using TabletopTweaks.Base.Bugfixes.Features;
+using TabletopTweaks.Base.Bugfixes.Classes;
 using TabletopTweaks.Core.Config;
 
 namespace TabletopTweaks.Base.Config {
@@ -29,6 +29,7 @@ namespace TabletopTweaks.Base.Config {
         public ClassGroup Ranger = new ClassGroup();
         public ClassGroup Rogue = new ClassGroup();
         public ClassGroup Shaman = new ClassGroup();
+        public ClassGroup Shifter = new ClassGroup();
         public ClassGroup Skald = new ClassGroup();
         public ClassGroup Slayer = new ClassGroup();
         public ClassGroup Sorcerer = new ClassGroup();
@@ -65,6 +66,7 @@ namespace TabletopTweaks.Base.Config {
             Ranger.SetParents();
             Rogue.SetParents();
             Shaman.SetParents();
+            Shifter.SetParents();
             Skald.SetParents();
             Slayer.SetParents();
             Sorcerer.SetParents();
@@ -105,6 +107,7 @@ namespace TabletopTweaks.Base.Config {
             Ranger.LoadClassGroup(loadedSettings.Ranger, NewSettingsOffByDefault);
             Rogue.LoadClassGroup(loadedSettings.Rogue, NewSettingsOffByDefault);
             Shaman.LoadClassGroup(loadedSettings.Shaman, NewSettingsOffByDefault);
+            Shifter.LoadClassGroup(loadedSettings.Shifter, NewSettingsOffByDefault);
             Skald.LoadClassGroup(loadedSettings.Skald, NewSettingsOffByDefault);
             Slayer.LoadClassGroup(loadedSettings.Slayer, NewSettingsOffByDefault);
             Sorcerer.LoadClassGroup(loadedSettings.Sorcerer, NewSettingsOffByDefault);

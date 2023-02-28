@@ -4,7 +4,7 @@
     "DisableAll": false,
     "Settings": {
       "AreaOfEffectDoubleTrigger": {
-        "Enabled": true,
+        "Enabled": false,
         "Homebrew": false,
         "Description": "Fixes persistent area of effects from triggering multiple times off the initial cast as if an extra round had passed."
       },
@@ -338,6 +338,11 @@
         "Homebrew": false,
         "Description": "Enable alternate capstone for this class."
       },
+      "Shifter": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable alternate capstone for this class."
+      },
       "Skald": {
         "Enabled": true,
         "Homebrew": false,
@@ -551,6 +556,16 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Allows the Cavalier to select a wolf for a mount if they are of small size."
+        },
+        "MightyCharge": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Can now select both trip and bull rush at the same time."
+        },
+        "OrderOfTheCockatriceChallenge": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Bonuses should now be applied when both the rider and the mount threaten."
         },
         "OrderOfTheStarCalling": {
           "Enabled": true,
@@ -843,11 +858,6 @@
           "Homebrew": false,
           "Description": "Prevents you from selecting the same talent more than once."
         },
-        "SlipperyMind": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Sets Slippery Mind to correctly be an advanced talent.."
-        },
         "Trapfinding": {
           "Enabled": true,
           "Homebrew": false,
@@ -900,6 +910,48 @@
       "IsExpanded": true
     },
     "Archetypes": {}
+  },
+  "Shifter": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {},
+      "IsExpanded": true
+    },
+    "Archetypes": {
+      "GriffonheartShifter": {
+        "DisableAll": false,
+        "Settings": {
+          "PlayerUsable": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Allows created character to use this archetype."
+          }
+        },
+        "IsExpanded": true
+      },
+      "WildEffigy": {
+        "DisableAll": false,
+        "Settings": {
+          "ArmorPlating": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes interactions when multiple archetypes are stacked."
+          },
+          "HeartOfEarth": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes interactions when multiple archetypes are stacked."
+          },
+          "StoneclawStrike": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fixes interactions when multiple archetypes are stacked."
+          }
+        },
+        "IsExpanded": true
+      }
+    }
   },
   "Skald": {
     "DisableAll": false,
@@ -1141,11 +1193,6 @@
         "Homebrew": false,
         "Description": "Adds missing spell descriptors to match tabletop."
       },
-      "ConeOfCold": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Adds Cone of Cold to the Witch spell list."
-      },
       "CorruptMagic": {
         "Enabled": true,
         "Homebrew": false,
@@ -1171,10 +1218,25 @@
         "Homebrew": false,
         "Description": "Eye Of The Sun now deals the correct amount of damage."
       },
+      "FieryBody": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fiery Body is no longer considered a polymorph spell."
+      },
       "Firebrand": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Firebrand no longer causes excessive damage instances to trigger when attacking."
+      },
+      "IcyBody": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Icy Body is no longer considered a polymorph spell."
+      },
+      "IronBody": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Iron Body is no longer considered a polymorph spell."
       },
       "SunMarked": {
         "Enabled": true,
@@ -1195,6 +1257,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now correctly halves divine damage on saving throw."
+      },
+      "FreedomOfMovement": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Freedom of Movement no longer grants immunity to stagger."
       },
       "FriendlyHug": {
         "Enabled": true,
@@ -1280,11 +1347,6 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "RepulsiveNature now uses the correct spell DC and actually applies its debuffs on fail."
-      },
-      "ShadowConjuration": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Shadow Conjuration has been added to the Wizard spell list."
       },
       "ShadowEvocation": {
         "Enabled": true,
@@ -1460,10 +1522,25 @@
         "Homebrew": true,
         "Description": "Endurance now grants +4 Athletics if you have 10 ranks in Athletics like similar feats."
       },
+      "EnergizedWildShapeDamage": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Energized Wild Shape no longer creates excessive damage triggers."
+      },
+      "EnergizedWildShapePrerequisites": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Energized Wild Shape now has more correct prerequites for non druid classes with Wild Shape."
+      },
       "FencingGrace": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now only works on one handed weapons always."
+      },
+      "FrightfulShape": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Frightful Shape now has more correct prerequites for non druid classes with Wild Shape."
       },
       "Lunge": {
         "Enabled": true,
@@ -1490,6 +1567,11 @@
         "Homebrew": false,
         "Description": "Now works correctly."
       },
+      "NaturalSpell": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Natural Spell now has more correct prerequites for non druid classes with Wild Shape."
+      },
       "Outflank": {
         "Enabled": true,
         "Homebrew": false,
@@ -1515,6 +1597,11 @@
         "Homebrew": false,
         "Description": "Now requires you to hit a shaken target once before they become flat footed."
       },
+      "ShifterRush": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shifter Rush now has more correct prerequites for non druid classes with Wild Shape."
+      },
       "SiezeTheMoment": {
         "Enabled": true,
         "Homebrew": false,
@@ -1531,11 +1618,6 @@
         "Description": "Enables spell specialization selection on all classes."
       },
       "SpiritedCharge": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Bonus damage no longer can crit."
-      },
-      "VitalStrike": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Bonus damage no longer can crit."
@@ -1575,11 +1657,6 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now no longer critically hits and procs additional weapons effects."
-      },
-      "MythicCharge": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Prevents Mythic charge from triggering multiple fake attacks and procing weapon effects more often than it should."
       },
       "SecondBloodline": {
         "Enabled": true,
@@ -1757,6 +1834,11 @@
       "DisableAll": false,
       "Settings": {
         "BladeOfTheMerciful": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
+        "DevastatingBlowFromAbove": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."

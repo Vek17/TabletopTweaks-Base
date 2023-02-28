@@ -1,3 +1,67 @@
+## Version 2.5.1
+* Fixes
+    * AreaOfEffectDoubleTrigger set to off by default due to some issues with some areas.
+    * Fixed issues where spear charges did twice as much damage as intended.
+    * Shifter
+        * Griffon Heart Shifter has been made selectable in character creation.
+        * Wild Effigy has been adjusted to work correctly when multiple archetypes are used.
+    * Feats
+        * Energized Wild Shape
+            * Fixed incorrect triggering of fake attacks.
+            * Fixed prerequites for non druid classes with Wild Shape.
+        * Frightful Shape
+            * Fixed prerequites for non druid classes with Wild Shape.
+        * Natural Spell
+            * Fixed prerequites for non druid classes with Wild Shape.
+        * Shifter Rush
+            * Fixed prerequites for non druid classes with Wild Shape.
+    * Spells
+        * Magical Vestment
+            * Fixed incorrect stacking with armor bonuses.
+        * Fiery Body
+            * Fiery Body is no longer considered a polymorph spell.
+        * Icy Body
+            * Icy Body is no longer considered a polymorph spell.
+        * Iron Body
+            * Iron Body is no longer considered a polymorph spell.    
+    * Weapons
+        * Devastating Blow From Above
+            * Fixed incorrect triggering of fake attacks.
+* Added Content
+    * Alternate Capstones
+        * Shifter support has been added.
+    * Archetypes
+        * Holy Beast
+            * Shifter archetype with bonuses against Outsiders and modified claws.
+    * Feats
+        * Chain Challenge
+            * When the target of your challenge ability is killed or knocked unconscious, you can declare a new challenge on the nearest target within 30 feet as a free action. If you declare a new challenge using this feat, it doesn’t count against your total daily uses of challenge.
+        * Mutated Shape
+            * When you use wild shape, you gain an additional primary slam attack.
+    * Mythic Abilities
+        * Abundant Challenge
+            * You can use Challenge a number of additional times per day equal to half your mythic rank.
+        * Mythic Banner
+            * All allies within 60 feet gain a +2 morale bonus to AC. They gain an additional bonus to AC against attack rolls made to confirm a critical hit equal to half your mythic rank.
+        * Second Order
+            * You select a second order, gaining all its benifits.
+
+## Version 2.5.0
+* Fix for 2.1.0j
+* Removed unneeded Vital Strike patch.
+* Removed unneeded Mythic Charge patch.
+* Removed unneeded Slippery Mind patch.
+* Removed uneeded Cone of Cold patch.
+* Removed uneeded Shadow Conjuration patch.
+* Fixes
+    * Updated charge bonus damage to use the new post crit damage system for better damage breakdowns.
+    * Cavalier
+        * Mighty Charge
+            * Can now activate both Bull Rush and Trip at the same time.
+    * Spells
+        * Freedom of Movement
+            * No longer grants immunity to stagger.
+
 ## Version 2.4.5
 * Fix for 2.0.5o
 

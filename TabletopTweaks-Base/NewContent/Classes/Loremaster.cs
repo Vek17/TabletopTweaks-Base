@@ -93,7 +93,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             BlueprintFeatureReplaceSpellbook[] CreateSpellbookReplacements(BlueprintCharacterClass characterClass, BlueprintFeatureSelection selection) {
                 List<BlueprintSpellbookReference> spellbooks = characterClass
                     .m_Archetypes
-                    .Select(archetype => archetype.Get().m_ReplaceSpellbook)
+                    .Select(archetype => archetype.Get()?.m_ReplaceSpellbook)
                     .Append(characterClass.m_Spellbook)
                     .Where(spellbook => spellbook?.Get() != null)
                     .Distinct()

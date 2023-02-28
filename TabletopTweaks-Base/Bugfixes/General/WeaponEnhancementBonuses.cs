@@ -1,8 +1,5 @@
 ﻿using HarmonyLib;
-using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
-using Kingmaker.RuleSystem.Rules;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
@@ -10,7 +7,7 @@ using TabletopTweaks.Core.MechanicsChanges;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     internal class WeaponEnhancementBonuses {
-        [HarmonyPatch(typeof(WeaponEnhancementBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAttackBonusWithoutTarget) })]
+        //[HarmonyPatch(typeof(WeaponEnhancementBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAttackBonusWithoutTarget) })]
         static class WeaponEnhancementBonus_Descriptor_Patch {
             //Change bonus descriptor to Trait instead of Competence
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {

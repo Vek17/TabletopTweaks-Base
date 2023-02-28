@@ -50,6 +50,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Templates.AlignmentTemplates.AddResoluteTemplate();
 
                 WeaponEnchantments.NonStackingTempEnchantments.AddWeaponEnhancements();
+                WeaponEnchantments.NonStackingTempEnchantments.AddArmorEnhancements();
                 WeaponEnchantments.TwoHandedDamageMultiplier.AddTwoHandedDamageMultiplierEnchantment();
                 WeaponEnchantments.TerrifyingTremble.AddTerrifyingTrembleEnchant();
 
@@ -79,7 +80,7 @@ namespace TabletopTweaks.Base.NewContent {
                 WizardArcaneDiscoveries.YuelralsBlessing.AddYuelralsBlessing();
 
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
-                Features.LongspearChargeBuff.AddLongspearChargeBuff();
+                Features.SpearChargeBuff.AddSpearChargeBuff();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
                 Features.DragonDiscipleSpellbooks.AddDragonDiscipleSpellbooks();
                 Features.FighterTrainingFakeLevel.AddFighterTrainingFakeLevel();
@@ -137,6 +138,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Archetypes.NatureFang.AddNatureFang();
                 Archetypes.ChannelerOfTheUnknown.AddChannelerOfTheUnknown();
                 Archetypes.Myrmidarch.AddMyrmidarch();
+                Archetypes.HolyBeast.AddHolyBeast();
                 //Features to support existing prestige clases
                 Classes.Loremaster.AddLoremasterFeatures();
 
@@ -148,6 +150,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.PrecisionCritical.AddPrecisionCritical();
                 MythicAbilities.AbundantBlessing.AddAbundantBlessing();
                 MythicAbilities.AbundantBombs.AddAbundantBombs();
+                MythicAbilities.AbundantChallenge.AddAbundantChallenge();
                 MythicAbilities.AbundantFervor.AddAbundantFervor();
                 MythicAbilities.AbundantIncense.AddAbundantIncense();
                 MythicAbilities.AbundantLayOnHands.AddAbundantLayOnHands();
@@ -156,6 +159,8 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.EnhancedBlessings.AddEnhancedBlessings();
                 MythicAbilities.ImpossibleBlessing.AddImpossibleBlessing();
                 MythicAbilities.AbundantSpellKenning.AddAbundantSpellKenning();
+                MythicAbilities.SecondOrder.AddSecondOrder();
+                MythicAbilities.MythicBanner.AddMythicBanner();
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();
@@ -190,6 +195,8 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.ExpandedSpellKenning.AddExpandedSpellKenning();
                 Feats.MantisStyle.AddMantisStyle();
                 Feats.AbilityFocusStunningFist.AddAbilityFocusStunningFist();
+                Feats.ChainChallenge.AddChainChallenge();
+                Feats.MutatedShape.AddMutatedShape();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();
@@ -233,6 +240,7 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Ranger.AddAlternateCapstones();
                 AlternateCapstones.Rogue.AddAlternateCapstones();
                 AlternateCapstones.Shaman.AddAlternateCapstones();
+                AlternateCapstones.Shifter.AddAlternateCapstones();
                 AlternateCapstones.Skald.AddAlternateCapstones();
                 AlternateCapstones.Slayer.AddAlternateCapstones();
                 AlternateCapstones.Sorcerer.AddAlternateCapstones();

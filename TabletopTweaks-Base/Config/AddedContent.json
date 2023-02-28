@@ -28,6 +28,11 @@
         "Homebrew": false,
         "Description": "Enables an incomplete archetype from Owlcat."
       },
+      "HolyBeast": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A shifter archetype that gets bonuses against outsiders and modifies thier claws."
+      },
       "MetamagicRager": {
         "Enabled": true,
         "Homebrew": false,
@@ -111,6 +116,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Your animal companion, familiar, or mount gains the celestial template and becomes a magical beast, though you may still treat it as an animal when using Handle Animal, wild empathy, or any other spells or class abilities that specifically affect animals."
+      },
+      "ChainChallenge": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When the target of your challenge ability is killed or knocked unconscious, you can declare a new challenge on the nearest target within 30 feet as a free action."
       },
       "DervishDance": {
         "Enabled": true,
@@ -266,6 +276,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "If your mount moves its speed or less, you can still take a full-attack action."
+      },
+      "MutatedShape": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you use wild shape, you gain an additional primary slam attack."
       },
       "NatureSoul": {
         "Enabled": true,
@@ -608,6 +623,11 @@
         "Homebrew": true,
         "Description": "You can throw additional bombs per day equal to twice your mythic rank."
       },
+      "AbundantChallenge": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can use Challenge a number of additional times per day equal to half your mythic rank."
+      },
       "AbundantLayOnHands": {
         "Enabled": true,
         "Homebrew": true,
@@ -678,6 +698,11 @@
         "Homebrew": false,
         "Description": "Your unstoppable momentum while mounted is terrifying. Whenever you charge a creature while mounted, you can attempt an Intimidate check to demoralize all enemies within 30 feet of your target, adding your mythic rank to the result of the check."
       },
+      "MythicBanner": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "All allies within 60 feet gain a +2 morale bonus to AC. They gain an additional bonus to AC against attack rolls made to confirm a critical hit equal to half your mythic rank."
+      },
       "MythicSpellCombat": {
         "Enabled": true,
         "Homebrew": true,
@@ -687,6 +712,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Whenever you score a critical hit, double any extra precision damage dice, such as sneak attack damage. These dice are only doubled, not multiplied by the weapon's critical modifier."
+      },
+      "SecondOrder": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You select a second order, gaining all its benefits."
       },
       "SecondPatron": {
         "Enabled": true,
