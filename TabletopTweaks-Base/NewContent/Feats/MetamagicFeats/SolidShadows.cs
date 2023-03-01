@@ -61,7 +61,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                    icon: Icon_SolidShadowsMetamagic,
                    defaultCost: 1,
                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicSolidShadows,
-                   metamagicMechanics: SolidShadowsMechanics.Instance
+                   metamagicMechanics: SolidShadowsMechanics.Instance,
+                   metamagicFeat: SolidShadowsSpellFeat
                );
             }
             var FavoriteMetamagicSolidShadows = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicSolidShadows", bp => {

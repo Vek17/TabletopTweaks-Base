@@ -336,6 +336,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 var AngelSunMarkedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("35407948549e61f4c80e6b59633d82b0");
 
                 AngelSunMarkedBuff.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                AngelSunMarkedBuff.RemoveComponents<AdditionalDiceOnAttack>();
                 AngelSunMarkedBuff.AddComponent<AddAdditionalWeaponDamage>(c => {
                     c.Value = new ContextDiceValue() {
                         DiceType = DiceType.D6,

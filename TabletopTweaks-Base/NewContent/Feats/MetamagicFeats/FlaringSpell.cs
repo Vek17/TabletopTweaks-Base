@@ -102,7 +102,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     icon: Icon_FlaringSpellMetamagic,
                     defaultCost: 1,
                     favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicFlaring,
-                    metamagicMechanics: FlaringSpellMechanics.Instance
+                    metamagicMechanics: FlaringSpellMechanics.Instance,
+                    metamagicFeat: FlaringSpellFeat
                 );
             }
             var MetamagicRodsFlaring = ItemTools.CreateAllMetamagicRods(

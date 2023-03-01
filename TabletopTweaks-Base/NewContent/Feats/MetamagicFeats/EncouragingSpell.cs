@@ -85,7 +85,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     icon: Icon_EncouragingSpellMetamagic,
                     defaultCost: 1,
                     favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicEncouraging,
-                    metamagicMechanics: EncouragingSpellMechanics.Instance
+                    metamagicMechanics: EncouragingSpellMechanics.Instance,
+                    metamagicFeat: EncouragingSpellFeat
                 );
             }
             var MetamagicRodsPiercing = ItemTools.CreateAllMetamagicRods(

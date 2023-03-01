@@ -208,7 +208,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     name: "Elemental — Acid",
                     icon: Icon_ElementalSpellAcidMetamagic,
                     defaultCost: 1,
-                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicElemental
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicElemental,
+                    metamagicFeat: ElementalSpellFeatAcid
                 );
                 MetamagicExtention.RegisterMetamagic(
                     context: TTTContext,
@@ -216,7 +217,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     name: "Elemental — Cold",
                     icon: Icon_ElementalSpellColdMetamagic,
                     defaultCost: 1,
-                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicElemental
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicElemental,
+                    metamagicFeat: ElementalSpellFeatCold
                 );
                 MetamagicExtention.RegisterMetamagic(
                     context: TTTContext,
@@ -224,7 +226,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     name: "Elemental — Electricity",
                     icon: Icon_ElementalSpellElectricityMetamagic,
                     defaultCost: 1,
-                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicElemental
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicElemental,
+                    metamagicFeat: ElementalSpellFeatElectricity
                 );
                 MetamagicExtention.RegisterMetamagic(
                    context: TTTContext,
@@ -233,7 +236,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                    icon: Icon_ElementalSpellFireMetamagic,
                    defaultCost: 1,
                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicElemental,
-                   metamagicMechanics: new ElementalSpellMechanics(ElementalSpellFeatAcid, ElementalSpellFeatCold, ElementalSpellFeatElectricity, ElementalSpellFeatFire)
+                   metamagicMechanics: new ElementalSpellMechanics(ElementalSpellFeatAcid, ElementalSpellFeatCold, ElementalSpellFeatElectricity, ElementalSpellFeatFire),
+                   metamagicFeat: ElementalSpellFeatFire
                );
             }
             var MetamagicRodsElementalFire = ItemTools.CreateAllMetamagicRods(

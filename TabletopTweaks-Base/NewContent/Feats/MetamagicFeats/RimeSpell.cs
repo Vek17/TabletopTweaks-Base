@@ -103,7 +103,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     icon: Icon_RimeSpellMetamagic,
                     defaultCost: 1,
                     favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicRime,
-                    metamagicMechanics: RimeSpellMechanics.Instance
+                    metamagicMechanics: RimeSpellMechanics.Instance,
+                    metamagicFeat: RimeSpellFeat
                 );
             }
             var MetamagicRodsRime = ItemTools.CreateAllMetamagicRods(

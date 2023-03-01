@@ -185,7 +185,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     "(chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.");
                 bp.AddComponent<PrerequisiteFeaturesFromList>(c => {
                     c.HideInUI = true;
-                    c.m_Features = new BlueprintFeatureReference[] { 
+                    c.m_Features = new BlueprintFeatureReference[] {
                         AbadarFeature,
                         CalistriaFeature,
                         GorumFeature,
@@ -410,7 +410,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 });
                 var BlessedClawsBuff = Buff.CreateCopy(TTTContext, $"{Buff.name.Replace("ShifterClaw", "BlessedClaw")}", bp => {
                     bp.SetName(TTTContext, "Blessed Claws");
-                    bp.GetComponent<EmptyHandWeaponOverride>()?.TemporaryContext(c => { 
+                    bp.GetComponent<EmptyHandWeaponOverride>()?.TemporaryContext(c => {
                         c.m_Weapon = BlessedClawsWeapon.ToReference<BlueprintItemWeaponReference>();
                     });
                     bp.GetComponent<AddFactContextActions>()?.TemporaryContext(c => {
@@ -424,15 +424,15 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                                     }
                                 };
                                 condition.IfTrue = Helpers.CreateActionList(
-                                    new ContextActionApplyBuff() { 
+                                    new ContextActionApplyBuff() {
                                         m_Buff = BlessedClawsGoodBuff.ToReference<BlueprintBuffReference>(),
-                                        DurationValue = new ContextDurationValue() { 
+                                        DurationValue = new ContextDurationValue() {
                                             DiceCountValue = 0,
                                             BonusValue = 1
                                         },
                                         SameDuration = true,
                                         AsChild = true
-                                    }    
+                                    }
                                 );
                                 condition.IfFalse = Helpers.CreateActionList();
                             }),
@@ -509,7 +509,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                             }),
                             Helpers.Create<ContextActionRemoveBuff>(a => {
                                 a.m_Buff = BlessedClawsLawBuff.ToReference<BlueprintBuffReference>();
-                            }), 
+                            }),
                             Helpers.Create<ContextActionRemoveBuff>(a => {
                                 a.m_Buff = BlessedClawsChaosBuff.ToReference<BlueprintBuffReference>();
                             })
@@ -552,9 +552,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             ) {
                 var BlessedClawsWeapon = ShifterClaw1d10x3.CreateCopy(TTTContext, $"BlessedClaw1{Dice}", bp => {
                     bp.m_DamageDice = new DiceFormula(1, Dice);
-                    bp.m_DamageType = new DamageTypeDescription() { 
+                    bp.m_DamageType = new DamageTypeDescription() {
                         Common = new DamageTypeDescription.CommomData(),
-                        Physical = new DamageTypeDescription.PhysicalData() { 
+                        Physical = new DamageTypeDescription.PhysicalData() {
                             Form = PhysicalDamageForm.Piercing
                         }
                     };

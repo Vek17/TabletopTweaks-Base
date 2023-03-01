@@ -25,7 +25,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
             var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
             var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
-         
+
             var MutatedShapeFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "MutatedShapeFeature", bp => {
                 bp.SetName(TTTContext, "Mutated Shape");
                 bp.SetDescription(TTTContext, "Your wild shape form gains an additional appendage you can use to attack your foes.\n" +
@@ -36,7 +36,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
-                
+
                 bp.AddPrerequisite<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.Wisdom;
                     c.Value = 19;

@@ -80,7 +80,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     name: "Intensified",
                     icon: Icon_IntensifiedSpellMetamagic,
                     defaultCost: 1,
-                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicIntensified
+                    favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicIntensified,
+                    metamagicFeat: IntensifiedSpellFeat
                 );
             }
             var MetamagicRodsIntensified = ItemTools.CreateAllMetamagicRods(

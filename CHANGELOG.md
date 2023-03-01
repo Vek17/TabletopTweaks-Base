@@ -23,7 +23,9 @@
         * Icy Body
             * Icy Body is no longer considered a polymorph spell.
         * Iron Body
-            * Iron Body is no longer considered a polymorph spell.    
+            * Iron Body is no longer considered a polymorph spell.
+        * Sun Marked
+            * Sun marked no longer deals twice as much damage as it should.
     * Weapons
         * Devastating Blow From Above
             * Fixed incorrect triggering of fake attacks.

@@ -178,7 +178,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     icon: Icon_BurningSpellMetamagic,
                     defaultCost: 2,
                     favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicBurning,
-                    metamagicMechanics: BurningSpellMechanics.Instance
+                    metamagicMechanics: BurningSpellMechanics.Instance,
+                    metamagicFeat: BurningSpellFeat
                 );
             }
             var MetamagicRodsRime = ItemTools.CreateAllMetamagicRods(

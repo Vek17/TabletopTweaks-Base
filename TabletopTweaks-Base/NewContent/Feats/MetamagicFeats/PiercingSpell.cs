@@ -76,7 +76,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     icon: Icon_PiercingSpellMetamagic,
                     defaultCost: 1,
                     favoriteMetamagic: CustomMechanicsFeature.FavoriteMetamagicPiercing,
-                    metamagicMechanics: PiercingSpellMechanics.Instance
+                    metamagicMechanics: PiercingSpellMechanics.Instance,
+                    metamagicFeat: PiercingSpellFeat
                 );
             }
             var MetamagicRodsPiercing = ItemTools.CreateAllMetamagicRods(
