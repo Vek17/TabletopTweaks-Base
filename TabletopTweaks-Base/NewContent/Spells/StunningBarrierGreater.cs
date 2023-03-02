@@ -199,6 +199,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
 
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.ClericSpellList, 3);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.InquisitorSpellList, 3);
+            StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.AeonSpellList, 3);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.PaladinSpellList, 3);
             StunningBarrierGreaterAbility.AddToSpellList(SpellTools.SpellList.WizardSpellList, 3);
         }

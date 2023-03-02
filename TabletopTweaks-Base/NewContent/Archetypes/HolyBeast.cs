@@ -315,6 +315,11 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 DiceType.D4,
                 append: "-Base"
             );
+            BlessedClawsFeatureAddLevel.SetDescription(TTTContext, "This ability functions as the shifter’s claws class feature, " +
+                "except the holy beast shifter’s default claws are long and thin, dealing piercing damage. " +
+                "At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) " +
+                "within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.\n" +
+                $"{BlessedClawsFeatureAddLevel.Description}");
             var BlessedClawsFeatureAddLevel1 = CreateBlessedClawsFeatureSelection(
                 ShifterClawsFeatureAddLevel1,
                 ShifterClawsFeatureLevel3,
