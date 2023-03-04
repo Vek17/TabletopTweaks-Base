@@ -1626,6 +1626,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "No longer treats any weapon with Fencing/Slashing grace into a finesse weapon."
+      },
+      "VitalStrike": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now works correctly with overhand chop."
       }
     },
     "IsExpanded": true

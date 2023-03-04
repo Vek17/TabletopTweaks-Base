@@ -53,6 +53,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 .OfType<BlueprintProgression>()
                 .ForEach(patron => {
                     patron.GiveFeaturesForPreviousLevels = true;
+                    patron.AddClass(ClassTools.Classes.WinterWitchClass);
                     patron.AddComponent<AddFacts>(c => {
                         c.m_Facts = new BlueprintUnitFactReference[] { SecondPatronRequisiteFeature.ToReference<BlueprintUnitFactReference>() };
                     });

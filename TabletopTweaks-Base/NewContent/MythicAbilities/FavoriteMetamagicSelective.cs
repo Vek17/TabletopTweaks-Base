@@ -24,8 +24,8 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 bp.AddPrerequisiteFeature(SelectiveSpellFeat);
             });
 
-            if (TTTContext.AddedContent.MythicAbilities.IsDisabled("FavoriteMetamagicSelective")) { return; }
-            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicSelective);
+            //if (TTTContext.AddedContent.MythicAbilities.IsDisabled("FavoriteMetamagicSelective")) { return; }
+            //FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicSelective);
         }
     }
 }

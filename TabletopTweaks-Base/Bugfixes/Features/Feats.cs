@@ -10,11 +10,14 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
+using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -29,11 +32,14 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Reflection;
 using TabletopTweaks.Core.NewActions;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
+using TabletopTweaks.Core.NewRules;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -917,6 +923,53 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
         static class MetamagicHelper_GetBolsteredAreaEffectUnits_Patch {
             static void Postfix(TargetWrapper origin, ref List<UnitEntityData> __result) {
                 __result = __result.Where(unit => unit.AttackFactions.IsPlayerEnemy).ToList();
+            }
+        }
+        [HarmonyPatch]
+        static class VitalStrike_OnEventDidTrigger_Rowdy_Patch {
+            private static Type _type = typeof(AbilityCustomVitalStrike).GetNestedType("<Deliver>d__7", AccessTools.all);
+            internal static MethodInfo TargetMethod(Harmony instance) {
+                return AccessTools.Method(_type, "MoveNext");
+            }
+
+            static readonly MethodInfo MechanicsContext_TriggerRule = AccessTools.Method(
+                typeof(MechanicsContext),
+                "TriggerRule",
+                generics: new Type[] { typeof(RuleAttackWithWeapon) }
+            );
+            static readonly MethodInfo RuleAttackWithWeapon_IsFirstAttack_Set = AccessTools.PropertySetter(
+                typeof(RuleAttackWithWeapon),
+                "IsFirstAttack"
+            );
+            // ------------before------------
+            // context.TriggerRule<RuleAttackWithWeapon>(ruleAttackWithWeapon);
+            // ------------after-------------
+            // ruleAttackWithWeapon.FirstAttack = true;
+            // context.TriggerRule<RuleAttackWithWeapon>(ruleAttackWithWeapon);
+            static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
+                var codes = new List<CodeInstruction>(instructions);
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("VitalStrike")) { return instructions; }
+                int target = FindInsertionTarget(codes);
+                //TTTContext.Logger.Log($"OpperandType: {codes[71].operand.GetType()}");
+                //ILUtils.LogIL(TTTContext, codes);
+                var load = codes[target - 1];
+                codes.InsertRange(target, new CodeInstruction[] {
+                    new CodeInstruction(OpCodes.Ldc_I4_1),
+                    new CodeInstruction(OpCodes.Call, RuleAttackWithWeapon_IsFirstAttack_Set),
+                    load.Clone()
+                });
+                //ILUtils.LogIL(TTTContext, codes);
+                return codes.AsEnumerable();
+            }
+            private static int FindInsertionTarget(List<CodeInstruction> codes) {
+                //Looking for the arguments that define the object creation because searching for the object creation itself is hard
+                for (int i = 0; i < codes.Count; i++) {
+                    if (codes[i].Calls(MechanicsContext_TriggerRule)) {
+                        return i;
+                    }
+                }
+                TTTContext.Logger.Log("VITALSTRIKEPATCH: COULD NOT FIND TARGET");
+                return -1;
             }
         }
     }

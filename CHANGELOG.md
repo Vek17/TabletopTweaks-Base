@@ -2,9 +2,12 @@
 * Fixes
     * AreaOfEffectDoubleTrigger set to off by default due to some issues with some areas.
     * Fixed issues where spear charges did twice as much damage as intended.
+    * Removed duplicate Favorite Metamagic Selective.
     * Shifter
         * Griffon Heart Shifter has been made selectable in character creation.
         * Wild Effigy has been adjusted to work correctly when multiple archetypes are used.
+    * Winter Witch
+        * Winter witch levels should now properly progress patron spells granted by Second Patron.
     * Feats
         * Energized Wild Shape
             * Fixed incorrect triggering of fake attacks.
@@ -15,6 +18,8 @@
             * Fixed prerequites for non druid classes with Wild Shape.
         * Shifter Rush
             * Fixed prerequites for non druid classes with Wild Shape.
+        * Vital Strike
+            * Now works correctly with overhand chop.
     * Spells
         * Magical Vestment
             * Fixed incorrect stacking with armor bonuses.
