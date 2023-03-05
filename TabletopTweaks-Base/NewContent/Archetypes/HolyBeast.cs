@@ -7,10 +7,12 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -19,6 +21,7 @@ using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
+using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using UnityEngine;
 using static TabletopTweaks.Base.Main;
@@ -38,36 +41,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             var MasterHunterResourceDemonOfStrength = BlueprintTools.GetBlueprintReference<BlueprintAbilityResourceReference>("7f57ac3202f2418180535c98dd432ec0");
             var MasterHunterResourceOutsider = BlueprintTools.GetBlueprintReference<BlueprintAbilityResourceReference>("75abc6860d1146299ff802b5b0120ca5");
 
-            var AbadarFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("6122dacf418611540a3c91e67197ee4e");
-            var AreshkagalFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("d714ecb5d5bb89a42957de0304e459c9");
-            var AsmodeusFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("a3a5ccc9c670e6f4ca4a686d23b89900");
             var AtheismFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("92c0d2da0a836ce418a267093c09ca54");
-            var BaphometFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("bd72ca8ffcfec5745899ac56c93f12c5");
-            var CalistriaFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("c7531715a3f046d4da129619be63f44c");
-            var CaydenCaileanFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("300e212868bca984687c92bcb66d381b");
-            var DeskariFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("ddf913858bdf43b4da3b731e082fbcc0");
-            var DesnaFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("2c0a3b9971327ba4d9d85354d16998c1");
-            var ErastilFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("afc775188deb7a44aa4cbde03512c671");
             var GodclawFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("583a26e88031d0a4a94c8180105692a5");
-            var GorumFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("8f49a5d8528a82c44b8c117a89f6b68c");
-            var GozrehFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("4af983eec2d821b40a3065eb5e8c3a72");
             var GreenFaithFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("99a7a8f13c1300c42878558fa9471e2f");
-            var GyronnaFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("8b535b6842e063d48a571a042c3c6e8f");
-            var IomedaeFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("88d5da04361b16746bf5b65795e0c38c");
-            var IroriFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("23a77a5985de08349820429ce1b5a234");
-            var KabririFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("f12c1ccc9d600c04f8887cd28a8f45a5");
-            var LamashtuFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("f86bc8fbf13221f4f9041608a1fb8585");
-            var LichDeityFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("b4153b422d02d4f48b3f8f0ceb6a10eb");
-            var NethysFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("6262cfce7c31626458325ca0909de997");
-            var NorgorberFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("805b6bdc8c96f4749afc687a003f9628");
-            var PharasmaFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("458750bc214ab2e44abdeae404ab22e9");
-            var PuluraFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("ebb0b46f95dbac74681c78aae895dbd0");
-            var RovagugFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("04bc2b62273ab744092d992ed72bff41");
-            var SarenraeFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("c1c4f7f64842e7e48849e5e67be11a1b");
-            var ShelynFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("b382afa31e4287644b77a8b30ed4aa0b");
-            var ToragFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("d2d5c5a58885a6b489727467e13c3337");
-            var UrgathoaFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("812f6c07148088e41a9ac94b56ac2fc8");
-            var ZonKuthonFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("f7eed400baa66a744ad361d4df0e6f1b");
 
             var ShifterTrackFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("1fd8085a71c94a2a94266cbeba71a562");
             var ShifterWoodlandGraceFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("0217aaa0c3f74dc39643c3e841636625");
@@ -159,48 +135,16 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.SetDescription(TTTContext, "At 3rd level, her claws are treated as one type of aligned weapon " +
                     "(chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.");
                 bp.m_Icon = BlessedClawsFeatureIcon;
-                bp.AddComponent<PrerequisiteFeaturesFromList>(c => {
-                    c.HideInUI = true;
-                    c.m_Features = new BlueprintFeatureReference[] {
-                        AbadarFeature,
-                        CalistriaFeature,
-                        CaydenCaileanFeature,
-                        DesnaFeature,
-                        GorumFeature,
-                        GozrehFeature,
-                        IroriFeature,
-                        NethysFeature,
-                        PharasmaFeature,
-                        SarenraeFeature,
-                        ShelynFeature,
-                        ErastilFeature,
-                        IomedaeFeature,
-                        ToragFeature
-                    };
+                bp.AddComponent<PrerequisiteDeityAlignment>(c => {
+                    c.Alignment = AlignmentMaskType.Good;
                 });
             });
             var BlessedClawsEvilFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "BlessedClawsEvilFeature", bp => {
                 bp.SetName(TTTContext, "Blessed Claws — Evil");
                 bp.SetDescription(TTTContext, "At 3rd level, her claws are treated as one type of aligned weapon " +
                     "(chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.");
-                bp.AddComponent<PrerequisiteFeaturesFromList>(c => {
-                    c.HideInUI = true;
-                    c.m_Features = new BlueprintFeatureReference[] {
-                        AbadarFeature,
-                        CalistriaFeature,
-                        GorumFeature,
-                        GozrehFeature,
-                        GyronnaFeature,
-                        IroriFeature,
-                        LamashtuFeature,
-                        NethysFeature,
-                        NorgorberFeature,
-                        PharasmaFeature,
-                        RovagugFeature,
-                        UrgathoaFeature,
-                        AsmodeusFeature,
-                        ZonKuthonFeature
-                    };
+                bp.AddComponent<PrerequisiteDeityAlignment>(c => {
+                    c.Alignment = AlignmentMaskType.Evil;
                 });
                 bp.m_Icon = BlessedClawsFeatureIcon;
             });
@@ -209,24 +153,8 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.SetDescription(TTTContext, "At 3rd level, her claws are treated as one type of aligned weapon " +
                     "(chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.");
                 bp.m_Icon = BlessedClawsFeatureIcon;
-                bp.AddComponent<PrerequisiteFeaturesFromList>(c => {
-                    c.HideInUI = true;
-                    c.m_Features = new BlueprintFeatureReference[] {
-                        AbadarFeature,
-                        IroriFeature,
-                        AsmodeusFeature,
-                        ErastilFeature,
-                        IomedaeFeature,
-                        ToragFeature,
-                        ZonKuthonFeature,
-                        GozrehFeature,
-                        NethysFeature,
-                        PharasmaFeature,
-                        SarenraeFeature,
-                        ShelynFeature,
-                        UrgathoaFeature,
-
-                    };
+                bp.AddComponent<PrerequisiteDeityAlignment>(c => {
+                    c.Alignment = AlignmentMaskType.Lawful;
                 });
             });
             var BlessedClawsChaosFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "BlessedClawsChaosFeature", bp => {
@@ -234,24 +162,8 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.SetDescription(TTTContext, "At 3rd level, her claws are treated as one type of aligned weapon " +
                     "(chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.");
                 bp.m_Icon = BlessedClawsFeatureIcon;
-                bp.AddComponent<PrerequisiteFeaturesFromList>(c => {
-                    c.HideInUI = true;
-                    c.m_Features = new BlueprintFeatureReference[] {
-                        CalistriaFeature,
-                        CaydenCaileanFeature,
-                        DesnaFeature,
-                        GorumFeature,
-                        GozrehFeature,
-                        GyronnaFeature,
-                        LamashtuFeature,
-                        NethysFeature,
-                        NorgorberFeature,
-                        PharasmaFeature,
-                        RovagugFeature,
-                        SarenraeFeature,
-                        ShelynFeature,
-                        UrgathoaFeature
-                    };
+                bp.AddComponent<PrerequisiteDeityAlignment>(c => {
+                    c.Alignment = AlignmentMaskType.Chaotic;
                 });
             });
             var BlessedClawsGoodBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlessedClawsGoodBuff", bp => {

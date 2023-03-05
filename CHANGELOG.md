@@ -3,6 +3,7 @@
     * AreaOfEffectDoubleTrigger set to off by default due to some issues with some areas.
     * Fixed issues where spear charges did twice as much damage as intended.
     * Removed duplicate Favorite Metamagic Selective.
+    * Removed Outflank changes.
     * Shifter
         * Griffon Heart Shifter has been made selectable in character creation.
         * Wild Effigy has been adjusted to work correctly when multiple archetypes are used.

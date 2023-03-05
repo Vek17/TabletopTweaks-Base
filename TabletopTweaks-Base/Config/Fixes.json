@@ -1572,11 +1572,6 @@
         "Homebrew": false,
         "Description": "Natural Spell now has more correct prerequites for non druid classes with Wild Shape."
       },
-      "Outflank": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "No longer triggers on missed attacks."
-      },
       "PersistantMetamagic": {
         "Enabled": true,
         "Homebrew": false,

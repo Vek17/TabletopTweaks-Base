@@ -81,7 +81,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchWeaponFinesse();
                 PatchMagicalTail();
                 PatchLunge();
-                PatchOutflank();
                 PatchSiezeTheMoment();
                 PatchSelectiveMetamagic();
                 PatchSelectiveMetamagicPrerequisites();
@@ -624,15 +623,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     c.m_CooldownBuff = IndomitableMountCooldownBuff.ToReference<BlueprintBuffReference>();
                 });
                 TTTContext.Logger.LogPatch("Patched", IndomitableMount);
-            }
-            static void PatchOutflank() {
-                if (Main.TTTContext.Fixes.Feats.IsDisabled("Outflank")) { return; }
-
-                var Outflank = BlueprintTools.GetBlueprint<BlueprintFeature>("422dab7309e1ad343935f33a4d6e9f11");
-                Outflank.RemoveComponents<OutflankProvokeAttack>();
-                Outflank.AddComponent<OutflankProvokeAttackTTT>(c => {
-                    c.m_OutflankFact = Outflank.ToReference<BlueprintUnitFactReference>();
-                });
             }
             static void PatchNaturalSpell() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("NaturalSpell")) { return; }
