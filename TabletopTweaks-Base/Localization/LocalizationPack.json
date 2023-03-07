@@ -5336,17 +5336,6 @@
       "esES": null
     },
     {
-      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
-      "SimpleName": "Elemental — FireSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "ea0c0046250245418d59ce476be8566e",
       "SimpleName": "Elemental — FireSpellMetamagic",
       "ProcessTemplates": false,
@@ -5355,6 +5344,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素：火",
+      "esES": null
+    },
+    {
+      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
+      "SimpleName": "Elemental — FireSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -12255,14 +12255,14 @@
       "esES": null
     },
     {
-      "Key": "bd0091dbc839447abb004474f38b7c75",
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "1 round/level or until discharged",
+      "enGB": "Will negates stun",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "意志豁免成功则击晕无效",
+      "zhCN": "高等反震屏障",
       "esES": null
     },
     {
@@ -12277,14 +12277,14 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "Key": "bd0091dbc839447abb004474f38b7c75",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "Will negates stun",
+      "enGB": "1 round/level or until discharged",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等反震屏障",
+      "zhCN": "意志豁免成功则击晕无效",
       "esES": null
     },
     {
