@@ -1,3 +1,8 @@
+## Version 2.5.1a
+* Fixes
+    * Blessed Claws now qualifies for shifter's edge.
+    * Fixed Wyrmshifter breath weapons breaking polymorphs in some cases
+
 ## Version 2.5.1
 * Fixes
     * AreaOfEffectDoubleTrigger set to off by default due to some issues with some areas.

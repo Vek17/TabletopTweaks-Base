@@ -29,7 +29,7 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.Archetypes {
     internal class HolyBeast {
         public static void AddHolyBeast() {
-
+            var ShiftersEdgeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("0e7ec9a341ca46fcaf4d49759e047c83");
             var FavoriteEnemyOutsider = BlueprintTools.GetBlueprint<BlueprintFeature>("f643b38acc23e8e42a3ed577daeb6949");
             var OutsiderType = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("9054d3988d491d944ac144e27b6bc318");
             var DemonOfMagicFeature = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("1b466705276e3124ab43f865e282c6e8");
@@ -625,6 +625,12 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             }
 
             if (TTTContext.AddedContent.Archetypes.IsDisabled("HolyBeast")) { return; }
+            ShiftersEdgeFeature.TemporaryContext(bp => {
+                var Features = bp.GetComponent<PrerequisiteFeaturesFromList>().Features.ToList();
+                Features.Add(BlessedClawsFeatureAddLevel);
+                bp.RemoveComponents<PrerequisiteFeaturesFromList>();
+                bp.AddPrerequisiteFeaturesFromList(1, Features.ToArray());
+            });
             ClassTools.Classes.ShifterClass.m_Archetypes = ClassTools.Classes.ShifterClass.m_Archetypes.AppendToArray(HolyBeastArchetype.ToReference<BlueprintArchetypeReference>());
             ClassTools.Classes.ShifterClass.Progression.UIGroups = ClassTools.Classes.ShifterClass.Progression.UIGroups.AppendToArray(
                 Helpers.CreateUIGroup(HolyBeastDivineFury)

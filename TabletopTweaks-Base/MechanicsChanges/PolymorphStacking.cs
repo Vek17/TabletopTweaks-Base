@@ -165,7 +165,14 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                     BlueprintTools.GetBlueprint<BlueprintBuff>("93e27994169df9c43885394dc68f137f"), //FormOfTheDragonIBlueBreathWeaponBuff  
                     BlueprintTools.GetBlueprint<BlueprintBuff>("5d7089b61f459204993a1292d6f158f8"), //FormOfTheDragonIBlackBreathWeaponBuff  
                     BlueprintTools.GetBlueprint<BlueprintBuff>("ee6c7f5437a57ad48aaf47320129df33"), //KitsunePolymorphBuff  
-                    BlueprintTools.GetBlueprint<BlueprintBuff>("a13e2e71485901045b1722824019d6f5")  //KitsunePolymorphBuff_Nenio  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("a13e2e71485901045b1722824019d6f5"), //KitsunePolymorphBuff_Nenio  
+
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("15aa7a7b77d6410ca09730998dc13963"), //WyrmshifterSilverBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("a44fa81dbbcb462d9e648b19e720fe1a"), //WyrmshifterGreenBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("1b7290523aad4b9f8de5310fd873b000"), //WyrmshifterGoldBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("1924db960ed3476f8cf045fc1e787db2"), //WyrmshifterBrassBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("a97bed28eac746f4b756eb1473f61f5e"), //WyrmshifterBlueBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("695c5f531d084448850c0bb278ab3251")  //WyrmshifterBlackBreathWeaponBuff  
                 };
                 polymorphBuffs
                     .OrderBy(buff => buff.name)
