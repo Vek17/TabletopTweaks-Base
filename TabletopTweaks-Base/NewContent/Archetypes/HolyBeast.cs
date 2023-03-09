@@ -103,6 +103,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     "She gains the ranger’s favored enemy class feature against outsiders except the bonus starts at 1 instead of 2. " +
                     "The bonus against her favored enemy automatically increases by 1 at 5th level and every 5 levels thereafter.");
                 bp.m_Icon = FavoriteEnemyOutsider.m_Icon;
+                bp.Ranks = 5;
                 bp.AddComponent<FavoredEnemyTTT>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] {
                         OutsiderType,

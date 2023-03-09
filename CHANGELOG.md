@@ -1,5 +1,10 @@
 ## Version 2.5.1a
 * Fixes
+    * Holy Beast
+        * Divine Fury should now properly have its bonus increase with level ups.
+
+## Version 2.5.1a
+* Fixes
     * Blessed Claws now qualifies for shifter's edge.
     * Fixed Wyrmshifter breath weapons breaking polymorphs in some cases
 
