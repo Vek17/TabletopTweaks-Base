@@ -806,6 +806,11 @@
           "Homebrew": false,
           "Description": "Updates the template gained by the paladin mount at level 9 to have all of its features."
         },
+        "DivineMountIntelligence": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Divine mount now always has at least 6 intelligence."
+        },
         "SmiteAttackBonus": {
           "Enabled": true,
           "Homebrew": false,
@@ -1327,6 +1332,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now correctly lasts rounds per level instead of minutes per level."
+      },
+      "ProtectionFromAlignmentGreater": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shield of Law and Cloak of chaos no longer incorrectly grant immunity to mind affecting."
       },
       "ProtectionOfNature": {
         "Enabled": true,

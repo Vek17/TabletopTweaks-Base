@@ -265,6 +265,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("afb2e1f96933c22469168222f7dab8fb"), //MetamagicRodMasterpieceToggleAbility - Grandmaster's Rod
                         BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("c43746bc20a151b4eaf1836cc6eb9a92"), //AmberLoveRodToggleAbility - Passion's Sweet Poison
                         BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("afca601615e344446a24433202567c39"), //RodOfMysticismToggleAbility - Rod of Mysticism
+                        BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("1c70e3d9e1f74c42904c044cf001fc0b"), //SithhudsRodToggleAbility - Rod of Mortiferous Blizzard
                     };
                     MetamagicRodAbilities.ForEach(ability => {
                         ability.IsOnByDefault = false;

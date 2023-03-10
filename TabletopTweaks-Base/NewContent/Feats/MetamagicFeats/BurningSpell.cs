@@ -266,7 +266,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     .Any(damage => !damage.Immune)) { return; }
                 var casterLevel = context.Params?.SpellLevel ?? context.SpellLevel;
                 if (context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Fire)) {
-                    TTTContext.Logger.Log("Burning FIRE");
+                    //TTTContext.Logger.Log("Burning FIRE");
                     var fakeContext = new MechanicsContext(
                         caster: evt.Initiator,
                         owner: evt.Target,
@@ -280,7 +280,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         buff.IsFromSpell = true;
                         buff.IsNotDispelable = true;
                     } else {
-                        TTTContext.Logger.Log("Buff was null?");
+                        //TTTContext.Logger.Log("Buff was null?");
                     }
                 }
                 if (context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Acid)) {

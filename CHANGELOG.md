@@ -1,4 +1,16 @@
-## Version 2.5.1a
+## Version 2.5.1
+* Fixes
+    * Oracle
+        * Burning Magic mechanics and damage has been fixed to work like tabletop.
+    * Paladin
+        * Divine mount now always has at least 6 intelligence.
+    * Spells
+        * Shield of Law 
+            * No longer incorrectly grant immunity to mind affecting.
+        * Cloak of Chaos 
+            * No longer incorrectly grant immunity to mind affecting.
+
+## Version 2.5.1b
 * Fixes
     * Holy Beast
         * Divine Fury should now properly have its bonus increase with level ups.

@@ -5,11 +5,16 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Enums.Damage;
+using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.NewActions;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
@@ -112,13 +117,16 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var NaturesWhispersACConversion = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "NaturesWhispersACConversion");
                     var ScaledFistACBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("3929bfd1beeeed243970c9fc0cf333f8");
 
-                    OracleRevelationNatureWhispers.RemoveComponents<ReplaceStatBaseAttribute>();
-                    OracleRevelationNatureWhispers.RemoveComponents<ReplaceCMDDexterityStat>();
-                    OracleRevelationNatureWhispers.AddComponent<HasFactFeatureUnlock>(c => {
-                        c.m_CheckedFact = ScaledFistACBonus.ToReference<BlueprintUnitFactReference>();
-                        c.m_Feature = NaturesWhispersACConversion.ToReference<BlueprintUnitFactReference>();
-                        c.Not = true;
+                    OracleRevelationNatureWhispers.TemporaryContext(bp => {
+                        bp.RemoveComponents<ReplaceStatBaseAttribute>();
+                        bp.RemoveComponents<ReplaceCMDDexterityStat>();
+                        bp.AddComponent<HasFactFeatureUnlock>(c => {
+                            c.m_CheckedFact = ScaledFistACBonus.ToReference<BlueprintUnitFactReference>();
+                            c.m_Feature = NaturesWhispersACConversion.ToReference<BlueprintUnitFactReference>();
+                            c.Not = true;
+                        });
                     });
+                    
                     TTTContext.Logger.LogPatch("Patched", OracleRevelationNatureWhispers);
                 }
 
@@ -128,9 +136,75 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     void PatchRevelationBurningMagic() {
                         if (TTTContext.Fixes.Oracle.Base.IsDisabled("RevelationBurningMagic")) { return; }
 
+                        var OracleRevelationBurningMagic = BlueprintTools.GetBlueprint<BlueprintFeature>("125294de0a922c34db4cd58ca7a200ac");
                         var OracleRevelationBurningMagicBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("4ae27ae7c3d758041b25e9a3aff73592");
-                        OracleRevelationBurningMagicBuff.GetComponent<ContextRankConfig>().m_Progression = ContextRankProgression.AsIs;
-                        TTTContext.Logger.LogPatch("Patched", OracleRevelationBurningMagicBuff);
+                        OracleRevelationBurningMagic.TemporaryContext(bp => {
+                            bp.SetDescription(TTTContext, "Whenever a creature fails a saving throw and takes fire damage from one of your spells, " +
+                                "it catches on fire. This fire deals 1 point of fire damage per spell level " +
+                                "at the beginning of the burning creature’s turn. The fire lasts for 1d4 rounds.");
+                            bp.RemoveComponents<AddAbilityUseTrigger>();
+                            bp.RemoveComponents<ContextCalculateSharedValue>();
+                            bp.RemoveComponents<ContextRankConfig>();
+                            bp.AddComponent<BurningMagic>(c => {
+                                c.EnergyType = DamageEnergyType.Fire;
+                                c.m_Buff = OracleRevelationBurningMagicBuff.ToReference<BlueprintBuffReference>();
+                                c.Duration = new ContextDurationValue() {
+                                    DiceType = DiceType.D4,
+                                    DiceCountValue = 1,
+                                    BonusValue = 1
+                                };
+                            });
+                        });
+                        OracleRevelationBurningMagicBuff.TemporaryContext(bp => {
+                            bp.Stacking = StackingType.Replace;
+                            bp.Ranks = 1;
+                            bp.SetDescription(OracleRevelationBurningMagic.m_Description);
+                            bp.RemoveComponents<AddFactContextActions>();
+                            bp.AddComponent<AddFactContextActions>(c => {
+                                c.Activated = Helpers.CreateActionList(
+                                    new ContextActionDealDamageTTT() {
+                                        DamageType = new DamageTypeDescription() { 
+                                            Type = DamageType.Energy,
+                                            Energy = DamageEnergyType.Fire
+                                        },
+                                        Duration = new ContextDurationValue() {
+                                            DiceCountValue = new ContextValue(),
+                                            BonusValue = new ContextValue(),
+                                        },
+                                        Value = new ContextDiceValue() {
+                                            DiceCountValue = 0,
+                                            BonusValue = new ContextValue() {
+                                                ValueType = ContextValueType.Rank
+                                            }
+                                        }
+                                    }    
+                                );
+                                c.NewRound = Helpers.CreateActionList(
+                                    new ContextActionDealDamageTTT() {
+                                        DamageType = new DamageTypeDescription() {
+                                            Type = DamageType.Energy,
+                                            Energy = DamageEnergyType.Fire
+                                        },
+                                        Duration = new ContextDurationValue() {
+                                            DiceCountValue = new ContextValue(),
+                                            BonusValue = new ContextValue(),
+                                        },
+                                        Value = new ContextDiceValue() {
+                                            DiceCountValue = 0,
+                                            BonusValue = new ContextValue() {
+                                                ValueType = ContextValueType.Rank
+                                            }
+                                        }
+                                    }
+                                );
+                                c.Deactivated = Helpers.CreateActionList();
+                            });
+                            bp.GetComponent<ContextRankConfig>()?.TemporaryContext(c => {
+                                c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                                c.m_Progression = ContextRankProgression.AsIs;
+                            });
+                        });
+                        TTTContext.Logger.LogPatch(OracleRevelationBurningMagicBuff);
                     }
                 }
             }

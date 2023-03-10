@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
@@ -8,6 +9,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -71,15 +73,34 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchSmiteAttackBonus();
 
                 void PatchDivineMount() {
-                    if (TTTContext.Fixes.Paladin.Base.IsDisabled("DivineMountTemplate")) { return; }
+                    PatchIntelligence();
+                    PatchTemplate();
 
-                    var TemplateCelestial = BlueprintTools.GetModBlueprintReference<BlueprintFeatureReference>(TTTContext, "TemplateCelestial");
-                    var PaladinDivineMount11Feature = BlueprintTools.GetBlueprint<BlueprintFeature>("ea31185f4e0f91041bf766d67214182f");
-                    var addFeatureToPet = PaladinDivineMount11Feature.Components.OfType<AddFeatureToPet>().FirstOrDefault();
-                    if (addFeatureToPet != null) {
-                        addFeatureToPet.m_Feature = TemplateCelestial;
+                    void PatchIntelligence() {
+                        if (TTTContext.Fixes.Paladin.Base.IsDisabled("DivineMountIntelligence")) { return; }
+
+                        var PaladinDivineMountSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("e2f0e0efc9e155e43ba431984429678e");
+                        PaladinDivineMountSelection.TemporaryContext(bp => {
+                            bp.AddComponent<SetPetMinimumStat>(c => {
+                                c.Stat = Kingmaker.EntitySystem.Stats.StatType.Intelligence;
+                                c.Value = 6;
+                                c.PetType = PetType.AnimalCompanion;
+                            });
+                        });
+
+                        TTTContext.Logger.LogPatch(PaladinDivineMountSelection);
                     }
-                    TTTContext.Logger.LogPatch("Patched", PaladinDivineMount11Feature);
+                    void PatchTemplate() {
+                        if (TTTContext.Fixes.Paladin.Base.IsDisabled("DivineMountTemplate")) { return; }
+
+                        var TemplateCelestial = BlueprintTools.GetModBlueprintReference<BlueprintFeatureReference>(TTTContext, "TemplateCelestial");
+                        var PaladinDivineMount11Feature = BlueprintTools.GetBlueprint<BlueprintFeature>("ea31185f4e0f91041bf766d67214182f");
+                        var addFeatureToPet = PaladinDivineMount11Feature.Components.OfType<AddFeatureToPet>().FirstOrDefault();
+                        if (addFeatureToPet != null) {
+                            addFeatureToPet.m_Feature = TemplateCelestial;
+                        }
+                        TTTContext.Logger.LogPatch("Patched", PaladinDivineMount11Feature);
+                    }
                 }
                 void PatchSmiteAttackBonus() {
                     if (TTTContext.Fixes.Paladin.Base.IsDisabled("SmiteAttackBonus")) { return; }

@@ -108,6 +108,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchLegendaryProportions();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
+                PatchProtectionFromAlignmentGreater();
                 PatchRemoveFear();
                 PatchRemoveSickness();
                 PatchShadowEvocation();
@@ -1564,6 +1565,69 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 TTTContext.Logger.LogPatch("Patched", MagicWeaponGreaterPrimary);
                 TTTContext.Logger.LogPatch("Patched", MagicWeaponGreaterSecondary);
+            }
+            static void PatchProtectionFromAlignmentGreater() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("ProtectionFromAlignmentGreater")) { return; }
+
+                var CloakOfChaos = BlueprintTools.GetBlueprint<BlueprintAbility>("9155dbc8268da1c49a7fc4834fa1a4b1");
+                var ShieldOfLaw = BlueprintTools.GetBlueprint<BlueprintAbility>("73e7728808865094b8892613ddfaf7f5");
+                var DominatePersonBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("c0f4e1c24c9cd334ca988ed1bd9d201f");
+
+                var HolyAuraBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("a33bf327207a5904d9e38d6a80eb09e2");
+                var UnholyAuraBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("9eda82a1f78558747a03c17e0e9a1a68");
+                var CloakOfChaosBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("627224e071dc51f47ba402fcbb6f830d");
+                var ShieldOfLawBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("0da7299aac601d445a355152084c251a");
+
+                var SpellExceptions = HolyAuraBuff.GetComponent<AddSpellImmunity>().Exceptions.ToList();
+
+                CloakOfChaosBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<SpellImmunityToSpellDescriptor>(c => c.Descriptor == SpellDescriptor.MindAffecting);
+                    bp.AddComponent<SpecificBuffImmunity>(c => {
+                        c.m_Buff = DominatePersonBuff;
+                    });
+                    bp.AddComponent<AddSpellImmunity>(c => {
+                        c.Type = Kingmaker.UnitLogic.Parts.SpellImmunityType.Specific;
+                        c.m_Exceptions = SpellExceptions.Select(a => a.ToReference<BlueprintAbilityReference>()).Distinct().ToArray();
+                    });
+                });
+                ShieldOfLawBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<SpellImmunityToSpellDescriptor>(c => c.Descriptor == SpellDescriptor.MindAffecting);
+                    bp.AddComponent<SpecificBuffImmunity>(c => {
+                        c.m_Buff = DominatePersonBuff;
+                    });
+                    bp.AddComponent<AddSpellImmunity>(c => {
+                        c.Type = Kingmaker.UnitLogic.Parts.SpellImmunityType.Specific;
+                        c.m_Exceptions = SpellExceptions.Select(a => a.ToReference<BlueprintAbilityReference>()).Distinct().ToArray();
+                    });
+                });
+                ShieldOfLaw.TemporaryContext(bp => {
+                    bp.SetDescription(TTTContext, "A dim blue glow surrounds the subjects, protecting them from attacks, " +
+                        "granting them resistance to spells cast by chaotic creatures, and slowing chaotic creatures when they strike the subjects. " +
+                        "This abjuration has four effects.\n" +
+                        "First, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves. " +
+                        "Unlike protection from chaos, this benefit applies against all attacks, not just against attacks by chaotic creatures.\n" +
+                        "Second, a warded creature gains spell resistance 25 against chaotic spells and spells cast by chaotic creatures.\n" +
+                        "Third, the abjuration protects from all mind-affecting spells and effects.\n" +
+                        "Finally, if a chaotic creature succeeds on a melee attack against a warded creature, " +
+                        "the attacker is slowed (Will save negates, as the slow spell, but against shield of law's save DC)");
+                });
+                CloakOfChaos.TemporaryContext(bp => {
+                    bp.SetDescription(TTTContext, "A random pattern of color surrounds the subjects, protecting them from attacks, " +
+                        "granting them resistance to spells cast by lawful creatures, and causing lawful creatures that strike the subjects to become confused. " +
+                        "This abjuration has four effects.\n" +
+                        "First, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves. " +
+                        "Unlike protection from law, the benefit of this spell applies against all attacks, not just against attacks by lawful creatures.\n" +
+                        "Second, each warded creature gains spell resistance 25 against lawful spells and spells cast by lawful creatures.\n" +
+                        "Third, the abjuration protects from all mind-affecting spells and effects.\n" +
+                        "Finally, if a lawful creature succeeds on a melee attack against a warded creature, " +
+                        "the offending attacker is confused for 1 round (Will save negates, as with the confusion spell, " +
+                        "but against the save DC of cloak of chaos).");
+                });
+
+                TTTContext.Logger.LogPatch(HolyAuraBuff);
+                TTTContext.Logger.LogPatch(UnholyAuraBuff);
+                TTTContext.Logger.LogPatch(CloakOfChaosBuff);
+                TTTContext.Logger.LogPatch(ShieldOfLawBuff);
             }
             static void PatchRemoveFear() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("RemoveFear")) { return; }
