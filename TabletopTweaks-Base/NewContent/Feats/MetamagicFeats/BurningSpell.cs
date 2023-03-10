@@ -264,7 +264,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     .OfType<EnergyDamage>()
                     .Where(damage => damage.EnergyType == DamageEnergyType.Fire || damage.EnergyType == DamageEnergyType.Acid)
                     .Any(damage => !damage.Immune)) { return; }
-                var casterLevel = context.Params?.SpellLevel ?? context.SpellLevel;
+                var spellLevel = context.Params?.SpellLevel ?? context.SpellLevel;
                 if (context.SpellDescriptor.HasAnyFlag(SpellDescriptor.Fire)) {
                     //TTTContext.Logger.Log("Burning FIRE");
                     var fakeContext = new MechanicsContext(
@@ -273,7 +273,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         blueprint: context.SourceAbility
                     );
                     fakeContext.RecalculateAbilityParams();
-                    fakeContext.Params.CasterLevel = casterLevel * 2;
+                    fakeContext.Params.CasterLevel = spellLevel * 2;
                     fakeContext.Params.Metamagic = 0;
                     var buff = evt.Target?.Descriptor?.AddBuff(BurningSpellFireBuff, fakeContext, 1.Rounds().Seconds);
                     if (buff != null) {
@@ -290,7 +290,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         blueprint: context.SourceAbility
                     );
                     fakeContext.RecalculateAbilityParams();
-                    fakeContext.Params.CasterLevel = casterLevel * 2;
+                    fakeContext.Params.CasterLevel = spellLevel * 2;
                     fakeContext.Params.Metamagic = 0;
                     var buff = evt.Target?.Descriptor?.AddBuff(BurningSpellAcidBuff, fakeContext, 1.Rounds().Seconds);
                     if (buff != null) {

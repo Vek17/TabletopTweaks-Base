@@ -161,24 +161,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             bp.SetDescription(OracleRevelationBurningMagic.m_Description);
                             bp.RemoveComponents<AddFactContextActions>();
                             bp.AddComponent<AddFactContextActions>(c => {
-                                c.Activated = Helpers.CreateActionList(
-                                    new ContextActionDealDamageTTT() {
-                                        DamageType = new DamageTypeDescription() { 
-                                            Type = DamageType.Energy,
-                                            Energy = DamageEnergyType.Fire
-                                        },
-                                        Duration = new ContextDurationValue() {
-                                            DiceCountValue = new ContextValue(),
-                                            BonusValue = new ContextValue(),
-                                        },
-                                        Value = new ContextDiceValue() {
-                                            DiceCountValue = 0,
-                                            BonusValue = new ContextValue() {
-                                                ValueType = ContextValueType.Rank
-                                            }
-                                        }
-                                    }    
-                                );
+                                c.Activated = Helpers.CreateActionList();
                                 c.NewRound = Helpers.CreateActionList(
                                     new ContextActionDealDamageTTT() {
                                         DamageType = new DamageTypeDescription() {
