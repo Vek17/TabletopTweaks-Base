@@ -96,7 +96,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你每日可以使用挑战的次数增加神话阶层的一半（向下取整）。",
       "esES": null
     },
     {
@@ -107,7 +107,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "无尽挑战",
       "esES": null
     },
     {
@@ -1042,7 +1042,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "侍祭将<b><color=#703565><link=\"Encyclopedia:Persuasion\">交涉</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Lore_Religion\">学识（宗教）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她也能用<b><color=#703565><link=\"Encyclopedia:Wisdom\">感知</link></color></b>替代<b><color=#703565><link=\"Encyclopedia:Charisma\">魅力</link></color></b>进行交涉<b><color=#703565><link=\"Encyclopedia:Check\">检定</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1053,7 +1053,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "杂耍艺人将<b><color=#703565><link=\"Encyclopedia:Trickery\">巧手</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Mobility\">灵巧</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长飞斧。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1064,7 +1064,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "阿尔多瑞剑客将<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长决斗剑和小圆盾。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1075,7 +1075,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥肯斯塔炼金师将<b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">知识（神秘</link></color></b>）加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在用炼金炸弹和炼金物品造成的伤害上获得+1<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1086,7 +1086,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "安多安外交官将<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在交涉技能检定上获得+2<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1097,7 +1097,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "赏金猎人将<b><color=#703565><link=\"Encyclopedia:Stealth\">隐匿</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长轻型盔甲、木棒、轻型硬头锤和重型硬头锤。\n\r\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1108,7 +1108,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "切利亚克斯魔鬼学者将<b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">知识（神秘）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在对抗魔鬼时的<b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b>上获得+4闪避<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1119,7 +1119,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "侍臣将<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Trickery\">巧手</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长细剑和小圆盾。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1130,7 +1130,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "特使将<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Knowledge_World\">知识（世界）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长细剑和小圆盾。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1141,7 +1141,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "农民将<b><color=#703565><link=\"Encyclopedia:Athletics\">运动</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长巨镰，并且强韧<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>获得+1加值。\n\r\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1152,7 +1152,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "盖布死灵师将<b><color=#703565><link=\"Encyclopedia:Lore_Religion\">学识（宗教）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她召唤的不死生物和伙伴的最大<b><color=#703565><link=\"Encyclopedia:HP\">生命值</link></color></b>获得+3<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1163,7 +1163,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "角斗士将<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长轻型盔甲、三叉戟、短剑和小圆盾。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1174,7 +1174,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "卫兵将<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长轻型盔甲、短剑和轻弩。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1185,7 +1185,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "医师将<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Lore_Religion\">学识（宗教）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还可以在尝试学识（自然）和学识（宗教）<b><color=#703565><link=\"Encyclopedia:Check\">检定</link></color></b>时，使用<b><color=#703565><link=\"Encyclopedia:Intelligence\">智力</link></color></b>替代<b><color=#703565><link=\"Encyclopedia:Wisdom\">感知</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1196,7 +1196,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "隐士将<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长木棒、巨木棒、木棍和飞镖。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1207,7 +1207,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "猎人将<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Perception\">察觉</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长短弓和长弓。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1218,7 +1218,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "领袖将<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长细剑、长剑、巨剑和小圆盾。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1229,7 +1229,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "伐木工将<b><color=#703565><link=\"Encyclopedia:Athletics\">运动</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长手斧、战斧和巨斧，并且强韧<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>获得+1<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1240,7 +1240,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "习武者将<b><color=#703565><link=\"Encyclopedia:Mobility\">灵巧</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Lore_Religion\">学识（宗教）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会获得精通徒手击打作为背景<b><color=#703565><link=\"Encyclopedia:Feat\">专长</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1251,7 +1251,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "蒙蒂维孤儿将<b><color=#703565><link=\"Encyclopedia:Lore_Religion\">学识（宗教）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在对抗恶魔时的<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>上获得+1<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1262,7 +1262,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "雇佣兵将<b><color=#703565><link=\"Encyclopedia:Knowledge_World\">知识（世界）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长轻型盔甲、矛、长矛和标枪。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1273,7 +1273,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "矿工将<b><color=#703565><link=\"Encyclopedia:Athletics\">运动</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长轻十字镐、重十字镐，并且强韧<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>获得+1<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1284,7 +1284,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "劫匪将<b><color=#703565><link=\"Encyclopedia:Trickery\">巧手</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长匕首、拳匕和飞镖。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1295,7 +1295,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "芒吉猎人添加<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Stealth\">隐匿</link></color></b>到她的职业技能列表。她变得熟练飞镖，投掷斧头和标枪。此外，芒吉猎人获得+1伤害<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>于所有投掷武器。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1306,7 +1306,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奈克斯学术家将<b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">知识（神秘）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在知识（神秘）技能<b><color=#703565><link=\"Encyclopedia:Check\">检定</link></color></b>上获得+2<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1317,7 +1317,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "游民将<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长弯刀。游民的动物伙伴的最大<b><color=#703565><link=\"Encyclopedia:HP\">生命值</link></color></b>获得+3<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1328,7 +1328,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "欧西里昂历史学家将<b><color=#703565><link=\"Encyclopedia:Knowledge_World\">知识（世界）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在知识（世界）技能<b><color=#703565><link=\"Encyclopedia:Check\">检定</link></color></b>上获得+2<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1339,7 +1339,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "扒手将<b><color=#703565><link=\"Encyclopedia:Trickery\">巧手</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Stealth\">隐匿</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在<b><color=#703565><link=\"Encyclopedia:Initiative\">先攻检定</link></color></b>上获得+2<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1350,7 +1350,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "卡蒂拉游民将<b><color=#703565><link=\"Encyclopedia:Perception\">察觉</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在对抗疲劳和力竭效应的<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>上获得+2<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1361,7 +1361,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "河域诸国亡命徒将<b><color=#703565><link=\"Encyclopedia:Mobility\">灵巧</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长短剑和匕首。此外，河域诸国亡命徒对抗<b><color=#703565><link=\"Encyclopedia:Attack_Of_Opportunity\">借机攻击</link></color></b>的<b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b>会获得+2<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1372,7 +1372,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥法学者将<b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">使用魔法装置</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">知识（神秘）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会获得抄录卷轴作为额外<b><color=#703565><link=\"Encyclopedia:Feat\">专长</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1383,7 +1383,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "神圣学者将<b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">使用魔法装置</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Lore_Religion\">学识（宗教）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会获得调制药水作为额外<b><color=#703565><link=\"Encyclopedia:Feat\">专长</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1394,7 +1394,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "讲师将<b><color=#703565><link=\"Encyclopedia:Knowledge_World\">知识（世界）</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1405,7 +1405,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "讲师将<b><color=#703565><link=\"Encyclopedia:Knowledge_World\">知识（世界）</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Persuasion\">沟通</link></color></b>加入本职技能列表，并可以用智力取代魅力进行沟通检定。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1427,7 +1427,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "自然学者将<b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">使用魔法装置</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Lore_Nature\">学识（自然）</link></color></b>加入本职技能列表，她还可以从德鲁伊<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>列表中选择一个<b><color=#703565><link=\"Encyclopedia:Cantrips_Orisons\">祷告</link></color></b>，并将其作为一个<b><color=#703565><link=\"Encyclopedia:Special_Abilities\">类法术能力</link></color></b>，她可以随意使用。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1438,7 +1438,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "镣铐群岛海盗将<b><color=#703565><link=\"Encyclopedia:Mobility\">灵巧</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Athletics\">运动</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长弯刀。此外，镣铐群岛海盗对抗绊摔的<b><color=#703565><link=\"Encyclopedia:CMD\">战技防御（CMD</link></color></b>会获得+2<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1449,7 +1449,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "铁匠将<b><color=#703565><link=\"Encyclopedia:Athletics\">运动</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长轻锤、战锤，并且强韧<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>获得+1<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1460,7 +1460,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "乌斯塔拉夫农民将<b><color=#703565><link=\"Encyclopedia:Athletics\">运动</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长巨镰。此外，乌斯塔拉夫农民在处于恐惧效应下时，{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}和{g|Encyclopedia:Damage}伤害{/g}会获得+1<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1471,7 +1471,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "瓦里西亚探索者将<b><color=#703565><link=\"Encyclopedia:Trickery\">巧手</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Knowledge_World\">知识（世界）</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会在反射<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>上获得+1<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -1482,7 +1482,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "蛇龙王之地勇士将<b><color=#703565><link=\"Encyclopedia:Mobility\">灵巧</link></color></b>加入本职<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>列表。她还会擅长手斧、战斧和巨斧。此外，蛇龙王之地勇士获得5点寒冷抗性。\n如果角色已经有该项本职技能、<b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">武器 proficiency</link></color></b>或防具擅长，则改为获得1点对应技能上的特性<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，1点对应武器攻击检定上的特性加值，或者对应防具的-1防具检定<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -2692,7 +2692,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "祝福之爪",
       "esES": null
     },
     {
@@ -2703,7 +2703,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "祝福之爪（混乱）",
       "esES": null
     },
     {
@@ -2714,7 +2714,8 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "祝福之爪（邪恶）",
+
       "esES": null
     },
     {
@@ -2725,7 +2726,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "此能力作用如同化形师利爪职业能力，除了圣兽化形师的默认爪子又长又薄，造成穿刺伤害。在三级时，除了无视DR/寒铁，DR/魔法，DR/银以外，她的爪子也被视为一种阵营武器(混乱、邪恶、善良或守序)，与她的神祇阵营距离一阶之内。\n以一个<b><color=#703565><link=\"Encyclopedia:Swift_Action\">迅捷动作</link></color></b>，处于天生形态（natural form）的化形师可以任意生长出她的利爪作为武器使用。\n每只手的爪抓攻击都是主要天生武器，造成1d4（小体型1d3）点穿刺和挥砍伤害。随着化形师等级的提升，她的利爪也成长的更为强大。\n3级起，她的爪抓忽略DR/寒铁、DR/魔法和DR/银。\n7级起，她的爪抓伤害提升至1d6（小体型1d4）。\n11级起，她的爪抓伤害提升至1d8（小体型1d6）。\n13级起，她的爪抓伤害提升至1d10（小体型1d8）。\n17级起，伤害不再提升，但是重击倍率提升为X3。\n最后，19级时，爪抓忽略DR/精金和DR/-。\n当化形师使用自然变身展现出她的拟态中的专攻形态时，她的天生武器也会获得化形师利爪能力赋予的相同好处。如果她从自然变身形态获得了爪抓攻击，她可以在她的化形师利爪的基本伤害或者自然变身形态的爪抓伤害，两者取其高。\n",
       "esES": null
     },
     {
@@ -2736,7 +2737,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "祝福之爪（善良）",
       "esES": null
     },
     {
@@ -2747,7 +2748,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "祝福之爪（守序）",
       "esES": null
     },
     {
@@ -2758,7 +2759,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在三级时，除了无视DR/寒铁，DR/魔法，DR/银以外，她的爪子也被视为一种阵营武器(混乱、邪恶、善良或守序)，与她的神祇阵营距离一阶之内。",
       "esES": null
     },
     {
@@ -2912,7 +2913,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的血液中蕴含着外来者和异怪的污染。\n当你处于血怒时，你身上的腐败会以异常而可怕的方式显现出来。\n额外专长：战斗反射、钢铁意志、精通徒手打击、精通阴招、精通先攻、精通缴械、顽石强韧。\n 奖励法术：7级-变巨术，10级-识破隐形，13级-移位术，16级-、刺石术。",
       "esES": null
     },
     {
@@ -3374,7 +3375,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "血脉中的某种力量使你命中注定会成就伟业。\n当你处于血怒时，身上所散发出的伟大气息能够让大多数传说中的生物显得渺小而平凡，你未来的伟大赐予你令对手拜服的力量。\n额外专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。\n额外法术：7级-护盾术），10级-朦胧术，13级-防护能量，16级-行动自如。",
       "esES": null
     },
     {
@@ -3616,7 +3617,7 @@
       "ruRU": "Испепеляющий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "焚化",
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -3913,7 +3914,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Burning-TabletopTweaks-Base}燃烧{/g}",
       "esES": null
     },
     {
@@ -3990,7 +3991,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你渴望战胜敌人的快感，并将这种热情引导到战斗中。\n好处:当你的挑战技能的目标死亡或昏迷时，你可以以一个自由动作对30英尺内最近的目标发起新的挑战。\n如果你通过本专长发动了新的挑战，那么这次挑战将不计入你的每日挑战能力使用次数限制。在第一个挑战目标以后，你可以连环挑战的目标数不能超过你的魅力调整值（至少一个）。",
       "esES": null
     },
     {
@@ -4001,7 +4002,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "一骑讨",
       "esES": null
     },
     {
@@ -4089,7 +4090,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "熵化导能师擅长{g|Encyclopedia:Weapon_Proficiency}简易武器{/g}、轻型和中型盔甲，以及非塔盾的盾牌。",
       "esES": null
     },
     {
@@ -4287,7 +4288,7 @@
       "ruRU": "Кислотного взрыва",
       "deDE": null,
       "frFR": null,
-      "zhCN": "爆发",
+      "zhCN": "酸爆",
       "esES": null
     },
     {
@@ -5189,7 +5190,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "古高等烈酸",
       "esES": null
     },
     {
@@ -5266,7 +5267,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "音波抗力",
       "esES": null
     },
     {
@@ -5277,7 +5278,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}元素（酸蚀）{/g}",
       "esES": null
     },
     {
@@ -5288,7 +5289,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素：酸",
+      "zhCN": "元素（酸蚀）",
       "esES": null
     },
     {
@@ -5299,7 +5300,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素（寒冷）{/g}",
       "esES": null
     },
     {
@@ -5310,7 +5311,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素：冷",
+      "zhCN": "元素（寒冷）",
       "esES": null
     },
     {
@@ -5321,7 +5322,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}元素（电击）{/g}",
       "esES": null
     },
     {
@@ -5332,7 +5333,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素：电",
+      "zhCN": "元素（电击）",
       "esES": null
     },
     {
@@ -5343,7 +5344,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素：火",
+      "zhCN": "元素（火焰）",
       "esES": null
     },
     {
@@ -5354,7 +5355,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素（火焰）{/g}",
       "esES": null
     },
     {
@@ -5398,7 +5399,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用酸代替法术的正常伤害或拆分法术的伤害，这样一半是酸，一半是它的正常类型。\n法术环级提升：+1",
+      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用酸代替法术的正常伤害或拆分法术的伤害，这样一半是酸蚀，一半是它的原本类型。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -5409,7 +5410,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "超魔（元素法术：酸）",
+      "zhCN": "超魔（元素法术：酸蚀）",
       "esES": null
     },
     {
@@ -5420,7 +5421,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用冷代替法术的正常伤害或拆分法术的伤害，这样一半是冷，一半是它的正常类型。\n法术环级提升：+1",
+      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用冰代替法术的正常伤害或拆分法术的伤害，这样一半是寒冷，一半是它的原本类型。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -5431,7 +5432,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "超魔（元素法术：冷）",
+      "zhCN": "超魔（元素法术：寒冷）",
       "esES": null
     },
     {
@@ -5442,7 +5443,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用电代替法术的正常伤害或拆分法术的伤害，这样一半是电，一半是它的正常类型。\n法术环级提升：+1",
+      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用电代替法术的正常伤害或拆分法术的伤害，这样一半是电击，一半是它的原本类型。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -5453,7 +5454,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "超魔（元素法术：电）",
+      "zhCN": "超魔（元素法术：电击）",
       "esES": null
     },
     {
@@ -5464,7 +5465,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用火代替法术的正常伤害或拆分法术的伤害，这样一半是火，一半是它的正常类型。\n法术环级提升：+1",
+      "zhCN": "你可以操纵你的法术的元素性质。\n好处：你可以用火代替法术的正常伤害或拆分法术的伤害，这样一半是火焰，一半是它的原本类型。\n法术环级提升：+1",
       "esES": null
     },
     {
@@ -5475,7 +5476,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "超魔（元素法术：火）",
+      "zhCN": "超魔（元素法术：火焰）",
       "esES": null
     },
     {
@@ -5486,7 +5487,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "你可以操纵你的法术的元素性质。\n好处：选择一种能量类型：酸、冷、电或火。你可以用该能量类型替换法术的正常伤害或拆分该法术的伤害，这样一半是该能量类型，一半是它的正常类型。\n法术环级提升：+1\n特殊：你可以多次获得此专长。 每次你必须选择不同的能量类型。",
+      "zhCN": "你可以操纵你的法术的元素性质。\n好处：选择一种能量类型：酸蚀、寒冷、电击或火焰。你可以用该能量类型替换法术的正常伤害或分裂该法术的伤害，这样一半是该能量类型，一半是它的原本类型。\n法术环级提升：+1\n特殊：你可以多次获得此专长。 每次你必须选择不同的能量类型。",
       "esES": null
     },
     {
@@ -5519,7 +5520,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素法术拆分伤害",
+      "zhCN": "元素法术分裂伤害",
       "esES": null
     },
     {
@@ -5739,7 +5740,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
       "esES": null
     },
     {
@@ -6366,7 +6367,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
       "esES": null
     },
     {
@@ -6883,7 +6884,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1级时，秘术师选择一个她进阶前获得的神术{g|Encyclopedia:Spell}施法{/g}职业，秘术师每次升级，每日法术数量都会增加，就像之前神术施法职业都获得提升一样。",
       "esES": null
     },
     {
@@ -6894,7 +6895,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1级时，秘术师选择一个她进阶前获得的神术{g|Encyclopedia:Spell}施法{/g}职业，秘术师每次升级，每日法术数量都会增加，就像之前神术施法职业都获得提升一样。",
       "esES": null
     },
     {
@@ -6938,7 +6939,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在乌笃剌(Vudra)， 成千上万的众神受到崇敬，虔诚的信徒可能与他们的神祇有着交情或情谊。圣兽化形师发誓猎捕神祇的敌人，来获得神祇的祝福。这些化形师的拟态倾向于呈现神祇的神兽，其中许多人试图猎杀罗剎。",
       "esES": null
     },
     {
@@ -6949,7 +6950,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "圣兽",
       "esES": null
     },
     {
@@ -6960,7 +6961,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "一名圣兽化形师完全专注于代表她的神祇猎捕特定的异界生物。她获得了游侠的宿敌职业能力，除了她只能从宿敌表中选择一种异界生物类型。她的宿敌加值在五级时自动增加一点，之后每五级增加一点。在五级和之后的每五级时，她可以放弃获得额外的化形师拟态，来获得额外的异界生物种类作为她的宿敌。她以此方式选择的异界生物种类的宿敌加值，和在一级时所选类型的加值一样。",
       "esES": null
     },
     {
@@ -6971,7 +6972,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "神圣怒火",
       "esES": null
     },
     {
@@ -7213,7 +7214,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
       "esES": null
     },
     {
@@ -8093,7 +8094,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8104,7 +8105,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8115,7 +8116,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8126,7 +8127,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8137,7 +8138,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8148,7 +8149,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8159,7 +8160,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8170,7 +8171,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "通过多次选择此专长，你获得一些每日可以各用两次的{g|Encyclopedia:Special_Abilities}类法术能力{/g}，按顺序：渐隐术、狂笑术、朦胧术、隐形术、英雄气概、移位术、困惑术、支配他人。你可以选择此专长至多8次，每次选择时按顺序获得下一个法术。",
       "esES": null
     },
     {
@@ -8412,7 +8413,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等冷元素超魔权杖",
+      "zhCN": "高等寒冷元素超魔权杖",
       "esES": null
     },
     {
@@ -8434,7 +8435,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为寒冷或拆分法术的伤害，这样一半是寒冷，一半是正常类型。",
       "esES": null
     },
     {
@@ -8456,7 +8457,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为电击或拆分法术的伤害，这样一半是电击，一半是正常类型。",
       "esES": null
     },
     {
@@ -8478,7 +8479,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n高等权杖可以用于9级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火焰，一半是正常类型。",
       "esES": null
     },
     {
@@ -8621,7 +8622,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "次级酸元素超魔权杖",
+      "zhCN": "次级酸蚀元素超魔权杖",
       "esES": null
     },
     {
@@ -8643,7 +8644,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "次级冷元素超魔权杖",
+      "zhCN": "次级寒冷元素超魔权杖",
       "esES": null
     },
     {
@@ -8654,7 +8655,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为寒冷或拆分法术的伤害，这样一半是寒冷，一半是正常类型。",
       "esES": null
     },
     {
@@ -8676,7 +8677,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电击，一半是正常类型。",
       "esES": null
     },
     {
@@ -8698,7 +8699,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n次级权杖可以用于3级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火焰，一半是正常类型。",
       "esES": null
     },
     {
@@ -8852,7 +8853,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "酸元素超魔权杖",
+      "zhCN": "酸蚀元素超魔权杖",
       "esES": null
     },
     {
@@ -8863,7 +8864,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为酸或拆分法术的伤害，这样一半是酸蚀，一半是正常类型。",
       "esES": null
     },
     {
@@ -8874,7 +8875,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "冷元素超魔权杖",
+      "zhCN": "寒冷元素超魔权杖",
       "esES": null
     },
     {
@@ -8885,7 +8886,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为冷或拆分法术的伤害，这样一半是冷，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为寒冷或拆分法术的伤害，这样一半是寒冷，一半是正常类型。",
       "esES": null
     },
     {
@@ -8907,7 +8908,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为电或拆分法术的伤害，这样一半是电击，一半是正常类型。",
       "esES": null
     },
     {
@@ -8929,7 +8930,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火，一半是正常类型。",
+      "zhCN": "这根权杖赋予它的持有者每天最多施放三个元素法术的能力，就像使用元素法术专长一样。\n普通权杖可以用于6级或更低级别的法术。\n你可以将法术的正常伤害替换为火或拆分法术的伤害，这样一半是火焰，一半是正常类型。",
       "esES": null
     },
     {
@@ -9050,7 +9051,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -9072,7 +9073,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得增效超魔。",
       "esES": null
     },
     {
@@ -9083,7 +9084,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得增效超魔。",
       "esES": null
     },
     {
@@ -9094,7 +9095,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得增效超魔。",
       "esES": null
     },
     {
@@ -9105,7 +9106,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过1环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -9127,7 +9128,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过2环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -9138,7 +9139,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过3环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -9149,7 +9150,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过4环的血怒者法术获得强效超魔。",
       "esES": null
     },
     {
@@ -9160,7 +9161,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -9182,7 +9183,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -9193,7 +9194,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -9204,7 +9205,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得延时超魔。",
       "esES": null
     },
     {
@@ -9237,7 +9238,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过1环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -9259,7 +9260,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过2环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -9270,7 +9271,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过3环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -9281,7 +9282,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用14轮每日血怒轮数，使一个不超过4环的血怒者法术获得极效超魔。",
       "esES": null
     },
     {
@@ -9292,7 +9293,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过1环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -9314,7 +9315,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过2环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -9325,7 +9326,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过3环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -9336,7 +9337,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过4环的血怒者法术获得顽强超魔。",
       "esES": null
     },
     {
@@ -9347,7 +9348,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过1环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -9369,7 +9370,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用12轮每日血怒轮数，使一个不超过2环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -9380,7 +9381,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用14轮每日血怒轮数，使一个不超过3环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -9391,7 +9392,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用16轮每日血怒轮数，使一个不超过4环的血怒者法术获得瞬发超魔。",
       "esES": null
     },
     {
@@ -9402,7 +9403,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -9424,7 +9425,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -9435,7 +9436,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -9446,7 +9447,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得及远超魔。",
       "esES": null
     },
     {
@@ -9457,7 +9458,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用4轮每日血怒轮数，使一个不超过1环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -9479,7 +9480,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用6轮每日血怒轮数，使一个不超过2环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -9490,7 +9491,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用8轮每日血怒轮数，使一个不超过3环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -9501,7 +9502,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "超魔狂怒者可以使用10轮每日血怒轮数，使一个不超过4环的血怒者法术获得甄选超魔。",
       "esES": null
     },
     {
@@ -9567,7 +9568,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "突变变身 - 抵撞",
       "esES": null
     },
     {
@@ -9578,7 +9579,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的野性形态获得一个额外的肢体，可以用来攻击你的敌人\n当你使用野性形态时，你额外获得一次主要攻击。\n这次攻击可以作为整轮攻击的一部分，使用你最高的基础攻击加值，它造成1d6的钝击伤害。\n这个肢体在野性形态期间会一直持续。",
       "esES": null
     },
     {
@@ -9589,7 +9590,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "突变变身",
       "esES": null
     },
     {
@@ -9600,7 +9601,7 @@
       "ruRU": "Мирмидарх - этой умелый специалист, применяющий магию в качестве приложения к своему боевому мастерству. Не столь расположенный к смешению этих двух составляющий как обычный магус, мирмидарх ищет совершенства во владении улинуом, луком и бронёй.",
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": "身为熟练的战斗专家，重装魔战使用魔法来辅助并强化他对武术的掌握。他对混合魔法和战技的倾向比一般的魔战士来的少，重装魔战比较擅长使用弓箭、刀刃与盔甲。",
       "esES": null
     },
     {
@@ -9611,7 +9612,7 @@
       "ruRU": "Мирмидарх",
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": "重装魔战",
       "esES": null
     },
     {
@@ -9622,7 +9623,7 @@
       "ruRU": "Начиная с 7-ого уровня, мирмидарх считает свой уровень магуса в качестве уровней воина для определения соответствования требованиям боевых черт (если у него есть уровни, воина, эти уровни складываются вместе).",
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": "7级时，重装魔战可以用“重装魔战等级-3”作为有效战士等级来学习战士的专长。如果他有战士等级，那这两个等级叠加。",
       "esES": null
     },
     {
@@ -9633,7 +9634,7 @@
       "ruRU": "Воинская подготовка",
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": "战斗训练",
       "esES": null
     },
     {
@@ -9644,7 +9645,7 @@
       "ruRU": "Начиная с 10-го уровня, мирмидарх считает свои уровни магуса как уровни воина в рамках способности Воинская подготовка.",
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": "10级时，重装魔战将他的魔战士等级视为战士等级，作用于战斗训练",
       "esES": null
     },
     {
@@ -9655,7 +9656,7 @@
       "ruRU": "Улучшенная воинская подготовка",
       "deDE": null,
       "frFR": null,
-      "zhCN": "",
+      "zhCN": "高等战斗训练",
       "esES": null
     },
     {
@@ -9666,7 +9667,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1级时，秘术师选择一个她进阶前获得的神术{g|Encyclopedia:Spell}施法{/g}职业，秘术师每次升级，每日法术数量都会增加，就像之前神术施法职业都获得提升一样",
       "esES": null
     },
     {
@@ -9688,7 +9689,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1级时，秘术师选择一个她进阶前获得的神术{g|Encyclopedia:Spell}施法{/g}职业，秘术师每次升级，每日法术数量都会增加，就像之前神术施法职业都获得提升一样",
       "esES": null
     },
     {
@@ -9699,7 +9700,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "神话战旗领域",
       "esES": null
     },
     {
@@ -9710,7 +9711,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "神话战旗",
       "esES": null
     },
     {
@@ -9721,7 +9722,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你的旗帜被神话力量强化，现在会保护附近的人。\n在60英尺范围内的所有盟友AC获得+2士气加值。在受到重击时，他们获得你神话等级一半的AC加值用以对抗重击确认。",
       "esES": null
     },
     {
@@ -10381,7 +10382,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你必须在进行攻击检定前事先声明施展本专长（因此攻击检定失败会浪费次数）。你可以骰两次攻击检定并取较高的结果。你每拥有四个等级，每天便可以尝试一次极意击（但有例外情况，见“特殊”段落）。\n特殊：禅宗射手和棍法宗师在1级时获得极意击作为额外专长，即使不符合先决条件。武僧每天可尝试施展极意击的次数等于其武僧等级，在武僧之外每拥有四个其他职业的等级，每天便可多施展一次。\n10级开始，该僧可以在使用此专长时投三次骰，取代原本的两次。",
       "esES": null
     },
     {
@@ -10436,7 +10437,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
       "esES": null
     },
     {
@@ -10898,7 +10899,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
       "esES": null
     },
     {
@@ -10986,7 +10987,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你对骑士团的奉献精神赋予了你兼任另一个骑士团的荣誉。\n你选择第二个骑士团，获得所有增益。",
       "esES": null
     },
     {
@@ -10997,7 +10998,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "荣誉骑士团",
       "esES": null
     },
     {
@@ -11316,7 +11317,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}真实阴影{/g}",
       "esES": null
     },
     {
@@ -11514,7 +11515,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n弱智术: 目标的<b><color=#703565><link=\"Encyclopedia:Intelligence\">智力</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Charisma\">魅力</link></color></b>都将降至1点。被影响的生物不能使用任何基于智力或魅力的 <b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b> 或释放 <b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>。 但是他依然知道谁是他的朋友，也能跟随他们行动，甚至可以保护他们。受术者会始终保持这一状态，直到被<b><color=#703565><link=\"Encyclopedia:Healing\">医疗术</link></color></b>取消掉弱智术效果为止。 能施放奥术的生物，例如术士或法师，在<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>中要受到-4<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
       "esES": null
     },
     {
@@ -11525,7 +11526,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n凶险注视: 每 <b><color=#703565><link=\"Encyclopedia:Combat_Round\">轮</link></color></b>你都能够以单个活物为目标，驱使力量的波动对其发动袭击。 目标必须通过一个成功的强韧豁免检定,否则就会受到法术的影响。 根据目标的HD，这种<b><color=#703565><link=\"Encyclopedia:Attack\">攻击</link></color></b>能够产生至多三种效果:\n如果目标的HD在10以上, 它会陷入恶心10分钟每CL。\n如果目标的HD在5-9, 它会陷入惊惧和恶心10分钟每CL。\n如果目标的HD在4以下, 它会陷入麻痹惊惧和恶心。\n这些影响并发且同时存在，持续10分钟每CL。\n在法术的第一轮之后，你必须每轮花费一个<b><color=#703565><link=\"Encyclopedia:Swift_Action\">迅捷动作</link></color></b>来瞄准目标。",
       "esES": null
     },
     {
@@ -11536,7 +11537,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n高等变形术: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>能将盟友生物变成大型剑齿虎、蔓生怪、元素生物、双足飞龙或中型类龙生物。受术者可以选择花费一个<b><color=#703565><link=\"Encyclopedia:Full_Round_Action\">整轮动作 action</link></color></b>变回原来的形态。这样做将终止此法术的效果。",
       "esES": null
     },
     {
@@ -11547,7 +11548,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n心灵屏障: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>使生物在对抗所有影响心智的法术和效果的<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>中获得+8抗力<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。此外，受术者不会被通过预言系魔法效果收集情报的物品和法术（比如思维感应、真知术和识破隐形）所影响。",
       "esES": null
     },
     {
@@ -11558,7 +11559,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n变化形体: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>允许你变成多种生物。此法术可产生如同野兽之状IV、元素之躯IV、龙形III的效果，取决于你变成的形体。你能够以<b><color=#703565><link=\"Encyclopedia:Free_Action\">自由动作</link></color></b>每<b><color=#703565><link=\"Encyclopedia:Combat_Round\">轮</link></color></b>改变一次形体。变形会在你的常规<b><color=#703565><link=\"Encyclopedia:CA_Types\">动作</link></color></b>之前或之后立即发生，但不能在动作中途发生",
       "esES": null
     },
     {
@@ -11569,7 +11570,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n变巨术: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>会使一个类人生物立刻快速成长，身高变成原来的2倍，体重变为原来的8倍。这会让生物的<b><color=#703565><link=\"Encyclopedia:Size\">体型</link></color></b>上升一级。由于体型增大，目标的<b><color=#703565><link=\"Encyclopedia:Strength\">力量</link></color></b>属性获得+2体型<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，<b><color=#703565><link=\"Encyclopedia:Dexterity\">敏捷</link></color></b>承受-2体型<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>（最低降为1点），<b><color=#703565><link=\"Encyclopedia:Attack\">攻击</link></color></b>检定和<b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b>承受-1减值。该生物使用的近战或远程武器能造成更高<b><color=#703565><link=\"Encyclopedia:Damage\">伤害</link></color></b>。\n体型增加到大型的类人生物占据10英尺的空间，拥有10英尺的天生触及范围。此法术不改变目标的<b><color=#703565><link=\"Encyclopedia:Speed\">速度</link></color></b>。\n变巨术能够解除缩小术。",
       "esES": null
     },
     {
@@ -11591,7 +11592,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n闪现术: 对你发动的物理攻击有50%几率失手，由于你处于灵化状态而非仅仅隐形，即便对手有“盲斗”<b><color=#703565><link=\"Encyclopedia:Feat\">专长</link></color></b>也无济于事。若该攻击能够击中灵体生物，那么失手率仅为20%（因隐蔽效果而失手）。任何对你施放的单体<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>有50%几率失败，除非施法者能够以隐形生物和灵体生物为目标。\n假如攻击者能够看见隐形生物，失手率同样仅有20%。对于同时能够看见和击中灵体生物的攻击者而言，不会有失手几率。\n同样，你自己发动的攻击也有20%失手率。 在闪现期间，范围攻击对你只会造成一半伤害（但能够延伸到灵界位面的范围攻击会造成全部伤害）。虽然只有部分可见，但你不被视为隐形状态，目标在对抗你的攻击时也能够保留防御等级（AC）的敏捷加值。你在对看不见隐形生物的敌人发动攻击时，攻击检定会获得+2加值。",
       "esES": null
     },
     {
@@ -11602,7 +11603,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n岩刺: 岩质地面、石地板与类似的表面形状改变，形成长而尖的石刺，与背景融为一体。\n岩刺使该区域难以通行，并造成<b><color=#703565><link=\"Encyclopedia:Damage\">伤害</link></color></b>。任何徒步进入或穿过法术影响区域的生物移动速度减半。此外，在区域内的生物每移动5英尺，便受到1d8点穿刺伤害。\n因岩刺受到伤害的生物还需要反射豁免成功才能避免腿脚受伤。若豁免失败，则生物的速度减半，持续1分钟。",
       "esES": null
     },
     {
@@ -11822,7 +11823,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n破除魔咒: 此法术能够解除目标身上的惑控、变化和诅咒效果。破除魔咒甚至还能逆转立即生效的效果。对于这些效果，你需要分别进行施法者等级检定（1d20+施法者等级，最高为+15），对抗等于11+该效果施法者等级的DC。检定成功意味着受术生物从法术、诅咒或效果中解脱。破除魔咒只对不超过5级的法术有效。",
       "esES": null
     },
     {
@@ -11833,7 +11834,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n高等英雄气概: 此法术效果类似于英雄气概，区别在于生物在攻击、豁免和技能检定上获得+4士气加值，免疫恐惧效应，并获得等于你的施法者等级的临时生命值（最高20）。",
       "esES": null
     },
     {
@@ -11844,7 +11845,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n明晰之环: 你创造出魔法能量场，干扰范围内的所有幻象，为辨别幻术的豁免检定提供+4加值。能量场还会抵消范围内弱于完全隐蔽的隐蔽效果。在范围内用于发现生物或物品的察觉检定获得等于施法者等级一半的加值（最高+10）。如果施放于空间中的一点，法术位置将固定不变。如果施放在一个生物或物品上，法术就能够移动，不过生物或被持有的物品可以通过豁免检定或法术抗力来免除法术效果。",
       "esES": null
     },
     {
@@ -11855,7 +11856,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n防护魔法: 受术者对抗法术和类法术能力的豁免检定具有+8抗力加值（对超自然能力和特异能力无效）。",
       "esES": null
     },
     {
@@ -11866,7 +11867,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n预警: 该法术给予你强大的第六感。一旦施放预警术，只要施法对象面临危险或即将受到伤害，你就会立即得到警告。你永远不会陷入措手不及状态。此外，该法术将指引你如何更好地保护自身，使你的防御等级和反射豁免得到+2洞察加值。",
       "esES": null
     },
     {
@@ -11877,7 +11878,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n护盾术: 护盾术制造一个隐形的力场盾牌悬浮在你身前。它可以吸收射向你的魔法飞弹。该盾牌同时为防御等级提供+4盾牌加值。该加值属于力场效应，故对虚体接触攻击有效。该盾牌不会带来防具检定减值和奥术失败率。",
       "esES": null
     },
     {
@@ -11888,7 +11889,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n朦胧术: 目标的轮廓变得朦胧、歪曲、变化不定。该法术使目标获得隐蔽状态（20%失手几率）。\n识破隐形法术不能抵消朦胧效果，但真知术可以。\n看不到目标的对手无视此法术的效果（不过与不可见的对手战斗本身就有不利影响）。",
       "esES": null
     },
     {
@@ -11899,7 +11900,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n防护能量: 防护能量使目标暂时对你施法时指定的能量类型免疫（酸蚀、寒冷、电击、火焰或音波）。法术吸收每施法者等级12点能量伤害后（10级时达到最大值120点）就会消散。",
       "esES": null
     },
     {
@@ -11910,7 +11911,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士从自身血统的奖励法术列表中获得一个奖励法术。\n行动自如: 该法术使得你或你接触的一个生物在法术持续时间内，即使遭到限制行动的魔法影响时，也可以正常移动和攻击，例如麻痹、重雾术、缓慢术与蛛网术。所有尝试擒抱目标的战技检定都会自动失败。",
       "esES": null
     },
     {
@@ -12262,7 +12263,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "高等反震屏障",
+      "zhCN": "意志豁免成功则击晕无效",
       "esES": null
     },
     {
@@ -12273,7 +12274,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "1轮/级或直到消散",
+      "zhCN": "高等反震屏障",
       "esES": null
     },
     {
@@ -12284,7 +12285,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "意志豁免成功则击晕无效",
+      "zhCN": "1轮/级或直到消散",
       "esES": null
     },
     {
@@ -12790,7 +12791,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这件护甲为AC提供+1增强加值. 魔法护甲的护甲检定惩罚比同类型普通护甲减少1。",
       "esES": null
     },
     {
@@ -12801,7 +12802,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这件护甲为AC提供+2增强加值. 魔法护甲的护甲检定惩罚比同类型普通护甲减少2。",
       "esES": null
     },
     {
@@ -12812,7 +12813,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这件护甲为AC提供+3增强加值. 魔法护甲的护甲检定惩罚比同类型普通护甲减少3。",
       "esES": null
     },
     {
@@ -12823,7 +12824,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这件护甲为AC提供+4增强加值. 魔法护甲的护甲检定惩罚比同类型普通护甲减少4。",
       "esES": null
     },
     {
@@ -12834,7 +12835,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这件护甲为AC提供+5增强加值. 魔法护甲的护甲检定惩罚比同类型普通护甲减少5。",
       "esES": null
     },
     {
@@ -12845,7 +12846,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这件护甲为AC提供+6增强加值. 魔法护甲的护甲检定惩罚比同类型普通护甲减少6。",
       "esES": null
     },
     {
@@ -13395,7 +13396,7 @@
       "ruRU": "Один раз в день Ведьмы может обьявить праздненство, увлекая своих товарищей в разнузданную и свирепую пляску. Все союзники в радиусе 30 футов получают способность летать (как от заговора Полёт) и юонус уклонения +2 к защите; когда они используют отступ на 5 футов, они могут переместиться на 10 футов. Эти преимущества длятся 1 раунд, но могут быть продлены заговором Хохот.",
       "deDE": null,
       "frFR": null,
-      "zhCN": "每日一次以标准动作，女巫可以宣布庆典开始，引领朋友们跳起暴乱而凶残的舞蹈。30尺范围内的所有盟友获得飞行能力（效果如同飞行巫术），{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}获得+2闪避加值，且使用5尺快步时可以移动10尺而非5尺。所有好处持续1轮，但可以尖笑巫术延长效力。",
+      "zhCN": "每日一次以标准动作，巫师可以宣布庆典开始，引领朋友们跳起暴乱而凶残的舞蹈。30尺范围内的所有盟友获得飞行能力（效果如同飞行巫术），{g|Encyclopedia:Armor_Class}防御等级（AC）{/g}获得+2闪避加值，且使用5尺快步时可以移动10尺而非5尺。所有好处持续1轮，但可以尖笑巫术延长效力。",
       "esES": null
     },
     {
@@ -13406,7 +13407,7 @@
       "ruRU": "Пляска ведьмы",
       "deDE": null,
       "frFR": null,
-      "zhCN": "女巫之舞",
+      "zhCN": "巫师之舞",
       "esES": null
     },
     {
