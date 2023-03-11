@@ -109,6 +109,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             static void PatchBase() {
                 PatchNaturesWhisper();
                 PatchFlameMystery();
+                PatchWavesMystery();
 
                 void PatchNaturesWhisper() {
                     if (TTTContext.Fixes.Oracle.Base.IsDisabled("NaturesWhisperMonkStacking")) { return; }
@@ -151,7 +152,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                 c.Duration = new ContextDurationValue() {
                                     DiceType = DiceType.D4,
                                     DiceCountValue = 1,
-                                    BonusValue = 1
+                                    BonusValue = 0
                                 };
                             });
                         });
@@ -187,7 +188,48 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                 c.m_Progression = ContextRankProgression.AsIs;
                             });
                         });
+                        TTTContext.Logger.LogPatch(OracleRevelationBurningMagic);
                         TTTContext.Logger.LogPatch(OracleRevelationBurningMagicBuff);
+                    }
+                }
+                void PatchWavesMystery() {
+                    PatchRevelationFreezingSpells();
+
+                    void PatchRevelationFreezingSpells() {
+                        if (TTTContext.Fixes.Oracle.Base.IsDisabled("RevelationFreezingSpells")) { return; }
+
+                        var OracleRevelationFreezingSpellsFeature1 = BlueprintTools.GetBlueprint<BlueprintFeature>("4fe07207483321e4cb7b81e2eaeb9cec");
+                        var OracleRevelationFreezingSpellsFeature11 = BlueprintTools.GetBlueprint<BlueprintFeature>("75dc65756f4c51c40932ac2ffdf66b94");
+                        var OracleRevelationFreezingSpellsBuff1 = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "OracleRevelationFreezingSpellsBuff1");
+                        var OracleRevelationFreezingSpellsBuff11 = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "OracleRevelationFreezingSpellsBuff11");
+                        OracleRevelationFreezingSpellsFeature1.TemporaryContext(bp => {
+                            bp.RemoveComponents<AddAbilityUseTrigger>();
+                            bp.RemoveComponents<ContextCalculateSharedValue>();
+                            bp.RemoveComponents<ContextRankConfig>();
+                            bp.AddComponent<BurningMagic>(c => {
+                                c.EnergyType = DamageEnergyType.Cold;
+                                c.m_Buff = OracleRevelationFreezingSpellsBuff1;
+                                c.Duration = new ContextDurationValue() {
+                                    DiceCountValue = 0,
+                                    BonusValue = 1
+                                };
+                            });
+                        });
+                        OracleRevelationFreezingSpellsFeature11.TemporaryContext(bp => {
+                            bp.RemoveComponents<AddAbilityUseTrigger>();
+                            bp.RemoveComponents<ContextCalculateSharedValue>();
+                            bp.RemoveComponents<ContextRankConfig>();
+                            bp.AddComponent<BurningMagic>(c => {
+                                c.EnergyType = DamageEnergyType.Cold;
+                                c.m_Buff = OracleRevelationFreezingSpellsBuff11;
+                                c.Duration = new ContextDurationValue() {
+                                    DiceCountValue = 0,
+                                    BonusValue = 1
+                                };
+                            });
+                        });
+                        TTTContext.Logger.LogPatch(OracleRevelationFreezingSpellsFeature1);
+                        TTTContext.Logger.LogPatch(OracleRevelationFreezingSpellsFeature11);
                     }
                 }
             }

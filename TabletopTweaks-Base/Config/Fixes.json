@@ -789,7 +789,12 @@
         "RevelationBurningMagic": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Fixes the CL scaling to be equal to oracle level."
+          "Description": "Mechanics and damage have been fixed to work like tabletop."
+        },
+        "RevelationFreezingSpells": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Mechanics and have been fixed to work like tabletop."
         }
       },
       "IsExpanded": true

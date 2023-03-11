@@ -346,13 +346,13 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             });
         }
 
-        private class ElementalSpellMechanics : IAfterRulebookEventTriggerHandler<RulePrepareDamage>, IAfterRulebookEventTriggerHandler<RuleDealDamage>, IGlobalSubscriber {
+        private class ElementalSpellMechanics : IAfterRulebookEventTriggerHandler<RulePrepareDamage>, IGlobalSubscriber {
 
             BlueprintFeature ElementalSpellFeatAcid;
             BlueprintFeature ElementalSpellFeatCold;
             BlueprintFeature ElementalSpellFeatElectricity;
             BlueprintFeature ElementalSpellFeatFire;
-            private static readonly Metamagic elementalMetamagicMask = (Metamagic)(CustomMetamagic.ElementalAcid | CustomMetamagic.ElementalCold | CustomMetamagic.ElementalElectricity | CustomMetamagic.ElementalFire);
+            //private static readonly Metamagic elementalMetamagicMask = (Metamagic)(CustomMetamagic.ElementalAcid | CustomMetamagic.ElementalCold | CustomMetamagic.ElementalElectricity | CustomMetamagic.ElementalFire);
 
             internal ElementalSpellMechanics(BlueprintFeature acid, BlueprintFeature cold, BlueprintFeature electricity, BlueprintFeature fire) {
                 this.ElementalSpellFeatAcid = acid;
@@ -405,9 +405,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     }
                 };
             }
-
+            /*
             public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {
-                /*
+                
                 var ability = evt.Reason.Ability;
                 if (ability == null || !ability.Blueprint.IsSpell) {
                     return;
@@ -458,8 +458,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         Half = evt.Half
                     });
                 };
-                */
+                
             }
+            */
         }
     }
 }

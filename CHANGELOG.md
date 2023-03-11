@@ -2,7 +2,8 @@
 * Fixes
     * Elemental Spell should now work more correctly with sorcerer damage conversions.
     * Oracle
-        * Burning Magic mechanics and damage has been fixed to work like tabletop.
+        * Burning Magic mechanics and damage have been fixed to work like tabletop.
+        * Freezing Spells mechanics have been fixed to work like tabletop.
     * Paladin
         * Divine mount now always has at least 6 intelligence.
     * Shifter
