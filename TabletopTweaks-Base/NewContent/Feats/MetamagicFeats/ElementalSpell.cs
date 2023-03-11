@@ -1,4 +1,5 @@
-﻿using Kingmaker.Blueprints;
+﻿using HarmonyLib;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -19,6 +20,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core.MechanicsChanges;
 using TabletopTweaks.Core.NewComponents;
@@ -377,6 +379,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 void ApplyDamageEffect(DamageEnergyType element, BlueprintFeature sourceBlueprint, RulePrepareDamage evt) {
                     var caster = ability.Caster;
                     var sourceFact = caster?.GetFact(sourceBlueprint);
+                    List<EnergyDamage> toAdd = new List<EnergyDamage>();
                     foreach (BaseDamage baseDamage in evt.DamageBundle) {
                         if (baseDamage.Type == DamageType.Energy && !baseDamage.Precision) {
                             EnergyDamage energyDamage = baseDamage as EnergyDamage;
@@ -388,15 +391,23 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                                 } else {
                                     energyDamage.Half.Set(true, sourceFact);
                                 }
+                                EnergyDamage newDamage = new EnergyDamage(baseDamage.Dice.ModifiedValue, element);
+                                newDamage.CopyFrom(baseDamage);
+                                newDamage.SourceFact = sourceFact;
+                                toAdd.Add(newDamage);
                             } else {
                                 energyDamage.ReplaceEnergy(element);
                             }
                         }
                     }
+                    foreach (EnergyDamage addedDamage in toAdd) {
+                        evt.Add(addedDamage);
+                    }
                 };
             }
 
             public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {
+                /*
                 var ability = evt.Reason.Ability;
                 if (ability == null || !ability.Blueprint.IsSpell) {
                     return;
@@ -447,6 +458,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         Half = evt.Half
                     });
                 };
+                */
             }
         }
     }

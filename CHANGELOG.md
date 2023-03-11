@@ -1,5 +1,6 @@
 ## Version 2.5.2
 * Fixes
+    * Elemental Spell should now work more correctly with sorcerer damage conversions.
     * Oracle
         * Burning Magic mechanics and damage has been fixed to work like tabletop.
     * Paladin
