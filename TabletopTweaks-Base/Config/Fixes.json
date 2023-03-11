@@ -1137,10 +1137,20 @@
   "WinterWitch": {
     "DisableAll": false,
     "Settings": {
+      "ColdFlesh": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds Cold Flesh feature to winter witch granting scaling cold resist and cold immunity capstone."
+      },
       "UnearthlyCold": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Fixes unearthly cold to properly apply metamagic and bonus damage."
+      },
+      "UnnaturalCold": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds the Unnatural Cold feature to winter witch which ignore half of a target's cold resistance."
       }
     },
     "IsExpanded": true

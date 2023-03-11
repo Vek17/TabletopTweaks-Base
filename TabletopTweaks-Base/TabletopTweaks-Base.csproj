@@ -301,6 +301,7 @@
     <Compile Include="NewContent\Classes\Monk.cs" />
     <Compile Include="NewContent\Classes\Oracle.cs" />
     <Compile Include="NewContent\Classes\Skald.cs" />
+    <Compile Include="NewContent\Classes\WinterWitch.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\FavoredClassBonuses\Generic.cs" />
     <Compile Include="NewContent\Feats\AbilityFocusStunningFist.cs" />

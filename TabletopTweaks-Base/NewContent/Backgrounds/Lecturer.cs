@@ -18,7 +18,6 @@ namespace TabletopTweaks.Base.NewContent.Backgrounds {
                     "proficiency granted by the selected background from her class during character creation, then the corresponding {g|Encyclopedia:Bonus}bonuses{/g} " +
                     "from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor {g|Encyclopedia:Check}" +
                     "Check{/g} {g|Encyclopedia:Penalty}Penalty{/g} reduction in case of armor proficiency.");
-                bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddClassSkill>(c => {
                     c.Skill = StatType.SkillKnowledgeWorld;

@@ -1,9 +1,15 @@
-## Version 2.5.1
+## Version 2.5.2
 * Fixes
     * Oracle
         * Burning Magic mechanics and damage has been fixed to work like tabletop.
     * Paladin
         * Divine mount now always has at least 6 intelligence.
+    * Shifter
+        * Fixed Wyrmshifter breath weapons breaking polymorphs in some cases.
+    * Winter Witch
+        * Added Cold Flesh feature granting scaling cold resistance and immunity capstons.
+        * Added Unnatural Cold feature allowing Winter Witch to ignore half of a target's cold resistance
+        * Fixed Unearthly Cold to still deal cold damage to benifit from vulnerability.
     * Spells
         * Shield of Law 
             * No longer incorrectly grant immunity to mind affecting.
