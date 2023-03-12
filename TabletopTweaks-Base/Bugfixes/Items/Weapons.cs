@@ -20,12 +20,14 @@ using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
+using static Kingmaker.RuleSystem.RulebookEvent;
 using static Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription;
 using static TabletopTweaks.Base.Main;
 
@@ -43,6 +45,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                 PatchBladeOfTheMerciful();
                 PatchDevastatingBlowFromAbove();
+                PatchEyeForAnEye();
                 PatchFinnean();
                 PatchHonorableJudgement();
                 PatchRadiance();
@@ -109,6 +112,27 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         };
                     });
                     TTTContext.Logger.LogPatch("Patched", DevastatingBlowFromAboveEnchantment);
+                }
+                void PatchEyeForAnEye() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("EyeForAnEye")) { return; }
+
+                    var EyeForAnEyeBowEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("5f8e3638fc9c6794c8eb6eb671356d52");
+                    EyeForAnEyeBowEnchantment.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    EyeForAnEyeBowEnchantment.AddComponent<WeaponExtraDamageDice>(c => {
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Physical,
+                            Physical = new PhysicalData() {
+                                Form = PhysicalDamageForm.Piercing,
+                                Enhancement = 3,
+                                EnhancementTotal = 3
+                            }
+                        };
+                        c.Value = new DiceFormula() {
+                            m_Dice = DiceType.D12,
+                            m_Rolls = 1
+                        };
+                    });
+                    TTTContext.Logger.LogPatch(EyeForAnEyeBowEnchantment);
                 }
                 void PatchHonorableJudgement() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("HonorableJudgement")) { return; }

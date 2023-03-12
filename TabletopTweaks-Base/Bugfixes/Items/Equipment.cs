@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
@@ -51,6 +52,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchStormlordsResolve();
                 PatchFlawlessBeltOfPhysicalPerfection8Availability();
                 PatchFlawlessBeltOfPhysicalPerfection8CritIncrease();
+                PatchQuiverOfRosesThorns();
 
                 void PatchAmuletOfQuickDraw() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("AmuletOfQuickDraw")) { return; }
@@ -272,6 +274,21 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         ability.DoNotTurnOffOnRest = false;
                         TTTContext.Logger.LogPatch("Patched", ability);
                     });
+                }
+                void PatchQuiverOfRosesThorns() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("QuiverOfRosesThorns")) { return; }
+
+                    var WeakenArrowsQuiverItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentUsable>("911d0f8cad672454a94286a9feafc360");
+                    var WeakenArrowsQuiverBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("784043a11f7404c42a97ba4d55417d23");
+                    var WeakenArrowsQuiverEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("c4fe1891ba41da346ab553a94107fd96");
+
+                    WeakenArrowsQuiverBuff.m_Icon = WeakenArrowsQuiverItem.Icon;
+                    WeakenArrowsQuiverEnchantment.AddComponent<WeaponExtraAttack>(c => {
+                        c.Number = 1;
+                        c.Haste = true;
+                    });
+
+                    TTTContext.Logger.LogPatch(WeakenArrowsQuiverEnchantment);
                 }
             }
         }

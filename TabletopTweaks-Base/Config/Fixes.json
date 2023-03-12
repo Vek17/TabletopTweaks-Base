@@ -1851,6 +1851,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Can now be deactivated immediately instead of taking 1 turn to turn off."
+        },
+        "QuiverOfRosesThorns": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now grants speed matching the item description."
         }
       },
       "IsExpanded": true
@@ -1872,6 +1877,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
+        },
+        "EyeForAnEye": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple gake attacks and procing weapon effects more often than it should."
         },
         "Finnean": {
           "Enabled": true,

@@ -1,3 +1,12 @@
+## Version 2.5.3
+* Fixes
+    * Equipment
+        * Quiver Of Roses Thorns
+            * Now correctly grants speed.
+    * Weapons
+        * Eye for an Eye
+            * Prevents from triggering multiple gake attacks and procing weapon effects more often than it should.
+
 ## Version 2.5.2
 * Fixes
     * Elemental Spell should now work more correctly with sorcerer damage conversions.
