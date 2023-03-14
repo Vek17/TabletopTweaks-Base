@@ -1602,6 +1602,11 @@
         "Homebrew": false,
         "Description": "Allows any spell with a saving throw to be made persistent."
       },
+      "RakingClaws": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Raking Claws now has more correct prerequites for non druid classes with Wild Shape."
+      },
       "SelectiveMetamagic": {
         "Enabled": true,
         "Homebrew": false,

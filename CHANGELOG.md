@@ -1,5 +1,7 @@
-## Version 2.5.3
+## Version 2.5.2a
 * Fixes
+    * Shifter
+        * Blessed Claws should now properly be granted at level 19+.
     * Equipment
         * Quiver Of Roses Thorns
             * Now correctly grants speed.

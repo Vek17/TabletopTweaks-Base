@@ -73,6 +73,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchEmpowerMetamagic();
                 PatchMaximizeMetamagic();
                 PatchNaturalSpell();
+                PatchRakingClaws();
                 PatchShatterDefenses();
                 PatchShifterRush();
                 PatchSlashingGrace();
@@ -569,6 +570,33 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     );
                 });
                 TTTContext.Logger.LogPatch(FrightfulShape);
+            }
+            static void PatchRakingClaws() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("RakingClaws")) { return; }
+
+                var RakingClawsFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("a1b262d2b1ef478994113fc941fa3a32");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                RakingClawsFeature.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteCondition>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(RakingClawsFeature);
             }
             static void PatchShifterRush() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("ShifterRush")) { return; }

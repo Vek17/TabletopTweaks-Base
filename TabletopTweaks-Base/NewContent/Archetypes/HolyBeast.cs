@@ -267,7 +267,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 ShifterClawBuffLevel17,
                 ShifterClawAbilityLevel17,
                 DiceType.D10,
-                true
+                ImprovedCritical: true
             );
             var BlessedClawsFeatureAddLevel6 = CreateBlessedClawsFeature(
                 ShifterClawsFeatureAddLevel6,
@@ -275,7 +275,8 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 ShifterClawBuffLevel19,
                 ShifterClawAbilityLevel19,
                 DiceType.D10,
-                true,
+                ImprovedCritical: true,
+                BeforeThisLevel: false,
                 "-Duplicate"
             );
             // CREATE ITEM BOND
@@ -310,6 +311,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 BlueprintActivatableAbility Ability,
                 DiceType Dice,
                 bool ImprovedCritical = false,
+                bool BeforeThisLevel = true,
                 string append = ""
             ) {
                 var BlessedClawsWeapon = ShifterClaw1d10x3.CreateCopy(TTTContext, $"BlessedClaw1{Dice}{(ImprovedCritical ? "x3" : "")}{append}", bp => {
@@ -456,7 +458,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         c.m_AdditionalClasses = new BlueprintCharacterClassReference[0];
                         c.m_Archetypes = new BlueprintArchetypeReference[0];
                         c.Level = level;
-                        c.BeforeThisLevel = true;
+                        c.BeforeThisLevel = BeforeThisLevel;
                     });
                 });
             }
@@ -466,7 +468,8 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 BlueprintBuff Buff,
                 BlueprintActivatableAbility Ability,
                 DiceType Dice,
-                bool ImprovedCritical = false
+                bool ImprovedCritical = false,
+                bool BeforeThisLevel = true
             ) {
                 var BlessedClawsWeapon = ShifterClaw1d10x3.CreateCopy(TTTContext, $"BlessedClaw1{Dice}", bp => {
                     bp.m_DamageDice = new DiceFormula(1, Dice);
@@ -620,7 +623,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         c.m_AdditionalClasses = new BlueprintCharacterClassReference[0];
                         c.m_Archetypes = new BlueprintArchetypeReference[0];
                         c.Level = level;
-                        c.BeforeThisLevel = true;
+                        c.BeforeThisLevel = BeforeThisLevel;
                     });
                 });
             }
