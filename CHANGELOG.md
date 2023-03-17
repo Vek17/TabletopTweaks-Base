@@ -1,3 +1,18 @@
+## Version 2.5.3
+* Fixes
+    * Spells
+        * Winters Grasp
+            * Winter's Grasp now works like tabletop and does not cause prone.
+* Added Content
+    * Spells
+        * Accursed Glare
+            * Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result.
+        * Inflict Pain
+        * Inflict Pain Mass
+            * You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.
+        * Web Bolt
+            * You launch a ball of webbing at a target, which must make a save or be affected as if by a web spell occupying only the creature’s space.
+
 ## Version 2.5.2a
 * Fixes
     * Shifter

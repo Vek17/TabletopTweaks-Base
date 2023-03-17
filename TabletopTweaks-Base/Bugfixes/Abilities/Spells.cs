@@ -114,7 +114,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
                 PatchUnbreakableHeart();
-                PatchWrachingRay();
+                PatchWintersGrasp();
+                PatchWrackingRay();
                 PatchFromSpellFlags();
             }
             //Aeon Spells
@@ -1684,13 +1685,100 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 var UnbreakableHeartBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6603b27034f694e44a407a9cdf77c67e");
                 QuickFixTools.ReplaceSuppression(UnbreakableHeartBuff, TTTContext);
             }
-            static void PatchWrachingRay() {
+            static void PatchWintersGrasp() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("WintersGrasp")) { return; }
+
+                var WinterGrasp = BlueprintTools.GetBlueprint<BlueprintAbility>("406c6e4a631b43ce8f7a77844b75bf75");
+                var WinterGraspAreaBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6eae342c76bc4c6d88c6d864731f6d81");
+                var WinterGraspAreaEffect = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("ba4e3f85c4f540efa537b4745ed467a4");
+                var WinterGraspDifficultTerrainBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("cb5715ae89974ff98870f13fde9cd27e");
+
+                WinterGrasp.TemporaryContext(bp => {
+                    bp.SetDescription(TTTContext, "ce encrusts the ground, radiating supernatural cold and making it hard for creatures " +
+                        "to maintain their balance. This icy ground is treated as difficult terrain and " +
+                        "the DC of Mobility checks in the area is increased by 5. " +
+                        "A creature that begins its turn in the affected area takes 1d6 points of cold damage and takes a " +
+                        "–2 penalty on saving throws against spells with the cold descriptor for 1 round.");
+                    bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
+                    bp.AvailableMetamagic &= ~(Metamagic.Persistent | Metamagic.Selective);
+                });
+                WinterGraspDifficultTerrainBuff.TemporaryContext(bp => {
+                    bp.AddComponent<AddStatBonus>(c => {
+                        c.Stat = StatType.SkillMobility;
+                        c.Value = -5;
+                        c.Descriptor = ModifierDescriptor.Penalty;
+                    });
+                });
+                WinterGraspAreaBuff.TemporaryContext(bp => {
+                    bp.Stacking = StackingType.Replace;
+                });
+                WinterGraspAreaEffect.TemporaryContext(bp => {
+                    bp.SetComponents();
+                    bp.AddComponent<AbilityAreaEffectRunAction>(c => {
+                        c.UnitEnter = Helpers.CreateActionList(
+                            new ContextActionApplyBuff() {
+                                m_Buff = WinterGraspDifficultTerrainBuff.ToReference<BlueprintBuffReference>(),
+                                Permanent = true,
+                                DurationValue = new ContextDurationValue() {
+                                    DiceCountValue = 0,
+                                    BonusValue = 1
+                                }
+                            },
+                            new ContextActionApplyBuff() {
+                                m_Buff = WinterGraspAreaBuff.ToReference<BlueprintBuffReference>(),
+                                DurationValue = new ContextDurationValue() {
+                                    Rate = DurationRate.Rounds,
+                                    DiceCountValue = 0,
+                                    BonusValue = 1
+                                }
+                            }
+                        );
+                        c.UnitExit = Helpers.CreateActionList(
+                            new ContextActionRemoveBuff() {
+                                m_Buff = WinterGraspDifficultTerrainBuff.ToReference<BlueprintBuffReference>()
+                            }
+                        );
+                        c.Round = Helpers.CreateActionList(
+                            new ContextActionApplyBuff() { 
+                                m_Buff = WinterGraspAreaBuff.ToReference<BlueprintBuffReference>(),
+                                DurationValue = new ContextDurationValue() {
+                                    Rate = DurationRate.Rounds,
+                                    DiceCountValue = 0,
+                                    BonusValue = 1
+                                }
+                            },
+                            new ContextActionDealDamage() {
+                                DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Cold
+                                },
+                                Duration = new ContextDurationValue() {
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                },
+                                Value = new ContextDiceValue() {
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 1,
+                                    BonusValue = 0
+                                }
+                            }
+                        );
+                        c.UnitMove = Helpers.CreateActionList();
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(WinterGrasp);
+                TTTContext.Logger.LogPatch(WinterGraspAreaBuff);
+                TTTContext.Logger.LogPatch(WinterGraspAreaEffect);
+                TTTContext.Logger.LogPatch(WinterGraspDifficultTerrainBuff);
+            }
+            static void PatchWrackingRay() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("WrackingRay")) { return; }
 
                 var WrackingRay = BlueprintTools.GetBlueprint<BlueprintAbility>("1cde0691195feae45bab5b83ea3f221e");
                 foreach (AbilityEffectRunAction component in WrackingRay.GetComponents<AbilityEffectRunAction>()) {
                     foreach (ContextActionDealDamage action in component.Actions.Actions.OfType<ContextActionDealDamage>()) {
-                        action.Value.DiceType = Kingmaker.RuleSystem.DiceType.D4;
+                        action.Value.DiceType = DiceType.D4;
                     }
                 }
                 TTTContext.Logger.LogPatch("Patched", WrackingRay);

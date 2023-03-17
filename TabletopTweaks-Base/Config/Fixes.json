@@ -1433,6 +1433,11 @@
         "Homebrew": false,
         "Description": "Winds of the Fall now can be targeted and has a working debuff."
       },
+      "WintersGrasp": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Winter's Grasp now works like tabletop and does not cause prone."
+      },
       "WrackingRay": {
         "Enabled": true,
         "Homebrew": false,

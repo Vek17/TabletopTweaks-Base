@@ -423,12 +423,15 @@
     <Compile Include="NewContent\RogueTalents\BleedingAttack.cs" />
     <Compile Include="NewContent\RogueTalents\EmboldeningStrike.cs" />
     <Compile Include="NewContent\RogueTalents\RogueTalentProperties.cs" />
+    <Compile Include="NewContent\Spells\AccursedGlare.cs" />
     <Compile Include="NewContent\Spells\CloakOfWinds.cs" />
+    <Compile Include="NewContent\Spells\InflictPain.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
     <Compile Include="NewContent\Spells\MagesDisjunction.cs" />
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
     <Compile Include="NewContent\Spells\StunningBarrierGreater.cs" />
+    <Compile Include="NewContent\Spells\WebBolt.cs" />
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewContent\WeaponEnchantments\TerrifyingTremble.cs" />
@@ -459,6 +462,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Abilities\Icon_AberrantBloodline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_AccursedGlare.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_AeonBane.png">
@@ -516,6 +522,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_DestinedBloodline.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_InflictPain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_InflictPainMass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_LongArm.png">
@@ -617,7 +629,19 @@
     <Content Include="Assets\Abilities\Icon_WarriorSpirit_Unholy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Abilities\Icon_WebBolt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfAccursedGlare.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Equipment\Icon_ScrollOfCloakOfWinds.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfInflictPain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfInflictPainMass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Equipment\Icon_ScrollOfLongArm.png">
@@ -684,6 +708,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Equipment\Icon_ScrollOfShadowEnchantmentGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfWebBolt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_ArmoredMight.png">

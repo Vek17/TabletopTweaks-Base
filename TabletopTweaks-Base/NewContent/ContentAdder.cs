@@ -33,6 +33,9 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.MagesDisjunction.AddMagesDisjunction();
                 Spells.StunningBarrierGreater.AddStunningBarrierGreater();
                 Spells.CloakOfWinds.AddCloakOfWinds();
+                Spells.WebBolt.AddWebBolt();
+                Spells.InflictPain.AddInflictPain();
+                Spells.AccursedGlare.AddAccursedGlare();
 
                 //Added early as some things depend on them for selections
                 Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();
