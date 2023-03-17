@@ -45,21 +45,21 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     c.Activated = Helpers.CreateActionList(
                         new Conditional() {
                             ConditionsChecker = new ConditionsChecker() {
-                                Conditions = new Condition[] { 
+                                Conditions = new Condition[] {
                                     new ContextConditionHasBuff() {
                                         m_Buff = HasteBuff
                                     }
                                 }
                             },
                             IfTrue = Helpers.CreateActionList(
-                                new ContextActionRemoveBuffSingleStack() { 
+                                new ContextActionRemoveBuffSingleStack() {
                                     m_TargetBuff = HasteBuff
                                 }
                             ),
                             IfFalse = Helpers.CreateActionList(
                                 new ContextActionApplyBuff() {
                                     m_Buff = SlowBuff,
-                                    DurationValue = new ContextDurationValue() { 
+                                    DurationValue = new ContextDurationValue() {
                                         DiceCountValue = 0,
                                         BonusValue = 1
                                     },

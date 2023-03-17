@@ -127,7 +127,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.Not = true;
                         });
                     });
-                    
+
                     TTTContext.Logger.LogPatch("Patched", OracleRevelationNatureWhispers);
                 }
 

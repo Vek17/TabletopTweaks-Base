@@ -2,16 +2,13 @@
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Craft;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
-using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -36,7 +33,12 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     "Creatures that fail lose their movement and become grappled in the first square of webbing that they enter.");
                 bp.SetLocalizedDuration(TTTContext, "1 minute/level");
                 bp.SetLocalizedSavingThrow(TTTContext, "Reflex negates");
-                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Persistent | Metamagic.Reach;
+                bp.AvailableMetamagic = Metamagic.Extend
+                    | Metamagic.Heighten
+                    | Metamagic.Quicken
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent
+                    | Metamagic.Reach;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetFriends = true;
                 bp.CanTargetSelf = true;

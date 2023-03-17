@@ -26,7 +26,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var Icon_InflictPainMass = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_InflictPainMass.png");
             var Icon_ScrollOfInflictPain = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfInflictPain.png");
             var Icon_ScrollOfInflictPainMass = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfInflictPainMass.png");
-            var HarmEffect = new PrefabLink() { 
+            var HarmEffect = new PrefabLink() {
                 AssetId = "2f9b7cd8912ad7d4484a5055eece0d47"
             };
 
@@ -51,7 +51,12 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.SetDescription(TTTContext, "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.");
                 bp.SetLocalizedDuration(TTTContext, "1 round/level");
                 bp.SetLocalizedSavingThrow(TTTContext, "Will partial");
-                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Persistent | Metamagic.Reach;
+                bp.AvailableMetamagic = Metamagic.Extend
+                    | Metamagic.Heighten
+                    | Metamagic.Quicken
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent
+                    | Metamagic.Reach;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetFriends = true;
                 bp.CanTargetSelf = true;
@@ -120,7 +125,13 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.SetDescription(TTTContext, "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.");
                 bp.SetLocalizedDuration(TTTContext, "1 round/level");
                 bp.SetLocalizedSavingThrow(TTTContext, "Will partial");
-                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Persistent | Metamagic.Reach | Metamagic.Selective;
+                bp.AvailableMetamagic = Metamagic.Extend
+                    | Metamagic.Heighten
+                    | Metamagic.Quicken
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent
+                    | Metamagic.Reach
+                    | Metamagic.Selective;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetFriends = true;
                 bp.CanTargetSelf = true;
@@ -171,7 +182,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.AddComponent<AbilityTargetsAround>(c => {
                     c.m_Radius = 30.Feet();
                     c.m_TargetType = TargetType.Any;
-                    c.m_Condition = new ConditionsChecker() { 
+                    c.m_Condition = new ConditionsChecker() {
                         Conditions = new Condition[0]
                     };
                 });

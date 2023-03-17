@@ -1,21 +1,16 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Craft;
-using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
-using Kingmaker.Utility;
-using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.Spells {
@@ -32,7 +27,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.SetDescription(TTTContext, "You channel a fell curse through your glare. If the target fails its saving throw, " +
                     "it begins to obsessively second guess its actions and attract bad luck. " +
                     "Whenever the target attempts an attack roll or saving throw while the curse lasts, " +
-                    "it must roll twice and take the lower result."); 
+                    "it must roll twice and take the lower result.");
                 bp.m_Icon = Icon_AccursedGlare;
                 bp.FxOnStart = witch_evileye00;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
@@ -56,7 +51,12 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     "it must roll twice and take the lower result.");
                 bp.SetLocalizedDuration(TTTContext, "1 day/level");
                 bp.SetLocalizedSavingThrow(TTTContext, "Will negates");
-                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Persistent | Metamagic.Reach;
+                bp.AvailableMetamagic = Metamagic.Extend
+                    | Metamagic.Heighten
+                    | Metamagic.Quicken
+                    | Metamagic.CompletelyNormal
+                    | Metamagic.Persistent
+                    | Metamagic.Reach;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetFriends = true;
                 bp.CanTargetEnemies = true;

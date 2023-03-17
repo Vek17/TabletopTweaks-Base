@@ -1739,7 +1739,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             }
                         );
                         c.Round = Helpers.CreateActionList(
-                            new ContextActionApplyBuff() { 
+                            new ContextActionApplyBuff() {
                                 m_Buff = WinterGraspAreaBuff.ToReference<BlueprintBuffReference>(),
                                 DurationValue = new ContextDurationValue() {
                                     Rate = DurationRate.Rounds,
