@@ -306,7 +306,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     } else {
                         a.Half = true;
                         a.AlreadyHalved = false;
-                        a.ReadPreRolledFromSharedValue = true;
+                        a.ReadPreRolledFromSharedValue = false;
                     }
                 });
                 TTTContext.Logger.LogPatch("Patched", AngelEyeOfTheSun);
@@ -322,7 +322,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     } else {
                         a.Half = true;
                         a.AlreadyHalved = false;
-                        a.ReadPreRolledFromSharedValue = true;
+                        a.ReadPreRolledFromSharedValue = false;
                     }
                     a.Value.DiceType = DiceType.D6;
                     a.Value.DiceCountValue = new ContextValue() {
@@ -999,7 +999,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     if (a.WriteResultToSharedValue) {
                         a.WriteRawResultToSharedValue = true;
                     } else {
-                        a.ReadPreRolledFromSharedValue = true;
+                        a.ReadPreRolledFromSharedValue = false;
                     }
                     a.Value.DiceType = DiceType.D6;
                     a.Value.DiceCountValue = new ContextValue() {
@@ -1348,6 +1348,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 FlameStrike.FlattenAllActions().OfType<ContextActionDealDamage>().ForEach(a => {
                     a.Half = true;
                     a.HalfIfSaved = true;
+                    a.ReadPreRolledFromSharedValue = false;
                 });
                 TTTContext.Logger.LogPatch("Patched", FlameStrike);
             }
@@ -1425,6 +1426,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     a.Value.DiceType = DiceType.D6;
                     a.Value.DiceCountValue.ValueType = ContextValueType.Rank;
                     a.Value.BonusValue = new ContextValue();
+                    a.ReadPreRolledFromSharedValue = false;
                 });
                 TTTContext.Logger.LogPatch("Patched", HellfireRay);
             }

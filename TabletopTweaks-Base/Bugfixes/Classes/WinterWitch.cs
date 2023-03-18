@@ -3,9 +3,11 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Enums.Damage;
+using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Linq;
+using TabletopTweaks.Core;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -43,7 +45,10 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         WinterWitchColdFlesh10,
                         WinterWitchColdFleshImmunity
                     )
-            );
+                );
+                SaveGameFix.AddRetroactiveClassFeature(TTTContext, ClassTools.Classes.WinterWitchClass, 1, WinterWitchColdFlesh5);
+                SaveGameFix.AddRetroactiveClassFeature(TTTContext, ClassTools.Classes.WinterWitchClass, 5, WinterWitchColdFlesh10);
+                SaveGameFix.AddRetroactiveClassFeature(TTTContext, ClassTools.Classes.WinterWitchClass, 10, WinterWitchColdFleshImmunity);
             }
             static void AddUnnaturalCold() {
                 if (TTTContext.Fixes.WinterWitch.IsDisabled("UnnaturalCold")) { return; }
@@ -61,6 +66,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         WinterWitchUnearthlyCold
                     )
                 );
+                SaveGameFix.AddRetroactiveClassFeature(TTTContext, ClassTools.Classes.WinterWitchClass, 3, WinterWitchUnnaturalCold);
             }
             static void PatchUnearthlyCold() {
                 if (TTTContext.Fixes.WinterWitch.IsDisabled("UnearthlyCold")) { return; }

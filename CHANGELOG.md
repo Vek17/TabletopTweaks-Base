@@ -3,6 +3,8 @@
     * Spells
         * Winters Grasp
             * Winter's Grasp now works like tabletop and does not cause prone.
+    * Mythic Abiltiies
+        * Second Bloodline should now be properly takable.
 * Added Content
     * Spells
         * Accursed Glare

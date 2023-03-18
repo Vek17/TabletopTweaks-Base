@@ -80,22 +80,33 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             }
             static void PatchSecondBloodline() {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("SecondBloodline")) { return; }
-                BlueprintFeatureSelection SecondBloodline = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
+                var SecondBloodline = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
-                SecondBloodline.RemoveComponents<PrerequisiteFeature>();
-                SecondBloodline.AddPrerequisites(Helpers.Create<PrerequisiteFeaturesFromList>(c => {
-                    c.m_Features = new BlueprintFeatureReference[] {
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914").ToReference<BlueprintFeatureReference>(),    // SorcererBloodlineSelection
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc").ToReference<BlueprintFeatureReference>(),    // SeekerBloodlineSelection
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece").ToReference<BlueprintFeatureReference>(),    // SylvanBloodlineProgression
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2").ToReference<BlueprintFeatureReference>(),    // SageBloodlineProgression
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1").ToReference<BlueprintFeatureReference>(),    // EmpyrealBloodlineProgression
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988").ToReference<BlueprintFeatureReference>(),    // BloodOfDragonsSelection - Dragon Disciple
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("7c813fb495d74246918a690ba86f9c86").ToReference<BlueprintFeatureReference>(),    // NineTailedHeirBloodlineSelection
-                        BlueprintTools.GetBlueprint<BlueprintFeature>("94c29f69cdc34594a6a4677441ed7375").ToReference<BlueprintFeatureReference>()     // EldritchScionBloodlineSelection
-                };
-                    c.Amount = 1;
-                }));
+                var SorcererBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914");
+                var SeekerBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeature>("7bda7cdb0ccda664c9eb8978cf512dbc");
+                var SylvanBloodlineProgression = BlueprintTools.GetBlueprint<BlueprintFeature>("a46d4bd93601427409d034a997673ece");
+                var SageBloodlineProgression = BlueprintTools.GetBlueprint<BlueprintFeature>("7d990675841a7354c957689a6707c6c2");
+                var EmpyrealBloodlineProgression = BlueprintTools.GetBlueprint<BlueprintFeature>("8a95d80a3162d274896d50c2f18bb6b1");
+                var BloodOfDragonsSelection = BlueprintTools.GetBlueprint<BlueprintFeature>("da48f9d7f697ae44ca891bfc50727988");
+                var NineTailedHeirBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeature>("7c813fb495d74246918a690ba86f9c86");
+                var EldritchScionBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeature>("94c29f69cdc34594a6a4677441ed7375");
+
+                SecondBloodline.TemporaryContext(bp => {
+                    bp.IgnorePrerequisites = true;
+                    bp.Mode = SelectionMode.OnlyNew;
+                    bp.RemoveComponents<PrerequisiteFeature>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        SorcererBloodlineSelection,
+                        SeekerBloodlineSelection,
+                        SylvanBloodlineProgression,
+                        SageBloodlineProgression,
+                        EmpyrealBloodlineProgression,
+                        BloodOfDragonsSelection,
+                        NineTailedHeirBloodlineSelection,
+                        EldritchScionBloodlineSelection
+                    );
+                });
+                
                 TTTContext.Logger.LogPatch("Patched", SecondBloodline);
             }
             static void PatchBloodragerSecondBloodline() {
@@ -105,14 +116,13 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 var SecondBloodragerBloodline = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
                 var SecondBloodragerBloodlineReformedFiend = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("5e4089c46a9f47cdadac7b19d69d11e1");
 
-                SecondBloodragerBloodline.RemoveComponents<PrerequisiteFeature>();
-                SecondBloodragerBloodline.AddPrerequisite<PrerequisiteFeaturesFromList>(c => {
-                    c.m_Features = new BlueprintFeatureReference[] {
-                        ReformedFiendBloodlineSelection.ToReference<BlueprintFeatureReference>(),
-                        BloodragerBloodlineSelection.ToReference<BlueprintFeatureReference>()
-                    };
-                    c.Amount = 1;
+                SecondBloodragerBloodline.TemporaryContext(bp => {
+                    bp.IgnorePrerequisites = true;
+                    bp.Mode = SelectionMode.OnlyNew;
+                    bp.RemoveComponents<PrerequisiteFeature>();
+                    bp.AddPrerequisiteFeaturesFromList(1, ReformedFiendBloodlineSelection, BloodragerBloodlineSelection);
                 });
+                
                 FeatTools.Selections.MythicAbilitySelection.RemoveFeatures(SecondBloodragerBloodlineReformedFiend);
             }
             static void PatchExposeVulnerability() {
