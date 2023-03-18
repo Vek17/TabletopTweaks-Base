@@ -210,6 +210,61 @@
       "esES": null
     },
     {
+      "Key": "49b32eedf68e4c82a75887464e69ffb1",
+      "SimpleName": "AccursedGlareAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You channel a fell curse through your glare. If the target fails its saving throw, it begins to obsessively second guess its actions and attract bad luck. Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "90d364a072864a988a0e152fd6f175e5",
+      "SimpleName": "AccursedGlareAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 day/level",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3111c738da9e4ebc952f7a7655b08389",
+      "SimpleName": "AccursedGlareAbility.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Will negates",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c31ae0bbc9d7433da954bc3e4e80a83d",
+      "SimpleName": "AccursedGlareBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You channel a fell curse through your glare. If the target fails its saving throw, it begins to obsessively second guess its actions and attract bad luck. Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "40ba9df5fb2a40789db3dd47ed4d7949",
+      "SimpleName": "AccursedGlareBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Accursed Glare",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "fda6a12008ac40dc9d42cf138af26f20",
       "SimpleName": "AcidResistance10Enchant.Prefix",
       "ProcessTemplates": false,
@@ -2718,17 +2773,6 @@
       "esES": null
     },
     {
-      "Key": "1a7ad041d03646c6a3bb9ac477bec24a",
-      "SimpleName": "BlessedClawsFeatureAddLevel.Description",
-      "ProcessTemplates": true,
-      "enGB": "This ability functions as the shifter’s claws class feature, except the holy beast shifter’s default claws are long and thin, dealing piercing damage. At 3rd level, her claws are treated as one type of aligned weapon (chaotic, evil, good, or lawful) within one step of her deity’s alignment in addition to ignoring DR/cold iron, DR/magic, and DR/silver.\n在自然形态下的化形师可以随意用<b><color=#703565><link=\"Encyclopedia:Swift_Action\">迅捷动作</link></color></b>伸长自己的爪子，当作武器使用。每只手上的爪子都可以用作主要<b><color=#703565><link=\"Encyclopedia:NaturalAttack\">天生攻击</link></color></b>，造成<b><color=#703565><link=\"Encyclopedia:Dice\">1d4</link></color></b>点<b><color=#703565><link=\"Encyclopedia:Damage_Type\">穿刺</link></color></b>与挥砍<b><color=#703565><link=\"Encyclopedia:Damage\">伤害</link></color></b>（若为<b><color=#703565><link=\"Encyclopedia:Size\">小体型</link></color></b>则变为1d3）。随着化形师等级提升，他的利爪也会变得更具杀伤力。3级起，他的爪抓可穿透<b><color=#703565><link=\"Encyclopedia:Damage_Reduction\">DR</link></color></b> N/寒铁、N/魔法和N/银。7级起，他的爪抓伤害提高到1d6（若为小体型则变为1d4）。11级起，他的爪抓伤害提高到1d8（若为小体型则变为1d6）。13级起，他的爪抓伤害提高到1d10（若为小体型则变为1d8）。17级起，伤害骰不会提升，但<b><color=#703565><link=\"Encyclopedia:Critical\">重击</link></color></b>倍数变为×3。最后，19级起，爪抓可穿透DR N/精金和N/-。\n当化形师用野性变身变为主攻形态时，他的主要天生武器同样获得能力“化形师利爪”给予的效果。他可以使用化形师利爪的基础伤害或该形态的主要天生<b><color=#703565><link=\"Encyclopedia:Attack\">攻击</link></color></b>的伤害，取最高值应用。每种主攻形态的描述内都给出了一份主要攻击的列表。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "此能力作用如同化形师利爪职业能力，但圣兽化形师的默认爪子又长又细，造成穿刺伤害。3级时，除了无视DR/寒铁，DR/魔法，DR/秘银以外，他的爪子也被视为与他的神祇阵营距离一阶之内的一种阵营武器（混乱、邪恶、善良或守序）。\n以一个{g|Encyclopedia:Swift_Action}迅捷动作{/g}，处于自然形态的化形师可以任意生长出他的利爪作为武器使用。每只手的爪抓攻击都是主要{g|Encyclopedia:NaturalAttack}天生武器攻击{/g}，造成{g|Encyclopedia:Dice}1d4{/g}（小体型为1d3）点{g|Encyclopedia:Damage_Type}穿刺{/g}和挥砍{g|Encyclopedia:Damage}伤害{/g}。随着化形师等级的提升，他的利爪也成长的更为强大。3级起，他的爪抓无视{g|Encyclopedia:Damage_Reduction}DR{/g}/寒铁，DR/魔法，DR/秘银。7级起，他的爪抓伤害提升至1d6（小体型1d4）。11级起，他的爪抓伤害提升至1d8（小体型1d6）。13级起，他的爪抓伤害提升至1d10（小体型1d8）。17级时，伤害不再提升，但是{g|Encyclopedia:Critical}重击{/g}倍率提升为×3。最后，19级时，爪抓忽略DR/精金和DR N/-。\n当化形师使用野性变身展现出他的拟态中的主攻形态时，他的主要天生武器{g|Encyclopedia:Attack}攻击{/g}也会获得化形师利爪能力赋予的相同效果。如果他从野性变身形态获得了爪抓攻击，他可以使用他的化形师利爪的基本伤害或者当前形态的主要天生武器攻击伤害，两者取其高。在每种主攻形态的描述中提供了主要天生武器攻击的列表。",
-      "esES": null
-    },
-    {
       "Key": "357c2930f1844c73a9ee03f4baacce0c",
       "SimpleName": "BlessedClawsFeatureAddLevel.Description",
       "ProcessTemplates": true,
@@ -2920,17 +2964,6 @@
       "SimpleName": "BloodragerAberrantBloodline.Description",
       "ProcessTemplates": true,
       "enGB": "There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.\nWhile bloodraging, you gain the abilities and immunities of some aberrations, but show signs of your tainted heritage.\n<b><color=#703565><link=\"Encyclopedia:Bonus\">Bonus</link></color></b> Feats: Combat Reflexes, Great Fortitude, Improved Disarm, Improved Dirty Trick, Improved Initiative, Improved Unarmed Strike, Iron Will.\nBonus Spells: Enlarge Person (7th), See Invisibility (10th), Displacement (13th), Spike Stones (16th).",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "你的血液中蕴含着外来者和异怪的污染。当你处于血承狂暴时，这些污染会以异常而可怕的方式显现出来。\n{g|Encyclopedia:Bonus}额外{/g}专长：战斗反射、顽石强韧、精通徒手击打、精通阴招、精通先攻、精通缴械、钢铁意志。\n额外法术：变巨术（7级）、识破隐形（11级）、移位术（13级）、岩刺（16级）。",
-      "esES": null
-    },
-    {
-      "Key": "6f875464771449dbb0dd6ad9457f95b5",
-      "SimpleName": "BloodragerAberrantBloodline.Description",
-      "ProcessTemplates": true,
-      "enGB": "There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.\nWhile bloodraging, you gain the abilities and immunities of some aberrations, but show signs of your tainted heritage.\n额外专长：战斗反射、顽石强韧、精通徒手击打、精通阴招、精通先攻、精通缴械、钢铁意志。\nBonus Spells: Enlarge Person (7th), See Invisibility (10th), Displacement (13th), Spike Stones (16th).",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -3400,17 +3433,6 @@
       "esES": null
     },
     {
-      "Key": "c166b89271f94b0f9ca03838b0530258",
-      "SimpleName": "BloodragerDestinedBloodline.Description",
-      "ProcessTemplates": true,
-      "enGB": "Your bloodline is destined for great things. When you bloodrage, you exude a greatness that makes all but the most legendary creatures seem lesser.\nYour future greatness grants you the might to strike your enemies with awe.\n额外专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。\nBonus Spells: Shield (7th), Blur (10th), Protection From Energy (13th), Freedom Of Movement (16th).",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "血脉中的某种力量使你命中注定会成就伟业。当你处于血承狂暴时，身上所散发出的伟大气息能够让除了传奇生物以外的所有生物显得渺小而平凡，你未来的伟大赐予你令对手拜服的力量。\n{g|Encyclopedia:Bonus}额外{/g}专长：顽强、坚韧、精通先攻、威逼、抓准时机、闪电反射、武器专攻。\n额外法术：护盾术（7级）、朦胧术（11级）、防护能量（13级）、行动自如（16级）。",
-      "esES": null
-    },
-    {
       "Key": "c6a74ccfd3064e4cad25c85486cccf9b",
       "SimpleName": "BloodragerDestinedBloodline.Name",
       "ProcessTemplates": false,
@@ -3631,17 +3653,6 @@
       "esES": null
     },
     {
-      "Key": "37df8bdd9bcf476e82186546ba976884",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Flaming",
-      "ruRU": "Огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "炽焰",
-      "esES": null
-    },
-    {
       "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3650,6 +3661,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "焚炎",
+      "esES": null
+    },
+    {
+      "Key": "37df8bdd9bcf476e82186546ba976884",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Flaming",
+      "ruRU": "Огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -3939,17 +3961,6 @@
       "esES": null
     },
     {
-      "Key": "f3459f2cd8a34e399c877b9c643ac371",
-      "SimpleName": "BurningSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Burning-TabletopTweaks-Base}Burning{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Burning-TabletopTweaks-Base}燃烧{/g}",
-      "esES": null
-    },
-    {
       "Key": "99c2b7b51820499ca8e940b97d5a07e3",
       "SimpleName": "BurningSpellMetamagic",
       "ProcessTemplates": false,
@@ -3958,6 +3969,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "燃烧",
+      "esES": null
+    },
+    {
+      "Key": "f3459f2cd8a34e399c877b9c643ac371",
+      "SimpleName": "BurningSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Burning-TabletopTweaks-Base}Burning{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Burning-TabletopTweaks-Base}燃烧{/g}",
       "esES": null
     },
     {
@@ -5336,17 +5358,6 @@
       "esES": null
     },
     {
-      "Key": "a489d5d8088447d3baed4ad6d4c68111",
-      "SimpleName": "Elemental — ColdSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}Elemental — Cold{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
-      "esES": null
-    },
-    {
       "Key": "1b2bc93e4722446c84b691e63b8dc68c",
       "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
@@ -5358,14 +5369,14 @@
       "esES": null
     },
     {
-      "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
-      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "Key": "a489d5d8088447d3baed4ad6d4c68111",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "Elemental — Electricity",
+      "enGB": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}Elemental — Cold{/g}",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素 — 电击",
+      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
       "esES": null
     },
     {
@@ -5377,6 +5388,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}元素 — 电击{/g}",
+      "esES": null
+    },
+    {
+      "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
+      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Electricity",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "元素 — 电击",
       "esES": null
     },
     {
@@ -6392,17 +6414,6 @@
       "esES": null
     },
     {
-      "Key": "b099256da46145e89582ec13b2962ec9",
-      "SimpleName": "FlaringSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Flaring",
-      "ruRU": "Ослепляющее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "闪耀",
-      "esES": null
-    },
-    {
       "Key": "078e11e00ef54879ba90f07cccae313d",
       "SimpleName": "FlaringSpellMetamagic",
       "ProcessTemplates": false,
@@ -6411,6 +6422,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
+      "esES": null
+    },
+    {
+      "Key": "b099256da46145e89582ec13b2962ec9",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Flaring",
+      "ruRU": "Ослепляющее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "闪耀",
       "esES": null
     },
     {
@@ -6521,127 +6543,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "幽冥",
-      "esES": null
-    },
-    {
-      "Key": "4c93059a8c4d449ebca6f060e869ce5c",
-      "SimpleName": "glossery.Burning.description",
-      "ProcessTemplates": true,
-      "enGB": "当你用带有酸蚀或火焰描述符的法术影响生物时，你会使他们受到额外的伤害。\n效果：你施放的包含酸蚀或火焰描述符的法术的效果粘附在目标身上 ，受到该法术伤害的目标在下一轮开始时，受到等同这个法术实际等级2倍的酸蚀或火焰伤害。\n等级提升：+2（燃烧法术需要使用比该法术实际等级高2级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "2bdbcfb876304b7eb848db3271de6d38",
-      "SimpleName": "glossery.Elemental — Acid.description",
-      "ProcessTemplates": true,
-      "enGB": "你可以操纵你的法术的元素属性。\n效果：你可以用酸蚀替换法术的正常伤害，或者拆分法术的伤害，使得一半是酸蚀，一半是正常类型。\n等级提升：+1（元素法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "262c64df86e84d1fa21b2a6946f87326",
-      "SimpleName": "glossery.Elemental — Cold.description",
-      "ProcessTemplates": true,
-      "enGB": "你可以操纵你的法术的元素属性。\n效果：你可以用寒冷替换法术的正常伤害，或者拆分法术的伤害，使得一半是寒冷，一半是正常类型。\n等级提升：+1（元素法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "22f4290bd4e24d42a4d99ad38e711064",
-      "SimpleName": "glossery.Elemental — Electricity.description",
-      "ProcessTemplates": true,
-      "enGB": "你可以操纵你的法术的元素属性。\n效果：你可以用电击替换法术的正常伤害，或者拆分法术的伤害，使得一半是电击，一半是正常类型。\n等级提升：+1（元素法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "916c2fed51054fbbb38df204eff9d905",
-      "SimpleName": "glossery.Elemental — Fire.description",
-      "ProcessTemplates": true,
-      "enGB": "你可以操纵你的法术的元素属性。\n效果：你可以用火焰替换法术的正常伤害，或者拆分法术的伤害，使得一半是火焰，一半是正常类型。\n等级提升：+1（元素法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "f415f2a79c8f47b18b47bd47d1444161",
-      "SimpleName": "glossery.Encouraging.description",
-      "ProcessTemplates": true,
-      "enGB": "你的灵感为你的盟友提供更大的支持。\n效果：法术提供的所有士气加值+1。\n等级提升：+1（激励法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "283e377b481c498bb303a47e204c40b1",
-      "SimpleName": "glossery.Flaring.description",
-      "ProcessTemplates": true,
-      "enGB": "当你使用具有火焰、光或电击描述符的法术影响生物时，你会使他们目眩。\n效果：受影响的法术的电击、火焰或光效果产生一种闪光，使受到该法术伤害的生物目眩。一个闪耀法术会使受其影响的生物受到火焰或电击伤害，并使其目眩数轮，持续轮数相当于该法术的实际等级。\n闪耀法术只影响具有火焰、光或电击描述符的法术。\n等级提升：+1（闪耀法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "eebbf38e400d4936aea5094cc71b3cf4",
-      "SimpleName": "glossery.Intensified.description",
-      "ProcessTemplates": true,
-      "enGB": "你的法术的伤害能力超出了常理的限制。\n效果：法术允许的最大伤害骰数目提升5，但你仍然需要拥有足够的施法者等级才能实际产生这些伤害骰。如果法术造成的伤害为固定值而不受施法者等级影响，此超魔没有效果。\n等级提升：+1（强化法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "685df7406aa246b5af820cb85ad8436b",
-      "SimpleName": "glossery.Piercing.description",
-      "ProcessTemplates": true,
-      "enGB": "你的法术在穿透法术抗力时远超常人。\n效果：在穿透敌人法术抗力时，目标的法术抗力视为实际法术抗力-5。\n等级提升：+1（穿刺法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "203b6ee6281f4f5e94217369e0993d1e",
-      "SimpleName": "glossery.Rime.description",
-      "ProcessTemplates": true,
-      "enGB": "被你的拥有寒冷描述符的法术伤害的生物会被纠缠。\n效果：你的寒冷法术的冰霜附着在目标身上，在短时间内阻碍目标。霜冻法术会使受到该法术寒冷伤害的生物在相当于该法术原始等级的轮数内陷入纠缠状态。\n等级提升：+1（霜冻法术需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "3bfa2b9e0ddc4302b1d90b73f5ea90bc",
-      "SimpleName": "glossery.Solid Shadows.description",
-      "ProcessTemplates": true,
-      "enGB": "你的阴影幻象更加强大。\n效果：你的阴影幻象更加难以识破，其真实度提升20%。\n等级提升：+1（实体幽影需要使用比该法术实际等级高1级的法术位。）",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7305,6 +7206,72 @@
       "esES": null
     },
     {
+      "Key": "f7fc0e0350f14380a2d0e159b129eced",
+      "SimpleName": "InflictPainAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "484898c23e8f45abbd190fcb0c2fab20",
+      "SimpleName": "InflictPainAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 round/level",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5f7e00f6344f45e69e16ee07202ce66d",
+      "SimpleName": "InflictPainBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8706b9cee98d4e09a8d16fc52418168f",
+      "SimpleName": "InflictPainBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Inflict Pain",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8315df4bbf264e069048e892e0627b49",
+      "SimpleName": "InflictPainMassAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6db51762f9e64020bd2a1d04a9653a7b",
+      "SimpleName": "InflictPainMassAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Inflict Pain, Mass",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "8bf282f3b37049da8b1836e622adc701",
       "SimpleName": "IntenseBlowsEffect.Description",
       "ProcessTemplates": true,
@@ -7349,17 +7316,6 @@
       "esES": null
     },
     {
-      "Key": "5effb1dfff10434d8af19691362dab9c",
-      "SimpleName": "IntensifiedSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Intensified",
-      "ruRU": "Насыщенное",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "强化",
-      "esES": null
-    },
-    {
       "Key": "42fddf6342a544bc85b6647c3db42f3b",
       "SimpleName": "IntensifiedSpellMetamagic",
       "ProcessTemplates": false,
@@ -7368,6 +7324,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
+      "esES": null
+    },
+    {
+      "Key": "5effb1dfff10434d8af19691362dab9c",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Intensified",
+      "ruRU": "Насыщенное",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "强化",
       "esES": null
     },
     {
@@ -7525,17 +7492,6 @@
       "esES": null
     },
     {
-      "Key": "fa4b8e3a378847029b4f56e2b330b4a8",
-      "SimpleName": "LoremasterClericSecretArcanist_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 奥能师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "9d9ad55a478ef2db28acb08c1422e646",
       "SimpleName": "LoremasterClericSecretArcanist_TTT.Name",
       "ProcessTemplates": false,
@@ -7544,17 +7500,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 — 奥能师",
-      "esES": null
-    },
-    {
-      "Key": "b992ab7b7a7f413a851fa3277e77cfd7",
-      "SimpleName": "LoremasterClericSecretBard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 吟游诗人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7580,28 +7525,6 @@
       "esES": null
     },
     {
-      "Key": "b116beb0da3443f1bb7fbd5def87e46f",
-      "SimpleName": "LoremasterClericSecretBloodrager_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 血怒者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "87421260e384425499b165e811759a97",
-      "SimpleName": "LoremasterClericSecretDruid_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 德鲁伊",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "ae4cabb07856438bf8372e385a3da867",
       "SimpleName": "LoremasterClericSecretDruid_TTT.Name",
       "ProcessTemplates": false,
@@ -7610,17 +7533,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 — 德鲁伊",
-      "esES": null
-    },
-    {
-      "Key": "23645a9e4a1d4e559602bf9882404543",
-      "SimpleName": "LoremasterClericSecretHunter_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 猎人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7646,28 +7558,6 @@
       "esES": null
     },
     {
-      "Key": "4bf4050395ab4d8c9492af63de3d4047",
-      "SimpleName": "LoremasterClericSecretInquisitor_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 审判官",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "7ebb243c604d424e80bde3fcfb3b3292",
-      "SimpleName": "LoremasterClericSecretMagus_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 魔战士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "8ae548a9c4b5b74b4afd7cbcf32f9171",
       "SimpleName": "LoremasterClericSecretMagus_TTT.Name",
       "ProcessTemplates": false,
@@ -7676,17 +7566,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 — 魔战士",
-      "esES": null
-    },
-    {
-      "Key": "04693801f3474c99865fe7efe80ecf3f",
-      "SimpleName": "LoremasterClericSecretOracle_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 先知",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7701,17 +7580,6 @@
       "esES": null
     },
     {
-      "Key": "596b02902f304c9ebf027dfc8ad303be",
-      "SimpleName": "LoremasterClericSecretPaladin_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 圣武士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "70e03ae7a5c2e81b699f2a85e7d5111d",
       "SimpleName": "LoremasterClericSecretPaladin_TTT.Name",
       "ProcessTemplates": false,
@@ -7720,17 +7588,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 — 圣武士",
-      "esES": null
-    },
-    {
-      "Key": "de44ba7849524b25a789c67e00c0c138",
-      "SimpleName": "LoremasterClericSecretRanger_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 游侠",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7756,17 +7613,6 @@
       "esES": null
     },
     {
-      "Key": "53c1de238a6444d4b122bfd66c54da15",
-      "SimpleName": "LoremasterClericSecretRogue_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 游荡者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "db1e35e27466a78b59ad3ab759bc357f",
       "SimpleName": "LoremasterClericSecretShaman_TTT.Name",
       "ProcessTemplates": false,
@@ -7775,28 +7621,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 — 萨满",
-      "esES": null
-    },
-    {
-      "Key": "90d6a7b30b904d60bbd425b72068fb7d",
-      "SimpleName": "LoremasterClericSecretShaman_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 萨满",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "8457979edd66420a96308de23f35c42d",
-      "SimpleName": "LoremasterClericSecretSkald_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 歌者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7822,28 +7646,6 @@
       "esES": null
     },
     {
-      "Key": "d349ac2f4eda463f930b4f31b13dd890",
-      "SimpleName": "LoremasterClericSecretSorcerer_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 术士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "d0f59730e7de4453868ae00c177e5626",
-      "SimpleName": "LoremasterClericSecretWarpriest_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 战斗祭司",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "fff4cca205cc3e2beab83d0ebc517d68",
       "SimpleName": "LoremasterClericSecretWarpriest_TTT.Name",
       "ProcessTemplates": false,
@@ -7855,17 +7657,6 @@
       "esES": null
     },
     {
-      "Key": "0f38eff91135428abb0a715d716fbee4",
-      "SimpleName": "LoremasterClericSecretWitch_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 巫师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "d4d95b2ea5d3381b49bc2a8d9cf5653d",
       "SimpleName": "LoremasterClericSecretWitch_TTT.Name",
       "ProcessTemplates": false,
@@ -7874,17 +7665,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "牧师法表 — 巫师",
-      "esES": null
-    },
-    {
-      "Key": "2089b80a31cf41b0812f477df42ac2ab",
-      "SimpleName": "LoremasterClericSecretWizard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "牧师法术 — 法师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -7910,28 +7690,6 @@
       "esES": null
     },
     {
-      "Key": "b0c13356ba0c4f98950db00869b45d1e",
-      "SimpleName": "LoremasterDruidSecretArcanist_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 奥能师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "77753b34eaf542279ad90650ff227c4e",
-      "SimpleName": "LoremasterDruidSecretBard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 吟游诗人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "4352f8f85e63a59bfa28969fd4a331b4",
       "SimpleName": "LoremasterDruidSecretBard_TTT.Name",
       "ProcessTemplates": false,
@@ -7954,17 +7712,6 @@
       "esES": null
     },
     {
-      "Key": "9e945833782a46adb367ab72bb000be5",
-      "SimpleName": "LoremasterDruidSecretBloodrager_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 血怒者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "53ffe92b763b50ab493d9da40155ec4b",
       "SimpleName": "LoremasterDruidSecretCleric_TTT.Name",
       "ProcessTemplates": false,
@@ -7973,28 +7720,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 — 牧师",
-      "esES": null
-    },
-    {
-      "Key": "90eff85081c646ae9309ca889075a6d4",
-      "SimpleName": "LoremasterDruidSecretCleric_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 牧师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a960d86726794c6e954fd888bc51282a",
-      "SimpleName": "LoremasterDruidSecretHunter_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 猎人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8009,17 +7734,6 @@
       "esES": null
     },
     {
-      "Key": "1d919764a5854aef92d26323d9cb25d1",
-      "SimpleName": "LoremasterDruidSecretInquisitor_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 审判官",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "c5d976c41b4a8c9b2ab436b991b9b325",
       "SimpleName": "LoremasterDruidSecretInquisitor_TTT.Name",
       "ProcessTemplates": false,
@@ -8031,17 +7745,6 @@
       "esES": null
     },
     {
-      "Key": "d0a5b49d311f481583f8ca0409b9892e",
-      "SimpleName": "LoremasterDruidSecretMagus_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 魔战士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "71da1b2c8698a76b2a49cc7187f9056b",
       "SimpleName": "LoremasterDruidSecretMagus_TTT.Name",
       "ProcessTemplates": false,
@@ -8050,17 +7753,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 — 魔战士",
-      "esES": null
-    },
-    {
-      "Key": "d75a160da97547b691f8f90c3ce15cfc",
-      "SimpleName": "LoremasterDruidSecretOracle_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 先知",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8086,28 +7778,6 @@
       "esES": null
     },
     {
-      "Key": "5c213ddb0d2e40c1ba767eb46f5b069c",
-      "SimpleName": "LoremasterDruidSecretPaladin_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 圣武士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "9670bba91558405d8376b608deb32e5b",
-      "SimpleName": "LoremasterDruidSecretRanger_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 游侠",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "f9de1a0c68e7126b59f66d5aef63081d",
       "SimpleName": "LoremasterDruidSecretRanger_TTT.Name",
       "ProcessTemplates": false,
@@ -8116,17 +7786,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 — 游侠",
-      "esES": null
-    },
-    {
-      "Key": "b4c1f490350e4a8da037282213d15a2e",
-      "SimpleName": "LoremasterDruidSecretRogue_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 游荡者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8141,17 +7800,6 @@
       "esES": null
     },
     {
-      "Key": "01dea257907b4659aee1844a553da651",
-      "SimpleName": "LoremasterDruidSecretShaman_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 萨满",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "20216667364bb7ab39198a7a2d6aa165",
       "SimpleName": "LoremasterDruidSecretShaman_TTT.Name",
       "ProcessTemplates": false,
@@ -8160,17 +7808,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 — 萨满",
-      "esES": null
-    },
-    {
-      "Key": "23e195438dfa42d3a1fb22bb4e61f9b2",
-      "SimpleName": "LoremasterDruidSecretSkald_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 歌者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8196,17 +7833,6 @@
       "esES": null
     },
     {
-      "Key": "a9946086a9d14f0daa05225f8c3da0a8",
-      "SimpleName": "LoremasterDruidSecretSorcerer_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 术士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "04cb9f2747e12e0b8a0c8dc3c887e972",
       "SimpleName": "LoremasterDruidSecretWarpriest_TTT.Name",
       "ProcessTemplates": false,
@@ -8215,17 +7841,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 — 战斗祭司",
-      "esES": null
-    },
-    {
-      "Key": "fa71e58654f743f881ac004ccae8ab65",
-      "SimpleName": "LoremasterDruidSecretWarpriest_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 战斗祭司",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8240,17 +7855,6 @@
       "esES": null
     },
     {
-      "Key": "375af51600114155930c4c2ba81941c9",
-      "SimpleName": "LoremasterDruidSecretWitch_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 巫师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "8e4a5e2384b5096bba0eca8101a526c5",
       "SimpleName": "LoremasterDruidSecretWizard_TTT.Name",
       "ProcessTemplates": false,
@@ -8259,17 +7863,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "德鲁伊法表 — 法师",
-      "esES": null
-    },
-    {
-      "Key": "12370cfa9628489ca68be42859f412c2",
-      "SimpleName": "LoremasterDruidSecretWizard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "德鲁伊法术 — 法师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8306,17 +7899,6 @@
       "esES": null
     },
     {
-      "Key": "d15d34751e6946088d624a654eebda7b",
-      "SimpleName": "LoremasterWizardSecretArcanist_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 奥能师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "d158c4944e4b740bea43f7801ed574a5",
       "SimpleName": "LoremasterWizardSecretBard_TTT.Name",
       "ProcessTemplates": false,
@@ -8328,17 +7910,6 @@
       "esES": null
     },
     {
-      "Key": "d604f3f0f93545efb85339c7160cc77f",
-      "SimpleName": "LoremasterWizardSecretBard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 吟游诗人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "710a209e04bf9a6b8aa97f931372d363",
       "SimpleName": "LoremasterWizardSecretBloodrager_TTT.Name",
       "ProcessTemplates": false,
@@ -8347,28 +7918,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 — 血怒者",
-      "esES": null
-    },
-    {
-      "Key": "149f7478cdb5408d8dd7acd6f1b5f1a6",
-      "SimpleName": "LoremasterWizardSecretBloodrager_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 血怒者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "8827d8e716c643fea8735b96bef173e6",
-      "SimpleName": "LoremasterWizardSecretCleric_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 牧师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8394,17 +7943,6 @@
       "esES": null
     },
     {
-      "Key": "e37ba5ca86344951a96e316ed675ba91",
-      "SimpleName": "LoremasterWizardSecretDruid_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 德鲁伊",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "92989683f1d0177b3ad2e1cd7b1805c3",
       "SimpleName": "LoremasterWizardSecretHunter_TTT.Name",
       "ProcessTemplates": false,
@@ -8413,28 +7951,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 — 猎人",
-      "esES": null
-    },
-    {
-      "Key": "86b5481cda4145f292422bcfb301f617",
-      "SimpleName": "LoremasterWizardSecretHunter_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 猎人",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "5eece52b59fc497baa3ff5535d763384",
-      "SimpleName": "LoremasterWizardSecretInquisitor_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 审判官",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8449,17 +7965,6 @@
       "esES": null
     },
     {
-      "Key": "16d35848bbbc46d1916578f8b6fd8ff0",
-      "SimpleName": "LoremasterWizardSecretMagus_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 魔战士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "e3d0274096b076fb3a22ad6e4d8f407a",
       "SimpleName": "LoremasterWizardSecretMagus_TTT.Name",
       "ProcessTemplates": false,
@@ -8471,17 +7976,6 @@
       "esES": null
     },
     {
-      "Key": "e0bad88ac452419abd758b8df67e0269",
-      "SimpleName": "LoremasterWizardSecretOracle_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 先知",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "86badccebf5ba20b6afecc589129ce4b",
       "SimpleName": "LoremasterWizardSecretOracle_TTT.Name",
       "ProcessTemplates": false,
@@ -8490,17 +7984,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 — 先知",
-      "esES": null
-    },
-    {
-      "Key": "53e6e817e6f04960a1b88bb6a791983f",
-      "SimpleName": "LoremasterWizardSecretPaladin_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 圣武士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8526,17 +8009,6 @@
       "esES": null
     },
     {
-      "Key": "910fa42425c949b39240dd5f367149a9",
-      "SimpleName": "LoremasterWizardSecretRanger_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 游侠",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "8feee050ce8ad71bdba612b3735a737e",
       "SimpleName": "LoremasterWizardSecretRogue_TTT.Name",
       "ProcessTemplates": false,
@@ -8545,28 +8017,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 — 游荡者（奥法暴徒）",
-      "esES": null
-    },
-    {
-      "Key": "d519852210d84918b525381d16bf266e",
-      "SimpleName": "LoremasterWizardSecretRogue_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 游荡者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "179c8507eb3543a882bb5378e68b0bfa",
-      "SimpleName": "LoremasterWizardSecretShaman_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 萨满",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8592,28 +8042,6 @@
       "esES": null
     },
     {
-      "Key": "1298b35ecc6040319903c659fda993a7",
-      "SimpleName": "LoremasterWizardSecretSkald_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 歌者",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "81f357d0ae1c434dbf12b8e89bbe2a0d",
-      "SimpleName": "LoremasterWizardSecretSorcerer_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 术士",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "15d142cd712a612babd4f59f3364f335",
       "SimpleName": "LoremasterWizardSecretSorcerer_TTT.Name",
       "ProcessTemplates": false,
@@ -8622,17 +8050,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 — 术士",
-      "esES": null
-    },
-    {
-      "Key": "c36b999acd154a0c8f1cef8bced87210",
-      "SimpleName": "LoremasterWizardSecretWarpriest_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 战斗祭司",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -8647,17 +8064,6 @@
       "esES": null
     },
     {
-      "Key": "6dd59c9411fa417e971649507586aea4",
-      "SimpleName": "LoremasterWizardSecretWitch_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 巫师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "bdec34c7f7d6f9ab3963fb5f2255b436",
       "SimpleName": "LoremasterWizardSecretWitch_TTT.Name",
       "ProcessTemplates": false,
@@ -8666,17 +8072,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "法师法表 — 巫师",
-      "esES": null
-    },
-    {
-      "Key": "8c0bb9128afa4053a0fcfe998b423450",
-      "SimpleName": "LoremasterWizardSecretWizard_TTT.Name",
-      "ProcessTemplates": false,
-      "enGB": "法师法术 — 法师",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -11034,17 +10429,6 @@
       "esES": null
     },
     {
-      "Key": "ccf00febe3bc4afdb2bdd52a8c1cc9f3",
-      "SimpleName": "PerfectStrikeZenArcherBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "你必须在进行<b><color=#703565><link=\"Encyclopedia:Attack\">攻击检定</link></color></b>前事先声明施展本<b><color=#703565><link=\"Encyclopedia:Feat\">专长</link></color></b>（因此攻击检定失败会浪费次数）。你可以骰两次攻击检定并取较高的结果。你每拥有四个等级，每天便可以尝试一次极意击（但有例外情况，见“特殊”段落）。\n特殊：禅宗射手和棍法宗师在1级时获得极意击作为额外专长，即使不符合先决条件。武僧每天可尝试施展极意击的次数等于其武僧等级，在武僧之外每拥有四个其他职业的等级，每天便可多施展一次。\nAt 10th level, the monk can roll his attack roll three times and take the highest result.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "你必须在进行{g|Encyclopedia:Attack}攻击检定{/g}前事先声明施展本{g|Encyclopedia:Feat}专长{/g}（因此攻击{g|Encyclopedia:Dice}检定{/g}失败会浪费次数）。你可以掷两次攻击检定并取较高的结果。你每拥有4个等级，每天便可以尝试一次极意击（但有例外情况，见“特殊”段落）。\n特殊：禅宗射手和棍法宗师在1级时获得极意击作为额外专长，即使不符合先决条件。武僧每天可尝试施展极意击的次数等于其武僧等级，在武僧之外每拥有4个其他职业的等级，每天便可多施展一次。\n10级时，武僧使用极意击时可以掷三次攻击检定并取最高的结果。",
-      "esES": null
-    },
-    {
       "Key": "a8a1e7feb89e4f48a5b6eb7f8930e477",
       "SimpleName": "PerfectStrikeZenArcherUpgrade.Description",
       "ProcessTemplates": true,
@@ -11969,17 +11353,6 @@
       "esES": null
     },
     {
-      "Key": "30cff4322b404021b18335c720abbfda",
-      "SimpleName": "Solid ShadowsSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Solid Shadows",
-      "ruRU": "Осязаемое",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "实体幽影",
-      "esES": null
-    },
-    {
       "Key": "1b8450f20cc444c399117bd8890ed98e",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
@@ -11988,6 +11361,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
+      "esES": null
+    },
+    {
+      "Key": "30cff4322b404021b18335c720abbfda",
+      "SimpleName": "Solid ShadowsSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Solid Shadows",
+      "ruRU": "Осязаемое",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "实体幽影",
       "esES": null
     },
     {
@@ -12189,17 +11573,6 @@
       "esES": null
     },
     {
-      "Key": "9394032bb36c42439e2bc2b18687949d",
-      "SimpleName": "SorcererAberrantSpell11.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n弱智术: 目标生物的<b><color=#703565><link=\"Encyclopedia:Intelligence\">智力</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Charisma\">魅力</link></color></b>值降到1点。受影响的生物将无法使用基于智力或魅力的<b><color=#703565><link=\"Encyclopedia:Skills\">技能</link></color></b>，也不能<b><color=#703565><link=\"Encyclopedia:Spell\">施法</link></color></b>。但该生物仍清楚谁是自己的盟友，并可以跟随甚至保护他们。目标将保持此状态，直到通过医疗术或破除魔咒去除弱智效果。能够施放奥术的生物，如术士和法师，在<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>上受到-4<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n弱智术: 目标的{g|Encyclopedia:Intelligence}智力{/g}和{g|Encyclopedia:Charisma}魅力{/g}都将降至1点。被影响的生物不能使用任何基于智力或魅力的 {g|Encyclopedia:Skills}技能{/g} 或释放 {g|Encyclopedia:Spell}法术{/g}。 但是他依然知道谁是他的朋友，也能跟随他们行动，甚至可以保护他们。受术者会始终保持这一状态，直到被{g|Encyclopedia:Healing}医疗术{/g}取消掉弱智术效果为止。 能施放奥术的生物，例如术士或法师，在{g|Encyclopedia:Saving_Throw}豁免检定{/g}中要受到-4{g|Encyclopedia:Penalty}减值{/g}。",
-      "esES": null
-    },
-    {
       "Key": "ea76b68b2ac342649c42183425cc10b0",
       "SimpleName": "SorcererAberrantSpell13.Description",
       "ProcessTemplates": true,
@@ -12208,28 +11581,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n凶险注视: 每 {g|Encyclopedia:Combat_Round}轮{/g}你都能够以单个活物为目标，驱使力量的波动对其发动袭击。 目标必须通过一个成功的强韧豁免检定,否则就会受到法术的影响。 根据目标的HD，这种{g|Encyclopedia:Attack}攻击{/g}能够产生至多三种效果:\n如果目标的HD在10以上, 它会陷入恶心10分钟每CL。\n如果目标的HD在5-9, 它会陷入惊惧和恶心10分钟每CL。\n如果目标的HD在4以下, 它会陷入麻痹惊惧和恶心。\n这些影响并发且同时存在，持续10分钟每CL。\n在法术的第一轮之后，你必须每轮花费一个{g|Encyclopedia:Swift_Action}迅捷动作{/g}来瞄准目标。",
-      "esES": null
-    },
-    {
-      "Key": "777be0b0dec0456a839801ee395e2b6b",
-      "SimpleName": "SorcererAberrantSpell13.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n凶险注视: <b><color=#703565><link=\"Encyclopedia:Attack\"></link></color></b>你每<b><color=#703565><link=\"Encyclopedia:Combat_Round\">轮</link></color></b>可以指定一个活物为目标，以能量波动对其发起袭击。目标必须成功进行强韧豁免检定，否则将承受法术的有害效果。根据目标的生命骰数，这种袭击具有三种不同效果。\n如果目标生命骰数大于或等于10，它在每<b><color=#703565><link=\"Encyclopedia:Caster_Level\">施法者等级</link></color></b>10分钟内陷入恶心状态。\n如果目标生命骰数在5-9之间，它在每施法者等级10分钟内陷入惊恐和恶心状态。\n如果目标生命骰数小于或等于4，它陷入麻痹、惊恐和恶心状态。\n这些效果互相累计并同时生效，持续每施法者等级10分钟。\n在第一轮之后的每一轮，你都必须花费一个<b><color=#703565><link=\"Encyclopedia:Swift_Action\">迅捷动作</link></color></b>才能指定一个敌人为目标。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n凶险注视: 每 {g|Encyclopedia:Combat_Round}轮{/g}你都能够以单个活物为目标，驱使力量的波动对其发动袭击。 目标必须通过一个成功的强韧豁免检定,否则就会受到法术的影响。 根据目标的HD，这种{g|Encyclopedia:Attack}攻击{/g}能够产生至多三种效果:\n如果目标的HD在10以上, 它会陷入恶心10分钟每CL。\n如果目标的HD在5-9, 它会陷入惊惧和恶心10分钟每CL。\n如果目标的HD在4以下, 它会陷入麻痹惊惧和恶心。\n这些影响并发且同时存在，持续10分钟每CL。\n在法术的第一轮之后，你必须每轮花费一个{g|Encyclopedia:Swift_Action}迅捷动作{/g}来瞄准目标。",
-      "esES": null
-    },
-    {
-      "Key": "b53561849bd8438cbdd57b0382f0845d",
-      "SimpleName": "SorcererAberrantSpell15.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n高等变形术: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>能将盟友生物变成大型剑齿虎、蔓生怪、元素生物、双足飞龙或中型类龙生物。受术者可以选择花费一个<b><color=#703565><link=\"Encyclopedia:Full_Round_Action\">整轮动作</link></color></b>变回原来的形态。这样做将终止此法术的效果。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n高等变形术: 此{g|Encyclopedia:Spell}法术{/g}能将盟友生物变成大型剑齿虎、蔓生怪、元素生物、双足飞龙或中型类龙生物。受术者可以选择花费一个{g|Encyclopedia:Full_Round_Action}整轮动作 action{/g}变回原来的形态。这样做将终止此法术的效果。",
       "esES": null
     },
     {
@@ -12244,32 +11595,10 @@
       "esES": null
     },
     {
-      "Key": "f9a785c86bcf471ca75cab8f1004a95f",
-      "SimpleName": "SorcererAberrantSpell15.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nPolymorph, Greater: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> transforms an allied creature into a large smilodon, shambling mound, elemental, wyvern or medium dragon-like creature. The subject may choose to resume its normal form as a <b><color=#703565><link=\"Encyclopedia:Full_Round_Action\">full-round action</link></color></b>; doing so ends the spell for that subject.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n高等变形术: 此{g|Encyclopedia:Spell}法术{/g}能将盟友生物变成大型剑齿虎、蔓生怪、元素生物、双足飞龙或中型类龙生物。受术者可以选择花费一个{g|Encyclopedia:Full_Round_Action}整轮动作 action{/g}变回原来的形态。这样做将终止此法术的效果。",
-      "esES": null
-    },
-    {
       "Key": "12a0c2a818e34cd199a9feb2f9f85eb7",
       "SimpleName": "SorcererAberrantSpell17.Description",
       "ProcessTemplates": true,
       "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nMind Blank: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants a +8 resistance <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against all mind-affecting spells and effects. The subject is also protected from all items, spells, and other effects that gather information about the target through divination magic (such as thoughtsense, true seeing, and see invisibility).",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n心灵屏障: 此{g|Encyclopedia:Spell}法术{/g}使生物在对抗所有影响心智的法术和效果的{g|Encyclopedia:Saving_Throw}豁免检定{/g}中获得+8抗力{g|Encyclopedia:Bonus}加值{/g}。此外，受术者不会被通过预言系魔法效果收集情报的物品和法术（比如思维感应、真知术和识破隐形）所影响。",
-      "esES": null
-    },
-    {
-      "Key": "d0e2c626c9dd451086e22e7724bb7604",
-      "SimpleName": "SorcererAberrantSpell17.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n心灵屏障: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>使生物在对抗所有影响心智的法术和效果的<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>中获得+8抗力<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。此外，受术者不会被通过预言系魔法效果收集情报的物品和法术（比如思维感应、真知术和识破隐形）所影响。",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -12288,28 +11617,6 @@
       "esES": null
     },
     {
-      "Key": "d547f26ac8094fc6a7edb3b34d223bd0",
-      "SimpleName": "SorcererAberrantSpell19.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n变化形体: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>允许你变成多种生物。此法术可产生如同野兽之状IV、元素之躯IV、龙形III的效果，取决于你变成的形体。你能够以<b><color=#703565><link=\"Encyclopedia:Free_Action\">自由动作</link></color></b>每<b><color=#703565><link=\"Encyclopedia:Combat_Round\">轮</link></color></b>改变一次形体。变形会在你的常规<b><color=#703565><link=\"Encyclopedia:CA_Types\">动作</link></color></b>之前或之后立即发生，但不能在动作中途发生。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n变化形体: 此{g|Encyclopedia:Spell}法术{/g}允许你变成多种生物。此法术可产生如同野兽之状IV、元素之躯IV、龙形III的效果，取决于你变成的形体。你能够以{g|Encyclopedia:Free_Action}自由动作{/g}每{g|Encyclopedia:Combat_Round}轮{/g}改变一次形体。变形会在你的常规{g|Encyclopedia:CA_Types}动作{/g}之前或之后立即发生，但不能在动作中途发生。",
-      "esES": null
-    },
-    {
-      "Key": "f5dd7f5e5d0142ff9e98bf6c2ad63d39",
-      "SimpleName": "SorcererAberrantSpell3.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n变巨术: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>会使一个类人生物立刻快速成长，身高变成原来的2倍，体重变为原来的8倍。这会让生物的<b><color=#703565><link=\"Encyclopedia:Size\">体型</link></color></b>上升一级。由于体型增大，目标的<b><color=#703565><link=\"Encyclopedia:Strength\">力量属性</link></color></b>获得+2体型<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，<b><color=#703565><link=\"Encyclopedia:Dexterity\">敏捷</link></color></b>承受-2体型<b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>（最低降为1点），<b><color=#703565><link=\"Encyclopedia:Attack\">攻击检定</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Armor_Class\">防御等级</link></color></b>承受-1减值。该生物使用的近战或远程武器能造成更高<b><color=#703565><link=\"Encyclopedia:Damage\">伤害</link></color></b>。\n体型增加到大型的类人生物占据10英尺的空间，拥有10英尺的天生<b><color=#703565><link=\"Encyclopedia:Reach\">触及范围</link></color></b>。此法术不改变目标的<b><color=#703565><link=\"Encyclopedia:Speed\">速度</link></color></b>。\n变巨术能够解除缩小术。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n变巨术: 此{g|Encyclopedia:Spell}法术{/g}会使一个类人生物立刻快速成长，身高变成原来的2倍，体重变为原来的8倍。这会让生物的{g|Encyclopedia:Size}体型{/g}上升一级。由于体型增大，目标的{g|Encyclopedia:Strength}力量{/g}属性获得+2体型{g|Encyclopedia:Bonus}加值{/g}，{g|Encyclopedia:Dexterity}敏捷{/g}承受-2体型{g|Encyclopedia:Penalty}减值{/g}（最低降为1点），{g|Encyclopedia:Attack}攻击{/g}检定和{g|Encyclopedia:Armor_Class}AC{/g}承受-1减值。该生物使用的近战或远程武器能造成更高{g|Encyclopedia:Damage}伤害{/g}。\n体型增加到大型的类人生物占据10英尺的空间，拥有10英尺的天生触及范围。此法术不改变目标的{g|Encyclopedia:Speed}速度{/g}。\n变巨术能够解除缩小术。",
-      "esES": null
-    },
-    {
       "Key": "f65f9bd1ef2d4693bf2576d6cef98bdf",
       "SimpleName": "SorcererAberrantSpell3.Description",
       "ProcessTemplates": true,
@@ -12318,17 +11625,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n变巨术: 此{g|Encyclopedia:Spell}法术{/g}会使一个类人生物立刻快速成长，身高变成原来的2倍，体重变为原来的8倍。这会让生物的{g|Encyclopedia:Size}体型{/g}上升一级。由于体型增大，目标的{g|Encyclopedia:Strength}力量{/g}属性获得+2体型{g|Encyclopedia:Bonus}加值{/g}，{g|Encyclopedia:Dexterity}敏捷{/g}承受-2体型{g|Encyclopedia:Penalty}减值{/g}（最低降为1点），{g|Encyclopedia:Attack}攻击{/g}检定和{g|Encyclopedia:Armor_Class}AC{/g}承受-1减值。该生物使用的近战或远程武器能造成更高{g|Encyclopedia:Damage}伤害{/g}。\n体型增加到大型的类人生物占据10英尺的空间，拥有10英尺的天生触及范围。此法术不改变目标的{g|Encyclopedia:Speed}速度{/g}。\n变巨术能够解除缩小术。",
-      "esES": null
-    },
-    {
-      "Key": "c50e008d2bc648b1838e27bd540fe1e6",
-      "SimpleName": "SorcererAberrantSpell5.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n识破隐形: 你可以看到视野内的隐形事物。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "3级和之后的每2级，术士都可以额外学习一个来自于血承的法术。\n识破隐形: 你可以看到视野内的隐形事物。",
       "esES": null
     },
     {
@@ -12351,28 +11647,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n闪现术: 对你发动的物理攻击有50%几率失手，由于你处于灵化状态而非仅仅隐形，即便对手有“盲斗”{g|Encyclopedia:Feat}专长{/g}也无济于事。若该攻击能够击中灵体生物，那么失手率仅为20%（因隐蔽效果而失手）。任何对你施放的单体{g|Encyclopedia:Spell}法术{/g}有50%几率失败，除非施法者能够以隐形生物和灵体生物为目标。\n假如攻击者能够看见隐形生物，失手率同样仅有20%。对于同时能够看见和击中灵体生物的攻击者而言，不会有失手几率。\n同样，你自己发动的攻击也有20%失手率。 在闪现期间，范围攻击对你只会造成一半伤害（但能够延伸到灵界位面的范围攻击会造成全部伤害）。虽然只有部分可见，但你不被视为隐形状态，目标在对抗你的攻击时也能够保留防御等级（AC）的敏捷加值。你在对看不见隐形生物的敌人发动攻击时，攻击检定会获得+2加值。",
-      "esES": null
-    },
-    {
-      "Key": "38afcfbe446b4806a053e951e759ad11",
-      "SimpleName": "SorcererAberrantSpell7.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n闪现术: 对你发动的物理<b><color=#703565><link=\"Encyclopedia:Attack\">攻击</link></color></b>有50%几率失手，由于你处于灵化状态而非仅仅隐形，即便对手有“盲斗”<b><color=#703565><link=\"Encyclopedia:Feat\">专长</link></color></b>也无济于事。若该攻击能够击中灵体生物，那么失手率仅为20%（因<b><color=#703565><link=\"Encyclopedia:Concealment\">隐蔽</link></color></b>效果而失手）。任何对你施放的单体<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>有50%几率失败，除非施法者能够以隐形生物和灵体生物为目标。\n假如攻击者能够看见隐形生物，失手率同样仅有20%。对于同时能够看见和击中灵体生物的攻击者而言，不会有失手几率。\n同样，你自己发动的攻击也有20%失手率。 在闪现期间，范围攻击对你只会造成一半<b><color=#703565><link=\"Encyclopedia:Damage\">伤害</link></color></b>（但能够延伸到灵界位面的范围攻击会造成全部伤害）。虽然只有部分可见，但你不被视为隐形状态，目标在对抗你的攻击时也能够保留<b><color=#703565><link=\"Encyclopedia:Armor_Class\">防御等级（AC）</link></color></b>的<b><color=#703565><link=\"Encyclopedia:Dexterity\">敏捷</link></color></b><b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。你在对看不见隐形生物的敌人发动攻击时，攻击<b><color=#703565><link=\"Encyclopedia:Dice\">检定</link></color></b>会获得+2加值。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n闪现术: 对你发动的物理攻击有50%几率失手，由于你处于灵化状态而非仅仅隐形，即便对手有“盲斗”{g|Encyclopedia:Feat}专长{/g}也无济于事。若该攻击能够击中灵体生物，那么失手率仅为20%（因隐蔽效果而失手）。任何对你施放的单体{g|Encyclopedia:Spell}法术{/g}有50%几率失败，除非施法者能够以隐形生物和灵体生物为目标。\n假如攻击者能够看见隐形生物，失手率同样仅有20%。对于同时能够看见和击中灵体生物的攻击者而言，不会有失手几率。\n同样，你自己发动的攻击也有20%失手率。 在闪现期间，范围攻击对你只会造成一半伤害（但能够延伸到灵界位面的范围攻击会造成全部伤害）。虽然只有部分可见，但你不被视为隐形状态，目标在对抗你的攻击时也能够保留防御等级（AC）的敏捷加值。你在对看不见隐形生物的敌人发动攻击时，攻击检定会获得+2加值。",
-      "esES": null
-    },
-    {
-      "Key": "16154ce9b3b14496b85bbb462cf1e66d",
-      "SimpleName": "SorcererAberrantSpell9.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n岩刺: 岩质地面、石地板与类似的表面形状改变，形成长而尖的石刺，与背景融为一体。\n岩刺使该区域难以通行，并造成<b><color=#703565><link=\"Encyclopedia:Damage\">伤害</link></color></b>。任何徒步进入或穿过<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>影响区域的生物<b><color=#703565><link=\"Encyclopedia:Speed\">移动速度</link></color></b>减半。此外，在区域内的生物每移动5英尺，便受到<b><color=#703565><link=\"Encyclopedia:Dice\">1d8</link></color></b>点<b><color=#703565><link=\"Encyclopedia:Damage_Type\">穿刺伤害</link></color></b>。\n因岩刺受到伤害的生物还需要反射<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免</link></color></b>成功才能避免腿脚<b><color=#703565><link=\"Encyclopedia:Injury_Death\">受伤</link></color></b>。若豁免失败，则生物的速度减半，持续1分钟。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n岩刺: 岩质地面、石地板与类似的表面形状改变，形成长而尖的石刺，与背景融为一体。\n岩刺使该区域难以通行，并造成{g|Encyclopedia:Damage}伤害{/g}。任何徒步进入或穿过法术影响区域的生物移动速度减半。此外，在区域内的生物每移动5英尺，便受到1d8点穿刺伤害。\n因岩刺受到伤害的生物还需要反射豁免成功才能避免腿脚受伤。若豁免失败，则生物的速度减半，持续1分钟。",
       "esES": null
     },
     {
@@ -12607,28 +11881,6 @@
       "esES": null
     },
     {
-      "Key": "0f6bd857863a46d891ab06e33aef1f91",
-      "SimpleName": "SorcererDestinedSpell11.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n破除魔咒: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>能够解除目标身上的惑控、变化和诅咒效果。破除魔咒甚至还能逆转立即生效的效果。对于这些效果，你需要分别进行<b><color=#703565><link=\"Encyclopedia:Caster_Level\">施法者等级</link></color></b><b><color=#703565><link=\"Encyclopedia:Check\">检定</link></color></b>（<b><color=#703565><link=\"Encyclopedia:Dice\">1d20</link></color></b>+施法者等级，最高为+15），对抗等于11+该效果施法者等级的<b><color=#703565><link=\"Encyclopedia:DC\">DC</link></color></b>。检定成功意味着受术生物从法术、诅咒或效果中解脱。破除魔咒只对不超过5级的法术有效。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n破除魔咒: 此{g|Encyclopedia:Spell}法术{/g}能够解除目标身上的惑控、变化和诅咒效果。破除魔咒甚至还能逆转立即生效的效果。对于这些效果，你需要分别进行{g|Encyclopedia:Caster_Level}施法者等级{/g}{g|Encyclopedia:Check}检定{/g}（{g|Encyclopedia:Dice}1d20{/g}+施法者等级，最高为+15），对抗等于11+该效果施法者等级的{g|Encyclopedia:DC}DC{/g}。检定成功意味着受术生物从法术、诅咒或效果中解脱。破除魔咒只对不超过5级的法术有效。",
-      "esES": null
-    },
-    {
-      "Key": "8c4d1db2cdae4679941f1533bd71904a",
-      "SimpleName": "SorcererDestinedSpell13.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n高等英雄气概: 此<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>效果类似于英雄气概，区别在于生物在<b><color=#703565><link=\"Encyclopedia:Attack\">攻击</link></color></b>、<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Skills\">技能检定</link></color></b>上获得+4士气<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>，免疫恐惧效应，并获得等于你的<b><color=#703565><link=\"Encyclopedia:Caster_Level\">施法者等级</link></color></b>的临时<b><color=#703565><link=\"Encyclopedia:HP\">生命值</link></color></b>（最高20）。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n高等英雄气概: 此{g|Encyclopedia:Spell}法术{/g}效果类似于英雄气概，区别在于生物在{g|Encyclopedia:Attack}攻击{/g}、{g|Encyclopedia:Saving_Throw}豁免{/g}和{g|Encyclopedia:Skills}技能检定{/g}上获得+4士气{g|Encyclopedia:Bonus}加值{/g}，免疫恐惧效应，并获得等于你的{g|Encyclopedia:Caster_Level}施法者等级{/g}的临时{g|Encyclopedia:HP}生命值{/g}（最高20）。",
-      "esES": null
-    },
-    {
       "Key": "3d4ee411b4eb40b282878902cf4a204c",
       "SimpleName": "SorcererDestinedSpell13.Description",
       "ProcessTemplates": true,
@@ -12637,17 +11889,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n高等英雄气概: 此{g|Encyclopedia:Spell}法术{/g}效果类似于英雄气概，区别在于生物在{g|Encyclopedia:Attack}攻击{/g}、{g|Encyclopedia:Saving_Throw}豁免{/g}和{g|Encyclopedia:Skills}技能检定{/g}上获得+4士气{g|Encyclopedia:Bonus}加值{/g}，免疫恐惧效应，并获得等于你的{g|Encyclopedia:Caster_Level}施法者等级{/g}的临时{g|Encyclopedia:HP}生命值{/g}（最高20）。",
-      "esES": null
-    },
-    {
-      "Key": "6b8f302f8cd04396a47d685aecbc0032",
-      "SimpleName": "SorcererDestinedSpell15.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n明晰之环: 你创造出魔法能量场，干扰范围内的所有幻象，为辨别幻术的<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>提供+4<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。能量场还会抵消范围内弱于完全<b><color=#703565><link=\"Encyclopedia:Concealment\">隐蔽</link></color></b>的隐蔽效果。在范围内用于发现生物或物品的<b><color=#703565><link=\"Encyclopedia:Perception\">察觉检定</link></color></b>获得等于<b><color=#703565><link=\"Encyclopedia:Caster_Level\">施法者等级</link></color></b>一半的加值（最高+10）。如果施放于空间中的一点，<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>位置将固定不变。如果施放在一个生物或物品上，法术就能够移动，不过生物或被持有的物品可以通过豁免检定或<b><color=#703565><link=\"Encyclopedia:Spell_Resistance\">法术抗力</link></color></b>来免除法术效果。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n明晰之环: 你创造出魔法能量场，干扰范围内的所有幻象，为辨别幻术的{g|Encyclopedia:Saving_Throw}豁免检定{/g}提供+4{g|Encyclopedia:Bonus}加值{/g}。能量场还会抵消范围内弱于完全{g|Encyclopedia:Concealment}隐蔽{/g}的隐蔽效果。在范围内用于发现生物或物品的{g|Encyclopedia:Perception}察觉检定{/g}获得等于{g|Encyclopedia:Caster_Level}施法者等级{/g}一半的加值（最高+10）。如果施放于空间中的一点，{g|Encyclopedia:Spell}法术{/g}位置将固定不变。如果施放在一个生物或物品上，法术就能够移动，不过生物或被持有的物品可以通过豁免检定或{g|Encyclopedia:Spell_Resistance}法术抗力{/g}来免除法术效果。",
       "esES": null
     },
     {
@@ -12673,32 +11914,10 @@
       "esES": null
     },
     {
-      "Key": "910c38063d1244888758f951c79770b3",
-      "SimpleName": "SorcererDestinedSpell17.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n防护魔法: 受术者对抗<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Special_Abilities\">类法术能力</link></color></b>的<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免检定</link></color></b>具有+8抗力<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>（对超自然能力和特异能力无效）。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n防护魔法: 受术者对抗{g|Encyclopedia:Spell}法术{/g}和{g|Encyclopedia:Special_Abilities}类法术能力{/g}的{g|Encyclopedia:Saving_Throw}豁免检定{/g}具有+8抗力{g|Encyclopedia:Bonus}加值{/g}（对超自然能力和特异能力无效）。",
-      "esES": null
-    },
-    {
       "Key": "fec8d103dde0482fbcc64a44e90dd51b",
       "SimpleName": "SorcererDestinedSpell19.Description",
       "ProcessTemplates": true,
       "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nForesight: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants you a powerful sixth sense. Once foresight is cast, you receive instantaneous warnings of impending danger or harm to the subject of the spell. You are never <b><color=#703565><link=\"Encyclopedia:Flat_Footed\">flat-footed</link></color></b>. In addition, the spell gives you a general idea of what <b><color=#703565><link=\"Encyclopedia:CA_Types\">action</link></color></b> you might take to best protect yourself and gives you a +2 insight <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> and on Reflex <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saves</link></color></b>.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n预警: {g|Encyclopedia:CA_Types}{/g}该{g|Encyclopedia:Spell}法术{/g}给予你强大的第六感。一旦施放预警术，只要施法对象面临危险或即将受到伤害，你就会立即得到警告。你永远不会陷入{g|Encyclopedia:Flat_Footed}措手不及{/g}状态。此外，该法术将指引你如何更好地保护自身，使你的{g|Encyclopedia:Armor_Class}防御等级{/g}和反射{g|Encyclopedia:Saving_Throw}豁免{/g}得到+2洞察{g|Encyclopedia:Bonus}加值{/g}。",
-      "esES": null
-    },
-    {
-      "Key": "18bfa3a9f5794cbebf210412dde165ad",
-      "SimpleName": "SorcererDestinedSpell19.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n预警: <b><color=#703565><link=\"Encyclopedia:CA_Types\"></link></color></b>该<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>给予你强大的第六感。一旦施放预警术，只要施法对象面临危险或即将受到伤害，你就会立即得到警告。你永远不会陷入<b><color=#703565><link=\"Encyclopedia:Flat_Footed\">措手不及</link></color></b>状态。此外，该法术将指引你如何更好地保护自身，使你的<b><color=#703565><link=\"Encyclopedia:Armor_Class\">防御等级</link></color></b>和反射<b><color=#703565><link=\"Encyclopedia:Saving_Throw\">豁免</link></color></b>得到+2洞察<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -12717,32 +11936,10 @@
       "esES": null
     },
     {
-      "Key": "9df9cf1973b84d969cb55c22aa64a69d",
-      "SimpleName": "SorcererDestinedSpell3.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n护盾术: <b><color=#703565><link=\"Encyclopedia:Attack\"></link></color></b>护盾术制造一个隐形的力场盾牌悬浮在你身前。它可以吸收射向你的魔法飞弹。该盾牌同时为<b><color=#703565><link=\"Encyclopedia:Armor_Class\">防御等级</link></color></b>提供+4盾牌<b><color=#703565><link=\"Encyclopedia:Bonus\">加值</link></color></b>。该加值属于力场效应，故对<b><color=#703565><link=\"Encyclopedia:Incorporeal_Touch_Attack\">虚体</link></color></b><b><color=#703565><link=\"Encyclopedia:TouchAttack\">接触攻击</link></color></b>有效。该盾牌不会带来防具<b><color=#703565><link=\"Encyclopedia:Check\">检定</link></color></b><b><color=#703565><link=\"Encyclopedia:Penalty\">减值</link></color></b>和<b><color=#703565><link=\"Encyclopedia:Spell_Fail_Chance\">奥术失败率</link></color></b>。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n护盾术: {g|Encyclopedia:Attack}{/g}护盾术制造一个隐形的力场盾牌悬浮在你身前。它可以吸收射向你的魔法飞弹。该盾牌同时为{g|Encyclopedia:Armor_Class}防御等级{/g}提供+4盾牌{g|Encyclopedia:Bonus}加值{/g}。该加值属于力场效应，故对{g|Encyclopedia:Incorporeal_Touch_Attack}虚体{/g}{g|Encyclopedia:TouchAttack}接触攻击{/g}有效。该盾牌不会带来防具{g|Encyclopedia:Check}检定{/g}{g|Encyclopedia:Penalty}减值{/g}和{g|Encyclopedia:Spell_Fail_Chance}奥术失败率{/g}。",
-      "esES": null
-    },
-    {
       "Key": "22c023e8ec934c8abcb58c0cccccbe8d",
       "SimpleName": "SorcererDestinedSpell5.Description",
       "ProcessTemplates": true,
       "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nBlur: The subject's outline appears blurred, shifting, and wavering. This distortion grants the subject <b><color=#703565><link=\"Encyclopedia:Concealment\">concealment</link></color></b> (20% miss chance).\nA see invisibility <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> does not counteract the blur effect, but a true seeing spell does.\nOpponents that cannot see the subject ignore the spell's effect (though fighting an unseen opponent carries <b><color=#703565><link=\"Encyclopedia:Penalty\">penalties</link></color></b> of its own).",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n朦胧术: 目标的轮廓变得朦胧、歪曲、变化不定。该{g|Encyclopedia:Spell}法术{/g}使目标获得{g|Encyclopedia:Concealment}隐蔽{/g}状态（20%失手几率）。\n识破隐形法术不能抵消朦胧效果，但真知术可以。\n看不到目标的对手无视此法术的效果（不过与不可见的对手战斗本身就有不利影响）。",
-      "esES": null
-    },
-    {
-      "Key": "54a0638b91044efaa53010b15847e2b7",
-      "SimpleName": "SorcererDestinedSpell5.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n朦胧术: 目标的轮廓变得朦胧、歪曲、变化不定。该<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>使目标获得<b><color=#703565><link=\"Encyclopedia:Concealment\">隐蔽</link></color></b>状态（20%失手几率）。\n识破隐形法术不能抵消朦胧效果，但真知术可以。\n看不到目标的对手无视此法术的效果（不过与不可见的对手战斗本身就有不利影响）。<b><color=#703565><link=\"Encyclopedia:Penalty\"></link></color></b>",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -12761,32 +11958,10 @@
       "esES": null
     },
     {
-      "Key": "0c5cb5f74b8a4b768334a12b3ec1d2ba",
-      "SimpleName": "SorcererDestinedSpell7.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n防护能量: 防护能量使目标暂时对你施法时指定的能量类型免疫（酸蚀、寒冷、电击、火焰或音波）。<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>吸收每<b><color=#703565><link=\"Encyclopedia:Caster_Level\">施法者等级</link></color></b>12点<b><color=#703565><link=\"Encyclopedia:Energy_Damage\">能量伤害</link></color></b>后（10级时达到最大值120点）就会消散。",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n防护能量: 防护能量使目标暂时对你施法时指定的能量类型免疫（酸蚀、寒冷、电击、火焰或音波）。{g|Encyclopedia:Spell}法术{/g}吸收每{g|Encyclopedia:Caster_Level}施法者等级{/g}12点{g|Encyclopedia:Energy_Damage}能量伤害{/g}后（10级时达到最大值120点）就会消散。",
-      "esES": null
-    },
-    {
       "Key": "6c40b8cb135543fdb42550624bcea3bc",
       "SimpleName": "SorcererDestinedSpell9.Description",
       "ProcessTemplates": true,
       "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nFreedom of Movement: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> enables you or a creature you <b><color=#703565><link=\"Encyclopedia:TouchAttack\">touch</link></color></b> to move and <b><color=#703565><link=\"Encyclopedia:Attack\">attack</link></color></b> normally for the duration of the spell, even under the influence of magic that usually impedes movement, such as paralysis, solid fog, slow, and web. All <b><color=#703565><link=\"Encyclopedia:Combat_Maneuvers\">combat maneuver</link></color></b> <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b> made to grapple the target automatically fail.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n行动自如: 该{g|Encyclopedia:Spell}法术{/g}使得你或你{g|Encyclopedia:TouchAttack}接触{/g}的一个生物在法术持续时间内，即使遭到限制行动的魔法影响时，也可以正常移动和{g|Encyclopedia:Attack}攻击{/g}，例如麻痹、重雾术、缓慢术与蛛网术。所有尝试擒抱目标的{g|Encyclopedia:Combat_Maneuvers}战技{/g}{g|Encyclopedia:Check}检定{/g}都会自动失败。",
-      "esES": null
-    },
-    {
-      "Key": "a506d490fb6b4f64bef97bb486d9e12a",
-      "SimpleName": "SorcererDestinedSpell9.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\n行动自如: 该<b><color=#703565><link=\"Encyclopedia:Spell\">法术</link></color></b>使得你或你<b><color=#703565><link=\"Encyclopedia:TouchAttack\">接触</link></color></b>的一个生物在法术持续时间内，即使遭到限制行动的魔法影响时，也可以正常移动和<b><color=#703565><link=\"Encyclopedia:Attack\">攻击</link></color></b>，例如麻痹、重雾术、缓慢术与蛛网术。所有尝试擒抱目标的<b><color=#703565><link=\"Encyclopedia:Combat_Maneuvers\">战技</link></color></b><b><color=#703565><link=\"Encyclopedia:Check\">检定</link></color></b>都会自动失败。",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -13440,17 +12615,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "绝对模板",
-      "esES": null
-    },
-    {
-      "Key": "5539876b1fd94811b6c3b3b0f26c8d98",
-      "SimpleName": "TemplateResoluteSmiteChaosBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "Once per day, the resolute creature may smite a chaos-aligned creature. As a swift action, the creature chooses one target within sight to smite. If this target is chaotic, the creature adds its Charisma bonus (if any) to attack rolls and gains a damage bonus equal to its HD against that foe. This effect persists until the target is dead or the creature rests.",
-      "ruRU": "Один раз в день небесное существо может сокрушить хаотичное существо. Быстрым действием существо выбирает одну цель в зоне видимости. Если цель является хаотичной, существо добавляет свой бонус Харизмы (если таковой имеется) к броскам на попадание по цели и наносит по ней дополнительный урон равный количеству его костей здоровья. Этот эффект длится до тех пор, пока цель не будет уничтожена или существо не отдохнёт.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "每日一次，绝对生物可以制裁一个混乱阵营的生物。以一个迅捷动作，该生物选择视线范围内的一个目标进行制裁。如果该目标属于混乱阵营，在攻击该目标时，该生物将其魅力调整值（如果有的话）添加到攻击检定中，并获得等同于与自身生命骰数的伤害检定加值。该效果持续到目标死亡或该生物休息为止。",
       "esES": null
     },
     {
@@ -14257,6 +13421,39 @@
       "esES": null
     },
     {
+      "Key": "15f1aa7843914659b41fb7e686dc53a9",
+      "SimpleName": "WebBoltAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You launch a ball of webbing at a target, which must make a save or be affected as if by a web spell occupying only the creature’s space.\n\nWeb creates a many-layered mass of strong, sticky strands. These strands trap those caught in them. The strands are similar to spiderwebs but far larger and tougher. Creatures caught within a web become grappled by the sticky fibers.\nAnyone in the effect's area when the spell is cast must make a Reflex save. If this save succeeds, the creature is inside the web but is otherwise unaffected. If the save fails, the creature gains the grappled condition, but can break free by making a combat maneuver check, Athletics check, or Mobility check as a standard action against the DC of this spell. The entire area of the web is considered difficult terrain. Anyone moving through the webs must make a Reflex save each round. Creatures that fail lose their movement and become grappled in the first square of webbing that they enter.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "081260e04fde4237b9de8ef8a42b0b35",
+      "SimpleName": "WebBoltAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Web Bolt",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "36770b0ae177468ab027da60b8e98ad9",
+      "SimpleName": "WebBoltAbility.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Reflex negates",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "21271437e2004982a32c69a09a2f72ca",
       "SimpleName": "WellPrepared.Description",
       "ProcessTemplates": true,
@@ -14276,6 +13473,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "准备万全",
+      "esES": null
+    },
+    {
+      "Key": "e74783555f21428a926c74c6add54bdf",
+      "SimpleName": "WinterGrasp.Description",
+      "ProcessTemplates": true,
+      "enGB": "ce encrusts the ground, radiating supernatural cold and making it hard for creatures to maintain their balance. This icy ground is treated as difficult terrain and the DC of Mobility checks in the area is increased by 5. A creature that begins its turn in the affected area takes 1d6 points of cold damage and takes a –2 penalty on saving throws against spells with the cold descriptor for 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
