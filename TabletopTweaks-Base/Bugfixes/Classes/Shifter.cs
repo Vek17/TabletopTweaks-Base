@@ -5,11 +5,16 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.MechanicsChanges;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
+using Kingmaker.EntitySystem.Stats;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     internal class Shifter {
@@ -78,6 +83,107 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchArchetypes();
             }
             static void PatchBase() {
+                PatchDefensiveInstinct();
+
+                void PatchDefensiveInstinct() {
+                    if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
+
+                    var ShifterACBonusUnlock = BlueprintTools.GetBlueprint<BlueprintFeature>("43295870ce5344ffa718d100b742438e");
+                    var ShifterACBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("c07b95dcb8164fb6ad8847ff6df91ba3");
+                    var ShifterACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("06cb4711975e4607a66ea6338cdb8c7d");
+                    var ShifterACBonusHalfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c9caeee561bd461cbb48b2f911fc3d98");
+                    var ShifterACBonusHalfBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("571be0c75b714afaace65af1e3b4862d");
+
+                    ShifterACBonus.TemporaryContext(bp => {
+                        bp.GetComponent<AddFacts>()?.TemporaryContext(c => {
+                            c.m_Facts = new BlueprintUnitFactReference[] { ShifterACBonusBuff.ToReference<BlueprintUnitFactReference>() };
+                        });
+                    });
+                    ShifterACBonusBuff.TemporaryContext(bp => {
+                        bp.SetName(ShifterACBonusUnlock.m_DisplayName);
+                        bp.SetDescription(TTTContext, "");
+                        bp.IsClassFeature = true;
+                        bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Wisdom;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.StatBonus
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnStatChange>();
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
+                            c.m_Type = AbilityRankType.StatBonus;
+                            c.m_Stat = StatType.Wisdom;
+                            c.m_Progression = ContextRankProgression.AsIs;
+                            c.m_UseMin = true;
+                            c.m_Min = 0;
+                        });
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                            c.m_Type = AbilityRankType.Default;
+                            c.m_Progression = ContextRankProgression.DivStep;
+                            c.m_StepLevel = 4;
+                            c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.ShifterClass };
+                        });
+                    });
+                    ShifterACBonusHalfBuff.TemporaryContext(bp => {
+                        bp.SetName(ShifterACBonusUnlock.m_DisplayName);
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Wisdom;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.StatBonus
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnStatChange>();
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
+                            c.m_Type = AbilityRankType.StatBonus;
+                            c.m_Stat = StatType.Wisdom;
+                            c.m_Progression = ContextRankProgression.Div2;
+                            c.m_UseMin = true;
+                            c.m_Min = 0;
+                        });
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                            c.m_Type = AbilityRankType.Default;
+                            c.m_Progression = ContextRankProgression.DivStep;
+                            c.m_StepLevel = 4;
+                            c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.ShifterClass };
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(ShifterACBonus);
+                    TTTContext.Logger.LogPatch(ShifterACBonusHalfBuff);
+                }
             }
 
             static void PatchArchetypes() {

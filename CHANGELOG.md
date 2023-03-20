@@ -1,3 +1,10 @@
+## Version 2.5.4
+* Fixes
+    * Monk style AC boosts should now all be properly labeling in AC breakdown.
+    * Equipment
+        * Shapeshifter's Helm
+            * Now works with shifter wildshapes.
+
 ## Version 2.5.3
 * Fixes
     * Spells

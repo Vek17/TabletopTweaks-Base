@@ -129,6 +129,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Classes.Skald.AddSkaldFeatures();
                 Classes.Monk.AddMonkFeatures();
                 Classes.WinterWitch.AddWinterWitchFeatures();
+                Classes.Barbarian.AddBarbarianFeatures();
                 //Features to support existing archetypes
                 Archetypes.MadDog.AddMadDogFeatures();
                 //New archetypes

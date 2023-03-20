@@ -300,6 +300,7 @@
     <Compile Include="NewContent\Classes\Magus.cs" />
     <Compile Include="NewContent\Classes\Monk.cs" />
     <Compile Include="NewContent\Classes\Oracle.cs" />
+    <Compile Include="NewContent\Classes\Barbarian.cs" />
     <Compile Include="NewContent\Classes\Skald.cs" />
     <Compile Include="NewContent\Classes\WinterWitch.cs" />
     <Compile Include="NewContent\ContentAdder.cs" />

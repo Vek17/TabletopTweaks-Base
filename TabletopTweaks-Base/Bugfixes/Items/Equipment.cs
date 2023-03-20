@@ -49,6 +49,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchMetamagicRods();
                 PatchHolySymbolofIomedae();
                 PatchHalfOfThePair();
+                PatchShapeshiftersHelm();
                 PatchStormlordsResolve();
                 PatchFlawlessBeltOfPhysicalPerfection8Availability();
                 PatchFlawlessBeltOfPhysicalPerfection8CritIncrease();
@@ -225,6 +226,29 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     }));
 
                     TTTContext.Logger.LogPatch(ManglingFrenzyFeature);
+                }
+                void PatchShapeshiftersHelm() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("ShapeshiftersHelm")) { return; }
+
+                    var ShapeshiftersHelmFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("accf16e898671054ca98761247fb6d5e");
+                    var ShapeshiftersHelmBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("4a149c41ce0c70a40826051a53ebdc32");
+                    var ShapeshiftersHelmItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentHead>("6b658e1f12d7a624ab4911873f78c694");
+
+                    ShapeshiftersHelmFeature.TemporaryContext(bp => {
+                        bp.RemoveComponents<BuffExtraEffects>();
+                        WildShapeTools.WildShapeBuffs.AllReferences.ForEach(buff => {
+                            bp.AddComponent<BuffExtraEffects>(c => {
+                                c.m_CheckedBuff = buff;
+                                c.m_ExtraEffectBuff = ShapeshiftersHelmBuff.ToReference<BlueprintBuffReference>();
+                                c.m_ExceptionFact = new BlueprintUnitFactReference();
+                            });
+                        });
+                    });
+                    ShapeshiftersHelmBuff.TemporaryContext(bp => {
+                        bp.m_DisplayName = ShapeshiftersHelmItem.m_DisplayNameText;
+                    });
+                    TTTContext.Logger.LogPatch(ShapeshiftersHelmBuff);
+                    TTTContext.Logger.LogPatch(ShapeshiftersHelmFeature);
                 }
                 void PatchStormlordsResolve() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("StormlordsResolve")) { return; }

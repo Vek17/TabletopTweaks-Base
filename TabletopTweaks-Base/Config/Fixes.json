@@ -113,6 +113,11 @@
         "Homebrew": false,
         "Description": "Spears now grant additional damage during a mounted charge."
       },
+      "FixMonkAcBonusNames": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes display text of monk AC in the UI."
+      },
       "FixPrebuffCasterLevels": {
         "Enabled": true,
         "Homebrew": false,
@@ -1856,6 +1861,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now default to off."
+        },
+        "ShapeshiftersHelm": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now works correctly with Shifter wildshapes."
         },
         "StormlordsResolve": {
           "Enabled": true,
