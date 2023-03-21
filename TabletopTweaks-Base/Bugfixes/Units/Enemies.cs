@@ -1,10 +1,13 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Parts;
 using TabletopTweaks.Core.NewComponents;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static Kingmaker.UI.GenericSlot.EquipSlotBase;
 using static TabletopTweaks.Base.Main;
@@ -19,7 +22,36 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Bosses");
+                PatchAnomaly();
                 PatchBalors();
+            }
+        }
+        static void PatchAnomaly() {
+            if (TTTContext.Fixes.Units.Enemies.IsDisabled("Anomaly")) { return; }
+
+            PatchAnomalyChaoticMind();
+
+            void PatchAnomalyChaoticMind() {
+                var AnomalyTemplateDefensive_ChaoticMindBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("2159f35f1dfb4ee78da818f443a086ee");
+
+                AnomalyTemplateDefensive_ChaoticMindBuff.TemporaryContext(bp => {
+                    var OriginalTrigger = bp.GetComponent<AddAbilityUseTargetTrigger>();
+                    bp.RemoveComponents<AddAbilityUseTargetTrigger>();
+                    bp.AddComponent<AddAbilityUseTargetTriggerTTT>(c => {
+                        c.ToCaster = true;
+                        c.DontCheckType = true;
+                        c.CheckDescriptor = true;
+                        c.SpellDescriptor = SpellDescriptor.MindAffecting;
+                        c.TriggerOnEffectApply = true;
+                        c.TriggerEvenIfNoEffect = true;
+                        c.Action = OriginalTrigger.Action;
+                    });
+                    bp.AddComponent<AddSpellImmunity>(c => {
+                        c.Type = SpellImmunityType.SpellDescriptor;
+                        c.SpellDescriptor = SpellDescriptor.MindAffecting;
+                    });
+                });
+                
             }
         }
         static void PatchBalors() {

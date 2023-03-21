@@ -168,6 +168,11 @@
         "Homebrew": false,
         "Description": "Allows only instantaneous effects to be treated as selective by selective metamagic."
       },
+      "SpellImmunity": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Ignoring spell resistance no longer ignores all spell immunities as well."
+      },
       "StaggeredDescriptors": {
         "Enabled": true,
         "Homebrew": false,
@@ -1758,6 +1763,11 @@
     "Enemies": {
       "DisableAll": false,
       "Settings": {
+        "Anomaly": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Chaotic Mind now works correctly."
+        },
         "Balors": {
           "Enabled": true,
           "Homebrew": false,

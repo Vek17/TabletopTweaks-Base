@@ -1585,6 +1585,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 CloakOfChaosBuff.TemporaryContext(bp => {
                     bp.RemoveComponents<SpellImmunityToSpellDescriptor>(c => c.Descriptor == SpellDescriptor.MindAffecting);
+                    bp.RemoveComponents<BuffDescriptorImmunity>(c => c.Descriptor == SpellDescriptor.MindAffecting);
                     bp.AddComponent<SpecificBuffImmunity>(c => {
                         c.m_Buff = DominatePersonBuff;
                     });
@@ -1595,6 +1596,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 ShieldOfLawBuff.TemporaryContext(bp => {
                     bp.RemoveComponents<SpellImmunityToSpellDescriptor>(c => c.Descriptor == SpellDescriptor.MindAffecting);
+                    bp.RemoveComponents<BuffDescriptorImmunity>(c => c.Descriptor == SpellDescriptor.MindAffecting);
                     bp.AddComponent<SpecificBuffImmunity>(c => {
                         c.m_Buff = DominatePersonBuff;
                     });

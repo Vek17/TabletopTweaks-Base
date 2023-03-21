@@ -1,6 +1,10 @@
 ## Version 2.5.4
 * Fixes
     * Monk style AC boosts should now all be properly labeling in AC breakdown.
+    * Ignoring spell resistance no longer ignores all spell immunities as well.
+    * Units
+        * Anomolies
+            * Chaotic Mind now works correctly with non targeted effects like weird.
     * Equipment
         * Shapeshifter's Helm
             * Now works with shifter wildshapes.
