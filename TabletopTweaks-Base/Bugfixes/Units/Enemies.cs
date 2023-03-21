@@ -5,7 +5,11 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Parts;
+using Kingmaker.Utility;
+using System.Linq;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
@@ -32,7 +36,8 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
             PatchAnomalyChaoticMind();
 
             void PatchAnomalyChaoticMind() {
-                var AnomalyTemplateDefensive_ChaoticMindBuff = ResourcesLibrary.TryGetBlueprint<BlueprintBuff>("2159f35f1dfb4ee78da818f443a086ee");
+                var AnomalyTemplateDefensive_ChaoticMindBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("2159f35f1dfb4ee78da818f443a086ee");
+                var AnomalyDistortionNormalDCProperty = BlueprintTools.GetBlueprintReference<BlueprintUnitPropertyReference>("0cc67f363c944539bb09217f2ba3e149");
 
                 AnomalyTemplateDefensive_ChaoticMindBuff.TemporaryContext(bp => {
                     var OriginalTrigger = bp.GetComponent<AddAbilityUseTargetTrigger>();
@@ -49,6 +54,13 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                     bp.AddComponent<AddSpellImmunity>(c => {
                         c.Type = SpellImmunityType.SpellDescriptor;
                         c.SpellDescriptor = SpellDescriptor.MindAffecting;
+                    });
+                    bp.FlattenAllActions().OfType<ContextActionSavingThrow>()?.ForEach(a => {
+                        a.HasCustomDC = true;
+                        a.CustomDC = new ContextValue() { 
+                            ValueType = ContextValueType.CasterCustomProperty,
+                            m_CustomProperty = AnomalyDistortionNormalDCProperty
+                        };
                     });
                 });
                 
