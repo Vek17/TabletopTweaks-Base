@@ -63,6 +63,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Races.Halfling.AddHalflingHeritage();
 
                 Backgrounds.Lecturer.AddLecturer();
+                Backgrounds.Researcher.AddResearcher();
 
                 RogueTalents.EmboldeningStrike.AddEmboldeningStrike();
                 RogueTalents.BleedingAttack.AddBleedingAttack();

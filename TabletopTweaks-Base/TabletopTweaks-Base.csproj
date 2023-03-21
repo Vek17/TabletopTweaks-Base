@@ -289,6 +289,7 @@
     <Compile Include="NewContent\Archetypes\Myrmidarch.cs" />
     <Compile Include="NewContent\Archetypes\NatureFang.cs" />
     <Compile Include="NewContent\Backgrounds\Lecturer.cs" />
+    <Compile Include="NewContent\Backgrounds\Researcher.cs" />
     <Compile Include="NewContent\BaseAbilities\OneHandedToggleAbility.cs" />
     <Compile Include="NewContent\Bloodlines\AberrantBloodline.cs" />
     <Compile Include="NewContent\Bloodlines\AbyssalBloodline.cs" />

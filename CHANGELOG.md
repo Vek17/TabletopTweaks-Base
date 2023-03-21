@@ -4,6 +4,10 @@
     * Equipment
         * Shapeshifter's Helm
             * Now works with shifter wildshapes.
+* Added Content
+    * Background
+        * Researcher
+            * Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.
 
 ## Version 2.5.3
 * Fixes

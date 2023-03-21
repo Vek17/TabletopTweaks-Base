@@ -575,6 +575,11 @@
         "Enabled": true,
         "Homebrew": true,
         "Description": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks."
+      },
+      "Researcher": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks."
       }
     },
     "IsExpanded": true
