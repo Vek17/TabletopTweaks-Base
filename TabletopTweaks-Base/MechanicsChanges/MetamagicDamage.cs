@@ -51,7 +51,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                             __instance.UnitsCount,
                             DamageCalculationType.Normal
                         ) * empowerMultiplier);
-                        TTTContext.Logger.LogVerbose($"Empower Bonus {empowerMultiplier}: {damage.Dice.ModifiedValue.Rolls}{damage.Dice.ModifiedValue.Dice}/{1 / empowerMultiplier} = {empowerExtraDamage}");
+                        TTTContext.Logger.Log($"Empower Bonus {empowerMultiplier}: {damage.Dice.ModifiedValue.Rolls}{damage.Dice.ModifiedValue.Dice}/{1 / empowerMultiplier} = {empowerExtraDamage}");
                     }
                     num3 = ((num4 + empowerExtraDamage) + (damage.Bonus * __instance.UnitsCount) * empowerBonus * num2) * damage.TacticalCriticalModifier;
                 }

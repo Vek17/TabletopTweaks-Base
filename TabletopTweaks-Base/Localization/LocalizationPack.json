@@ -210,17 +210,6 @@
       "esES": null
     },
     {
-      "Key": "49b32eedf68e4c82a75887464e69ffb1",
-      "SimpleName": "AccursedGlareAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "You channel a fell curse through your glare. If the target fails its saving throw, it begins to obsessively second guess its actions and attract bad luck. Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "90d364a072864a988a0e152fd6f175e5",
       "SimpleName": "AccursedGlareAbility.Duration",
       "ProcessTemplates": false,
@@ -727,6 +716,17 @@
       "esES": null
     },
     {
+      "Key": "3ab8827f312441f6804e5ceda977d11b",
+      "SimpleName": "ArcanistExploitMetamagicKnowledgeGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Metamagic Knowledge",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "839eadc4f5be4902aea31736c14515e6",
       "SimpleName": "ArcanistExploitQuickStudyAbility.Description",
       "ProcessTemplates": true,
@@ -782,17 +782,6 @@
       "esES": null
     },
     {
-      "Key": "9fd71c48669a40c1a071aa9195fc988e",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
-      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Если воин достигает 19-го уровня и у него есть классовая черта Мастерство Ношения Брони, значения Снижения Урона дополнительно повышаеются на 5. Снижение Урона от этой способности суммируется со Снижением Урона, полученным от адамантиновой брони, но не с другими разновилностями Снижения Урона.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
-      "esES": null
-    },
-    {
       "Key": "30403b099bed4cf79d1619ad891aecd3",
       "SimpleName": "ArmoredJuggernautFeature.Description",
       "ProcessTemplates": true,
@@ -801,6 +790,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "穿着重甲时，战士获得DR 1/—。7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值可以和战士19级获得的盔甲大师特性，以及精金盔甲提供的DR叠加，但不和任何其它形式的伤害减免叠加。",
+      "esES": null
+    },
+    {
+      "Key": "9fd71c48669a40c1a071aa9195fc988e",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
+      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Если воин достигает 19-го уровня и у него есть классовая черта Мастерство Ношения Брони, значения Снижения Урона дополнительно повышаеются на 5. Снижение Урона от этой способности суммируется со Снижением Урона, полученным от адамантиновой брони, но не с другими разновилностями Снижения Урона.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
       "esES": null
     },
     {
@@ -1442,25 +1442,25 @@
       "esES": null
     },
     {
-      "Key": "b481e3debe0440fd8f8724f0d4fbc618",
+      "Key": "0cf16908b3cd4a4dbcb7dfceb668e41d",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, {g|Encyclopedia:Weapon_Proficiency}weapon proficiency{/g} or armor proficiency granted by the selected background from her class during character creation, then the corresponding {g|Encyclopedia:Bonus}bonuses{/g} from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor {g|Encyclopedia:Check}Check{/g} {g|Encyclopedia:Penalty}Penalty{/g} reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "讲师将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}和{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以用{g|Encyclopedia:Intelligence}智力{/g}代替{g|Encyclopedia:Charisma}魅力{/g}进行沟通{g|Encyclopedia:Check}检定{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
+      "zhCN": null,
       "esES": null
     },
     {
-      "Key": "bb54955186c14d0fb56ec66da6fab98c",
+      "Key": "f9c0c5b3bb92421aae146892983d4588",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (World)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Persuasion <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (World)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Persuasion <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "讲师将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}和{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以用{g|Encyclopedia:Intelligence}智力{/g}代替{g|Encyclopedia:Charisma}魅力{/g}进行沟通{g|Encyclopedia:Check}检定{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1472,6 +1472,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "讲师",
+      "esES": null
+    },
+    {
+      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
+      "SimpleName": "BackgroundScholarResearcher.Description",
+      "ProcessTemplates": true,
+      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "854204882b884cbe996c29be0716c21b",
+      "SimpleName": "BackgroundScholarResearcher.Description",
+      "ProcessTemplates": true,
+      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "72f847d736c94af6bc7ab2d81b43944d",
+      "SimpleName": "BackgroundScholarResearcher.Name",
+      "ProcessTemplates": false,
+      "enGB": "Researcher",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2608,17 +2641,6 @@
       "esES": null
     },
     {
-      "Key": "add3b25fd1214142995be3b8965b0bc8",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana",
-      "ruRU": "Перенос мистической энергии",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换",
-      "esES": null
-    },
-    {
       "Key": "9f48856f97714024a5cb846de75da34e",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2627,6 +2649,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换 — 魔战士",
+      "esES": null
+    },
+    {
+      "Key": "add3b25fd1214142995be3b8965b0bc8",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana",
+      "ruRU": "Перенос мистической энергии",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换",
       "esES": null
     },
     {
@@ -5336,17 +5369,6 @@
       "esES": null
     },
     {
-      "Key": "a494abde1748434384988c7956abbe2c",
-      "SimpleName": "Elemental — AcidSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}Elemental — Acid{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}元素 — 酸蚀{/g}",
-      "esES": null
-    },
-    {
       "Key": "676143e3221040e0b7b907b49671e3e5",
       "SimpleName": "Elemental — AcidSpellMetamagic",
       "ProcessTemplates": false,
@@ -5358,14 +5380,14 @@
       "esES": null
     },
     {
-      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
-      "SimpleName": "Elemental — ColdSpellMetamagic",
+      "Key": "a494abde1748434384988c7956abbe2c",
+      "SimpleName": "Elemental — AcidSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "Elemental — Cold",
+      "enGB": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}Elemental — Acid{/g}",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素 — 寒冷",
+      "zhCN": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}元素 — 酸蚀{/g}",
       "esES": null
     },
     {
@@ -5380,14 +5402,14 @@
       "esES": null
     },
     {
-      "Key": "4b7abb50b76d42c99794074645b9d084",
-      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}Elemental — Electricity{/g}",
+      "enGB": "Elemental — Cold",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}元素 — 电击{/g}",
+      "zhCN": "元素 — 寒冷",
       "esES": null
     },
     {
@@ -5399,6 +5421,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素 — 电击",
+      "esES": null
+    },
+    {
+      "Key": "4b7abb50b76d42c99794074645b9d084",
+      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}Elemental — Electricity{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}元素 — 电击{/g}",
       "esES": null
     },
     {
@@ -7206,32 +7239,10 @@
       "esES": null
     },
     {
-      "Key": "f7fc0e0350f14380a2d0e159b129eced",
-      "SimpleName": "InflictPainAbility.Description",
-      "ProcessTemplates": true,
-      "enGB": "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "484898c23e8f45abbd190fcb0c2fab20",
       "SimpleName": "InflictPainAbility.Duration",
       "ProcessTemplates": false,
       "enGB": "1 round/level",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "5f7e00f6344f45e69e16ee07202ce66d",
-      "SimpleName": "InflictPainBuff.Description",
-      "ProcessTemplates": true,
-      "enGB": "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -7316,17 +7327,6 @@
       "esES": null
     },
     {
-      "Key": "42fddf6342a544bc85b6647c3db42f3b",
-      "SimpleName": "IntensifiedSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}Intensified{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
-      "esES": null
-    },
-    {
       "Key": "5effb1dfff10434d8af19691362dab9c",
       "SimpleName": "IntensifiedSpellMetamagic",
       "ProcessTemplates": false,
@@ -7335,6 +7335,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "强化",
+      "esES": null
+    },
+    {
+      "Key": "42fddf6342a544bc85b6647c3db42f3b",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}Intensified{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
       "esES": null
     },
     {
@@ -10924,17 +10935,6 @@
       "esES": null
     },
     {
-      "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
-      "SimpleName": "RimeSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Rime-TabletopTweaks-Base}Rime{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
-      "esES": null
-    },
-    {
       "Key": "334dafcc1c3844e49640b81084309388",
       "SimpleName": "RimeSpellMetamagic",
       "ProcessTemplates": false,
@@ -10943,6 +10943,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "霜冻",
+      "esES": null
+    },
+    {
+      "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
+      "SimpleName": "RimeSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Rime-TabletopTweaks-Base}Rime{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
       "esES": null
     },
     {
@@ -11353,17 +11364,6 @@
       "esES": null
     },
     {
-      "Key": "1b8450f20cc444c399117bd8890ed98e",
-      "SimpleName": "Solid ShadowsSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Solid Shadows{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
-      "esES": null
-    },
-    {
       "Key": "30cff4322b404021b18335c720abbfda",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
@@ -11372,6 +11372,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "实体幽影",
+      "esES": null
+    },
+    {
+      "Key": "1b8450f20cc444c399117bd8890ed98e",
+      "SimpleName": "Solid ShadowsSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Solid Shadows{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
       "esES": null
     },
     {
@@ -12310,6 +12321,17 @@
       "esES": null
     },
     {
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Will negates stun",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "意志，免除震慑",
+      "esES": null
+    },
+    {
       "Key": "9b3ade0576a54a5292186ebfbacb48bf",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12329,17 +12351,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "轮/级，或直到到效果消散",
-      "esES": null
-    },
-    {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "Will negates stun",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "意志，免除震慑",
       "esES": null
     },
     {

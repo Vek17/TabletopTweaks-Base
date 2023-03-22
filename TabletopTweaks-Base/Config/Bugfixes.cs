@@ -205,17 +205,20 @@ namespace TabletopTweaks.Base.Config {
             public NestedSettingGroup Armor;
             public NestedSettingGroup Equipment;
             public NestedSettingGroup Weapons;
+            public NestedSettingGroup Cooking;
 
             public ItemGroup() {
                 Armor = new NestedSettingGroup(this);
                 Equipment = new NestedSettingGroup(this);
                 Weapons = new NestedSettingGroup(this);
+                Cooking = new NestedSettingGroup(this);
             }
 
             public void SetParents() {
                 Armor.Parent = this;
                 Equipment.Parent = this;
                 Weapons.Parent = this;
+                Cooking.Parent = this;
             }
 
             public void LoadItemGroup(ItemGroup group, bool frozen) {
@@ -223,6 +226,7 @@ namespace TabletopTweaks.Base.Config {
                 Armor.LoadSettingGroup(group.Armor, frozen);
                 Equipment.LoadSettingGroup(group.Equipment, frozen);
                 Weapons.LoadSettingGroup(group.Weapons, frozen);
+                Cooking.LoadSettingGroup(group.Cooking, frozen);
             }
 
             ref bool ICollapseableGroup.IsExpanded() {

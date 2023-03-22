@@ -223,6 +223,7 @@
     <Compile Include="Bugfixes\General\WeaponEnhancementBonuses.cs" />
     <Compile Include="Bugfixes\General\WeaponProperties.cs" />
     <Compile Include="Bugfixes\Items\Armor.cs" />
+    <Compile Include="Bugfixes\Items\Cooking.cs" />
     <Compile Include="Bugfixes\Items\Equipment.cs" />
     <Compile Include="Bugfixes\Items\Weapons.cs" />
     <Compile Include="Bugfixes\TacticalCombat\Buildings.cs" />

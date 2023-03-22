@@ -1955,6 +1955,17 @@
         }
       },
       "IsExpanded": true
+    },
+    "Cooking": {
+      "DisableAll": false,
+      "Settings": {
+        "ScreamingOmelet": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now properly grants 2 hit points per level instead of 1."
+        }
+      },
+      "IsExpanded": true
     }
   }
 }

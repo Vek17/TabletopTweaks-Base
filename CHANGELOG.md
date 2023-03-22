@@ -1,7 +1,9 @@
 ## Version 2.5.4
 * Fixes
-    * Monk style AC boosts should now all be properly labeling in AC breakdown.
+    * Monk style AC boosts should now all be properly labeled in AC breakdown.
     * Ignoring spell resistance no longer ignores all spell immunities as well.
+    * Fixed issue with burning magic oracle revelation preventing metamagic from working.
+    * Lecturer Background should now correctly change the skill bonus on load.
     * Units
         * Anomolies
             * Chaotic Mind now works correctly with non targeted effects like weird.
