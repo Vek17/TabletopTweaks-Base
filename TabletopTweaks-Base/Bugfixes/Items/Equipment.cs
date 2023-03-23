@@ -2,14 +2,17 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
@@ -43,6 +46,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                 TTTContext.Logger.LogHeader("Patching Equipment");
                 PatchAmuletOfQuickDraw();
+                PatchApprenticeRobe();
                 PatchAspectOfTheAsp();
                 PatchMagiciansRing();
                 PatchManglingFrenzy();
@@ -85,6 +89,64 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     });
 
                     TTTContext.Logger.LogPatch(AmuletOfQuickDrawFeature);
+                }
+                void PatchApprenticeRobe() {
+                    if (TTTContext.Fixes.Items.Equipment.IsDisabled("ApprenticeRobe")) { return; }
+
+                    var ApprenticeRobeItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentShirt>("fedef0913b7d598478918b81eed9fada");
+                    var ApprenticeRobeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("3443f54b269d30540a0ab2e97005e416");
+                    var ApprenticeRobeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("ec41863fa404a6149a0f0a3f435896e0");
+                    var ArchmageArmor = BlueprintTools.GetBlueprint<BlueprintFeature>("c3ef5076c0feb3c4f90c229714e62cd0");
+                    var MageArmor = BlueprintTools.GetBlueprint<BlueprintAbility>("9e1ad5d6f87d19e4d8883d63a6e35568");
+                    var MageArmorBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("a92acdf18049d784eaa8f2004f5d2304");
+                    var MageArmorBuffMythic = BlueprintTools.GetBlueprint<BlueprintBuff>("355be0688dabc21409f37942d637cdab");
+                    var MageArmorBuffPermanent = BlueprintTools.GetBlueprint<BlueprintBuff>("3410dd9986662684e8debdcf272e2cdc");
+
+                    ApprenticeRobeFeature.TemporaryContext(bp => {
+                        bp.SetName(ApprenticeRobeItem.m_DisplayNameText);
+                        bp.SetComponents();
+                        bp.AddComponent<AddStatBonusIfHasFact>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = ModifierDescriptor.ArmorFocus;
+                            c.Value = 1;
+                            c.m_CheckedFacts = new BlueprintUnitFactReference[] {
+                                MageArmorBuff.ToReference<BlueprintUnitFactReference>(),
+                                MageArmorBuffMythic.ToReference<BlueprintUnitFactReference>(),
+                                MageArmorBuffPermanent.ToReference<BlueprintUnitFactReference>()
+                            };
+                        });
+                    });
+                    ApprenticeRobeBuff.TemporaryContext(bp => {
+                        bp.SetName(ApprenticeRobeItem.m_DisplayNameText);
+                        bp.SetComponents();
+                        bp.AddComponent<AddFactContextActions>(c => {
+                            c.Activated = Helpers.CreateActionList(
+                                new ContextActionRemoveSelf()
+                            );
+                            c.Deactivated = Helpers.CreateActionList();
+                            c.NewRound = Helpers.CreateActionList(
+                                new ContextActionRemoveSelf()
+                            );
+                        });
+                    });
+                    MageArmorBuff.TemporaryContext(bp => {
+                        bp.SetName(MageArmor.m_DisplayName);
+                        bp.RemoveComponents<AddFactContextActions>();
+                    });
+                    MageArmorBuffMythic.TemporaryContext(bp => {
+                        bp.SetName(MageArmor.m_DisplayName);
+                        bp.RemoveComponents<AddFactContextActions>();
+                    });
+                    MageArmorBuffPermanent.TemporaryContext(bp => {
+                        bp.SetName(MageArmor.m_DisplayName);
+                        bp.RemoveComponents<AddFactContextActions>();
+                    });
+
+                    TTTContext.Logger.LogPatch(ApprenticeRobeItem);
+                    TTTContext.Logger.LogPatch(ApprenticeRobeFeature);
+                    TTTContext.Logger.LogPatch(MageArmorBuff);
+                    TTTContext.Logger.LogPatch(MageArmorBuffMythic);
+                    TTTContext.Logger.LogPatch(MageArmorBuffPermanent);
                 }
                 void PatchAspectOfTheAsp() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("AspectOfTheAsp")) { return; }

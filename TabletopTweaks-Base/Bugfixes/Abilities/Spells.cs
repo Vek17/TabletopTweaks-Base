@@ -14,6 +14,7 @@ using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -1793,10 +1794,10 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 TTTContext.Logger.Log("Updating Spell Flags");
                 SpellTools.SpellList.AllSpellLists
                     .SelectMany(list => list.SpellsByLevel)
-                    .Where(spellList => spellList.SpellLevel != 0)
                     .SelectMany(level => level.Spells)
                     .Distinct()
                     .SelectMany(spell => spell.AbilityAndVariants())
+                    .SelectMany(spell => spell.AbilityAndStickyTouch())
                     .OrderBy(spell => spell.Name)
                     .SelectMany(a => a.FlattenAllActions())
                     .OfType<ContextActionApplyBuff>()
@@ -1809,8 +1810,10 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         && buff.GetComponent<BuffStatusCondition>() == null
                         && buff.GetComponent<BuffPoisonStatDamage>() == null
                         && (buff.SpellDescriptor & SpellDescriptor.Bleed) == 0) {
-                            buff.m_Flags |= BlueprintBuff.Flags.IsFromSpell;
-                            TTTContext.Logger.LogPatch("Patched", buff);
+                            if ((buff.m_Flags & BlueprintBuff.Flags.IsFromSpell) == 0) {
+                                buff.m_Flags |= BlueprintBuff.Flags.IsFromSpell;
+                                TTTContext.Logger.LogPatch("Patched", buff);
+                            }
                         }
                     });
                 TTTContext.Logger.Log("Finished Spell Flags");

@@ -213,7 +213,6 @@
     <Compile Include="Bugfixes\General\DynamicItemNames.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
     <Compile Include="Bugfixes\General\MountedCombatFixes.cs" />
-    <Compile Include="Bugfixes\General\ProfaneGift.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
     <Compile Include="Bugfixes\General\SizeShiftLimits.cs" />
@@ -227,6 +226,7 @@
     <Compile Include="Bugfixes\Items\Equipment.cs" />
     <Compile Include="Bugfixes\Items\Weapons.cs" />
     <Compile Include="Bugfixes\TacticalCombat\Buildings.cs" />
+    <Compile Include="Bugfixes\UI\BuffInspectorView.cs" />
     <Compile Include="Bugfixes\UI\BuffSuppression.cs" />
     <Compile Include="Bugfixes\UI\DiceRollDescriptions.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />

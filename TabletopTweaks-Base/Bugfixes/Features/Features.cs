@@ -3,12 +3,14 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -24,6 +26,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 TTTContext.Logger.LogHeader("Patching Features");
                 PatchMongrolsBlessing();
                 PatchIncorporealCharm();
+                PatchProfaneAscension();
 
                 void PatchMongrolsBlessing() {
                     if (Main.TTTContext.Fixes.Features.IsDisabled("MongrolsBlessing")) { return; }
@@ -61,6 +64,22 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         c.Stat = StatType.Charisma;
                     });
                     TTTContext.Logger.LogPatch(IncorporealCharmFeature);
+                }
+                void PatchProfaneAscension(){
+                    if (Main.TTTContext.Fixes.Features.IsDisabled("ProfaneAscension")) { return; }
+
+                    var ProfaneAscensionFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("656e71ec777e495abc6845ff80204d96");
+
+                    ProfaneAscensionFeature.TemporaryContext(bp => {
+                        bp.SetComponents();
+                        bp.AddComponent<ProfaneAscensionTTT>(c => {
+                            c.Descriptor = ModifierDescriptor.Profane;
+                            c.HighestStatBonus = 6;
+                            c.SecondHighestStatBonus = 4;
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(ProfaneAscensionFeature);
                 }
             }
         }

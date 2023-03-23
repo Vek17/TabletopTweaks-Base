@@ -1,8 +1,15 @@
 ## Version 2.5.5
 * Fixes
+    * Buff Inspector UI should more correctly display the buffs that are being applied.
     * Alchemist
         * Dispeling Bombs
             * Now only dispels one effect instead of all effects.
+    * Equipment
+        * Apprentice Robe
+            * No longer grants more than 1 AC when affected by mage armor.
+    * Features
+        * Profane Ascension
+            * Now calcualtes highest stat first off base value, then by modified value.
 
 ## Version 2.5.4
 * Fixes

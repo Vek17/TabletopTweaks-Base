@@ -8,6 +8,11 @@
         "Homebrew": false,
         "Description": "Fixes persistent area of effects from triggering multiple times off the initial cast as if an extra round had passed."
       },
+      "BuffInspector": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Buff Inspector UI should more correctly display the buffs that are being applied"
+      },
       "CoupDeGrace": {
         "Enabled": true,
         "Homebrew": false,
@@ -1505,6 +1510,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now properly applies negative levels."
+      },
+      "ProfaneAscension": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now calculates highest stat first by base stat then by modified stat."
       }
     },
     "IsExpanded": true
@@ -1831,6 +1841,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "No longer creates a separate damage instance and works with critical hits."
+        },
+        "ApprenticeRobe": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants more than +1 AC when affected by mage armor."
         },
         "AspectOfTheAsp": {
           "Enabled": true,
