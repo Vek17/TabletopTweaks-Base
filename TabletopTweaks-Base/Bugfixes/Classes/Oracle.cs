@@ -157,9 +157,10 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             });
                         });
                         OracleRevelationBurningMagicBuff.TemporaryContext(bp => {
+                            bp.SetName(OracleRevelationBurningMagic.m_DisplayName);
+                            bp.SetDescription(OracleRevelationBurningMagic.m_Description);
                             bp.Stacking = StackingType.Replace;
                             bp.Ranks = 1;
-                            bp.SetDescription(OracleRevelationBurningMagic.m_Description);
                             bp.RemoveComponents<AddFactContextActions>();
                             bp.AddComponent<AddFactContextActions>(c => {
                                 c.Activated = Helpers.CreateActionList();

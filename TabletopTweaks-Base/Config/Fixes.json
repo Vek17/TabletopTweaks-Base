@@ -391,6 +391,11 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
+        "DispelingBombs": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now correctly dispels only one buff instead of all buffs."
+        },
         "MutagenStacking": {
           "Enabled": true,
           "Homebrew": false,
@@ -1571,6 +1576,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Energized Wild Shape now has more correct prerequites for non druid classes with Wild Shape."
+      },
+      "ExtendMetamagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables extend on spells that should be extendable but are not."
       },
       "FencingGrace": {
         "Enabled": true,

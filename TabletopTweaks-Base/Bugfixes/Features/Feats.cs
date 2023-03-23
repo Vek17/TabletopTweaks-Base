@@ -65,6 +65,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchFrightfulShape();
                 PatchIndomitableMount();
                 PatchMountedCombat();
+                PatchExtendMetamagic();
                 PatchPersistantMetamagic();
                 PatchBolsteredMetamagic();
                 PatchEmpowerMetamagic();
@@ -685,6 +686,32 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     c.m_SiezeTheMomentFact = SiezeTheMoment.ToReference<BlueprintUnitFactReference>();
                 });
                 TTTContext.Logger.LogPatch(SiezeTheMoment);
+            }
+            static void PatchExtendMetamagic() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ExtendMetamagic")) { return; }
+
+                var ExtendSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef");
+                var spells = SpellTools.GetAllSpells();
+                TTTContext.Logger.LogPatch("Enabling", ExtendSpellFeat);
+                foreach (var spell in spells) {
+                    bool appliesBuff = spell.AbilityAndVariants()
+                        .SelectMany(s => s.AbilityAndStickyTouch())
+                        .Where(s => s != null)
+                        .SelectMany(s => s.FlattenAllActions())
+                        .OfType<ContextActionApplyBuff>().Any(c => c.DurationValue.IsExtendable)
+                            ||
+                        spell.AbilityAndVariants()
+                            .SelectMany(s => s.AbilityAndStickyTouch())
+                            .Where(s => s != null)
+                            .SelectMany(s => s.FlattenAllActions())
+                            .OfType<ContextActionApplyBuff>().Any(c => c.DurationValue.IsExtendable);
+                    if (appliesBuff) {
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Extend)) {
+                            spell.AvailableMetamagic |= Metamagic.Extend;
+                            TTTContext.Logger.LogPatch("Enabled Extend Metamagic", spell);
+                        }
+                    };
+                }
             }
             static void PatchPersistantMetamagic() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("PersistantMetamagic")) { return; }

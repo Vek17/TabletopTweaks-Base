@@ -367,7 +367,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         });
                         bp.AddComponent<AddContextStatBonus>(c => {
                             c.Stat = StatType.AC;
-                            c.Descriptor = ModifierDescriptor.UntypedStackable;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
                             c.Value = new ContextValue() {
                                 ValueType = ContextValueType.Rank,
                                 ValueRank = AbilityRankType.Default

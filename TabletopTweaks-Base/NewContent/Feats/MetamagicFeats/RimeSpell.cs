@@ -78,7 +78,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 bp.AddPrerequisiteFeature(RimeSpellFeat);
             });
             var RimeEntagledBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "RimeEntagledBuff", bp => {
-                bp.m_DisplayName = EntangleBuff.m_DisplayName;
+                bp.SetName(TTTContext, "Entangled");
                 bp.m_Description = EntangleBuff.m_Description;
                 bp.m_Icon = IcyPrisonEntangledBuff.Icon;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;

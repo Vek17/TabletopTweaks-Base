@@ -3,14 +3,16 @@ using Kingmaker;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.TextTools;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
 using System.Text;
+using TabletopTweaks.Core.UMMTools.Utility;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.UI {
     static class DiceRollDescriptions {
         [HarmonyPatch(typeof(LogHelper), "GetRollDescription")]
-        private static class BuffPCView_Suppression_Patch {
+        private static class LogHelper_GetRollDescription_Patch {
             static bool Prefix(RuleRollDice ruleRollDice, ref string __result) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("DiceReplacementUI")) { return true; }
                 if (ruleRollDice == null) {
@@ -37,8 +39,8 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                         }
                         if (ruleRollDice.ReplaceOneWithMax && roll == 1) {
                             stringBuilder
+                                .Append("<s>1</s> ".Grey())
                                 .Append(startingHTMLTag)
-                                .Append("<s>1</s> ")
                                 .Append("20")
                                 .Append(endingHTMLTag);
                         } else if (ruleRollDice.ResultOverride.HasValue
@@ -47,8 +49,8 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                             var actualroll = ruleRollDice.m_PreRolledResult.GetValueOrDefault() > 0 ?
                                 ruleRollDice.m_PreRolledResult.Value : ruleRollDice.m_Result;
                             stringBuilder
+                                .Append($"<s>{actualroll}</s> ".Grey())
                                 .Append(startingHTMLTag)
-                                //.Append($"<s>{actualroll}</s> ")
                                 .Append($"{ruleRollDice.ResultOverride.Value}")
                                 .Append(endingHTMLTag);
                         } else {
@@ -86,23 +88,32 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                     return false;
                 }
                 if (ruleRollDice.ReplacedOne) {
-                    __result = "<s>1</s> 20";
+                    __result = $"{"<s>1</s> 20".Grey()}";
                     return false;
-
                 }
-                /*
-                if (ruleRollDice.ResultOverride.HasValue && !ruleRollDice.m_PreRolledResult.HasValue) {
+                if (ruleRollDice.ResultOverride.HasValue) {
                     var originalResult = ruleRollDice.m_PreRolledResult ?? ruleRollDice.m_Result;
                     if (originalResult == 0) {
                         __result = ruleRollDice.Result.ToString();
                     } else {
-                        __result = $"<s>{originalResult}</s> {ruleRollDice.Result}";
+                        __result = $"{$"<s>{originalResult}</s>".Grey()} {ruleRollDice.Result}";
                     }
                     return false;
                 }
-                */
                 __result = ruleRollDice.Result.ToString();
                 return false;
+            }
+        }
+
+        [HarmonyPatch(typeof(RuleDispelMagic), nameof(RuleDispelMagic.OnTrigger))]
+        private static class RuleDispelMagic_OnTrigger_Patch {
+            static void Postfix(RuleDispelMagic __instance) {
+                if (TTTContext.Fixes.BaseFixes.IsDisabled("DiceReplacementUI")) { return; }
+
+                if (__instance.CheckRoll.ResultOverride.HasValue) {
+                    __instance.CheckRoll.m_Result = __instance.CheckRoll.ResultOverride.Value;
+                    __instance.CheckRoll.ResultOverride = null;
+                }
             }
         }
     }

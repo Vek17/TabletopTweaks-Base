@@ -1,3 +1,9 @@
+## Version 2.5.5
+* Fixes
+    * Alchemist
+        * Dispeling Bombs
+            * Now only dispels one effect instead of all effects.
+
 ## Version 2.5.4
 * Fixes
     * Monk style AC boosts should now all be properly labeled in AC breakdown.
