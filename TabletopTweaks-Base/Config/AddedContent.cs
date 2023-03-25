@@ -16,6 +16,7 @@ namespace TabletopTweaks.Base.Config {
         public SettingGroup MagusArcana = new SettingGroup();
         public SettingGroup RogueTalents = new SettingGroup();
         public SettingGroup WizardArcaneDiscoveries = new SettingGroup();
+        public SettingGroup Hexes = new SettingGroup();
         public SettingGroup Races = new SettingGroup();
         public SettingGroup Backgrounds = new SettingGroup();
         public SettingGroup Spells = new SettingGroup();
@@ -40,6 +41,7 @@ namespace TabletopTweaks.Base.Config {
             MagusArcana.LoadSettingGroup(loadedSettings.MagusArcana, NewSettingsOffByDefault);
             RogueTalents.LoadSettingGroup(loadedSettings.RogueTalents, NewSettingsOffByDefault);
             WizardArcaneDiscoveries.LoadSettingGroup(loadedSettings.WizardArcaneDiscoveries, NewSettingsOffByDefault);
+            Hexes.LoadSettingGroup(loadedSettings.Hexes, NewSettingsOffByDefault);
             Races.LoadSettingGroup(loadedSettings.Races, NewSettingsOffByDefault);
             Backgrounds.LoadSettingGroup(loadedSettings.Backgrounds, NewSettingsOffByDefault);
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);

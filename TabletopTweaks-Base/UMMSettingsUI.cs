@@ -163,6 +163,7 @@ namespace TabletopTweaks.Base {
                 SetttingUI.SettingGroup("Magus Arcana", TabLevel, AddedContent.MagusArcana);
                 SetttingUI.SettingGroup("Rogue Talents", TabLevel, AddedContent.RogueTalents);
                 SetttingUI.SettingGroup("Wizard Arcane Discoveries", TabLevel, AddedContent.WizardArcaneDiscoveries);
+                SetttingUI.SettingGroup("Hexes", TabLevel, AddedContent.Hexes);
                 SetttingUI.SettingGroup("Races", TabLevel, AddedContent.Races);
                 SetttingUI.SettingGroup("Backgrounds", TabLevel, AddedContent.Backgrounds);
                 SetttingUI.SettingGroup("Spells", TabLevel, AddedContent.Spells);

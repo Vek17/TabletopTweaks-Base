@@ -7173,6 +7173,50 @@
       "esES": null
     },
     {
+      "Key": "a43bb820bcb54783b77f1bf8ef6d299f",
+      "SimpleName": "IceTombAbility.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Fortitude negates",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a739cf538cf545249267a149a5d43424",
+      "SimpleName": "IceTombBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "A storm of ice and freezing wind envelops the target, which takes 3d8 points of cold damage (Fortitude half). If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts.\nA creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage from a hit. A creature who breaks free is staggered for 1d4 rounds after being released.\nWhether or not the target’s saving throw is successful, it cannot be the target of this hex again for 1 day.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cdbe6c205fcd423992026864e42960bb",
+      "SimpleName": "IceTombBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Ice Tomb",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a6e6a8aed4314f0c934a8e683449ce21",
+      "SimpleName": "IceTombCooldownBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Ice Tomb Cooldown",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "5d85f899f38b4edb9853a86b71f5a34e",
       "SimpleName": "Idealize.Name",
       "ProcessTemplates": false,
@@ -7371,17 +7415,6 @@
       "esES": null
     },
     {
-      "Key": "5effb1dfff10434d8af19691362dab9c",
-      "SimpleName": "IntensifiedSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Intensified",
-      "ruRU": "Насыщенное",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "强化",
-      "esES": null
-    },
-    {
       "Key": "42fddf6342a544bc85b6647c3db42f3b",
       "SimpleName": "IntensifiedSpellMetamagic",
       "ProcessTemplates": false,
@@ -7390,6 +7423,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
+      "esES": null
+    },
+    {
+      "Key": "5effb1dfff10434d8af19691362dab9c",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Intensified",
+      "ruRU": "Насыщенное",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "强化",
       "esES": null
     },
     {
@@ -12442,17 +12486,6 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "Will negates stun",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "意志，免除震慑",
-      "esES": null
-    },
-    {
       "Key": "9b3ade0576a54a5292186ebfbacb48bf",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12461,6 +12494,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "高等反震屏障",
+      "esES": null
+    },
+    {
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Will negates stun",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "意志，免除震慑",
       "esES": null
     },
     {

@@ -388,6 +388,7 @@
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\WarriorSpirit.cs" />
+    <Compile Include="NewContent\Hexes\IceTomb.cs" />
     <Compile Include="NewContent\MagusArcana\BroadStudy.cs" />
     <Compile Include="NewContent\MagusArcana\SpellBlending.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />

@@ -552,6 +552,16 @@
     },
     "IsExpanded": true
   },
+  "Hexes": {
+    "DisableAll": false,
+    "Settings": {
+      "IceTomb": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts."
+      },
+      "IsExpanded": true
+    },
   "Races": {
     "DisableAll": false,
     "Settings": {

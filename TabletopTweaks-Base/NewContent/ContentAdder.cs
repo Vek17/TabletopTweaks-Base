@@ -83,6 +83,8 @@ namespace TabletopTweaks.Base.NewContent {
                 WizardArcaneDiscoveries.OppositionResearch.AddOppositionResearch();
                 WizardArcaneDiscoveries.YuelralsBlessing.AddYuelralsBlessing();
 
+                Hexes.IceTomb.AddIceTomb();
+
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.SpearChargeBuff.AddSpearChargeBuff();
                 Features.PerfectStrikeZenArcherBuff.AddPerfectStrikeZenArcherBuff();
