@@ -17,7 +17,9 @@
 * Added Context
     * Feats
         * Split Hex
-            * When you use one of your hexes that targets a single creature, you can cast the hex again as a free action.
+            * When you use one of your hexes (not a major hex or a grand hex) that targets a single creature, you can cast the hex again as a free action.
+        * Split Major Hex
+            * When you use one of your major hexes (not a grand hex) that targets a single creature, you can cast the hex again as a free action.
     * Mythic Feats
         * Bewitching Reflex
             * You can cast the first hex after an initiative roll as a swift action.

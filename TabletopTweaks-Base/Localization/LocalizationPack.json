@@ -12189,10 +12189,10 @@
       "esES": null
     },
     {
-      "Key": "e55c593ec2824b8eb47c3fcde1e5de17",
+      "Key": "84018676723e4897922efebccc233141",
       "SimpleName": "SplitHex.description",
       "ProcessTemplates": false,
-      "enGB": "You can split the effect of one of your targeted hexes, affecting another creature you can see.\nWhen you use one of your hexes that targets a single creature, you can cast the hex again as a free action.",
+      "enGB": "You can split the effect of one of your targeted hexes, affecting another creature you can see.\nWhen you use one of your hexes (not a major hex or a grand hex) that targets a single creature, you can cast the hex again as a free action.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -12211,10 +12211,43 @@
       "esES": null
     },
     {
-      "Key": "72cc01e108894a4eaa2da83ba68ce60c",
+      "Key": "29ee2eca8d6e4e81a9d1f154aececdb7",
       "SimpleName": "SplitHexAutomatic.description",
       "ProcessTemplates": false,
-      "enGB": "You can split the effect of one of your targeted hexes, affecting another creature you can see.\nWhen you use one of your hexes that targets a single creature it also affects the closest other valid target within 30 feet.",
+      "enGB": "You can split the effect of one of your targeted hexes, affecting another creature you can see.\nWhen you use one of your hexes (not a major hex or a grand hex) that targets a single creature it also affects the closest other valid target within 30 feet.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c7bc43e0018a4fc3b39da1483e596c05",
+      "SimpleName": "SplitHexMajor.description",
+      "ProcessTemplates": false,
+      "enGB": "You can split the effect of one of your targeted hexes, affecting another creature you can see.\nWhen you use one of your major hexes (not a grand hex) that targets a single creature, you can cast the hex again as a free action.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6ff1270ff2484ccc958be642dcb4ab5b",
+      "SimpleName": "SplitHexMajor.Name",
+      "ProcessTemplates": false,
+      "enGB": "Split Major Hex",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "74ab4b567aaa4e1d96aefc0578144417",
+      "SimpleName": "SplitHexMajorAutomatic.description",
+      "ProcessTemplates": false,
+      "enGB": "You can split the effect of one of your targeted major hexes, affecting another creature you can see.\nWhen you use one of your hexes (not a grand hex) that targets a single creature it also affects the closest other valid target within 30 feet.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
