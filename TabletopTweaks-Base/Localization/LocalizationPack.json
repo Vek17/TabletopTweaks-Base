@@ -782,17 +782,6 @@
       "esES": null
     },
     {
-      "Key": "30403b099bed4cf79d1619ad891aecd3",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
-      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Снижение Урона от этой способности суммируется со Снижением Урона из других источников.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "穿着重甲时，战士获得DR 1/—。7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值可以和战士19级获得的盔甲大师特性，以及精金盔甲提供的DR叠加，但不和任何其它形式的伤害减免叠加。",
-      "esES": null
-    },
-    {
       "Key": "9fd71c48669a40c1a071aa9195fc988e",
       "SimpleName": "ArmoredJuggernautFeature.Description",
       "ProcessTemplates": true,
@@ -801,6 +790,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
+      "esES": null
+    },
+    {
+      "Key": "30403b099bed4cf79d1619ad891aecd3",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
+      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Снижение Урона от этой способности суммируется со Снижением Урона из других источников.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "穿着重甲时，战士获得DR 1/—。7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值可以和战士19级获得的盔甲大师特性，以及精金盔甲提供的DR叠加，但不和任何其它形式的伤害减免叠加。",
       "esES": null
     },
     {
@@ -933,6 +933,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "护具宗师（中甲）",
+      "esES": null
+    },
+    {
+      "Key": "45f1ae8e42a6469a83724554bbbbc0f9",
+      "SimpleName": "ArmorMasterSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "You don’t take an armor check penalty or incur an arcane spell failure chance when wearing the selected armor types or using any shield. In addition, the maximum Dexterity bonus of the selected armor type doesn’t apply to you.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4b1be847fa7c4a3685ebb710b0c6a3de",
+      "SimpleName": "ArmorMasterSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Armor Master (Tabletop)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1838,6 +1860,28 @@
       "esES": null
     },
     {
+      "Key": "6b57bc91554a4761a024eb01c48fc7ab",
+      "SimpleName": "BewitchingReflexBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can cast the first hex after an initiative roll as a swift action.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c94c038a9dad4128b34305e0bf1dbe91",
+      "SimpleName": "BewitchingReflexBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Bewitching Reflex",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "783def5309c14182ab5b24fcb5a0f292",
       "SimpleName": "BlackBladeArcanePoolFeature.Description",
       "ProcessTemplates": true,
@@ -2641,17 +2685,6 @@
       "esES": null
     },
     {
-      "Key": "9f48856f97714024a5cb846de75da34e",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana — Magus",
-      "ruRU": "Перенос мистической энергии - магус",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换 — 魔战士",
-      "esES": null
-    },
-    {
       "Key": "add3b25fd1214142995be3b8965b0bc8",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2660,6 +2693,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换",
+      "esES": null
+    },
+    {
+      "Key": "9f48856f97714024a5cb846de75da34e",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana — Magus",
+      "ruRU": "Перенос мистической энергии - магус",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换 — 魔战士",
       "esES": null
     },
     {
@@ -3686,17 +3730,6 @@
       "esES": null
     },
     {
-      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Incinerating",
-      "ruRU": "Испепеляющий",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "焚炎",
-      "esES": null
-    },
-    {
       "Key": "37df8bdd9bcf476e82186546ba976884",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3705,6 +3738,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "炽焰",
+      "esES": null
+    },
+    {
+      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Incinerating",
+      "ruRU": "Испепеляющий",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "焚炎",
       "esES": null
     },
     {
@@ -5435,17 +5479,6 @@
       "esES": null
     },
     {
-      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
-      "SimpleName": "Elemental — FireSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
-      "esES": null
-    },
-    {
       "Key": "ea0c0046250245418d59ce476be8566e",
       "SimpleName": "Elemental — FireSpellMetamagic",
       "ProcessTemplates": false,
@@ -5454,6 +5487,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素 — 火焰",
+      "esES": null
+    },
+    {
+      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
+      "SimpleName": "Elemental — FireSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
       "esES": null
     },
     {
@@ -10484,17 +10528,6 @@
       "esES": null
     },
     {
-      "Key": "f467d13c43764235a30cb4aca2e1edcf",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Piercing",
-      "ruRU": "Пробивающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "穿刺",
-      "esES": null
-    },
-    {
       "Key": "c4211dd8fabd410ab02c99ff971911ed",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -10503,6 +10536,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f467d13c43764235a30cb4aca2e1edcf",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Piercing",
+      "ruRU": "Пробивающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "穿刺",
       "esES": null
     },
     {
@@ -12365,17 +12409,6 @@
       "esES": null
     },
     {
-      "Key": "bd0091dbc839447abb004474f38b7c75",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "1 round/level or until discharged",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "轮/级，或直到到效果消散",
-      "esES": null
-    },
-    {
       "Key": "958a06d1423b4ee28e8425a87fa79967",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12395,6 +12428,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "高等反震屏障",
+      "esES": null
+    },
+    {
+      "Key": "bd0091dbc839447abb004474f38b7c75",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "1 round/level or until discharged",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "轮/级，或直到到效果消散",
       "esES": null
     },
     {

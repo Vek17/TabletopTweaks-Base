@@ -338,7 +338,7 @@
         "Description": "When you use one of your hexes that targets a single creature, you can cast the hex again as a free action."
       },
       "SplitHexAutomatic": {
-        "Enabled": true,
+        "Enabled": false,
         "Homebrew": false,
         "Description": "When using split hex the second target is selected automatically instead of manually."
       },
@@ -689,7 +689,7 @@
         "Description": "You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one."
       },
       "ArmorMaster": {
-        "Enabled": false,
+        "Enabled": true,
         "Homebrew": false,
         "Description": "You don't take an armor check penalty or incur an arcane spell failure chance when wearing the selected type of armor or using any shield. In addition, the maximum Dexterity bonus of the selected armor type doesn't apply to you."
       },
@@ -759,6 +759,11 @@
   "MythicFeats": {
     "DisableAll": false,
     "Settings": {
+      "BewitchingReflex": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can cast the first hex after an initiative roll as a swift action."
+      },
       "MythicCleave": {
         "Enabled": true,
         "Homebrew": false,

@@ -18,6 +18,18 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
             var ExtraMythicAbilityMythicFeat = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("8a6a511c55e67d04db328cc49aaad2b8");
             var icon = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_ArmorMaster.png");
 
+            var ArmorMasterSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "ArmorMasterSelection", bp => {
+                bp.SetName(TTTContext, "Armor Master (Tabletop)");
+                bp.SetDescription(TTTContext, "You don’t take an armor check penalty or incur an arcane spell failure chance when wearing the selected armor types or using any shield. " +
+                    "In addition, the maximum Dexterity bonus of the selected armor type doesn’t apply to you.");
+                bp.IsClassFeature = true;
+                bp.ReapplyOnLevelUp = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
+                bp.Group = FeatureGroup.MythicAbility;
+                bp.Ranks = 1;
+                bp.Mode = SelectionMode.OnlyNew;
+                bp.m_Icon = icon;
+            });
             var ArmorMasterLightFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ArmorMasterLightFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
@@ -123,6 +135,9 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     c.m_Feature = ArmorMasterMediumFeature.ToReference<BlueprintFeatureReference>();
                 }));
             });
+            ArmorMasterSelection.TemporaryContext(bp => {
+                bp.AddFeatures(ArmorMasterLightFeature, ArmorMasterMediumFeature, ArmorMasterHeavyFeature);
+            });
             var ArmorMasterHomebrewFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ArmorMasterHomebrewFeature", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
@@ -194,9 +209,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
             });
 
             if (TTTContext.AddedContent.MythicAbilities.IsEnabled("ArmorMaster")) {
-                FeatTools.AddAsMythicAbility(ArmorMasterLightFeature);
-                FeatTools.AddAsMythicAbility(ArmorMasterMediumFeature);
-                FeatTools.AddAsMythicAbility(ArmorMasterHeavyFeature);
+                FeatTools.AddAsMythicAbility(ArmorMasterSelection);
             }
             if (TTTContext.AddedContent.MythicAbilities.IsEnabled("ArmorMasterHomebrew")) {
                 FeatTools.AddAsMythicAbility(ArmorMasterHomebrewFeature);

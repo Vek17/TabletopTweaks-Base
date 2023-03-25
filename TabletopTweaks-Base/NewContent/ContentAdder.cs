@@ -226,6 +226,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicFeats.MythicCombatExpertise.AddMythicCombatExpertise();
                 MythicFeats.MythicCriticalFocus.AddMythicCriticalFocus();
                 MythicFeats.MythicCleave.AddMythicCleave();
+                MythicFeats.BewitchingReflex.AddBewitchingReflex();
 
                 AlternateCapstones.Generic.AddAlternateCapstones();
                 AlternateCapstones.Alchemist.AddAlternateCapstones();

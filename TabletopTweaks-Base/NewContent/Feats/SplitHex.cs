@@ -13,8 +13,6 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.Feats {
     internal class SplitHex {
         public static void AddSplitHex() {
-            var TemplateCelestial = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "TemplateCelestial");
-            var AasimarRace = BlueprintTools.GetBlueprint<BlueprintRace>("b7f02ba92b363064fb873963bec275ee");
             var BaseDescription = Helpers.CreateString(TTTContext, "SplitHex.description", 
                 "You can split the effect of one of your targeted hexes, affecting another creature you can see.\n" +
                 "When you use one of your hexes that targets a single creature, you can cast the hex again as a free action.");
