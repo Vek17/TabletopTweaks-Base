@@ -65,7 +65,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     TTTContext.Logger.LogPatch(IncorporealCharmFeature);
                 }
-                void PatchProfaneAscension(){
+                void PatchProfaneAscension() {
                     if (Main.TTTContext.Fixes.Features.IsDisabled("ProfaneAscension")) { return; }
 
                     var ProfaneAscensionFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("656e71ec777e495abc6845ff80204d96");

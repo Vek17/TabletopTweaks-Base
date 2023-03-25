@@ -41,7 +41,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
             var WitchHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("9846043cf51251a4897728ed6e24e76f");
             var IcyPrison = BlueprintTools.GetBlueprint<BlueprintAbility>("65e8d23aef5e7784dbeb27b1fca40931");
 
-            var common_coldbuff00 = new PrefabLink() { 
+            var common_coldbuff00 = new PrefabLink() {
                 AssetId = "21b65d177b9db1d4ca4961de15645d95"
             };
 
@@ -54,9 +54,9 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     "If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts.\n" +
                     "A creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage. " +
                     "A creature who breaks free is staggered for 1d4 rounds after being released.\n" +
-                    "Whether or not the target’s saving throw is successful, it cannot be the target of this hex again for 1 day."); 
+                    "Whether or not the target’s saving throw is successful, it cannot be the target of this hex again for 1 day.");
                 bp.m_Icon = Icon_IceTomb;
-                bp.ResourceAssetIds = new string[] { common_coldbuff00 .AssetId };
+                bp.ResourceAssetIds = new string[] { common_coldbuff00.AssetId };
                 bp.FxOnStart = common_coldbuff00;
                 bp.AddComponent<SpellDescriptorComponent>(c => {
                     c.Descriptor = SpellDescriptor.Hex | SpellDescriptor.Paralysis | SpellDescriptor.Cold | SpellDescriptor.MovementImpairing;
@@ -84,7 +84,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                         new ContextActionSkillCheck() {
                             m_ConditionalDCIncrease = new ContextActionSkillCheck.ConditionalDCIncrease[] {
                                 new ContextActionSkillCheck.ConditionalDCIncrease() {
-                                    Condition = new ConditionsChecker(){ 
+                                    Condition = new ConditionsChecker(){
                                         Conditions = new Condition[0]
                                     },
                                     Value = 15
@@ -97,7 +97,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                                 ValueRank = AbilityRankType.DamageDice
                             },
                             Success = Helpers.CreateActionList(
-                                new ContextActionRemoveSelf()    
+                                new ContextActionRemoveSelf()
                             ),
                             Failure = Helpers.CreateActionList(),
                             FailureDiffMoreOrEqual10 = Helpers.CreateActionList(),
@@ -123,7 +123,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
             });
             var IceTombAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "IceTombAbility", bp => {
                 bp.SetName(TTTContext, "Ice Tomb");
-                bp.SetDescription(IceTombBuff.m_Description); 
+                bp.SetDescription(IceTombBuff.m_Description);
                 bp.SetLocalizedSavingThrow(TTTContext, "Fortitude negates");
                 bp.SetLocalizedDuration(TTTContext, "1 minute/level");
                 bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Reach;
@@ -152,7 +152,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                             }
                         },
                         new ContextActionDealDamage() {
-                            DamageType = new DamageTypeDescription() { 
+                            DamageType = new DamageTypeDescription() {
                                 Type = DamageType.Energy,
                                 Energy = DamageEnergyType.Cold
                             },
@@ -167,7 +167,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                             },
                             HalfIfSaved = true
                         },
-                        new ContextActionConditionalSaved() { 
+                        new ContextActionConditionalSaved() {
                             Succeed = Helpers.CreateActionList(),
                             Failed = Helpers.CreateActionList(
                                 new ContextActionApplyBuff() {
@@ -190,14 +190,14 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.m_Progression = ContextRankProgression.AsIs;
                     c.m_UseMax = true;
                     c.m_Max = 20;
-                    c.m_Class = new BlueprintCharacterClassReference[] { 
+                    c.m_Class = new BlueprintCharacterClassReference[] {
                         ClassTools.ClassReferences.WitchClass,
                         ClassTools.ClassReferences.WinterWitchClass,
                         ClassTools.ClassReferences.MagusClass,
                         ClassTools.ClassReferences.RogueClass,
                     };
                     c.Archetype = SylvanTricksterArchetype;
-                    c.m_AdditionalArchetypes = new BlueprintArchetypeReference[] { 
+                    c.m_AdditionalArchetypes = new BlueprintArchetypeReference[] {
                         HexcrafterArchetype
                     };
                 });

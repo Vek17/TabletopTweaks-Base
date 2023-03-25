@@ -349,7 +349,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             );
                         });
                 });
-                    
+
                 IEnumerable<GameAction> CreateRemoveBuff(BlueprintBuffReference[] buffs) {
                     foreach (var buff in buffs) {
                         var removeBuff = new ContextActionRemoveBuff() {
@@ -403,7 +403,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         c.Round = Helpers.CreateActionList(CreateDamageSave());
                     });
                 });
-                
+
                 TTTContext.Logger.LogPatch("Patched", SupernovaArea);
 
                 ContextActionSavingThrow CreateBlindnessSave() {

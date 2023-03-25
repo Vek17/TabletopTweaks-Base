@@ -57,13 +57,13 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                     });
                     bp.FlattenAllActions().OfType<ContextActionSavingThrow>()?.ForEach(a => {
                         a.HasCustomDC = true;
-                        a.CustomDC = new ContextValue() { 
+                        a.CustomDC = new ContextValue() {
                             ValueType = ContextValueType.CasterCustomProperty,
                             m_CustomProperty = AnomalyDistortionNormalDCProperty
                         };
                     });
                 });
-                
+
             }
         }
         static void PatchBalors() {

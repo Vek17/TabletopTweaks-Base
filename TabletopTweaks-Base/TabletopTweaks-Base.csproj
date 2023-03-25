@@ -230,6 +230,7 @@
     <Compile Include="Bugfixes\UI\BuffSuppression.cs" />
     <Compile Include="Bugfixes\UI\DiceRollDescriptions.cs" />
     <Compile Include="Bugfixes\UI\FeatureSelection.cs" />
+    <Compile Include="Bugfixes\UI\MythicSpellBookMemorizingUI.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Bugfixes\UI\ProgressionVisibility.cs" />
     <Compile Include="Bugfixes\UI\SpellTooltips.cs" />

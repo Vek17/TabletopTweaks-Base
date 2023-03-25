@@ -123,6 +123,11 @@
         "Homebrew": false,
         "Description": "Fixes display text of monk AC in the UI."
       },
+      "FixMythicSpellbookSlotsUI": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes mythic spellbooks displaying warnings about not enough casting stat in the spellbook UI."
+      },
       "FixPrebuffCasterLevels": {
         "Enabled": true,
         "Homebrew": false,

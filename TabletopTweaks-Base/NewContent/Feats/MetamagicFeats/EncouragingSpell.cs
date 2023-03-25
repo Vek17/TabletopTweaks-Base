@@ -102,7 +102,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicEncouragingSpell")) { return; }
 
-            //AddRodsToVenders();
+            AddRodsToVenders();
             FeatTools.AddAsFeat(EncouragingSpellFeat);
             FeatTools.AddAsMetamagicFeat(EncouragingSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicEncouraging);

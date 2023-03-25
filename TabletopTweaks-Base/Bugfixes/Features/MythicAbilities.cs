@@ -106,7 +106,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         EldritchScionBloodlineSelection
                     );
                 });
-                
+
                 TTTContext.Logger.LogPatch("Patched", SecondBloodline);
             }
             static void PatchBloodragerSecondBloodline() {
@@ -122,7 +122,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     bp.RemoveComponents<PrerequisiteFeature>();
                     bp.AddPrerequisiteFeaturesFromList(1, ReformedFiendBloodlineSelection, BloodragerBloodlineSelection);
                 });
-                
+
                 FeatTools.Selections.MythicAbilitySelection.RemoveFeatures(SecondBloodragerBloodlineReformedFiend);
             }
             static void PatchExposeVulnerability() {

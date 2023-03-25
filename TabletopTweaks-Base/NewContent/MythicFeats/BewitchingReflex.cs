@@ -41,7 +41,7 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
                         }
                     );
                     c.CombatEndActions = Helpers.CreateActionList(
-                        new ContextActionRemoveBuff() { 
+                        new ContextActionRemoveBuff() {
                             m_Buff = BewitchingReflexBuff.ToReference<BlueprintBuffReference>()
                         }
                     );
