@@ -13,6 +13,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var WitchMajorHex = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("8ac781b33e380c84aa578f1b006dd6c5");
             var WitchGrandHex = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("d24c2467804ce0e4497d9978bafec1f9");
 
+            var Icon_SplitHex = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_SplitHex.png");
+            var Icon_SplitHexMajor = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_SplitHexMajor.png");
+
             var BaseDescription = Helpers.CreateString(TTTContext, "SplitHex.description",
                 "You can split the effect of one of your targeted hexes, affecting another creature you can see.\n" +
                 "When you use one of your hexes (not a major hex or a grand hex) that targets a single creature, you can cast the hex again as a free action.");
@@ -27,6 +30,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 "When you use one of your hexes (not a grand hex) that targets a single creature it also affects the closest other valid target within 30 feet.");
             var SplitHexMajor = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "SplitHexMajor", bp => {
                 bp.SetName(TTTContext, "Split Major Hex");
+                bp.m_Icon = Icon_SplitHexMajor;
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
@@ -43,6 +47,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             });
             var SplitHex = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "SplitHex", bp => {
                 bp.SetName(TTTContext, "Split Hex");
+                bp.m_Icon = Icon_SplitHex;
                 bp.Ranks = 1;
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
