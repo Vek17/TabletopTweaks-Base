@@ -332,6 +332,16 @@
         "Homebrew": false,
         "Description": "By sacrificing a prepared spell of the same or higher level than your specialized spell, you may spontaneously cast your specialized spell. The specialized spell is treated as its normal level, regardless of the spell slot used to cast it."
       },
+      "SplitHex": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you use one of your hexes that targets a single creature, you can cast the hex again as a free action."
+      },
+      "SplitHexAutomatic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When using split hex the second target is selected automatically instead of manually."
+      },
       "Stalwart": {
         "Enabled": true,
         "Homebrew": false,

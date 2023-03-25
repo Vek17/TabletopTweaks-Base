@@ -1857,15 +1857,20 @@
           "Homebrew": false,
           "Description": "Now is a free action to use."
         },
+        "BoundOfPossibilityAeon": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Bonuses are now properly labeled."
+        },
+        "BracersOfArchery": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now actually grants the stated bonuses."
+        },
         "FixScrollUMDDCs": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now properly uses 20 + Scroll CL instead of 20 + Scroll spell level."
-        },
-        "FlawlessBeltOfPhysicalPerfection8Availability": {
-          "Enabled": false,
-          "Homebrew": false,
-          "Description": "Now is available as a DLC reward instead of a normal +6 belt."
         },
         "FlawlessBeltOfPhysicalPerfection8CritIncrease": {
           "Enabled": true,

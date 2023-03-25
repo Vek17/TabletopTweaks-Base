@@ -116,6 +116,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                     var EyeForAnEyeBowEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("5f8e3638fc9c6794c8eb6eb671356d52");
                     EyeForAnEyeBowEnchantment.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    EyeForAnEyeBowEnchantment.RemoveComponents<AdditionalDiceOnAttack>();
                     EyeForAnEyeBowEnchantment.AddComponent<WeaponExtraDamageDice>(c => {
                         c.DamageType = new DamageTypeDescription() {
                             Type = DamageType.Physical,

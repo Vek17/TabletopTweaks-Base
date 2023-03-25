@@ -362,6 +362,7 @@
     <Compile Include="NewContent\Feats\ShingleRunner.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\SolidShadows.cs" />
     <Compile Include="NewContent\Feats\SpellSpecializationGreater.cs" />
+    <Compile Include="NewContent\Feats\SplitHex.cs" />
     <Compile Include="NewContent\Feats\Stalwart.cs" />
     <Compile Include="NewContent\Feats\StreetSmarts.cs" />
     <Compile Include="NewContent\Feats\TrickRiding.cs" />

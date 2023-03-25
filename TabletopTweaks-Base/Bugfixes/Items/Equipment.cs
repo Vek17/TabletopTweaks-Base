@@ -5,6 +5,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Equipment;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -22,6 +23,8 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -48,6 +51,8 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchAmuletOfQuickDraw();
                 PatchApprenticeRobe();
                 PatchAspectOfTheAsp();
+                PatchBoundOfPossibilityAeon();
+                PatchBracersOfArchery();
                 PatchMagiciansRing();
                 PatchManglingFrenzy();
                 PatchMetamagicRods();
@@ -55,7 +60,6 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchHalfOfThePair();
                 PatchShapeshiftersHelm();
                 PatchStormlordsResolve();
-                PatchFlawlessBeltOfPhysicalPerfection8Availability();
                 PatchFlawlessBeltOfPhysicalPerfection8CritIncrease();
                 PatchQuiverOfRosesThorns();
 
@@ -190,6 +194,73 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     });
                     TTTContext.Logger.LogPatch(AspectOfTheAspFeature);
                 }
+                void PatchBoundOfPossibilityAeon() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("BoundOfPossibilityAeon")) { return; }
+
+                    var Artifact_AeonCloakItem = BlueprintTools.GetBlueprint<BlueprintItemEquipment>("b24d6185acea1f949b026c3b58e47947");
+                    var Artifact_AeonCloakAreaBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("5ed06badb95540fe855c638213b0a60b");
+                    var Artifact_AeonCloakAllyBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("437fd1832d75433e93675babbf9da7f0");
+
+                    Artifact_AeonCloakAreaBuff.TemporaryContext(c => {
+                        c.SetName(Artifact_AeonCloakItem.m_DisplayNameText);
+                    });
+                    Artifact_AeonCloakAllyBuff.TemporaryContext(c => {
+                        c.SetName(Artifact_AeonCloakItem.m_DisplayNameText);
+                    });
+
+                    TTTContext.Logger.LogPatch(Artifact_AeonCloakItem);
+                }
+                void PatchBracersOfArchery() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("BracersOfArchery")) { return; }
+
+                    var BracersOfArcher = BlueprintTools.GetBlueprint<BlueprintItemEquipment>("0e7a0b96f67660c4ca74786c187a02d2");
+                    var BracersOfArcheryLesser = BlueprintTools.GetBlueprint<BlueprintItemEquipment>("01d51ff5f3db2164b88aaa662a9b0f2e");
+                    var ArcheryEnchantment = BlueprintTools.GetBlueprint<BlueprintItemEquipmentNeck>("366f3ce5832e547489a13ce6101d411e");
+                    var ArcheryLesserEnchantment = BlueprintTools.GetBlueprint<BlueprintItemEquipmentNeck>("d695146c6c6dcfd48980406a280faca1");
+                    var ArcheryBonuses = BlueprintTools.GetBlueprint<BlueprintFeature>("136adc54467964446b2e790c1698d93a");
+                    var ArcheryBonusesLesser = BlueprintTools.GetBlueprint<BlueprintFeature>("1440703181bc6e54487b4673e73af34e");
+                    var ShortbowProficiencyBracersOfArchery = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("b55f72cc64808a34fba65c5e0636ab18");
+                    var LongbowProficiencyBracersOfArchery = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("3d14fa9e7620b134aba7e0f06aa107d6");
+
+                    ArcheryBonusesLesser.TemporaryContext(bp => {
+                        bp.SetName(BracersOfArcheryLesser.m_DisplayNameText);
+                        bp.SetComponents();
+                        bp.AddComponent<WeaponGroupAttackBonusTTT>(c => {
+                            c.WeaponGroup = WeaponFighterGroup.Bows;
+                            c.AttackBonus = 1;
+                            c.Descriptor = ModifierDescriptor.Competence;
+                        });
+                        bp.AddComponent<AddFacts>(c => {
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                                ShortbowProficiencyBracersOfArchery,
+                                LongbowProficiencyBracersOfArchery
+                            };
+                        });
+                    });
+                    ArcheryBonuses.TemporaryContext(bp => {
+                        bp.SetName(BracersOfArcher.m_DisplayNameText);
+                        bp.SetComponents();
+                        bp.AddComponent<WeaponGroupAttackBonusTTT>(c => {
+                            c.WeaponGroup = WeaponFighterGroup.Bows;
+                            c.AttackBonus = 2;
+                            c.Descriptor = ModifierDescriptor.Competence;
+                        });
+                        bp.AddComponent<WeaponGroupDamageBonusTTT>(c => {
+                            c.WeaponGroup = WeaponFighterGroup.Bows;
+                            c.DamageBonus = 1;
+                            c.Descriptor = ModifierDescriptor.Competence;
+                        });
+                        bp.AddComponent<AddFacts>(c => {
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                                ShortbowProficiencyBracersOfArchery,
+                                LongbowProficiencyBracersOfArchery
+                            };
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(BracersOfArcheryLesser);
+                    TTTContext.Logger.LogPatch(BracersOfArcher);
+                }
                 void PatchFlawlessBeltOfPhysicalPerfection8CritIncrease() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FlawlessBeltOfPhysicalPerfection8CritIncrease")) { return; }
 
@@ -202,22 +273,6 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                             c.AllWeapons = true;
                         });
                         TTTContext.Logger.LogPatch(BeltOfPerfection8ExtraFeature);
-                    }
-                }
-                void PatchFlawlessBeltOfPhysicalPerfection8Availability() {
-                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("FlawlessBeltOfPhysicalPerfection8Availability")) { return; }
-
-                    var DLC1_InevitableDarkness_CoreReward = BlueprintTools.GetBlueprint<BlueprintLoot>("b4ba9f9162694daeabca42b2de9a98d8");
-                    var BeltOfPerfection8Extra = BlueprintTools.GetBlueprintReference<BlueprintItemReference>("3c3a3a043b99422480b04940bc1edc73");
-
-                    if (DLC1_InevitableDarkness_CoreReward != null) {
-                        DLC1_InevitableDarkness_CoreReward.Items = new LootEntry[] {
-                            new LootEntry(){
-                                m_Item = BeltOfPerfection8Extra,
-                                Count = 1
-                            }
-                        };
-                        TTTContext.Logger.LogPatch(DLC1_InevitableDarkness_CoreReward);
                     }
                 }
                 void PatchMagiciansRing() {

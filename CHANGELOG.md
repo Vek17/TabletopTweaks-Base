@@ -7,9 +7,17 @@
     * Equipment
         * Apprentice Robe
             * No longer grants more than 1 AC when affected by mage armor.
+        * BoundOfPossibilityAeon
+            * Bonuses are now properly labled in combat log.
+        * Bracers Of Archery
+            * Now actually grants the stated bonuses.
     * Features
         * Profane Ascension
             * Now calcualtes highest stat first off base value, then by modified value.
+* Added Context
+    * Feats
+        * Split Hex
+            * When you use one of your hexes that targets a single creature, you can cast the hex again as a free action.
 
 ## Version 2.5.4
 * Fixes
