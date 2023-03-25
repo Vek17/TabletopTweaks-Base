@@ -16,6 +16,9 @@
         * Profane Ascension
             * Now calcualtes highest stat first off base value, then by modified value.
 * Added Context
+    * Hexes
+        * Ice Tomb
+            * If the target fails its save, it is paralyzed and unconscious. A creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage from a hit.
     * Feats
         * Split Hex
             * When you use one of your hexes (not a major hex or a grand hex) that targets a single creature, you can cast the hex again as a free action.
