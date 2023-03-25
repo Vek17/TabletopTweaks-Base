@@ -14,7 +14,6 @@ using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
-using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -42,8 +41,6 @@ using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 
 namespace TabletopTweaks.Base.Bugfixes.Abilities {
     class Spells {
-        //private static string path = @"C:\Users\spetrie\Documents\Exported";
-
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
@@ -54,10 +51,23 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 TTTContext.Logger.LogHeader("Patching Spells");
                 //Aeon Spells
                 PatchAbsoluteOrder();
+                PatchBlackHole();
+                PatchCrystalMind();
+                PatchEdictOfImpenetrableFortress();
+                PatchEdictOfInvulnerability();
+                PatchEdictOfNonresistance();
+                PatchEdictOfPerseverance();
+                PatchEdictOfPredetermination();
+                PatchEdictOfRetaliation();
+                PatchEmbodimentOfOrder();
+                PatchEqualForce();
                 PatchPerfectForm();
+                PatchRelativity();
                 PatchStarlight();
                 PatchSupernova();
+                PatchUncertanityPrinciple();
                 PatchZeroState();
+                PatchZoneOfPredetermination();
                 //Angel Spells
                 PatchEyeOfTheSun();
                 PatchSunForm();
@@ -136,6 +146,135 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         TTTContext.Logger.LogPatch(ability);
                     });
             }
+            static void PatchBlackHole() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("BlackHole")) { return; }
+
+                var BlackHole = BlueprintTools.GetBlueprint<BlueprintAbility>("ea036c023f074c6c964d858607d123b3");
+
+                BlackHole.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/mythic rank");
+                    bp.SetLocalizedSavingThrow(TTTContext, "Reflex negates/Fortitude partial");
+                });
+
+                TTTContext.Logger.LogPatch(BlackHole);
+            }
+            static void PatchCrystalMind() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("CrystalMind")) { return; }
+
+                var CrystalMind = BlueprintTools.GetBlueprint<BlueprintAbility>("4733d8dd549ff544395f1684ec73c392");
+
+                CrystalMind.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/level");
+                });
+
+                TTTContext.Logger.LogPatch(CrystalMind);
+            }
+            static void PatchEdictOfImpenetrableFortress() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EdictOfImpenetrableFortress")) { return; }
+
+                var EdictOfImpenetrableFortress = BlueprintTools.GetBlueprint<BlueprintAbility>("d7741c08ccf699e4a8a8f8ab2ed345f8");
+
+                EdictOfImpenetrableFortress.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/5 levels");
+                });
+
+                TTTContext.Logger.LogPatch(EdictOfImpenetrableFortress);
+            }
+            static void PatchEdictOfInvulnerability() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EdictOfInvulnerability")) { return; }
+
+                var EdictOfInvulnerability = BlueprintTools.GetBlueprint<BlueprintAbility>("6d21deddd7712fd409c94d248b75643d");
+
+                EdictOfInvulnerability.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/5 levels");
+                });
+
+                TTTContext.Logger.LogPatch(EdictOfInvulnerability);
+            }
+            static void PatchEdictOfNonresistance() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EdictOfNonresistance")) { return; }
+
+                var EdictOfNonresistance = BlueprintTools.GetBlueprint<BlueprintAbility>("dfe3594aed8907248958a25614aa5281");
+
+                EdictOfNonresistance.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/level");
+                    bp.SetLocalizedSavingThrow(TTTContext, "Will negates");
+                    bp.RemoveComponents<SpellDescriptorComponent>();
+                    bp.AddComponent<SpellDescriptorComponent>(c => {
+                        c.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion;
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(EdictOfNonresistance);
+            }
+            static void PatchEdictOfPerseverance() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EdictOfPerseverance")) { return; }
+
+                var EdictOfPerseverance = BlueprintTools.GetBlueprint<BlueprintAbility>("b7bc99f6e3592a3499815387e1d721e2");
+                var EdictOfPerseveranceBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("d40e22faaf0bcae42ada5eae749b58e8");
+
+                EdictOfPerseverance.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/5 levels");
+                });
+                QuickFixTools.ReplaceSuppression(EdictOfPerseveranceBuff, TTTContext, true);
+
+                TTTContext.Logger.LogPatch(EdictOfPerseverance);
+            }
+            static void PatchEdictOfPredetermination() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EdictOfPredetermination")) { return; }
+
+                var EdictOfPredetermination = BlueprintTools.GetBlueprint<BlueprintAbility>("3f205f55a6e7759449772feb34edc378");
+
+                EdictOfPredetermination.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/4 levels");
+                });
+
+                TTTContext.Logger.LogPatch(EdictOfPredetermination);
+            }
+            static void PatchEdictOfRetaliation() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EdictOfRetaliation")) { return; }
+
+                var EdictOfRetaliation = BlueprintTools.GetBlueprint<BlueprintAbility>("d57fcfdfcffa2d346985648cb77390fb");
+
+                EdictOfRetaliation.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/4 levels");
+                });
+
+                TTTContext.Logger.LogPatch(EdictOfRetaliation);
+            }
+            static void PatchEmbodimentOfOrder() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EmbodimentOfOrder")) { return; }
+
+                var EmbodimentOfOrder = BlueprintTools.GetBlueprint<BlueprintAbility>("5ab2e32dd25724a488878c2a52c65ace");
+
+                EmbodimentOfOrder.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "10 minutes/level");
+                });
+
+                TTTContext.Logger.LogPatch(EmbodimentOfOrder);
+            }
+            static void PatchEqualForce() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("EqualForce")) { return; }
+
+                var EqualForce = BlueprintTools.GetBlueprint<BlueprintAbility>("47c80ed8e725ede4d91f06eddcc3e75a");
+
+                EqualForce.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "10 minutes/level");
+                });
+
+                TTTContext.Logger.LogPatch(EqualForce);
+            }
+            static void PatchFreezingNothingness() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("FreezingNothingness")) { return; }
+
+                var FreezingNothingness = BlueprintTools.GetBlueprint<BlueprintAbility>("89bc94bd06dcf5847bb9e4d6ba1b9767");
+
+                FreezingNothingness.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "10 minutes/level");
+                });
+
+                TTTContext.Logger.LogPatch(FreezingNothingness);
+            }
             static void PatchPerfectForm() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("PerfectForm")) { return; }
 
@@ -149,15 +288,19 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("06785b5665264ad1b257fa3e724ed68f")     // PerfectFormEqualToWisdomBuff
   
                 };
-                PerfectForm
-                    .GetComponent<AbilityEffectRunAction>()
-                    .TemporaryContext(c => {
-                        c.Actions = Helpers.CreateActionList(
-                            CreateRemoveBuff(perfectFormBuffs)
-                                .Concat(c.Actions.Actions)
-                                .ToArray()
-                        );
-                    });
+                PerfectForm.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/level");
+                    bp.AvailableMetamagic |= Metamagic.Extend;
+                    bp.GetComponent<AbilityEffectRunAction>()
+                        .TemporaryContext(c => {
+                            c.Actions = Helpers.CreateActionList(
+                                CreateRemoveBuff(perfectFormBuffs)
+                                    .Concat(c.Actions.Actions)
+                                    .ToArray()
+                            );
+                        });
+                });
+                    
                 IEnumerable<GameAction> CreateRemoveBuff(BlueprintBuffReference[] buffs) {
                     foreach (var buff in buffs) {
                         var removeBuff = new ContextActionRemoveBuff() {
@@ -179,20 +322,39 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 }
                 TTTContext.Logger.LogPatch(PerfectForm);
             }
+            static void PatchRelativity() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("Relativity")) { return; }
+
+                var Relativity = BlueprintTools.GetBlueprint<BlueprintAbility>("5d28f75db5d3cc141ba5783a1a139f66");
+
+                Relativity.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/level");
+                    bp.SetLocalizedSavingThrow(TTTContext, "Will negates");
+                });
+
+                TTTContext.Logger.LogPatch(Relativity);
+            }
             static void PatchSupernova() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Supernova")) { return; }
                 var Supernova = BlueprintTools.GetBlueprint<BlueprintAbility>("1325e698f4a3f224b880e3b83a551228");
                 var SupernovaArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("165a01a3597c0bf44a8b333ac6dd631a");
                 var BlindnessBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("187f88d96a0ef464280706b63635f2af");
 
-                Supernova.AvailableMetamagic |= Metamagic.Empower | Metamagic.Maximize | Metamagic.Bolstered;
-                SupernovaArea.RemoveComponents<AbilityAreaEffectRunAction>();
-                SupernovaArea.AddComponent<AbilityAreaEffectRunAction>(c => {
-                    c.UnitEnter = Helpers.CreateActionList(CreateBlindnessSave(), CreateDamageSave());
-                    c.UnitExit = Helpers.CreateActionList();
-                    c.UnitMove = Helpers.CreateActionList();
-                    c.Round = Helpers.CreateActionList(CreateDamageSave());
+                Supernova.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/level");
+                    bp.SetLocalizedSavingThrow(TTTContext, "Fortitude partial/Relex half");
+                    bp.AvailableMetamagic |= Metamagic.Empower | Metamagic.Maximize | Metamagic.Bolstered;
                 });
+                SupernovaArea.TemporaryContext(bp => {
+                    bp.RemoveComponents<AbilityAreaEffectRunAction>();
+                    bp.AddComponent<AbilityAreaEffectRunAction>(c => {
+                        c.UnitEnter = Helpers.CreateActionList(CreateBlindnessSave(), CreateDamageSave());
+                        c.UnitExit = Helpers.CreateActionList();
+                        c.UnitMove = Helpers.CreateActionList();
+                        c.Round = Helpers.CreateActionList(CreateDamageSave());
+                    });
+                });
+                
                 TTTContext.Logger.LogPatch("Patched", SupernovaArea);
 
                 ContextActionSavingThrow CreateBlindnessSave() {
@@ -247,8 +409,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                 };
                                 c.IsAoE = true;
                                 c.HalfIfSaved = true;
-                                c.WriteResultToSharedValue = true;
-                                c.WriteRawResultToSharedValue = true;
+                                //c.WriteResultToSharedValue = true;
+                                //c.WriteRawResultToSharedValue = true;
                             }),
                             Helpers.Create<ContextActionDealDamage>(c => {
                                 c.DamageType = new DamageTypeDescription() {
@@ -271,7 +433,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                 };
                                 c.IsAoE = true;
                                 c.HalfIfSaved = true;
-                                c.ReadPreRolledFromSharedValue = true;
+                                //c.ReadPreRolledFromSharedValue = true;
                             })
                         );
                     });
@@ -281,8 +443,20 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Starlight")) { return; }
 
                 var StarlightAllyBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f4ead47adc2ca2744a00efd4e088ecb2");
+
                 StarlightAllyBuff.GetComponent<AddConcealment>().Descriptor = ConcealmentDescriptor.InitiatorIsBlind;
                 TTTContext.Logger.LogPatch("Patched", StarlightAllyBuff);
+            }
+            static void PatchUncertanityPrinciple() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("UncertanityPrinciple")) { return; }
+
+                var UncertanityPrinciple = BlueprintTools.GetBlueprint<BlueprintAbility>("4b7e6e992a4862a45bcfc9ba95bfc727");
+
+                UncertanityPrinciple.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/level");
+                });
+
+                TTTContext.Logger.LogPatch(UncertanityPrinciple);
             }
             static void PatchZeroState() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ZeroState")) { return; }
@@ -295,6 +469,17 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         a.OneRollForAll = true;
                     });
                 TTTContext.Logger.LogPatch("Patched", ZeroState);
+            }
+            static void PatchZoneOfPredetermination() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("ZoneOfPredetermination")) { return; }
+
+                var ZoneOfPredetermination = BlueprintTools.GetBlueprint<BlueprintAbility>("756f1d07f9ae29448888ecf016fa40a7");
+
+                ZoneOfPredetermination.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "1 round/4 levels");
+                });
+
+                TTTContext.Logger.LogPatch(ZoneOfPredetermination);
             }
             //Angel Spells
             static void PatchEyeOfTheSun() {

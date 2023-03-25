@@ -178,7 +178,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                         .SelectMany(spell => spell.FlattenAllActions())
                         .OfType<ContextActionApplyBuff>()
                         .Select(action => action.Buff)
-                        .SelectMany(buff => buff.Components)
+                        .SelectMany(buff => buff.ComponentsArray)
                         .ToArray();
                     buffComponents
                         .OfType<AddContextStatBonus>()

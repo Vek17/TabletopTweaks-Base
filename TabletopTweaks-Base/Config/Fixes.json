@@ -1213,6 +1213,11 @@
         "Homebrew": false,
         "Description": "Bestow Greater Curse now actually bestows a greater curse not a normal curse."
       },
+      "BlackHole": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Black Hole now correctly displays the duration and saving throw in its tooltip."
+      },
       "BreakEnchantment": {
         "Enabled": true,
         "Homebrew": false,
@@ -1243,6 +1248,11 @@
         "Homebrew": false,
         "Description": "Crusaders Edge's nauseate effect now only procs on critical hits."
       },
+      "CrystalMind": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Crystal Mind now correctly displays the duration in its tooltip."
+      },
       "DeathWard": {
         "Enabled": true,
         "Homebrew": false,
@@ -1252,6 +1262,46 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
+      },
+      "EdictOfImpenetrableFortress": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Impenetrable Fortress now correctly displays the duration in its tooltip."
+      },
+      "EdictOfInvulnerability": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Invulnerability now correctly displays the duration in its tooltip."
+      },
+      "EdictOfNonresistance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Nonresistance now correctly displays the duration and saving throw in its tooltip. Additionally now has Mind Affecting and Compulsion descriptors."
+      },
+      "EdictOfPerseverance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Perseverance now correctly displays the duration in its tooltip. Suppression has been updated to be more reliable."
+      },
+      "EdictOfPredetermination": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Predetermination now correctly displays the duration in its tooltip."
+      },
+      "EdictOfRetaliation": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Retaliation now correctly displays the duration in its tooltip."
+      },
+      "EmbodimentOfOrder": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Embodiment Of Order now correctly displays the duration in its tooltip."
+      },
+      "EqualForce": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Equal Force now correctly displays the duration in its tooltip."
       },
       "EyeOfTheSun": {
         "Enabled": true,
@@ -1378,6 +1428,11 @@
         "Homebrew": false,
         "Description": "Protection of Nature's concealment is no longer bypassed by true seeing."
       },
+      "Relativity": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Relativity now correctly displays duration and saving throw in the tooltip."
+      },
       "RemoveFear": {
         "Enabled": true,
         "Homebrew": false,
@@ -1438,6 +1493,11 @@
         "Homebrew": false,
         "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead suppresses correctly."
       },
+      "UncertanityPrinciple": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Uncertanity Principle now correctly shows its duration in the tooltip."
+      },
       "WaterPush": {
         "Enabled": true,
         "Homebrew": false,
@@ -1472,6 +1532,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Zero State now uses a single dispel roll for all buffs like other dispels."
+      },
+      "ZoneOfPredetermination": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Zone Of Predetermination now correctly displays the duration in its tooltip."
       }
     },
     "IsExpanded": true

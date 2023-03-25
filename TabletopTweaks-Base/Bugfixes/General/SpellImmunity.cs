@@ -17,7 +17,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
         static class RuleSpellResistanceCheck_IgnoreSpellResistance_Patch {
             static void Postfix(RuleSpellResistanceCheck __instance, ref bool __result) {
                 if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("SpellImmunity")) { return; }
-                __result |= !__instance.Initiator.Descriptor.State.Features.PrimalMagicEssence;
+                __result |= __instance.Initiator.Descriptor.State.Features.PrimalMagicEssence;
             }
         }
     }

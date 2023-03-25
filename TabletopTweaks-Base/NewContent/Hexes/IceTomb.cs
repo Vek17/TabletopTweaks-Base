@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -51,7 +52,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                 bp.SetName(TTTContext, "Ice Tomb");
                 bp.SetDescription(TTTContext, "A storm of ice and freezing wind envelops the target, which takes 3d8 points of cold damage (Fortitude half). " +
                     "If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts.\n" +
-                    "A creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage from a hit. " +
+                    "A creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage. " +
                     "A creature who breaks free is staggered for 1d4 rounds after being released.\n" +
                     "Whether or not the target’s saving throw is successful, it cannot be the target of this hex again for 1 day."); 
                 bp.m_Icon = Icon_IceTomb;
@@ -104,13 +105,9 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                         }
                     );
                 });
-                bp.AddComponent<AddIncomingDamageTrigger>(c => {
-                    c.CheckDamageDealt = true;
-                    c.CompareType = CompareOperation.Type.GreaterOrEqual;
-                    c.TargetValue = 20;
-                    c.Actions = Helpers.CreateActionList(
-                        new ContextActionRemoveSelf()
-                    );
+                bp.AddComponent<TemporaryHitPointsFromAbilityValue>(c => {
+                    c.Value = 20;
+                    c.RemoveWhenHitPointsEnd = true;
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.DamageDice;

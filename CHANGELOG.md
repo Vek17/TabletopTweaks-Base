@@ -1,7 +1,8 @@
 ## Version 2.5.5
 * Fixes
     * Buff Inspector UI should more correctly display the buffs that are applied.
-    * Dispel should no longer randomly be unable to dispel some visible spell buffs.
+    * Dispel should no longer randomly be unable to dispel some visable spell buffs.
+    * Fixed an issue where spell resistance was not applying properly.
     * Alchemist
         * Dispeling Bombs
             * Now only dispels one effect instead of all effects.
@@ -15,6 +16,38 @@
     * Features
         * Profane Ascension
             * Now calcualtes highest stat first off base value, then by modified value.
+    * Spells
+        * Black Hole
+            * Now correctly displays the duration and saving throw in its tooltip.  
+        * Crystal Mind
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Impenetrable Fortress
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Invulnerability
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Nonresistance
+            * Now correctly displays the duration and saving throw in its tooltip. 
+            * Now has Mind Affecting and Compulsion descriptors.
+        * Edict Of Perseverance
+            * Now correctly shows its duration in the tooltip.
+            * Suppression mechanics have been updated to TTT standards.
+        * Edict Of Predetermination
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Retaliation
+            * Now correctly shows its duration in the tooltip.
+        * Embodiment Of Order
+            * Now correctly shows its duration in the tooltip.
+        * Equal Force
+            * Now correctly shows its duration in the tooltip.
+        * Perfect Form
+            * Now correctly shows its duration in the tooltip.
+            * Now is extendable via extend metamagic.
+        * Relativity
+            * Now correctly displays the duration and saving throw in its tooltip. 
+        * Uncertanity Principle
+            * Now correctly shows its duration in the tooltip.
+        * Zone Of Predetermination
+            * Now correctly shows its duration in the tooltip.
 * Added Context
     * Hexes
         * Ice Tomb
