@@ -1497,10 +1497,10 @@
       "esES": null
     },
     {
-      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
+      "Key": "854204882b884cbe996c29be0716c21b",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1508,10 +1508,10 @@
       "esES": null
     },
     {
-      "Key": "854204882b884cbe996c29be0716c21b",
+      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2729,6 +2729,28 @@
       "esES": null
     },
     {
+      "Key": "d6ba23ebd729465f9b7cabb07e39ac84",
+      "SimpleName": "BlackHole.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 round/mythic rank",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a64560d3e294455db1356fbd3a841585",
+      "SimpleName": "BlackHole.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Reflex negates/Fortitude partial",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "37708bbcdc174bad901c4f4e2959c303",
       "SimpleName": "BladeAdeptArchetype.Description",
       "ProcessTemplates": true,
@@ -3730,17 +3752,6 @@
       "esES": null
     },
     {
-      "Key": "37df8bdd9bcf476e82186546ba976884",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Flaming",
-      "ruRU": "Огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "炽焰",
-      "esES": null
-    },
-    {
       "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3749,6 +3760,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "焚炎",
+      "esES": null
+    },
+    {
+      "Key": "37df8bdd9bcf476e82186546ba976884",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Flaming",
+      "ruRU": "Огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -5303,6 +5325,28 @@
       "esES": null
     },
     {
+      "Key": "fe9e85bc7fa941ef85171ec8df7cb2b1",
+      "SimpleName": "EdictOfImpenetrableFortress.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 round/5 levels",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "000446f0743749f99a2bfb272c9f5564",
+      "SimpleName": "EdictOfPredetermination.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 round/4 levels",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -5435,17 +5479,6 @@
       "esES": null
     },
     {
-      "Key": "a489d5d8088447d3baed4ad6d4c68111",
-      "SimpleName": "Elemental — ColdSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}Elemental — Cold{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
-      "esES": null
-    },
-    {
       "Key": "1b2bc93e4722446c84b691e63b8dc68c",
       "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
@@ -5454,6 +5487,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素 — 寒冷",
+      "esES": null
+    },
+    {
+      "Key": "a489d5d8088447d3baed4ad6d4c68111",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}Elemental — Cold{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
       "esES": null
     },
     {
@@ -5479,17 +5523,6 @@
       "esES": null
     },
     {
-      "Key": "ea0c0046250245418d59ce476be8566e",
-      "SimpleName": "Elemental — FireSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Elemental — Fire",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "元素 — 火焰",
-      "esES": null
-    },
-    {
       "Key": "9e4b32e4aeb84a21b43b008327849bf0",
       "SimpleName": "Elemental — FireSpellMetamagic",
       "ProcessTemplates": false,
@@ -5498,6 +5531,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
+      "esES": null
+    },
+    {
+      "Key": "ea0c0046250245418d59ce476be8566e",
+      "SimpleName": "Elemental — FireSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Fire",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "元素 — 火焰",
       "esES": null
     },
     {
@@ -5809,6 +5853,17 @@
       "esES": null
     },
     {
+      "Key": "b9fa162fa9414350a08299e553854502",
+      "SimpleName": "EmbodimentOfOrder.Duration",
+      "ProcessTemplates": false,
+      "enGB": "10 minutes/level",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "e2210f7836c24a529d3d5780a2d99c62",
       "SimpleName": "EmboldeningStrikeBuff.Name",
       "ProcessTemplates": false,
@@ -5864,17 +5919,6 @@
       "esES": null
     },
     {
-      "Key": "f3392cd7203c43349f723fcda573497c",
-      "SimpleName": "EncouragingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Encouraging",
-      "ruRU": "Ободряющее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "激励",
-      "esES": null
-    },
-    {
       "Key": "cf8107b3b65248e7859f9c167093aaee",
       "SimpleName": "EncouragingSpellMetamagic",
       "ProcessTemplates": false,
@@ -5883,6 +5927,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f3392cd7203c43349f723fcda573497c",
+      "SimpleName": "EncouragingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Encouraging",
+      "ruRU": "Ободряющее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "激励",
       "esES": null
     },
     {
@@ -6491,17 +6546,6 @@
       "esES": null
     },
     {
-      "Key": "078e11e00ef54879ba90f07cccae313d",
-      "SimpleName": "FlaringSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}Flaring{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
-      "esES": null
-    },
-    {
       "Key": "b099256da46145e89582ec13b2962ec9",
       "SimpleName": "FlaringSpellMetamagic",
       "ProcessTemplates": false,
@@ -6510,6 +6554,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "闪耀",
+      "esES": null
+    },
+    {
+      "Key": "078e11e00ef54879ba90f07cccae313d",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}Flaring{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
       "esES": null
     },
     {
@@ -7184,10 +7239,10 @@
       "esES": null
     },
     {
-      "Key": "a739cf538cf545249267a149a5d43424",
+      "Key": "627b10137d494f79bd5893251ff61284",
       "SimpleName": "IceTombBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "A storm of ice and freezing wind envelops the target, which takes 3d8 points of cold damage (Fortitude half). If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts.\nA creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage from a hit. A creature who breaks free is staggered for 1d4 rounds after being released.\nWhether or not the target’s saving throw is successful, it cannot be the target of this hex again for 1 day.",
+      "enGB": "A storm of ice and freezing wind envelops the target, which takes 3d8 points of cold damage (Fortitude half). If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts.\nA creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage. A creature who breaks free is staggered for 1d4 rounds after being released.\nWhether or not the target’s saving throw is successful, it cannot be the target of this hex again for 1 day.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -10572,17 +10627,6 @@
       "esES": null
     },
     {
-      "Key": "c4211dd8fabd410ab02c99ff971911ed",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
-      "esES": null
-    },
-    {
       "Key": "f467d13c43764235a30cb4aca2e1edcf",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -10591,6 +10635,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "穿刺",
+      "esES": null
+    },
+    {
+      "Key": "c4211dd8fabd410ab02c99ff971911ed",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
       "esES": null
     },
     {
@@ -12486,6 +12541,17 @@
       "esES": null
     },
     {
+      "Key": "bd0091dbc839447abb004474f38b7c75",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "1 round/level or until discharged",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "轮/级，或直到到效果消散",
+      "esES": null
+    },
+    {
       "Key": "9b3ade0576a54a5292186ebfbacb48bf",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12505,17 +12571,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "意志，免除震慑",
-      "esES": null
-    },
-    {
-      "Key": "bd0091dbc839447abb004474f38b7c75",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "1 round/level or until discharged",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "轮/级，或直到到效果消散",
       "esES": null
     },
     {
@@ -12582,6 +12637,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "震慑拳：恍惚",
+      "esES": null
+    },
+    {
+      "Key": "3c864027776645728f39e16d7db5c809",
+      "SimpleName": "Supernova.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Fortitude partial/Relex half",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

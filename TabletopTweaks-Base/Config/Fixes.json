@@ -1318,6 +1318,11 @@
         "Homebrew": false,
         "Description": "Firebrand no longer causes excessive damage instances to trigger when attacking."
       },
+      "FreezingNothingness": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Freezing Nothingness now has the correct break out DC and deals the correct amount of damage."
+      },
       "IcyBody": {
         "Enabled": true,
         "Homebrew": false,

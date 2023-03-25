@@ -61,6 +61,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchEdictOfRetaliation();
                 PatchEmbodimentOfOrder();
                 PatchEqualForce();
+                PatchFreezingNothingness();
                 PatchPerfectForm();
                 PatchRelativity();
                 PatchStarlight();
@@ -268,9 +269,57 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FreezingNothingness")) { return; }
 
                 var FreezingNothingness = BlueprintTools.GetBlueprint<BlueprintAbility>("89bc94bd06dcf5847bb9e4d6ba1b9767");
+                var FreezingNothingnessEntangledBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6eaeaadabfc5be44480a66da6c0323df");
+                var FreezingNothingnessParalyzedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("2975be18c3b5da1408caeadbc81caab4");
 
                 FreezingNothingness.TemporaryContext(bp => {
                     bp.SetLocalizedDuration(TTTContext, "10 minutes/level");
+                    bp.SpellResistance = false;
+                });
+
+                FreezingNothingnessEntangledBuff.TemporaryContext(bp => {
+                    bp.FlattenAllActions().OfType<ContextActionSkillCheck>().First().TemporaryContext(c => {
+                        c.m_ConditionalDCIncrease.ForEach(i => i.Condition.Conditions = new Condition[0]);
+                    });
+                });
+                FreezingNothingnessParalyzedBuff.TemporaryContext(bp => {
+                    bp.FlattenAllActions().OfType<ContextActionSkillCheck>().First().TemporaryContext(c => {
+                        c.m_ConditionalDCIncrease.ForEach(i => i.Condition.Conditions = new Condition[0]);
+                        c.Failure = Helpers.CreateActionList(
+                            new ContextActionDealDamage() {
+                                DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Cold
+                                },
+                                Duration = new ContextDurationValue() {
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                },
+                                Value = new ContextDiceValue() {
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 2,
+                                    BonusValue = 0
+                                },
+                                HalfIfSaved = true
+                            },
+                            new ContextActionDealDamage() {
+                                DamageType = new DamageTypeDescription() {
+                                    Type = DamageType.Energy,
+                                    Energy = DamageEnergyType.Divine
+                                },
+                                Duration = new ContextDurationValue() {
+                                    DiceCountValue = new ContextValue(),
+                                    BonusValue = new ContextValue()
+                                },
+                                Value = new ContextDiceValue() {
+                                    DiceType = DiceType.D6,
+                                    DiceCountValue = 2,
+                                    BonusValue = 0
+                                },
+                                HalfIfSaved = true
+                            }
+                        );
+                    });
                 });
 
                 TTTContext.Logger.LogPatch(FreezingNothingness);

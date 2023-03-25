@@ -39,6 +39,8 @@
             * Now correctly shows its duration in the tooltip.
         * Equal Force
             * Now correctly shows its duration in the tooltip.
+        * Freezing Nothingness
+            * Freezing Nothingness now has the correct break out DC and deals the correct amount of damage.
         * Perfect Form
             * Now correctly shows its duration in the tooltip.
             * Now is extendable via extend metamagic.
