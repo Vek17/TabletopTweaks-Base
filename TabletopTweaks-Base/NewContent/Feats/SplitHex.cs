@@ -40,10 +40,6 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 } else {
                     bp.SetDescription(MajorBaseDescription);
                 }
-                bp.AddPrerequisite<PrerequisiteClassLevel>(c => {
-                    c.m_CharacterClass = ClassTools.ClassReferences.WitchClass;
-                    c.Level = 10;
-                });
             });
             var SplitHex = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "SplitHex", bp => {
                 bp.SetName(TTTContext, "Split Hex");

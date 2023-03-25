@@ -1,6 +1,7 @@
 ## Version 2.5.5
 * Fixes
-    * Buff Inspector UI should more correctly display the buffs that are being applied.
+    * Buff Inspector UI should more correctly display the buffs that are applied.
+    * Dispel should no longer randomly be unable to dispel some visible spell buffs.
     * Alchemist
         * Dispeling Bombs
             * Now only dispels one effect instead of all effects.
