@@ -8,6 +8,7 @@ using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using TabletopTweaks.Core.NewComponents;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static Kingmaker.Blueprints.Classes.Prerequisites.Prerequisite;
 using static TabletopTweaks.Base.Main;
@@ -34,7 +35,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.ArmorMastery {
                     "When your base attack bonus reaches +4, and every 4 points thereafter, this bonus increases by another 1.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent<AddStatBonusIfHasFact>(c => {
+                bp.AddComponent<AddStatBonusIfHasFactTTT>(c => {
                     c.Stat = StatType.AdditionalCMD;
                     c.Value = new ContextValue() {
                         ValueType = ContextValueType.Rank

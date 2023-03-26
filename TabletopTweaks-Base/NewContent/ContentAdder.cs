@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.JsonSystem;
+using TabletopTweaks.Base.NewContent.Features;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -24,6 +25,7 @@ namespace TabletopTweaks.Base.NewContent {
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
                 Features.MartialWeaponProficencySelection.AddMartialWeaponProficencySelection();
+                Features.AgeEffects.AddAgeEffects();
                 //Features.NauseatedPoision.AddNauseatedPoision();
 
                 Spells.LongArms.AddLongArms();
@@ -36,6 +38,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.WebBolt.AddWebBolt();
                 Spells.InflictPain.AddInflictPain();
                 Spells.AccursedGlare.AddAccursedGlare();
+                Spells.AgeResistance.AddAgeResistance();
 
                 //Added early as some things depend on them for selections
                 Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();
@@ -84,6 +87,7 @@ namespace TabletopTweaks.Base.NewContent {
                 WizardArcaneDiscoveries.YuelralsBlessing.AddYuelralsBlessing();
 
                 Hexes.IceTomb.AddIceTomb();
+                Hexes.Withering.AddWithering();
 
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.SpearChargeBuff.AddSpearChargeBuff();

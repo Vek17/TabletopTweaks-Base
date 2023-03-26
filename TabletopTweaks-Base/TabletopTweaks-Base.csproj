@@ -371,6 +371,7 @@
     <Compile Include="NewContent\Feats\TwoWeaponDefense.cs" />
     <Compile Include="NewContent\Feats\UndersizedMount.cs" />
     <Compile Include="NewContent\Feats\VarisianTattoo.cs" />
+    <Compile Include="NewContent\Features\AgeEffects.cs" />
     <Compile Include="NewContent\Features\DragonDiscipleSpellbooks.cs" />
     <Compile Include="NewContent\Features\FighterTrainingFakeLevel.cs" />
     <Compile Include="NewContent\Features\SpearChargeBuff.cs" />
@@ -391,6 +392,7 @@
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\WarriorSpirit.cs" />
     <Compile Include="NewContent\Hexes\IceTomb.cs" />
+    <Compile Include="NewContent\Hexes\Withering.cs" />
     <Compile Include="NewContent\MagusArcana\BroadStudy.cs" />
     <Compile Include="NewContent\MagusArcana\SpellBlending.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantBlessing.cs" />
@@ -433,6 +435,7 @@
     <Compile Include="NewContent\RogueTalents\EmboldeningStrike.cs" />
     <Compile Include="NewContent\RogueTalents\RogueTalentProperties.cs" />
     <Compile Include="NewContent\Spells\AccursedGlare.cs" />
+    <Compile Include="NewContent\Spells\AgeResistance.cs" />
     <Compile Include="NewContent\Spells\CloakOfWinds.cs" />
     <Compile Include="NewContent\Spells\InflictPain.cs" />
     <Compile Include="NewContent\Spells\LongArms.cs" />
@@ -477,6 +480,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_AeonBane.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_AgeResistance.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_AgeResistanceGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_AgeResistanceLesser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_BlackBlade.png">
@@ -566,6 +578,9 @@
     <Content Include="Assets\Abilities\Icon_QuickStudy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Abilities\Icon_SandsOfTime.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Abilities\Icon_ShadowEnchantment.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -641,7 +656,19 @@
     <Content Include="Assets\Abilities\Icon_WebBolt.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Abilities\Icon_Withering.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Equipment\Icon_ScrollOfAccursedGlare.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfAgeResistance.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfAgeResistanceGreater.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfAgeResistanceLesser.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Equipment\Icon_ScrollOfCloakOfWinds.png">
@@ -711,6 +738,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Equipment\Icon_MetamagicRodRimeNormal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfSandsOfTime.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Equipment\Icon_ScrollOfShadowEnchantment.png">

@@ -106,7 +106,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     ApprenticeRobeFeature.TemporaryContext(bp => {
                         bp.SetName(ApprenticeRobeItem.m_DisplayNameText);
                         bp.SetComponents();
-                        bp.AddComponent<AddStatBonusIfHasFact>(c => {
+                        bp.AddComponent<AddStatBonusIfHasFactTTT>(c => {
                             c.Stat = StatType.AC;
                             c.Descriptor = ModifierDescriptor.ArmorFocus;
                             c.Value = 1;

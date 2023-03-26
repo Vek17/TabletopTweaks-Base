@@ -3,6 +3,17 @@
     * Azata
         * Song Of Courageous Defender
             * Now actually works.
+* Added Context
+    * Hexes
+        * Withering
+            * The target ages to the next age category. The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier.
+    * Spells
+        * Age Resistance, Lesser
+            * You ignore the physical detriments of age up to middle age.
+        * Age Resistance
+            * You ignore the physical detriments of age up to old age.
+        * Age Resistance, Greater
+            * You ignore the physical detriments of age.
 
 ## Version 2.5.5
 * Fixes

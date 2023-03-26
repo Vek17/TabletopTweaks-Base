@@ -353,6 +353,105 @@
       "esES": null
     },
     {
+      "Key": "921922e5ec9c419a9006081d74596e4f",
+      "SimpleName": "AgelessFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Anything ageless is immune to the effects of aging.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3a77d8f589874a19ae948e012decf9ee",
+      "SimpleName": "AgelessFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Ageless",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "85055013cb59449b84964bc2b1462b0e",
+      "SimpleName": "AgeResistanceBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You ignore the physical detriments of being middle-aged or old-aged. This spell does not cause you to look younger, nor does it prevent you from dying of old age, but as long as the spell is in effect, you ignore the –3 penalties to Strength, Dexterity, and Constitution that accrue once you become old-aged. You retain the age-related bonuses to Intelligence, Wisdom, and Charisma while under the effects of this spell. Additional penalties that you accrue upon becoming venerable apply in full.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "456d1260b3ac45dfaf496266d461c243",
+      "SimpleName": "AgeResistanceBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Age Resistance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a0d6e7820e1040718296a306d714a4bc",
+      "SimpleName": "AgeResistanceGreaterBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You ignore the physical detriments of age. This spell does not cause you to look younger, nor does it prevent you from dying of old age, but as long as the spell is in effect, you ignore the –6 penalties to Strength, Dexterity, and Constitution that accrue once you become venerable. You retain the age-related bonuses to Intelligence, Wisdom, and Charisma while under the effects of this spell.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2c00108f83c74397a5833d2d845c0b90",
+      "SimpleName": "AgeResistanceGreaterBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Age Resistance, Greater",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6ca9559fb04948299f23bfa1d96e1c9f",
+      "SimpleName": "AgeResistanceLesserAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "24 hours",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "eb9e1ad63ae1428eb5fbe520a1b2dc1a",
+      "SimpleName": "AgeResistanceLesserBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You ignore the physical detriments of being middle-aged. This spell does not cause you to look younger, nor does it prevent you from dying of old age, but as long as the spell is in effect, you ignore the –1 penalties to Strength, Dexterity, and Constitution that accrue once you become middle-aged. You retain the age-related bonuses to Intelligence, Wisdom, and Charisma while under the effects of this spell. Additional penalties that you accrue upon becoming old or venerable apply in full.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "87b591f68715427bbbcba5fd528977ef",
+      "SimpleName": "AgeResistanceLesserBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Age Resistance, Lesser",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "13103c339c5647fe828b03e8fa8797a3",
       "SimpleName": "Agile.Prefix",
       "ProcessTemplates": false,
@@ -782,17 +881,6 @@
       "esES": null
     },
     {
-      "Key": "9fd71c48669a40c1a071aa9195fc988e",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
-      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Если воин достигает 19-го уровня и у него есть классовая черта Мастерство Ношения Брони, значения Снижения Урона дополнительно повышаеются на 5. Снижение Урона от этой способности суммируется со Снижением Урона, полученным от адамантиновой брони, но не с другими разновилностями Снижения Урона.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
-      "esES": null
-    },
-    {
       "Key": "30403b099bed4cf79d1619ad891aecd3",
       "SimpleName": "ArmoredJuggernautFeature.Description",
       "ProcessTemplates": true,
@@ -801,6 +889,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "穿着重甲时，战士获得DR 1/—。7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值可以和战士19级获得的盔甲大师特性，以及精金盔甲提供的DR叠加，但不和任何其它形式的伤害减免叠加。",
+      "esES": null
+    },
+    {
+      "Key": "9fd71c48669a40c1a071aa9195fc988e",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
+      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Если воин достигает 19-го уровня и у него есть классовая черта Мастерство Ношения Брони, значения Снижения Урона дополнительно повышаеются на 5. Снижение Урона от этой способности суммируется со Снижением Урона, полученным от адамантиновой брони, но не с другими разновилностями Снижения Урона.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
       "esES": null
     },
     {
@@ -1464,10 +1563,10 @@
       "esES": null
     },
     {
-      "Key": "0cf16908b3cd4a4dbcb7dfceb668e41d",
+      "Key": "f9c0c5b3bb92421aae146892983d4588",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (World)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Persuasion <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1475,10 +1574,10 @@
       "esES": null
     },
     {
-      "Key": "f9c0c5b3bb92421aae146892983d4588",
+      "Key": "0cf16908b3cd4a4dbcb7dfceb668e41d",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (World)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Persuasion <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -3752,17 +3851,6 @@
       "esES": null
     },
     {
-      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Incinerating",
-      "ruRU": "Испепеляющий",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "焚炎",
-      "esES": null
-    },
-    {
       "Key": "37df8bdd9bcf476e82186546ba976884",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3771,6 +3859,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "炽焰",
+      "esES": null
+    },
+    {
+      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Incinerating",
+      "ruRU": "Испепеляющий",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "焚炎",
       "esES": null
     },
     {
@@ -5039,6 +5138,39 @@
       "esES": null
     },
     {
+      "Key": "48e80b7dcc3847d1b509f46187d9133d",
+      "SimpleName": "DLC3_HasteIslandAge1.Description",
+      "ProcessTemplates": true,
+      "enGB": "You gain a +1 bonus to Intelligence, Wisdom, and Charisma and suffer a -1 penalty to Strength, Dexterity, and Constitution.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "078cb97816ff4d2c8b3584014dec6c45",
+      "SimpleName": "DLC3_HasteIslandAge2.Description",
+      "ProcessTemplates": true,
+      "enGB": "You gain a +2 bonus to Intelligence, Wisdom, and Charisma and suffer a -3 penalty to Strength, Dexterity, and Constitution.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "127037a57d744512b6f93c59a3c45a48",
+      "SimpleName": "DLC3_HasteIslandAge3.Description",
+      "ProcessTemplates": true,
+      "enGB": "You gain a +3 bonus to Intelligence, Wisdom, and Charisma and suffer a -6 penalty to Strength, Dexterity, and Constitution.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "81ae020d7384be12705c4332cb1b19de",
       "SimpleName": "DraconicBlackBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -5457,17 +5589,6 @@
       "esES": null
     },
     {
-      "Key": "676143e3221040e0b7b907b49671e3e5",
-      "SimpleName": "Elemental — AcidSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Elemental — Acid",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "元素 — 酸蚀",
-      "esES": null
-    },
-    {
       "Key": "a494abde1748434384988c7956abbe2c",
       "SimpleName": "Elemental — AcidSpellMetamagic",
       "ProcessTemplates": false,
@@ -5476,6 +5597,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}元素 — 酸蚀{/g}",
+      "esES": null
+    },
+    {
+      "Key": "676143e3221040e0b7b907b49671e3e5",
+      "SimpleName": "Elemental — AcidSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Acid",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "元素 — 酸蚀",
       "esES": null
     },
     {
@@ -6546,17 +6678,6 @@
       "esES": null
     },
     {
-      "Key": "b099256da46145e89582ec13b2962ec9",
-      "SimpleName": "FlaringSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Flaring",
-      "ruRU": "Ослепляющее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "闪耀",
-      "esES": null
-    },
-    {
       "Key": "078e11e00ef54879ba90f07cccae313d",
       "SimpleName": "FlaringSpellMetamagic",
       "ProcessTemplates": false,
@@ -6565,6 +6686,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
+      "esES": null
+    },
+    {
+      "Key": "b099256da46145e89582ec13b2962ec9",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Flaring",
+      "ruRU": "Ослепляющее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "闪耀",
       "esES": null
     },
     {
@@ -7470,17 +7602,6 @@
       "esES": null
     },
     {
-      "Key": "42fddf6342a544bc85b6647c3db42f3b",
-      "SimpleName": "IntensifiedSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}Intensified{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
-      "esES": null
-    },
-    {
       "Key": "5effb1dfff10434d8af19691362dab9c",
       "SimpleName": "IntensifiedSpellMetamagic",
       "ProcessTemplates": false,
@@ -7489,6 +7610,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "强化",
+      "esES": null
+    },
+    {
+      "Key": "42fddf6342a544bc85b6647c3db42f3b",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}Intensified{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
       "esES": null
     },
     {
@@ -9692,6 +9824,28 @@
       "esES": null
     },
     {
+      "Key": "13c6f664b08c4f508fcc26960a9d14af",
+      "SimpleName": "MiddleAgeNegateMentalFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Middle Aged Negate Mental",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fbe2f0ce9b324b3c9d82cbc40af396c0",
+      "SimpleName": "MiddleAgeNegatePhysicalFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Middle Aged Negate Physical",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "681d6e402fff4d1bb913caf75744d2e7",
       "SimpleName": "MithralArmorEnchant.Prefix",
       "ProcessTemplates": false,
@@ -10085,6 +10239,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "抵消",
+      "esES": null
+    },
+    {
+      "Key": "4654ac1a0cd04ee1ad82599b67aed391",
+      "SimpleName": "OldAgeNegateMentalFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Old Aged Aged Negate Mental",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d9ed46290ce8429a9a0d88e4e059201b",
+      "SimpleName": "OldAgeNegatePhysicalFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Old Aged Negate Physical",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10627,17 +10803,6 @@
       "esES": null
     },
     {
-      "Key": "f467d13c43764235a30cb4aca2e1edcf",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Piercing",
-      "ruRU": "Пробивающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "穿刺",
-      "esES": null
-    },
-    {
       "Key": "c4211dd8fabd410ab02c99ff971911ed",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -10646,6 +10811,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f467d13c43764235a30cb4aca2e1edcf",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Piercing",
+      "ruRU": "Пробивающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "穿刺",
       "esES": null
     },
     {
@@ -11089,17 +11265,6 @@
       "esES": null
     },
     {
-      "Key": "334dafcc1c3844e49640b81084309388",
-      "SimpleName": "RimeSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Rime",
-      "ruRU": "Обмораживающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "霜冻",
-      "esES": null
-    },
-    {
       "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
       "SimpleName": "RimeSpellMetamagic",
       "ProcessTemplates": false,
@@ -11108,6 +11273,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
+      "esES": null
+    },
+    {
+      "Key": "334dafcc1c3844e49640b81084309388",
+      "SimpleName": "RimeSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Rime",
+      "ruRU": "Обмораживающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "霜冻",
       "esES": null
     },
     {
@@ -12541,14 +12717,14 @@
       "esES": null
     },
     {
-      "Key": "bd0091dbc839447abb004474f38b7c75",
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "1 round/level or until discharged",
+      "enGB": "Will negates stun",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "轮/级，或直到到效果消散",
+      "zhCN": "意志，免除震慑",
       "esES": null
     },
     {
@@ -12563,14 +12739,14 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "Key": "bd0091dbc839447abb004474f38b7c75",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "Will negates stun",
+      "enGB": "1 round/level or until discharged",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "意志，免除震慑",
+      "zhCN": "轮/级，或直到到效果消散",
       "esES": null
     },
     {
@@ -13564,6 +13740,28 @@
       "esES": null
     },
     {
+      "Key": "af57020c1d3d413fb806ecc859ecebdc",
+      "SimpleName": "VeneratedAgeNegateMentalFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Venerated Negate Mental",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5f48eedfae884f25b2822b5a6e2d5232",
+      "SimpleName": "VeneratedAgeNegatePhysicalFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Venerated Negate Physical",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "7bdbc197f8d5469686069ad5872aeed6",
       "SimpleName": "VeteranOfEndlessWar.Description",
       "ProcessTemplates": true,
@@ -13814,6 +14012,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "巫师之舞",
+      "esES": null
+    },
+    {
+      "Key": "b025c4158acc408cb1dee0c3c486ceea",
+      "SimpleName": "WitheringHexAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Withering",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "10c278dbf971413c8537c9410b93cf66",
+      "SimpleName": "WitheringHexBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "The witch causes a creature within 30 feet to age rapidly, empowering the witch in the process.\nThe target ages to the next age category (adult to middle-aged, and so on). The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier. These effects last for a number of hours equal to the witch’s level.\nA creature cannot be aged past venerable age by this hex, and it can attempt a Fortitude save to negate the effect altogether. Once a creature has successfully saved against the withering hex, it cannot be affected by it again.\n\nMiddle Age: -1 to all physical stats +1 to all mental stats.\nOld Age: -3 to all physical stats +2 to all mental stats.\nVenerated Age: -6 to all physical stats +3 to all mental stats.\n",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f389ed02eafa4980bf1ec4dafdf78c7d",
+      "SimpleName": "WitheringHexBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Withering — Stolen Time",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4a842cc3a2964444a0347b36a5c2f89f",
+      "SimpleName": "WitheringHexCooldownBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Withering Cooldown",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

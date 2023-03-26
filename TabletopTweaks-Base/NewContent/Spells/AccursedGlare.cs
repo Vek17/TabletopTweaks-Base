@@ -13,6 +13,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
+
 namespace TabletopTweaks.Base.NewContent.Spells {
     internal class AccursedGlare {
         public static void AddAccursedGlare() {

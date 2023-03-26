@@ -560,6 +560,11 @@
         "Homebrew": false,
         "Description": "If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts."
       },
+      "Withering": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The target ages to the next age category. The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier."
+      },
       "IsExpanded": true
     }
   },
@@ -612,6 +617,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result."
+      },
+      "AgeResistance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You ignore the physical detriments of age."
       },
       "CloakOfWinds": {
         "Enabled": true,
