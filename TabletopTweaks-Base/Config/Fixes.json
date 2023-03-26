@@ -217,6 +217,17 @@
     },
     "IsExpanded": true
   },
+  "Azata": {
+    "DisableAll": false,
+    "Settings": {
+      "SongOfCourageousDefender": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Song Of Courageous Defender has been fully reimplemented and now works."
+      }
+    },
+    "IsExpanded": true
+  },
   "Demon": {
     "DisableAll": false,
     "Settings": {

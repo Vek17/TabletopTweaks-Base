@@ -164,6 +164,7 @@
     <Compile Include="Bugfixes\Classes\Aeon.cs" />
     <Compile Include="Bugfixes\Classes\Alchemist.cs" />
     <Compile Include="Bugfixes\Classes\Arcanist.cs" />
+    <Compile Include="Bugfixes\Classes\Azata.cs" />
     <Compile Include="Bugfixes\Classes\Barbarian.cs" />
     <Compile Include="Bugfixes\Classes\Bard.cs" />
     <Compile Include="Bugfixes\Classes\Bloodrager.cs" />

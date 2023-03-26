@@ -1,3 +1,9 @@
+## Version 2.5.6
+* Fixes
+    * Azata
+        * Song Of Courageous Defender
+            * Now actually works.
+
 ## Version 2.5.5
 * Fixes
     * Buff Inspector UI should more correctly display the buffs that are applied.

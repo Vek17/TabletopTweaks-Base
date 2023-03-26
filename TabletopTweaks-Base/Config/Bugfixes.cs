@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Utility;
 using System.Collections.Generic;
+using TabletopTweaks.Base.Bugfixes.Classes;
 using TabletopTweaks.Core.Config;
 
 namespace TabletopTweaks.Base.Config {
@@ -8,6 +9,7 @@ namespace TabletopTweaks.Base.Config {
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
         public SettingGroup Aeon = new SettingGroup();
+        public SettingGroup Azata = new SettingGroup();
         public SettingGroup Demon = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
@@ -84,6 +86,7 @@ namespace TabletopTweaks.Base.Config {
             BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
+            Azata.LoadSettingGroup(loadedSettings.Azata, NewSettingsOffByDefault);
             Demon.LoadSettingGroup(loadedSettings.Demon, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
