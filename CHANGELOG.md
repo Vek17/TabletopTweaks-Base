@@ -1,5 +1,6 @@
 ## Version 2.5.6
 * Fixes
+    * Age effects have been rebuilt for better support.
     * Azata
         * Song Of Courageous Defender
             * Now actually works.
@@ -14,6 +15,8 @@
             * You ignore the physical detriments of age up to old age.
         * Age Resistance, Greater
             * You ignore the physical detriments of age.
+        * Sands of Time
+            * You temporarily age the target, immediately advancing it to the next age category. The target does not gain the bonuses for that category.
 
 ## Version 2.5.5
 * Fixes
