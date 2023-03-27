@@ -12,6 +12,8 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
+using TabletopTweaks.Core.NewComponents.AbilitySpecific;
+using TabletopTweaks.Core.NewUnitParts;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -24,10 +26,6 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var Icon_ScrollOfAgeResistanceLesser = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfAgeResistanceLesser.png");
             var Icon_ScrollOfAgeResistance = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfAgeResistance.png");
             var Icon_ScrollOfAgeResistanceGreater = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfAgeResistanceGreater.png");
-
-            var MiddleAgeNegatePhysicalFeature = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "MiddleAgeNegatePhysicalFeature");
-            var OldAgeNegatePhysicalFeature = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "OldAgeNegatePhysicalFeature");
-            var VeneratedAgeNegatePhysicalFeature = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "VeneratedAgeNegatePhysicalFeature");
 
             var resistenergy00 = new PrefabLink() {
                 AssetId = "e23fec8d2024a8c48a8b4a57693e31a7"
@@ -44,12 +42,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.m_Icon = Icon_AgeResistanceLesser;
                 bp.FxOnStart = resistenergy00;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
-                bp.AddComponent<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] {
-                        MiddleAgeNegatePhysicalFeature
-                    };
+                bp.AddComponent<AddAgeNegate>(c => {
+                    c.Age = UnitPartAgeTTT.AgeLevel.MiddleAge;
+                    c.Type = UnitPartAgeTTT.NegateType.Physical;
                 });
-                bp.AddComponent<RecalculateOnFactsChange>();
             });
             var AgeResistanceLesserAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "AgeResistanceLesserAbility", bp => {
                 bp.SetName(AgeResistanceLesserBuff.m_DisplayName);
@@ -106,13 +102,14 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.m_Icon = Icon_AgeResistance;
                 bp.FxOnStart = resistenergy00;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
-                bp.AddComponent<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] {
-                        MiddleAgeNegatePhysicalFeature,
-                        OldAgeNegatePhysicalFeature
-                    };
+                bp.AddComponent<AddAgeNegate>(c => {
+                    c.Age = UnitPartAgeTTT.AgeLevel.MiddleAge;
+                    c.Type = UnitPartAgeTTT.NegateType.Physical;
                 });
-                bp.AddComponent<RecalculateOnFactsChange>();
+                bp.AddComponent<AddAgeNegate>(c => {
+                    c.Age = UnitPartAgeTTT.AgeLevel.OldAge;
+                    c.Type = UnitPartAgeTTT.NegateType.Physical;
+                });
             });
             var AgeResistanceAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "AgeResistanceAbility", bp => {
                 bp.SetName(AgeResistanceBuff.m_DisplayName);
@@ -171,14 +168,18 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.m_Icon = Icon_AgeResistanceGreater;
                 bp.FxOnStart = resistenergy00;
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
-                bp.AddComponent<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] {
-                        MiddleAgeNegatePhysicalFeature,
-                        OldAgeNegatePhysicalFeature,
-                        VeneratedAgeNegatePhysicalFeature
-                    };
+                bp.AddComponent<AddAgeNegate>(c => {
+                    c.Age = UnitPartAgeTTT.AgeLevel.MiddleAge;
+                    c.Type = UnitPartAgeTTT.NegateType.Physical;
                 });
-                bp.AddComponent<RecalculateOnFactsChange>();
+                bp.AddComponent<AddAgeNegate>(c => {
+                    c.Age = UnitPartAgeTTT.AgeLevel.OldAge;
+                    c.Type = UnitPartAgeTTT.NegateType.Physical;
+                });
+                bp.AddComponent<AddAgeNegate>(c => {
+                    c.Age = UnitPartAgeTTT.AgeLevel.Venerable;
+                    c.Type = UnitPartAgeTTT.NegateType.Physical;
+                });
             });
             var AgeResistanceGreaterAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "AgeResistanceGreaterAbility", bp => {
                 bp.SetName(AgeResistanceGreaterBuff.m_DisplayName);

@@ -39,6 +39,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.InflictPain.AddInflictPain();
                 Spells.AccursedGlare.AddAccursedGlare();
                 Spells.AgeResistance.AddAgeResistance();
+                Spells.SandsOfTime.AddSandsOfTime();
 
                 //Added early as some things depend on them for selections
                 Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();

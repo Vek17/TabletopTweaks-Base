@@ -9824,28 +9824,6 @@
       "esES": null
     },
     {
-      "Key": "13c6f664b08c4f508fcc26960a9d14af",
-      "SimpleName": "MiddleAgeNegateMentalFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Middle Aged Negate Mental",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "fbe2f0ce9b324b3c9d82cbc40af396c0",
-      "SimpleName": "MiddleAgeNegatePhysicalFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Middle Aged Negate Physical",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "681d6e402fff4d1bb913caf75744d2e7",
       "SimpleName": "MithralArmorEnchant.Prefix",
       "ProcessTemplates": false,
@@ -10239,28 +10217,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "抵消",
-      "esES": null
-    },
-    {
-      "Key": "4654ac1a0cd04ee1ad82599b67aed391",
-      "SimpleName": "OldAgeNegateMentalFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Old Aged Aged Negate Mental",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "d9ed46290ce8429a9a0d88e4e059201b",
-      "SimpleName": "OldAgeNegatePhysicalFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Old Aged Negate Physical",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -11342,6 +11298,28 @@
       "esES": null
     },
     {
+      "Key": "6c876f0fdefc4f968a349f7650b2bb82",
+      "SimpleName": "SandsOfTimeBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "You temporarily age the target, immediately advancing it to the next age category. The target immediately takes the age penalties to Strength, Dexterity, and Constitution for its new age category, but does not gain the bonuses for that category. A creature whose age is unknown is treated as if the spell advances it to middle age. If you cast this on an object, construct, or undead creature, it takes 3d6 points of damage + 1 point per caster level(maximum + 15) as time weathers and corrodes it instead.\n\nMiddle Age: -1 to all physical stats +1 to all mental stats.\nOld Age: -3 to all physical stats +2 to all mental stats.\nVenerated Age: -6 to all physical stats +3 to all mental stats.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cb15578b9f8a4cef95989b39ee441778",
+      "SimpleName": "SandsOfTimeBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Sands Of Time",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "3262b6277a8e4e3b9d54150bb513b2e3",
       "SimpleName": "Scholar.Description",
       "ProcessTemplates": true,
@@ -11694,17 +11672,6 @@
       "esES": null
     },
     {
-      "Key": "30cff4322b404021b18335c720abbfda",
-      "SimpleName": "Solid ShadowsSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Solid Shadows",
-      "ruRU": "Осязаемое",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "实体幽影",
-      "esES": null
-    },
-    {
       "Key": "1b8450f20cc444c399117bd8890ed98e",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
@@ -11713,6 +11680,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
+      "esES": null
+    },
+    {
+      "Key": "30cff4322b404021b18335c720abbfda",
+      "SimpleName": "Solid ShadowsSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Solid Shadows",
+      "ruRU": "Осязаемое",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "实体幽影",
       "esES": null
     },
     {
@@ -12717,17 +12695,6 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "Will negates stun",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "意志，免除震慑",
-      "esES": null
-    },
-    {
       "Key": "9b3ade0576a54a5292186ebfbacb48bf",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12747,6 +12714,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "轮/级，或直到到效果消散",
+      "esES": null
+    },
+    {
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Will negates stun",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "意志，免除震慑",
       "esES": null
     },
     {
@@ -13740,28 +13718,6 @@
       "esES": null
     },
     {
-      "Key": "af57020c1d3d413fb806ecc859ecebdc",
-      "SimpleName": "VeneratedAgeNegateMentalFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Venerated Negate Mental",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "5f48eedfae884f25b2822b5a6e2d5232",
-      "SimpleName": "VeneratedAgeNegatePhysicalFeature.Name",
-      "ProcessTemplates": false,
-      "enGB": "Venerated Negate Physical",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "7bdbc197f8d5469686069ad5872aeed6",
       "SimpleName": "VeteranOfEndlessWar.Description",
       "ProcessTemplates": true,
@@ -14026,10 +13982,10 @@
       "esES": null
     },
     {
-      "Key": "10c278dbf971413c8537c9410b93cf66",
+      "Key": "3a9424c8a6f34185a4eee1a0e073d84c",
       "SimpleName": "WitheringHexBuff.Description",
       "ProcessTemplates": true,
-      "enGB": "The witch causes a creature within 30 feet to age rapidly, empowering the witch in the process.\nThe target ages to the next age category (adult to middle-aged, and so on). The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier. These effects last for a number of hours equal to the witch’s level.\nA creature cannot be aged past venerable age by this hex, and it can attempt a Fortitude save to negate the effect altogether. Once a creature has successfully saved against the withering hex, it cannot be affected by it again.\n\nMiddle Age: -1 to all physical stats +1 to all mental stats.\nOld Age: -3 to all physical stats +2 to all mental stats.\nVenerated Age: -6 to all physical stats +3 to all mental stats.\n",
+      "enGB": "The witch causes a creature within 30 feet to age rapidly, empowering the witch in the process.\nThe target ages to the next age category (adult to middle-aged, and so on). The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier. These effects last for a number of hours equal to the witch’s level.\nA creature cannot be aged past venerable age by this hex, and it can attempt a Fortitude save to negate the effect altogether. Once a creature has successfully saved against the withering hex, it cannot be affected by it again.\n\nMiddle Age: -1 to all physical stats +1 to all mental stats.\nOld Age: -3 to all physical stats +2 to all mental stats.\nVenerated Age: -6 to all physical stats +3 to all mental stats.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,

@@ -33,9 +33,6 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 if (descriptor == ModifierDescriptor.NaturalArmor) {
                     __result = false;
                 }
-                if (descriptor == (ModifierDescriptor)NaturalArmor.Stackable) {
-                    __result = true;
-                }
             }
         }
 

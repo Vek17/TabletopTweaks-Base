@@ -56,7 +56,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     "Once a creature has successfully saved against the withering hex, it cannot be affected by it again.\n\n" +
                     "Middle Age: -1 to all physical stats +1 to all mental stats.\n" +
                     "Old Age: -3 to all physical stats +2 to all mental stats.\n" +
-                    "Venerated Age: -6 to all physical stats +3 to all mental stats.\n");
+                    "Venerated Age: -6 to all physical stats +3 to all mental stats.");
                 bp.m_Icon = Icon_Withering;
                 bp.ResourceAssetIds = new string[] { };
                 bp.AddComponent<SpellDescriptorComponent>(c => {
