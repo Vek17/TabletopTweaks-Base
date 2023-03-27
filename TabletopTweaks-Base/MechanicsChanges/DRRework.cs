@@ -449,6 +449,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 PatchArmorDR();
                 PatchStalwartDefender();
                 PatchBarbariansDR();
+                PatchWildEffigyDR();
                 PatchInevitableFateDR();
                 PatchLichIndestructibleBonesDR();
                 PatchAngelUnbrokenDR();
@@ -580,6 +581,13 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                         skaldDR.ToReference<BlueprintFeatureReference>()
                     };
                     p.Amount = 1;
+                });
+            }
+            static void PatchWildEffigyDR() {
+                var ArmorPlatingShifterBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b00fbc84b7ae4a45883c0ac8bb070db6");
+
+                ArmorPlatingShifterBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
+                    newRes.SourceIsClassFeature = true;
                 });
             }
 

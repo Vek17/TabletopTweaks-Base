@@ -1,3 +1,9 @@
+## Version 2.5.7
+* Fixes
+    * Shifter
+        * Wild Effigy
+            * DR now correctly stacks with Stalwart feat.
+
 ## Version 2.5.6
 * Fixes
     * Age effects have been rebuilt for better support.
