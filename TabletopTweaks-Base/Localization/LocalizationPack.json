@@ -3851,17 +3851,6 @@
       "esES": null
     },
     {
-      "Key": "37df8bdd9bcf476e82186546ba976884",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Flaming",
-      "ruRU": "Огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "炽焰",
-      "esES": null
-    },
-    {
       "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3870,6 +3859,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "焚炎",
+      "esES": null
+    },
+    {
+      "Key": "37df8bdd9bcf476e82186546ba976884",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Flaming",
+      "ruRU": "Огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -4159,6 +4159,17 @@
       "esES": null
     },
     {
+      "Key": "f3459f2cd8a34e399c877b9c643ac371",
+      "SimpleName": "BurningSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Burning-TabletopTweaks-Base}Burning{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Burning-TabletopTweaks-Base}燃烧{/g}",
+      "esES": null
+    },
+    {
       "Key": "99c2b7b51820499ca8e940b97d5a07e3",
       "SimpleName": "BurningSpellMetamagic",
       "ProcessTemplates": false,
@@ -4170,14 +4181,25 @@
       "esES": null
     },
     {
-      "Key": "f3459f2cd8a34e399c877b9c643ac371",
-      "SimpleName": "BurningSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Burning-TabletopTweaks-Base}Burning{/g}",
+      "Key": "9edd03986abc44aa90f09ed9d5c71157",
+      "SimpleName": "CauldronHexFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "The witch receives Brew Potions as a bonus feat and a +4 insight bonus on Knowledge (World) skill checks.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "{g|Encyclopedia:Burning-TabletopTweaks-Base}燃烧{/g}",
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c49135a1dc424f069391a0b573e7db43",
+      "SimpleName": "CauldronHexFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Cauldron",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5611,17 +5633,6 @@
       "esES": null
     },
     {
-      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
-      "SimpleName": "Elemental — ColdSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Elemental — Cold",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "元素 — 寒冷",
-      "esES": null
-    },
-    {
       "Key": "a489d5d8088447d3baed4ad6d4c68111",
       "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
@@ -5633,14 +5644,14 @@
       "esES": null
     },
     {
-      "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
-      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "Elemental — Electricity",
+      "enGB": "Elemental — Cold",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素 — 电击",
+      "zhCN": "元素 — 寒冷",
       "esES": null
     },
     {
@@ -5655,14 +5666,14 @@
       "esES": null
     },
     {
-      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
-      "SimpleName": "Elemental — FireSpellMetamagic",
+      "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
+      "SimpleName": "Elemental — ElectricitySpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
+      "enGB": "Elemental — Electricity",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
+      "zhCN": "元素 — 电击",
       "esES": null
     },
     {
@@ -5674,6 +5685,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素 — 火焰",
+      "esES": null
+    },
+    {
+      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
+      "SimpleName": "Elemental — FireSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
       "esES": null
     },
     {
@@ -6678,17 +6700,6 @@
       "esES": null
     },
     {
-      "Key": "078e11e00ef54879ba90f07cccae313d",
-      "SimpleName": "FlaringSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}Flaring{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
-      "esES": null
-    },
-    {
       "Key": "b099256da46145e89582ec13b2962ec9",
       "SimpleName": "FlaringSpellMetamagic",
       "ProcessTemplates": false,
@@ -6697,6 +6708,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "闪耀",
+      "esES": null
+    },
+    {
+      "Key": "078e11e00ef54879ba90f07cccae313d",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}Flaring{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
       "esES": null
     },
     {
@@ -11188,6 +11210,39 @@
       "esES": null
     },
     {
+      "Key": "9a3034fdd2564c9fb39695628cac3299",
+      "SimpleName": "RetributionHexAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 round/int mod",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8c884839ce384ae091f3c8724138578f",
+      "SimpleName": "RetributionHexBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "A witch can place a retribution hex on a creature within 60 feet, causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. Immediately after the hexed creature deals with a melee attack, it takes half that damage (round down). This damage bypasses any resistances, immunities, or damage reduction the creature possesses. This effect lasts for a number of rounds equal to the witch’s Intelligence modifier. A Will save negates this effect.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a71c488c1f4e407c92cd446a60fb8a4b",
+      "SimpleName": "RetributionHexBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Retribution",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "c99137a8e6394f8dbcb40d5a77a4a36d",
       "SimpleName": "RimeEntagledBuff.Name",
       "ProcessTemplates": false,
@@ -12695,17 +12750,6 @@
       "esES": null
     },
     {
-      "Key": "9b3ade0576a54a5292186ebfbacb48bf",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "Greater Stunning Barrier",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "高等反震屏障",
-      "esES": null
-    },
-    {
       "Key": "bd0091dbc839447abb004474f38b7c75",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12714,6 +12758,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "轮/级，或直到到效果消散",
+      "esES": null
+    },
+    {
+      "Key": "9b3ade0576a54a5292186ebfbacb48bf",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Stunning Barrier",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "高等反震屏障",
       "esES": null
     },
     {

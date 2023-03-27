@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.JsonSystem;
-using TabletopTweaks.Base.NewContent.Features;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -87,7 +86,9 @@ namespace TabletopTweaks.Base.NewContent {
                 WizardArcaneDiscoveries.OppositionResearch.AddOppositionResearch();
                 WizardArcaneDiscoveries.YuelralsBlessing.AddYuelralsBlessing();
 
+                Hexes.Cauldron.AddCauldron();
                 Hexes.IceTomb.AddIceTomb();
+                Hexes.Retribution.AddRetribution();
                 Hexes.Withering.AddWithering();
 
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();

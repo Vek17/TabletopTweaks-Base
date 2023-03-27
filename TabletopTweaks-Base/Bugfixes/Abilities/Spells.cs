@@ -1590,11 +1590,11 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
             static void PatchFreedomOfMovement() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FreedomOfMovement")) { return; }
 
-                var FreedomOfMovementBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("1533e782fca42b84ea370fc1dcbf4fc1");
-                var FreedomOfMovementBuffPermanent = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("235533b62159790499ced35860636bb2");
-                var FreedomOfMovementBuff_FD = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("60906dd9e4ddec14c8ac9a0f4e47f54c");
-                var DLC3_FreedomOfMovementBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("d6fb42ec153f4d699e57891522d7f4c9");
-                var FreedomOfMovementLinnorm = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("67519ff6ba615c045afca2347608bfe3");
+                var FreedomOfMovementBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("1533e782fca42b84ea370fc1dcbf4fc1");
+                var FreedomOfMovementBuffPermanent = BlueprintTools.GetBlueprint<BlueprintBuff>("235533b62159790499ced35860636bb2");
+                var FreedomOfMovementBuff_FD = BlueprintTools.GetBlueprint<BlueprintBuff>("60906dd9e4ddec14c8ac9a0f4e47f54c");
+                var DLC3_FreedomOfMovementBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("d6fb42ec153f4d699e57891522d7f4c9");
+                var FreedomOfMovementLinnorm = BlueprintTools.GetBlueprint<BlueprintBuff>("67519ff6ba615c045afca2347608bfe3");
 
                 RemoveStaggerImmunity(FreedomOfMovementBuff);
                 RemoveStaggerImmunity(FreedomOfMovementBuffPermanent);
@@ -2025,6 +2025,9 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
             static void PatchFromSpellFlags() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FixSpellFlags")) { return; }
 
+                var DemonicRageBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("36ca5ecd8e755a34f8da6b42ad4c965f");
+                var FreedomOfMovementBuff_FD = BlueprintTools.GetBlueprint<BlueprintBuff>("60906dd9e4ddec14c8ac9a0f4e47f54c");
+
                 TTTContext.Logger.Log("Updating Spell Flags");
                 SpellTools.SpellList.AllSpellLists
                     .SelectMany(list => list.SpellsByLevel)
@@ -2043,6 +2046,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         if (buff.GetComponent<AddCondition>() == null
                         && buff.GetComponent<BuffStatusCondition>() == null
                         && buff.GetComponent<BuffPoisonStatDamage>() == null
+                        && buff.AssetGuid != DemonicRageBuff.AssetGuid
                         && (buff.SpellDescriptor & SpellDescriptor.Bleed) == 0) {
                             if ((buff.m_Flags & BlueprintBuff.Flags.IsFromSpell) == 0) {
                                 buff.m_Flags |= BlueprintBuff.Flags.IsFromSpell;
@@ -2050,6 +2054,8 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                             }
                         }
                     });
+                FreedomOfMovementBuff_FD.m_Flags |= BlueprintBuff.Flags.IsFromSpell;
+                TTTContext.Logger.LogPatch("Patched", FreedomOfMovementBuff_FD);
                 TTTContext.Logger.Log("Finished Spell Flags");
             }
         }

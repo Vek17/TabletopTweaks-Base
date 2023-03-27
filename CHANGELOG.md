@@ -3,6 +3,11 @@
     * Shifter
         * Wild Effigy
             * DR now correctly stacks with Stalwart feat.
+* Added Context
+    * Hexes
+        * Retribution 
+            * A witch can place a retribution hex on a creature within 60 feet, causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. Immediately after the hexed creature deals damage in melee, it takes half that damage (round down).
+
 
 ## Version 2.5.6
 * Fixes

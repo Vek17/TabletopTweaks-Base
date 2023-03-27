@@ -391,7 +391,9 @@
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedGrace.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\WarriorSpirit.cs" />
+    <Compile Include="NewContent\Hexes\Cauldron.cs" />
     <Compile Include="NewContent\Hexes\IceTomb.cs" />
+    <Compile Include="NewContent\Hexes\Retribution.cs" />
     <Compile Include="NewContent\Hexes\Withering.cs" />
     <Compile Include="NewContent\MagusArcana\BroadStudy.cs" />
     <Compile Include="NewContent\MagusArcana\SpellBlending.cs" />
@@ -577,6 +579,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_QuickStudy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_Retribution.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_SandsOfTime.png">
