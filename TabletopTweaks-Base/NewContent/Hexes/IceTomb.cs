@@ -48,7 +48,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
             var Icon_IceTomb = IcyPrison.Icon;
             //var Icon_IceTomb = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_CloakOfWinds.png");
 
-            var IceTombBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "IceTombBuff", bp => {
+            var IceTombBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexIceTombBuff", bp => {
                 bp.SetName(TTTContext, "Ice Tomb");
                 bp.SetDescription(TTTContext, "A storm of ice and freezing wind envelops the target, which takes 3d8 points of cold damage (Fortitude half). " +
                     "If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts.\n" +
@@ -115,13 +115,13 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.m_Progression = ContextRankProgression.AsIs;
                 });
             });
-            var IceTombCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "IceTombCooldownBuff", bp => {
+            var IceTombCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexIceTombCooldownBuff", bp => {
                 bp.SetName(TTTContext, "Ice Tomb Cooldown");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Icon = Icon_IceTomb;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
-            var IceTombAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "IceTombAbility", bp => {
+            var IceTombAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "WitchHexIceTombAbility", bp => {
                 bp.SetName(TTTContext, "Ice Tomb");
                 bp.SetDescription(IceTombBuff.m_Description);
                 bp.SetLocalizedSavingThrow(TTTContext, "Fortitude negates");
@@ -226,7 +226,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.Descriptor = SpellDescriptor.Hex | SpellDescriptor.Cold;
                 });
             });
-            var IceTombFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "IceTombFeature", bp => {
+            var IceTombFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexIceTombFeature", bp => {
                 bp.SetName(TTTContext, "Ice Tomb");
                 bp.SetDescription(IceTombBuff.m_Description);
                 bp.m_Icon = Icon_IceTomb;

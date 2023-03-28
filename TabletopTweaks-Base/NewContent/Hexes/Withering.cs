@@ -45,7 +45,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
 
             var Icon_Withering = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_Withering.png");
 
-            var WitheringHexBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitheringHexBuff", bp => {
+            var WitheringHexBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexWitheringHexBuff", bp => {
                 bp.SetName(TTTContext, "Withering — Stolen Time");
                 bp.SetDescription(TTTContext, "The witch causes a creature within 30 feet to age rapidly, empowering the witch in the process.\n" +
                     "The target ages to the next age category (adult to middle-aged, and so on). " +
@@ -104,13 +104,13 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.Modifier = 1;
                 });
             });
-            var WitheringHexCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitheringHexCooldownBuff", bp => {
+            var WitheringHexCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexWitheringCooldownBuff", bp => {
                 bp.SetName(TTTContext, "Withering Cooldown");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Icon = Icon_Withering;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
-            var WitheringHexAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "WitheringHexAbility", bp => {
+            var WitheringHexAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "WitchHexWitheringAbility", bp => {
                 bp.SetName(TTTContext, "Withering");
                 bp.SetDescription(WitheringHexBuff.m_Description);
                 bp.SetLocalizedSavingThrow(TTTContext, "Fortitude negates");
@@ -361,8 +361,13 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                 });
                 bp.AddComponent<AbilityTargetHasFact>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] {
-                        WitheringHexCooldownBuff.ToReference<BlueprintUnitFactReference>(),
                         AgelessFeature
+                    };
+                    c.Inverted = true;
+                });
+                bp.AddComponent<AbilityTargetHasFact>(c => {
+                    c.m_CheckedFacts = new BlueprintUnitFactReference[] {
+                        WitheringHexCooldownBuff.ToReference<BlueprintUnitFactReference>()
                     };
                     c.Inverted = true;
                 });
@@ -385,7 +390,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.Descriptor = SpellDescriptor.Hex;
                 });
             });
-            var WitheringHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitheringHexFeature", bp => {
+            var WitheringHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexWitheringFeature", bp => {
                 bp.SetName(TTTContext, "Withering");
                 bp.SetDescription(WitheringHexBuff.m_Description);
                 bp.m_Icon = Icon_Withering;

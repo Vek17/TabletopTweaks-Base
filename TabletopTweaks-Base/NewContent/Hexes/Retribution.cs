@@ -49,7 +49,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
 
             var Icon_Retribution = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_Retribution.png");
 
-            var RetributionHexBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "RetributionHexBuff", bp => {
+            var RetributionHexBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexRetributionBuff", bp => {
                 bp.SetName(TTTContext, "Retribution");
                 bp.SetDescription(TTTContext, "A witch can place a retribution hex on a creature within 60 feet, " +
                     "causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. " +
@@ -69,7 +69,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.RangeType = WeaponRangeType.Melee;
                 });
             });
-            var RetributionHexAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "RetributionHexAbility", bp => {
+            var RetributionHexAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "WitchHexRetributionAbility", bp => {
                 bp.SetName(RetributionHexBuff.m_DisplayName);
                 bp.SetDescription(RetributionHexBuff.m_Description);
                 bp.SetLocalizedSavingThrow(TTTContext, "Will negates");
@@ -127,7 +127,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.Descriptor = SpellDescriptor.Hex | SpellDescriptor.Cold;
                 });
             });
-            var RetributionHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "RetributionHexFeature", bp => {
+            var RetributionHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexRetributionFeature", bp => {
                 bp.SetName(RetributionHexBuff.m_DisplayName);
                 bp.SetDescription(RetributionHexBuff.m_Description);
                 bp.m_Icon = Icon_Retribution;

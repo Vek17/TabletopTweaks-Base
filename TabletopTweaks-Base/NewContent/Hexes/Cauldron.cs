@@ -19,7 +19,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
             var HexcrafterMagusHexMagusSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("a18b8c3d6251d8641a8094e5c2a7bc78");
             var BrewPotions = BlueprintTools.GetBlueprint<BlueprintFeature>("c0f8c4e513eb493408b8070a1de93fc0");
 
-            var CauldronHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "CauldronHexFeature", bp => {
+            var CauldronHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexCauldronFeature", bp => {
                 bp.SetName(TTTContext, "Cauldron");
                 bp.SetDescription(TTTContext, "The witch receives Brew Potions as a bonus feat and a +4 insight bonus on Knowledge (World) skill checks.");
                 bp.m_Icon = BrewPotions.Icon;
