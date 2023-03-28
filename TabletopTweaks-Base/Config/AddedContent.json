@@ -734,6 +734,11 @@
         "Homebrew": true,
         "Description": "The effects from your blessings now last twice as long."
       },
+      "ExtraMythicFeat": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You gain a bonus mythic feat. You can take this mythic ability once."
+      },
       "FavoriteMetamagicPersistent": {
         "Enabled": true,
         "Homebrew": false,

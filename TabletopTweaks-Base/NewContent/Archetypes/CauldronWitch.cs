@@ -17,6 +17,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             var CauldronWitchArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("e0012a7015774e140be217f4a1480b6f");
             var CauldronWitchMixtureAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("bde7657b0338dab4e835673725abd385");
             var WitchClass = ClassTools.Classes.WitchClass;
+            var WitchPatronSelection = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("381cf4c890815d049a4420c6f31d063f");
 
             CauldronWitchMixtureAbility.AbilityAndVariants().ForEach(ability => {
                 ability.GetComponents<ContextRankConfig>().ForEach(c => {
@@ -35,6 +36,11 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
                         c.m_Class = new BlueprintCharacterClassReference[] { WitchClass.ToReference<BlueprintCharacterClassReference>() };
                     });
+                });
+            CauldronWitchArchetype.RemoveFeatures
+                .Where(entry => entry.Level == 1)
+                .ForEach(entry => {
+                    entry.m_Features.Remove(WitchPatronSelection);
                 });
 
             WitchClass.m_Archetypes = WitchClass.m_Archetypes.AddItem(CauldronWitchArchetype.ToReference<BlueprintArchetypeReference>()).ToArray();

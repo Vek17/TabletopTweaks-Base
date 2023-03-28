@@ -881,17 +881,6 @@
       "esES": null
     },
     {
-      "Key": "30403b099bed4cf79d1619ad891aecd3",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
-      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Снижение Урона от этой способности суммируется со Снижением Урона из других источников.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "穿着重甲时，战士获得DR 1/—。7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值可以和战士19级获得的盔甲大师特性，以及精金盔甲提供的DR叠加，但不和任何其它形式的伤害减免叠加。",
-      "esES": null
-    },
-    {
       "Key": "9fd71c48669a40c1a071aa9195fc988e",
       "SimpleName": "ArmoredJuggernautFeature.Description",
       "ProcessTemplates": true,
@@ -900,6 +889,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
+      "esES": null
+    },
+    {
+      "Key": "30403b099bed4cf79d1619ad891aecd3",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. The DR from this ability stacks with other DR/-",
+      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Снижение Урона от этой способности суммируется со Снижением Урона из других источников.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "穿着重甲时，战士获得DR 1/—。7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值可以和战士19级获得的盔甲大师特性，以及精金盔甲提供的DR叠加，但不和任何其它形式的伤害减免叠加。",
       "esES": null
     },
     {
@@ -1596,10 +1596,10 @@
       "esES": null
     },
     {
-      "Key": "854204882b884cbe996c29be0716c21b",
+      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1607,10 +1607,10 @@
       "esES": null
     },
     {
-      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
+      "Key": "854204882b884cbe996c29be0716c21b",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2784,17 +2784,6 @@
       "esES": null
     },
     {
-      "Key": "add3b25fd1214142995be3b8965b0bc8",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana",
-      "ruRU": "Перенос мистической энергии",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换",
-      "esES": null
-    },
-    {
       "Key": "9f48856f97714024a5cb846de75da34e",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2803,6 +2792,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换 — 魔战士",
+      "esES": null
+    },
+    {
+      "Key": "add3b25fd1214142995be3b8965b0bc8",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana",
+      "ruRU": "Перенос мистической энергии",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换",
       "esES": null
     },
     {
@@ -3851,17 +3851,6 @@
       "esES": null
     },
     {
-      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Incinerating",
-      "ruRU": "Испепеляющий",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "焚炎",
-      "esES": null
-    },
-    {
       "Key": "37df8bdd9bcf476e82186546ba976884",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3870,6 +3859,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "炽焰",
+      "esES": null
+    },
+    {
+      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Incinerating",
+      "ruRU": "Испепеляющий",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "焚炎",
       "esES": null
     },
     {
@@ -6422,6 +6422,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "额外救赎",
+      "esES": null
+    },
+    {
+      "Key": "0b6ac4464f2344dfa08dfa832c749b56",
+      "SimpleName": "ExtraMythicFeatMythicAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You gain a bonus mythic feat. You can take this mythic ability once.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e0975d17b2254d33bd4c66051593a729",
+      "SimpleName": "ExtraMythicFeatMythicAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Extra Mythic Feat",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10781,17 +10803,6 @@
       "esES": null
     },
     {
-      "Key": "c4211dd8fabd410ab02c99ff971911ed",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
-      "esES": null
-    },
-    {
       "Key": "f467d13c43764235a30cb4aca2e1edcf",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -10800,6 +10811,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "穿刺",
+      "esES": null
+    },
+    {
+      "Key": "c4211dd8fabd410ab02c99ff971911ed",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
       "esES": null
     },
     {
@@ -11276,17 +11298,6 @@
       "esES": null
     },
     {
-      "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
-      "SimpleName": "RimeSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Rime-TabletopTweaks-Base}Rime{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
-      "esES": null
-    },
-    {
       "Key": "334dafcc1c3844e49640b81084309388",
       "SimpleName": "RimeSpellMetamagic",
       "ProcessTemplates": false,
@@ -11295,6 +11306,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "霜冻",
+      "esES": null
+    },
+    {
+      "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
+      "SimpleName": "RimeSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Rime-TabletopTweaks-Base}Rime{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
       "esES": null
     },
     {
@@ -12750,14 +12772,14 @@
       "esES": null
     },
     {
-      "Key": "bd0091dbc839447abb004474f38b7c75",
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "1 round/level or until discharged",
+      "enGB": "Will negates stun",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "轮/级，或直到到效果消散",
+      "zhCN": "意志，免除震慑",
       "esES": null
     },
     {
@@ -12772,14 +12794,14 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "Key": "bd0091dbc839447abb004474f38b7c75",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
-      "enGB": "Will negates stun",
+      "enGB": "1 round/level or until discharged",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "意志，免除震慑",
+      "zhCN": "轮/级，或直到到效果消散",
       "esES": null
     },
     {

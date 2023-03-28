@@ -7,7 +7,9 @@
     * Hexes
         * Retribution 
             * A witch can place a retribution hex on a creature within 60 feet, causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. Immediately after the hexed creature deals damage in melee, it takes half that damage (round down).
-
+    * Mythic Abilities
+        * Extra Mythic Feat
+            * You gain a bonus mythic feat. You can take this mythic ability once.
 
 ## Version 2.5.6
 * Fixes
