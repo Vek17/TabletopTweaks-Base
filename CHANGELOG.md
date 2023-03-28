@@ -4,12 +4,18 @@
         * Wild Effigy
             * DR now correctly stacks with Stalwart feat.
 * Added Context
+    * Feats
+        * Accursed Hex
+           * When you target a creature with a hex that cannot target the same creature more than once per day, and that creature succeeds at its saving throw against the hex’s effect, you can target the creature with the same hex a second time before the end of your next turn.
     * Hexes
         * Retribution 
             * A witch can place a retribution hex on a creature within 60 feet, causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. Immediately after the hexed creature deals damage in melee, it takes half that damage (round down).
     * Mythic Abilities
         * Extra Mythic Feat
             * You gain a bonus mythic feat. You can take this mythic ability once.
+    * Mythic Feats
+        * Accursed Hex Mythic
+            * When you use Accursed Hex to target a creature with one of your hexes a second time, that creature must roll its saving throw twice and take the lower result.
 
 ## Version 2.5.6
 * Fixes
@@ -42,7 +48,7 @@
     * Equipment
         * Apprentice Robe
             * No longer grants more than 1 AC when affected by mage armor.
-        * BoundOfPossibilityAeon
+        * Bound Of Possibility Aeon
             * Bonuses are now properly labled in combat log.
         * Bracers Of Archery
             * Now actually grants the stated bonuses.

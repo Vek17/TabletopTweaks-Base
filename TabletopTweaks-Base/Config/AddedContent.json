@@ -107,6 +107,11 @@
         "Homebrew": false,
         "Description": "Add +2 to the DC for all saving throws against your stunning fist."
       },
+      "AccursedHex": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you target a creature with a hex that cannot target the same creature more than once per day, and that creature succeeds at its saving throw against the hex’s effect, you can target the creature with the same hex a second time before the end of your next turn."
+      },
       "AnimalAlly": {
         "Enabled": true,
         "Homebrew": false,
@@ -799,6 +804,11 @@
         "Enabled": true,
         "Homebrew": true,
         "Description": "You can cast the first hex after an initiative roll as a swift action."
+      },
+      "MythicAccursedHex": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you use Accursed Hex to target a creature with one of your hexes a second time, that creature must roll its saving throw twice and take the lower result."
       },
       "MythicCleave": {
         "Enabled": true,

@@ -211,6 +211,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.AbilityFocusStunningFist.AddAbilityFocusStunningFist();
                 Feats.ChainChallenge.AddChainChallenge();
                 Feats.MutatedShape.AddMutatedShape();
+                Feats.AccursedHex.AddAccursedHex();
                 Feats.SplitHex.AddSplitHex();
 
                 Feats.ExtraReservoir.AddExtraReservoir();

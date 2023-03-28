@@ -1,6 +1,11 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.Utility;
+using System.Linq;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
@@ -9,6 +14,8 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.Feats {
     internal class SplitHex {
         public static void AddSplitHex() {
+            var WitchHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("9846043cf51251a4897728ed6e24e76f");
+            var ShamanHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("4223fe18c75d4d14787af196a04e14e7");
 
             var WitchMajorHex = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("8ac781b33e380c84aa578f1b006dd6c5");
             var WitchGrandHex = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("d24c2467804ce0e4497d9978bafec1f9");
@@ -77,6 +84,23 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (TTTContext.AddedContent.Feats.IsDisabled("SplitHex")) { return; }
             FeatTools.AddAsFeat(SplitHex);
             FeatTools.AddAsFeat(SplitHexMajor);
+            UpdateAbilityRestrictions(WitchHexSelection);
+            UpdateAbilityRestrictions(ShamanHexSelection);
+
+            void UpdateAbilityRestrictions(BlueprintFeatureSelection selection) {
+                selection.AllFeatures
+                    .SelectMany(f => f.GetComponents<AddFacts>())
+                    .OfType<AddFacts>()
+                    .SelectMany(c => c.Facts)
+                    .OfType<BlueprintAbility>()
+                    .ForEach(bp => {
+                        bp.AbilityAndVariants().ForEach(ability => {
+                            if (!ability.GetComponent<AbilityTargetNoSplitHexRepeat>()) {
+                                ability.AddComponent<AbilityTargetNoSplitHexRepeat>();
+                            }
+                        });
+                    });
+            }
         }
     }
 }

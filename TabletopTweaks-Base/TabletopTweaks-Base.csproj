@@ -311,6 +311,7 @@
     <Compile Include="NewContent\ContentAdder.cs" />
     <Compile Include="NewContent\FavoredClassBonuses\Generic.cs" />
     <Compile Include="NewContent\Feats\AbilityFocusStunningFist.cs" />
+    <Compile Include="NewContent\Feats\AccursedHex.cs" />
     <Compile Include="NewContent\Feats\AnimalAlly.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\ArmorMastery.cs" />
     <Compile Include="NewContent\Feats\ArmorMastery\IntenseBlows.cs" />
