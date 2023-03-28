@@ -484,7 +484,7 @@
     <Content Include="Assets\Abilities\Icon_AccursedGlare.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Abilities\Icon_AccursedHex.png">
+    <Content Include="Assets\Feats\Icon_AccursedHex.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_AeonBane.png">

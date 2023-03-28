@@ -2,6 +2,8 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
@@ -74,11 +76,20 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.m_CharacterClass = ClassTools.ClassReferences.WitchClass;
                     c.Level = 10;
                 });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.ClassSpecific;
+                });
             });
             SplitHexMajor.TemporaryContext(bp => {
                 bp.AddPrerequisiteFeature(SplitHex);
                 bp.AddPrerequisite<PrerequisiteCasterLevel>(c => {
                     c.RequiredCasterLevel = 18;
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.ClassSpecific;
+                });
+                bp.AddComponent<RecommendationHasFeature>(c => {
+                    c.m_Feature = SplitHex.ToReference<BlueprintUnitFactReference>();
                 });
             });
             if (TTTContext.AddedContent.Feats.IsDisabled("SplitHex")) { return; }

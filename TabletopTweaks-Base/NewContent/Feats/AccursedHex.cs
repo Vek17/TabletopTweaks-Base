@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -63,6 +64,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     HexcrafterMagusHexMagusSelection,
                     SylvanTricksterTalentSelection
                 );
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.ClassSpecific;
+                });
             });
             AccursedHexMythicFeature.AddPrerequisiteFeature(AccursedHexFeature);
 
