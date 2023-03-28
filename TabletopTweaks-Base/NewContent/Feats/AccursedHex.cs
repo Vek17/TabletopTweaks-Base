@@ -17,11 +17,12 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.Feats {
     static class AccursedHex {
         public static void AddAccursedHex() {
-            var WinterWitchShamanHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("4e760c5034fafb2438993d8a192150b9");
             var WitchHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("9846043cf51251a4897728ed6e24e76f");
             var ShamanHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("4223fe18c75d4d14787af196a04e14e7");
             var HexcrafterMagusHexMagusSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("a18b8c3d6251d8641a8094e5c2a7bc78");
             var SylvanTricksterTalentSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("290bbcc3c3bb92144b853fd8fb8ff452");
+
+            var Icon_AccursedHex = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_AccursedHex.png");
 
             var AccursedHexBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "AccursedHexBuff", bp => {
                 bp.SetName(TTTContext, "Accursed Hex");
@@ -35,6 +36,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.SetName(TTTContext, "Accursed Hex (Mythic)");
                 bp.SetDescription(TTTContext, "When you use Accursed Hex to target a creature with one of your hexes a second time, " +
                     "that creature must roll its saving throw twice and take the lower result.");
+                bp.m_Icon = Icon_AccursedHex;
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
@@ -46,6 +48,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     "and that creature succeeds at its saving throw against the hex’s effect, " +
                     "you can target the creature with the same hex a second time before the end of your next turn. " +
                     "If the second attempt fails, you can make no further attempts to target that creature with the same hex for 1 day. ");
+                bp.m_Icon = Icon_AccursedHex;
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
@@ -54,12 +57,20 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.m_MythicFeature = AccursedHexMythicFeature.ToReference<BlueprintFeatureReference>();
                     c.m_AccursedBuff = AccursedHexBuff.ToReference<BlueprintBuffReference>();
                 });
+                bp.AddPrerequisiteFeaturesFromList(1, 
+                    WitchHexSelection,
+                    ShamanHexSelection,
+                    HexcrafterMagusHexMagusSelection,
+                    SylvanTricksterTalentSelection
+                );
             });
+            AccursedHexMythicFeature.AddPrerequisiteFeature(AccursedHexFeature);
 
             if (TTTContext.AddedContent.Feats.IsDisabled("AccursedHex")) { return; }
             FeatTools.AddAsFeat(AccursedHexFeature);
             UpdateAbilityRestrictions(WitchHexSelection);
             UpdateAbilityRestrictions(ShamanHexSelection);
+
             if (TTTContext.AddedContent.MythicFeats.IsDisabled("MythicAccursedHex")) { return; }
             FeatTools.AddAsMythicFeat(AccursedHexMythicFeature);
 
