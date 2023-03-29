@@ -60,7 +60,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     | Metamagic.Reach;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetFriends = true;
-                bp.CanTargetEnemies = true;
+                bp.CanTargetEnemies = false;
                 bp.SpellResistance = true;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
                 bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;

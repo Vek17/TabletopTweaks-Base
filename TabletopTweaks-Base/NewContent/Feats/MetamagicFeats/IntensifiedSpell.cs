@@ -108,7 +108,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
         public static void UpdateSpells() {
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicIntensifiedSpell")) { return; }
 
-            var spells = SpellTools.GetAllSpells();
+            var spells = SpellTools.GetAllSpells()
+                .SelectMany(s => s.AbilityAndVariants())
+                .SelectMany(s => s.AbilityAndStickyTouch())
+                .ToArray();
             foreach (var spell in spells) {
                 bool isIntensifiedSpell = spell.AbilityAndVariants()
                     .SelectMany(s => s.AbilityAndStickyTouch())

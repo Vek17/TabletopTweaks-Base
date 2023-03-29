@@ -13,8 +13,10 @@ using Kingmaker.Items;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewActions;
@@ -31,14 +33,42 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Initialized) return;
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Mythic Abilities");
+                PatchBestJokes();
                 PatchBloodlineAscendance();
                 PatchSecondBloodline();
                 PatchBloodragerSecondBloodline();
                 PatchExposeVulnerability();
                 PatchCloseToTheAbyss();
             }
+            static void PatchBestJokes() {
+                if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("BestJokes")) { return; }
+
+                var HideousLaughter = BlueprintTools.GetBlueprint<BlueprintAbility>("fd4d9fd7f87575d47aafe2a64a6e2d8d");
+                var HideousLaughterTiefling = BlueprintTools.GetBlueprint<BlueprintAbility>("ae9e3a143e40f20419aa2b1ec92e2e06");
+                var BestJokes = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("ec739ff2292290f43b20689ff32de112");
+                var HideousLaughterBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("4b1f07a71a982824988d7f48cd49f3f8");
+
+                HideousLaughter.FlattenAllActions().OfType<Conditional>()
+                    .Where(conditional => conditional.ConditionsChecker.Conditions
+                        .OfType<ContextConditionCasterHasFact>()
+                        .Any(c => c.m_Fact.Guid == BestJokes.Guid))
+                    .ForEach(conditional => {
+                        conditional.IfTrue = Helpers.CreateActionList(
+                            new ContextDuplicateCastSpellOnNewTarget() {
+                                SameFaction = true,
+                                NumberOfTargets = 1,
+                                Radius = 30.Feet(),
+                                m_FilterNoFact = HideousLaughterBuff
+                            }
+                        );
+                    });
+
+                TTTContext.Logger.LogPatch(HideousLaughter);
+                TTTContext.Logger.LogPatch(HideousLaughterTiefling);
+            }
             static void PatchCloseToTheAbyss() {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("CloseToTheAbyss")) { return; }
+
                 var MythicDemonGore = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("bd4417c15511afe42850fb4d3a6b4a32");
                 var TwoHandedDamageMultiplierEnchantment = BlueprintTools.GetModBlueprint<BlueprintWeaponEnchantment>(TTTContext, "TwoHandedDamageMultiplierEnchantment");
 
@@ -48,6 +78,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             }
             static void PatchBloodlineAscendance() {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("BloodlineAscendance")) { return; }
+
                 var BloodlineAscendance = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("ce85aee1726900641ab53ede61ac5c19");
                 var SeekerBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("7bda7cdb0ccda664c9eb8978cf512dbc");
 
@@ -80,6 +111,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             }
             static void PatchSecondBloodline() {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("SecondBloodline")) { return; }
+
                 var SecondBloodline = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("3cf2ab2c320b73347a7c21cf0d0995bd");
 
                 var SorcererBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeature>("24bef8d1bee12274686f6da6ccbc8914");
@@ -111,6 +143,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             }
             static void PatchBloodragerSecondBloodline() {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("SecondBloodragerBloodline")) { return; }
+
                 var ReformedFiendBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("dd62cb5011f64cd38b8b08abb19ba2cc");
                 var BloodragerBloodlineSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("62b33ac8ceb18dd47ad4c8f06849bc01");
                 var SecondBloodragerBloodline = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("b7f62628915bdb14d8888c25da3fac56");
@@ -172,6 +205,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
 
             static bool Prefix(MechanicsContext parentContext, ref Rounds? duration, BlueprintItemEnchantment blueprint) {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("EnduringSpells")) { return true; }
+
                 if (parentContext != null && parentContext.MaybeOwner != null && duration != null) {
                     var abilityData = parentContext.SourceAbilityContext?.Ability;
                     if (abilityData == null || abilityData.Spellbook == null || abilityData.SourceItem != null) { return true; }
@@ -192,6 +226,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
 
             static bool Prefix(AscendantElement __instance, RuleCalculateDamage evt) {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("AscendantElement")) { return true; }
+
                 foreach (BaseDamage baseDamage in evt.DamageBundle) {
                     EnergyDamage energyDamage;
                     if ((energyDamage = (baseDamage as EnergyDamage)) != null && energyDamage.EnergyType == __instance.Element) {

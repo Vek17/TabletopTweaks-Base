@@ -1789,6 +1789,11 @@
         "Homebrew": false,
         "Description": "Actually ignores immunities again."
       },
+      "BestJokes": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now correctly copies the spell DC, metamagic, and does not get zippy magiced an extra time."
+      },
       "BloodlineAscendance": {
         "Enabled": true,
         "Homebrew": false,

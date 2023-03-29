@@ -599,6 +599,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     .GetComponent<AbilityVariants>()
                     .Variants;
                 foreach (BlueprintAbility variant in BelieveInYourselfVariants) {
+                    variant.SetDescription(BelieveInYourself.m_Description);
                     variant.FlattenAllActions()
                         .OfType<ContextActionApplyBuff>()
                         .Select(action => action.Buff)
@@ -610,11 +611,18 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                 TTTContext.Logger.LogPatch(buff);
                             });
                         });
+                    variant.FlattenAllActions()
+                       .OfType<ContextActionApplyBuff>()
+                       .Select(action => action.Buff)
+                       .ForEach(buff => {
+                           variant.SetName(buff.m_DisplayName);
+                       });
                     variant.GetComponent<ContextRankConfig>().TemporaryContext(c => {
                         c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
                         c.m_Progression = ContextRankProgression.AsIs;
                         TTTContext.Logger.LogPatch(variant);
                     });
+
                 }
             }
             static void PatchBurstOfSonicEnergy() {

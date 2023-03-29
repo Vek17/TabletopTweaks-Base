@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -21,14 +22,13 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
 
             var CauldronHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexCauldronFeature", bp => {
                 bp.SetName(TTTContext, "Cauldron");
-                bp.SetDescription(TTTContext, "The witch receives Brew Potions as a bonus feat and a +4 insight bonus on Knowledge (World) skill checks.");
+                bp.SetDescription(TTTContext, "The witch receives Brew Potions as a bonus feat and a +4 bonus on skill checks to brew potions.");
                 bp.m_Icon = BrewPotions.Icon;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.WitchHex, FeatureGroup.ShamanHex };
                 bp.IsClassFeature = true;
-                bp.AddComponent<AddStatBonus>(c => {
-                    c.Stat = StatType.SkillKnowledgeWorld;
-                    c.Descriptor = ModifierDescriptor.Insight;
-                    c.Value = 4;
+                bp.AddComponent<CraftBonus>(c => {
+                    c.m_BonusFor = UsableItemType.Potion;
+                    c.m_Value = 4;
                 });
                 bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] {

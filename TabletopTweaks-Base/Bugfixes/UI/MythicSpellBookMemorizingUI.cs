@@ -8,6 +8,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
         class SpellbookMemorizingPanelVM_CollectLevelData_Patch {
             static void Postfix(SpellbookMemorizingPanelVM __instance) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMythicSpellbookSlotsUI")) { return; }
+                if (__instance?.m_CurrentSpellbook?.Value == null) { return; }
                 if (__instance.m_CurrentSpellbook.Value.IsMythic) {
                     __instance.NotEnoughStat = false;
                 }

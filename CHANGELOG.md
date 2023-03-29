@@ -3,11 +3,21 @@
     * Shifter
         * Wild Effigy
             * DR now correctly stacks with Stalwart feat.
+    * Mythic Abilities
+        * Best Jokes
+            * Now correctly copies the spell DC, metamagic, and does not get zippy magiced an extra time.
+* Adjustments
+    * Witch
+        * Cauldron Witch
+            * No longer loses patron as there is nothing actually replacing it and no actual Witch archetype lose patron.
+            * Now gains the Cauldron Hex at level 1.
 * Added Context
     * Feats
         * Accursed Hex
            * When you target a creature with a hex that cannot target the same creature more than once per day, and that creature succeeds at its saving throw against the hex’s effect, you can target the creature with the same hex a second time before the end of your next turn.
     * Hexes
+        * Cauldron
+            * The witch receives Brew Potions as a bonus feat and a +4 bonus on skill checks to brew potions.
         * Retribution 
             * A witch can place a retribution hex on a creature within 60 feet, causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. Immediately after the hexed creature deals damage in melee, it takes half that damage (round down).
     * Mythic Abilities

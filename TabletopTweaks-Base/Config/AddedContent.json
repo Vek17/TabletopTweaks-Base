@@ -563,7 +563,7 @@
       "Cauldron": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "The witch receives Brew Potions as a bonus feat and a +4 insight bonus on Knowledge (World) skill checks."
+        "Description": "The witch receives Brew Potions as a bonus feat and a +4 bonus on skill checks to brew potions."
       },
       "IceTomb": {
         "Enabled": true,

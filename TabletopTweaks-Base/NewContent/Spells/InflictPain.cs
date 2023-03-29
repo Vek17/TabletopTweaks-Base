@@ -79,7 +79,8 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                                     DurationValue = new ContextDurationValue() {
                                         Rate = DurationRate.Rounds,
                                         BonusValue = 1,
-                                        DiceCountValue = 0
+                                        DiceCountValue = 0,
+                                        m_IsExtendable = false
                                     }
                                 }
                             ),
@@ -155,7 +156,8 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                                     DurationValue = new ContextDurationValue() {
                                         Rate = DurationRate.Rounds,
                                         BonusValue = 1,
-                                        DiceCountValue = 0
+                                        DiceCountValue = 0,
+                                        m_IsExtendable = false
                                     }
                                 }
                             ),
