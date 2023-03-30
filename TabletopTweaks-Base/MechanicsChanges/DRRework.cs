@@ -666,10 +666,20 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 Artifact_AzataCloakItem.m_DescriptionText = Helpers.CreateString(TTTContext, $"{Artifact_AzataCloakItem.name}.key", "Azata shares a bond with her dragon. 50% damage is redirected to Aivu. " +
                     "In addition, Aivu gets additional DR N/Lawful where N is equal to Azata's mythic rank.");
                 BlueprintFeature Artifact_AzataCloakPetFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("af6f1ca38fe54e5baf67adfb9b731ae8");
-                Artifact_AzataCloakPetFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
-                    newRes.Alignment = DamageAlignment.Lawful;
-                    newRes.BypassedByAlignment = true;
+                Artifact_AzataCloakPetFeature.TemporaryContext(bp => {
+                    bp.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
+                        newRes.Alignment = DamageAlignment.Lawful;
+                        newRes.BypassedByAlignment = true;
+                        newRes.Value = new Kingmaker.UnitLogic.Mechanics.ContextValue() {
+                            ValueType = Kingmaker.UnitLogic.Mechanics.ContextValueType.Rank,
+                        };
+                    });
+                    bp.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.MasterMythicLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
                 });
+                
 
                 // Fix: DragonAzataFeatureTierII should be DR 5/lawful, but was DR 5/-
                 BlueprintFeature DragonAzataFeatureTierII = BlueprintTools.GetBlueprint<BlueprintFeature>("fc2aeb954e13811488d38dc1af72ef9c");
