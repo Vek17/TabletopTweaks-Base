@@ -254,6 +254,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = EnlargePerson;
                 bp.SetName(TTTContext, $"Bonus Spell — Enlarge Person");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -265,6 +266,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = SeeInvisibility;
                 bp.SetName(TTTContext, $"Bonus Spell — See Invisibility");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -276,6 +278,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = Displacement;
                 bp.SetName(TTTContext, $"Bonus Spell — Displacement");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -287,6 +290,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = SpikeStones;
                 bp.SetName(TTTContext, $"Bonus Spell — Spike Stones");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -335,7 +339,48 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.m_Feature = AberrantBloodlineRequisiteFeature;
                 });
                 bp.UIGroups = new UIGroup[] {
-                    Helpers.CreateUIGroup(BloodragerAberrantFeatSelection, BloodragerAberrantFeatSelectionGreenrager)
+                    Helpers.CreateUIGroup(BloodragerAberrantFeatSelection, BloodragerAberrantFeatSelectionGreenrager),
+                    Helpers.CreateUIGroup(BloodragerAberrantSpell7, BloodragerAberrantSpell10, BloodragerAberrantSpell13, BloodragerAberrantSpell16)
+                };
+            });
+            var BloodragerAberrantSecondBloodline = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "BloodragerAberrantSecondBloodline", bp => {
+                bp.SetName(TTTContext, "Aberrant");
+                bp.SetDescription(TTTContext, "There is a taint in your blood that is both alien and bizarre. When you bloodrage, this manifests in peculiar and terrifying ways.\n"
+                    + "While bloodraging, you gain the abilities and immunities of some aberrations, but show signs of your tainted heritage.\n"
+                    + BloodragerAberrantFeatSelection.Description
+                    + "\nBonus Spells: Enlarge Person (7th), See Invisibility (10th), Displacement (13th), Spike Stones (16th).");
+                bp.IsClassFeature = true;
+                bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = BloodragerClass
+                    }
+                };
+                bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
+                bp.Ranks = 1;
+                bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
+                bp.LevelEntries = new LevelEntry[] {
+                    Helpers.CreateLevelEntry(1, BloodragerAberrantStaggeringStrike, AberrantBloodlineRequisiteFeature, BloodlineRequisiteFeature),
+                    Helpers.CreateLevelEntry(4, BloodragerAberrantAbnormalReach),
+                    Helpers.CreateLevelEntry(6, BloodragerAberrantFeatSelectionGreenrager),
+                    Helpers.CreateLevelEntry(7, BloodragerAberrantSpell7),
+                    Helpers.CreateLevelEntry(8, BloodragerAberrantFortitude),
+                    Helpers.CreateLevelEntry(9, BloodragerAberrantFeatSelectionGreenrager),
+                    Helpers.CreateLevelEntry(10, BloodragerAberrantSpell10),
+                    Helpers.CreateLevelEntry(12, BloodragerAberrantFeatSelection, BloodragerAberrantUnusualAnatomy),
+                    Helpers.CreateLevelEntry(13, BloodragerAberrantSpell13),
+                    Helpers.CreateLevelEntry(15, BloodragerAberrantFeatSelection),
+                    Helpers.CreateLevelEntry(16, BloodragerAberrantResistance, BloodragerAberrantSpell16),
+                    Helpers.CreateLevelEntry(18, BloodragerAberrantFeatSelection),
+                    Helpers.CreateLevelEntry(20, BloodragerAberrantForm)
+                };
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                    c.Group = Prerequisite.GroupType.Any;
+                    c.m_Feature = BloodragerAberrantBloodline.ToReference<BlueprintFeatureReference>();
+                });
+                bp.UIGroups = new UIGroup[] {
+                    Helpers.CreateUIGroup(BloodragerAberrantFeatSelection, BloodragerAberrantFeatSelectionGreenrager),
+                    Helpers.CreateUIGroup(BloodragerAberrantSpell7, BloodragerAberrantSpell10, BloodragerAberrantSpell13, BloodragerAberrantSpell16)
                 };
             });
             var BloodragerAberrantBloodlineWandering = BloodlineTools.CreateMixedBloodFeature(TTTContext, "BloodragerAberrantBloodlineWandering", BloodragerAberrantBloodline, bp => {
@@ -353,15 +398,17 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantFortitude, BloodragerAberrantFortitudeBuff);
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantUnusualAnatomy, BloodragerAberrantUnusualAnatomyBuff);
             BloodragerAberrantBaseBuff.AddConditionalBuff(BloodragerAberrantResistance, BloodragerAberrantResistanceBuff);
+            //Register Bloodrage Abilities
             BloodragerStandardRageBuff.AddConditionalBuff(BloodragerAberrantBloodline, BloodragerAberrantBaseBuff);
+            BloodragerStandardRageBuff.AddConditionalBuff(BloodragerAberrantSecondBloodline, BloodragerAberrantBaseBuff);
 
-            BloodlineTools.ApplyPrimalistException(BloodragerAberrantAbnormalReach, 4, BloodragerAberrantBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerAberrantFortitude, 8, BloodragerAberrantBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerAberrantUnusualAnatomy, 12, BloodragerAberrantBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerAberrantResistance, 16, BloodragerAberrantBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerAberrantForm, 20, BloodragerAberrantBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerAberrantAbnormalReach, 4, BloodragerAberrantBloodline, BloodragerAberrantSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerAberrantFortitude, 8, BloodragerAberrantBloodline, BloodragerAberrantSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerAberrantUnusualAnatomy, 12, BloodragerAberrantBloodline, BloodragerAberrantSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerAberrantResistance, 16, BloodragerAberrantBloodline, BloodragerAberrantSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerAberrantForm, 20, BloodragerAberrantBloodline, BloodragerAberrantSecondBloodline);
             if (TTTContext.AddedContent.Bloodlines.IsDisabled("AberrantBloodline")) { return; }
-            BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline, BloodragerAberrantBloodlineWandering);
+            BloodlineTools.RegisterBloodragerBloodline(BloodragerAberrantBloodline, BloodragerAberrantSecondBloodline, BloodragerAberrantBloodlineWandering);
         }
         public static void AddSorcererAberrantBloodline() {
             var SorcererClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();

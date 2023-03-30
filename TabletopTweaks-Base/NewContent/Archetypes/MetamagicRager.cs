@@ -288,16 +288,24 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
         private static void PatchBloodlines(BlueprintArchetype archetype) {
             var basicBloodlines = new BlueprintProgression[] {
                 BlueprintTools.GetModBlueprint<BlueprintProgression>(TTTContext, "BloodragerAberrantBloodline"),
-                //BloodlineTools.Bloodline.BloodragerAberrantBloodline,
                 BloodlineTools.Bloodline.BloodragerAbyssalBloodline,
                 BloodlineTools.Bloodline.BloodragerArcaneBloodline,
                 BloodlineTools.Bloodline.BloodragerCelestialBloodline,
                 BlueprintTools.GetModBlueprint<BlueprintProgression>(TTTContext, "BloodragerDestinedBloodline"),
-                //BloodlineTools.Bloodline.BloodragerDestinedBloodline,
                 BloodlineTools.Bloodline.BloodragerFeyBloodline,
                 BloodlineTools.Bloodline.BloodragerInfernalBloodline,
                 BloodlineTools.Bloodline.BloodragerSerpentineBloodline,
                 BloodlineTools.Bloodline.BloodragerUndeadBloodline,
+                //Second Bloodlines
+                BlueprintTools.GetModBlueprint<BlueprintProgression>(TTTContext, "BloodragerAberrantSecondBloodline"),
+                BloodlineTools.Bloodline.BloodragerAbyssalSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerArcaneSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerCelestialSecondBloodline,
+                BlueprintTools.GetModBlueprint<BlueprintProgression>(TTTContext, "BloodragerDestinedSecondBloodline"),
+                BloodlineTools.Bloodline.BloodragerFeySecondBloodline,
+                BloodlineTools.Bloodline.BloodragerInfernalSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerSerpentineSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerUndeadSecondBloodline,
             };
             var draconicBloodlines = new BlueprintProgression[] {
                 BloodlineTools.Bloodline.BloodragerDragonBlackBloodline,
@@ -310,39 +318,60 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 BloodlineTools.Bloodline.BloodragerDragonRedBloodline,
                 BloodlineTools.Bloodline.BloodragerDragonSilverBloodline,
                 BloodlineTools.Bloodline.BloodragerDragonWhiteBloodline,
+                //Second Bloodlines
+                BloodlineTools.Bloodline.BloodragerDragonBlackSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonBlueSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonBrassSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonBronzeSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonCopperSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonGoldSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonGreenSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonRedSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonSilverSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerDragonWhiteSecondBloodline,
             };
             var elementalBloodlines = new BlueprintProgression[] {
                 BloodlineTools.Bloodline.BloodragerElementalAcidBloodline,
                 BloodlineTools.Bloodline.BloodragerElementalColdBloodline,
                 BloodlineTools.Bloodline.BloodragerElementalElectricityBloodline,
-                BloodlineTools.Bloodline.BloodragerElementalFireBloodline
+                BloodlineTools.Bloodline.BloodragerElementalFireBloodline,
+                //Second Bloodlines
+                BloodlineTools.Bloodline.BloodragerElementalAcidSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerElementalColdSecondBloodline,
+                BloodlineTools.Bloodline.BloodragerElementalElectricitySecondBloodline,
+                BloodlineTools.Bloodline.BloodragerElementalFireSecondBloodline
             };
             int[] featLevels = { 6, 9, 12, 15, 18 };
             var metamagicFeats = FeatTools.GetMetamagicFeats();
             foreach (var bloodline in basicBloodlines) {
                 BlueprintFeatureSelection MetamagicRagerFeatSelection = null;
                 foreach (var levelEntry in bloodline.LevelEntries.Where(entry => featLevels.Contains(entry.Level))) {
-                    foreach (var selection in levelEntry.Features.Where(f => f is BlueprintFeatureSelection)) {
-                        if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
-                        var featSelect = selection as BlueprintFeatureSelection;
+                    foreach (var selection in levelEntry.Features.OfType<BlueprintFeatureSelection>()) {
                         if (MetamagicRagerFeatSelection == null) {
-                            MetamagicRagerFeatSelection = featSelect.CreateCopy(TTTContext, GenerateName(bloodline), bp => {
+                            MetamagicRagerFeatSelection = selection.CreateCopy(TTTContext, GenerateName(bloodline), bp => {
                                 bp.HideNotAvailibleInUI = true;
                                 bp.AddFeatures(metamagicFeats);
-                                bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
+                                bp.AddComponent<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
                                     c.CheckInProgression = true;
                                     c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
-                                }));
+                                });
+                                bp.RemoveComponents<PrerequisiteNoArchetype>(c => {
+                                    return c.HideInUI == true
+                                        && c.m_CharacterClass.Guid == BloodragerClass.AssetGuid
+                                        && c.m_Archetype.Guid == archetype.AssetGuid
+                                        && c.CheckInProgression == true;
+                                });
                             });
                         }
-                        selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
+                        if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
+                        selection.AddComponent<PrerequisiteNoArchetype>(c => {
                             c.HideInUI = true;
                             c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                             c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                             c.CheckInProgression = true;
-                        }));
+                        });
                     }
                     levelEntry.m_Features.Add(MetamagicRagerFeatSelection.ToReference<BlueprintFeatureBaseReference>());
                 }
@@ -350,26 +379,25 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             BlueprintFeatureSelection DraconicMetamagicRagerFeatSelection = null;
             foreach (var bloodline in draconicBloodlines) {
                 foreach (var levelEntry in bloodline.LevelEntries.Where(entry => featLevels.Contains(entry.Level))) {
-                    foreach (var selection in levelEntry.Features.Where(f => f is BlueprintFeatureSelection)) {
+                    foreach (var selection in levelEntry.Features.OfType<BlueprintFeatureSelection>()) {
                         if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
-                        var featSelect = selection as BlueprintFeatureSelection;
                         if (DraconicMetamagicRagerFeatSelection == null) {
-                            DraconicMetamagicRagerFeatSelection = featSelect.CreateCopy(TTTContext, GenerateName(bloodline), bp => {
+                            DraconicMetamagicRagerFeatSelection = selection.CreateCopy(TTTContext, GenerateName(bloodline), bp => {
                                 bp.AddFeatures(metamagicFeats);
-                                bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
+                                bp.AddComponent<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
                                     c.CheckInProgression = true;
                                     c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
-                                }));
+                                });
                             });
                         }
-                        selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
+                        selection.AddComponent<PrerequisiteNoArchetype>(c => {
                             c.HideInUI = true;
                             c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                             c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                             c.CheckInProgression = true;
-                        }));
+                        });
                     }
                     levelEntry.m_Features.Add(DraconicMetamagicRagerFeatSelection.ToReference<BlueprintFeatureBaseReference>());
                 }
@@ -377,33 +405,33 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             BlueprintFeatureSelection ElementalMetamagicRagerFeatSelection = null;
             foreach (var bloodline in elementalBloodlines) {
                 foreach (var levelEntry in bloodline.LevelEntries.Where(entry => featLevels.Contains(entry.Level))) {
-                    foreach (var selection in levelEntry.Features.Where(f => f is BlueprintFeatureSelection)) {
+                    foreach (var selection in levelEntry.Features.OfType<BlueprintFeatureSelection>()) {
                         if (selection.GetComponents<PrerequisiteNoArchetype>().Any(c => c.m_Archetype.Get().AssetGuid == archetype.AssetGuid)) { continue; }
-                        var featSelect = selection as BlueprintFeatureSelection;
                         if (ElementalMetamagicRagerFeatSelection == null) {
-                            ElementalMetamagicRagerFeatSelection = featSelect.CreateCopy(TTTContext, GenerateName(bloodline), bp => {
+                            ElementalMetamagicRagerFeatSelection = selection.CreateCopy(TTTContext, GenerateName(bloodline), bp => {
                                 bp.AddFeatures(metamagicFeats);
-                                bp.AddComponent(Helpers.Create<PrerequisiteArchetypeLevel>(c => {
+                                bp.AddComponent<PrerequisiteArchetypeLevel>(c => {
                                     c.HideInUI = true;
                                     c.CheckInProgression = true;
                                     c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                                     c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
-                                }));
+                                });
                             });
                         }
-                        selection.AddComponent(Helpers.Create<PrerequisiteNoArchetype>(c => {
+                        selection.AddComponent<PrerequisiteNoArchetype>(c => {
                             c.HideInUI = true;
                             c.m_CharacterClass = BloodragerClass.ToReference<BlueprintCharacterClassReference>();
                             c.m_Archetype = archetype.ToReference<BlueprintArchetypeReference>();
                             c.CheckInProgression = true;
-                        }));
+                        });
                     }
                     levelEntry.m_Features.Add(ElementalMetamagicRagerFeatSelection.ToReference<BlueprintFeatureBaseReference>());
                 }
             }
             string GenerateName(BlueprintFeature bloodline) {
                 string[] split = Regex.Split(bloodline.name, @"(?<!^)(?=[A-Z])");
-                return $"{split[0]}{split[1]}MetamagicRagerFeatSelection";
+                string second = Regex.IsMatch(bloodline.name, "Second") ? "Second" : "";
+                return $"{split[0]}{second}{split[1]}MetamagicRagerFeatSelection";
             }
         }
     }

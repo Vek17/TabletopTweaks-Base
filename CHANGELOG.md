@@ -1,5 +1,7 @@
 ## Version 2.5.7
 * Fixes
+    * Bloodrager
+        * Fixed TTT issues with Second bloodrager bloodline.
     * Shifter
         * Wild Effigy
             * DR now correctly stacks with Stalwart feat.

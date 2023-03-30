@@ -17,16 +17,20 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 if (m_FreeBlueprint?.Get() == null) { return true; }
                 //TTTContext.Logger.LogVerbose($"{__instance.Owner.CharacterName}: {__instance.Blueprint.name} - {m_FreeBlueprint?.Get()} - HandleUnitLeaveCombat");
                 var OverrideDeactivateIfCombatEnded = m_FreeBlueprint?.Get() != null && __instance.Owner.HasFact(m_FreeBlueprint.Get());
-
+                if (__instance.Blueprint.DeactivateIfCombatEnded && !OverrideDeactivateIfCombatEnded
+                    && __instance.IsStarted
+                ) {
+                    return false;
+                }
                 if (unit != __instance.Owner.Unit
                     || (!__instance.Blueprint.DeactivateIfCombatEnded && !OverrideDeactivateIfCombatEnded)
                     || !__instance.IsStarted
                     || !__instance.Blueprint.DeactivateImmediately) {
-                    return false;
+                    return true;
                 }
-                __instance.Stop(false);
+                return true; //__instance.Stop(false);
                 //TTTContext.Logger.LogVerbose($"{__instance.Owner.CharacterName}: {__instance.Blueprint.name} - {m_FreeBlueprint?.Get()} - HandleUnitLeaveCombat");
-                return false;
+                //return false;
             }
         }
 

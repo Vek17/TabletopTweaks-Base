@@ -45,7 +45,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
 
             var Icon_Withering = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_Withering.png");
 
-            var WitheringHexBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexWitheringHexBuff", bp => {
+            var WitchHexWitheringBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexWitheringBuff", bp => {
                 bp.SetName(TTTContext, "Withering — Stolen Time");
                 bp.SetDescription(TTTContext, "The witch causes a creature within 30 feet to age rapidly, empowering the witch in the process.\n" +
                     "The target ages to the next age category (adult to middle-aged, and so on). " +
@@ -104,15 +104,15 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.Modifier = 1;
                 });
             });
-            var WitheringHexCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexWitheringCooldownBuff", bp => {
+            var WitchHexWitheringCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexWitheringCooldownBuff", bp => {
                 bp.SetName(TTTContext, "Withering Cooldown");
                 bp.SetDescription(TTTContext, "");
                 bp.m_Icon = Icon_Withering;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
             });
-            var WitheringHexAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "WitchHexWitheringAbility", bp => {
+            var WitchHexWitheringAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, "WitchHexWitheringAbility", bp => {
                 bp.SetName(TTTContext, "Withering");
-                bp.SetDescription(WitheringHexBuff.m_Description);
+                bp.SetDescription(WitchHexWitheringBuff.m_Description);
                 bp.SetLocalizedSavingThrow(TTTContext, "Fortitude negates");
                 bp.SetLocalizedDuration(TTTContext, "1 minute/level");
                 bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Reach;
@@ -139,7 +139,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                                 new ContextActionApplyBuff() {
                                     IsFromSpell = true,
                                     ToCaster = true,
-                                    m_Buff = WitheringHexBuff.ToReference<BlueprintBuffReference>(),
+                                    m_Buff = WitchHexWitheringBuff.ToReference<BlueprintBuffReference>(),
                                     DurationValue = new ContextDurationValue() {
                                         Rate = DurationRate.Hours,
                                         BonusValue = new ContextValue() {
@@ -236,7 +236,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                                                 new ContextActionApplyBuff() {
                                                     IsFromSpell = true,
                                                     IsNotDispelable = true,
-                                                    m_Buff = WitheringHexCooldownBuff.ToReference<BlueprintBuffReference>(),
+                                                    m_Buff = WitchHexWitheringCooldownBuff.ToReference<BlueprintBuffReference>(),
                                                     DurationValue = new ContextDurationValue() {
                                                         Rate = DurationRate.Days,
                                                         BonusValue = 1,
@@ -248,7 +248,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                                                 new ContextActionApplyBuff() {
                                                     IsFromSpell = true,
                                                     ToCaster = true,
-                                                    m_Buff = WitheringHexBuff.ToReference<BlueprintBuffReference>(),
+                                                    m_Buff = WitchHexWitheringBuff.ToReference<BlueprintBuffReference>(),
                                                     DurationValue = new ContextDurationValue() {
                                                         Rate = DurationRate.Hours,
                                                         BonusValue = new ContextValue() {
@@ -367,7 +367,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                 });
                 bp.AddComponent<AbilityTargetHasFact>(c => {
                     c.m_CheckedFacts = new BlueprintUnitFactReference[] {
-                        WitheringHexCooldownBuff.ToReference<BlueprintUnitFactReference>()
+                        WitchHexWitheringCooldownBuff.ToReference<BlueprintUnitFactReference>()
                     };
                     c.Inverted = true;
                 });
@@ -390,21 +390,21 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.Descriptor = SpellDescriptor.Hex;
                 });
             });
-            var WitheringHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexWitheringFeature", bp => {
+            var WitchHexWitheringFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexWitheringFeature", bp => {
                 bp.SetName(TTTContext, "Withering");
-                bp.SetDescription(WitheringHexBuff.m_Description);
+                bp.SetDescription(WitchHexWitheringBuff.m_Description);
                 bp.m_Icon = Icon_Withering;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.WitchHex };
                 bp.AddComponent<AddFacts>(c => {
-                    c.m_Facts = new BlueprintUnitFactReference[] { WitheringHexAbility.ToReference<BlueprintUnitFactReference>() };
+                    c.m_Facts = new BlueprintUnitFactReference[] { WitchHexWitheringAbility.ToReference<BlueprintUnitFactReference>() };
                 });
                 bp.AddPrerequisiteFeature(WitchMajorHex);
             });
 
             if (TTTContext.AddedContent.Hexes.IsDisabled("Withering")) { return; }
-            WitchHexSelection.AddFeatures(WitheringHexFeature);
-            WinterWitchWitchHex.AddFeatures(WitheringHexFeature);
+            WitchHexSelection.AddFeatures(WitchHexWitheringFeature);
+            WinterWitchWitchHex.AddFeatures(WitchHexWitheringFeature);
         }
     }
 }
