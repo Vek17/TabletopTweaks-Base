@@ -1,4 +1,5 @@
 ## Version 2.5.7
+* DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.
 * Fixes
     * Bloodrager
         * Fixed TTT issues with Second bloodrager bloodline.
