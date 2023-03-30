@@ -1,6 +1,9 @@
 ## Version 2.5.7
 * DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.
 * Fixes
+    * Barbarian
+        * Instinctual Warrior
+            * Fixed issues where level based AC was not applying correctly.
     * Bloodrager
         * Fixed TTT issues with Second bloodrager bloodline.
     * Shifter
