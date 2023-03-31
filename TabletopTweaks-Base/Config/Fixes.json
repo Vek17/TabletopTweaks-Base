@@ -173,6 +173,11 @@
         "Homebrew": false,
         "Description": "Removes the movement impairing descriptor from nauseated."
       },
+      "SavingThrowCombatLogBreakdowns": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes the combat log breakdowns of saving throws to include the bonus granted from base stats."
+      },
       "SelectiveMetamagicNonInstantaneous": {
         "Enabled": true,
         "Homebrew": false,

@@ -1,6 +1,8 @@
 ## Version 2.5.7
 * DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.
 * Fixes
+    * UI
+        * Saving throw breakdowns in the combat log now will include the bonus granted from attributes.
     * Barbarian
         * Instinctual Warrior
             * Fixed issues where level based AC was not applying correctly.

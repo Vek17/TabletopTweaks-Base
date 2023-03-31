@@ -234,6 +234,7 @@
     <Compile Include="Bugfixes\UI\MythicSpellBookMemorizingUI.cs" />
     <Compile Include="Bugfixes\UI\OvertipFixes.cs" />
     <Compile Include="Bugfixes\UI\ProgressionVisibility.cs" />
+    <Compile Include="Bugfixes\UI\SavingThrowBreakdown.cs" />
     <Compile Include="Bugfixes\UI\SpellTooltips.cs" />
     <Compile Include="Bugfixes\Units\Bosses.cs" />
     <Compile Include="Bugfixes\Units\Enemies.cs" />
