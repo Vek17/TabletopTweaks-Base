@@ -1,5 +1,6 @@
 ## Version 2.5.7
 * DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.
+* Split hex is now a toggle to prevent some potential action blocking edge cases.
 * Fixes
     * UI
         * Saving throw breakdowns in the combat log now will include the bonus granted from attributes.

@@ -4,14 +4,19 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
 namespace TabletopTweaks.Base.NewContent.Feats {
     internal class SplitHex {
@@ -37,6 +42,31 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var MajorAutomaticDescription = Helpers.CreateString(TTTContext, "SplitHexMajorAutomatic.description",
                 "You can split the effect of one of your targeted major hexes, affecting another creature you can see.\n" +
                 "When you use one of your hexes (not a grand hex) that targets a single creature it also affects the closest other valid target within 30 feet.");
+
+            var SplitHexBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "SplitHexBuff", bp => {
+                bp.SetName(TTTContext, "Split Hex");
+                if (TTTContext.AddedContent.Feats.IsEnabled("SplitHexAutomatic")) {
+                    bp.SetDescription(AutomaticDescription);
+                } else {
+                    bp.SetDescription(BaseDescription);
+                }
+                bp.m_Icon = Icon_SplitHex;
+                bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                bp.AddComponent<SplitHexBuffComponent>();
+            });
+            var SplitHexToggleAbility = Helpers.CreateBlueprint<BlueprintActivatableAbility>(TTTContext, "SplitHexToggleAbility", bp => {
+                bp.m_Icon = Icon_SplitHex;
+                bp.SetName(TTTContext, "Split Hex");
+                if (TTTContext.AddedContent.Feats.IsEnabled("SplitHexAutomatic")) {
+                    bp.SetDescription(AutomaticDescription);
+                } else {
+                    bp.SetDescription(BaseDescription);
+                }
+                bp.m_Buff = SplitHexBuff.ToReference<BlueprintBuffReference>();
+                bp.IsOnByDefault = true;
+                bp.DoNotTurnOffOnRest = true;
+                bp.DeactivateImmediately = true;
+            });
             var SplitHexMajor = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "SplitHexMajor", bp => {
                 bp.SetName(TTTContext, "Split Major Hex");
                 bp.m_Icon = Icon_SplitHexMajor;
@@ -63,6 +93,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                         c.m_MajorHex = WitchMajorHex;
                         c.m_GrandHex = WitchGrandHex;
                         c.m_SplitMajorHex = SplitHexMajor.ToReference<BlueprintFeatureReference>();
+                        c.m_SplitHexToggleBuff = SplitHexBuff.ToReference<BlueprintBuffReference>();
                     });
                 } else {
                     bp.SetDescription(BaseDescription);
@@ -72,6 +103,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                         c.m_SplitMajorHex = SplitHexMajor.ToReference<BlueprintFeatureReference>();
                     });
                 }
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { SplitHexToggleAbility.ToReference<BlueprintUnitFactReference>() };
+                });
                 bp.AddPrerequisite<PrerequisiteClassLevel>(c => {
                     c.m_CharacterClass = ClassTools.ClassReferences.WitchClass;
                     c.Level = 10;
