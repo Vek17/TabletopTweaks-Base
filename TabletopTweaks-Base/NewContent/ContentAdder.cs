@@ -39,6 +39,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.AccursedGlare.AddAccursedGlare();
                 Spells.AgeResistance.AddAgeResistance();
                 Spells.SandsOfTime.AddSandsOfTime();
+                Spells.SpellCurse.AddSpellCurse();
 
                 //Added early as some things depend on them for selections
                 Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();

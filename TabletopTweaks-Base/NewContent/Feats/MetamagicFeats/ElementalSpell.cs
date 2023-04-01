@@ -381,7 +381,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     var sourceFact = caster?.GetFact(sourceBlueprint);
                     List<EnergyDamage> toAdd = new List<EnergyDamage>();
                     foreach (BaseDamage baseDamage in evt.DamageBundle) {
-                        if (baseDamage.Type == DamageType.Energy && !baseDamage.Precision) {
+                        if (baseDamage.Type == DamageType.Energy /*&& !baseDamage.Precision*/) {
                             EnergyDamage energyDamage = baseDamage as EnergyDamage;
                             if (energyDamage is null) { continue; }
                             if (energyDamage.EnergyType == element) { continue; }

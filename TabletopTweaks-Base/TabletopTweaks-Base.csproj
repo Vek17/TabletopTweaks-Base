@@ -448,6 +448,7 @@
     <Compile Include="NewContent\Spells\MagicalTailSpells.cs" />
     <Compile Include="NewContent\Spells\SandsOfTime.cs" />
     <Compile Include="NewContent\Spells\ShadowEnchantment.cs" />
+    <Compile Include="NewContent\Spells\SpellCurse.cs" />
     <Compile Include="NewContent\Spells\StunningBarrierGreater.cs" />
     <Compile Include="NewContent\Spells\WebBolt.cs" />
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
@@ -483,6 +484,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_AccursedGlare.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_Spellcurse.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Equipment\Icon_ScrollOfSpellcurse.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_AccursedHex.png">

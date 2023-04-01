@@ -71,6 +71,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 TTTContext.Logger.LogHeader("Patching Magus Resources");
 
                 PatchBase();
+                PatchHexcrafter();
                 PatchSwordSaint();
             }
             static void PatchBase() {
@@ -104,6 +105,41 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         ArcaneWeaponShockingBurstChoice_TTT.ToReference<BlueprintUnitFactReference>()
                     );
                     TTTContext.Logger.LogPatch("Patched", ArcaneWeaponPlus3);
+                }
+            }
+            static void PatchHexcrafter() {
+                PatchHexcrafterSpells();
+
+                void PatchHexcrafterSpells() {
+                    var HexcrafterSpells = BlueprintTools.GetBlueprint<BlueprintFeature>("8122e8b3ddb1e184ebf6decc8b1403b5");
+                    var BestowCurseGreater = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6101d0f0720927e4ca413de7b3c4b7e5");
+                    var AccursedGlareAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "AccursedGlareAbility");
+                    var SpellCurseAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "SpellCurseAbility");
+
+                    HexcrafterSpells.TemporaryContext(bp => {
+                        bp.AddComponent<AddKnownSpell>(c => {
+                            c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
+                            c.m_Archetype = new BlueprintArchetypeReference();
+                            c.m_Spell = BestowCurseGreater;
+                            c.SpellLevel = 6;
+                        });
+                        if (TTTContext.AddedContent.Spells.IsEnabled("AccursedGlare")) {
+                            bp.AddComponent<AddKnownSpell>(c => {
+                                c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
+                                c.m_Archetype = new BlueprintArchetypeReference();
+                                c.m_Spell = AccursedGlareAbility;
+                                c.SpellLevel = 3;
+                            });
+                        }
+                        if (TTTContext.AddedContent.Spells.IsEnabled("SpellCurse")) {
+                            bp.AddComponent<AddKnownSpell>(c => {
+                                c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
+                                c.m_Archetype = new BlueprintArchetypeReference();
+                                c.m_Spell = SpellCurseAbility;
+                                c.SpellLevel = 3;
+                            });
+                        }
+                    });
                 }
             }
             static void PatchSwordSaint() {

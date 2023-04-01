@@ -1,6 +1,7 @@
 ## Version 2.5.7
 * DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.
 * Split hex is now a toggle to prevent some potential action blocking edge cases.
+* Elemental Spell now correctly works with Arcane Trickster Sneak Spells.
 * Fixes
     * UI
         * Saving throw breakdowns in the combat log now will include the bonus granted from attributes.
@@ -35,6 +36,9 @@
     * Mythic Feats
         * Accursed Hex Mythic
             * When you use Accursed Hex to target a creature with one of your hexes a second time, that creature must roll its saving throw twice and take the lower result.
+    * Spells
+        * Spell Curse
+            * The target takes 1d6 points of damage for each spell with a duration of 1 round or greater currently affecting it. The spells themselves are not dispelled or modified.
 
 ## Version 2.5.6
 * Fixes

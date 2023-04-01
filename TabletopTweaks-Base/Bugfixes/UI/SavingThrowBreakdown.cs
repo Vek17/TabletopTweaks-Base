@@ -1,32 +1,40 @@
 ﻿using HarmonyLib;
-using Kingmaker;
-using Kingmaker.Armies.TacticalCombat;
 using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.Blueprints.Root;
-using Kingmaker.Controllers.Combat;
-using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
-using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UI.Common;
-using Kingmaker.UnitLogic;
-using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 using TabletopTweaks.Core.MechanicsChanges;
-using TurnBased.Controllers;
 using static TabletopTweaks.Base.Main;
-using Kingmaker.Blueprints.Root.Strings.GameLog;
 
 namespace TabletopTweaks.Base.Bugfixes.UI {
     internal class SavingThrowBreakdown {
-        [HarmonyPatch(typeof(SavingThrowMessage), nameof(SavingThrowMessage.GetData))]
+
+        [HarmonyPatch(typeof(RuleSavingThrow), nameof(RuleSavingThrow.SetStatValueFromThrow))]
+        static class RuleSavingThrow_SetStatValueFromThrow_Patch {
+            static void Postfix(RuleSavingThrow __instance, ModifiableValueSavingThrow stat) {
+                if (TTTContext.Fixes.BaseFixes.IsDisabled("SavingThrowCombatLogBreakdowns")) { return; }
+                using (stat.GetTemporaryModifiersScope(__instance.AllBonuses)) {
+                    var newModifiers = new List<ModifiableValue.Modifier>() {
+                        new ModifiableValue.Modifier(){
+                            ModValue = stat.BaseStat.Bonus,
+                            ModDescriptor = AdditionalModifierDescriptors.GetUntypedDescriptor(stat.BaseStat.Type),
+                            StackMode = ModifiableValue.StackMode.Default
+                        }
+                    };
+                    newModifiers.AddRange(__instance.StatModifiersAtTheMoment);
+                    __instance.StatModifiersAtTheMoment = newModifiers;
+                }
+            }
+        }
+
+        //[HarmonyPatch(typeof(SavingThrowMessage), nameof(SavingThrowMessage.GetData))]
         static class SavingThrowMessage_GetData_Patch {
             // ------------before------------
             // (this.IsTargetFlatFooted || this.Target.CombatState.IsFlanked);

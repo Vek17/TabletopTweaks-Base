@@ -288,7 +288,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
 
             var ScrollOfSandsOfTime = ItemTools.CreateScroll(TTTContext, "ScrollOfSandsOfTime", Icon_ScrollOfSandsOfTime, SandsOfTimeCast, 3, 5);
 
-            if (TTTContext.AddedContent.Spells.IsDisabled("AccursedGlare")) { return; }
+            if (TTTContext.AddedContent.Spells.IsDisabled("SandsOfTime")) { return; }
 
             VenderTools.AddScrollToLeveledVenders(ScrollOfSandsOfTime);
 

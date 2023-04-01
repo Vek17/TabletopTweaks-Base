@@ -658,6 +658,11 @@
         "Homebrew": false,
         "Description": "All magical effects and magic items within the radius of the spell, except for those that you carry or touch, are disjoined. That is, spells and spell-like effects are unraveled and destroyed completely (ending the effect as a dispel magic spell does), and each permanent magic item must make a successful Will save or be turned into a normal item for the duration of this spell."
       },
+      "SandsOfTime": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You temporarily age the target, immediately advancing it to the next age category."
+      },
       "ShadowEnchantment": {
         "Enabled": true,
         "Homebrew": false,
@@ -667,6 +672,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it's only three-fifths (60%) as effective."
+      },
+      "SpellCurse": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You disrupt any spell energy affecting your target, causing that energy to crackle with power and harm the target."
       },
       "StunningBarrierGreater": {
         "Enabled": true,

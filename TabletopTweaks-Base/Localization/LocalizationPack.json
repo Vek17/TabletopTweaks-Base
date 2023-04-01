@@ -254,6 +254,50 @@
       "esES": null
     },
     {
+      "Key": "144ae4054cf04ad6bf120cd512f0a4b3",
+      "SimpleName": "AccursedHexBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Accursed Hex",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fcf48dcd32ec45a481de759b8b82144c",
+      "SimpleName": "AccursedHexFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When you target a creature with a hex that cannot target the same creature more than once per day, and that creature succeeds at its saving throw against the hex’s effect, you can target the creature with the same hex a second time before the end of your next turn. If the second attempt fails, you can make no further attempts to target that creature with the same hex for 1 day. ",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6dcd8cd567404910b445b76c075c485c",
+      "SimpleName": "AccursedHexMythicFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When you use Accursed Hex to target a creature with one of your hexes a second time, that creature must roll its saving throw twice and take the lower result.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cf35941211894f73a2b0dd4a17e7dfc6",
+      "SimpleName": "AccursedHexMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Accursed Hex (Mythic)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "fda6a12008ac40dc9d42cf138af26f20",
       "SimpleName": "AcidResistance10Enchant.Prefix",
       "ProcessTemplates": false,
@@ -1596,10 +1640,10 @@
       "esES": null
     },
     {
-      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
+      "Key": "854204882b884cbe996c29be0716c21b",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1607,10 +1651,10 @@
       "esES": null
     },
     {
-      "Key": "854204882b884cbe996c29be0716c21b",
+      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2784,17 +2828,6 @@
       "esES": null
     },
     {
-      "Key": "9f48856f97714024a5cb846de75da34e",
-      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
-      "ProcessTemplates": false,
-      "enGB": "Transfer Arcana — Magus",
-      "ruRU": "Перенос мистической энергии - магус",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "秘法转换 — 魔战士",
-      "esES": null
-    },
-    {
       "Key": "add3b25fd1214142995be3b8965b0bc8",
       "SimpleName": "BlackBladeTransferArcanaAbility.Name",
       "ProcessTemplates": false,
@@ -2803,6 +2836,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "秘法转换",
+      "esES": null
+    },
+    {
+      "Key": "9f48856f97714024a5cb846de75da34e",
+      "SimpleName": "BlackBladeTransferArcanaAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Transfer Arcana — Magus",
+      "ruRU": "Перенос мистической энергии - магус",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "秘法转换 — 魔战士",
       "esES": null
     },
     {
@@ -3851,17 +3895,6 @@
       "esES": null
     },
     {
-      "Key": "37df8bdd9bcf476e82186546ba976884",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Flaming",
-      "ruRU": "Огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "炽焰",
-      "esES": null
-    },
-    {
       "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3870,6 +3903,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "焚炎",
+      "esES": null
+    },
+    {
+      "Key": "37df8bdd9bcf476e82186546ba976884",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Flaming",
+      "ruRU": "Огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -5501,17 +5545,6 @@
       "esES": null
     },
     {
-      "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Incinerating",
-      "ruRU": "Великий испепеляющий",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古焚炎",
-      "esES": null
-    },
-    {
       "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -5520,6 +5553,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古炽焰",
+      "esES": null
+    },
+    {
+      "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Incinerating",
+      "ruRU": "Великий испепеляющий",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "古焚炎",
       "esES": null
     },
     {
@@ -6722,17 +6766,6 @@
       "esES": null
     },
     {
-      "Key": "b099256da46145e89582ec13b2962ec9",
-      "SimpleName": "FlaringSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Flaring",
-      "ruRU": "Ослепляющее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "闪耀",
-      "esES": null
-    },
-    {
       "Key": "078e11e00ef54879ba90f07cccae313d",
       "SimpleName": "FlaringSpellMetamagic",
       "ProcessTemplates": false,
@@ -6741,6 +6774,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
+      "esES": null
+    },
+    {
+      "Key": "b099256da46145e89582ec13b2962ec9",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Flaring",
+      "ruRU": "Ослепляющее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "闪耀",
       "esES": null
     },
     {
@@ -7646,17 +7690,6 @@
       "esES": null
     },
     {
-      "Key": "5effb1dfff10434d8af19691362dab9c",
-      "SimpleName": "IntensifiedSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Intensified",
-      "ruRU": "Насыщенное",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "强化",
-      "esES": null
-    },
-    {
       "Key": "42fddf6342a544bc85b6647c3db42f3b",
       "SimpleName": "IntensifiedSpellMetamagic",
       "ProcessTemplates": false,
@@ -7665,6 +7698,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
+      "esES": null
+    },
+    {
+      "Key": "5effb1dfff10434d8af19691362dab9c",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Intensified",
+      "ruRU": "Насыщенное",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "强化",
       "esES": null
     },
     {
@@ -10803,17 +10847,6 @@
       "esES": null
     },
     {
-      "Key": "f467d13c43764235a30cb4aca2e1edcf",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Piercing",
-      "ruRU": "Пробивающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "穿刺",
-      "esES": null
-    },
-    {
       "Key": "c4211dd8fabd410ab02c99ff971911ed",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -10822,6 +10855,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f467d13c43764235a30cb4aca2e1edcf",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Piercing",
+      "ruRU": "Пробивающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "穿刺",
       "esES": null
     },
     {
@@ -12486,6 +12530,39 @@
       "esES": null
     },
     {
+      "Key": "94535baf3c8843b6a5538e6b0940c2dd",
+      "SimpleName": "SpellCurseAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "You disrupt any spell energy affecting your target, causing that energy to crackle with power and harm the target. The target takes 1d6 points of damage for each spell with a duration of 1 round or greater currently affecting it. The spells themselves are not dispelled or modified.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "aaad4837529342b3a2ba244b81dda169",
+      "SimpleName": "SpellCurseAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Spellcurse",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "59d212f40fb04f20b6ac8db0bed5f697",
+      "SimpleName": "SpellCurseAbility.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Will half",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "23cfda52f52f49caa16d970dc0fb358f",
       "SimpleName": "SpellResistance13Enchant.Prefix",
       "ProcessTemplates": false,
@@ -12772,17 +12849,6 @@
       "esES": null
     },
     {
-      "Key": "958a06d1423b4ee28e8425a87fa79967",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "Will negates stun",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "意志，免除震慑",
-      "esES": null
-    },
-    {
       "Key": "9b3ade0576a54a5292186ebfbacb48bf",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12802,6 +12868,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "轮/级，或直到到效果消散",
+      "esES": null
+    },
+    {
+      "Key": "958a06d1423b4ee28e8425a87fa79967",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Will negates stun",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "意志，免除震慑",
       "esES": null
     },
     {
