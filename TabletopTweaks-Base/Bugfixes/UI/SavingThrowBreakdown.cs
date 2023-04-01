@@ -24,7 +24,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                     var newModifiers = new List<ModifiableValue.Modifier>() {
                         new ModifiableValue.Modifier(){
                             ModValue = stat.BaseStat.Bonus,
-                            ModDescriptor = AdditionalModifierDescriptors.GetUntypedDescriptor(stat.BaseStat.Type),
+                            ModDescriptor = AdditionalModifierDescriptors.GetStatDescriptor(stat.BaseStat.Type),
                             StackMode = ModifiableValue.StackMode.Default
                         }
                     };
