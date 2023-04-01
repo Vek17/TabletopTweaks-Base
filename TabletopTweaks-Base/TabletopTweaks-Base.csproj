@@ -205,6 +205,7 @@
     <Compile Include="Bugfixes\Features\MythicAbilities.cs" />
     <Compile Include="Bugfixes\Features\MythicFeats.cs" />
     <Compile Include="Bugfixes\Features\Tailwinds.cs" />
+    <Compile Include="Bugfixes\Features\Types.cs" />
     <Compile Include="Bugfixes\General\AreaOfEffectsTick.cs" />
     <Compile Include="Bugfixes\General\ArmorEnhancementBonuses.cs" />
     <Compile Include="Bugfixes\General\PrebuffCasterCLFix.cs" />

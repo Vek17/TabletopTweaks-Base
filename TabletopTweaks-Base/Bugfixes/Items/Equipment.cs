@@ -212,8 +212,8 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                     var BracersOfArcher = BlueprintTools.GetBlueprint<BlueprintItemEquipment>("0e7a0b96f67660c4ca74786c187a02d2");
                     var BracersOfArcheryLesser = BlueprintTools.GetBlueprint<BlueprintItemEquipment>("01d51ff5f3db2164b88aaa662a9b0f2e");
-                    var ArcheryEnchantment = BlueprintTools.GetBlueprint<BlueprintItemEquipmentNeck>("366f3ce5832e547489a13ce6101d411e");
-                    var ArcheryLesserEnchantment = BlueprintTools.GetBlueprint<BlueprintItemEquipmentNeck>("d695146c6c6dcfd48980406a280faca1");
+                    var ArcheryEnchantment = BlueprintTools.GetBlueprint<BlueprintEquipmentEnchantment>("366f3ce5832e547489a13ce6101d411e");
+                    var ArcheryLesserEnchantment = BlueprintTools.GetBlueprint<BlueprintEquipmentEnchantment>("d695146c6c6dcfd48980406a280faca1");
                     var ArcheryBonuses = BlueprintTools.GetBlueprint<BlueprintFeature>("136adc54467964446b2e790c1698d93a");
                     var ArcheryBonusesLesser = BlueprintTools.GetBlueprint<BlueprintFeature>("1440703181bc6e54487b4673e73af34e");
                     var ShortbowProficiencyBracersOfArchery = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("b55f72cc64808a34fba65c5e0636ab18");
@@ -324,7 +324,17 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         .UnitExit = Helpers.CreateActionList(
                             Helpers.Create<ContextActionRemoveBuff>(a => a.m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>())
                     );
+                    Artifact_HolySymbolOfIomedaeBuff.AddComponent<AddOutgoingPhysicalDamageProperty>(c => {
+                        c.m_WeaponType = new BlueprintWeaponTypeReference();
+                        c.m_UnitFact = new BlueprintUnitFactReference();
+                        c.Material = PhysicalDamageMaterial.ColdIron;
+                        c.Alignment = DamageAlignment.Good;
+                        c.AddAlignment = true;
+                        c.AddMaterial = true;
+                        c.AffectAnyPhysicalDamage = true;
+                    });
                     TTTContext.Logger.LogPatch(Artifact_HolySymbolOfIomedaeArea);
+                    TTTContext.Logger.LogPatch(Artifact_HolySymbolOfIomedaeBuff);
                 }
                 // Fix Mangling Frenzy does not apply to Bloodrager's Rage
                 void PatchManglingFrenzy() {
