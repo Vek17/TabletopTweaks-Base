@@ -579,9 +579,9 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "The target ages to the next age category. The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier."
-      },
-      "IsExpanded": true
-    }
+      }
+    },
+    "IsExpanded": true
   },
   "Races": {
     "DisableAll": false,
