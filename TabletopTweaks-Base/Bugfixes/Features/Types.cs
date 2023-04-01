@@ -22,7 +22,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchAlignmentTypes();
 
                 static void PatchAlignmentTypes() {
-                    //if (TTTContext.Fixes.BaseFixes.IsDisabled("StaggeredDescriptors")) { return; }
+                    if (TTTContext.Fixes.BaseFixes.IsDisabled("FixAlignmentSubtypes")) { return; }
 
                     var SubtypeGood = BlueprintTools.GetBlueprint<BlueprintFeature>("23247ff3b44fd3a42ab752cd04e629b0");
                     var SubtypeEvil = BlueprintTools.GetBlueprint<BlueprintFeature>("5279fc8380dd9ba419b4471018ffadd1");

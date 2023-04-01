@@ -83,6 +83,11 @@
         "Homebrew": false,
         "Description": "Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type."
       },
+      "FixAlignmentSubtypes": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Alignment subtypes now correctly apply thier outgoing damage alignments."
+      },
       "FixBackgroundModifiers": {
         "Enabled": true,
         "Homebrew": true,
