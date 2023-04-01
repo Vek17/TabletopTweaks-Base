@@ -111,6 +111,8 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchHexcrafterSpells();
 
                 void PatchHexcrafterSpells() {
+                    if (TTTContext.Fixes.Magus.Archetypes["Hexcrafter"].IsDisabled("Spells")) { return; }
+
                     var HexcrafterSpells = BlueprintTools.GetBlueprint<BlueprintFeature>("8122e8b3ddb1e184ebf6decc8b1403b5");
                     var BestowCurseGreater = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6101d0f0720927e4ca413de7b3c4b7e5");
                     var AccursedGlareAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "AccursedGlareAbility");

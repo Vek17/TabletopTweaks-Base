@@ -756,6 +756,17 @@
       "IsExpanded": true
     },
     "Archetypes": {
+      "Hexcrafter": {
+        "DisableAll": false,
+        "Settings": {
+          "Spells": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Updates bonus spells to include missing curse spells."
+          }
+        },
+        "IsExpanded": true
+      },
       "SwordSaint": {
         "DisableAll": false,
         "Settings": {

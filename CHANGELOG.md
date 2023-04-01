@@ -10,6 +10,9 @@
             * Fixed issues where level based AC was not applying correctly.
     * Bloodrager
         * Fixed TTT issues with Second bloodrager bloodline.
+    * Magus
+        * Hexcrafter
+            * Bonus spells have been updated to include missing spells.
     * Shifter
         * Wild Effigy
             * DR now correctly stacks with Stalwart feat.
