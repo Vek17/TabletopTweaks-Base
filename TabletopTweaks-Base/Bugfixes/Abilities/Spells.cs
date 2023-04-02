@@ -1598,17 +1598,37 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
             static void PatchFreedomOfMovement() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FreedomOfMovement")) { return; }
 
+                var SeamantleBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("1c05dd3a1c78b0e4e9f7438a43e7a9fd");
                 var FreedomOfMovementBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("1533e782fca42b84ea370fc1dcbf4fc1");
                 var FreedomOfMovementBuffPermanent = BlueprintTools.GetBlueprint<BlueprintBuff>("235533b62159790499ced35860636bb2");
                 var FreedomOfMovementBuff_FD = BlueprintTools.GetBlueprint<BlueprintBuff>("60906dd9e4ddec14c8ac9a0f4e47f54c");
                 var DLC3_FreedomOfMovementBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("d6fb42ec153f4d699e57891522d7f4c9");
                 var FreedomOfMovementLinnorm = BlueprintTools.GetBlueprint<BlueprintBuff>("67519ff6ba615c045afca2347608bfe3");
+                var BootsOfFreeReinBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("7ac8effd6341443d98da735b965b0176");
+                var BootsOfFreeReinBuff2 = BlueprintTools.GetBlueprint<BlueprintBuff>("e24e9c0d77144663815c69e969ac4fdb");
 
                 RemoveStaggerImmunity(FreedomOfMovementBuff);
                 RemoveStaggerImmunity(FreedomOfMovementBuffPermanent);
                 RemoveStaggerImmunity(FreedomOfMovementBuff_FD);
                 RemoveStaggerImmunity(DLC3_FreedomOfMovementBuff);
                 RemoveStaggerImmunity(FreedomOfMovementLinnorm);
+                RemoveStaggerImmunity(BootsOfFreeReinBuff);
+                RemoveStaggerImmunity(BootsOfFreeReinBuff2);
+
+                SeamantleBuff.TemporaryContext(bp => {
+                    bp.GetComponent<ACBonusUnlessFactMultiple>()?.TemporaryContext(c => { 
+                        c.m_Facts = new BlueprintUnitFactReference[]{
+                            FreedomOfMovementBuff.ToReference<BlueprintUnitFactReference>(),
+                            FreedomOfMovementBuffPermanent.ToReference<BlueprintUnitFactReference>(),
+                            FreedomOfMovementBuff_FD.ToReference<BlueprintUnitFactReference>(),
+                            DLC3_FreedomOfMovementBuff.ToReference<BlueprintUnitFactReference>(),
+                            FreedomOfMovementLinnorm.ToReference<BlueprintUnitFactReference>(),
+                            BootsOfFreeReinBuff.ToReference<BlueprintUnitFactReference>(),
+                            BootsOfFreeReinBuff2.ToReference<BlueprintUnitFactReference>(),
+                        };
+                    });
+                });
+                TTTContext.Logger.LogPatch(SeamantleBuff);
 
                 static void RemoveStaggerImmunity(BlueprintBuff buff) {
                     buff.RemoveComponents<AddConditionImmunity>(p => p.Condition == UnitCondition.Staggered);

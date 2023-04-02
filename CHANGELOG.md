@@ -19,6 +19,9 @@
     * Mythic Abilities
         * Best Jokes
             * Now correctly copies the spell DC, metamagic, and does not get zippy magiced an extra time.
+    * Spells
+        * Freedom of Movement
+            * Should now more correctly get negate Sea Mantle.
 * Adjustments
     * Witch
         * Cauldron Witch
