@@ -279,6 +279,11 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.MetamagicFeats.SolidShadows.UpdateSpells();
                 Feats.MetamagicFeats.ElementalSpell.UpdateSpells();
             }
+            [HarmonyPriority(Priority.Last)]
+            [HarmonyPostfix]
+            static void ApplyLateSelections() {
+                AlternateCapstones.Inquisitor.UpdateTeamworkFeats();
+            }
         }
     }
 }
