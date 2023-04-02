@@ -129,9 +129,9 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
-                        new Conditional() { 
-                            ConditionsChecker = new ConditionsChecker() { 
-                                Conditions = new Condition[] { 
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Conditions = new Condition[] {
                                     new ContextConditionIsAlly()
                                 }
                             },
@@ -152,7 +152,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                                 new Conditional() {
                                     ConditionsChecker = new ConditionsChecker() {
                                         Conditions = new Condition[] {
-                                            new ContextConditionHasBuff(){ 
+                                            new ContextConditionHasBuff(){
                                                 m_Buff = DLC3_HasteIslandAge3
                                             }
                                         }

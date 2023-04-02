@@ -4,18 +4,18 @@ using Kingmaker.Craft;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
-using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using TabletopTweaks.Core.Utilities;
-using static TabletopTweaks.Base.Main;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using TabletopTweaks.Core.NewComponents.Properties;
-using Kingmaker.UnitLogic.Abilities.Components.Base;
+using TabletopTweaks.Core.Utilities;
+using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent.Spells {
     internal class SpellCurse {

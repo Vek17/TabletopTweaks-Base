@@ -679,7 +679,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                         c.m_Progression = ContextRankProgression.AsIs;
                     });
                 });
-                
+
 
                 // Fix: DragonAzataFeatureTierII should be DR 5/lawful, but was DR 5/-
                 BlueprintFeature DragonAzataFeatureTierII = BlueprintTools.GetBlueprint<BlueprintFeature>("fc2aeb954e13811488d38dc1af72ef9c");

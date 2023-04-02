@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.Blueprints.Root;
+using Kingmaker.Blueprints.Root.Strings;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem.Rules;
@@ -44,8 +44,8 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
             static readonly MethodInfo StatModifiersBreakdown_AddModifiers = AccessTools.Method(
                 typeof(StatModifiersBreakdown),
                 "AddModifiers",
-                parameters: new Type[] { 
-                    typeof(IEnumerable<ModifiableValue.Modifier>), typeof(bool) 
+                parameters: new Type[] {
+                    typeof(IEnumerable<ModifiableValue.Modifier>), typeof(bool)
                 }
             );
             static readonly MethodInfo SavingThrowMessage_GetData_Patch_AddStatText = AccessTools.Method(
@@ -58,7 +58,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                 var codes = new List<CodeInstruction>(instructions);
                 var index = FindInsertionTarget(codes);
                 //ILUtils.LogIL(TTTContext, codes);
-                codes.InsertRange(index, 
+                codes.InsertRange(index,
                     new CodeInstruction[] {
                         new CodeInstruction(OpCodes.Ldarg_1),
                         new CodeInstruction(OpCodes.Call, SavingThrowMessage_GetData_Patch_AddStatText)

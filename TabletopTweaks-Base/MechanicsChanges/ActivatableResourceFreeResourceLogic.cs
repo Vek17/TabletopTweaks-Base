@@ -1,7 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Units;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using static TabletopTweaks.Base.Main;
@@ -25,7 +24,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 //TTTContext.Logger.LogVerbose($"{__instance.Owner.CharacterName}: {__instance.Blueprint.name} - {m_FreeBlueprint?.Get()} - HandleUnitLeaveCombat");
                 //return false;
             }
-            
+
         }
 
         [HarmonyPatch(typeof(ActivatableAbility), "OnNewRound")]
@@ -43,10 +42,9 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 var OverrideDeactivateIfCombatEnded = m_FreeBlueprint?.Get() != null && __instance.Owner.HasFact(m_FreeBlueprint.Get());
 
                 if (!(__instance.m_ShouldBeDeactivatedInNextRound || !__instance.IsOn || !__instance.IsAvailable)
-                     && OverrideDeactivateIfCombatEnded)
-                {
+                     && OverrideDeactivateIfCombatEnded) {
                     return false;
-                } 
+                }
                 //TTTContext.Logger.LogVerbose($"{__instance.Owner.CharacterName}: {__instance.Blueprint.name} - {m_FreeBlueprint?.Get()} - OnNewRound - RETURN");
                 return true;
             }

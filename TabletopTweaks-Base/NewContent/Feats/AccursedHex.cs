@@ -1,8 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
@@ -10,7 +8,6 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using System.Linq;
-using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -58,7 +55,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.m_MythicFeature = AccursedHexMythicFeature.ToReference<BlueprintFeatureReference>();
                     c.m_AccursedBuff = AccursedHexBuff.ToReference<BlueprintBuffReference>();
                 });
-                bp.AddPrerequisiteFeaturesFromList(1, 
+                bp.AddPrerequisiteFeaturesFromList(1,
                     WitchHexSelection,
                     ShamanHexSelection,
                     HexcrafterMagusHexMagusSelection,

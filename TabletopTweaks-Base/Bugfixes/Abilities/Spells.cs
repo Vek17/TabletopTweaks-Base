@@ -1616,7 +1616,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 RemoveStaggerImmunity(BootsOfFreeReinBuff2);
 
                 SeamantleBuff.TemporaryContext(bp => {
-                    bp.GetComponent<ACBonusUnlessFactMultiple>()?.TemporaryContext(c => { 
+                    bp.GetComponent<ACBonusUnlessFactMultiple>()?.TemporaryContext(c => {
                         c.m_Facts = new BlueprintUnitFactReference[]{
                             FreedomOfMovementBuff.ToReference<BlueprintUnitFactReference>(),
                             FreedomOfMovementBuffPermanent.ToReference<BlueprintUnitFactReference>(),

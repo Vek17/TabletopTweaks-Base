@@ -1,19 +1,15 @@
 ﻿using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Craft;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
-using Kingmaker.Enums.Damage;
-using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -178,9 +174,9 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
-                        new Conditional() { 
-                            ConditionsChecker = new ConditionsChecker() { 
-                                Conditions = new Condition[] { 
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Conditions = new Condition[] {
                                     new ContextConditionHasFact() {
                                         m_Fact = ConstructType
                                     },
@@ -272,7 +268,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.AddComponent<AbilityEffectStickyTouch>(c => {
                     c.m_TouchDeliveryAbility = SandsOfTimeEffect.ToReference<BlueprintAbilityReference>();
                 });
-                bp.AddComponent<AbilityDeliverTouch>(c  => {
+                bp.AddComponent<AbilityDeliverTouch>(c => {
                     c.m_TouchWeapon = TouchItem;
                 });
                 bp.AddComponent<SpellComponent>(c => {

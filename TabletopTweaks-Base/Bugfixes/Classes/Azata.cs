@@ -1,30 +1,18 @@
 ﻿using HarmonyLib;
-using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using TabletopTweaks.Core.NewComponents.AbilitySpecific;
-using TabletopTweaks.Core.NewComponents;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
-using Kingmaker.UnitLogic.Mechanics;
-using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
-using Kingmaker.Blueprints;
-using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
-using Kingmaker.ElementsSystem;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.Designers.EventConditionActionSystem.Actions;
-using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.ActivatableAbilities;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     internal class Azata {
@@ -72,8 +60,8 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         bp.SetComponents();
                         bp.AddComponent<AbilityAreaEffectBuff>(c => {
                             c.m_Buff = SongOfCourageousDefenderEffectBuff;
-                            c.Condition = new ConditionsChecker() { 
-                                Conditions = new Condition[] { 
+                            c.Condition = new ConditionsChecker() {
+                                Conditions = new Condition[] {
                                     new ContextConditionIsAlly(),
                                     new ContextConditionHasBuffFromCaster() {
                                         m_Buff = SongOfCourageousDefenderCompanionBuff.ToReference<BlueprintBuffReference>()
@@ -86,13 +74,13 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.UnitEnter = Helpers.CreateActionList(
                                 new Conditional() {
                                     ConditionsChecker = new ConditionsChecker() {
-                                        Conditions = new Condition[] { 
+                                        Conditions = new Condition[] {
                                             new ContextConditionIsEnemy()
                                         }
                                     },
                                     IfFalse = Helpers.CreateActionList(),
                                     IfTrue = Helpers.CreateActionList(
-                                        new ContextActionSavingThrow() { 
+                                        new ContextActionSavingThrow() {
                                             Type = SavingThrowType.Will,
                                             CustomDC = new ContextValue(),
                                             Actions = Helpers.CreateActionList(
@@ -108,9 +96,9 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                                                 DiceCountValue = new ContextValue(),
                                                                 BonusValue = new ContextValue()
                                                             }
-                                                        }    
+                                                        }
                                                     )
-                                                }    
+                                                }
                                             )
                                         }
                                     )

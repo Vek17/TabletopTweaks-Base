@@ -1,14 +1,12 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Craft;
-using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
@@ -134,7 +132,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.ResourceAssetIds = new string[0];
                 bp.AddComponent<AbilityEffectRunAction>(c => {
                     c.Actions = Helpers.CreateActionList(
-                        new ContextActionRemoveBuff() { 
+                        new ContextActionRemoveBuff() {
                             m_Buff = AgeResistanceLesserBuff.ToReference<BlueprintBuffReference>()
                         },
                         new ContextActionApplyBuff() {

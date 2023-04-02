@@ -4,8 +4,6 @@ using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Designers.Mechanics.Facts;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -35,7 +33,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                         BrewPotions.ToReference<BlueprintUnitFactReference>()
                     };
                 });
-                bp.AddPrerequisite<PrerequisiteNoFeature>(c => { 
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
                     c.m_Feature = BrewPotions.ToReference<BlueprintFeatureReference>();
                 });
             });
