@@ -90,12 +90,12 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 void PatchMonkACBonus() {
                     if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
 
+                    var InstinctualWarriorArchetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("adffdd8a99094a89823a79292a503ee9");
                     var MonkACBonusUnlock = BlueprintTools.GetBlueprint<BlueprintFeature>("2615c5f87b3d72b42ac0e73b56d895e0");
                     var MonkACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f132c4c4279e4646a05de26635941bfe");
+                    var MonkACBonusBuffUnarmored = BlueprintTools.GetBlueprint<BlueprintBuff>("d7ff7a9f1fe84e679f98b36e4bacd63c");
 
                     MonkACBonusBuff.TemporaryContext(bp => {
-                        bp.SetName(MonkACBonusUnlock.m_DisplayName);
-                        bp.SetDescription(TTTContext, "");
                         bp.IsClassFeature = true;
                         bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                         bp.SetComponents();
@@ -105,15 +105,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.Value = new ContextValue() {
                                 ValueType = ContextValueType.Rank,
                                 ValueRank = AbilityRankType.StatBonus
-                            };
-                            c.Multiplier = 1;
-                        });
-                        bp.AddComponent<AddContextStatBonus>(c => {
-                            c.Stat = StatType.AC;
-                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
-                            c.Value = new ContextValue() {
-                                ValueType = ContextValueType.Rank,
-                                ValueRank = AbilityRankType.Default
                             };
                             c.Multiplier = 1;
                         });
@@ -127,15 +118,38 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.m_UseMin = true;
                             c.m_Min = 0;
                         });
+                    });
+                    MonkACBonusBuffUnarmored.TemporaryContext(bp => {
+                        bp.IsClassFeature = true;
+                        bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnStatChange>();
+                        bp.AddComponent<RecalculateOnFactsChange>();
                         bp.AddContextRankConfig(c => {
-                            c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                            c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
                             c.m_Type = AbilityRankType.Default;
                             c.m_Progression = ContextRankProgression.DivStep;
                             c.m_StepLevel = 4;
-                            c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.ShifterClass };
+                            c.m_Class = new BlueprintCharacterClassReference[] { 
+                                ClassTools.ClassReferences.MonkClass, 
+                                ClassTools.ClassReferences.BarbarianClass,
+                                ClassTools.ClassReferences.ShifterClass,
+                            };
+                            c.Archetype = InstinctualWarriorArchetype;
+                            c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
                         });
                     });
                     TTTContext.Logger.LogPatch(MonkACBonusBuff);
+                    TTTContext.Logger.LogPatch(MonkACBonusBuffUnarmored);
                 }
                 void PatchStunningFistVarriants() {
                     if (TTTContext.Fixes.Monk.Base.IsDisabled("StunningFistVarriants")) { return; }
@@ -348,12 +362,13 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 void PatchACBonus() {
                     if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
 
+                    var InstinctualWarriorArchetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("adffdd8a99094a89823a79292a503ee9");
                     var ScaledFistACBonusUnlock = BlueprintTools.GetBlueprint<BlueprintFeature>("2a8922e28b3eba54fa7a244f7b05bd9e");
                     var ScaledFistACBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("3929bfd1beeeed243970c9fc0cf333f8");
+                    var ScaledFistACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("64acb179cc6a4f19bb3513d094b28d02");
+                    var ScaledFistACBonusUnarmoredBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("59a10a29d67f4505b1a0ac31ace427e5");
 
-                    ScaledFistACBonus.TemporaryContext(bp => {
-                        bp.SetName(ScaledFistACBonusUnlock.m_DisplayName);
-                        bp.SetDescription(TTTContext, "");
+                    ScaledFistACBonusBuff.TemporaryContext(bp => {
                         bp.IsClassFeature = true;
                         bp.SetComponents();
                         bp.AddComponent<AddContextStatBonus>(c => {
@@ -362,15 +377,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.Value = new ContextValue() {
                                 ValueType = ContextValueType.Rank,
                                 ValueRank = AbilityRankType.StatBonus
-                            };
-                            c.Multiplier = 1;
-                        });
-                        bp.AddComponent<AddContextStatBonus>(c => {
-                            c.Stat = StatType.AC;
-                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
-                            c.Value = new ContextValue() {
-                                ValueType = ContextValueType.Rank,
-                                ValueRank = AbilityRankType.Default
                             };
                             c.Multiplier = 1;
                         });
@@ -384,15 +390,36 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.m_UseMin = true;
                             c.m_Min = 0;
                         });
+                    });
+                    ScaledFistACBonusUnarmoredBuff.TemporaryContext(bp => {
+                        bp.IsClassFeature = true;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnFactsChange>();
                         bp.AddContextRankConfig(c => {
-                            c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                            c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
                             c.m_Type = AbilityRankType.Default;
                             c.m_Progression = ContextRankProgression.DivStep;
                             c.m_StepLevel = 4;
-                            c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.ShifterClass };
+                            c.m_Class = new BlueprintCharacterClassReference[] {
+                                ClassTools.ClassReferences.MonkClass,
+                                ClassTools.ClassReferences.BarbarianClass,
+                                ClassTools.ClassReferences.ShifterClass,
+                            };
+                            c.Archetype = InstinctualWarriorArchetype;
+                            c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
                         });
                     });
                     TTTContext.Logger.LogPatch(ScaledFistACBonus);
+                    TTTContext.Logger.LogPatch(ScaledFistACBonusUnarmoredBuff);
                 }
                 void PatchStunningFist() {
                     if (TTTContext.Fixes.Monk.Archetypes["ScaledFist"].IsDisabled("FixStunningStrike")) { return; }

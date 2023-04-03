@@ -64,32 +64,11 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 TTTContext.Logger.LogHeader("Patching Barbarian");
 
                 PatchBase();
-                PatchInstinctualWarrior();
                 PatchWreckingBlows();
                 PatchCripplingBlows();
             }
 
             static void PatchBase() {
-            }
-
-            static void PatchInstinctualWarrior() {
-                PatchCunningElusion();
-
-                void PatchCunningElusion() {
-                    if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
-
-                    var CunningElusionUnlockFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("91c8b2e3abdb4e2e807fddb668b619f8");
-                    var CunningElusionFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("a71103ce28964f39b38442baa32a3031");
-                    var InstinctualWarriorACBonusBuff = BlueprintTools.GetModBlueprint<BlueprintBuff>(TTTContext, "InstinctualWarriorACBonusBuff");
-
-                    CunningElusionFeature.TemporaryContext(bp => {
-                        bp.GetComponent<AddFacts>()?.TemporaryContext(c => {
-                            c.m_Facts = new BlueprintUnitFactReference[] { InstinctualWarriorACBonusBuff.ToReference<BlueprintUnitFactReference>() };
-                        });
-                    });
-
-                    TTTContext.Logger.LogPatch(CunningElusionFeature);
-                }
             }
 
             static void PatchWreckingBlows() {

@@ -1,3 +1,6 @@
+## Version 2.5.8
+* Fixes to monk AC interactions.
+
 ## Version 2.5.7
 * DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.
 * Split hex is now a toggle to prevent some potential action blocking edge cases.

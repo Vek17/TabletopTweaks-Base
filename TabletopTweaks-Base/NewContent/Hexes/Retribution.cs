@@ -117,7 +117,7 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     };
                 });
                 bp.AddComponent<SpellDescriptorComponent>(c => {
-                    c.Descriptor = SpellDescriptor.Hex | SpellDescriptor.Cold;
+                    c.Descriptor = SpellDescriptor.Hex;
                 });
             });
             var RetributionHexFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "WitchHexRetributionFeature", bp => {

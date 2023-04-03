@@ -93,10 +93,15 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var ShifterACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("06cb4711975e4607a66ea6338cdb8c7d");
                     var ShifterACBonusHalfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c9caeee561bd461cbb48b2f911fc3d98");
                     var ShifterACBonusHalfBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("571be0c75b714afaace65af1e3b4862d");
+                    var MonkACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f132c4c4279e4646a05de26635941bfe");
+                    var MonkACBonusBuffUnarmored = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("d7ff7a9f1fe84e679f98b36e4bacd63c");
 
-                    ShifterACBonus.TemporaryContext(bp => {
+                    ShifterACBonusHalfFeature.TemporaryContext(bp => {
                         bp.GetComponent<AddFacts>()?.TemporaryContext(c => {
-                            c.m_Facts = new BlueprintUnitFactReference[] { ShifterACBonusBuff.ToReference<BlueprintUnitFactReference>() };
+                            c.m_Facts = new BlueprintUnitFactReference[] { 
+                                ShifterACBonusHalfBuff.ToReference<BlueprintUnitFactReference>(),
+                                MonkACBonusBuffUnarmored
+                            };
                         });
                     });
                     ShifterACBonusBuff.TemporaryContext(bp => {
@@ -142,7 +147,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         });
                     });
                     ShifterACBonusHalfBuff.TemporaryContext(bp => {
-                        bp.SetName(ShifterACBonusUnlock.m_DisplayName);
+                        bp.SetName(MonkACBonusBuff.m_DisplayName);
                         bp.SetComponents();
                         bp.AddComponent<AddContextStatBonus>(c => {
                             c.Stat = StatType.AC;
@@ -150,15 +155,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.Value = new ContextValue() {
                                 ValueType = ContextValueType.Rank,
                                 ValueRank = AbilityRankType.StatBonus
-                            };
-                            c.Multiplier = 1;
-                        });
-                        bp.AddComponent<AddContextStatBonus>(c => {
-                            c.Stat = StatType.AC;
-                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
-                            c.Value = new ContextValue() {
-                                ValueType = ContextValueType.Rank,
-                                ValueRank = AbilityRankType.Default
                             };
                             c.Multiplier = 1;
                         });
@@ -171,13 +167,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.m_Progression = ContextRankProgression.Div2;
                             c.m_UseMin = true;
                             c.m_Min = 0;
-                        });
-                        bp.AddContextRankConfig(c => {
-                            c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                            c.m_Type = AbilityRankType.Default;
-                            c.m_Progression = ContextRankProgression.DivStep;
-                            c.m_StepLevel = 4;
-                            c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.ShifterClass };
                         });
                     });
 
