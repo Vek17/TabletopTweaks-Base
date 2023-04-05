@@ -96,7 +96,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var MonkACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f132c4c4279e4646a05de26635941bfe");
                     var MonkACBonusBuffUnarmored = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("d7ff7a9f1fe84e679f98b36e4bacd63c");
 
-                    ShifterACBonusUnlock.TemporaryContext(bp => {
+                    ShifterACBonus.TemporaryContext(bp => {
                         bp.GetComponent<AddFacts>()?.TemporaryContext(c => {
                             c.m_Facts = new BlueprintUnitFactReference[] {
                                 MonkACBonusBuff.ToReference<BlueprintUnitFactReference>(),

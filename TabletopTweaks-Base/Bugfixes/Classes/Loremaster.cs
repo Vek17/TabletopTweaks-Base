@@ -91,7 +91,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                     TTTContext.Logger.LogPatch("Patched", LoremasterClass);
                 }
-
                 void PatchSpellProgression() {
                     if (TTTContext.Fixes.Loremaster.IsDisabled("SpellProgression")) { return; }
                     var LoremasterProgression = BlueprintTools.GetBlueprint<BlueprintProgression>("2bcd2330cc2c5a747968a8c782d4fa0a");
@@ -104,7 +103,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         .Append(Helpers.CreateLevelEntry(1, LoremasterSpellbookSelectionTTT, LoremasterSecretSelection)).ToArray();
                     TTTContext.Logger.LogPatch("Patched", LoremasterProgression);
                 }
-
                 void PatchSpellSecrets() {
                     if (TTTContext.Fixes.Loremaster.IsDisabled("SpellSecrets")) { return; }
 
@@ -129,7 +127,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     );
                     TTTContext.Logger.LogPatch("Patched", LoremasterSecretSelection);
                 }
-
                 void PatchTricksterTricks() {
                     if (TTTContext.Fixes.Loremaster.IsDisabled("TricksterTricks")) { return; }
 

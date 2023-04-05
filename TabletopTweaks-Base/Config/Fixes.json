@@ -1430,6 +1430,11 @@
         "Homebrew": false,
         "Description": "LegendaryProportions now only increases size by one step instead of two to correctly match tabletop."
       },
+      "LifeBubble": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Life bubble now is correctly AoE and has a corrected duration."
+      },
       "MagicalVestment": {
         "Enabled": true,
         "Homebrew": false,

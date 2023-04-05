@@ -1,5 +1,10 @@
+## Version 2.5.9
+* Fixes to monk AC interactions.
+* Life bubble now is correctly AoE and has a corrected duration.
+
 ## Version 2.5.8
 * Fixes to monk AC interactions.
+* Life bubble now is correctly AoE and has a corrected duration.
 
 ## Version 2.5.7
 * DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.

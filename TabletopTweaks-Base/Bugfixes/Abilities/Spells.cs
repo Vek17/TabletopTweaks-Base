@@ -20,6 +20,7 @@ using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
+using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
@@ -118,6 +119,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchIcyBody();
                 PatchIronBody();
                 PatchLegendaryProportions();
+                PatchLifeBubble();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
                 PatchProtectionFromAlignmentGreater();
@@ -1750,6 +1752,44 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 TTTContext.Logger.LogPatch(LegendaryProportions);
                 TTTContext.Logger.LogPatch(LegendaryProportionsBuff);
+            }
+            static void PatchLifeBubble() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("LifeBubble")) { return; }
+                if (Harmony.HasAnyPatches("WorldCrawl")) { return; } //Breaks WorldCrawl saves due to how things get patched
+
+                var LifeBubble = BlueprintTools.GetBlueprint<BlueprintAbility>("265582bc494c4b12b5860b508a2f89a2");
+                var resistenergy00 = new PrefabLink() { 
+                    AssetId = "e23fec8d2024a8c48a8b4a57693e31a7"
+                };
+
+                LifeBubble.TemporaryContext(bp => {
+                    bp.SetLocalizedDuration(TTTContext, "10 minutes/level");
+                    bp.FlattenAllActions().OfType<ContextActionApplyBuff>().ForEach(a => {
+                        a.DurationValue.TemporaryContext(d => {
+                            d.Rate = DurationRate.TenMinutes;
+                            d.DiceCountValue = 0;
+                            d.BonusValue = new ContextValue() { 
+                                ValueType = ContextValueType.Rank
+                            };
+                        });
+                    });
+                    bp.AddContextRankConfig(c => {
+                        c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                        c.m_Progression = ContextRankProgression.AsIs;
+                    });
+                    bp.AddComponent<AbilityTargetsAround>(c => {
+                        c.m_Radius = 20.Feet();
+                        c.m_TargetType = TargetType.Ally;
+                        c.m_Condition = new ConditionsChecker();
+                    });
+                    bp.AddComponent<AbilitySpawnFx>(c => {
+                        c.PrefabLink = resistenergy00;
+                        c.Anchor = AbilitySpawnFxAnchor.SelectedTarget;
+                        c.PositionAnchor = AbilitySpawnFxAnchor.None;
+                        c.OrientationAnchor = AbilitySpawnFxAnchor.None;
+                    });
+                });
+
             }
             static void PatchMagicalVestment() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("MagicalVestment")) { return; }

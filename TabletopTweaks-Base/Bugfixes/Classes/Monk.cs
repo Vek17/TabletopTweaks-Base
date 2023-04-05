@@ -22,6 +22,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core;
 using TabletopTweaks.Core.MechanicsChanges;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -367,6 +368,8 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var ScaledFistACBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("3929bfd1beeeed243970c9fc0cf333f8");
                     var ScaledFistACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("64acb179cc6a4f19bb3513d094b28d02");
                     var ScaledFistACBonusUnarmoredBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("59a10a29d67f4505b1a0ac31ace427e5");
+                    var MonkACBonusBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("f132c4c4279e4646a05de26635941bfe");
+                    var MonkACBonusBuffUnarmored = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("d7ff7a9f1fe84e679f98b36e4bacd63c");
 
                     ScaledFistACBonusBuff.TemporaryContext(bp => {
                         bp.IsClassFeature = true;
@@ -379,6 +382,12 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                 ValueRank = AbilityRankType.StatBonus
                             };
                             c.Multiplier = 1;
+                        });
+                        bp.AddComponent<SuppressBuffsTTT>(c => {
+                            c.m_Buffs = new BlueprintBuffReference[] {
+                                MonkACBonusBuff
+                            };
+                            c.Continuous = true;
                         });
                         bp.AddComponent<RecalculateOnStatChange>();
                         bp.AddComponent<RecalculateOnFactsChange>();
@@ -402,6 +411,12 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                 ValueRank = AbilityRankType.Default
                             };
                             c.Multiplier = 1;
+                        });
+                        bp.AddComponent<SuppressBuffsTTT>(c => {
+                            c.m_Buffs = new BlueprintBuffReference[] {
+                                MonkACBonusBuffUnarmored
+                            };
+                            c.Continuous = true;
                         });
                         bp.AddComponent<RecalculateOnFactsChange>();
                         bp.AddContextRankConfig(c => {

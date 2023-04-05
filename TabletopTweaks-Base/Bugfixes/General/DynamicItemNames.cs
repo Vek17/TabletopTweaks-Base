@@ -18,12 +18,16 @@ namespace TabletopTweaks.Base.Bugfixes.General {
         [HarmonyPatch(typeof(ItemEntity), nameof(ItemEntity.Name), MethodType.Getter)]
         static class ItemEntity_Names_Patch {
             static Regex EnhancementPatten = new Regex(@"\+\d");
-            static bool Prefix(ItemEntity __instance, ref string __result) {
-                if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("DynamicItemNaming")) { return true; }
-                if (!__instance.IsIdentified) { return true; }
-                string UniqueName = __instance.Blueprint.m_DisplayNameText;
+            static void Postfix(ItemEntity __instance, ref string __result) {
+                if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("DynamicItemNaming")) { return; }
+                var itemEntity = __instance switch {
+                    ItemEntityWeapon weapon => weapon.IsShield ? weapon.Shield : weapon,
+                    _ => __instance
+                };
+                if (!itemEntity.IsIdentified) { return; }
+                string UniqueName = itemEntity.Blueprint.m_DisplayNameText;
                 string DefaultName = "";
-                switch (__instance.Blueprint) {
+                switch (itemEntity.Blueprint) {
                     case BlueprintItemWeapon blueprint:
                         DefaultName = blueprint.Type.DefaultName;
                         break;
@@ -31,7 +35,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                         DefaultName = blueprint.Type.DefaultName;
                         break;
                     default:
-                        return true;
+                        return;
                 }
                 /*
                 string name = UniqueName.IsNullOrEmpty() ?
@@ -40,19 +44,19 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 */
                 string name = null;
                 if (UniqueName.IsNullOrEmpty()) {
-                    name = __instance.GetEnchantmentPrefixes() + DefaultName + __instance.GetEnchantmentSuffixes();
+                    name = itemEntity.GetEnchantmentPrefixes() + DefaultName + itemEntity.GetEnchantmentSuffixes();
                 } else {
-                    var suffixes = __instance.GetCustomEnchantmentSuffixes();
+                    var suffixes = itemEntity.GetCustomEnchantmentSuffixes();
                     if (EnhancementPatten.Match(suffixes).Success) {
-                        name = __instance.GetCustomEnchantmentPrefixes() + Regex.Replace(UniqueName, @"\+\d", "") + suffixes;
+                        name = itemEntity.GetCustomEnchantmentPrefixes() + Regex.Replace(UniqueName, @"\+\d", "") + suffixes;
                     } else {
-                        name = __instance.GetCustomEnchantmentPrefixes() + UniqueName + suffixes;
+                        name = itemEntity.GetCustomEnchantmentPrefixes() + UniqueName + suffixes;
                     }
                 }
                 if (!name.IsNullOrEmpty()) {
                     __result = name;
                 }
-                return false;
+                //return false;
             }
         }
         private static string GetEnchantmentPrefixes(this IEnumerable<ItemEnchantment> enchants) {
