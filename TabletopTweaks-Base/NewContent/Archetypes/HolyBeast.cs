@@ -19,6 +19,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
@@ -177,7 +178,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Good;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
             var BlessedClawsEvilBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlessedClawsEvilBuff", bp => {
                 bp.SetName(TTTContext, "Blessed Claws — Evil");
@@ -190,7 +193,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Evil;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
             var BlessedClawsLawBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlessedClawsLawBuff", bp => {
                 bp.SetName(TTTContext, "Blessed Claws — Lawful");
@@ -203,7 +208,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Lawful;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
             var BlessedClawsChaosBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlessedClawsChaosBuff", bp => {
                 bp.SetName(TTTContext, "Blessed Claws — Chaotic");
@@ -216,7 +223,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Chaotic;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
 
             var BlessedClawsFeatureAddLevel = CreateBlessedClawsFeature(
@@ -331,6 +340,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     bp.SetName(TTTContext, "Blessed Claws");
                     bp.GetComponent<EmptyHandWeaponOverride>()?.TemporaryContext(c => {
                         c.m_Weapon = BlessedClawsWeapon.ToReference<BlueprintItemWeaponReference>();
+                    });
+                    bp.GetComponent<AddOutgoingPhysicalDamageProperty>()?.TemporaryContext(c => {
+                        c.AffectAnyPhysicalDamage = true;
                     });
                     bp.GetComponent<AddFactContextActions>()?.TemporaryContext(c => {
                         c.Activated.AddAction(

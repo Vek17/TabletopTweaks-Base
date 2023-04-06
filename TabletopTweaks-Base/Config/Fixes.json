@@ -982,7 +982,13 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "ShifterClaws": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Allows shifter claws to interact more correctly with sneak attack."
+        }
+      },
       "IsExpanded": true
     },
     "Archetypes": {

@@ -1,6 +1,7 @@
 ## Version 2.5.9
 * Fixes to monk AC interactions.
 * Life bubble now is correctly AoE and has a corrected duration.
+* Destructive Dispel should now trigger once per dispel instead of for every effect dispeled.
 
 ## Version 2.5.8
 * Fixes to monk AC interactions.

@@ -5,6 +5,8 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -84,6 +86,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
             static void PatchBase() {
                 PatchDefensiveInstinct();
+                PatchShifterClaws();
 
                 void PatchDefensiveInstinct() {
                     if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
@@ -164,6 +167,33 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                     TTTContext.Logger.LogPatch(ShifterACBonus);
                     TTTContext.Logger.LogPatch(ShifterACBonusHalfBuff);
+                }
+                void PatchShifterClaws() {
+                    if (TTTContext.Fixes.Shifter.Base.IsDisabled("ShifterClaws")) { return; }
+
+                    var ShifterClawBuffLevel1 = BlueprintTools.GetBlueprint<BlueprintBuff>("02070af90de345c6a82a8cf469a65080");
+                    var ShifterClawBuffLevel11 = BlueprintTools.GetBlueprint<BlueprintBuff>("13243d59d212463d9ab3f36e646aa40c");
+                    var ShifterClawBuffLevel13 = BlueprintTools.GetBlueprint<BlueprintBuff>("6e31c78ce801444aad398248b66a22b8");
+                    var ShifterClawBuffLevel17 = BlueprintTools.GetBlueprint<BlueprintBuff>("cb51194e75ca45bc9fedf9a09c50b827");
+                    var ShifterClawBuffLevel19 = BlueprintTools.GetBlueprint<BlueprintBuff>("494d127890c3498fb3dbf3a53dcb4fe6");
+                    var ShifterClawBuffLevel3 = BlueprintTools.GetBlueprint<BlueprintBuff>("1bb67316c37e400888e0489ee8d64067");
+                    var ShifterClawBuffLevel7 = BlueprintTools.GetBlueprint<BlueprintBuff>("c9441167a3b84fb48729e55f29a9df64");
+
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel1);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel3);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel7);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel11);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel13);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel17);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel19);
+
+                    void PatchOutgoingDamageProperties(BlueprintBuff buff) {
+                        buff.TemporaryContext(bp => {
+                            bp.GetComponent<AddOutgoingPhysicalDamageProperty>()?.TemporaryContext(c => {
+                                c.AffectAnyPhysicalDamage = true;
+                            });
+                        });
+                    }
                 }
             }
 
@@ -759,6 +789,21 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         });
                     }
                 }
+            }
+        }
+        [HarmonyPatch(typeof(PolymorphDamageTransfer), nameof(PolymorphDamageTransfer.TransferPhysicalProperties))]
+        static class PolymorphDamageTransfer_TransferPhysicalProperties_Patch {
+            static bool Prefix(PolymorphDamageTransfer __instance, RulePrepareDamage evt) {
+                if (TTTContext.Fixes.Shifter.Base.IsDisabled("ShifterClaws")) { return true; }
+
+                AddOutgoingPhysicalDamageProperty component = __instance.Fact.Blueprint.GetComponent<AddOutgoingPhysicalDamageProperty>();
+                if (component == null) {
+                    return false;
+                }
+                evt.DamageBundle.OfType<PhysicalDamage>().ForEach(damage => {
+                    component.ApplyProperties(damage);
+                });
+                return false;
             }
         }
     }
