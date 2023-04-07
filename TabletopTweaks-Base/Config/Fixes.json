@@ -83,11 +83,6 @@
         "Homebrew": false,
         "Description": "Cleans up limited feat selections (like fighter combat feats) to include all feats of the specified type."
       },
-      "FixAlignmentSubtypes": {
-        "Enabled": true,
-        "Homebrew": true,
-        "Description": "Alignment subtypes now correctly apply thier outgoing damage alignments."
-      },
       "FixBackgroundModifiers": {
         "Enabled": true,
         "Homebrew": true,
@@ -1612,6 +1607,43 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Cleans up bloodline restrictions to actually work correctly with things like Dragon disciple."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Types": {
+    "DisableAll": false,
+    "Settings": {
+      "AlignmentSubtypes": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Alignment subtypes now correctly apply thier outgoing damage alignments."
+      },
+      "UndeadType": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Undead type no longer has extra immunities it should not."
+      }
+    },
+    "IsExpanded": true
+  },
+  "Features": {
+    "DisableAll": false,
+    "Settings": {
+      "IncorporealCharm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now properly updates when charisma is modified."
+      },
+      "MongrolsBlessing": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now properly applies negative levels."
+      },
+      "ProfaneAscension": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now calculates highest stat first by base stat then by modified stat."
       }
     },
     "IsExpanded": true

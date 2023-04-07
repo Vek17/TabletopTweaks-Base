@@ -41,6 +41,7 @@ namespace TabletopTweaks.Base.Config {
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup AnimalCompanions = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
+        public SettingGroup Types = new SettingGroup();
         public SettingGroup Features = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
@@ -122,6 +123,7 @@ namespace TabletopTweaks.Base.Config {
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
             AnimalCompanions.LoadSettingGroup(loadedSettings.AnimalCompanions, NewSettingsOffByDefault);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
+            Types.LoadSettingGroup(loadedSettings.Types, NewSettingsOffByDefault);
             Features.LoadSettingGroup(loadedSettings.Features, NewSettingsOffByDefault);
             Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);

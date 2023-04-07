@@ -124,6 +124,7 @@ namespace TabletopTweaks.Base {
                 SetttingUI.SettingGroup("Spells", TabLevel, Fixes.Spells);
                 SetttingUI.SettingGroup("Animal Companions", TabLevel, Fixes.AnimalCompanions);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, Fixes.Bloodlines);
+                SetttingUI.SettingGroup("Types", TabLevel, Fixes.Types);
                 SetttingUI.SettingGroup("Features", TabLevel, Fixes.Features);
                 SetttingUI.SettingGroup("Feats", TabLevel, Fixes.Feats);
                 SetttingUI.SettingGroup("Mythic Abilities", TabLevel, Fixes.MythicAbilities);
