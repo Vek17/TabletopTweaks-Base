@@ -2,10 +2,13 @@
 * Fixes to monk AC interactions.
 * Life bubble now is correctly AoE and has a corrected duration.
 * Destructive Dispel should now trigger once per dispel instead of for every effect dispeled.
+* Accursed Glare now works on enemies (oppsie).
 * Fixes
     * Shifter
         * Shifter claws should more correctly bypass DR.
         * Holy claws should now correctly bypass DR.
+    * Weapons
+        * Slams are now correctly finessable like all natural weapons.
 
 ## Version 2.5.8
 * Fixes to monk AC interactions.

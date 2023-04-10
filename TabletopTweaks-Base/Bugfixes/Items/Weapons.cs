@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
@@ -26,6 +27,7 @@ using System.Reflection.Emit;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
+using static Kingmaker.EntitySystem.EntityDataBase;
 using static Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription;
 using static TabletopTweaks.Base.Main;
 
@@ -53,6 +55,8 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                 PatchThunderingBurst();
                 PatchVorpal();
+
+                PatchNaturalWeapons();
 
                 void PatchBladeOfTheMerciful() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }
@@ -292,6 +296,21 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     });
 
                     TTTContext.Logger.LogPatch("Patched", Vorpal);
+                }
+                void PatchNaturalWeapons() {
+                    //if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("NaturalWeaponsFinesse")) { return; }
+
+                    WeaponCategoryExtension.Data.Where(weapon => weapon.Category == WeaponCategory.Slam)
+                        .ForEach(weapon => {
+                            AddToSubCategories(weapon, WeaponSubCategory.Finessable);
+                        });
+
+                    void AddToSubCategories(WeaponCategoryExtension.DataItem weapon, params WeaponSubCategory[] categories) {
+                        var SubCategories = AccessTools.Field(typeof(WeaponCategoryExtension.DataItem), "SubCategories");
+                        SubCategories.SetValue(weapon, weapon.SubCategories.AppendToArray(categories).Distinct().ToArray());
+
+                        TTTContext.Logger.Log($"Patched: {weapon.Category} - SubCategories");
+                    }
                 }
             }
         }
