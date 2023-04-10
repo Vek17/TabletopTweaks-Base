@@ -2113,6 +2113,11 @@
           "Homebrew": false,
           "Description": "Now correctly deals bonus damage against flat footed."
         },
+        "NaturalWeaponsFinesse": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "All natural weapons are correctly finessable."
+        },
         "Radiance": {
           "Enabled": true,
           "Homebrew": false,

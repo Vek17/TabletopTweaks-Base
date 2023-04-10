@@ -298,7 +298,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     TTTContext.Logger.LogPatch("Patched", Vorpal);
                 }
                 void PatchNaturalWeapons() {
-                    //if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("NaturalWeaponsFinesse")) { return; }
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("NaturalWeaponsFinesse")) { return; }
 
                     WeaponCategoryExtension.Data.Where(weapon => weapon.Category == WeaponCategory.Slam)
                         .ForEach(weapon => {
