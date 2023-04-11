@@ -1361,6 +1361,11 @@
         "Homebrew": false,
         "Description": "Freezing Nothingness now has the correct break out DC and deals the correct amount of damage."
       },
+      "HurricaneBow": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Hurricane Bow now uses a better virtual size calculation."
+      },
       "IcyBody": {
         "Enabled": true,
         "Homebrew": false,
@@ -1425,6 +1430,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Joy of Life now converts outgoing damage to Holy."
+      },
+      "LeadBlades": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Lead Blades now uses a better virtual size calculation."
       },
       "LegendaryProportions": {
         "Enabled": true,
@@ -2101,7 +2111,7 @@
         "EyeForAnEye": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Prevents from triggering multiple gake attacks and procing weapon effects more often than it should."
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
         },
         "Finnean": {
           "Enabled": true,

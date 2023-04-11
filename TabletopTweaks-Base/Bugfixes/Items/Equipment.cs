@@ -156,40 +156,44 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     var AspectOfTheAspItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentNeck>("7d55f6615f884bc45b85fdaa45cd7672");
                     var AspectOfTheAspFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("9b3f6877efdf29a4e821c33ec830f312");
                     var RayType = BlueprintTools.GetBlueprintReference<BlueprintWeaponTypeReference>("1d39a22f206840e40b2255fc0175b8d0");
-                    AspectOfTheAspFeature.m_DisplayName = AspectOfTheAspItem.m_DisplayNameText;
-                    AspectOfTheAspFeature.SetComponents();
-                    AspectOfTheAspFeature.AddComponent<IncreaseSpellDescriptorDC>(c => {
-                        c.Descriptor = SpellDescriptor.Poison;
-                        c.BonusDC = 2;
+
+                    AspectOfTheAspFeature.TemporaryContext(bp => {
+                        bp.m_DisplayName = AspectOfTheAspItem.m_DisplayNameText;
+                        bp.SetComponents();
+                        bp.AddComponent<IncreaseSpellDescriptorDC>(c => {
+                            c.Descriptor = SpellDescriptor.Poison;
+                            c.BonusDC = 2;
+                        });
+                        bp.AddComponent<AddOutgoingDamageTriggerTTT>(c => {
+                            c.IgnoreDamageFromThisFact = true;
+                            c.CheckAbilityType = true;
+                            c.m_AbilityType = AbilityType.Spell;
+                            c.CheckWeaponType = true;
+                            c.m_WeaponType = RayType;
+                            c.OncePerAttackRoll = true;
+                            c.Actions = Helpers.CreateActionList(
+                                Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                    a.DamageType = new DamageTypeDescription() {
+                                        Type = DamageType.Energy,
+                                        Energy = DamageEnergyType.Acid
+                                    };
+                                    a.Duration = new ContextDurationValue() {
+                                        DiceCountValue = new ContextValue(),
+                                        BonusValue = new ContextValue()
+                                    };
+                                    a.Value = new ContextDiceValue() {
+                                        DiceType = DiceType.D6,
+                                        DiceCountValue = 1,
+                                        BonusValue = 5
+                                    };
+                                    a.IgnoreCritical = true;
+                                    a.SetFactAsReason = true;
+                                    a.IgnoreWeapon = true;
+                                })
+                            );
+                        });
                     });
-                    AspectOfTheAspFeature.AddComponent<AddOutgoingDamageTriggerTTT>(c => {
-                        c.IgnoreDamageFromThisFact = true;
-                        c.CheckAbilityType = true;
-                        c.m_AbilityType = AbilityType.Spell;
-                        c.CheckWeaponType = true;
-                        c.m_WeaponType = RayType;
-                        c.OncePerAttackRoll = true;
-                        c.Actions = Helpers.CreateActionList(
-                            Helpers.Create<ContextActionDealDamageTTT>(a => {
-                                a.DamageType = new DamageTypeDescription() {
-                                    Type = DamageType.Energy,
-                                    Energy = DamageEnergyType.Acid
-                                };
-                                a.Duration = new ContextDurationValue() {
-                                    DiceCountValue = new ContextValue(),
-                                    BonusValue = new ContextValue()
-                                };
-                                a.Value = new ContextDiceValue() {
-                                    DiceType = DiceType.D6,
-                                    DiceCountValue = 1,
-                                    BonusValue = 5
-                                };
-                                a.IgnoreCritical = true;
-                                a.SetFactAsReason = true;
-                                a.IgnoreWeapon = true;
-                            })
-                        );
-                    });
+                    
                     TTTContext.Logger.LogPatch(AspectOfTheAspFeature);
                 }
                 void PatchBoundOfPossibilityAeon() {

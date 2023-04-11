@@ -116,8 +116,10 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchFrightfulAspect();
                 PatchGeniekind();
                 PatchHellfireRay();
+                PatchHurricaneBow();
                 PatchIcyBody();
                 PatchIronBody();
+                PatchLeadBlades();
                 PatchLegendaryProportions();
                 PatchLifeBubble();
                 PatchMagicalVestment();
@@ -1695,6 +1697,32 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 });
                 TTTContext.Logger.LogPatch("Patched", HellfireRay);
             }
+            static void PatchHurricaneBow() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("HurricaneBow")) { return; }
+
+                var HurricaneBowBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("002c51d933574824c8ef2b04c9d09ff5");
+
+                HurricaneBowBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<RangedWeaponSizeChange>();
+                    bp.AddComponent<WeaponSizeChangeTTT>(c => {
+                        c.CheckRangeType = true;
+                        c.RangeType = WeaponRangeType.Ranged;
+                        c.CheckWeaponCategory = true;
+                        c.Categories = new WeaponCategory[] {
+                            WeaponCategory.Longbow,
+                            WeaponCategory.Shortbow,
+                            WeaponCategory.HandCrossbow,
+                            WeaponCategory.HeavyCrossbow,
+                            WeaponCategory.HeavyRepeatingCrossbow,
+                            WeaponCategory.LightCrossbow,
+                            WeaponCategory.LightRepeatingCrossbow
+                        };
+                        c.SizeChange = 1;
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(HurricaneBowBuff);
+            }
             static void PatchIcyBody() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("IcyBody")) { return; }
 
@@ -1730,6 +1758,22 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 TTTContext.Logger.LogPatch(IronBody);
                 TTTContext.Logger.LogPatch(IronBodyBuff);
+            }
+            static void PatchLeadBlades() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("LeadBlades")) { return; }
+
+                var LeafBladesBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("91f43163db96f8941a41e2b584a97514");
+
+                LeafBladesBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<IncreaseDiceSizeOnAttack>();
+                    bp.AddComponent<WeaponSizeChangeTTT>(c => {
+                        c.CheckRangeType = true;
+                        c.RangeType = WeaponRangeType.Melee;
+                        c.SizeChange = 1;
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(LeafBladesBuff);
             }
             static void PatchLegendaryProportions() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("LegendaryProportions")) { return; }
