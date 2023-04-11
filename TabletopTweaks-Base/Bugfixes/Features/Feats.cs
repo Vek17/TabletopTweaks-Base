@@ -73,6 +73,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchNaturalSpell();
                 PatchRakingClaws();
                 PatchShatterDefenses();
+                PatchShiftersEdge();
                 PatchShifterRush();
                 PatchSlashingGrace();
                 PatchSpellSpecialization();
@@ -595,6 +596,31 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     );
                 });
                 TTTContext.Logger.LogPatch(RakingClawsFeature);
+            }
+            static void PatchShiftersEdge() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ShiftersEdge")) { return; }
+
+                var ShiftersEdgeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("0e7ec9a341ca46fcaf4d49759e047c83");
+
+                ShiftersEdgeFeature.TemporaryContext(bp => {
+                    bp.GetComponent<AddFactContextActions>().Disabled = true;
+                    bp.AddComponent<ShiftersEdgeComponent>(c => {
+                        c.DamageBonus = new ContextValue() { 
+                            ValueType = ContextValueType.Rank,
+                            ValueRank = AbilityRankType.DamageBonus
+                        };
+                        c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    });
+                    bp.AddContextRankConfig(c => {
+                        c.m_Type = AbilityRankType.DamageBonus;
+                        c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                        c.m_Progression = ContextRankProgression.Div2;
+                        c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.ShifterClass };
+                    });
+                });
+
+
+                TTTContext.Logger.LogPatch(ShiftersEdgeFeature);
             }
             static void PatchShifterRush() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("ShifterRush")) { return; }

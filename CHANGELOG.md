@@ -1,3 +1,14 @@
+## Version 2.5.10
+* Fixes
+    * Feats
+        * Shifter's Edge
+            * Shifter's Edge now works more consistantly and no longer has weird interactions with amulet of natural fist.
+    * Equipment
+        * Aeon Bound Of Possibility
+            * Now has the correct DC.
+    * Weapons
+        * Sai now correctly deal bludgeoning damage.
+
 ## Version 2.5.9
 * Fixes to monk AC interactions.
 * Life bubble now is correctly AoE and has a corrected duration.

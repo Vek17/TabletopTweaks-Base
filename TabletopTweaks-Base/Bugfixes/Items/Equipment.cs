@@ -16,6 +16,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
@@ -25,6 +26,7 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewActions;
@@ -194,16 +196,28 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("BoundOfPossibilityAeon")) { return; }
 
                     var Artifact_AeonCloakItem = BlueprintTools.GetBlueprint<BlueprintItemEquipment>("b24d6185acea1f949b026c3b58e47947");
+                    var Artifact_AeonCloakArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("1e3f209f70fc4ca696a40d474945ddd1");
                     var Artifact_AeonCloakAreaBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("5ed06badb95540fe855c638213b0a60b");
                     var Artifact_AeonCloakAllyBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("437fd1832d75433e93675babbf9da7f0");
+                    var Artifact_AeonCloakDCProperty = BlueprintTools.GetModBlueprintReference<BlueprintUnitPropertyReference>(TTTContext, "Artifact_AeonCloakDCProperty");               
 
-                    Artifact_AeonCloakAreaBuff.TemporaryContext(c => {
-                        c.SetName(Artifact_AeonCloakItem.m_DisplayNameText);
+                    Artifact_AeonCloakArea.TemporaryContext(bp => {
+                        bp.FlattenAllActions().OfType<ContextActionSavingThrow>().ForEach(save => {
+                            save.HasCustomDC = true;
+                            save.CustomDC = new ContextValue() {
+                                ValueType = ContextValueType.CasterCustomProperty,
+                                m_CustomProperty = Artifact_AeonCloakDCProperty
+                            };
+                        });
                     });
-                    Artifact_AeonCloakAllyBuff.TemporaryContext(c => {
-                        c.SetName(Artifact_AeonCloakItem.m_DisplayNameText);
+                    Artifact_AeonCloakAreaBuff.TemporaryContext(bp => {
+                        bp.SetName(Artifact_AeonCloakItem.m_DisplayNameText);
+                    });
+                    Artifact_AeonCloakAllyBuff.TemporaryContext(bp => {
+                        bp.SetName(Artifact_AeonCloakItem.m_DisplayNameText);
                     });
 
+                    TTTContext.Logger.LogPatch(Artifact_AeonCloakArea);
                     TTTContext.Logger.LogPatch(Artifact_AeonCloakItem);
                 }
                 void PatchBracersOfArchery() {

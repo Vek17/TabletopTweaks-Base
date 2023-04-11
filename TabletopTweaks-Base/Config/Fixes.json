@@ -1807,6 +1807,11 @@
         "Homebrew": false,
         "Description": "Now requires you to hit a shaken target once before they become flat footed."
       },
+      "ShiftersEdge": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shifter's Edge now works more consistantly and no longer has weird interactions with amulet of natural fist."
+      },
       "ShifterRush": {
         "Enabled": true,
         "Homebrew": false,
@@ -2122,6 +2127,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now grants spell resistance correctly instead of spell penetration."
+        },
+        "SaiDamageType": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Sai now correctly deal bludgeoning damage."
         },
         "SoundOfTheVoid": {
           "Enabled": true,

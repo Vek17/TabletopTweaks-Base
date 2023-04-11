@@ -57,6 +57,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchVorpal();
 
                 PatchNaturalWeapons();
+                PatchSai();
 
                 void PatchBladeOfTheMerciful() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }
@@ -308,6 +309,26 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     void AddToSubCategories(WeaponCategoryExtension.DataItem weapon, params WeaponSubCategory[] categories) {
                         var SubCategories = AccessTools.Field(typeof(WeaponCategoryExtension.DataItem), "SubCategories");
                         SubCategories.SetValue(weapon, weapon.SubCategories.AppendToArray(categories).Distinct().ToArray());
+
+                        TTTContext.Logger.Log($"Patched: {weapon.Category} - SubCategories");
+                    }
+                }
+                void PatchSai() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("SaiDamageType")) { return; }
+
+                    var Sai = BlueprintTools.GetBlueprint<BlueprintWeaponType>("0944f411666c7594aa1398a7476ecf7d");
+
+                    Sai.TemporaryContext(c => {
+                        c.DamageType.Physical.Form = PhysicalDamageForm.Bludgeoning;
+                    });
+                    WeaponCategoryExtension.Data.Where(weapon => weapon.Category == WeaponCategory.Sai)
+                        .ForEach(weapon => {
+                            RemoveSubCategories(weapon, WeaponSubCategory.OneHandedPiercing);
+                        });
+                    TTTContext.Logger.LogPatch(Sai);
+                    void RemoveSubCategories(WeaponCategoryExtension.DataItem weapon, params WeaponSubCategory[] categories) {
+                        var SubCategories = AccessTools.Field(typeof(WeaponCategoryExtension.DataItem), "SubCategories");
+                        SubCategories.SetValue(weapon, weapon.SubCategories.Where(c => !categories.Contains(c)).Distinct().ToArray());
 
                         TTTContext.Logger.Log($"Patched: {weapon.Category} - SubCategories");
                     }

@@ -302,6 +302,7 @@
     <Compile Include="NewContent\Bloodlines\BloodlineRequisiteFeature.cs" />
     <Compile Include="NewContent\Bloodlines\BloodragerArcaneBloodline.cs" />
     <Compile Include="NewContent\Bloodlines\DestinedBloodline.cs" />
+    <Compile Include="NewContent\Classes\Aeon.cs" />
     <Compile Include="NewContent\Classes\Cavalier.cs" />
     <Compile Include="NewContent\Classes\Loremaster.cs" />
     <Compile Include="NewContent\Classes\Magus.cs" />
