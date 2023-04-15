@@ -1456,6 +1456,11 @@
         "Homebrew": false,
         "Description": "Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus."
       },
+      "MindFog": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Mind Fog no longer applies twice for -20 to saves instead of -10."
+      },
       "NaturesGrasp": {
         "Enabled": true,
         "Homebrew": false,
@@ -1633,27 +1638,6 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Undead type no longer has extra immunities it should not."
-      }
-    },
-    "IsExpanded": true
-  },
-  "Features": {
-    "DisableAll": false,
-    "Settings": {
-      "IncorporealCharm": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Now properly updates when charisma is modified."
-      },
-      "MongrolsBlessing": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Now properly applies negative levels."
-      },
-      "ProfaneAscension": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Now calculates highest stat first by base stat then by modified stat."
       }
     },
     "IsExpanded": true

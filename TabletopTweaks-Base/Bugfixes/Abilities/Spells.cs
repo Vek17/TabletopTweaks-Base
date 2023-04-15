@@ -124,6 +124,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchLifeBubble();
                 PatchMagicalVestment();
                 PatchMagicWeaponGreater();
+                PatchMindFog();
                 PatchProtectionFromAlignmentGreater();
                 PatchRemoveFear();
                 PatchRemoveSickness();
@@ -1915,6 +1916,85 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
 
                 TTTContext.Logger.LogPatch("Patched", MagicWeaponGreaterPrimary);
                 TTTContext.Logger.LogPatch("Patched", MagicWeaponGreaterSecondary);
+            }
+            static void PatchMindFog() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("MindFog")) { return; }
+
+                var MindFogArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("fe5102d734382b74586f56980086e5e8");
+                var MindFogBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("59fa875508d497d43823bf5253299070");
+                var MindFogAfterBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("5a943abc9d22d074f9bf4b1f2a447002");
+
+                MindFogArea.TemporaryContext(bp => {
+                    bp.SetComponents();
+                    bp.AddComponent<AbilityAreaEffectRunAction>(c => {
+                        c.UnitEnter = Helpers.CreateActionList(
+                            new Conditional() {
+                                ConditionsChecker = new ConditionsChecker() {
+                                    Conditions = new Condition[] { 
+                                        new ContextConditionHasBuff() {
+                                            m_Buff = MindFogBuff
+                                        },
+                                        new ContextConditionHasBuff() {
+                                            m_Buff = MindFogAfterBuff
+                                        }
+                                    },
+                                    Operation = Operation.Or
+                                },
+                                IfTrue = Helpers.CreateActionList(),
+                                IfFalse = Helpers.CreateActionList(
+                                    new ContextActionSavingThrow() { 
+                                        Type = SavingThrowType.Will,
+                                        CustomDC = new ContextValue(),
+                                        Actions = Helpers.CreateActionList(
+                                            new ContextActionConditionalSaved() {
+                                                Succeed = Helpers.CreateActionList(),
+                                                Failed = Helpers.CreateActionList(
+                                                    new ContextActionApplyBuff() {
+                                                        m_Buff = MindFogBuff,
+                                                        Permanent = true,
+                                                        DurationValue = new ContextDurationValue() {
+                                                            DiceCountValue = new ContextValue(),
+                                                            BonusValue = new ContextValue()
+                                                        }
+                                                    }
+                                                )
+                                            }    
+                                        )
+                                    }
+                                )
+                            }
+                        );
+                        c.UnitExit = Helpers.CreateActionList(
+                            new Conditional() {
+                                ConditionsChecker = new ConditionsChecker() {
+                                    Conditions = new Condition[] {
+                                        new ContextConditionHasBuff() {
+                                            m_Buff = MindFogBuff
+                                        }
+                                    }
+                                },
+                                IfTrue = Helpers.CreateActionList(
+                                    new ContextActionRemoveBuff() {
+                                        m_Buff = MindFogBuff
+                                    },
+                                    new ContextActionApplyBuff() {
+                                        m_Buff = MindFogAfterBuff,
+                                        DurationValue = new ContextDurationValue() {
+                                            DiceType = DiceType.D6,
+                                            DiceCountValue = 2,
+                                            BonusValue = 0
+                                        }
+                                    }
+                                ),
+                                IfFalse = Helpers.CreateActionList()
+                            }
+                        );
+                        c.UnitMove = Helpers.CreateActionList();
+                        c.Round = Helpers.CreateActionList();
+                    });
+                });
+
+                TTTContext.Logger.LogPatch(MindFogArea);
             }
             static void PatchProtectionFromAlignmentGreater() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("ProtectionFromAlignmentGreater")) { return; }

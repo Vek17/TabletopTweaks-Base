@@ -5,6 +5,8 @@
             * Hurricane Bow now uses a better virtual size calculation.
         * Lead Blades
             * Lead Blades now uses a better virtual size calculation.
+        * Mind Fog
+            * No longer applies twice for -20 to saves instead of -10.
     * Feats
         * Shifter's Edge
             * Shifter's Edge now works more consistantly and no longer has weird interactions with amulet of natural fist.
