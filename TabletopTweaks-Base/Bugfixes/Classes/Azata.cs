@@ -11,6 +11,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -51,6 +52,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                 }
                             );
                         });
+                        bp.AddComponent<BlockSpellDuplicationComponent>();
                     });
                     SongOfCourageousDefenderCompanionBuff.TemporaryContext(bp => {
                         bp.SetName(SongOfCourageousDefenderChoseCompanionAbility.m_DisplayName);
