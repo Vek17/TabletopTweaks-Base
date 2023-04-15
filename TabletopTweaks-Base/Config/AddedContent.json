@@ -565,6 +565,11 @@
         "Homebrew": false,
         "Description": "The witch receives Brew Potions as a bonus feat and a +4 bonus on skill checks to brew potions."
       },
+      "DireProphecy": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "As long as the curse persists, the target takes a –4 penalty to his armor class and on attack rolls, saves, ability checks, and skill checks."
+      },
       "IceTomb": {
         "Enabled": true,
         "Homebrew": false,

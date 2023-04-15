@@ -91,6 +91,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Hexes.IceTomb.AddIceTomb();
                 Hexes.Retribution.AddRetribution();
                 Hexes.Withering.AddWithering();
+                Hexes.DireProphecy.AddDireProphecy();
 
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.SpearChargeBuff.AddSpearChargeBuff();

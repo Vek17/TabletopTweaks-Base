@@ -396,6 +396,7 @@
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\TrainedThrow.cs" />
     <Compile Include="NewContent\FighterAdvancedWeaponTrainings\WarriorSpirit.cs" />
     <Compile Include="NewContent\Hexes\Cauldron.cs" />
+    <Compile Include="NewContent\Hexes\DireProphecy.cs" />
     <Compile Include="NewContent\Hexes\IceTomb.cs" />
     <Compile Include="NewContent\Hexes\Retribution.cs" />
     <Compile Include="NewContent\Hexes\Withering.cs" />
@@ -486,6 +487,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_AccursedGlare.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_DireProphecy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_Spellcurse.png">
