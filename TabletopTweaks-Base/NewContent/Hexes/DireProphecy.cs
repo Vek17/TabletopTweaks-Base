@@ -67,6 +67,12 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
                     c.Value = -4;
                     c.Multiplier = 1;
                 });
+                bp.AddComponent<BuffAbilityRollsBonus>(c => {
+                    c.Descriptor = ModifierDescriptor.Penalty;
+                    c.Value = -4;
+                    c.Multiplier = 1;
+                    c.AffectAllStats = true;
+                });
             });
             var WitchHexDireProphecyBuffCooldownBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "WitchHexDireProphecyBuffCooldownBuff", bp => {
                 bp.SetName(TTTContext, "Dire Prophecy Cooldown");
