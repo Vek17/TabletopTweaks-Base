@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -36,9 +37,13 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 if (ParentAbility?.Blueprint?.GetComponent<AbilityShadowSpell>() != null) {
                     component = ParentAbility.Blueprint.GetComponent<SpellDescriptorComponent>();
                 }
-
-                if (component != null && component.Descriptor.HasAnyFlag(__instance.Descriptor)) {
-                    evt.AddBonusDC(__instance.BonusDC);
+                if (component == null) {
+                    return false;
+                }
+                SpellDescriptor spellDescriptor = component.Descriptor.Value;
+                spellDescriptor = UnitPartChangeSpellElementalDamage.ReplaceSpellDescriptorIfCan(__instance.Owner, spellDescriptor);
+                if (spellDescriptor.HasAnyFlag(__instance.Descriptor)) {
+                    evt.AddBonusDC(__instance.BonusDC, __instance.ModifierDescriptor);
                 }
                 return false;
             }

@@ -39,7 +39,9 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                     };
                     c.Multiplier = 1;
                 });
-                bp.AddComponent<RecalculateOnStatChange>();
+                bp.AddComponent<RecalculateOnStatChange>(c => {
+                    c.Stat = StatType.Wisdom;
+                });
                 bp.AddComponent<RecalculateOnFactsChange>();
                 bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.StatBonus;

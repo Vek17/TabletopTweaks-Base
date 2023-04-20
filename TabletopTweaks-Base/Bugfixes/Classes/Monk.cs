@@ -109,7 +109,9 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             };
                             c.Multiplier = 1;
                         });
-                        bp.AddComponent<RecalculateOnStatChange>();
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = StatType.Wisdom;
+                        });
                         bp.AddComponent<RecalculateOnFactsChange>();
                         bp.AddContextRankConfig(c => {
                             c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
@@ -133,7 +135,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             };
                             c.Multiplier = 1;
                         });
-                        bp.AddComponent<RecalculateOnStatChange>();
                         bp.AddComponent<RecalculateOnFactsChange>();
                         bp.AddContextRankConfig(c => {
                             c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
@@ -389,7 +390,9 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             };
                             c.Continuous = true;
                         });
-                        bp.AddComponent<RecalculateOnStatChange>();
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = StatType.Charisma;
+                        });
                         bp.AddComponent<RecalculateOnFactsChange>();
                         bp.AddContextRankConfig(c => {
                             c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
