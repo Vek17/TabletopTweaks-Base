@@ -323,6 +323,8 @@
     <Compile Include="NewContent\Feats\ArmorMastery\SprightlyArmor.cs" />
     <Compile Include="NewContent\Feats\ChainChallenge.cs" />
     <Compile Include="NewContent\Feats\ExpandedSpellKenning.cs" />
+    <Compile Include="NewContent\Feats\ImprovedNaturalArmor.cs" />
+    <Compile Include="NewContent\Feats\ImprovedNaturalAttack.cs" />
     <Compile Include="NewContent\Feats\MantisStyle.cs" />
     <Compile Include="NewContent\Feats\MetamagicFeats\BurningSpell.cs" />
     <Compile Include="NewContent\Feats\CelestialServant.cs" />

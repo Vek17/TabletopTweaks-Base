@@ -216,6 +216,8 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.MutatedShape.AddMutatedShape();
                 Feats.AccursedHex.AddAccursedHex();
                 Feats.SplitHex.AddSplitHex();
+                Feats.ImprovedNaturalArmor.AddImprovedNaturalArmor();
+                Feats.ImprovedNaturalAttack.AddImprovedNaturalAttack();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();

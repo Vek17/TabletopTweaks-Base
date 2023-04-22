@@ -212,6 +212,16 @@
         "Homebrew": false,
         "Description": "Add 2 to the DC of saving throws made to resist the effects of your channel energy ability."
       },
+      "ImprovedNaturalArmor": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The creature's natural armor bonus to AC increases by +1."
+      },
+      "ImprovedNaturalAttack": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Choose one of the creature’s natural attack forms. The damage for this natural attack increases by one step, as if the creature’s size had increased by one category."
+      },
       "LungingSpellTouch": {
         "Enabled": true,
         "Homebrew": false,

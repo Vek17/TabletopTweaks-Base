@@ -1,6 +1,8 @@
 ## Version 2.5.10
 * Fixes
     * Spells
+        * Animal Growth
+            * Natural armor now correctly applies.
         * Hurricane Bow
             * Hurricane Bow now uses a better virtual size calculation.
         * Lead Blades
@@ -16,6 +18,11 @@
     * Weapons
         * Sai now correctly deal bludgeoning damage.
 * Added Context
+    * Monster Feats (Restricted to animal companions)
+        * Improved Natural Armor
+            * A creature can gain this feat multiple times. Each time the creature takes the feat, its natural armor bonus increases by another point. This can be taken more than once.
+        * Improved Natural Attack
+            * Choose one of the creature’s natural attack forms. The damage for this natural attack increases by one step, as if the creature’s size had increased by one category.
     * Hexes
         * Dire Prophecy
             * As long as the curse persists, the target takes a –4 penalty to his armor class and on attack rolls, saves, ability checks, and skill checks.
