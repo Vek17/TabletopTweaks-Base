@@ -180,6 +180,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.AbundantSpellKenning.AddAbundantSpellKenning();
                 MythicAbilities.SecondOrder.AddSecondOrder();
                 MythicAbilities.MythicBanner.AddMythicBanner();
+                MythicAbilities.MaximizedCritical.AddMaximizedCritical();
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();

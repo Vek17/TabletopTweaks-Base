@@ -420,6 +420,7 @@
     <Compile Include="NewContent\MythicAbilities\HarmoniousMage.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleBlessing.cs" />
     <Compile Include="NewContent\MythicAbilities\ImpossibleSpeed.cs" />
+    <Compile Include="NewContent\MythicAbilities\MaximizedCritical.cs" />
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicBanner.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />

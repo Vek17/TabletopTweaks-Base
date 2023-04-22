@@ -800,6 +800,11 @@
         "Homebrew": false,
         "Description": "Your base land speed increases by 30 feet plus an additional 5 feet for every mythic rank."
       },
+      "MaximizedCritical": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you score a critical hit, the weapon’s damage result is always the maximum possible amount you could roll."
+      },
       "MountedManiac": {
         "Enabled": true,
         "Homebrew": false,

@@ -1,3 +1,9 @@
+## Version 2.5.11
+* Added Content
+    * Mythic Abilities
+        * Maximized Critical
+            * Whenever you score a critical hit, the weapon’s damage result is always the maximum possible amount you could roll.
+
 ## Version 2.5.10
 * Fixes
     * Spells
