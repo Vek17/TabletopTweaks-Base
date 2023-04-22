@@ -141,8 +141,8 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                             c.m_Type = AbilityRankType.Default;
                             c.m_Progression = ContextRankProgression.DivStep;
                             c.m_StepLevel = 4;
-                            c.m_Class = new BlueprintCharacterClassReference[] { 
-                                ClassTools.ClassReferences.MonkClass, 
+                            c.m_Class = new BlueprintCharacterClassReference[] {
+                                ClassTools.ClassReferences.MonkClass,
                                 ClassTools.ClassReferences.BarbarianClass,
                                 ClassTools.ClassReferences.ShifterClass,
                             };

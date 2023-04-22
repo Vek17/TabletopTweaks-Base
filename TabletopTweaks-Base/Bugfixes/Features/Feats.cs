@@ -605,7 +605,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 ShiftersEdgeFeature.TemporaryContext(bp => {
                     bp.GetComponent<AddFactContextActions>().Disabled = true;
                     bp.AddComponent<ShiftersEdgeComponent>(c => {
-                        c.DamageBonus = new ContextValue() { 
+                        c.DamageBonus = new ContextValue() {
                             ValueType = ContextValueType.Rank,
                             ValueRank = AbilityRankType.DamageBonus
                         };

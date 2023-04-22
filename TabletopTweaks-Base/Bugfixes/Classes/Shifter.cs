@@ -109,7 +109,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                     ShifterACBonusHalfFeature.TemporaryContext(bp => {
                         bp.GetComponent<AddFacts>()?.TemporaryContext(c => {
-                            c.m_Facts = new BlueprintUnitFactReference[] { 
+                            c.m_Facts = new BlueprintUnitFactReference[] {
                                 ShifterACBonusHalfBuff.ToReference<BlueprintUnitFactReference>(),
                                 MonkACBonusBuffUnarmored
                             };

@@ -16,7 +16,6 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.ActivatableAbilities;
@@ -26,7 +25,6 @@ using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewActions;
@@ -193,7 +191,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                             );
                         });
                     });
-                    
+
                     TTTContext.Logger.LogPatch(AspectOfTheAspFeature);
                 }
                 void PatchBoundOfPossibilityAeon() {
@@ -203,7 +201,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     var Artifact_AeonCloakArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("1e3f209f70fc4ca696a40d474945ddd1");
                     var Artifact_AeonCloakAreaBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("5ed06badb95540fe855c638213b0a60b");
                     var Artifact_AeonCloakAllyBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("437fd1832d75433e93675babbf9da7f0");
-                    var Artifact_AeonCloakDCProperty = BlueprintTools.GetModBlueprintReference<BlueprintUnitPropertyReference>(TTTContext, "Artifact_AeonCloakDCProperty");               
+                    var Artifact_AeonCloakDCProperty = BlueprintTools.GetModBlueprintReference<BlueprintUnitPropertyReference>(TTTContext, "Artifact_AeonCloakDCProperty");
 
                     Artifact_AeonCloakArea.TemporaryContext(bp => {
                         bp.FlattenAllActions().OfType<ContextActionSavingThrow>().ForEach(save => {

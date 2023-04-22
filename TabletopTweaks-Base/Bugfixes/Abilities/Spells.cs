@@ -1803,7 +1803,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 if (Harmony.HasAnyPatches("WorldCrawl")) { return; } //Breaks WorldCrawl saves due to how things get patched
 
                 var LifeBubble = BlueprintTools.GetBlueprint<BlueprintAbility>("265582bc494c4b12b5860b508a2f89a2");
-                var resistenergy00 = new PrefabLink() { 
+                var resistenergy00 = new PrefabLink() {
                     AssetId = "e23fec8d2024a8c48a8b4a57693e31a7"
                 };
 
@@ -1813,7 +1813,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         a.DurationValue.TemporaryContext(d => {
                             d.Rate = DurationRate.TenMinutes;
                             d.DiceCountValue = 0;
-                            d.BonusValue = new ContextValue() { 
+                            d.BonusValue = new ContextValue() {
                                 ValueType = ContextValueType.Rank
                             };
                         });
@@ -1930,7 +1930,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         c.UnitEnter = Helpers.CreateActionList(
                             new Conditional() {
                                 ConditionsChecker = new ConditionsChecker() {
-                                    Conditions = new Condition[] { 
+                                    Conditions = new Condition[] {
                                         new ContextConditionHasBuff() {
                                             m_Buff = MindFogBuff
                                         },
@@ -1942,7 +1942,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                 },
                                 IfTrue = Helpers.CreateActionList(),
                                 IfFalse = Helpers.CreateActionList(
-                                    new ContextActionSavingThrow() { 
+                                    new ContextActionSavingThrow() {
                                         Type = SavingThrowType.Will,
                                         CustomDC = new ContextValue(),
                                         Actions = Helpers.CreateActionList(
@@ -1958,7 +1958,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                                                         }
                                                     }
                                                 )
-                                            }    
+                                            }
                                         )
                                     }
                                 )

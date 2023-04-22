@@ -1,12 +1,4 @@
-﻿using Kingmaker.Blueprints.Classes;
-using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Mechanics.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+﻿using Kingmaker.UnitLogic.Mechanics.Properties;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -18,7 +10,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
                 bp.BaseValue = 10;
                 bp.AddComponent<SimplePropertyGetter>(c => {
                     c.Property = UnitProperty.MythicLevel;
-                    c.Settings = new PropertySettings() { 
+                    c.Settings = new PropertySettings() {
                         m_Progression = PropertySettings.Progression.AsIs
                     };
                 });

@@ -6,7 +6,6 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
@@ -27,7 +26,6 @@ using System.Reflection.Emit;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
-using static Kingmaker.EntitySystem.EntityDataBase;
 using static Kingmaker.RuleSystem.Rules.Damage.DamageTypeDescription;
 using static TabletopTweaks.Base.Main;
 

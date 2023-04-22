@@ -18,9 +18,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     "Choose one of the creature’s natural attack forms. The damage for this natural attack increases by one step, as if the creature’s size had increased by one category.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat }; 
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.CombatFeat };
                 bp.ParameterType = FeatureParameterType.WeaponCategory;
-                bp.WeaponSubCategory = WeaponSubCategory.Natural; 
+                bp.WeaponSubCategory = WeaponSubCategory.Natural;
                 bp.m_Prerequisite = new BlueprintParametrizedFeatureReference();
                 bp.HideNotAvailibleInUI = true;
                 bp.AddComponent<WeaponChangeSizeParametrized>(c => {
