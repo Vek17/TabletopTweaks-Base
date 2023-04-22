@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -11,6 +12,7 @@ namespace TabletopTweaks.Base.NewContent.RagePowers {
     internal class GreaterAnimalFury {
         public static void AddGreaterAnimalFury() {
             var AnimalFuryFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("25954b1652bebc2409f9cb9d5728bceb");
+            var AnimalFuryBite = BlueprintTools.GetBlueprintReference<BlueprintItemWeaponReference>("8c01e7fccbb829947bc5894f63fb389a");
             var AnimalFuryRageBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("a67b51a8074ae47438280be0a87b01b6");
 
             var GreaterAnimalFuryBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "GreaterAnimalFuryBuff", bp => {
@@ -20,8 +22,8 @@ namespace TabletopTweaks.Base.NewContent.RagePowers {
                 bp.IsClassFeature = true;
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
                 bp.AddComponent<WeaponSizeChangeTTT>(c => {
-                    c.CheckWeaponCategory = true;
-                    c.Categories = new WeaponCategory[] { WeaponCategory.Bite };
+                    c.CheckSpecificWeapon = true;
+                    c.m_Weapon = AnimalFuryBite;
                     c.SizeChange = 1;
                 });
             });
