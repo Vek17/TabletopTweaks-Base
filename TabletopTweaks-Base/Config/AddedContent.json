@@ -520,6 +520,17 @@
     },
     "IsExpanded": true
   },
+  "RagePowers": {
+    "DisableAll": false,
+    "Settings": {
+      "GreaterAnimalFury": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The bite attack from animal fury deals damage as if you were one size larger."
+      }
+    },
+    "IsExpanded": true
+  },
   "RogueTalents": {
     "DisableAll": false,
     "Settings": {

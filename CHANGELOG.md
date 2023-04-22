@@ -26,6 +26,9 @@
     * Hexes
         * Dire Prophecy
             * As long as the curse persists, the target takes a –4 penalty to his armor class and on attack rolls, saves, ability checks, and skill checks.
+    * Rage Powers
+        * Greater Animal Fury
+            * The bite attack from animal fury deals damage as if you were one size larger.
 
 ## Version 2.5.9
 * Fixes to monk AC interactions.

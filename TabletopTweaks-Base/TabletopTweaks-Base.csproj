@@ -441,6 +441,7 @@
     <Compile Include="NewContent\Races\Elf.cs" />
     <Compile Include="NewContent\Races\Gnome.cs" />
     <Compile Include="NewContent\Races\Halfling.cs" />
+    <Compile Include="NewContent\RagePowers\GreaterAnimalFury.cs" />
     <Compile Include="NewContent\RogueTalents\BleedingAttack.cs" />
     <Compile Include="NewContent\RogueTalents\EmboldeningStrike.cs" />
     <Compile Include="NewContent\RogueTalents\RogueTalentProperties.cs" />

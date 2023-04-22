@@ -13,7 +13,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
         public static void AddImprovedNaturalAttack() {
 
             var ImprovedNaturalAttack = Helpers.CreateBlueprint<BlueprintParametrizedFeature>(TTTContext, "ImprovedNaturalAttack", bp => {
-                bp.SetName(TTTContext, "Improved Natural Attack (Monster)");
+                bp.SetName(TTTContext, "Improved Natural Attack");
                 bp.SetDescription(TTTContext, "Attacks made by one of this creature’s natural attacks leave vicious wounds.\n" +
                     "Choose one of the creature’s natural attack forms. The damage for this natural attack increases by one step, as if the creature’s size had increased by one category.");
                 bp.IsClassFeature = true;

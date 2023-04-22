@@ -14,7 +14,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var ImprovedNaturalArmor = BlueprintTools.GetBlueprint<BlueprintFeature>("fe9482aad88e5a54682d47d1df910ce8");
 
             ImprovedNaturalArmor.TemporaryContext(bp => {
-                bp.SetName(TTTContext, "Improved Natural Armor (Monster)");
+                bp.SetName(TTTContext, "Improved Natural Armor");
                 bp.SetDescription(TTTContext, "This creature’s hide is tougher than most.\n" +
                     "The creature’s natural armor bonus increases by +1.\n" +
                     "A creature can gain this feat multiple times. Each time the creature takes the feat, its natural armor bonus increases by another point.");

@@ -69,6 +69,8 @@ namespace TabletopTweaks.Base.NewContent {
                 Backgrounds.Lecturer.AddLecturer();
                 Backgrounds.Researcher.AddResearcher();
 
+                RagePowers.GreaterAnimalFury.AddGreaterAnimalFury();
+
                 RogueTalents.EmboldeningStrike.AddEmboldeningStrike();
                 RogueTalents.BleedingAttack.AddBleedingAttack();
 

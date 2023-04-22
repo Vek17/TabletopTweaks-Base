@@ -5556,17 +5556,6 @@
       "esES": null
     },
     {
-      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Flaming",
-      "ruRU": "Великий огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古炽焰",
-      "esES": null
-    },
-    {
       "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -5575,6 +5564,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古焚炎",
+      "esES": null
+    },
+    {
+      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Flaming",
+      "ruRU": "Великий огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "古炽焰",
       "esES": null
     },
     {
@@ -5666,17 +5666,6 @@
       "esES": null
     },
     {
-      "Key": "676143e3221040e0b7b907b49671e3e5",
-      "SimpleName": "Elemental — AcidSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Elemental — Acid",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "元素 — 酸蚀",
-      "esES": null
-    },
-    {
       "Key": "a494abde1748434384988c7956abbe2c",
       "SimpleName": "Elemental — AcidSpellMetamagic",
       "ProcessTemplates": false,
@@ -5688,14 +5677,14 @@
       "esES": null
     },
     {
-      "Key": "a489d5d8088447d3baed4ad6d4c68111",
-      "SimpleName": "Elemental — ColdSpellMetamagic",
+      "Key": "676143e3221040e0b7b907b49671e3e5",
+      "SimpleName": "Elemental — AcidSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}Elemental — Cold{/g}",
+      "enGB": "Elemental — Acid",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
+      "zhCN": "元素 — 酸蚀",
       "esES": null
     },
     {
@@ -5707,6 +5696,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素 — 寒冷",
+      "esES": null
+    },
+    {
+      "Key": "a489d5d8088447d3baed4ad6d4c68111",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}Elemental — Cold{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
       "esES": null
     },
     {
@@ -6128,17 +6128,6 @@
       "esES": null
     },
     {
-      "Key": "cf8107b3b65248e7859f9c167093aaee",
-      "SimpleName": "EncouragingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}Encouraging{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
-      "esES": null
-    },
-    {
       "Key": "f3392cd7203c43349f723fcda573497c",
       "SimpleName": "EncouragingSpellMetamagic",
       "ProcessTemplates": false,
@@ -6147,6 +6136,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "激励",
+      "esES": null
+    },
+    {
+      "Key": "cf8107b3b65248e7859f9c167093aaee",
+      "SimpleName": "EncouragingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}Encouraging{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
       "esES": null
     },
     {
@@ -6777,17 +6777,6 @@
       "esES": null
     },
     {
-      "Key": "b099256da46145e89582ec13b2962ec9",
-      "SimpleName": "FlaringSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Flaring",
-      "ruRU": "Ослепляющее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "闪耀",
-      "esES": null
-    },
-    {
       "Key": "078e11e00ef54879ba90f07cccae313d",
       "SimpleName": "FlaringSpellMetamagic",
       "ProcessTemplates": false,
@@ -6796,6 +6785,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
+      "esES": null
+    },
+    {
+      "Key": "b099256da46145e89582ec13b2962ec9",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Flaring",
+      "ruRU": "Ослепляющее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "闪耀",
       "esES": null
     },
     {
@@ -7115,6 +7115,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "伟兽",
+      "esES": null
+    },
+    {
+      "Key": "44952c4bb1804b9d8a5c109bea53ac74",
+      "SimpleName": "GreaterAnimalFuryBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "The bite attack from animal fury deals damage as if you were one size larger.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f491c46da35a4286b36d6fe887c0136f",
+      "SimpleName": "GreaterAnimalFuryBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Animal Fury",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -7616,7 +7638,7 @@
       "Key": "3997179ff96c473ebfbc59972d782210",
       "SimpleName": "ImprovedNaturalArmor.Name",
       "ProcessTemplates": false,
-      "enGB": "Improved Natural Armor (Monster)",
+      "enGB": "Improved Natural Armor",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -7638,7 +7660,7 @@
       "Key": "448c552d8a2a4b6b8df868bd7dae0699",
       "SimpleName": "ImprovedNaturalAttack.Name",
       "ProcessTemplates": false,
-      "enGB": "Improved Natural Attack (Monster)",
+      "enGB": "Improved Natural Attack",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -10902,17 +10924,6 @@
       "esES": null
     },
     {
-      "Key": "f467d13c43764235a30cb4aca2e1edcf",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Piercing",
-      "ruRU": "Пробивающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "穿刺",
-      "esES": null
-    },
-    {
       "Key": "c4211dd8fabd410ab02c99ff971911ed",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -10921,6 +10932,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f467d13c43764235a30cb4aca2e1edcf",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Piercing",
+      "ruRU": "Пробивающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "穿刺",
       "esES": null
     },
     {
