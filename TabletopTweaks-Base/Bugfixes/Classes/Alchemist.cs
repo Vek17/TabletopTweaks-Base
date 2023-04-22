@@ -114,8 +114,26 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchVivisectionist();
             }
             static void PatchBase() {
+                PatchDispelingBombs();
                 PatchMutagens();
 
+                void PatchDispelingBombs() {
+                    if (TTTContext.Fixes.Alchemist.Base.IsDisabled("DispelingBombs")) { return; }
+
+                    var DispelingBomb = BlueprintTools.GetBlueprint<BlueprintAbility>("f80896af0e10d7c4f9454cf1ce50ada4");
+
+                    DispelingBomb.TemporaryContext(bp => {
+                        bp.FlattenAllActions()
+                            .OfType<ContextActionDispelMagic>()
+                            .ForEach(a => {
+                                a.m_StopAfterCountRemoved = true;
+                                a.m_CountToRemove = 1;
+                                a.OneRollForAll = true;
+                            });
+                    });
+
+                    TTTContext.Logger.LogPatch(DispelingBomb);
+                }
                 void PatchMutagens() {
                     if (TTTContext.Fixes.Alchemist.Base.IsDisabled("MutagenStacking")) { return; }
 

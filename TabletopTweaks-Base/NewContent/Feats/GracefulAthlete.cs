@@ -21,25 +21,25 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.AddComponent(Helpers.Create<ReplaceStatBaseAttribute>(c => {
+                bp.AddComponent<ReplaceStatBaseAttribute>(c => {
                     c.TargetStat = StatType.SkillAthletics;
                     c.BaseAttributeReplacement = StatType.Dexterity;
-                }));
-                bp.AddComponent(Helpers.Create<PrerequisiteStatBonus>(c => {
+                });
+                bp.AddComponent<PrerequisiteStatBonus>(c => {
                     c.Stat = StatType.Dexterity;
                     c.Descriptor = ModifierDescriptor.Racial;
-                }));
-                bp.AddComponent(Helpers.Create<PrerequisiteStatValue>(c => {
+                });
+                bp.AddComponent<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.SkillAthletics;
                     c.Value = 1;
-                }));
-                bp.AddComponent(Helpers.Create<PrerequisiteStatValue>(c => {
+                });
+                bp.AddComponent<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.SkillMobility;
                     c.Value = 1;
-                }));
-                bp.AddComponent(Helpers.Create<FeatureTagsComponent>(c => {
+                });
+                bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Skills;
-                }));
+                });
             });
             if (TTTContext.AddedContent.Feats.IsDisabled("GracefulAthlete")) { return; }
             FeatTools.AddAsFeat(GracefulAthlete);

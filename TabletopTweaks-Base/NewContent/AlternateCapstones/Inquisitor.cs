@@ -126,5 +126,23 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 );
             });
         }
+        public static void UpdateTeamworkFeats() {
+            var TeamLeaderAbility = BlueprintTools.GetModBlueprint<BlueprintAbility>(TTTContext, "TeamLeaderAbility");
+            var CavalierTacticianAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("3ff8ef7ba7b5be0429cf32cd4ddf637c");
+
+            TeamLeaderAbility.TemporaryContext(bp => {
+                bp.GetComponent<AbilityApplyFact>()?.TemporaryContext(c => {
+                    c.m_Restriction = AbilityApplyFact.FactRestriction.CasterHasFact;
+                    c.m_Facts = CavalierTacticianAbility.GetComponent<AbilityApplyFact>().m_Facts;
+                    c.m_HasDuration = true;
+                    c.m_Duration = new ContextDurationValue() {
+                        m_IsExtendable = true,
+                        Rate = DurationRate.Days,
+                        DiceCountValue = 0,
+                        BonusValue = 1
+                    };
+                });
+            });
+        }
     }
 }

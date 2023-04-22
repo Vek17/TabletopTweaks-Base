@@ -107,6 +107,11 @@
         "Homebrew": false,
         "Description": "Add +2 to the DC for all saving throws against your stunning fist."
       },
+      "AccursedHex": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you target a creature with a hex that cannot target the same creature more than once per day, and that creature succeeds at its saving throw against the hex’s effect, you can target the creature with the same hex a second time before the end of your next turn."
+      },
       "AnimalAlly": {
         "Enabled": true,
         "Homebrew": false,
@@ -206,6 +211,16 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Add 2 to the DC of saving throws made to resist the effects of your channel energy ability."
+      },
+      "ImprovedNaturalArmor": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The creature's natural armor bonus to AC increases by +1."
+      },
+      "ImprovedNaturalAttack": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Choose one of the creature’s natural attack forms. The damage for this natural attack increases by one step, as if the creature’s size had increased by one category."
       },
       "LungingSpellTouch": {
         "Enabled": true,
@@ -331,6 +346,16 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "By sacrificing a prepared spell of the same or higher level than your specialized spell, you may spontaneously cast your specialized spell. The specialized spell is treated as its normal level, regardless of the spell slot used to cast it."
+      },
+      "SplitHex": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you use one of your hexes that targets a single creature, you can cast the hex again as a free action."
+      },
+      "SplitHexAutomatic": {
+        "Enabled": false,
+        "Homebrew": false,
+        "Description": "When using split hex the second target is selected automatically instead of manually."
       },
       "Stalwart": {
         "Enabled": true,
@@ -495,6 +520,17 @@
     },
     "IsExpanded": true
   },
+  "RagePowers": {
+    "DisableAll": false,
+    "Settings": {
+      "GreaterAnimalFury": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The bite attack from animal fury deals damage as if you were one size larger."
+      }
+    },
+    "IsExpanded": true
+  },
   "RogueTalents": {
     "DisableAll": false,
     "Settings": {
@@ -542,6 +578,37 @@
     },
     "IsExpanded": true
   },
+  "Hexes": {
+    "DisableAll": false,
+    "Settings": {
+      "Cauldron": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The witch receives Brew Potions as a bonus feat and a +4 bonus on skill checks to brew potions."
+      },
+      "DireProphecy": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "As long as the curse persists, the target takes a –4 penalty to his armor class and on attack rolls, saves, ability checks, and skill checks."
+      },
+      "IceTomb": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "If the target fails its save, it is paralyzed and unconscious but does not need to eat or breathe while the ice lasts."
+      },
+      "Retribution": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "A witch can place a retribution hex on a creature within 60 feet, causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. Immediately after the hexed creature deals damage in melee, it takes half that damage (round down)."
+      },
+      "Withering": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "The target ages to the next age category. The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier."
+      }
+    },
+    "IsExpanded": true
+  },
   "Races": {
     "DisableAll": false,
     "Settings": {
@@ -575,6 +642,11 @@
         "Enabled": true,
         "Homebrew": true,
         "Description": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks."
+      },
+      "Researcher": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks."
       }
     },
     "IsExpanded": true
@@ -582,15 +654,40 @@
   "Spells": {
     "DisableAll": false,
     "Settings": {
-      "LongArm": {
+      "AccursedGlare": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result."
+      },
+      "AgeResistance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You ignore the physical detriments of age."
+      },
+      "CloakOfWinds": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet."
+      },
+      "InflictPain": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round."
+      },
+      "LongArm": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty."
       },
       "MagesDisjunction": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "All magical effects and magic items within the radius of the spell, except for those that you carry or touch, are disjoined. That is, spells and spell-like effects are unraveled and destroyed completely (ending the effect as a dispel magic spell does), and each permanent magic item must make a successful Will save or be turned into a normal item for the duration of this spell."
+      },
+      "SandsOfTime": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You temporarily age the target, immediately advancing it to the next age category."
       },
       "ShadowEnchantment": {
         "Enabled": true,
@@ -602,10 +699,20 @@
         "Homebrew": false,
         "Description": "This spell functions like shadow enchantment, except that it enables you to create partially real, illusory versions of psychic, sorcerer, or wizard enchantment spells of 5th level or lower. If the spell is recognized as a greater shadow enchantment, it's only three-fifths (60%) as effective."
       },
+      "SpellCurse": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You disrupt any spell energy affecting your target, causing that energy to crackle with power and harm the target."
+      },
       "StunningBarrierGreater": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "This spell functions as stunning barrier, except it provides a +2 bonus to AC and on saving throws and it is not discharged until it has stunned a number of creatures equal to your caster level."
+      },
+      "WebBolt": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "You launch a ball of webbing at a target, which must make a save or be affected as if by a web spell occupying only the creature’s space."
       }
     },
     "IsExpanded": true
@@ -654,7 +761,7 @@
         "Description": "You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one."
       },
       "ArmorMaster": {
-        "Enabled": false,
+        "Enabled": true,
         "Homebrew": false,
         "Description": "You don't take an armor check penalty or incur an arcane spell failure chance when wearing the selected type of armor or using any shield. In addition, the maximum Dexterity bonus of the selected armor type doesn't apply to you."
       },
@@ -667,6 +774,11 @@
         "Enabled": true,
         "Homebrew": true,
         "Description": "The effects from your blessings now last twice as long."
+      },
+      "ExtraMythicFeat": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You gain a bonus mythic feat. You can take this mythic ability once."
       },
       "FavoriteMetamagicPersistent": {
         "Enabled": true,
@@ -724,6 +836,16 @@
   "MythicFeats": {
     "DisableAll": false,
     "Settings": {
+      "BewitchingReflex": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "You can cast the first hex after an initiative roll as a swift action."
+      },
+      "MythicAccursedHex": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When you use Accursed Hex to target a creature with one of your hexes a second time, that creature must roll its saving throw twice and take the lower result."
+      },
       "MythicCleave": {
         "Enabled": true,
         "Homebrew": false,

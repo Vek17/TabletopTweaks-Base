@@ -24,7 +24,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.WizardFeat };
                 bp.AddComponent<ContextDispelBonusOnType>(c => {
                     c.Bonus = 2;
                     c.Type = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel;
@@ -46,7 +46,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
                 bp.Ranks = 1;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat, FeatureGroup.WizardFeat };
                 bp.AddComponent<ContextDispelBonusOnType>(c => {
                     c.Bonus = 2;
                     c.Type = Kingmaker.RuleSystem.Rules.RuleDispelMagic.CheckType.CasterLevel;

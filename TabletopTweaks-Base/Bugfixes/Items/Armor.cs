@@ -25,12 +25,14 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                 void PatchHaramaki() {
                     if (TTTContext.Fixes.Items.Armor.IsDisabled("Haramaki")) { return; }
+
                     var HaramakiType = BlueprintTools.GetBlueprint<BlueprintArmorType>("9511d62bcfc57c245bf64350a5933470");
                     HaramakiType.m_ProficiencyGroup = ArmorProficiencyGroup.Light;
                     TTTContext.Logger.LogPatch("Patched", HaramakiType);
                 }
                 void PatchSingingSteel() {
                     if (TTTContext.Fixes.Items.Armor.IsDisabled("SingingSteel")) { return; }
+
                     var SingingSteelFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("793af594fa45e6a47b89719dda7d5f7a");
                     SingingSteelFeature.AddComponent<AddMechanicsFeature>(c => {
                         c.m_Feature = AddMechanicsFeature.MechanicsFeatureType.SingingSteel;

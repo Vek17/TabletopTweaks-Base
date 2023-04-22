@@ -8,6 +8,7 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -15,7 +16,6 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.Spells {
     internal class CloakOfWinds {
         public static void AddCloakOfWinds() {
-            //var icon = AssetLoader.Image2Sprite.Create($"{Context.ModEntry.Path}Assets{Path.DirectorySeparatorChar}Abilities{Path.DirectorySeparatorChar}Icon_LongArm.png");
             var Icon_CloakOfWinds = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_CloakOfWinds.png");
             var Icon_ScrollOfCloakOfWinds = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_ScrollOfCloakOfWinds.png");
             var CloakOfWindsBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "CloakOfWindsBuff", bp => {
@@ -35,7 +35,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.SetDescription(TTTContext, "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty.");
                 bp.SetLocalizedDuration(TTTContext, "1 minute/level");
                 bp.SetLocalizedSavingThrow(TTTContext, "");
-                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal;
+                bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.CompletelyNormal | Metamagic.Reach;
                 bp.Range = AbilityRange.Close;
                 bp.CanTargetFriends = true;
                 bp.CanTargetSelf = true;
@@ -59,6 +59,10 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                         }
                     );
                 });
+                bp.AddContextRankConfig(c => {
+                    c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
+                    c.m_Progression = ContextRankProgression.AsIs;
+                });
                 bp.AddComponent<SpellComponent>(c => {
                     c.School = SpellSchool.Abjuration;
                 });
@@ -72,7 +76,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
             var ScrollOfCloakOfWinds = ItemTools.CreateScroll(TTTContext, "ScrollOfCloakOfWinds", Icon_ScrollOfCloakOfWinds, CloakOfWindsAbility, 3, 5);
             var PotionOfCloakOfWinds = ItemTools.CreatePotion(TTTContext, "PotionOfCloakOfWinds", ItemTools.PotionColor.Blue, CloakOfWindsAbility, 3, 5);
 
-            if (TTTContext.AddedContent.Spells.IsDisabled("LongArm")) { return; }
+            if (TTTContext.AddedContent.Spells.IsDisabled("CloakOfWinds")) { return; }
 
             VenderTools.AddScrollToLeveledVenders(ScrollOfCloakOfWinds);
             VenderTools.AddPotionToLeveledVenders(PotionOfCloakOfWinds);

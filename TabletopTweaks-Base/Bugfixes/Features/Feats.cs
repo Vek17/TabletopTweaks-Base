@@ -10,12 +10,10 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
-using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -32,14 +30,13 @@ using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Reflection;
+using System.Reflection.Emit;
 using TabletopTweaks.Core.NewActions;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
-using TabletopTweaks.Core.NewRules;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -68,12 +65,15 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchFrightfulShape();
                 PatchIndomitableMount();
                 PatchMountedCombat();
+                PatchExtendMetamagic();
                 PatchPersistantMetamagic();
                 PatchBolsteredMetamagic();
                 PatchEmpowerMetamagic();
                 PatchMaximizeMetamagic();
                 PatchNaturalSpell();
+                PatchRakingClaws();
                 PatchShatterDefenses();
+                PatchShiftersEdge();
                 PatchShifterRush();
                 PatchSlashingGrace();
                 PatchSpellSpecialization();
@@ -570,6 +570,58 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 });
                 TTTContext.Logger.LogPatch(FrightfulShape);
             }
+            static void PatchRakingClaws() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("RakingClaws")) { return; }
+
+                var RakingClawsFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("a1b262d2b1ef478994113fc941fa3a32");
+
+                var WildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("19bb148cb92db224abb431642d10efeb");
+                var MajorFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("6e843ca5ae8e41aea17458fb4c16a15d");
+                var FeralChampnionWildShapeIWolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1b60050091002ad458bd49788e84f13a");
+                var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
+                var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
+                var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+
+                RakingClawsFeature.TemporaryContext(bp => {
+                    bp.RemoveComponents<PrerequisiteCondition>();
+                    bp.AddPrerequisiteFeaturesFromList(1,
+                        WildShapeIWolfFeature,
+                        FeralChampnionWildShapeIWolfFeature,
+                        MajorFormFeature,
+                        ShifterDragonFormFeature,
+                        GriffonheartShifterGriffonShapeFakeFeature,
+                        ShifterWildShapeFeyFeatureLevelUp,
+                        ShifterWildShapeManticoreFeatureLevelUp
+                    );
+                });
+                TTTContext.Logger.LogPatch(RakingClawsFeature);
+            }
+            static void PatchShiftersEdge() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ShiftersEdge")) { return; }
+
+                var ShiftersEdgeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("0e7ec9a341ca46fcaf4d49759e047c83");
+
+                ShiftersEdgeFeature.TemporaryContext(bp => {
+                    bp.GetComponent<AddFactContextActions>().Disabled = true;
+                    bp.AddComponent<ShiftersEdgeComponent>(c => {
+                        c.DamageBonus = new ContextValue() {
+                            ValueType = ContextValueType.Rank,
+                            ValueRank = AbilityRankType.DamageBonus
+                        };
+                        c.Descriptor = ModifierDescriptor.UntypedStackable;
+                    });
+                    bp.AddContextRankConfig(c => {
+                        c.m_Type = AbilityRankType.DamageBonus;
+                        c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                        c.m_Progression = ContextRankProgression.Div2;
+                        c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.ShifterClass };
+                    });
+                });
+
+
+                TTTContext.Logger.LogPatch(ShiftersEdgeFeature);
+            }
             static void PatchShifterRush() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("ShifterRush")) { return; }
 
@@ -660,6 +712,32 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     c.m_SiezeTheMomentFact = SiezeTheMoment.ToReference<BlueprintUnitFactReference>();
                 });
                 TTTContext.Logger.LogPatch(SiezeTheMoment);
+            }
+            static void PatchExtendMetamagic() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ExtendMetamagic")) { return; }
+
+                var ExtendSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef");
+                var spells = SpellTools.GetAllSpells();
+                TTTContext.Logger.LogPatch("Enabling", ExtendSpellFeat);
+                foreach (var spell in spells) {
+                    bool appliesBuff = spell.AbilityAndVariants()
+                        .SelectMany(s => s.AbilityAndStickyTouch())
+                        .Where(s => s != null)
+                        .SelectMany(s => s.FlattenAllActions())
+                        .OfType<ContextActionApplyBuff>().Any(c => c.DurationValue.IsExtendable)
+                            ||
+                        spell.AbilityAndVariants()
+                            .SelectMany(s => s.AbilityAndStickyTouch())
+                            .Where(s => s != null)
+                            .SelectMany(s => s.FlattenAllActions())
+                            .OfType<ContextActionApplyBuff>().Any(c => c.DurationValue.IsExtendable);
+                    if (appliesBuff) {
+                        if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Extend)) {
+                            spell.AvailableMetamagic |= Metamagic.Extend;
+                            TTTContext.Logger.LogPatch("Enabled Extend Metamagic", spell);
+                        }
+                    };
+                }
             }
             static void PatchPersistantMetamagic() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("PersistantMetamagic")) { return; }

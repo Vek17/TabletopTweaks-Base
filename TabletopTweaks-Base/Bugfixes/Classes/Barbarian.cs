@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -63,6 +64,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 TTTContext.Logger.LogHeader("Patching Barbarian");
 
                 PatchBase();
+                PatchAnimalFury();
                 PatchWreckingBlows();
                 PatchCripplingBlows();
             }
@@ -70,6 +72,16 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             static void PatchBase() {
             }
 
+            static void PatchAnimalFury() {
+                if (TTTContext.Fixes.Barbarian.Base.IsDisabled("AnimalFury")) { return; }
+
+                var AnimalFuryBite = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("8c01e7fccbb829947bc5894f63fb389a");
+                AnimalFuryBite.TemporaryContext(bp => {
+                    bp.KeepInPolymorph = true;
+                });
+
+                TTTContext.Logger.LogPatch(AnimalFuryBite);
+            }
             static void PatchWreckingBlows() {
                 if (TTTContext.Fixes.Barbarian.Base.IsDisabled("WreckingBlows")) { return; }
                 var WreckingBlowsFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("5bccc86dd1f187a4a99f092dc054c755");

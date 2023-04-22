@@ -24,6 +24,7 @@ namespace TabletopTweaks.Base.NewContent {
                 BaseAbilities.OneHandedToggleAbility.AddOneHandedToggle();
 
                 Features.MartialWeaponProficencySelection.AddMartialWeaponProficencySelection();
+                Features.AgeEffects.AddAgeEffects();
                 //Features.NauseatedPoision.AddNauseatedPoision();
 
                 Spells.LongArms.AddLongArms();
@@ -33,6 +34,12 @@ namespace TabletopTweaks.Base.NewContent {
                 Spells.MagesDisjunction.AddMagesDisjunction();
                 Spells.StunningBarrierGreater.AddStunningBarrierGreater();
                 Spells.CloakOfWinds.AddCloakOfWinds();
+                Spells.WebBolt.AddWebBolt();
+                Spells.InflictPain.AddInflictPain();
+                Spells.AccursedGlare.AddAccursedGlare();
+                Spells.AgeResistance.AddAgeResistance();
+                Spells.SandsOfTime.AddSandsOfTime();
+                Spells.SpellCurse.AddSpellCurse();
 
                 //Added early as some things depend on them for selections
                 Feats.MetamagicFeats.IntensifiedSpell.AddIntensifiedSpell();
@@ -60,6 +67,9 @@ namespace TabletopTweaks.Base.NewContent {
                 Races.Halfling.AddHalflingHeritage();
 
                 Backgrounds.Lecturer.AddLecturer();
+                Backgrounds.Researcher.AddResearcher();
+
+                RagePowers.GreaterAnimalFury.AddGreaterAnimalFury();
 
                 RogueTalents.EmboldeningStrike.AddEmboldeningStrike();
                 RogueTalents.BleedingAttack.AddBleedingAttack();
@@ -78,6 +88,12 @@ namespace TabletopTweaks.Base.NewContent {
                 WizardArcaneDiscoveries.KnowledgeIsPower.AddKnowledgeIsPower();
                 WizardArcaneDiscoveries.OppositionResearch.AddOppositionResearch();
                 WizardArcaneDiscoveries.YuelralsBlessing.AddYuelralsBlessing();
+
+                Hexes.Cauldron.AddCauldron();
+                Hexes.IceTomb.AddIceTomb();
+                Hexes.Retribution.AddRetribution();
+                Hexes.Withering.AddWithering();
+                Hexes.DireProphecy.AddDireProphecy();
 
                 Features.PrimalistRagePowerSelection.AddPrimalistRagePowerSelection();
                 Features.SpearChargeBuff.AddSpearChargeBuff();
@@ -125,6 +141,9 @@ namespace TabletopTweaks.Base.NewContent {
                 Classes.Magus.AddMagusFeatures();
                 Classes.Skald.AddSkaldFeatures();
                 Classes.Monk.AddMonkFeatures();
+                Classes.WinterWitch.AddWinterWitchFeatures();
+                Classes.Barbarian.AddBarbarianFeatures();
+                Classes.Aeon.AddAeonFeatures();
                 //Features to support existing archetypes
                 Archetypes.MadDog.AddMadDogFeatures();
                 //New archetypes
@@ -197,6 +216,10 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.AbilityFocusStunningFist.AddAbilityFocusStunningFist();
                 Feats.ChainChallenge.AddChainChallenge();
                 Feats.MutatedShape.AddMutatedShape();
+                Feats.AccursedHex.AddAccursedHex();
+                Feats.SplitHex.AddSplitHex();
+                Feats.ImprovedNaturalArmor.AddImprovedNaturalArmor();
+                Feats.ImprovedNaturalAttack.AddImprovedNaturalAttack();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();
@@ -219,6 +242,8 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicFeats.MythicCombatExpertise.AddMythicCombatExpertise();
                 MythicFeats.MythicCriticalFocus.AddMythicCriticalFocus();
                 MythicFeats.MythicCleave.AddMythicCleave();
+                MythicFeats.BewitchingReflex.AddBewitchingReflex();
+                MythicAbilities.ExtraMythicFeat.AddExtraMythicFeat();
 
                 AlternateCapstones.Generic.AddAlternateCapstones();
                 AlternateCapstones.Alchemist.AddAlternateCapstones();
@@ -259,6 +284,11 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.MetamagicFeats.RimeSpell.UpdateSpells();
                 Feats.MetamagicFeats.SolidShadows.UpdateSpells();
                 Feats.MetamagicFeats.ElementalSpell.UpdateSpells();
+            }
+            [HarmonyPriority(Priority.Last)]
+            [HarmonyPostfix]
+            static void ApplyLateSelections() {
+                AlternateCapstones.Inquisitor.UpdateTeamworkFeats();
             }
         }
     }

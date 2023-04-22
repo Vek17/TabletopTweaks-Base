@@ -33,9 +33,6 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 if (descriptor == ModifierDescriptor.NaturalArmor) {
                     __result = false;
                 }
-                if (descriptor == (ModifierDescriptor)NaturalArmor.Stackable) {
-                    __result = true;
-                }
             }
         }
 
@@ -107,6 +104,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Stackable);
                     TTTContext.Logger.LogPatch("Patched", AnimalCompanionStatFeature);
                     AnimalCompanionUpgrades.ForEach(bp => {
+                        bp.SetName(TTTContext, "Animal Companion Upgrade");
                         bp.GetComponents<AddStatBonus>()
                             .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
                             .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Stackable);
@@ -178,7 +176,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                         .SelectMany(spell => spell.FlattenAllActions())
                         .OfType<ContextActionApplyBuff>()
                         .Select(action => action.Buff)
-                        .SelectMany(buff => buff.Components)
+                        .SelectMany(buff => buff.ComponentsArray)
                         .ToArray();
                     buffComponents
                         .OfType<AddContextStatBonus>()
@@ -201,7 +199,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Size);
                     TTTContext.Logger.LogPatch("Patched", LegendaryProportionsBuff);
                     AnimalGrowthBuff.GetComponents<AddContextStatBonus>()
-                        .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmorEnhancement)
+                        .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Stackable);
                 }
             }

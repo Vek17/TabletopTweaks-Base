@@ -102,7 +102,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicEncouragingSpell")) { return; }
 
-            //AddRodsToVenders();
+            AddRodsToVenders();
             FeatTools.AddAsFeat(EncouragingSpellFeat);
             FeatTools.AddAsMetamagicFeat(EncouragingSpellFeat);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicEncouraging);
@@ -111,7 +111,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicEncouragingSpell")) { return; }
 
             var spells = SpellTools.GetAllSpells()
-                .Where(s => s.AssetGuid.m_Guid != Guid.Parse("8bc64d869456b004b9db255cdd1ea734") /*Exclude Bane*/);
+                .Where(s => s.AssetGuid.m_Guid != Guid.Parse("8bc64d869456b004b9db255cdd1ea734") /*Exclude Bane*/)
+                .SelectMany(s => s.AbilityAndVariants())
+                .SelectMany(s => s.AbilityAndStickyTouch())
+                .ToArray();
             foreach (var spell in spells) {
                 bool validEncouraging = spell
                     .AbilityAndVariants()

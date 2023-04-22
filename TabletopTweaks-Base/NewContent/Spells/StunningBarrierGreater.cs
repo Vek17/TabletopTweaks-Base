@@ -55,8 +55,9 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.SetDescription(StunningBarrierDescription);
                 bp.SetLocalizedDuration(StunningBarrierLocalizedDuration);
                 bp.SetLocalizedSavingThrow(StunningBarrierLocalizedSavingThrow);
+                bp.DisableLog = true;
                 bp.AvailableMetamagic = Metamagic.Extend | Metamagic.Heighten | Metamagic.Quicken | Metamagic.Persistent | Metamagic.CompletelyNormal;
-                bp.Type = AbilityType.SpellLike;
+                bp.Type = AbilityType.Spell;
                 bp.Range = AbilityRange.Long;
                 bp.CanTargetEnemies = true;
                 bp.CanTargetFriends = true;
@@ -67,26 +68,20 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.m_Icon = Icon_StunningBarrierGreater;
                 bp.ResourceAssetIds = StunningBarrierStun.ResourceAssetIds;
                 bp.AddComponent<AbilityEffectRunAction>(c => {
-                    c.SavingThrowType = SavingThrowType.Will;
                     c.Actions = Helpers.CreateActionList(
-                        new ContextActionConditionalSaved() {
-                            Succeed = Helpers.CreateActionList(),
-                            Failed = Helpers.CreateActionList(
-                                new ContextActionApplyBuff() {
-                                    m_Buff = Stunned,
-                                    DurationValue = new ContextDurationValue() {
-                                        DiceCountValue = 0,
-                                        BonusValue = 1
+                        new ContextActionApplyBuff() {
+                            m_Buff = Stunned,
+                            DurationValue = new ContextDurationValue() {
+                                DiceCountValue = 0,
+                                BonusValue = 1
+                            }
+                        },
+                        new ContextActionOnContextCaster() {
+                            Actions = Helpers.CreateActionList(
+                                    new ContextActionRemoveBuff() {
+                                        m_Buff = StunningBarrierGreaterBuff.ToReference<BlueprintBuffReference>(),
+                                        RemoveRank = true
                                     }
-                                },
-                                new ContextActionOnContextCaster() {
-                                    Actions = Helpers.CreateActionList(
-                                          new ContextActionRemoveBuff() {
-                                              m_Buff = StunningBarrierGreaterBuff.ToReference<BlueprintBuffReference>(),
-                                              RemoveRank = true
-                                          }
-                                    )
-                                }
                             )
                         }
                     );
@@ -136,10 +131,20 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                     c.OnlyMelee = true;
                     c.ActionOnSelf = Helpers.CreateActionList();
                     c.ActionsOnAttacker = Helpers.CreateActionList(
-                        new ContextActionCastSpell() {
-                            m_Spell = StunningBarrierGreaterStun.ToReference<BlueprintAbilityReference>(),
-                            DC = new ContextValue(),
-                            SpellLevel = new ContextValue()
+                        new ContextActionSavingThrow() {
+                            Type = SavingThrowType.Will,
+                            Actions = Helpers.CreateActionList(
+                                new ContextActionConditionalSaved() {
+                                    Succeed = Helpers.CreateActionList(),
+                                    Failed = Helpers.CreateActionList(
+                                        new ContextActionCastSpell() {
+                                            m_Spell = StunningBarrierGreaterStun.ToReference<BlueprintAbilityReference>(),
+                                            DC = new ContextValue(),
+                                            SpellLevel = new ContextValue()
+                                        }
+                                    )
+                                }
+                            )
                         }
                     );
                 });

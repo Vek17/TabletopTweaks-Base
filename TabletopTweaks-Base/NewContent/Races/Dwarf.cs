@@ -7,6 +7,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Core.NewComponents;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -48,7 +49,7 @@ namespace TabletopTweaks.Base.NewContent.Races {
                     c.Stat = StatType.Constitution;
                     c.Value = 2;
                 }));
-                bp.AddComponent(Helpers.Create<AddStatBonusIfHasFact>(c => {
+                bp.AddComponent(Helpers.Create<AddStatBonusIfHasFactTTT>(c => {
                     c.Descriptor = ModifierDescriptor.Racial;
                     c.Stat = StatType.Charisma;
                     c.Value = -2;

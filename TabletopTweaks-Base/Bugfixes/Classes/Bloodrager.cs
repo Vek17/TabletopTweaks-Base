@@ -178,17 +178,30 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 void PatchRagePowerFeatQualifications() {
                     if (TTTContext.Fixes.Bloodrager.Archetypes["Primalist"].IsDisabled("RagePowerFeatQualifications")) { return; }
+
                     var PrimalistTakeRagePowers4 = BlueprintTools.GetBlueprint<BlueprintProgression>("8eb5c34bb8471a0438e7eb3994de3b92");
                     var PrimalistTakeRagePowers8 = BlueprintTools.GetBlueprint<BlueprintProgression>("db2710cd915bbcf4193fa54083e56b27");
                     var PrimalistTakeRagePowers12 = BlueprintTools.GetBlueprint<BlueprintProgression>("e43a7bfd5c90a514cab1c11b41c550b1");
                     var PrimalistTakeRagePowers16 = BlueprintTools.GetBlueprint<BlueprintProgression>("b6412ff44f3a82f499d0dd6748a123bc");
                     var PrimalistTakeRagePowers20 = BlueprintTools.GetBlueprint<BlueprintProgression>("5905a80d5934248439e83612d9101b4b");
 
+                    var PrimalistSecondBloodlineTakeRagePowers4 = BlueprintTools.GetBlueprint<BlueprintProgression>("39fd1f34c8ab45d997192773281291e3");
+                    var PrimalistSecondBloodlineTakeRagePowers8 = BlueprintTools.GetBlueprint<BlueprintProgression>("cc0ed1ccd6664dd881922321fec7a8ba");
+                    var PrimalistSecondBloodlineTakeRagePowers12 = BlueprintTools.GetBlueprint<BlueprintProgression>("c7254db3798e4e68baa85a084ca3d73b");
+                    var PrimalistSecondBloodlineTakeRagePowers16 = BlueprintTools.GetBlueprint<BlueprintProgression>("531d1dd9dd7b4cdf9849ae027b2caf6d");
+                    var PrimalistSecondBloodlineTakeRagePowers20 = BlueprintTools.GetBlueprint<BlueprintProgression>("32525ed3aea0480ebd7ad3654dca96cc");
+
                     PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers4, 4);
                     PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers8, 8);
                     PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers12, 12);
                     PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers16, 16);
                     PatchPrimalistTakeRagePowers(PrimalistTakeRagePowers20, 20);
+
+                    PatchPrimalistTakeRagePowers(PrimalistSecondBloodlineTakeRagePowers4, 4);
+                    PatchPrimalistTakeRagePowers(PrimalistSecondBloodlineTakeRagePowers8, 8);
+                    PatchPrimalistTakeRagePowers(PrimalistSecondBloodlineTakeRagePowers12, 12);
+                    PatchPrimalistTakeRagePowers(PrimalistSecondBloodlineTakeRagePowers16, 16);
+                    PatchPrimalistTakeRagePowers(PrimalistSecondBloodlineTakeRagePowers20, 20);
 
                     void PatchPrimalistTakeRagePowers(BlueprintProgression PrimalistTakeRagePowers, int level) {
                         var PrimalistRagePowerSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(TTTContext, "PrimalistRagePowerSelection");

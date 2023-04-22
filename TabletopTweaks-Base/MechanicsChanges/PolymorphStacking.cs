@@ -172,7 +172,15 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                     BlueprintTools.GetBlueprint<BlueprintBuff>("1b7290523aad4b9f8de5310fd873b000"), //WyrmshifterGoldBreathWeaponBuff  
                     BlueprintTools.GetBlueprint<BlueprintBuff>("1924db960ed3476f8cf045fc1e787db2"), //WyrmshifterBrassBreathWeaponBuff  
                     BlueprintTools.GetBlueprint<BlueprintBuff>("a97bed28eac746f4b756eb1473f61f5e"), //WyrmshifterBlueBreathWeaponBuff  
-                    BlueprintTools.GetBlueprint<BlueprintBuff>("695c5f531d084448850c0bb278ab3251")  //WyrmshifterBlackBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("695c5f531d084448850c0bb278ab3251"), //WyrmshifterBlackBreathWeaponBuff  
+
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("ca22ec0be6b0405d98c50d5b97085166"), //GreaterWyrmshifterBlackBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("7381efe2aa47412ea06d82c513fd3104"), //GreaterWyrmshifterBlueBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("50394b1c11aa40109ad7cad82e96b472"), //GreaterWyrmshifterBrassBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("2778a8154f1e4e3a87b5bce12ec35ac8"), //GreaterWyrmshifterBreathWeaponCooldownBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("162b2dab8b3a40bfa178bd68791da4e7"), //GreaterWyrmshifterGoldBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("92d49de79c724261b4ef264f60bd6d9c"), //GreaterWyrmshifterGreenBreathWeaponBuff 
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("ff0a9ac2d6044a3895f38b632dc6453d")  //GreaterWyrmshifterSilverBreathWeaponBuff  
                 };
                 polymorphBuffs
                     .OrderBy(buff => buff.name)

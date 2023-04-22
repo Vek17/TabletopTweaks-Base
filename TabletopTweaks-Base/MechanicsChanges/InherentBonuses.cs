@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Buffs;
 using System;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -28,7 +29,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
             if (TTTContext.Fixes.BaseFixes.IsDisabled("FixInherentBonuses")) { return; }
             Func<ModifiableValue.Modifier, bool> newFilterIsPermanent = delegate (ModifiableValue.Modifier m) {
                 ModifierDescriptor modDescriptor = m.ModDescriptor;
-                return FilterIsPermanentOriginal(m) || modDescriptor == ModifierDescriptor.Inherent;
+                return FilterIsPermanentOriginal(m) || (modDescriptor == ModifierDescriptor.Inherent && m.Source is not Buff);
             };
             var FilterIsPermanent = AccessTools.Field(typeof(ModifiableValue), "FilterIsPermanent");
             FilterIsPermanent.SetValue(null, newFilterIsPermanent);

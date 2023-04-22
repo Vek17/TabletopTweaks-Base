@@ -6,10 +6,13 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -18,6 +21,8 @@ using Kingmaker.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core;
+using TabletopTweaks.Core.MechanicsChanges;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -79,9 +84,75 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchScaledFist();
             }
             static void PatchBase() {
+                PatchMonkACBonus();
                 PatchStunningFistVarriants();
                 PatchStunningFistDescriptors();
 
+                void PatchMonkACBonus() {
+                    if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
+
+                    var InstinctualWarriorArchetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("adffdd8a99094a89823a79292a503ee9");
+                    var MonkACBonusUnlock = BlueprintTools.GetBlueprint<BlueprintFeature>("2615c5f87b3d72b42ac0e73b56d895e0");
+                    var MonkACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f132c4c4279e4646a05de26635941bfe");
+                    var MonkACBonusBuffUnarmored = BlueprintTools.GetBlueprint<BlueprintBuff>("d7ff7a9f1fe84e679f98b36e4bacd63c");
+
+                    MonkACBonusBuff.TemporaryContext(bp => {
+                        bp.IsClassFeature = true;
+                        bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Wisdom;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.StatBonus
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = StatType.Wisdom;
+                        });
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
+                            c.m_Type = AbilityRankType.StatBonus;
+                            c.m_Stat = StatType.Wisdom;
+                            c.m_Progression = ContextRankProgression.AsIs;
+                            c.m_UseMin = true;
+                            c.m_Min = 0;
+                        });
+                    });
+                    MonkACBonusBuffUnarmored.TemporaryContext(bp => {
+                        bp.IsClassFeature = true;
+                        bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                            c.m_Type = AbilityRankType.Default;
+                            c.m_Progression = ContextRankProgression.DivStep;
+                            c.m_StepLevel = 4;
+                            c.m_Class = new BlueprintCharacterClassReference[] {
+                                ClassTools.ClassReferences.MonkClass,
+                                ClassTools.ClassReferences.BarbarianClass,
+                                ClassTools.ClassReferences.ShifterClass,
+                            };
+                            c.Archetype = InstinctualWarriorArchetype;
+                            c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
+                        });
+                    });
+                    TTTContext.Logger.LogPatch(MonkACBonusBuff);
+                    TTTContext.Logger.LogPatch(MonkACBonusBuffUnarmored);
+                }
                 void PatchStunningFistVarriants() {
                     if (TTTContext.Fixes.Monk.Base.IsDisabled("StunningFistVarriants")) { return; }
                     var MonkProgression = BlueprintTools.GetBlueprint<BlueprintProgression>("8a91753b978e3b34b9425419179aafd6");
@@ -286,9 +357,88 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 }
             }
             static void PatchScaledFist() {
+                PatchACBonus();
                 PatchStunningFist();
                 PatchDraconicFury();
 
+                void PatchACBonus() {
+                    if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
+
+                    var InstinctualWarriorArchetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("adffdd8a99094a89823a79292a503ee9");
+                    var ScaledFistACBonusUnlock = BlueprintTools.GetBlueprint<BlueprintFeature>("2a8922e28b3eba54fa7a244f7b05bd9e");
+                    var ScaledFistACBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("3929bfd1beeeed243970c9fc0cf333f8");
+                    var ScaledFistACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("64acb179cc6a4f19bb3513d094b28d02");
+                    var ScaledFistACBonusUnarmoredBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("59a10a29d67f4505b1a0ac31ace427e5");
+                    var MonkACBonusBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("f132c4c4279e4646a05de26635941bfe");
+                    var MonkACBonusBuffUnarmored = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("d7ff7a9f1fe84e679f98b36e4bacd63c");
+
+                    ScaledFistACBonusBuff.TemporaryContext(bp => {
+                        bp.IsClassFeature = true;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Charisma;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.StatBonus
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<SuppressBuffsTTT>(c => {
+                            c.m_Buffs = new BlueprintBuffReference[] {
+                                MonkACBonusBuff
+                            };
+                            c.Continuous = true;
+                        });
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = StatType.Charisma;
+                        });
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
+                            c.m_Type = AbilityRankType.StatBonus;
+                            c.m_Stat = StatType.Charisma;
+                            c.m_Progression = ContextRankProgression.AsIs;
+                            c.m_UseMin = true;
+                            c.m_Min = 0;
+                        });
+                    });
+                    ScaledFistACBonusUnarmoredBuff.TemporaryContext(bp => {
+                        bp.IsClassFeature = true;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Monk;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.Default
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<SuppressBuffsTTT>(c => {
+                            c.m_Buffs = new BlueprintBuffReference[] {
+                                MonkACBonusBuffUnarmored
+                            };
+                            c.Continuous = true;
+                        });
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
+                            c.m_Type = AbilityRankType.Default;
+                            c.m_Progression = ContextRankProgression.DivStep;
+                            c.m_StepLevel = 4;
+                            c.m_Class = new BlueprintCharacterClassReference[] {
+                                ClassTools.ClassReferences.MonkClass,
+                                ClassTools.ClassReferences.BarbarianClass,
+                                ClassTools.ClassReferences.ShifterClass,
+                            };
+                            c.Archetype = InstinctualWarriorArchetype;
+                            c.m_AdditionalArchetypes = new BlueprintArchetypeReference[0];
+                        });
+                    });
+                    TTTContext.Logger.LogPatch(ScaledFistACBonus);
+                    TTTContext.Logger.LogPatch(ScaledFistACBonusUnarmoredBuff);
+                }
                 void PatchStunningFist() {
                     if (TTTContext.Fixes.Monk.Archetypes["ScaledFist"].IsDisabled("FixStunningStrike")) { return; }
 

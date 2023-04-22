@@ -7,7 +7,6 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
-using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -20,6 +19,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System.Linq;
+using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
@@ -178,7 +178,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Good;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
             var BlessedClawsEvilBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlessedClawsEvilBuff", bp => {
                 bp.SetName(TTTContext, "Blessed Claws — Evil");
@@ -191,7 +193,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Evil;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
             var BlessedClawsLawBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlessedClawsLawBuff", bp => {
                 bp.SetName(TTTContext, "Blessed Claws — Lawful");
@@ -204,7 +208,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Lawful;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
             var BlessedClawsChaosBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BlessedClawsChaosBuff", bp => {
                 bp.SetName(TTTContext, "Blessed Claws — Chaotic");
@@ -217,7 +223,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     c.m_WeaponType = ClawType;
                     c.AddAlignment = true;
                     c.Alignment = DamageAlignment.Chaotic;
+                    c.AffectAnyPhysicalDamage = true;
                 });
+                bp.AddComponent<PolymorphDamagePropertyTransfer>();
             });
 
             var BlessedClawsFeatureAddLevel = CreateBlessedClawsFeature(
@@ -267,7 +275,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 ShifterClawBuffLevel17,
                 ShifterClawAbilityLevel17,
                 DiceType.D10,
-                true
+                ImprovedCritical: true
             );
             var BlessedClawsFeatureAddLevel6 = CreateBlessedClawsFeature(
                 ShifterClawsFeatureAddLevel6,
@@ -275,7 +283,8 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 ShifterClawBuffLevel19,
                 ShifterClawAbilityLevel19,
                 DiceType.D10,
-                true,
+                ImprovedCritical: true,
+                BeforeThisLevel: false,
                 "-Duplicate"
             );
             // CREATE ITEM BOND
@@ -310,6 +319,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 BlueprintActivatableAbility Ability,
                 DiceType Dice,
                 bool ImprovedCritical = false,
+                bool BeforeThisLevel = true,
                 string append = ""
             ) {
                 var BlessedClawsWeapon = ShifterClaw1d10x3.CreateCopy(TTTContext, $"BlessedClaw1{Dice}{(ImprovedCritical ? "x3" : "")}{append}", bp => {
@@ -330,6 +340,9 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     bp.SetName(TTTContext, "Blessed Claws");
                     bp.GetComponent<EmptyHandWeaponOverride>()?.TemporaryContext(c => {
                         c.m_Weapon = BlessedClawsWeapon.ToReference<BlueprintItemWeaponReference>();
+                    });
+                    bp.GetComponent<AddOutgoingPhysicalDamageProperty>()?.TemporaryContext(c => {
+                        c.AffectAnyPhysicalDamage = true;
                     });
                     bp.GetComponent<AddFactContextActions>()?.TemporaryContext(c => {
                         c.Activated.AddAction(
@@ -456,7 +469,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         c.m_AdditionalClasses = new BlueprintCharacterClassReference[0];
                         c.m_Archetypes = new BlueprintArchetypeReference[0];
                         c.Level = level;
-                        c.BeforeThisLevel = true;
+                        c.BeforeThisLevel = BeforeThisLevel;
                     });
                 });
             }
@@ -466,7 +479,8 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 BlueprintBuff Buff,
                 BlueprintActivatableAbility Ability,
                 DiceType Dice,
-                bool ImprovedCritical = false
+                bool ImprovedCritical = false,
+                bool BeforeThisLevel = true
             ) {
                 var BlessedClawsWeapon = ShifterClaw1d10x3.CreateCopy(TTTContext, $"BlessedClaw1{Dice}", bp => {
                     bp.m_DamageDice = new DiceFormula(1, Dice);
@@ -620,7 +634,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         c.m_AdditionalClasses = new BlueprintCharacterClassReference[0];
                         c.m_Archetypes = new BlueprintArchetypeReference[0];
                         c.Level = level;
-                        c.BeforeThisLevel = true;
+                        c.BeforeThisLevel = BeforeThisLevel;
                     });
                 });
             }

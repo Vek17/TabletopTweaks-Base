@@ -8,6 +8,7 @@ namespace TabletopTweaks.Base.Config {
         public bool NewSettingsOffByDefault = false;
         public SettingGroup BaseFixes = new SettingGroup();
         public SettingGroup Aeon = new SettingGroup();
+        public SettingGroup Azata = new SettingGroup();
         public SettingGroup Demon = new SettingGroup();
         public SettingGroup Lich = new SettingGroup();
         public SettingGroup Trickster = new SettingGroup();
@@ -40,6 +41,7 @@ namespace TabletopTweaks.Base.Config {
         public SettingGroup Spells = new SettingGroup();
         public SettingGroup AnimalCompanions = new SettingGroup();
         public SettingGroup Bloodlines = new SettingGroup();
+        public SettingGroup Types = new SettingGroup();
         public SettingGroup Features = new SettingGroup();
         public SettingGroup Feats = new SettingGroup();
         public SettingGroup MythicAbilities = new SettingGroup();
@@ -84,6 +86,7 @@ namespace TabletopTweaks.Base.Config {
             BaseFixes.LoadSettingGroup(loadedSettings.BaseFixes, NewSettingsOffByDefault);
 
             Aeon.LoadSettingGroup(loadedSettings.Aeon, NewSettingsOffByDefault);
+            Azata.LoadSettingGroup(loadedSettings.Azata, NewSettingsOffByDefault);
             Demon.LoadSettingGroup(loadedSettings.Demon, NewSettingsOffByDefault);
             Lich.LoadSettingGroup(loadedSettings.Lich, NewSettingsOffByDefault);
             Trickster.LoadSettingGroup(loadedSettings.Trickster, NewSettingsOffByDefault);
@@ -120,6 +123,7 @@ namespace TabletopTweaks.Base.Config {
             Spells.LoadSettingGroup(loadedSettings.Spells, NewSettingsOffByDefault);
             AnimalCompanions.LoadSettingGroup(loadedSettings.AnimalCompanions, NewSettingsOffByDefault);
             Bloodlines.LoadSettingGroup(loadedSettings.Bloodlines, NewSettingsOffByDefault);
+            Types.LoadSettingGroup(loadedSettings.Types, NewSettingsOffByDefault);
             Features.LoadSettingGroup(loadedSettings.Features, NewSettingsOffByDefault);
             Feats.LoadSettingGroup(loadedSettings.Feats, NewSettingsOffByDefault);
             MythicAbilities.LoadSettingGroup(loadedSettings.MythicAbilities, NewSettingsOffByDefault);
@@ -205,17 +209,20 @@ namespace TabletopTweaks.Base.Config {
             public NestedSettingGroup Armor;
             public NestedSettingGroup Equipment;
             public NestedSettingGroup Weapons;
+            public NestedSettingGroup Cooking;
 
             public ItemGroup() {
                 Armor = new NestedSettingGroup(this);
                 Equipment = new NestedSettingGroup(this);
                 Weapons = new NestedSettingGroup(this);
+                Cooking = new NestedSettingGroup(this);
             }
 
             public void SetParents() {
                 Armor.Parent = this;
                 Equipment.Parent = this;
                 Weapons.Parent = this;
+                Cooking.Parent = this;
             }
 
             public void LoadItemGroup(ItemGroup group, bool frozen) {
@@ -223,6 +230,7 @@ namespace TabletopTweaks.Base.Config {
                 Armor.LoadSettingGroup(group.Armor, frozen);
                 Equipment.LoadSettingGroup(group.Equipment, frozen);
                 Weapons.LoadSettingGroup(group.Weapons, frozen);
+                Cooking.LoadSettingGroup(group.Cooking, frozen);
             }
 
             ref bool ICollapseableGroup.IsExpanded() {

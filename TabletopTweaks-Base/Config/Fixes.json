@@ -8,6 +8,11 @@
         "Homebrew": false,
         "Description": "Fixes persistent area of effects from triggering multiple times off the initial cast as if an extra round had passed."
       },
+      "BuffInspector": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Buff Inspector UI should more correctly display the buffs that are being applied"
+      },
       "CoupDeGrace": {
         "Enabled": true,
         "Homebrew": false,
@@ -113,6 +118,16 @@
         "Homebrew": false,
         "Description": "Spears now grant additional damage during a mounted charge."
       },
+      "FixMonkAcBonusNames": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes display text of monk AC in the UI."
+      },
+      "FixMythicSpellbookSlotsUI": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes mythic spellbooks displaying warnings about not enough casting stat in the spellbook UI."
+      },
       "FixPrebuffCasterLevels": {
         "Enabled": true,
         "Homebrew": false,
@@ -158,10 +173,20 @@
         "Homebrew": false,
         "Description": "Removes the movement impairing descriptor from nauseated."
       },
+      "SavingThrowCombatLogBreakdowns": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes the combat log breakdowns of saving throws to include the bonus granted from base stats."
+      },
       "SelectiveMetamagicNonInstantaneous": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Allows only instantaneous effects to be treated as selective by selective metamagic."
+      },
+      "SpellImmunity": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Ignoring spell resistance no longer ignores all spell immunities as well."
       },
       "StaggeredDescriptors": {
         "Enabled": true,
@@ -193,6 +218,17 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now works correctly with dice reroll effects"
+      }
+    },
+    "IsExpanded": true
+  },
+  "Azata": {
+    "DisableAll": false,
+    "Settings": {
+      "SongOfCourageousDefender": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Song Of Courageous Defender has been fully reimplemented and now works."
       }
     },
     "IsExpanded": true
@@ -381,6 +417,11 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
+        "DispelingBombs": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now correctly dispels only one buff instead of all buffs."
+        },
         "MutagenStacking": {
           "Enabled": true,
           "Homebrew": false,
@@ -454,6 +495,11 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
+        "AnimalFury": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Allows Animal Fury to apply while polmorphed."
+        },
         "CripplingBlows": {
           "Enabled": true,
           "Homebrew": false,
@@ -715,6 +761,17 @@
       "IsExpanded": true
     },
     "Archetypes": {
+      "Hexcrafter": {
+        "DisableAll": false,
+        "Settings": {
+          "Spells": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Updates bonus spells to include missing curse spells."
+          }
+        },
+        "IsExpanded": true
+      },
       "SwordSaint": {
         "DisableAll": false,
         "Settings": {
@@ -789,7 +846,12 @@
         "RevelationBurningMagic": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Fixes the CL scaling to be equal to oracle level."
+          "Description": "Mechanics and damage have been fixed to work like tabletop."
+        },
+        "RevelationFreezingSpells": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Mechanics and have been fixed to work like tabletop."
         }
       },
       "IsExpanded": true
@@ -920,7 +982,13 @@
     "DisableAll": false,
     "Base": {
       "DisableAll": false,
-      "Settings": {},
+      "Settings": {
+        "ShifterClaws": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Allows shifter claws to interact more correctly with sneak attack."
+        }
+      },
       "IsExpanded": true
     },
     "Archetypes": {
@@ -1137,10 +1205,20 @@
   "WinterWitch": {
     "DisableAll": false,
     "Settings": {
+      "ColdFlesh": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds Cold Flesh feature to winter witch granting scaling cold resist and cold immunity capstone."
+      },
       "UnearthlyCold": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Fixes unearthly cold to properly apply metamagic and bonus damage."
+      },
+      "UnnaturalCold": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Adds the Unnatural Cold feature to winter witch which ignore half of a target's cold resistance."
       }
     },
     "IsExpanded": true
@@ -1178,6 +1256,11 @@
         "Homebrew": false,
         "Description": "Bestow Greater Curse now actually bestows a greater curse not a normal curse."
       },
+      "BlackHole": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Black Hole now correctly displays the duration and saving throw in its tooltip."
+      },
       "BreakEnchantment": {
         "Enabled": true,
         "Homebrew": false,
@@ -1208,6 +1291,11 @@
         "Homebrew": false,
         "Description": "Crusaders Edge's nauseate effect now only procs on critical hits."
       },
+      "CrystalMind": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Crystal Mind now correctly displays the duration in its tooltip."
+      },
       "DeathWard": {
         "Enabled": true,
         "Homebrew": false,
@@ -1217,6 +1305,46 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
+      },
+      "EdictOfImpenetrableFortress": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Impenetrable Fortress now correctly displays the duration in its tooltip."
+      },
+      "EdictOfInvulnerability": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Invulnerability now correctly displays the duration in its tooltip."
+      },
+      "EdictOfNonresistance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Nonresistance now correctly displays the duration and saving throw in its tooltip. Additionally now has Mind Affecting and Compulsion descriptors."
+      },
+      "EdictOfPerseverance": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Perseverance now correctly displays the duration in its tooltip. Suppression has been updated to be more reliable."
+      },
+      "EdictOfPredetermination": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Predetermination now correctly displays the duration in its tooltip."
+      },
+      "EdictOfRetaliation": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Edict Of Retaliation now correctly displays the duration in its tooltip."
+      },
+      "EmbodimentOfOrder": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Embodiment Of Order now correctly displays the duration in its tooltip."
+      },
+      "EqualForce": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Equal Force now correctly displays the duration in its tooltip."
       },
       "EyeOfTheSun": {
         "Enabled": true,
@@ -1232,6 +1360,16 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Firebrand no longer causes excessive damage instances to trigger when attacking."
+      },
+      "FreezingNothingness": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Freezing Nothingness now has the correct break out DC and deals the correct amount of damage."
+      },
+      "HurricaneBow": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Hurricane Bow now uses a better virtual size calculation."
       },
       "IcyBody": {
         "Enabled": true,
@@ -1298,10 +1436,20 @@
         "Homebrew": false,
         "Description": "Joy of Life now converts outgoing damage to Holy."
       },
+      "LeadBlades": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Lead Blades now uses a better virtual size calculation."
+      },
       "LegendaryProportions": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "LegendaryProportions now only increases size by one step instead of two to correctly match tabletop."
+      },
+      "LifeBubble": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Life bubble now is correctly AoE and has a corrected duration."
       },
       "MagicalVestment": {
         "Enabled": true,
@@ -1312,6 +1460,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Microscopic Proportions now correctly grants a size bonus instead of an untyped bonus."
+      },
+      "MindFog": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Mind Fog no longer applies twice for -20 to saves instead of -10."
       },
       "NaturesGrasp": {
         "Enabled": true,
@@ -1342,6 +1495,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Protection of Nature's concealment is no longer bypassed by true seeing."
+      },
+      "Relativity": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Relativity now correctly displays duration and saving throw in the tooltip."
       },
       "RemoveFear": {
         "Enabled": true,
@@ -1403,6 +1561,11 @@
         "Homebrew": false,
         "Description": "Unbreakable Heart no longer grants complete immunity to effects and instead suppresses correctly."
       },
+      "UncertanityPrinciple": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Uncertanity Principle now correctly shows its duration in the tooltip."
+      },
       "WaterPush": {
         "Enabled": true,
         "Homebrew": false,
@@ -1418,6 +1581,11 @@
         "Homebrew": false,
         "Description": "Winds of the Fall now can be targeted and has a working debuff."
       },
+      "WintersGrasp": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Winter's Grasp now works like tabletop and does not cause prone."
+      },
       "WrackingRay": {
         "Enabled": true,
         "Homebrew": false,
@@ -1432,6 +1600,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Zero State now uses a single dispel roll for all buffs like other dispels."
+      },
+      "ZoneOfPredetermination": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Zone Of Predetermination now correctly displays the duration in its tooltip."
       }
     },
     "IsExpanded": true
@@ -1458,6 +1631,22 @@
     },
     "IsExpanded": true
   },
+  "Types": {
+    "DisableAll": false,
+    "Settings": {
+      "AlignmentSubtypes": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Alignment subtypes now correctly apply thier outgoing damage alignments."
+      },
+      "UndeadType": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Undead type no longer has extra immunities it should not."
+      }
+    },
+    "IsExpanded": true
+  },
   "Features": {
     "DisableAll": false,
     "Settings": {
@@ -1470,6 +1659,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now properly applies negative levels."
+      },
+      "ProfaneAscension": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now calculates highest stat first by base stat then by modified stat."
       }
     },
     "IsExpanded": true
@@ -1542,6 +1736,11 @@
         "Homebrew": false,
         "Description": "Energized Wild Shape now has more correct prerequites for non druid classes with Wild Shape."
       },
+      "ExtendMetamagic": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enables extend on spells that should be extendable but are not."
+      },
       "FencingGrace": {
         "Enabled": true,
         "Homebrew": false,
@@ -1587,6 +1786,11 @@
         "Homebrew": false,
         "Description": "Allows any spell with a saving throw to be made persistent."
       },
+      "RakingClaws": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Raking Claws now has more correct prerequites for non druid classes with Wild Shape."
+      },
       "SelectiveMetamagic": {
         "Enabled": true,
         "Homebrew": false,
@@ -1601,6 +1805,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now requires you to hit a shaken target once before they become flat footed."
+      },
+      "ShiftersEdge": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Shifter's Edge now works more consistantly and no longer has weird interactions with amulet of natural fist."
       },
       "ShifterRush": {
         "Enabled": true,
@@ -1647,6 +1856,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Actually ignores immunities again."
+      },
+      "BestJokes": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Now correctly copies the spell DC, metamagic, and does not get zippy magiced an extra time."
       },
       "BloodlineAscendance": {
         "Enabled": true,
@@ -1728,6 +1942,11 @@
     "Enemies": {
       "DisableAll": false,
       "Settings": {
+        "Anomaly": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Chaotic Mind now works correctly."
+        },
         "Balors": {
           "Enabled": true,
           "Homebrew": false,
@@ -1782,6 +2001,11 @@
           "Homebrew": false,
           "Description": "No longer creates a separate damage instance and works with critical hits."
         },
+        "ApprenticeRobe": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "No longer grants more than +1 AC when affected by mage armor."
+        },
         "AspectOfTheAsp": {
           "Enabled": true,
           "Homebrew": false,
@@ -1792,15 +2016,20 @@
           "Homebrew": false,
           "Description": "Now is a free action to use."
         },
+        "BoundOfPossibilityAeon": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Bonuses are now properly labeled."
+        },
+        "BracersOfArchery": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now actually grants the stated bonuses."
+        },
         "FixScrollUMDDCs": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now properly uses 20 + Scroll CL instead of 20 + Scroll spell level."
-        },
-        "FlawlessBeltOfPhysicalPerfection8Availability": {
-          "Enabled": false,
-          "Homebrew": false,
-          "Description": "Now is available as a DLC reward instead of a normal +6 belt."
         },
         "FlawlessBeltOfPhysicalPerfection8CritIncrease": {
           "Enabled": true,
@@ -1832,10 +2061,20 @@
           "Homebrew": false,
           "Description": "Now default to off."
         },
+        "ShapeshiftersHelm": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now works correctly with Shifter wildshapes."
+        },
         "StormlordsResolve": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Can now be deactivated immediately instead of taking 1 turn to turn off."
+        },
+        "QuiverOfRosesThorns": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now grants speed matching the item description."
         }
       },
       "IsExpanded": true
@@ -1858,6 +2097,11 @@
           "Homebrew": false,
           "Description": "Fixes the critical multiplier calculation of energy burst (like flaming burst) effects to get the correct value."
         },
+        "EyeForAnEye": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
         "Finnean": {
           "Enabled": true,
           "Homebrew": false,
@@ -1873,10 +2117,20 @@
           "Homebrew": false,
           "Description": "Now correctly deals bonus damage against flat footed."
         },
+        "NaturalWeaponsFinesse": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "All natural weapons are correctly finessable."
+        },
         "Radiance": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now grants spell resistance correctly instead of spell penetration."
+        },
+        "SaiDamageType": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Sai now correctly deal bludgeoning damage."
         },
         "SoundOfTheVoid": {
           "Enabled": true,
@@ -1897,6 +2151,17 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Vorpal now works correctly."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Cooking": {
+      "DisableAll": false,
+      "Settings": {
+        "ScreamingOmelet": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now properly grants 2 hit points per level instead of 1."
         }
       },
       "IsExpanded": true

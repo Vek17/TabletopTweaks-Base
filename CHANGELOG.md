@@ -1,9 +1,243 @@
-## Version 2.5.1
+## Version 2.5.10
 * Fixes
+    * Spells
+        * Animal Growth
+            * Natural armor now correctly applies.
+        * Hurricane Bow
+            * Hurricane Bow now uses a better virtual size calculation.
+        * Lead Blades
+            * Lead Blades now uses a better virtual size calculation.
+        * Mind Fog
+            * No longer applies twice for -20 to saves instead of -10.
+    * Feats
+        * Shifter's Edge
+            * Shifter's Edge now works more consistantly and no longer has weird interactions with amulet of natural fist.
+    * Equipment
+        * Aeon Bound Of Possibility
+            * Now has the correct DC.
+    * Weapons
+        * Sai now correctly deal bludgeoning damage.
+* Added Context
+    * Monster Feats (Restricted to animal companions)
+        * Improved Natural Armor
+            * A creature can gain this feat multiple times. Each time the creature takes the feat, its natural armor bonus increases by another point. This can be taken more than once.
+        * Improved Natural Attack
+            * Choose one of the creature’s natural attack forms. The damage for this natural attack increases by one step, as if the creature’s size had increased by one category.
+    * Hexes
+        * Dire Prophecy
+            * As long as the curse persists, the target takes a –4 penalty to his armor class and on attack rolls, saves, ability checks, and skill checks.
+    * Rage Powers
+        * Greater Animal Fury
+            * The bite attack from animal fury deals damage as if you were one size larger.
+
+## Version 2.5.9
+* Fixes to monk AC interactions.
+* Life bubble now is correctly AoE and has a corrected duration.
+* Destructive Dispel should now trigger once per dispel instead of for every effect dispeled.
+* Accursed Glare now works on enemies (oppsie).
+* Fixes
+    * Shifter
+        * Shifter claws should more correctly bypass DR.
+        * Holy claws should now correctly bypass DR.
+    * Weapons
+        * Slams are now correctly finessable like all natural weapons.
+
+## Version 2.5.8
+* Fixes to monk AC interactions.
+* Life bubble now is correctly AoE and has a corrected duration.
+
+## Version 2.5.7
+* DisableAfterCombatDeactivationOfUnlimitedAbilities Should work again I think.
+* Split hex is now a toggle to prevent some potential action blocking edge cases.
+* Elemental Spell now correctly works with Arcane Trickster Sneak Spells.
+* Fixes
+    * UI
+        * Saving throw breakdowns in the combat log now will include the bonus granted from attributes.
+    * Barbarian
+        * Instinctual Warrior
+            * Fixed issues where level based AC was not applying correctly.
+    * Bloodrager
+        * Fixed TTT issues with Second bloodrager bloodline.
+    * Magus
+        * Hexcrafter
+            * Bonus spells have been updated to include missing spells.
+    * Shifter
+        * Wild Effigy
+            * DR now correctly stacks with Stalwart feat.
+    * Mythic Abilities
+        * Best Jokes
+            * Now correctly copies the spell DC, metamagic, and does not get zippy magiced an extra time.
+    * Spells
+        * Freedom of Movement
+            * Should now more correctly get negate Sea Mantle.
+* Adjustments
+    * Witch
+        * Cauldron Witch
+            * No longer loses patron as there is nothing actually replacing it and no actual Witch archetype lose patron.
+            * Now gains the Cauldron Hex at level 1.
+* Added Context
+    * Feats
+        * Accursed Hex
+           * When you target a creature with a hex that cannot target the same creature more than once per day, and that creature succeeds at its saving throw against the hex’s effect, you can target the creature with the same hex a second time before the end of your next turn.
+    * Hexes
+        * Cauldron
+            * The witch receives Brew Potions as a bonus feat and a +4 bonus on skill checks to brew potions.
+        * Retribution 
+            * A witch can place a retribution hex on a creature within 60 feet, causing terrible wounds to open across the target’s flesh whenever it deals damage to another creature in melee. Immediately after the hexed creature deals damage in melee, it takes half that damage (round down).
+    * Mythic Abilities
+        * Extra Mythic Feat
+            * You gain a bonus mythic feat. You can take this mythic ability once.
+    * Mythic Feats
+        * Accursed Hex Mythic
+            * When you use Accursed Hex to target a creature with one of your hexes a second time, that creature must roll its saving throw twice and take the lower result.
+    * Spells
+        * Spell Curse
+            * The target takes 1d6 points of damage for each spell with a duration of 1 round or greater currently affecting it. The spells themselves are not dispelled or modified.
+
+## Version 2.5.6
+* Fixes
+    * Age effects have been rebuilt for better support.
+    * Azata
+        * Song Of Courageous Defender
+            * Now actually works.
+* Added Context
+    * Hexes
+        * Withering
+            * The target ages to the next age category. The witch gains a number of temporary hit points equal to 1d10 + her witch level and a +2 enhancement bonus to Constitution for a number of hours equal to her Intelligence modifier.
+    * Spells
+        * Age Resistance, Lesser
+            * You ignore the physical detriments of age up to middle age.
+        * Age Resistance
+            * You ignore the physical detriments of age up to old age.
+        * Age Resistance, Greater
+            * You ignore the physical detriments of age.
+        * Sands of Time
+            * You temporarily age the target, immediately advancing it to the next age category. The target does not gain the bonuses for that category.
+
+## Version 2.5.5
+* Fixes
+    * Buff Inspector UI should more correctly display the buffs that are applied.
+    * Dispel should no longer randomly be unable to dispel some visable spell buffs.
+    * Fixed an issue where spell resistance was not applying properly.
+    * Alchemist
+        * Dispeling Bombs
+            * Now only dispels one effect instead of all effects.
+    * Equipment
+        * Apprentice Robe
+            * No longer grants more than 1 AC when affected by mage armor.
+        * Bound Of Possibility Aeon
+            * Bonuses are now properly labled in combat log.
+        * Bracers Of Archery
+            * Now actually grants the stated bonuses.
+    * Features
+        * Profane Ascension
+            * Now calcualtes highest stat first off base value, then by modified value.
+    * Spells
+        * Black Hole
+            * Now correctly displays the duration and saving throw in its tooltip.  
+        * Crystal Mind
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Impenetrable Fortress
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Invulnerability
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Nonresistance
+            * Now correctly displays the duration and saving throw in its tooltip. 
+            * Now has Mind Affecting and Compulsion descriptors.
+        * Edict Of Perseverance
+            * Now correctly shows its duration in the tooltip.
+            * Suppression mechanics have been updated to TTT standards.
+        * Edict Of Predetermination
+            * Now correctly shows its duration in the tooltip.
+        * Edict Of Retaliation
+            * Now correctly shows its duration in the tooltip.
+        * Embodiment Of Order
+            * Now correctly shows its duration in the tooltip.
+        * Equal Force
+            * Now correctly shows its duration in the tooltip.
+        * Freezing Nothingness
+            * Freezing Nothingness now has the correct break out DC and deals the correct amount of damage.
+        * Perfect Form
+            * Now correctly shows its duration in the tooltip.
+            * Now is extendable via extend metamagic.
+        * Relativity
+            * Now correctly displays the duration and saving throw in its tooltip. 
+        * Uncertanity Principle
+            * Now correctly shows its duration in the tooltip.
+        * Zone Of Predetermination
+            * Now correctly shows its duration in the tooltip.
+* Added Context
+    * Hexes
+        * Ice Tomb
+            * If the target fails its save, it is paralyzed and unconscious. A creature can break the ice with a successful Strength check (DC 15 + your witch level), or by taking more than 20 damage from a hit.
+    * Feats
+        * Split Hex
+            * When you use one of your hexes (not a major hex or a grand hex) that targets a single creature, you can cast the hex again as a free action.
+        * Split Major Hex
+            * When you use one of your major hexes (not a grand hex) that targets a single creature, you can cast the hex again as a free action.
+    * Mythic Feats
+        * Bewitching Reflex
+            * You can cast the first hex after an initiative roll as a swift action.
+
+## Version 2.5.4
+* Fixes
+    * Monk style AC boosts should now all be properly labeled in AC breakdown.
+    * Ignoring spell resistance no longer ignores all spell immunities as well.
+    * Fixed issue with burning magic oracle revelation preventing metamagic from working.
+    * Lecturer Background should now correctly change the skill bonus on load.
+    * Units
+        * Anomolies
+            * Chaotic Mind now works correctly with non targeted effects like weird.
+    * Equipment
+        * Shapeshifter's Helm
+            * Now works with shifter wildshapes.
+* Added Content
+    * Background
+        * Researcher
+            * Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.
+
+## Version 2.5.3
+* Fixes
+    * Spells
+        * Winters Grasp
+            * Winter's Grasp now works like tabletop and does not cause prone.
+    * Mythic Abiltiies
+        * Second Bloodline should now be properly takable.
+* Added Content
+    * Spells
+        * Accursed Glare
+            * Whenever the target attempts an attack roll or saving throw while the curse lasts, it must roll twice and take the lower result.
+        * Inflict Pain
+        * Inflict Pain Mass
+            * You telepathically wrack the target’s mind and body with agonizing pain that imposes a –4 penalty on attack rolls, skill checks, and ability checks. A successful Will save reduces the duration to 1 round.
+        * Web Bolt
+            * You launch a ball of webbing at a target, which must make a save or be affected as if by a web spell occupying only the creature’s space.
+
+## Version 2.5.2a
+* Fixes
+    * Shifter
+        * Blessed Claws should now properly be granted at level 19+.
+    * Equipment
+        * Quiver Of Roses Thorns
+            * Now correctly grants speed.
+    * Weapons
+        * Eye for an Eye
+            * Prevents from triggering multiple gake attacks and procing weapon effects more often than it should.
+
+## Version 2.5.2
+* Fixes
+    * Elemental Spell should now work more correctly with sorcerer damage conversions.
     * Oracle
-        * Burning Magic mechanics and damage has been fixed to work like tabletop.
+        * Burning Magic mechanics and damage have been fixed to work like tabletop.
+        * Freezing Spells mechanics have been fixed to work like tabletop.
     * Paladin
         * Divine mount now always has at least 6 intelligence.
+    * Shifter
+        * Fixed Wyrmshifter breath weapons breaking polymorphs in some cases.
+    * Winter Witch
+        * Added Cold Flesh feature granting scaling cold resistance and immunity capstons.
+        * Added Unnatural Cold feature allowing Winter Witch to ignore half of a target's cold resistance
+        * Fixed Unearthly Cold to still deal cold damage to benifit from vulnerability.
     * Spells
         * Shield of Law 
             * No longer incorrectly grant immunity to mind affecting.

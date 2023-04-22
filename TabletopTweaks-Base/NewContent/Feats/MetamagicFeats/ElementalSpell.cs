@@ -12,13 +12,12 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core.MechanicsChanges;
 using TabletopTweaks.Core.NewComponents;
@@ -292,7 +291,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
         public static void UpdateSpells() {
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicElementalSpell")) { return; }
             var elementalMetamagicMask = (Metamagic)(CustomMetamagic.ElementalAcid | CustomMetamagic.ElementalCold | CustomMetamagic.ElementalElectricity | CustomMetamagic.ElementalFire);
-            var spells = SpellTools.GetAllSpells();
+            var spells = SpellTools.GetAllSpells()
+                .SelectMany(s => s.AbilityAndVariants())
+                .SelectMany(s => s.AbilityAndStickyTouch())
+                .ToArray();
             foreach (var spell in spells) {
                 bool isDamageSpell = spell.AbilityAndVariants()
                     .SelectMany(s => s.AbilityAndStickyTouch())
@@ -344,13 +346,13 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             });
         }
 
-        private class ElementalSpellMechanics : IAfterRulebookEventTriggerHandler<RulePrepareDamage>, IAfterRulebookEventTriggerHandler<RuleDealDamage>, IGlobalSubscriber {
+        private class ElementalSpellMechanics : IAfterRulebookEventTriggerHandler<RulePrepareDamage>, IGlobalSubscriber {
 
             BlueprintFeature ElementalSpellFeatAcid;
             BlueprintFeature ElementalSpellFeatCold;
             BlueprintFeature ElementalSpellFeatElectricity;
             BlueprintFeature ElementalSpellFeatFire;
-            private static readonly Metamagic elementalMetamagicMask = (Metamagic)(CustomMetamagic.ElementalAcid | CustomMetamagic.ElementalCold | CustomMetamagic.ElementalElectricity | CustomMetamagic.ElementalFire);
+            //private static readonly Metamagic elementalMetamagicMask = (Metamagic)(CustomMetamagic.ElementalAcid | CustomMetamagic.ElementalCold | CustomMetamagic.ElementalElectricity | CustomMetamagic.ElementalFire);
 
             internal ElementalSpellMechanics(BlueprintFeature acid, BlueprintFeature cold, BlueprintFeature electricity, BlueprintFeature fire) {
                 this.ElementalSpellFeatAcid = acid;
@@ -377,8 +379,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 void ApplyDamageEffect(DamageEnergyType element, BlueprintFeature sourceBlueprint, RulePrepareDamage evt) {
                     var caster = ability.Caster;
                     var sourceFact = caster?.GetFact(sourceBlueprint);
+                    List<EnergyDamage> toAdd = new List<EnergyDamage>();
                     foreach (BaseDamage baseDamage in evt.DamageBundle) {
-                        if (baseDamage.Type == DamageType.Energy && !baseDamage.Precision) {
+                        if (baseDamage.Type == DamageType.Energy /*&& !baseDamage.Precision*/) {
                             EnergyDamage energyDamage = baseDamage as EnergyDamage;
                             if (energyDamage is null) { continue; }
                             if (energyDamage.EnergyType == element) { continue; }
@@ -388,15 +391,23 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                                 } else {
                                     energyDamage.Half.Set(true, sourceFact);
                                 }
+                                EnergyDamage newDamage = new EnergyDamage(baseDamage.Dice.ModifiedValue, element);
+                                newDamage.CopyFrom(baseDamage);
+                                newDamage.SourceFact = sourceFact;
+                                toAdd.Add(newDamage);
                             } else {
                                 energyDamage.ReplaceEnergy(element);
                             }
                         }
                     }
+                    foreach (EnergyDamage addedDamage in toAdd) {
+                        evt.Add(addedDamage);
+                    }
                 };
             }
-
+            /*
             public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {
+                
                 var ability = evt.Reason.Ability;
                 if (ability == null || !ability.Blueprint.IsSpell) {
                     return;
@@ -447,7 +458,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         Half = evt.Half
                     });
                 };
+                
             }
+            */
         }
     }
 }

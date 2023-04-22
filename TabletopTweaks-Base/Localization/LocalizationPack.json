@@ -617,6 +617,17 @@
       "esES": null
     },
     {
+      "Key": "c0b2eb22c9724852be5a40f2d7c4d15b",
+      "SimpleName": "AnimalCompanionUpgradeBear.Name",
+      "ProcessTemplates": false,
+      "enGB": "Animal Companion Upgrade",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "927c1232c66c454191c3ad2dfc504ba9",
       "SimpleName": "ArcaneArmorBalancedEnchant.Prefix",
       "ProcessTemplates": false,
@@ -1266,10 +1277,10 @@
       "esES": null
     },
     {
-      "Key": "4cafb44ac3a84766934ce4c6be378b00",
+      "Key": "f7c9f88b9e1b47d4ad645586ddf5e4fc",
       "SimpleName": "BackgroundAcrobat.Description",
       "ProcessTemplates": true,
-      "enGB": "Acrobat adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with throwing axes.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Acrobat adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with throwing axes.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1277,10 +1288,10 @@
       "esES": null
     },
     {
-      "Key": "777a1cfde4ff46bd9fd129cf47abceb1",
+      "Key": "00b2e9ae52fe4987b4ff5377fcd8575d",
       "SimpleName": "BackgroundAldoriSwordsman.Description",
       "ProcessTemplates": true,
-      "enGB": "Aldori Swordsman adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with dueling swords and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Aldori Swordsman adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with dueling swords and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1288,10 +1299,10 @@
       "esES": null
     },
     {
-      "Key": "a778e7f6eff34f57aa7ecfd42e2025bf",
+      "Key": "773ee3e767e64886aff12ae5d43da4a7",
       "SimpleName": "BackgroundAlkenstarAlchemist.Description",
       "ProcessTemplates": true,
-      "enGB": "Alkenstar Alchemist adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (arcana)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> with alchemist bombs and alchemist items.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Alkenstar Alchemist adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (arcana)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> with alchemist bombs and alchemist items.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1310,10 +1321,10 @@
       "esES": null
     },
     {
-      "Key": "9534a13c0f674576ac3bb068a3bd0efe",
+      "Key": "e69b42531a7a45d08108e4e9e354381b",
       "SimpleName": "BackgroundBountyHunter.Description",
       "ProcessTemplates": true,
-      "enGB": "Bounty Hunter adds <b><color=#703565><link=\"Encyclopedia:Stealth\">Stealth</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, clubs, light maces and heavy maces.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Bounty Hunter adds <b><color=#703565><link=\"Encyclopedia:Stealth\">Stealth</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, clubs, light maces and heavy maces.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1321,10 +1332,10 @@
       "esES": null
     },
     {
-      "Key": "dea52b6a5e814078936a3f886adb0740",
+      "Key": "2585e9c06d2a406296730756406cd338",
       "SimpleName": "BackgroundCheliaxianDiabolist.Description",
       "ProcessTemplates": true,
-      "enGB": "Chelaxian Diabolist adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (arcana)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +4 dodge <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> against devils.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Chelaxian Diabolist adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (arcana)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +4 dodge <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> against devils.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1332,10 +1343,10 @@
       "esES": null
     },
     {
-      "Key": "f20462315c0c42feb74ea578c653185b",
+      "Key": "2439b1d4a1b04205bcbf9f1ee11e2550",
       "SimpleName": "BackgroundCourtIntriguer.Description",
       "ProcessTemplates": true,
-      "enGB": "Courtier adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with rapiers and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Courtier adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with rapiers and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1343,10 +1354,10 @@
       "esES": null
     },
     {
-      "Key": "2729689d1c854463ab4d951dd159d398",
+      "Key": "562bbb1fabf844159fc690de1c469a68",
       "SimpleName": "BackgroundEmissary.Description",
       "ProcessTemplates": true,
-      "enGB": "Emissary adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with rapiers and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Emissary adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with rapiers and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1354,10 +1365,10 @@
       "esES": null
     },
     {
-      "Key": "b993c739f8ce4577a04aee4ccd5e2e3b",
+      "Key": "cd3c0ca71a784b4ba8c67281e8389d6d",
       "SimpleName": "BackgroundFarmhand.Description",
       "ProcessTemplates": true,
-      "enGB": "Farmhand adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scythes and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Farmhand adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scythes and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1365,10 +1376,10 @@
       "esES": null
     },
     {
-      "Key": "ef1263aa454d4ca8a34b2474edce7d47",
+      "Key": "d7e83900f77841fc940179c1e18b8d4a",
       "SimpleName": "BackgroundGebianNecromancer.Description",
       "ProcessTemplates": true,
-      "enGB": "Gebbite Necromancer adds <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. Gebbite Necromancer's summoned undead creatures and companions get a +3 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to maximum <b><color=#703565><link=\"Encyclopedia:HP\">hit points</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Gebbite Necromancer adds <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. Gebbite Necromancer's summoned undead creatures and companions get a +3 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to maximum <b><color=#703565><link=\"Encyclopedia:HP\">hit points</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1376,10 +1387,10 @@
       "esES": null
     },
     {
-      "Key": "122c9dd0924d4fc1be812383e87b5736",
+      "Key": "05f464fb7b4b47359c9abba6ce7b9327",
       "SimpleName": "BackgroundGladiator.Description",
       "ProcessTemplates": true,
-      "enGB": "Gladiator adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, tridents, shortswords and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Gladiator adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, tridents, shortswords and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1387,10 +1398,10 @@
       "esES": null
     },
     {
-      "Key": "dbfc79de3e1f4a9085a99ec1f8136e25",
+      "Key": "34322eeb8c1c40b48edf8253544609b9",
       "SimpleName": "BackgroundGuard.Description",
       "ProcessTemplates": true,
-      "enGB": "Guard adds <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, shortswords and light crossbows.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Guard adds <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, shortswords and light crossbows.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1398,10 +1409,10 @@
       "esES": null
     },
     {
-      "Key": "1b232f64067d42a583563e974edbf4ab",
+      "Key": "5ddbe7eb0f1b469da51b929419f18470",
       "SimpleName": "BackgroundHealer.Description",
       "ProcessTemplates": true,
-      "enGB": "<b><color=#703565><link=\"Encyclopedia:Healing\">Healer</link></color></b> adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Wisdom\">Wisdom</link></color></b> while attempting Lore (nature) or Lore (religion) <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Healer adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Wisdom\">Wisdom</link></color></b> while attempting Lore (nature) or Lore (religion) <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1409,10 +1420,10 @@
       "esES": null
     },
     {
-      "Key": "415868f7ab8e4b49a4dbf18741c9b680",
+      "Key": "fd0933578c564032b15b649135f13601",
       "SimpleName": "BackgroundHermit.Description",
       "ProcessTemplates": true,
-      "enGB": "Hermit adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with clubs, greatclubs, quarterstaves and darts.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Hermit adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with clubs, greatclubs, quarterstaves and darts.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1420,10 +1431,10 @@
       "esES": null
     },
     {
-      "Key": "f21737fd55984bc292eb1b7083f889da",
+      "Key": "e4677c6544934c55b6d0646f4aeb45d2",
       "SimpleName": "BackgroundHunter.Description",
       "ProcessTemplates": true,
-      "enGB": "Hunter adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with shortbows and longbows.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Hunter adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with shortbows and longbows.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1431,10 +1442,10 @@
       "esES": null
     },
     {
-      "Key": "e2b89ddbb0a241dd999246dba2908822",
+      "Key": "e58a8b02b04d405980fbfb42623e2877",
       "SimpleName": "BackgroundLeader.Description",
       "ProcessTemplates": true,
-      "enGB": "Leader adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with rapiers, longswords, greatswords and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Leader adds <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with rapiers, longswords, greatswords and bucklers.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1442,10 +1453,10 @@
       "esES": null
     },
     {
-      "Key": "c040655450b04867b9dc088b0baed84d",
+      "Key": "03c796a3a3db493a8323159444959a91",
       "SimpleName": "BackgroundLumberjack.Description",
       "ProcessTemplates": true,
-      "enGB": "Lumberjack adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Lumberjack adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1453,10 +1464,10 @@
       "esES": null
     },
     {
-      "Key": "90128223cb9d4d6db8c2603c113c2d31",
+      "Key": "5bbdfe68eabd4468beddb8fdec778268",
       "SimpleName": "BackgroundMartialDisciple.Description",
       "ProcessTemplates": true,
-      "enGB": "Martial Disciple adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains Improved Unarmed Strike as a background <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Martial Disciple adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains Improved Unarmed Strike as a background <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1464,10 +1475,10 @@
       "esES": null
     },
     {
-      "Key": "6f74e2b534494068a54e1faf36783cd3",
+      "Key": "0db24884add34b08bf1dcd22c2aedec4",
       "SimpleName": "BackgroundMendevianOrphan.Description",
       "ProcessTemplates": true,
-      "enGB": "Mendevian Orphan adds <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against demons.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Mendevian Orphan adds <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against demons.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1475,10 +1486,10 @@
       "esES": null
     },
     {
-      "Key": "99d38892a63b42b7972fa2c72379cc7c",
+      "Key": "ba7ba1a0be5c4e8c887a074622bab619",
       "SimpleName": "BackgroundMercenary.Description",
       "ProcessTemplates": true,
-      "enGB": "Mercenary adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, spears, longspears and javelins.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Mercenary adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light armor, spears, longspears and javelins.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1486,10 +1497,10 @@
       "esES": null
     },
     {
-      "Key": "f35e3e6a173f4d8cae711c79882f18db",
+      "Key": "c6e3fe7f404242e0b5bee10af695be49",
       "SimpleName": "BackgroundMiner.Description",
       "ProcessTemplates": true,
-      "enGB": "Miner adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light and heavy picks and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Miner adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light and heavy picks and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1497,10 +1508,10 @@
       "esES": null
     },
     {
-      "Key": "cc0c4609ed224ad3b8aa7072a39ecc26",
+      "Key": "e26139b49699494396db8f082e9a2f31",
       "SimpleName": "BackgroundMugger.Description",
       "ProcessTemplates": true,
-      "enGB": "Mugger adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with daggers, punching daggers and darts.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Mugger adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with daggers, punching daggers and darts.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1508,10 +1519,10 @@
       "esES": null
     },
     {
-      "Key": "d3b8339b2ee343178ac6b64be7d206bd",
+      "Key": "4f3101ff8ec34f7c889e155e64be7693",
       "SimpleName": "BackgroundMwangianHunter.Description",
       "ProcessTemplates": true,
-      "enGB": "Mwangi Hunter adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Stealth\">Stealth</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with darts, throwing axes and javelins. In addition, Mwangi Hunter gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> with all throwing weapons.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Mwangi Hunter adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Stealth\">Stealth</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with darts, throwing axes and javelins. In addition, Mwangi Hunter gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> with all throwing weapons.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1530,10 +1541,10 @@
       "esES": null
     },
     {
-      "Key": "729fbec9323045a289618e51c59608e9",
+      "Key": "576fcd8c07dc44a297c641fc02acf4a1",
       "SimpleName": "BackgroundNomad.Description",
       "ProcessTemplates": true,
-      "enGB": "Nomad adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scimitars. Nomad's animal companion gets a +3 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to maximum <b><color=#703565><link=\"Encyclopedia:HP\">hit points</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Nomad adds <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scimitars. Nomad's animal companion gets a +3 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to maximum <b><color=#703565><link=\"Encyclopedia:HP\">hit points</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1552,10 +1563,10 @@
       "esES": null
     },
     {
-      "Key": "7f52311011f44fb0b3ecfa4cc6f5a212",
+      "Key": "8f0e7a9bdfea4428a02e7343e835db13",
       "SimpleName": "BackgroundPickpocket.Description",
       "ProcessTemplates": true,
-      "enGB": "Pickpocket adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Stealth\">Stealth</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Initiative\">initiative</link></color></b> <b><color=#703565><link=\"Encyclopedia:Dice\">rolls</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Pickpocket adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Stealth\">Stealth</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Initiative\">initiative</link></color></b> <b><color=#703565><link=\"Encyclopedia:Dice\">rolls</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1563,10 +1574,10 @@
       "esES": null
     },
     {
-      "Key": "ae96827f229745c2b15b56ca7b693423",
+      "Key": "aef0e9b3fe9b48009e4e441dad2b68d5",
       "SimpleName": "BackgroundQadiranWanderer.Description",
       "ProcessTemplates": true,
-      "enGB": "Qadiran Wanderer adds <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against Fatigue and Exhaustion effects.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Qadiran Wanderer adds <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against Fatigue and Exhaustion effects.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1574,10 +1585,10 @@
       "esES": null
     },
     {
-      "Key": "537e6d50906848198f1d9aa7690d6f99",
+      "Key": "c0df5feb2fe44a5e833bdf0adfdbf983",
       "SimpleName": "BackgroundRiverKingdomsDaredevil.Description",
       "ProcessTemplates": true,
-      "enGB": "River Kingdoms Daredevil adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with shortswords and daggers. In addition River Kingdoms Daredevil gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> against <b><color=#703565><link=\"Encyclopedia:Attack_Of_Opportunity\">attacks of opportunity</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "River Kingdoms Daredevil adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with shortswords and daggers. In addition River Kingdoms Daredevil gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> against <b><color=#703565><link=\"Encyclopedia:Attack_Of_Opportunity\">attacks of opportunity</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1585,10 +1596,10 @@
       "esES": null
     },
     {
-      "Key": "b9c6c48e68b04acc94827c6ef2e8dca7",
+      "Key": "546249716ee04a76a86002e5a832adec",
       "SimpleName": "BackgroundScholarArcane.Description",
       "ProcessTemplates": true,
-      "enGB": "Arcane Scholar adds <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (arcana)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gets Scribe Scrolls as a bonus <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Arcane Scholar adds <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (arcana)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gets Scribe Scrolls as a bonus <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1596,10 +1607,10 @@
       "esES": null
     },
     {
-      "Key": "697fb77ca31743d6901289c66b507069",
+      "Key": "635fdaa47afe4a3bb3b5c8fbb8239c3b",
       "SimpleName": "BackgroundScholarDivine.Description",
       "ProcessTemplates": true,
-      "enGB": "Divine Scholar adds <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gets Brew Potions as a bonus <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Divine Scholar adds <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Religion\">Lore (religion)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gets Brew Potions as a bonus <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1673,10 +1684,10 @@
       "esES": null
     },
     {
-      "Key": "79672e1e6ff64d699e17b18c221bc46e",
+      "Key": "aa7ec0da38254c67bdc9868d76332bc7",
       "SimpleName": "BackgroundsDruidSpellLikeSelection.Description",
       "ProcessTemplates": true,
-      "enGB": "Nature Scholar adds <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also selects one <b><color=#703565><link=\"Encyclopedia:Cantrips_Orisons\">orison</link></color></b> from the druid <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> list and gets it as a <b><color=#703565><link=\"Encyclopedia:Special_Abilities\">spell-like ability</link></color></b> which she can use at will.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Nature Scholar adds <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also selects one <b><color=#703565><link=\"Encyclopedia:Cantrips_Orisons\">orison</link></color></b> from the druid <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> list and gets it as a <b><color=#703565><link=\"Encyclopedia:Special_Abilities\">spell-like ability</link></color></b> which she can use at will.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1684,10 +1695,10 @@
       "esES": null
     },
     {
-      "Key": "70cffaa31f814e9b9d847e3f29a990da",
+      "Key": "cdcfbae1ced84bc587edea045749db07",
       "SimpleName": "BackgroundShacklesCorsair.Description",
       "ProcessTemplates": true,
-      "enGB": "Shackles Corsair adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scimitars. In addition Shackles Corsair gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:CMD\">CMD</link></color></b> against trip attempts.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Shackles Corsair adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scimitars. In addition Shackles Corsair gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:CMD\">CMD</link></color></b> against trip attempts.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1695,10 +1706,10 @@
       "esES": null
     },
     {
-      "Key": "aa0f75015be14c8b98dee7505816bff6",
+      "Key": "2e8d07ce47964fe9913389626370bd9b",
       "SimpleName": "BackgroundSmith.Description",
       "ProcessTemplates": true,
-      "enGB": "Smith adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light hammers and warhammers, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Smith adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light hammers and warhammers, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1706,10 +1717,10 @@
       "esES": null
     },
     {
-      "Key": "88af79464c01412caa3d8281f9d24b56",
+      "Key": "8d448f6e8a8442919b81dc57ae967920",
       "SimpleName": "BackgroundUstalavPeasant.Description",
       "ProcessTemplates": true,
-      "enGB": "Ustalavic Peasant adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scythes. In addition Ustalavic Peasant gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> while under fear effects.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Ustalavic Peasant adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scythes. In addition Ustalavic Peasant gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> while under fear effects.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1717,10 +1728,10 @@
       "esES": null
     },
     {
-      "Key": "48bd4e10dbad436cbe8197b83908cb61",
+      "Key": "1e60d458abe1441f91c8ed5c2564dcb2",
       "SimpleName": "BackgroundVarisianExplorer.Description",
       "ProcessTemplates": true,
-      "enGB": "Varisian Explorer adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Reflex <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Varisian Explorer adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Reflex <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1728,10 +1739,10 @@
       "esES": null
     },
     {
-      "Key": "712537f2b0bc486e920893d3333b5953",
+      "Key": "6ac200f461454aaa96cd25d3b8413441",
       "SimpleName": "BackgroundWarriorOfTheLinnormKings.Description",
       "ProcessTemplates": true,
-      "enGB": "Warrior of the Linnorm Kings adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes. In addition Warrior of the Linnorm Kings gains 5 cold resistance.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor <b><color=#703565><link=\"Encyclopedia:Check\">Check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Warrior of the Linnorm Kings adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes. In addition Warrior of the Linnorm Kings gains 5 cold resistance.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -3902,7 +3913,7 @@
       "ruRU": "Испепеляющий",
       "deDE": null,
       "frFR": null,
-      "zhCN": "焚炎",
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -3913,7 +3924,7 @@
       "ruRU": "Огненный",
       "deDE": null,
       "frFR": null,
-      "zhCN": "炽焰",
+      "zhCN": "焚炎",
       "esES": null
     },
     {
@@ -5545,17 +5556,6 @@
       "esES": null
     },
     {
-      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Flaming",
-      "ruRU": "Великий огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古炽焰",
-      "esES": null
-    },
-    {
       "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -5564,6 +5564,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古焚炎",
+      "esES": null
+    },
+    {
+      "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Flaming",
+      "ruRU": "Великий огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "古炽焰",
       "esES": null
     },
     {
@@ -5677,6 +5688,17 @@
       "esES": null
     },
     {
+      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Cold",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
+      "esES": null
+    },
+    {
       "Key": "a489d5d8088447d3baed4ad6d4c68111",
       "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
@@ -5685,17 +5707,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
-      "esES": null
-    },
-    {
-      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
-      "SimpleName": "Elemental — ColdSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Elemental — Cold",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "元素 — 寒冷",
       "esES": null
     },
     {
@@ -5721,21 +5732,21 @@
       "esES": null
     },
     {
-      "Key": "ea0c0046250245418d59ce476be8566e",
-      "SimpleName": "Elemental — FireSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Elemental — Fire",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "元素 — 火焰",
-      "esES": null
-    },
-    {
       "Key": "9e4b32e4aeb84a21b43b008327849bf0",
       "SimpleName": "Elemental — FireSpellMetamagic",
       "ProcessTemplates": false,
       "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
+      "esES": null
+    },
+    {
+      "Key": "ea0c0046250245418d59ce476be8566e",
+      "SimpleName": "Elemental — FireSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Fire",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -7107,6 +7118,28 @@
       "esES": null
     },
     {
+      "Key": "44952c4bb1804b9d8a5c109bea53ac74",
+      "SimpleName": "GreaterAnimalFuryBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "The bite attack from animal fury deals damage as if you were one size larger.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f491c46da35a4286b36d6fe887c0136f",
+      "SimpleName": "GreaterAnimalFuryBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Animal Fury",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "c779d24f024d442c9eb3cf7d352aa9a6",
       "SimpleName": "GreatKenning.Description",
       "ProcessTemplates": true,
@@ -7591,6 +7624,50 @@
       "esES": null
     },
     {
+      "Key": "1dc1f62a3b424d22b9dd948fe44ec1ae",
+      "SimpleName": "ImprovedNaturalArmor.Description",
+      "ProcessTemplates": true,
+      "enGB": "This creature’s hide is tougher than most.\nThe creature’s natural armor bonus increases by +1.\nA creature can gain this feat multiple times. Each time the creature takes the feat, its natural armor bonus increases by another point.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3997179ff96c473ebfbc59972d782210",
+      "SimpleName": "ImprovedNaturalArmor.Name",
+      "ProcessTemplates": false,
+      "enGB": "Improved Natural Armor",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d95a332bc47a46e78b79f3830002683a",
+      "SimpleName": "ImprovedNaturalAttack.Description",
+      "ProcessTemplates": true,
+      "enGB": "Attacks made by one of this creature’s natural attacks leave vicious wounds.\nChoose one of the creature’s natural attack forms. The damage for this natural attack increases by one step, as if the creature’s size had increased by one category.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "448c552d8a2a4b6b8df868bd7dae0699",
+      "SimpleName": "ImprovedNaturalAttack.Name",
+      "ProcessTemplates": false,
+      "enGB": "Improved Natural Attack",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "be2cba6648c89942f38c281b9280b518",
       "SimpleName": "InfernalBloodlineRequisiteFeature.Name",
       "ProcessTemplates": false,
@@ -7690,17 +7767,6 @@
       "esES": null
     },
     {
-      "Key": "42fddf6342a544bc85b6647c3db42f3b",
-      "SimpleName": "IntensifiedSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}Intensified{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
-      "esES": null
-    },
-    {
       "Key": "5effb1dfff10434d8af19691362dab9c",
       "SimpleName": "IntensifiedSpellMetamagic",
       "ProcessTemplates": false,
@@ -7709,6 +7775,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "强化",
+      "esES": null
+    },
+    {
+      "Key": "42fddf6342a544bc85b6647c3db42f3b",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}Intensified{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
       "esES": null
     },
     {
@@ -11342,17 +11419,6 @@
       "esES": null
     },
     {
-      "Key": "334dafcc1c3844e49640b81084309388",
-      "SimpleName": "RimeSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Rime",
-      "ruRU": "Обмораживающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "霜冻",
-      "esES": null
-    },
-    {
       "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
       "SimpleName": "RimeSpellMetamagic",
       "ProcessTemplates": false,
@@ -11361,6 +11427,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
+      "esES": null
+    },
+    {
+      "Key": "334dafcc1c3844e49640b81084309388",
+      "SimpleName": "RimeSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Rime",
+      "ruRU": "Обмораживающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "霜冻",
       "esES": null
     },
     {
@@ -11811,7 +11888,7 @@
       "ruRU": "Осязаемое",
       "deDE": null,
       "frFR": null,
-      "zhCN": "实体幽影",
+      "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
       "esES": null
     },
     {
@@ -12354,10 +12431,10 @@
       "esES": null
     },
     {
-      "Key": "fec8d103dde0482fbcc64a44e90dd51b",
+      "Key": "4e165c3b3c344f45bb5ae0062c105e86",
       "SimpleName": "SorcererDestinedSpell19.Description",
       "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nForesight: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants you a powerful sixth sense. Once foresight is cast, you receive instantaneous warnings of impending danger or harm to the subject of the spell. You are never <b><color=#703565><link=\"Encyclopedia:Flat_Footed\">flat-footed</link></color></b>. In addition, the spell gives you a general idea of what <b><color=#703565><link=\"Encyclopedia:CA_Types\">action</link></color></b> you might take to best protect yourself and gives you a +2 insight <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> and on Reflex <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saves</link></color></b>.",
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nForesight: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants you a powerful sixth sense. Once foresight is cast, you receive instantaneous warnings of impending danger or harm to the subject of the spell. You are never <b><color=#703565><link=\"Encyclopedia:Flat_Footed\">flat-footed</link></color></b>. In addition, the spell gives you a general idea of what action you might take to best protect yourself and gives you a +2 insight <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> and on Reflex <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saves</link></color></b>.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -14100,6 +14177,50 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "超然酷寒",
+      "esES": null
+    },
+    {
+      "Key": "285281db5b4542e993287a1510d586e7",
+      "SimpleName": "WitchHexDireProphecyAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "1 day",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6ebb4089336b40ff803784b1c79da262",
+      "SimpleName": "WitchHexDireProphecyBuff.Description",
+      "ProcessTemplates": true,
+      "enGB": "The witch curses the target so he is doomed to die. As long as the curse persists, the target takes a –4 penalty to his armor class and on attack rolls, saves, ability checks, and skill checks.\nA target can only have one dire prophecy upon him at a time. Whether or not the target’s save against the hex is successful, a creature cannot be the target of this hex for 1 day. This is a curse effect.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "94df57409ca04e149f6ef7f8983d8c2e",
+      "SimpleName": "WitchHexDireProphecyBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Dire Prophecy",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "87aebbe0a1b9405cb1987dfae29ea4a3",
+      "SimpleName": "WitchHexDireProphecyBuffCooldownBuff.Name",
+      "ProcessTemplates": false,
+      "enGB": "Dire Prophecy Cooldown",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {

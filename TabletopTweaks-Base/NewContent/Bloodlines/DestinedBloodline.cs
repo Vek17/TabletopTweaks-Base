@@ -171,7 +171,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 bp.SetDescription(TTTContext, "At 4th level, you gain a +1 luck bonus to AC and on saving throws. At 8th level and every "
                     + "4 levels thereafter, this bonus increases by 1 (to a maximum of +5 at 20th level).");
                 bp.IsClassFeature = true;
-                bp.Ranks = 5;
+                bp.Ranks = 1;
             });
             var BloodragerDestinedFatedBloodragerBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "BloodragerDestinedFatedBloodragerBuff", bp => {
                 bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
@@ -215,10 +215,15 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     };
                 });
                 bp.AddComponent<ContextRankConfig>(c => {
-                    c.m_BaseValueType = ContextRankBaseValueType.FeatureRank;
                     c.m_Type = AbilityRankType.StatBonus;
-                    c.m_Feature = BloodragerDestinedFatedBloodrager.ToReference<BlueprintFeatureReference>();
-                    c.m_Progression = ContextRankProgression.AsIs;
+                    c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
+                    c.m_Progression = ContextRankProgression.DivStep;
+                    c.m_StepLevel = 4;
+                    c.m_UseMin = true;
+                    c.m_Min = 1;
+                    c.m_UseMax = true;
+                    c.m_Max = 5;
+                    c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.BloodragerClass };
                 });
             });
             var BloodragerDestinedCertainStrike = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "BloodragerDestinedCertainStrike", bp => {
@@ -374,6 +379,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = MageShield;
                 bp.SetName(TTTContext, $"Bonus Spell — Shield");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -385,6 +391,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = Blur;
                 bp.SetName(TTTContext, $"Bonus Spell — Blur");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -396,6 +403,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = ProtectionFromEnergy;
                 bp.SetName(TTTContext, $"Bonus Spell — Protection From Energy");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -407,6 +415,7 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                 var spell = FreedomOfMovement;
                 bp.SetName(TTTContext, $"Bonus Spell — Freedom Of Movement");
                 bp.SetDescription(TTTContext, "At 7th, 10th, 13th, and 16th levels, a bloodrager learns an additional spell derived from his bloodline.");
+                bp.m_Icon = spell.Get().Icon;
                 bp.IsClassFeature = true;
                 bp.AddComponent<AddKnownSpell>(c => {
                     c.m_CharacterClass = BloodragerClass;
@@ -437,15 +446,15 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     new LevelEntry(){ Level = 4, Features = { BloodragerDestinedFatedBloodrager }},
                     new LevelEntry(){ Level = 6, Features = { BloodragerDestinedFeatSelectionGreenrager }},
                     new LevelEntry(){ Level = 7, Features = { BloodragerDestinedSpell7 }},
-                    new LevelEntry(){ Level = 8, Features = { BloodragerDestinedCertainStrike, BloodragerDestinedFatedBloodrager }},
+                    new LevelEntry(){ Level = 8, Features = { BloodragerDestinedCertainStrike }},
                     new LevelEntry(){ Level = 9, Features = { BloodragerDestinedFeatSelectionGreenrager }},
                     new LevelEntry(){ Level = 10, Features = { BloodragerDestinedSpell10 }},
-                    new LevelEntry(){ Level = 12, Features = { BloodragerDestinedFeatSelection, BloodragerDestinedDefyDeath, BloodragerDestinedFatedBloodrager, BloodragerDestinedStrikeResourceIncrease }},
+                    new LevelEntry(){ Level = 12, Features = { BloodragerDestinedFeatSelection, BloodragerDestinedDefyDeath, BloodragerDestinedStrikeResourceIncrease }},
                     new LevelEntry(){ Level = 13, Features = { BloodragerDestinedSpell13 }},
                     new LevelEntry(){ Level = 15, Features = { BloodragerDestinedFeatSelection }},
-                    new LevelEntry(){ Level = 16, Features = { BloodragerDestinedUnstoppable, BloodragerDestinedSpell16, BloodragerDestinedFatedBloodrager }},
+                    new LevelEntry(){ Level = 16, Features = { BloodragerDestinedUnstoppable, BloodragerDestinedSpell16 }},
                     new LevelEntry(){ Level = 18, Features = { BloodragerDestinedFeatSelection }},
-                    new LevelEntry(){ Level = 20, Features = { BloodragerDestinedVictoryOrDeath, BloodragerDestinedFatedBloodrager }},
+                    new LevelEntry(){ Level = 20, Features = { BloodragerDestinedVictoryOrDeath, }},
                 };
                 bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
                     c.Group = Prerequisite.GroupType.Any;
@@ -456,7 +465,49 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
                     c.m_Feature = DestinedBloodlineRequisiteFeature;
                 });
                 bp.UIGroups = new UIGroup[] {
-                    Helpers.CreateUIGroup(BloodragerDestinedFeatSelection, BloodragerDestinedFeatSelectionGreenrager)
+                    Helpers.CreateUIGroup(BloodragerDestinedFeatSelection, BloodragerDestinedFeatSelectionGreenrager),
+                    Helpers.CreateUIGroup(BloodragerDestinedSpell7, BloodragerDestinedSpell10, BloodragerDestinedSpell13, BloodragerDestinedSpell16)
+                };
+            });
+            var BloodragerDestinedSecondBloodline = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "BloodragerDestinedSecondBloodline", bp => {
+                bp.SetName(TTTContext, "Destined");
+                bp.SetDescription(TTTContext, "Your bloodline is destined for great things. When you bloodrage, you exude a greatness that makes all but the most legendary creatures seem lesser.\n"
+                    + "Your future greatness grants you the might to strike your enemies with awe.\n"
+                    + BloodragerDestinedFeatSelection.Description
+                    + "\nBonus Spells: Shield (7th), Blur (10th), Protection From Energy (13th), Freedom Of Movement (16th).");
+                bp.IsClassFeature = true;
+                bp.m_Classes = new BlueprintProgression.ClassWithLevel[] {
+                    new BlueprintProgression.ClassWithLevel {
+                        m_Class = BloodragerClass
+                    }
+                };
+                bp.GiveFeaturesForPreviousLevels = true;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.BloodragerBloodline };
+                bp.Ranks = 1;
+                bp.IsClassFeature = true;
+                bp.GiveFeaturesForPreviousLevels = true;
+                bp.LevelEntries = new LevelEntry[] {
+                    new LevelEntry(){ Level = 1, Features = { BloodragerDestinedStrike, DestinedBloodlineRequisiteFeature, BloodlineRequisiteFeature }},
+                    new LevelEntry(){ Level = 4, Features = { BloodragerDestinedFatedBloodrager }},
+                    new LevelEntry(){ Level = 6, Features = { BloodragerDestinedFeatSelectionGreenrager }},
+                    new LevelEntry(){ Level = 7, Features = { BloodragerDestinedSpell7 }},
+                    new LevelEntry(){ Level = 8, Features = { BloodragerDestinedCertainStrike }},
+                    new LevelEntry(){ Level = 9, Features = { BloodragerDestinedFeatSelectionGreenrager }},
+                    new LevelEntry(){ Level = 10, Features = { BloodragerDestinedSpell10 }},
+                    new LevelEntry(){ Level = 12, Features = { BloodragerDestinedFeatSelection, BloodragerDestinedDefyDeath, BloodragerDestinedStrikeResourceIncrease }},
+                    new LevelEntry(){ Level = 13, Features = { BloodragerDestinedSpell13 }},
+                    new LevelEntry(){ Level = 15, Features = { BloodragerDestinedFeatSelection }},
+                    new LevelEntry(){ Level = 16, Features = { BloodragerDestinedUnstoppable, BloodragerDestinedSpell16 }},
+                    new LevelEntry(){ Level = 18, Features = { BloodragerDestinedFeatSelection }},
+                    new LevelEntry(){ Level = 20, Features = { BloodragerDestinedVictoryOrDeath, }},
+                };
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                    c.Group = Prerequisite.GroupType.Any;
+                    c.m_Feature = BloodragerDestinedBloodline.ToReference<BlueprintFeatureReference>();
+                });
+                bp.UIGroups = new UIGroup[] {
+                    Helpers.CreateUIGroup(BloodragerDestinedFeatSelection, BloodragerDestinedFeatSelectionGreenrager),
+                    Helpers.CreateUIGroup(BloodragerDestinedSpell7, BloodragerDestinedSpell10, BloodragerDestinedSpell13, BloodragerDestinedSpell16)
                 };
             });
             var BloodragerAberrantBloodlineWandering = BloodlineTools.CreateMixedBloodFeature(TTTContext, "BloodragerDestinedBloodlineWandering", BloodragerDestinedBloodline, bp => {
@@ -477,14 +528,15 @@ namespace TabletopTweaks.Base.NewContent.Bloodlines {
             //Register Bloodrage Abilities
             BloodragerDestinedBaseBuff.ApplyBloodrageRestriction(BloodragerDestinedStrikeAbility);
             BloodragerStandardRageBuff.AddConditionalBuff(BloodragerDestinedBloodline, BloodragerDestinedBaseBuff);
+            BloodragerStandardRageBuff.AddConditionalBuff(BloodragerDestinedSecondBloodline, BloodragerDestinedBaseBuff);
 
-            BloodlineTools.ApplyPrimalistException(BloodragerDestinedFatedBloodrager, 4, BloodragerDestinedBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerDestinedCertainStrike, 8, BloodragerDestinedBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerDestinedDefyDeath, 12, BloodragerDestinedBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerDestinedUnstoppable, 16, BloodragerDestinedBloodline);
-            BloodlineTools.ApplyPrimalistException(BloodragerDestinedVictoryOrDeath, 20, BloodragerDestinedBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerDestinedFatedBloodrager, 4, BloodragerDestinedBloodline, BloodragerDestinedSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerDestinedCertainStrike, 8, BloodragerDestinedBloodline, BloodragerDestinedSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerDestinedDefyDeath, 12, BloodragerDestinedBloodline, BloodragerDestinedSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerDestinedUnstoppable, 16, BloodragerDestinedBloodline, BloodragerDestinedSecondBloodline);
+            BloodlineTools.ApplyPrimalistException(BloodragerDestinedVictoryOrDeath, 20, BloodragerDestinedBloodline, BloodragerDestinedSecondBloodline);
             if (TTTContext.AddedContent.Bloodlines.IsDisabled("DestinedBloodline")) { return; }
-            BloodlineTools.RegisterBloodragerBloodline(BloodragerDestinedBloodline, BloodragerAberrantBloodlineWandering);
+            BloodlineTools.RegisterBloodragerBloodline(BloodragerDestinedBloodline, BloodragerDestinedSecondBloodline, BloodragerAberrantBloodlineWandering);
         }
         public static void AddSorcererDestinedBloodline() {
             var SorcererClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("b3a505fb61437dc4097f43c3f8f9a4cf").ToReference<BlueprintCharacterClassReference>();

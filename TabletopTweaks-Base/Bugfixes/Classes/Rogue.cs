@@ -144,15 +144,17 @@ namespace TabletopTweaks.Base.Bugfixes.Clases {
                             c.m_BaseValueType = ContextRankBaseValueType.SummClassLevelWithArchetype;
                             c.m_Progression = ContextRankProgression.AsIs;
                             c.m_Class = new BlueprintCharacterClassReference[] {
-                                ClassTools.Classes.RogueClass.ToReference<BlueprintCharacterClassReference>(),
-                                ClassTools.Classes.SlayerClass.ToReference<BlueprintCharacterClassReference>(),
-                                ClassTools.Classes.AlchemistClass.ToReference<BlueprintCharacterClassReference>(),
-                                ClassTools.Classes.DruidClass.ToReference<BlueprintCharacterClassReference>()
+                                ClassTools.ClassReferences.RogueClass,
+                                ClassTools.ClassReferences.SlayerClass,
+                                ClassTools.ClassReferences.AlchemistClass,
+                                ClassTools.ClassReferences.DruidClass,
+                                ClassTools.ClassReferences.ShifterClass,
                             };
                             c.Archetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("68cbcd9fbf1fb1d489562f829bb97e38"); //Vivisectionist
                             c.m_AdditionalArchetypes = new BlueprintArchetypeReference[] {
-                                BlueprintTools.GetModBlueprintReference<BlueprintArchetypeReference>(TTTContext, "NatureFangArcehtype")
-                        };
+                                BlueprintTools.GetModBlueprintReference<BlueprintArchetypeReference>(TTTContext, "NatureFangArcehtype"),
+                                BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("1cdfc7d306d1430eac19427539b62091") //Fey Shifter
+                            };
                         });
                     });
 

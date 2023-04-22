@@ -25,6 +25,7 @@ namespace TabletopTweaks.Base {
 
                 SetttingUI.SettingGroup("Base Fixes", TabLevel, Fixes.BaseFixes);
                 SetttingUI.SettingGroup("Aeon", TabLevel, Fixes.Aeon);
+                SetttingUI.SettingGroup("Azata", TabLevel, Fixes.Azata);
                 SetttingUI.SettingGroup("Demon", TabLevel, Fixes.Demon);
                 SetttingUI.SettingGroup("Lich", TabLevel, Fixes.Lich);
                 SetttingUI.SettingGroup("Trickster", TabLevel, Fixes.Trickster);
@@ -123,6 +124,7 @@ namespace TabletopTweaks.Base {
                 SetttingUI.SettingGroup("Spells", TabLevel, Fixes.Spells);
                 SetttingUI.SettingGroup("Animal Companions", TabLevel, Fixes.AnimalCompanions);
                 SetttingUI.SettingGroup("Bloodlines", TabLevel, Fixes.Bloodlines);
+                SetttingUI.SettingGroup("Types", TabLevel, Fixes.Types);
                 SetttingUI.SettingGroup("Features", TabLevel, Fixes.Features);
                 SetttingUI.SettingGroup("Feats", TabLevel, Fixes.Feats);
                 SetttingUI.SettingGroup("Mythic Abilities", TabLevel, Fixes.MythicAbilities);
@@ -161,8 +163,10 @@ namespace TabletopTweaks.Base {
                 SetttingUI.SettingGroup("Fighter Advanced Weapon Training", TabLevel, AddedContent.FighterAdvancedWeaponTraining);
                 SetttingUI.SettingGroup("Arcanist Exploits", TabLevel, AddedContent.ArcanistExploits);
                 SetttingUI.SettingGroup("Magus Arcana", TabLevel, AddedContent.MagusArcana);
+                SetttingUI.SettingGroup("Rage Powers", TabLevel, AddedContent.RagePowers);
                 SetttingUI.SettingGroup("Rogue Talents", TabLevel, AddedContent.RogueTalents);
                 SetttingUI.SettingGroup("Wizard Arcane Discoveries", TabLevel, AddedContent.WizardArcaneDiscoveries);
+                SetttingUI.SettingGroup("Hexes", TabLevel, AddedContent.Hexes);
                 SetttingUI.SettingGroup("Races", TabLevel, AddedContent.Races);
                 SetttingUI.SettingGroup("Backgrounds", TabLevel, AddedContent.Backgrounds);
                 SetttingUI.SettingGroup("Spells", TabLevel, AddedContent.Spells);

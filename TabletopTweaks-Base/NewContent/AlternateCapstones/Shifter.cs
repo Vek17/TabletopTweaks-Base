@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
 using System.Collections.Generic;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
@@ -30,10 +31,16 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.m_FeaturesRankIncrease = new List<BlueprintFeatureReference>();
                 bp.LevelEntries = new LevelEntry[] {
                     Helpers.CreateLevelEntry(20,
-                        FinalShifterAspectFeature,
                         ShifterAspectSelectionFeature
                     )
                 };
+                bp.AddComponent<AddFeatureOnClassLevel>(c => {
+                    c.Level = 20;
+                    c.m_Class = ClassTools.ClassReferences.ShifterClass;
+                    c.m_AdditionalClasses = new BlueprintCharacterClassReference[0];
+                    c.m_Archetypes = new BlueprintArchetypeReference[0];
+                    c.m_Feature = FinalShifterAspectFeature.ToReference<BlueprintFeatureReference>();
+                });
                 bp.AddComponent<PrerequisiteInPlayerParty>(c => {
                     c.CheckInProgression = true;
                     c.HideInUI = true;

@@ -43,6 +43,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                 PatchBladeOfTheMerciful();
                 PatchDevastatingBlowFromAbove();
+                PatchEyeForAnEye();
                 PatchFinnean();
                 PatchHonorableJudgement();
                 PatchRadiance();
@@ -52,6 +53,9 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                 PatchThunderingBurst();
                 PatchVorpal();
+
+                PatchNaturalWeapons();
+                PatchSai();
 
                 void PatchBladeOfTheMerciful() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("BladeOfTheMerciful")) { return; }
@@ -109,6 +113,28 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         };
                     });
                     TTTContext.Logger.LogPatch("Patched", DevastatingBlowFromAboveEnchantment);
+                }
+                void PatchEyeForAnEye() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("EyeForAnEye")) { return; }
+
+                    var EyeForAnEyeBowEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("5f8e3638fc9c6794c8eb6eb671356d52");
+                    EyeForAnEyeBowEnchantment.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    EyeForAnEyeBowEnchantment.RemoveComponents<AdditionalDiceOnAttack>();
+                    EyeForAnEyeBowEnchantment.AddComponent<WeaponExtraDamageDice>(c => {
+                        c.DamageType = new DamageTypeDescription() {
+                            Type = DamageType.Physical,
+                            Physical = new PhysicalData() {
+                                Form = PhysicalDamageForm.Piercing,
+                                Enhancement = 3,
+                                EnhancementTotal = 3
+                            }
+                        };
+                        c.Value = new DiceFormula() {
+                            m_Dice = DiceType.D12,
+                            m_Rolls = 1
+                        };
+                    });
+                    TTTContext.Logger.LogPatch(EyeForAnEyeBowEnchantment);
                 }
                 void PatchHonorableJudgement() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("HonorableJudgement")) { return; }
@@ -269,6 +295,41 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     });
 
                     TTTContext.Logger.LogPatch("Patched", Vorpal);
+                }
+                void PatchNaturalWeapons() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("NaturalWeaponsFinesse")) { return; }
+
+                    WeaponCategoryExtension.Data.Where(weapon => weapon.Category == WeaponCategory.Slam)
+                        .ForEach(weapon => {
+                            AddToSubCategories(weapon, WeaponSubCategory.Finessable);
+                        });
+
+                    void AddToSubCategories(WeaponCategoryExtension.DataItem weapon, params WeaponSubCategory[] categories) {
+                        var SubCategories = AccessTools.Field(typeof(WeaponCategoryExtension.DataItem), "SubCategories");
+                        SubCategories.SetValue(weapon, weapon.SubCategories.AppendToArray(categories).Distinct().ToArray());
+
+                        TTTContext.Logger.Log($"Patched: {weapon.Category} - SubCategories");
+                    }
+                }
+                void PatchSai() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("SaiDamageType")) { return; }
+
+                    var Sai = BlueprintTools.GetBlueprint<BlueprintWeaponType>("0944f411666c7594aa1398a7476ecf7d");
+
+                    Sai.TemporaryContext(c => {
+                        c.DamageType.Physical.Form = PhysicalDamageForm.Bludgeoning;
+                    });
+                    WeaponCategoryExtension.Data.Where(weapon => weapon.Category == WeaponCategory.Sai)
+                        .ForEach(weapon => {
+                            RemoveSubCategories(weapon, WeaponSubCategory.OneHandedPiercing);
+                        });
+                    TTTContext.Logger.LogPatch(Sai);
+                    void RemoveSubCategories(WeaponCategoryExtension.DataItem weapon, params WeaponSubCategory[] categories) {
+                        var SubCategories = AccessTools.Field(typeof(WeaponCategoryExtension.DataItem), "SubCategories");
+                        SubCategories.SetValue(weapon, weapon.SubCategories.Where(c => !categories.Contains(c)).Distinct().ToArray());
+
+                        TTTContext.Logger.Log($"Patched: {weapon.Category} - SubCategories");
+                    }
                 }
             }
         }

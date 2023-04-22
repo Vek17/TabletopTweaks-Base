@@ -3,10 +3,17 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Utility;
 using System.Linq;
+using TabletopTweaks.Core.MechanicsChanges;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -78,6 +85,120 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchArchetypes();
             }
             static void PatchBase() {
+                PatchDefensiveInstinct();
+                PatchShifterClaws();
+
+                void PatchDefensiveInstinct() {
+                    if (TTTContext.Fixes.BaseFixes.IsDisabled("FixMonkAcBonusNames")) { return; }
+
+                    var ShifterACBonusUnlock = BlueprintTools.GetBlueprint<BlueprintFeature>("43295870ce5344ffa718d100b742438e");
+                    var ShifterACBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("c07b95dcb8164fb6ad8847ff6df91ba3");
+                    var ShifterACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("06cb4711975e4607a66ea6338cdb8c7d");
+                    var ShifterACBonusHalfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c9caeee561bd461cbb48b2f911fc3d98");
+                    var ShifterACBonusHalfBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("571be0c75b714afaace65af1e3b4862d");
+                    var MonkACBonusBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f132c4c4279e4646a05de26635941bfe");
+                    var MonkACBonusBuffUnarmored = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("d7ff7a9f1fe84e679f98b36e4bacd63c");
+
+                    ShifterACBonus.TemporaryContext(bp => {
+                        bp.GetComponent<AddFacts>()?.TemporaryContext(c => {
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                                MonkACBonusBuff.ToReference<BlueprintUnitFactReference>(),
+                                MonkACBonusBuffUnarmored
+                            };
+                        });
+                    });
+                    ShifterACBonusHalfFeature.TemporaryContext(bp => {
+                        bp.GetComponent<AddFacts>()?.TemporaryContext(c => {
+                            c.m_Facts = new BlueprintUnitFactReference[] {
+                                ShifterACBonusHalfBuff.ToReference<BlueprintUnitFactReference>(),
+                                MonkACBonusBuffUnarmored
+                            };
+                        });
+                    });
+                    ShifterACBonusBuff.TemporaryContext(bp => {
+                        bp.SetName(MonkACBonusBuff.m_DisplayName);
+                        bp.SetDescription(TTTContext, "");
+                        bp.IsClassFeature = true;
+                        bp.m_Flags = BlueprintBuff.Flags.HiddenInUi;
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Wisdom;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.StatBonus
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = StatType.Wisdom;
+                        });
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
+                            c.m_Type = AbilityRankType.StatBonus;
+                            c.m_Stat = StatType.Wisdom;
+                            c.m_Progression = ContextRankProgression.AsIs;
+                            c.m_UseMin = true;
+                            c.m_Min = 0;
+                        });
+                    });
+                    ShifterACBonusHalfBuff.TemporaryContext(bp => {
+                        bp.SetName(MonkACBonusBuff.m_DisplayName);
+                        bp.SetComponents();
+                        bp.AddComponent<AddContextStatBonus>(c => {
+                            c.Stat = StatType.AC;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.Wisdom;
+                            c.Value = new ContextValue() {
+                                ValueType = ContextValueType.Rank,
+                                ValueRank = AbilityRankType.StatBonus
+                            };
+                            c.Multiplier = 1;
+                        });
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = StatType.Wisdom;
+                        });
+                        bp.AddComponent<RecalculateOnFactsChange>();
+                        bp.AddContextRankConfig(c => {
+                            c.m_BaseValueType = ContextRankBaseValueType.StatBonus;
+                            c.m_Type = AbilityRankType.StatBonus;
+                            c.m_Stat = StatType.Wisdom;
+                            c.m_Progression = ContextRankProgression.Div2;
+                            c.m_UseMin = true;
+                            c.m_Min = 0;
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(ShifterACBonus);
+                    TTTContext.Logger.LogPatch(ShifterACBonusHalfBuff);
+                }
+                void PatchShifterClaws() {
+                    if (TTTContext.Fixes.Shifter.Base.IsDisabled("ShifterClaws")) { return; }
+
+                    var ShifterClawBuffLevel1 = BlueprintTools.GetBlueprint<BlueprintBuff>("02070af90de345c6a82a8cf469a65080");
+                    var ShifterClawBuffLevel11 = BlueprintTools.GetBlueprint<BlueprintBuff>("13243d59d212463d9ab3f36e646aa40c");
+                    var ShifterClawBuffLevel13 = BlueprintTools.GetBlueprint<BlueprintBuff>("6e31c78ce801444aad398248b66a22b8");
+                    var ShifterClawBuffLevel17 = BlueprintTools.GetBlueprint<BlueprintBuff>("cb51194e75ca45bc9fedf9a09c50b827");
+                    var ShifterClawBuffLevel19 = BlueprintTools.GetBlueprint<BlueprintBuff>("494d127890c3498fb3dbf3a53dcb4fe6");
+                    var ShifterClawBuffLevel3 = BlueprintTools.GetBlueprint<BlueprintBuff>("1bb67316c37e400888e0489ee8d64067");
+                    var ShifterClawBuffLevel7 = BlueprintTools.GetBlueprint<BlueprintBuff>("c9441167a3b84fb48729e55f29a9df64");
+
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel1);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel3);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel7);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel11);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel13);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel17);
+                    PatchOutgoingDamageProperties(ShifterClawBuffLevel19);
+
+                    void PatchOutgoingDamageProperties(BlueprintBuff buff) {
+                        buff.TemporaryContext(bp => {
+                            bp.GetComponent<AddOutgoingPhysicalDamageProperty>()?.TemporaryContext(c => {
+                                c.AffectAnyPhysicalDamage = true;
+                            });
+                        });
+                    }
+                }
             }
 
             static void PatchArchetypes() {
@@ -672,6 +793,21 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         });
                     }
                 }
+            }
+        }
+        [HarmonyPatch(typeof(PolymorphDamageTransfer), nameof(PolymorphDamageTransfer.TransferPhysicalProperties))]
+        static class PolymorphDamageTransfer_TransferPhysicalProperties_Patch {
+            static bool Prefix(PolymorphDamageTransfer __instance, RulePrepareDamage evt) {
+                if (TTTContext.Fixes.Shifter.Base.IsDisabled("ShifterClaws")) { return true; }
+
+                AddOutgoingPhysicalDamageProperty component = __instance.Fact.Blueprint.GetComponent<AddOutgoingPhysicalDamageProperty>();
+                if (component == null) {
+                    return false;
+                }
+                evt.DamageBundle.OfType<PhysicalDamage>().ForEach(damage => {
+                    component.ApplyProperties(damage);
+                });
+                return false;
             }
         }
     }
