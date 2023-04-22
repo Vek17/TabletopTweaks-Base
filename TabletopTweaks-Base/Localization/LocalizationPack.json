@@ -217,7 +217,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1 天/CL",
       "esES": null
     },
     {
@@ -228,7 +228,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "意志 免除",
       "esES": null
     },
     {
@@ -239,7 +239,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你用你的怒视来引导堕落诅咒。如果目标的豁免失败了，它开始疑神疑鬼并招引厄运。在诅咒持续期间，每当目标尝试投掷攻击骰或豁免骰时，它必须投掷两次，并承受较低的结果。",
       "esES": null
     },
     {
@@ -250,7 +250,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "可憎怒视",
       "esES": null
     },
     {
@@ -261,7 +261,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "诅咒巫术",
       "esES": null
     },
     {
@@ -272,7 +272,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "当你使用被成功豁免后1天内无法作用同一生物的巫术且目标生物成功豁免该巫术效果时，你可以在下一轮结束前尝试再次对目标使用相同巫术。如果豁免依然成功，目标在1天内免疫此巫术。",
       "esES": null
     },
     {
@@ -283,7 +283,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "当你第二次使用诅咒巫术将你的一个巫术瞄准一个生物时，该生物必须投掷两次豁免检定，并选择较低的结果。",
       "esES": null
     },
     {
@@ -294,7 +294,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "诅咒巫术(神话)",
       "esES": null
     },
     {
@@ -404,7 +404,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "任何具有青春永驻特性的生物都免疫衰老的影响。",
       "esES": null
     },
     {
@@ -415,7 +415,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "青春永驻",
       "esES": null
     },
     {
@@ -426,7 +426,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个法术类似次级岁月抵抗 (Age Resistance, Lesser)，不过它可以抵消掉中年和老年的力量、敏捷和体质罚值。",
       "esES": null
     },
     {
@@ -437,7 +437,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "岁月抵抗",
       "esES": null
     },
     {
@@ -448,7 +448,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "这个法术类似次级岁月抵抗 (Age Resistance, Lesser)，不过它可以抵消掉中年、老年和暮年的力量、敏捷和体质罚值。",
       "esES": null
     },
     {
@@ -459,7 +459,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "高等岁月抵抗",
       "esES": null
     },
     {
@@ -470,7 +470,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "24小时",
       "esES": null
     },
     {
@@ -481,7 +481,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以忽略中年的身体劣势。这个法术不会让你看起来更年轻，也不会让你免于老死，但是只要法术持续中，你就能忽略你步入中年时获得的-1的力量、敏捷和体质罚值。\n在法术持续中，你仍然保留年龄带给你的智力、感知和魅力加值。老年和暮年阶段的追加减值仍然会完整保留。",
       "esES": null
     },
     {
@@ -492,7 +492,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "次级岁月抵抗",
       "esES": null
     },
     {
@@ -877,7 +877,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "高等超魔学识",
       "esES": null
     },
     {
@@ -1097,7 +1097,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "完全忽略你选定盔甲类型和盾牌的最大敏捷加值、防具检定减值和奥术失败率。",
       "esES": null
     },
     {
@@ -1108,7 +1108,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "护具宗师（桌面）",
       "esES": null
     },
     {
@@ -1284,7 +1284,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "杂耍艺人将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长飞斧。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1295,7 +1295,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "阿尔多瑞剑客将{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长决斗剑和小圆盾。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1306,7 +1306,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥肯斯塔炼金师将{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在用炼金炸弹和炼金物品造成的{g|Encyclopedia:Damage}伤害{/g}上获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1328,7 +1328,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "赏金猎人将{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长轻甲、木棒、轻型硬头锤和重型硬头锤。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1339,7 +1339,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "切利亚克斯魔鬼学者将{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表他还会在对抗魔鬼时的{g|Encyclopedia:Armor_Class}防御等级{/g}上获得+4闪避{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1350,7 +1350,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "侍臣将{g|Encyclopedia:Persuasion}沟通{/g} and {g|Encyclopedia:Trickery}巧手{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长细剑和小圆盾。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1361,7 +1361,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "特使将{g|Encyclopedia:Persuasion}沟通{/g}和{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长细剑和小圆盾。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1372,7 +1372,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "农民将{g|Encyclopedia:Athletics}运动{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长巨镰，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1383,7 +1383,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "盖布死灵师将{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他召唤的不死生物和伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1394,7 +1394,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "角斗士将{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长轻甲、三叉戟、短剑和小圆盾。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1405,7 +1405,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "卫兵将{g|Encyclopedia:Perception}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长轻甲、短剑和轻弩。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1416,7 +1416,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "{g|Encyclopedia:Healing}医师{/g}将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以用{g|Encyclopedia:Intelligence}智力{/g}替代{g|Encyclopedia:Wisdom}感知{/g}进行学识（自然）和学识（宗教）{g|Encyclopedia:Check}checks{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1427,7 +1427,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "隐士将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表他还会擅长木棒、巨木棒、木棍和飞镖。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1438,7 +1438,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "猎人将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Perception}察觉{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长短弓和长弓。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1449,7 +1449,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "领袖将{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长细剑、长剑、巨剑和小圆盾。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1460,7 +1460,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "伐木工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长手斧、战斧和巨斧，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1471,7 +1471,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "习武者将{g|Encyclopedia:Mobility}灵巧{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会获得精通徒手击打作为背景{g|Encyclopedia:Feat}专长{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1482,7 +1482,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "蒙蒂维孤儿将{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在对抗恶魔时的{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1493,7 +1493,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "雇佣兵将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表他还会擅长轻甲、矛、长矛和标枪。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1504,7 +1504,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "矿工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长轻十字镐、重十字镐并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1515,7 +1515,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "劫匪将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长匕首、拳匕和飞镖。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1526,7 +1526,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "芒吉猎人将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长飞镖、飞斧和标枪。此外，芒吉猎人在所有投掷武器的{g|Encyclopedia:Damage}伤害{/g}检定上获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1548,7 +1548,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "游民将{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。游民的动物伙伴的最大{g|Encyclopedia:HP}生命值{/g}获得+3{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1570,7 +1570,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "扒手将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在{g|Encyclopedia:Initiative}先攻{/g}{g|Encyclopedia:Dice}检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1581,7 +1581,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "卡蒂拉游民将{g|Encyclopedia:Perception}察觉{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在对抗疲劳和力竭效应的{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1592,7 +1592,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "河域诸国亡命徒将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长短剑和匕首。此外，河域诸国亡命徒对抗{g|Encyclopedia:Attack_Of_Opportunity}借机攻击{/g}的{g|Encyclopedia:Armor_Class}防御等级{/g}会获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1603,7 +1603,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "奥法学者将{g|Encyclopedia:Use_Magic_Device}使用魔法装置{/g}和{g|Encyclopedia:Knowledge_Arcana}知识（神秘）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会获得抄录卷轴作为额外{g|Encyclopedia:Feat}专长{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1614,18 +1614,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "0cf16908b3cd4a4dbcb7dfceb668e41d",
-      "SimpleName": "BackgroundScholarLecturer.Description",
-      "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
+      "zhCN": "神圣学者将{g|Encyclopedia:Use_Magic_Device}使用魔法装置{/g}和{g|Encyclopedia:Lore_Religion}学识（宗教）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会获得调制药水作为额外{g|Encyclopedia:Feat}专长{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1636,7 +1625,18 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "讲师将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}和{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以用{g|Encyclopedia:Intelligence}智力{/g}代替{g|Encyclopedia:Charisma}魅力{/g}进行沟通{g|Encyclopedia:Check}检定{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
+      "esES": null
+    },
+    {
+      "Key": "0cf16908b3cd4a4dbcb7dfceb668e41d",
+      "SimpleName": "BackgroundScholarLecturer.Description",
+      "ProcessTemplates": true,
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "讲师将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}和{g|Encyclopedia:Persuasion}沟通{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以用{g|Encyclopedia:Intelligence}智力{/g}代替{g|Encyclopedia:Charisma}魅力{/g}进行沟通{g|Encyclopedia:Check}检定{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1651,17 +1651,6 @@
       "esES": null
     },
     {
-      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
-      "SimpleName": "BackgroundScholarResearcher.Description",
-      "ProcessTemplates": true,
-      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "854204882b884cbe996c29be0716c21b",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
@@ -1669,7 +1658,18 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "研究员将知识(神秘)和使用魔法装置添加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以用{g|Encyclopedia:Intelligence}智力{/g}代替{g|Encyclopedia:Charisma}魅力{/g}进行使用魔法装置{g|Encyclopedia:Check}检定{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
+      "esES": null
+    },
+    {
+      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
+      "SimpleName": "BackgroundScholarResearcher.Description",
+      "ProcessTemplates": true,
+      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "研究员将知识(神秘)和使用魔法装置添加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以用{g|Encyclopedia:Intelligence}智力{/g}代替{g|Encyclopedia:Charisma}魅力{/g}进行使用魔法装置{g|Encyclopedia:Check}检定{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1680,7 +1680,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "研究员",
       "esES": null
     },
     {
@@ -1691,7 +1691,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "自然学者将{g|Encyclopedia:Use_Magic_Device}使用魔法装置{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还可以从德鲁伊{g|Encyclopedia:Spell}法术{/g}列表中选择一个{g|Encyclopedia:Cantrips_Orisons}祷言{/g}作为{g|Encyclopedia:Special_Abilities}类法术能力{/g}使用。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1702,7 +1702,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "镣铐群岛海盗将{g|Encyclopedia:Mobility}灵巧{/g}和{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长弯刀。此外，镣铐群岛海盗对抗绊摔的{g|Encyclopedia:CMD}战技防御{/g}会获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1713,7 +1713,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "铁匠将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长轻锤、战锤，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1724,7 +1724,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "乌斯塔拉夫农民将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长巨镰。此外，乌斯塔拉夫农民在处于恐惧效应下时，{g|Encyclopedia:Armor_Class}防御等级{/g}和{g|Encyclopedia:Damage}伤害{/g}会获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1735,7 +1735,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "瓦里西亚探索者将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在反射{g|Encyclopedia:Saving_Throw}豁免检定{/g}中获得+2{g|Encyclopedia:Bonus}加值。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -1746,7 +1746,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "蛇龙王之地勇士将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长手斧、战斧和巨斧。此外，蛇龙王之地勇士获得5点寒冷抗性。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -2021,7 +2021,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你在先攻检定之后使用的第一个巫术只消耗一个迅捷动作",
       "esES": null
     },
     {
@@ -2032,7 +2032,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "反应巫术",
       "esES": null
     },
     {
@@ -2890,7 +2890,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1轮/神话等级",
       "esES": null
     },
     {
@@ -2901,7 +2901,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "反射 无效/强韧 部分生效",
       "esES": null
     },
     {
@@ -3906,22 +3906,22 @@
       "esES": null
     },
     {
-      "Key": "37df8bdd9bcf476e82186546ba976884",
+      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
-      "enGB": "Flaming",
-      "ruRU": "Огненный",
+      "enGB": "Incinerating",
+      "ruRU": "Испепеляющий",
       "deDE": null,
       "frFR": null,
       "zhCN": "炽焰",
       "esES": null
     },
     {
-      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
+      "Key": "37df8bdd9bcf476e82186546ba976884",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
-      "enGB": "Incinerating",
-      "ruRU": "Испепеляющий",
+      "enGB": "Flaming",
+      "ruRU": "Огненный",
       "deDE": null,
       "frFR": null,
       "zhCN": "焚炎",
@@ -4243,7 +4243,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "巫师获得制造药水作为奖励专长，并且在制造药水的技能检定上获得+4加值。",
       "esES": null
     },
     {
@@ -4254,7 +4254,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "巫师坩埚",
       "esES": null
     },
     {
@@ -5222,7 +5222,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你在智力、感知和魅力上获得+1加值，在力量、敏捷和体质上受到-1惩罚。",
       "esES": null
     },
     {
@@ -5233,7 +5233,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你在智力、感知和魅力上获得+2加值，在力量、敏捷和体质上受到-3惩罚。",
       "esES": null
     },
     {
@@ -5244,7 +5244,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你在智力、感知和魅力上获得+3加值，在力量、敏捷和体质上受到-6惩罚。",
       "esES": null
     },
     {
@@ -5541,7 +5541,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1轮/5级",
       "esES": null
     },
     {
@@ -5552,7 +5552,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1轮/4级",
       "esES": null
     },
     {
@@ -5695,7 +5695,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素 — 寒冷",
+      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
       "esES": null
     },
     {
@@ -5750,7 +5750,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素 — 火焰",
+      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
       "esES": null
     },
     {
@@ -6069,7 +6069,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "10分钟/级",
       "esES": null
     },
     {
@@ -6128,17 +6128,6 @@
       "esES": null
     },
     {
-      "Key": "f3392cd7203c43349f723fcda573497c",
-      "SimpleName": "EncouragingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Encouraging",
-      "ruRU": "Ободряющее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "激励",
-      "esES": null
-    },
-    {
       "Key": "cf8107b3b65248e7859f9c167093aaee",
       "SimpleName": "EncouragingSpellMetamagic",
       "ProcessTemplates": false,
@@ -6147,6 +6136,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f3392cd7203c43349f723fcda573497c",
+      "SimpleName": "EncouragingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Encouraging",
+      "ruRU": "Ободряющее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "激励",
       "esES": null
     },
     {
@@ -6487,7 +6487,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你获得一个额外的神话专长。你只能选择一次这个神话能力。",
       "esES": null
     },
     {
@@ -6498,7 +6498,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "额外神话专长",
       "esES": null
     },
     {
@@ -7488,7 +7488,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "强韧 无效",
       "esES": null
     },
     {
@@ -7499,7 +7499,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "一场极寒的冰风暴包围了目标，目标受到3d8点寒冷伤害(强韧减半)。如果目标豁免失败，他将麻痹并失去意识，但在冰冻持续期间不需要进食或呼吸。\n一个生物可以通过力量检定(DC 15 +你的巫师等级)击碎坚冰，或者受到超过20点伤害。\n挣脱束缚的生物会被恍惚1d4轮。\n无论目标的豁免检定是否成功，它在1天内都不能再次成为该巫术的目标。",
       "esES": null
     },
     {
@@ -7510,7 +7510,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "冰墓",
       "esES": null
     },
     {
@@ -7521,7 +7521,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "冰墓冷却",
       "esES": null
     },
     {
@@ -7686,7 +7686,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1 轮/CL",
       "esES": null
     },
     {
@@ -7697,7 +7697,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "制造痛苦",
       "esES": null
     },
     {
@@ -7708,7 +7708,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你通过心灵感应折磨目标的身心，使其遭受痛苦，并在攻击骰、技能检定和属性检定上遭受-4减值。成功的意志豁免将使持续时间缩短至1轮。",
       "esES": null
     },
     {
@@ -7719,7 +7719,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "群体制造痛苦",
       "esES": null
     },
     {
@@ -11360,7 +11360,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "1轮/智力调整值",
       "esES": null
     },
     {
@@ -11371,7 +11371,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "巫师可以对60英尺范围内的单个生物施放报应巫术，当目标在近战中对另一个生物造成伤害时，会在目标的肉体上造成可怕的创口。被施咒的生物的近战攻击结束后，立即受到该伤害数值一半的伤害(向下取整)。\n这个伤害会穿过生物拥有的任何抗性、免疫或伤害减免。此效果持续的回合数与巫师的智力调整值相等。  通过意志豁免可以避免这个效果。",
       "esES": null
     },
     {
@@ -11382,7 +11382,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "报应",
       "esES": null
     },
     {
@@ -11393,7 +11393,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "纠缠",
       "esES": null
     },
     {
@@ -11503,7 +11503,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你使目标暂时衰老，将其立即推进到下一个年龄类别。\n目标立即将年龄减值应用于新年龄类别的力量、敏捷和体质，但不会获得该类别的加值。一个年龄未知的生物被视为该法术使其进入中年。如果你对一个物体，建筑，或者亡灵生物施放此技能，它会受到3d6点伤害加每个施法者等级1点伤害(最大+ 15)。\n\n中年:所有身体属性-1，所有精神属性+1。\n老年:所有身体属性-3 ，所有精神属性+2。\n暮年:所有身体属性-6，所有精神属性+3。",
       "esES": null
     },
     {
@@ -11514,7 +11514,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "时之沙",
       "esES": null
     },
     {
@@ -11870,22 +11870,22 @@
       "esES": null
     },
     {
-      "Key": "30cff4322b404021b18335c720abbfda",
-      "SimpleName": "Solid ShadowsSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Solid Shadows",
-      "ruRU": "Осязаемое",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "实体幽影",
-      "esES": null
-    },
-    {
       "Key": "1b8450f20cc444c399117bd8890ed98e",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
       "enGB": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Solid Shadows{/g}",
       "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
+      "esES": null
+    },
+    {
+      "Key": "30cff4322b404021b18335c720abbfda",
+      "SimpleName": "Solid ShadowsSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Solid Shadows",
+      "ruRU": "Осязаемое",
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
@@ -12108,7 +12108,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n高等变形术: 此{g|Encyclopedia:Spell}法术{/g}能将盟友生物变成大型剑齿虎、蔓生怪、元素生物、双足飞龙或中型类龙生物。受术者可以选择花费一个{g|Encyclopedia:Full_Round_Action}整轮动作 action{/g}变回原来的形态。这样做将终止此法术的效果。",
       "esES": null
     },
     {
@@ -12438,7 +12438,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n预警: {g|Encyclopedia:CA_Types}{/g}该{g|Encyclopedia:Spell}法术{/g}给予你强大的第六感。一旦施放预警术，只要施法对象面临危险或即将受到伤害，你就会立即得到警告。你永远不会陷入{g|Encyclopedia:Flat_Footed}措手不及{/g}状态。此外，该法术将指引你如何更好地保护自身，使你的{g|Encyclopedia:Armor_Class}防御等级{/g}和反射{g|Encyclopedia:Saving_Throw}豁免{/g}得到+2洞察{g|Encyclopedia:Bonus}加值{/g}。",
       "esES": null
     },
     {
@@ -12614,7 +12614,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你扰乱了影响你目标的所有法术能量，使得这些能量猛然碎裂并伤害目标。每有一个持续时间至少在1轮以上的法术正影响目标，它就会额外承受1d6伤害。那些法术并不会被解除或调整。",
       "esES": null
     },
     {
@@ -12625,7 +12625,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "法咒",
       "esES": null
     },
     {
@@ -12636,7 +12636,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "意志 减半",
       "esES": null
     },
     {
@@ -12680,7 +12680,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以分裂你的目标型巫术的效果，影响你能看到的另一个生物。\n当你使用你的一个巫术(非强效巫术或至尊巫术)针对单个生物时，你可以再次将该巫术以自由动作施放一次。",
       "esES": null
     },
     {
@@ -12691,7 +12691,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "分裂巫术",
       "esES": null
     },
     {
@@ -12702,7 +12702,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以分裂你的目标型巫术的效果，影响你能看到的另一个生物。\n当你使用你的一个巫术(非强效巫术或至尊巫术)针对单个生物时，它也会影响30英尺内最近的其他有效目标。",
       "esES": null
     },
     {
@@ -12713,7 +12713,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以分裂你的目标型强效巫术的效果，影响你能看到的另一个生物。\n当你使用你的一个强效巫术(非至尊巫术)针对单个生物时，你可以再次将该巫术以自由动作施放一次。",
       "esES": null
     },
     {
@@ -12724,7 +12724,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "分裂强效巫术",
       "esES": null
     },
     {
@@ -12735,7 +12735,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你可以分裂你的目标型强效巫术的效果，影响你能看到的另一个生物。\n当你使用你的一个强效巫术(非至尊巫术)针对单个生物时，它也会影响30英尺内最近的其他有效目标。",
       "esES": null
     },
     {
@@ -13032,7 +13032,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "强韧 部分生效/反射 减半",
       "esES": null
     },
     {
@@ -14055,7 +14055,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "你向一个目标发射一个蛛网球，它必须进行一次成功的豁免，否则就会受到一个只影响该生物的蛛网术的影响。\n\n蛛网术可造出一大片多层又坚韧又粘稠的丝状物。    这些粘丝会困住其中的生物。\n它们看起来像蜘蛛网，但远比蜘蛛网更大更粗。在蛛网中的生物会被粘丝擒抱。\n在施放法术时处于效果区域内的任何人都必须进行反射豁免。若豁免成功，生物就会处于蜘蛛网内但是不受影响。\n若豁免失败，生物会获得擒抱状态，但是可以通过以标准动作进行战技检定或者逃脱检定对抗法术的DC。蛛网区域内被视为困难地形。任何生物若在蛛网内移动，则必须以移动动作的一部分进行战技检定或者逃脱检定，DC等同于法术的DC。检定失败的生物会失去他们的移动并且被擒抱在他们在蛛网内进入的第一个方格。",
       "esES": null
     },
     {
@@ -14066,7 +14066,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "蛛网箭",
       "esES": null
     },
     {
@@ -14077,7 +14077,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "反射 免除",
       "esES": null
     },
     {
@@ -14110,7 +14110,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "寒冰包裹着地面，散发着超自然的寒冷，使生物难以保持平衡。这片冰冷的地面被视为困难地形，该区域内灵巧检定DC增加5。在受影响区域开始回合的生物受到1d6点寒冷伤害，并在1回合内对带有寒冷描述符的法术豁免时受到-2点惩罚。",
       "esES": null
     },
     {
@@ -14253,7 +14253,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "生命枯萎",
       "esES": null
     },
     {
@@ -14264,7 +14264,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "巫师使30英尺内的生物迅速衰老，并在此过程中增强自己巫师力量。\n目标年龄推进到下一个年龄类别(成年到中年，等等)。巫师获得等于她的巫师等级+ 1d10的临时生命值和+2的体质增强加值，持续时间等于1小时/智力修正值。这些效果持续数小时，相当于1小时/巫师等级。  一个生物不会因为这个巫术老化到超过暮年，它可以尝试通过强韧豁免来完全避免这个效果。     一旦一个生物成功地抵御了生命枯萎巫术，它就不会再受到该效果的影响。\n\n中年:所有身体属性-1，所有精神属性+1。\n老年:所有身体属性-3，所有精神属性+2。\n暮年:所有物理属性-6，所有精神属性+3。",
       "esES": null
     },
     {
@@ -14275,7 +14275,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "生命枯萎（时间流失）",
       "esES": null
     },
     {
@@ -14286,7 +14286,7 @@
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": null,
+      "zhCN": "生命枯萎冷却",
       "esES": null
     },
     {
