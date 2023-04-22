@@ -500,6 +500,11 @@
           "Homebrew": false,
           "Description": "Allows Animal Fury to apply while polmorphed."
         },
+        "BeastTotem": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes Beast totem stat bonus display name."
+        },
         "CripplingBlows": {
           "Enabled": true,
           "Homebrew": false,
@@ -520,10 +525,15 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
-        "AbysalBulk": {
+        "AbyssalBulk": {
           "Enabled": true,
           "Homebrew": false,
           "Description": "Enables abyssal bulk to not dispel existing enlarge person when rage ends."
+        },
+        "AbyssalBloodrage": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Abysal Bloodrage now actually grants an attack and damage bonus."
         },
         "ArcaneBloodrage": {
           "Enabled": true,
@@ -1305,6 +1315,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Greater Dispel Magic now only removes 1/4 CL buffs instead of all buffs."
+      },
+      "Echolocation": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Echolocation no longer makes you blind."
       },
       "EdictOfImpenetrableFortress": {
         "Enabled": true,

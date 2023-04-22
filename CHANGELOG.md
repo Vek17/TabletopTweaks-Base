@@ -1,4 +1,11 @@
 ## Version 2.5.11
+* Fixes
+    * Bloodrager
+        * Abyssal Bloodrage
+            * Abyssal Bloodrage now actually grants an attack and damage bonus
+    * Spells
+        * Echolocation
+            * No longer makes your blind.
 * Added Content
     * Mythic Abilities
         * Maximized Critical

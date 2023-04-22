@@ -109,6 +109,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchCrusadersEdge();
                 PatchDeathWard();
                 PatchDispelMagicGreater();
+                PatchEcholocation();
                 PatchFieryBody();
                 PatchFirebrand();
                 PatchFlamestrike();
@@ -1551,6 +1552,17 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     "If not, compare the same result to the spell with the next highest caster level. Repeat this process until you have dispelled " +
                     "one spell affecting the target, or you have failed to dispel every spell.");
                 TTTContext.Logger.LogPatch("Patched", DispelMagicGreaterTarget);
+            }
+            static void PatchEcholocation() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("Echolocation")) { return; }
+
+                var EcholocationBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("cbfd2f5279f5946439fe82570fd61df2");
+
+                EcholocationBuff.TemporaryContext(bp => {
+                    bp.RemoveComponents<AddCondition>(c => c.Condition == UnitCondition.Blindness);
+                });
+
+                TTTContext.Logger.LogPatch(EcholocationBuff);
             }
             static void PatchFieryBody() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("FieryBody")) { return; }

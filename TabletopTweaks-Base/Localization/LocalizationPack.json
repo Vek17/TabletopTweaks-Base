@@ -8834,6 +8834,28 @@
       "esES": null
     },
     {
+      "Key": "8c12fef32872401b80ea7e5308a17cef",
+      "SimpleName": "MaximizedCritical.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you score a critical hit, the weapon’s damage result is always the maximum possible amount you could roll. This doesn’t affect other dice added to the damage, such as from sneak attack or the flaming weapon special ability. For example, if you score a critical hit with a longsword (1d8/×2), treat the sword’s damage dice as if you had rolled 8 both times, then add any other damage bonuses that you would normally apply to a critical hit.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8a6c760ec3e1497880c9ed15dcafe359",
+      "SimpleName": "MaximizedCritical.Name",
+      "ProcessTemplates": false,
+      "enGB": "Maximized Critical",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "2db3f98f3c0c43aa84a258c1740fb315",
       "SimpleName": "MetamagicRagerArchetype.Description",
       "ProcessTemplates": false,
@@ -11419,17 +11441,6 @@
       "esES": null
     },
     {
-      "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
-      "SimpleName": "RimeSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Rime-TabletopTweaks-Base}Rime{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
-      "esES": null
-    },
-    {
       "Key": "334dafcc1c3844e49640b81084309388",
       "SimpleName": "RimeSpellMetamagic",
       "ProcessTemplates": false,
@@ -11438,6 +11449,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "霜冻",
+      "esES": null
+    },
+    {
+      "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
+      "SimpleName": "RimeSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Rime-TabletopTweaks-Base}Rime{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
       "esES": null
     },
     {

@@ -14,6 +14,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents;
@@ -84,11 +85,12 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
             static void PatchBaseClass() {
                 PatchSpellbook();
-                PatchAbysalBulk();
+                PatchAbyssalBulk();
+                PatchAbyssalBloodrage();
                 PatchTempHP();
 
-                void PatchAbysalBulk() {
-                    if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("AbysalBulk")) { return; }
+                void PatchAbyssalBulk() {
+                    if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("AbyssalBulk")) { return; }
                     var BloodragerAbyssalBloodlineBaseBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("2ba7b4b3b87156543b43d0686404655a");
                     var BloodragerAbyssalDemonicBulkBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("031a8053a7c02ab42ad53f50dd2e9437");
                     var BloodragerAbyssalDemonicBulkEnlargeBuff = BlueprintTools.GetModBlueprint<BlueprintBuff>(TTTContext, "BloodragerAbyssalDemonicBulkEnlargeBuff");
@@ -106,6 +108,17 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     AddFactContext.Activated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(ApplyBuff);
                     AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().IfTrue = null;
                     AddFactContext.Deactivated.Actions.OfType<Conditional>().Where(a => a.Comment.Equals("Demonic Bulk")).First().AddActionIfTrue(RemoveBuff);
+
+                    TTTContext.Logger.LogPatch(BloodragerAbyssalBloodlineBaseBuff);
+                }
+                void PatchAbyssalBloodrage() {
+                    if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("AbyssalBloodrage")) { return; }
+
+                    var BloodragerAbyssalBloodrageBonusProperty = BlueprintTools.GetBlueprint<BlueprintUnitProperty>("415f71e5a47f4cccb3dbd10bd7a0f8f8");
+
+                    BloodragerAbyssalBloodrageBonusProperty.BaseValue = 1;
+
+                    TTTContext.Logger.LogPatch(BloodragerAbyssalBloodrageBonusProperty);
                 }
                 void PatchSpellbook() {
                     if (TTTContext.Fixes.Bloodrager.Base.IsDisabled("Spellbook")) { return; }

@@ -65,6 +65,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 PatchBase();
                 PatchAnimalFury();
+                PatchBeastTotem();
                 PatchWreckingBlows();
                 PatchCripplingBlows();
             }
@@ -81,6 +82,17 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 });
 
                 TTTContext.Logger.LogPatch(AnimalFuryBite);
+            }
+            static void PatchBeastTotem() {
+                if (TTTContext.Fixes.Barbarian.Base.IsDisabled("BeastTotem")) { return; }
+
+                var BeastTotemFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c085888db293f2741b881cc989a2ab14");
+                var BeastTotemRageBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("ec7db4946877f73439c4ee661f645452");
+                BeastTotemRageBuff.TemporaryContext(bp => {
+                    bp.m_DisplayName = BeastTotemFeature.m_DisplayName;
+                });
+
+                TTTContext.Logger.LogPatch(BeastTotemRageBuff);
             }
             static void PatchWreckingBlows() {
                 if (TTTContext.Fixes.Barbarian.Base.IsDisabled("WreckingBlows")) { return; }
