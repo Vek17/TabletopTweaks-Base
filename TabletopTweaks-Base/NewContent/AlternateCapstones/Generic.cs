@@ -142,17 +142,7 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                 });
                 bp.AddComponent<AddStatBonus>(c => {
-                    c.Stat = StatType.Intelligence;
-                    c.Value = 4;
-                    c.Descriptor = ModifierDescriptor.UntypedStackable;
-                });
-                bp.AddComponent<AddStatBonus>(c => {
                     c.Stat = StatType.Wisdom;
-                    c.Value = 4;
-                    c.Descriptor = ModifierDescriptor.UntypedStackable;
-                });
-                bp.AddComponent<AddStatBonus>(c => {
-                    c.Stat = StatType.Charisma;
                     c.Value = 4;
                     c.Descriptor = ModifierDescriptor.UntypedStackable;
                 });

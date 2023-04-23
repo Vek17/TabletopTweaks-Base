@@ -6,6 +6,9 @@
     * Spells
         * Echolocation
             * No longer makes your blind.
+    * Animal Companion
+        * Progression
+            * Animal companions now follow the tabletop progression which caps out at 16 total hitdice instead of 20 and has slightly lower stat bonuses.
 * Added Content
     * Mythic Abilities
         * Maximized Critical

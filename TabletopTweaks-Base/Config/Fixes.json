@@ -1628,7 +1628,7 @@
     "DisableAll": false,
     "Settings": {
       "AnimalCompanionProgression": {
-        "Enabled": false,
+        "Enabled": true,
         "Homebrew": false,
         "Description": "Updates animal companion progressions to reflect tabletop values."
       }
