@@ -289,6 +289,13 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedWeaponTrainings {
                 bp.AddComponent<AbilityEffectToggleBuff>(c => {
                     c.m_Buff = weaponBuff.ToReference<BlueprintBuffReference>();
                 });
+                bp.AddComponent<AbilityResourceLogic>(c => {
+                    c.m_RequiredResource = parent.GetComponent<AbilityResourceLogic>().m_RequiredResource;
+                    c.m_IsSpendResource = false;
+                    c.Amount = 1;
+                    c.ResourceCostDecreasingFacts = new List<BlueprintUnitFactReference>();
+                    c.ResourceCostIncreasingFacts = new List<BlueprintUnitFactReference>();
+                });
             });
             var abilityVariants = parent.GetComponent<NestedPseudoActivatableAbilities>();
             abilityVariants.m_Variants = abilityVariants.m_Variants.AppendToArray(toggleAbility.ToReference<BlueprintAbilityReference>());

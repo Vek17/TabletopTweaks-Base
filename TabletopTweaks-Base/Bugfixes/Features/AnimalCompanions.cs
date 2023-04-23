@@ -100,6 +100,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     }
                 }
                 static void UpdateAnimalCompanionModifiers() {
+                    if (TTTContext.Fixes.AnimalCompanions.IsDisabled("AnimalCompanionModifiers")) { return; }
+
                     var AnimalCompanionSelectionBase = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
                     var AnimalCompanionStatFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
                     var AnimalCompanionFeatureHorse_PreorderBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("bfeb9be0a3c9420b8b2beecc8171029c");

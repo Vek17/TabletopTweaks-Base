@@ -1627,6 +1627,11 @@
   "AnimalCompanions": {
     "DisableAll": false,
     "Settings": {
+      "AnimalCompanionModifiers": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Updates animal companion modifiers to be racial instead of untyped to help feat qualifications."
+      },
       "AnimalCompanionProgression": {
         "Enabled": true,
         "Homebrew": false,
