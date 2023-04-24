@@ -71,12 +71,14 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 TTTContext.Logger.LogHeader("Patching Magus Resources");
 
                 PatchBase();
+                PatchEldritchScion();
                 PatchHexcrafter();
                 PatchSwordSaint();
             }
             static void PatchBase() {
                 PatchSpellCombatDisableImmediatly();
                 PatchArcaneWeaponProperties();
+                PatchFighterTraining();
 
                 void PatchSpellCombatDisableImmediatly() {
                     if (TTTContext.Fixes.Magus.Base.IsDisabled("SpellCombatDisableImmediatly")) { return; }
@@ -89,6 +91,14 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                     TTTContext.Logger.LogPatch("Patched", SpellCombatAbility);
                     TTTContext.Logger.LogPatch("Patched", SpellStrikeAbility);
+                }
+                void PatchFighterTraining() {
+                    if (TTTContext.Fixes.Magus.Base.IsDisabled("FighterTraining")) { return; }
+
+                    var FighterTraining = BlueprintTools.GetBlueprint<BlueprintFeature>("2b636b9e8dd7df94cbd372c52237eebf");
+                    QuickFixTools.ReplaceClassLevelsForPrerequisites(FighterTraining, TTTContext, FeatureGroup.Feat);
+
+                    TTTContext.Logger.LogPatch(FighterTraining);
                 }
                 void PatchArcaneWeaponProperties() {
                     if (TTTContext.Fixes.Magus.Base.IsDisabled("AddMissingArcaneWeaponEffects")) { return; }
@@ -105,6 +115,18 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         ArcaneWeaponShockingBurstChoice_TTT.ToReference<BlueprintUnitFactReference>()
                     );
                     TTTContext.Logger.LogPatch("Patched", ArcaneWeaponPlus3);
+                }
+            }
+            static void PatchEldritchScion() {
+                PatchFighterTraining();
+
+                void PatchFighterTraining() {
+                    if (TTTContext.Fixes.Magus.Archetypes["EldritchScion"].IsDisabled("FighterTraining")) { return; }
+
+                    var EldritchScionFighterTraining = BlueprintTools.GetBlueprint<BlueprintFeature>("eadc14e84c7e3c34684252b5c6459a45");
+                    QuickFixTools.ReplaceClassLevelsForPrerequisites(EldritchScionFighterTraining, TTTContext, FeatureGroup.Feat);
+
+                    TTTContext.Logger.LogPatch(EldritchScionFighterTraining);
                 }
             }
             static void PatchHexcrafter() {
@@ -145,8 +167,17 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 }
             }
             static void PatchSwordSaint() {
+                PatchFighterTraining();
                 PatchPerfectCritical();
 
+                void PatchFighterTraining() {
+                    if (TTTContext.Fixes.Magus.Archetypes["SwordSaint"].IsDisabled("FighterTraining")) { return; }
+
+                    var SwordSaintFighterTraining = BlueprintTools.GetBlueprint<BlueprintFeature>("9ab2ec65977cc524a99600babc7fe3b6");
+                    QuickFixTools.ReplaceClassLevelsForPrerequisites(SwordSaintFighterTraining, TTTContext, FeatureGroup.Feat);
+
+                    TTTContext.Logger.LogPatch(SwordSaintFighterTraining);
+                }
                 void PatchPerfectCritical() {
                     if (TTTContext.Fixes.Magus.Archetypes["SwordSaint"].IsDisabled("PerfectCritical")) { return; }
 

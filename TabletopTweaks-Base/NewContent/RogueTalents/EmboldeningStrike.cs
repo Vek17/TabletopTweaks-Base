@@ -57,6 +57,10 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                     "she gains a +1 circumstance bonus on saving throws for every 2 sneak attack dice rolled (minimum +1) for 1 round.");
                 //bp.m_Icon = Icon_StunningFistStagger;
                 bp.IsClassFeature = true;
+                bp.Groups = new FeatureGroup[] {
+                    FeatureGroup.RogueTalent,
+                    FeatureGroup.SlayerTalent
+                };
                 bp.Ranks = 1;
                 bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
                     c.OnlyHit = true;

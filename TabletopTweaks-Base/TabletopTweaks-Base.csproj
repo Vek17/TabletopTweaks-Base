@@ -172,6 +172,7 @@
     <Compile Include="Bugfixes\Classes\Cleric.cs" />
     <Compile Include="Bugfixes\Classes\Demon.cs" />
     <Compile Include="Bugfixes\Classes\Druid.cs" />
+    <Compile Include="Bugfixes\Classes\EldritchKnight.cs" />
     <Compile Include="Bugfixes\Classes\Fighter.cs" />
     <Compile Include="Bugfixes\Classes\Hellknight.cs" />
     <Compile Include="Bugfixes\Classes\Hunter.cs" />

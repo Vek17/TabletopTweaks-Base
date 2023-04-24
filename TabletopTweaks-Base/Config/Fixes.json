@@ -467,6 +467,17 @@
           }
         },
         "IsExpanded": true
+      },
+      "Vivisectionist": {
+        "DisableAll": false,
+        "Settings": {
+          "Discoveries": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Removes invalid rogue talents from available discoveries."
+          }
+        },
+        "IsExpanded": true
       }
     }
   },
@@ -752,6 +763,11 @@
           "Homebrew": false,
           "Description": "Adds: Flaming Burst, Icy Burst, Shocking Burst enchant options."
         },
+        "FighterTraining": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fighter Training now correctly only applies to feats."
+        },
         "SpellCombatAbilityVariants": {
           "Enabled": true,
           "Homebrew": false,
@@ -771,6 +787,17 @@
       "IsExpanded": true
     },
     "Archetypes": {
+      "EldritchScion": {
+        "DisableAll": false,
+        "Settings": {
+          "FighterTraining": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fighter Training now correctly only applies to feats."
+          }
+        },
+        "IsExpanded": true
+      },
       "Hexcrafter": {
         "DisableAll": false,
         "Settings": {
@@ -785,6 +812,11 @@
       "SwordSaint": {
         "DisableAll": false,
         "Settings": {
+          "FighterTraining": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Fighter Training now correctly only applies to feats."
+          },
           "PerfectCritical": {
             "Enabled": true,
             "Homebrew": false,
@@ -1005,6 +1037,11 @@
       "GriffonheartShifter": {
         "DisableAll": false,
         "Settings": {
+          "FighterTraining": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Griffonheart Shifter now correctly only counts as fighter for feat prerequisites."
+          },
           "PlayerUsable": {
             "Enabled": true,
             "Homebrew": false,
@@ -1125,6 +1162,11 @@
           "Homebrew": false,
           "Description": "Earth Minor blessing no longer causes excessive damage instances."
         },
+        "FighterTraining": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Warpreist fighter training now correctly only applies to feats."
+        },
         "FireBlessing": {
           "Enabled": true,
           "Homebrew": false,
@@ -1174,6 +1216,22 @@
       "IsExpanded": true
     },
     "Archetypes": {}
+  },
+  "EldritchKnight": {
+    "DisableAll": false,
+    "Settings": {
+      "PatchDiverseTrainingArcane": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Diverse Training now correctly affects arcane classes as well."
+      },
+      "DiverseTrainingFighter": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Diverse Training is now properly restricted to only work on feats."
+      }
+    },
+    "IsExpanded": true
   },
   "Hellknight": {
     "DisableAll": false,
@@ -1627,12 +1685,12 @@
   "AnimalCompanions": {
     "DisableAll": false,
     "Settings": {
-      "AnimalCompanionModifiers": {
+      "Modifiers": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Updates animal companion modifiers to be racial instead of untyped to help feat qualifications."
       },
-      "AnimalCompanionProgression": {
+      "Progression": {
         "Enabled": true,
         "Homebrew": false,
         "Description": "Updates animal companion progressions to reflect tabletop values."

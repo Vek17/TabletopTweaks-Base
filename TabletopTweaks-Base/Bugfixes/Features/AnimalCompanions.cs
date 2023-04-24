@@ -1,12 +1,8 @@
 ﻿using HarmonyLib;
-using Kingmaker.EntitySystem;
-using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
-using Kingmaker.UnitLogic.Mechanics;
 using System;
 using TabletopTweaks.Core.Utilities;
-using static Kingmaker.Blueprints.Area.FactHolder;
 using UnityEngine;
 using static TabletopTweaks.Base.Main;
 using Kingmaker.Blueprints.JsonSystem;
@@ -15,7 +11,6 @@ using Kingmaker.Utility;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints;
 using Kingmaker.Enums;
-using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,7 +19,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
         private static class LevelAdjustments {
             [PostPatchInitialize]
             static void Update_AddPet_RankToLevelAnimalCompanion() {
-                if (TTTContext.Fixes.AnimalCompanions.IsDisabled("AnimalCompanionProgression")) { return; }
+                if (TTTContext.Fixes.AnimalCompanions.IsDisabled("Progression")) { return; }
                 AddPet.RankToLevelAnimalCompanion[0] = 0;
                 AddPet.RankToLevelAnimalCompanion[1] = 2;
                 AddPet.RankToLevelAnimalCompanion[2] = 3;
@@ -52,7 +47,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             [HarmonyPatch(typeof(AddPet), nameof(AddPet.TryLevelUpPet))]
             static class AddPet_TryLevelUpPet_Patch {
                 static void Postfix(AddPet __instance) {
-                    if (TTTContext.Fixes.AnimalCompanions.IsDisabled("AnimalCompanionProgression")) { return; }
+                    if (TTTContext.Fixes.AnimalCompanions.IsDisabled("Progression")) { return; }
 
                     if (__instance.ProgressionType !=  Kingmaker.Enums.PetProgressionType.AnimalCompanion) { return; }
                     if (__instance.m_UseContextValueLevel) { return; }
@@ -77,7 +72,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 }
 
                 static void UpdateProgressions() {
-                    if (TTTContext.Fixes.AnimalCompanions.IsDisabled("AnimalCompanionProgression")) { return; }
+                    if (TTTContext.Fixes.AnimalCompanions.IsDisabled("Progression")) { return; }
 
                     var AnimalCompanionClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("26b10d4340839004f960f9816f6109fe");
                     var AnimalCompanionStatFeature = BlueprintTools.GetBlueprintReference<BlueprintFeatureBaseReference>("1e570d5407a942b478e79297e0885101");
@@ -100,7 +95,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     }
                 }
                 static void UpdateAnimalCompanionModifiers() {
-                    if (TTTContext.Fixes.AnimalCompanions.IsDisabled("AnimalCompanionModifiers")) { return; }
+                    if (TTTContext.Fixes.AnimalCompanions.IsDisabled("Modifiers")) { return; }
 
                     var AnimalCompanionSelectionBase = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
                     var AnimalCompanionStatFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");

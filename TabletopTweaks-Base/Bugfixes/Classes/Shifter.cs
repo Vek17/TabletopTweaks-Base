@@ -207,7 +207,16 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 void PatchGriffonheartShifter() {
                     PatchPlayerAvailablilty();
+                    PatchFighterTraining();
 
+                    void PatchFighterTraining() {
+                        if (TTTContext.Fixes.Shifter.Archetypes["GriffonheartShifter"].IsDisabled("FighterTraining")) { return; }
+
+                        var GriffonheartShifterGriffonShapeFakeFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1d3656c3090e48f59888d86ff7014acc");
+                        QuickFixTools.ReplaceClassLevelsForPrerequisites(GriffonheartShifterGriffonShapeFakeFeature, TTTContext, FeatureGroup.Feat);
+
+                        TTTContext.Logger.LogPatch(GriffonheartShifterGriffonShapeFakeFeature);
+                    }
                     void PatchPlayerAvailablilty() {
                         if (TTTContext.Fixes.Shifter.Archetypes["GriffonheartShifter"].IsDisabled("PlayerUsable")) { return; }
 

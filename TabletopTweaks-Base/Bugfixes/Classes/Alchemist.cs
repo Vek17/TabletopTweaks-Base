@@ -299,21 +299,69 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 }
             }
             static void PatchVivisectionist() {
-                //PatchMedicalDiscovery();
+                PatchMedicalDiscovery();
 
                 void PatchMedicalDiscovery() {
-                    if (TTTContext.Fixes.Alchemist.Archetypes["Grenadier"].IsDisabled("BrewPotions")) { return; }
+                    if (TTTContext.Fixes.Alchemist.Archetypes["Vivisectionist"].IsDisabled("Discoveries")) { return; }
 
-                    var GrenadierArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("6af888a7800b3e949a40f558ff204aae");
-                    var BrewPotions = BlueprintTools.GetBlueprint<BlueprintFeature>("c0f8c4e513eb493408b8070a1de93fc0");
+                    var VivisectionistArchetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("68cbcd9fbf1fb1d489562f829bb97e38");
+                    var VivsectionistDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("67f499218a0e22944abab6fe1c9eaeee");
+                    var ExtraDiscoveryVivsectionist = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(TTTContext, "ExtraDiscoveryVivsectionist");
+                    var AdvanceTalents = BlueprintTools.GetBlueprint<BlueprintFeature>("a33b99f95322d6741af83e9381b2391c");
 
-                    GrenadierArchetype.RemoveFeatures = GrenadierArchetype.RemoveFeatures.AppendToArray(new LevelEntry() {
-                        Level = 1,
-                        m_Features = new List<BlueprintFeatureBaseReference>() {
-                            BrewPotions.ToReference<BlueprintFeatureBaseReference>()
-                        }
-                    }); ;
-                    TTTContext.Logger.LogPatch("Patched", GrenadierArchetype);
+                    var CombatTrick = BlueprintTools.GetBlueprint<BlueprintFeature>("c5158a6622d0b694a99efb1d0025d2c1");
+                    var FastStealth = BlueprintTools.GetBlueprint<BlueprintFeature>("97a6aa2b64dd21a4fac67658a91067d7");
+                    var FocusingAttackConfused = BlueprintTools.GetBlueprint<BlueprintFeature>("955ff81c596c1c3489406d03e81e6087");
+                    var FocusingAttackShaken = BlueprintTools.GetBlueprint<BlueprintFeature>("791f50e199d069d4f8e933996a2ce054");
+                    var FocusingAttackSickened = BlueprintTools.GetBlueprint<BlueprintFeature>("79475c263e538c94f8e23907bd570a35");
+                    var IronGuts = BlueprintTools.GetBlueprint<BlueprintFeature>("6087e0c9801b5eb48bf48d6e75116aad");
+                    var SlowReactions = BlueprintTools.GetBlueprint<BlueprintFeature>("7787030571e87704d9177401c595408e");
+                    var WeakeningWoundFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("2b61127f29ba97942868e8677b7633e6");
+                    var ConfoundingBlades = BlueprintTools.GetBlueprint<BlueprintFeature>("ce72662a812b1f242849417b2c784b5e");
+                    var CripplingStrike = BlueprintTools.GetBlueprint<BlueprintFeature>("b696bd7cb38da194fa3404032483d1db");
+                    var DispellingAttack = BlueprintTools.GetBlueprint<BlueprintFeature>("1b92146b8a9830d4bb97ab694335fa7c");
+
+                    RemoveVivisectionistGroup(CombatTrick);
+                    RemoveVivisectionistGroup(FastStealth);
+                    RemoveVivisectionistGroup(FocusingAttackConfused);
+                    RemoveVivisectionistGroup(FocusingAttackShaken);
+                    RemoveVivisectionistGroup(FocusingAttackSickened);
+                    RemoveVivisectionistGroup(IronGuts);
+                    RemoveVivisectionistGroup(SlowReactions);
+                    RemoveVivisectionistGroup(WeakeningWoundFeature);
+                    RemoveVivisectionistGroup(ConfoundingBlades);
+                    RemoveVivisectionistGroup(DispellingAttack);
+
+                    CripplingStrike.TemporaryContext(bp => {
+                        bp.GetComponents<PrerequisiteFeature>(c => c.Feature == bp).ForEach(c => {
+                            c.Group = Prerequisite.GroupType.Any;
+                        });
+                        bp.AddPrerequisite<PrerequisiteArchetypeLevel>(c => {
+                            c.Group = Prerequisite.GroupType.Any;
+                            c.Level = 10;
+                            c.m_Archetype = VivisectionistArchetype;
+                            c.m_CharacterClass = ClassTools.ClassReferences.AlchemistClass;
+                        });
+                    });
+
+                    VivsectionistDiscoverySelection.TemporaryContext(bp => {
+                        bp.RemoveFeatures(f => f.HasGroup(FeatureGroup.RogueTalent) && !f.HasGroup(FeatureGroup.VivisectionistDiscovery));
+                    });
+                    ExtraDiscoveryVivsectionist.TemporaryContext(bp => {
+                        bp.RemoveFeatures(f => f.HasGroup(FeatureGroup.RogueTalent) && !f.HasGroup(FeatureGroup.VivisectionistDiscovery));
+                    });
+                    VivisectionistArchetype.Get()?.TemporaryContext(bp => {
+                        bp.AddFeatures = bp.AddFeatures.Where(entry => !entry.Features.Any(f => f.AssetGuid == AdvanceTalents.AssetGuid)).ToArray();
+                    });
+
+                    TTTContext.Logger.LogPatch(CripplingStrike);
+                    TTTContext.Logger.LogPatch(VivsectionistDiscoverySelection);
+                    TTTContext.Logger.LogPatch(ExtraDiscoveryVivsectionist);
+                    TTTContext.Logger.LogPatch(VivisectionistArchetype.Get());
+
+                    void RemoveVivisectionistGroup(BlueprintFeature feature) {
+                        feature.Groups = feature.Groups.Where(g => g != FeatureGroup.VivisectionistDiscovery).ToArray();
+                    }
                 }
             }
         }

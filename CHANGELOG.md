@@ -1,8 +1,26 @@
 ## Version 2.5.11
+* Fixed issue with Warrior Spirit toggles spending resources.
 * Fixes
+    * Alchemist
+        * Vivisectionist
+            * Can no longer pick most rogue talents with medical discovery.
     * Bloodrager
         * Abyssal Bloodrage
             * Abyssal Bloodrage now actually grants an attack and damage bonus
+    * EldritchKnight
+        * Diverse Training
+            * Diverse Training now correctly affects arcane classes as well.
+            * Diverse Training is now properly restricted to only work on feats.
+    * Magus
+        * Fighter Training
+            * Fighter Training is now properly restricted to only work on feats.
+    * Shifter
+        * Griffonheart Shifter
+            * Fighter Training
+                * Fighter Training is now properly restricted to only work on feats.
+    * Warpriest
+        * Fighter Training
+            * Fighter Training is now properly restricted to only work on feats.
     * Spells
         * Echolocation
             * No longer makes your blind.

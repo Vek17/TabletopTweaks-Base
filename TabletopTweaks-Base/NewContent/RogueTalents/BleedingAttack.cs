@@ -80,6 +80,11 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                 bp.m_Icon = Icon_BleedingAttack;
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[] { 
+                    FeatureGroup.RogueTalent, 
+                    FeatureGroup.SlayerTalent, 
+                    FeatureGroup.VivisectionistDiscovery
+                };
                 bp.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => {
                     c.OnlyHit = true;
                     c.OnlySneakAttack = true;

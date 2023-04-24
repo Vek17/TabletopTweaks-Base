@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Utility;
 using System.Collections.Generic;
+using TabletopTweaks.Base.Bugfixes.Classes;
 using TabletopTweaks.Core.Config;
 
 namespace TabletopTweaks.Base.Config {
@@ -35,6 +36,7 @@ namespace TabletopTweaks.Base.Config {
         public ClassGroup Sorcerer = new ClassGroup();
         public ClassGroup Warpriest = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
+        public SettingGroup EldritchKnight = new SettingGroup();
         public SettingGroup Hellknight = new SettingGroup();
         public SettingGroup Loremaster = new SettingGroup();
         public SettingGroup WinterWitch = new SettingGroup();
@@ -116,6 +118,7 @@ namespace TabletopTweaks.Base.Config {
             Warpriest.LoadClassGroup(loadedSettings.Warpriest, NewSettingsOffByDefault);
             Witch.LoadClassGroup(loadedSettings.Witch, NewSettingsOffByDefault);
 
+            EldritchKnight.LoadSettingGroup(loadedSettings.EldritchKnight, NewSettingsOffByDefault);
             Hellknight.LoadSettingGroup(loadedSettings.Hellknight, NewSettingsOffByDefault);
             Loremaster.LoadSettingGroup(loadedSettings.Loremaster, NewSettingsOffByDefault);
             WinterWitch.LoadSettingGroup(loadedSettings.WinterWitch, NewSettingsOffByDefault);

@@ -68,6 +68,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchBase();
             }
             static void PatchBase() {
+                PatchFighterTraining();
                 PatchAirBlessing();
                 PatchEarthBlessing();
                 PatchFireBlessing();
@@ -75,6 +76,14 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 PatchWeatherBlessing();
                 PatchLuckBlessing();
 
+                void PatchFighterTraining() {
+                    if (TTTContext.Fixes.Warpriest.Base.IsDisabled("FighterTraining")) { return; }
+
+                    var WarpriestClassAsBABFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("2e134d80fef14a44aae9c087215c15af");
+                    QuickFixTools.ReplaceClassLevelsForPrerequisites(WarpriestClassAsBABFeature, TTTContext, FeatureGroup.Feat);
+
+                    TTTContext.Logger.LogPatch(WarpriestClassAsBABFeature);
+                }
                 void PatchAirBlessing() {
                     if (TTTContext.Fixes.Warpriest.Base.IsDisabled("AirBlessing")) { return; }
 

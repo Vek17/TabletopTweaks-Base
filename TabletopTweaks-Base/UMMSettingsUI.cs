@@ -118,6 +118,7 @@ namespace TabletopTweaks.Base {
                     ("Base", Fixes.Witch.Base),
                     Fixes.Witch.Archetypes
                 );
+                SetttingUI.SettingGroup("Eldritch Knight", TabLevel, Fixes.EldritchKnight);
                 SetttingUI.SettingGroup("Hellknight", TabLevel, Fixes.Hellknight);
                 SetttingUI.SettingGroup("Loremaster", TabLevel, Fixes.Loremaster);
                 SetttingUI.SettingGroup("Winter Witch", TabLevel, Fixes.WinterWitch);
