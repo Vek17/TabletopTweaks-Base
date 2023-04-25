@@ -846,7 +846,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     bool isAoE = spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityTargetsAround>());
                     isAoE |= spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Cone
                         || v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Line);
-                    if (isAoE) {
+                    bool isInstant = !spell.AbilityAndVariants().SelectMany(s => s.AbilityAndStickyTouch()).Any(s => !string.IsNullOrEmpty(s.LocalizedDuration));
+                    if (isAoE && isInstant) {
                         if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Selective)) {
                             spell.AvailableMetamagic |= Metamagic.Selective;
                             TTTContext.Logger.LogPatch("Enabled Selective Metamagic", spell);

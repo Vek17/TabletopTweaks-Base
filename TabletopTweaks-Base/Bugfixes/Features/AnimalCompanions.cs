@@ -82,12 +82,31 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         bp.Progression.LevelEntries.Where(entry => entry.Level == 1).ForEach(entry => {
                             entry.m_Features.Remove(AnimalCompanionStatFeature);
                         });
+                        TTTContext.Logger.LogPatch(bp);
                         bp.Archetypes.ForEach(a => {
                             a.AddFeatures.ForEach(UpdateLevelEntry);
                             a.RemoveFeatures.ForEach(UpdateLevelEntry);
+                            TTTContext.Logger.LogPatch(a);
                         });
                     });
-                    
+
+                    if (Harmony.HasAnyPatches("ExpandedContent")) {
+                        TTTContext.Logger.LogHeader("ExpandedContent compatability patch for Drake animal companions");
+                        var DrakeCompanionClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("557496bca2644c2d93c4a88b2b546430");
+
+                        DrakeCompanionClass?.TemporaryContext(bp => {
+                            bp.Progression.LevelEntries.ForEach(UpdateLevelEntry);
+                            bp.Progression.LevelEntries.Where(entry => entry.Level == 1).ForEach(entry => {
+                                entry.m_Features.Remove(AnimalCompanionStatFeature);
+                            });
+                            TTTContext.Logger.LogPatch(bp);
+                            bp.Archetypes.ForEach(a => {
+                                a.AddFeatures.ForEach(UpdateLevelEntry);
+                                a.RemoveFeatures.ForEach(UpdateLevelEntry);
+                                TTTContext.Logger.LogPatch(a);
+                            });
+                        });
+                    } 
 
                     void UpdateLevelEntry(LevelEntry entry) {
                         if (entry.Level == 1) { return; }
