@@ -1,3 +1,5 @@
+## Version 2.5.12
+
 ## Version 2.5.11
 * Fixed issue with Warrior Spirit toggles spending resources.
 * Fixes
@@ -7,7 +9,7 @@
     * Bloodrager
         * Abyssal Bloodrage
             * Abyssal Bloodrage now actually grants an attack and damage bonus
-    * EldritchKnight
+    * Eldritch Knight
         * Diverse Training
             * Diverse Training now correctly affects arcane classes as well.
             * Diverse Training is now properly restricted to only work on feats.

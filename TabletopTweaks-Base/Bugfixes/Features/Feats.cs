@@ -717,7 +717,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("ExtendMetamagic")) { return; }
 
                 var ExtendSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("f180e72e4a9cbaa4da8be9bc958132ef");
-                var spells = SpellTools.GetAllSpells();
+                var spells = SpellTools.GetAllSpells()
+                    .SelectMany(s => s.AbilityAndVariants())
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .ToArray();
                 TTTContext.Logger.LogPatch("Enabling", ExtendSpellFeat);
                 foreach (var spell in spells) {
                     bool appliesBuff = spell.AbilityAndVariants()
@@ -743,7 +746,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("PersistantMetamagic")) { return; }
 
                 var PersistentSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
-                var spells = SpellTools.GetAllSpells();
+                var spells = SpellTools.GetAllSpells()
+                    .SelectMany(s => s.AbilityAndVariants())
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .ToArray();
                 TTTContext.Logger.LogPatch("Enabling", PersistentSpellFeat);
                 foreach (var spell in spells) {
                     bool HasSavingThrow = spell.AbilityAndVariants()
@@ -774,7 +780,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("BolsteredMetamagic")) { return; }
 
                 var BolsteredSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
-                var spells = SpellTools.GetAllSpells();
+                var spells = SpellTools.GetAllSpells()
+                    .SelectMany(s => s.AbilityAndVariants())
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .ToArray();
                 TTTContext.Logger.LogPatch("Enabling", BolsteredSpellFeat);
                 foreach (var spell in spells) {
                     bool dealsDamage = spell.FlattenAllActions()
@@ -796,7 +805,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("EmpowerMetamagic")) { return; }
 
                 var EmpowerSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("a1de1e4f92195b442adb946f0e2b9d4e");
-                var spells = SpellTools.GetAllSpells();
+                var spells = SpellTools.GetAllSpells()
+                    .SelectMany(s => s.AbilityAndVariants())
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .ToArray();
                 TTTContext.Logger.LogPatch("Enabling", EmpowerSpellFeat);
                 foreach (var spell in spells) {
                     bool dealsDamage = spell.FlattenAllActions()
@@ -818,7 +830,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("MaximizeMetamagic")) { return; }
 
                 var MaximizeSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("7f2b282626862e345935bbea5e66424b");
-                var spells = SpellTools.GetAllSpells();
+                var spells = SpellTools.GetAllSpells()
+                    .SelectMany(s => s.AbilityAndVariants())
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .ToArray();
                 TTTContext.Logger.LogPatch("Enabling", MaximizeSpellFeat);
                 foreach (var spell in spells) {
                     bool dealsDamage = spell.FlattenAllActions()
@@ -840,14 +855,16 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("SelectiveMetamagic")) { return; }
 
                 var SelectiveSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
-                var spells = SpellTools.GetAllSpells();
+                var spells = SpellTools.GetAllSpells()
+                    .SelectMany(s => s.AbilityAndVariants())
+                    .SelectMany(s => s.AbilityAndStickyTouch())
+                    .ToArray();
                 TTTContext.Logger.LogPatch("Updating", SelectiveSpellFeat);
                 foreach (var spell in spells) {
                     bool isAoE = spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityTargetsAround>());
                     isAoE |= spell.AbilityAndVariants().Any(v => v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Cone
                         || v.GetComponent<AbilityDeliverProjectile>()?.Type == AbilityProjectileType.Line);
-                    bool isInstant = !spell.AbilityAndVariants().SelectMany(s => s.AbilityAndStickyTouch()).Any(s => !string.IsNullOrEmpty(s.LocalizedDuration));
-                    if (isAoE && isInstant) {
+                    if (isAoE) {
                         if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Selective)) {
                             spell.AvailableMetamagic |= Metamagic.Selective;
                             TTTContext.Logger.LogPatch("Enabled Selective Metamagic", spell);

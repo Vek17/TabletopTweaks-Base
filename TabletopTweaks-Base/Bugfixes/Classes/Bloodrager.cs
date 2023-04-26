@@ -116,7 +116,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                     var BloodragerAbyssalBloodrageBonusProperty = BlueprintTools.GetBlueprint<BlueprintUnitProperty>("415f71e5a47f4cccb3dbd10bd7a0f8f8");
 
-                    BloodragerAbyssalBloodrageBonusProperty.TemporaryContext(bp => { 
+                    BloodragerAbyssalBloodrageBonusProperty.TemporaryContext(bp => {
                         bp.BaseValue = 1;
                     });
 

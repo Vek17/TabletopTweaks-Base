@@ -1,18 +1,18 @@
 ﻿using HarmonyLib;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TabletopTweaks.Core.Utilities;
 using UnityEngine;
 using static TabletopTweaks.Base.Main;
-using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Utility;
-using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints;
-using Kingmaker.Enums;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace TabletopTweaks.Base.Bugfixes.Features {
     internal class AnimalCompanions {
@@ -49,7 +49,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 static void Postfix(AddPet __instance) {
                     if (TTTContext.Fixes.AnimalCompanions.IsDisabled("Progression")) { return; }
 
-                    if (__instance.ProgressionType !=  Kingmaker.Enums.PetProgressionType.AnimalCompanion) { return; }
+                    if (__instance.ProgressionType != Kingmaker.Enums.PetProgressionType.AnimalCompanion) { return; }
                     if (__instance.m_UseContextValueLevel) { return; }
                     if (__instance.LevelRank == null) { return; }
 
@@ -106,7 +106,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                                 TTTContext.Logger.LogPatch(a);
                             });
                         });
-                    } 
+                    }
 
                     void UpdateLevelEntry(LevelEntry entry) {
                         if (entry.Level == 1) { return; }

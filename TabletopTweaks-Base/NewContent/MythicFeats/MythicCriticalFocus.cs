@@ -29,9 +29,7 @@ namespace TabletopTweaks.Base.NewContent.MythicFeats {
                 });
                 bp.AddComponent<CritAutoconfirmAgainstClass>(c => {
                     c.ExceptClasses = true;
-                    c.m_Classes = new BlueprintCharacterClassReference[] {
-                        MonsterMythicClass
-                    };
+                    c.m_Classes = ClassTools.ClassReferences.AllMythicClasses.AppendToArray(MonsterMythicClass);
                 });
                 bp.AddPrerequisiteFeature(CriticalFocus);
             });
