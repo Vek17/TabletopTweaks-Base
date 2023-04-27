@@ -4,7 +4,7 @@
     "DisableAll": false,
     "Settings": {
       "AreaOfEffectDoubleTrigger": {
-        "Enabled": false,
+        "Enabled": true,
         "Homebrew": false,
         "Description": "Fixes persistent area of effects from triggering multiple times off the initial cast as if an extra round had passed."
       },

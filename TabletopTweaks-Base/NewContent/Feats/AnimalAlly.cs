@@ -3,6 +3,8 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents;
@@ -37,7 +39,6 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.TargetFeature = AnimalCompanionRank.ToReference<BlueprintFeatureReference>();
                 });
             });
-
             var AnimalAllyProgression = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "AnimalAllyProgression", bp => {
                 bp.SetName(TTTContext, "Animal Ally Progression");
                 bp.SetName(TTTContext, "");
@@ -58,7 +59,6 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     })
                     .ToArray();
             });
-
             var AnimalAllyFeatureSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "AnimalAllyFeatureSelection", bp => {
                 bp.SetName(TTTContext, "Animal Ally");
                 bp.SetDescription(TTTContext, "You gain an animal companion as if you were a druid of your character level –3. Unlike normal animals of its kind, " +
@@ -72,13 +72,13 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.m_Icon = AnimalCompanionSelectionRanger.m_Icon;
                 bp.IsPrerequisiteFor = new List<BlueprintFeatureReference>();
                 bp.AddFeatures(
-                    AnimalCompanionFeatureDog,
-                    AnimalCompanionFeatureElk,
-                    AnimalCompanionFeatureHorse,
-                    AnimalCompanionFeatureLeopard,
-                    AnimalCompanionFeatureMonitor,
-                    AnimalCompanionFeatureWolf,
-                    AnimalCompanionFeatureHorse_PreorderBonus
+                    CreateAnimalAllyCompanion(AnimalCompanionFeatureDog, AnimalAllyRank),
+                    CreateAnimalAllyCompanion(AnimalCompanionFeatureElk, AnimalAllyRank),
+                    CreateAnimalAllyCompanion(AnimalCompanionFeatureHorse, AnimalAllyRank),
+                    CreateAnimalAllyCompanion(AnimalCompanionFeatureLeopard, AnimalAllyRank),
+                    CreateAnimalAllyCompanion(AnimalCompanionFeatureMonitor, AnimalAllyRank),
+                    CreateAnimalAllyCompanion(AnimalCompanionFeatureWolf, AnimalAllyRank),
+                    CreateAnimalAllyCompanion(AnimalCompanionFeatureHorse_PreorderBonus, AnimalAllyRank)
                 );
                 bp.AddComponent<AddFeatureOnApply>(c => {
                     c.m_Feature = AnimalAllyProgression.ToReference<BlueprintFeatureReference>();
@@ -101,6 +101,24 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     p.HideInUI = true;
                 });
             });
+
+            BlueprintFeature CreateAnimalAllyCompanion(BlueprintFeature animalCompanion, BlueprintFeature rankFeature) {
+                var animalAllyCompanion = animalCompanion.CreateCopy(TTTContext, $"{animalCompanion.name}AnimalAlly", bp => {
+                    var oldPet = bp.GetComponent<AddPet>();
+                    bp.SetComponents();
+                    bp.AddComponent<AddPet>(c => {
+                        c.m_Pet = oldPet.m_Pet;
+                        c.m_UpgradeFeature = oldPet.m_UpgradeFeature;
+                        c.UpgradeLevel = oldPet.UpgradeLevel;
+                        c.m_LevelRank = rankFeature.ToReference<BlueprintFeatureReference>();
+                        c.m_LevelContextValue = new ContextValue();
+                    });
+                    bp.AddPrerequisite<PrerequisitePet>(c => {
+                        c.NoCompanion = true;
+                    });
+                });
+                return animalAllyCompanion;
+            }
 
             if (TTTContext.AddedContent.Feats.IsDisabled("NatureSoul")) { return; }
             if (TTTContext.AddedContent.Feats.IsDisabled("AnimalAlly")) { return; }

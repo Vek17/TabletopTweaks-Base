@@ -45,8 +45,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
-
-            static void Postfix() {
+            [HarmonyPostfix]
+            static void UpdateFeats() {
                 if (Initialized) return;
                 Initialized = true;
 
@@ -65,11 +65,6 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchFrightfulShape();
                 PatchIndomitableMount();
                 PatchMountedCombat();
-                PatchExtendMetamagic();
-                PatchPersistantMetamagic();
-                PatchBolsteredMetamagic();
-                PatchEmpowerMetamagic();
-                PatchMaximizeMetamagic();
                 PatchNaturalSpell();
                 PatchRakingClaws();
                 PatchShatterDefenses();
@@ -82,8 +77,17 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchMagicalTail();
                 PatchLunge();
                 PatchSiezeTheMoment();
-                PatchSelectiveMetamagic();
                 PatchSelectiveMetamagicPrerequisites();
+            }
+            [HarmonyPriority(Priority.Last)]
+            [HarmonyPostfix]
+            static void UpdateMetamagic() {
+                PatchExtendMetamagic();
+                PatchPersistantMetamagic();
+                PatchBolsteredMetamagic();
+                PatchEmpowerMetamagic();
+                PatchMaximizeMetamagic();
+                PatchSelectiveMetamagic();
             }
 
             static void PatchAlliedSpellcaster() {
