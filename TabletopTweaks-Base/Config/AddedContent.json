@@ -667,7 +667,7 @@
       "CloakOfWinds": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet."
+        "Description": "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty."
       },
       "InflictPain": {
         "Enabled": true,
@@ -677,7 +677,7 @@
       "LongArm": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "You shroud a creature in a whirling screen of strong, howling wind. Ranged attack rolls against the subject take a -4 penalty."
+        "Description": "Your arms temporarily grow in length, increasing your reach with those limbs by 5 feet."
       },
       "MagesDisjunction": {
         "Enabled": true,

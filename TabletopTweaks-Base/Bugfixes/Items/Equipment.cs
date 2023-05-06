@@ -134,7 +134,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         bp.RemoveComponents<AddFactContextActions>();
                     });
                     MageArmorBuffMythic.TemporaryContext(bp => {
-                        bp.SetName(MageArmor.m_DisplayName);
+                        bp.SetName(ArchmageArmor.m_DisplayName);
                         bp.RemoveComponents<AddFactContextActions>();
                     });
                     MageArmorBuffPermanent.TemporaryContext(bp => {
