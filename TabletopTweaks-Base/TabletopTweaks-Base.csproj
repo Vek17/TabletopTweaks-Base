@@ -482,7 +482,6 @@
     <EmbeddedResource Include="Localization\LocalizationPack.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewContent\KiPowers\" />
