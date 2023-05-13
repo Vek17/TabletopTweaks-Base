@@ -76,6 +76,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 PatchBase();
                 PatchGendarme();
+                PatchDiscipleOfThePike();
             }
             static void PatchBase() {
                 PatchCavalierMobility();
@@ -231,6 +232,18 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingCharge);
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingChargeBuff);
+                }
+            }
+            static void PatchDiscipleOfThePike() {
+                PatchWeaponTraining();
+
+                void PatchWeaponTraining() {
+                    if (TTTContext.Fixes.Cavalier.Archetypes["DiscipleOfThePike"].IsDisabled("WeaponTraining")) { return; }
+
+                    var WeaponTraining = BlueprintTools.GetBlueprint<BlueprintFeature>("d5c04077fc063e44784384a00377b7cf");
+
+                    TTTContext.Logger.LogPatch("Patched", WeaponTraining);
+                    //TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingChargeBuff);
                 }
             }
 
