@@ -257,9 +257,12 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var WeaponTrainingRankUpSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("5f3cc7b9a46b880448275763fe70c0b0");
 
                     var DiscipleOfThePikeArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("4c4c3f9df00a5e04680d172a290111c4");
-                    DiscipleOfThePikeArchetype.AddFeatures = 
-                        DiscipleOfThePikeArchetype.AddFeatures.Where(le => le.m_Features[0].Guid != WeaponTrainingSpears.AssetGuid)
+                    DiscipleOfThePikeArchetype.AddFeatures = DiscipleOfThePikeArchetype.AddFeatures
+                        .Where(le => le.m_Features[0].Guid != WeaponTrainingSpears.AssetGuid)
                         .AddItem(Helpers.CreateLevelEntry(5, DiscipleOfThePikeWeaponTrainingSelection))
+                        .AddItem(Helpers.CreateLevelEntry(9, WeaponTrainingRankUpSelection))
+                        .AddItem(Helpers.CreateLevelEntry(13, WeaponTrainingRankUpSelection))
+                        .AddItem(Helpers.CreateLevelEntry(17, WeaponTrainingRankUpSelection))
                         .ToArray();
 
                     TTTContext.Logger.LogPatch("Patched", DiscipleOfThePikeArchetype);
