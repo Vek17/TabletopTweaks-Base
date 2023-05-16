@@ -84,6 +84,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 PatchSpellBuffs();
                 PatchClassFeatures();
                 PatchFeats();
+                PatchWildShape();
 
                 void PatchAnimalCompanionFeatures() {
                     var AnimalCompanionSelectionBase = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
@@ -202,6 +203,14 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                     AnimalGrowthBuff.GetComponents<AddContextStatBonus>()
                         .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
                         .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Stackable);
+                }
+                void PatchWildShape() {
+                    WildShapeTools.WildShapeBuffs.AllBuffs.ForEach(buff => {
+                        buff.GetComponents<AddStatBonus>()
+                            .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
+                            .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Racial);
+                        TTTContext.Logger.LogPatch("Patched", buff);
+                    });
                 }
             }
         }
