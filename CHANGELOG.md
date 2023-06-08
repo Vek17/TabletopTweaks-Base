@@ -1,5 +1,6 @@
 ## Version 2.5.12
 * Shifter Wildshape natural armor bonuses now work more correctly.
+* Fixed for 2.1.4v
 
 ## Version 2.5.11
 * Fixed issue with Warrior Spirit toggles spending resources.
