@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using TabletopTweaks.Core.Config;
 
@@ -144,7 +145,7 @@ namespace TabletopTweaks.Base.Config {
             public bool GroupIsDisabled() => DisableAll;
             public void SetGroupDisabled(bool value) => DisableAll = value;
             public NestedSettingGroup Base;
-            public SortedDictionary<string, NestedSettingGroup> Archetypes = new SortedDictionary<string, NestedSettingGroup>();
+            public SortedDictionary<string, NestedSettingGroup> Archetypes = new SortedDictionary<string, NestedSettingGroup>(StringComparer.InvariantCulture);
 
             public ClassGroup() {
                 Base = new NestedSettingGroup(this);

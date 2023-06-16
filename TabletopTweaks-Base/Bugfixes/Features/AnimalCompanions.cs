@@ -3,9 +3,11 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.EntitySystem;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -89,7 +91,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             TTTContext.Logger.LogPatch(a);
                         });
                     });
-
+                    /*
                     if (Harmony.HasAnyPatches("ExpandedContent")) {
                         TTTContext.Logger.LogHeader("ExpandedContent compatability patch for Drake animal companions");
                         var DrakeCompanionClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("557496bca2644c2d93c4a88b2b546430");
@@ -107,7 +109,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             });
                         });
                     }
-
+                    */
                     void UpdateLevelEntry(LevelEntry entry) {
                         if (entry.Level == 1) { return; }
                         entry.Level = AddPet.RankToLevelAnimalCompanion[entry.Level];
