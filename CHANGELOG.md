@@ -1,3 +1,8 @@
+## Version 2.5.13
+* Fix for Vivisectionist breaking rogue prerequisites.
+* Fix for broken settings when the Czech language pack is installed.
+* Compatability enhancments for Expanded Content.
+
 ## Version 2.5.12
 * Shifter Wildshape natural armor bonuses now work more correctly.
 * Fixed for 2.1.4v

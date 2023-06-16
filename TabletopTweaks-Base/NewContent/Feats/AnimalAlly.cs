@@ -35,9 +35,11 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.Ranks = 20;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.SetName(TTTContext, "Animal Ally Rank");
+                /*
                 bp.AddComponent<ConstrainTargetFeatureRank>(c => {
                     c.TargetFeature = AnimalCompanionRank.ToReference<BlueprintFeatureReference>();
                 });
+                */
             });
             var AnimalAllyProgression = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "AnimalAllyProgression", bp => {
                 bp.SetName(TTTContext, "Animal Ally Progression");

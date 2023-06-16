@@ -42,7 +42,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
             }
         }
         [HarmonyPatch(typeof(ItemEntityArmor), nameof(ItemEntityArmor.CanBeEquippedInternal), new Type[] { typeof(UnitDescriptor) })]
-        static class IncreaseSpellSchoolDC_OnEventAboutToTrigger_Shadow_Patch {
+        static class ItemEntityArmor_CanBeEquippedInternal_Haramaki_Patch {
             static BlueprintArmorType HaramakiType = BlueprintTools.GetBlueprint<BlueprintArmorType>("9511d62bcfc57c245bf64350a5933470");
             static void Postfix(ItemEntityArmor __instance, UnitDescriptor owner, ref bool __result) {
                 if (TTTContext.Fixes.Items.Armor.IsDisabled("Haramaki")) { return; }

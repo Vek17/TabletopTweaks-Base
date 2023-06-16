@@ -3,49 +3,39 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers;
 using Kingmaker.Items;
 using System;
-using System.Linq;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     class ArmorEnhancementBonuses {
         [HarmonyPatch(typeof(GameHelper), nameof(GameHelper.GetItemEnhancementBonus), new Type[] { typeof(ItemEntity) })]
         class GameHelper_GetItemEnhancementBonus_Patch {
             static void Postfix(ref int __result, ItemEntity item) {
-                ItemEntityWeapon weapon;
-                if ((weapon = (item as ItemEntityWeapon)) != null) {
-                    __result = GameHelper.GetItemEnhancementBonus(weapon);
+                ItemEntityWeapon itemEntityweapon = item as ItemEntityWeapon;
+                if (itemEntityweapon != null) {
+                    __result = GameHelper.GetItemEnhancementBonus(itemEntityweapon);
                     return;
                 }
-                ItemEntityArmor itemEntityArmor;
-                if ((itemEntityArmor = (item as ItemEntityArmor)) == null) {
-                    ItemEntityShield itemEntityShield = item as ItemEntityShield;
-                    itemEntityArmor = ((itemEntityShield != null) ? itemEntityShield.ArmorComponent : null);
+                ItemEntityArmor itemEntityArmor = null;
+                ItemEntityShield itemEntityShield = item as ItemEntityShield;
+                if (itemEntityShield != null) {
+                    itemEntityArmor = itemEntityShield.ArmorComponent;
                 }
-                ItemEntityArmor itemEntityArmor2 = itemEntityArmor;
-                if (itemEntityArmor2 == null) {
+                itemEntityArmor ??= item as ItemEntityArmor;
+                if (itemEntityArmor == null) {
                     __result = 0;
                     return;
                 }
-                int? num = null;
-                int? num2;
-                foreach (ItemEnchantment itemEnchantment in itemEntityArmor2.Enchantments.Where(e => e.IsActive)) {
+                int enchantBonus = 0;
+                foreach (ItemEnchantment itemEnchantment in itemEntityArmor.Enchantments) {
                     ArmorEnhancementBonus component = itemEnchantment.GetComponent<ArmorEnhancementBonus>();
                     if (component != null) {
-                        if (num != null) {
-                            int enhancementValue = component.EnhancementValue;
-                            num2 = num;
-                            if (!(enhancementValue > num2.GetValueOrDefault() & num2 != null)) {
-                                continue;
-                            }
+                        int enhancementValue = component.EnhancementValue;
+                        if (enhancementValue < enchantBonus) {
+                            continue;
                         }
-                        num = new int?(component.EnhancementValue);
+                        enchantBonus = enhancementValue;
                     }
                 }
-                num2 = num;
-                if (num2 == null) {
-                    __result = 0;
-                    return;
-                }
-                __result = num2.GetValueOrDefault();
+                __result = enchantBonus;
             }
         }
     }
