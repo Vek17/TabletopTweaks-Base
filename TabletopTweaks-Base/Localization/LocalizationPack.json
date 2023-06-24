@@ -1027,7 +1027,7 @@
       "Key": "958e941e1a5b4fd398b969606aefaa28",
       "SimpleName": "ArmorMasterHomebrewFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "While wearing armor or wielding a shield, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and sheilds by 5% per mythic rank.",
+      "enGB": "While wearing armor or wielding a shield, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank.",
       "ruRU": "При использовании щита или ношении брони, ваш штраф от брони понижается на 1 за каждый мифический уровень, а максимальный бонус Ловкости повышается на 1 за каждый мифический уровень. В дополнение к этому шанс провала (связанный сношением брони или щита) при сотворении мистических заклинаний понижается на 5% за каждый мифический уровень.",
       "deDE": null,
       "frFR": null,
