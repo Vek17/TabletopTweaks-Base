@@ -768,7 +768,7 @@
       "ArmorMasterHomebrew": {
         "Enabled": true,
         "Homebrew": true,
-        "Description": "Alternate version of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank."
+        "Description": "Alternate version of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally, you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank."
       },
       "EnhancedBlessings": {
         "Enabled": true,
