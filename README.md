@@ -12,8 +12,8 @@ All changes are configurable and can be disabled via the unity mod manager menu.
 
 1. Download and install [Unity Mod Manager](https://github.com/newman55/unity-mod-manager), make sure it is at least version.
 2. Run Unity Mod Manager and set it up to find Wrath of the Righteous.
-3. Download the [TabletopTweaks-Core](https://github.com/Vek17/TabletopTweaks-Core/releases) mod from the releases page.
-4. Download the [TabletopTweaks-Base](https://github.com/Vek17/TabletopTweaks-Base/releases) mod from the releases page.
+3. Download the [TabletopTweaks-Core](https://github.com/Vek17/TabletopTweaks-Core/releases/Latest) mod from the releases page.
+4. Download the [TabletopTweaks-Base](https://github.com/Vek17/TabletopTweaks-Base/releases/Latest) mod from the releases page.
 5. Install the mods by dragging the zip file from step 3 & 4 into the Unity Mod Manager window under the Mods tab.
 
 ## Fixes
