@@ -30,11 +30,12 @@ namespace TabletopTweaks.Base.NewContent.Feats {
 
             var AnimalCompanionRank = BlueprintTools.GetBlueprint<BlueprintFeature>("1670990255e4fe948a863bafd5dbda5d");
             var AnimalAllyRank = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "AnimalAllyRank", bp => {
+                bp.SetName(TTTContext, "Animal Ally");
                 bp.IsClassFeature = true;
                 bp.HideInUI = true;
                 bp.Ranks = 20;
                 bp.HideInCharacterSheetAndLevelUp = true;
-                bp.SetName(TTTContext, "Animal Ally Rank");
+               
                 /*
                 bp.AddComponent<ConstrainTargetFeatureRank>(c => {
                     c.TargetFeature = AnimalCompanionRank.ToReference<BlueprintFeatureReference>();
@@ -43,7 +44,6 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             });
             var AnimalAllyProgression = Helpers.CreateBlueprint<BlueprintProgression>(TTTContext, "AnimalAllyProgression", bp => {
                 bp.SetName(TTTContext, "Animal Ally Progression");
-                bp.SetName(TTTContext, "");
                 bp.HideInUI = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
@@ -125,9 +125,12 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (TTTContext.AddedContent.Feats.IsDisabled("NatureSoul")) { return; }
             if (TTTContext.AddedContent.Feats.IsDisabled("AnimalAlly")) { return; }
             var CompanionBoon = BlueprintTools.GetBlueprint<BlueprintFeature>("8fc01f06eab4dd946baa5bc658cac556");
-            CompanionBoon.AddComponent<CompanionBoon>(c => {
-                c.m_RankFeature = AnimalAllyRank.ToReference<BlueprintFeatureReference>();
-                c.Bonus = 4;
+            CompanionBoon.TemporaryContext(bp => { 
+                bp.AddComponent<CompanionBoon>(c => {
+                    c.m_RankFeature = AnimalAllyRank.ToReference<BlueprintFeatureReference>();
+                    c.Bonus = 4;
+                });
+                bp.AddPrerequisiteFeature(AnimalAllyRank, Prerequisite.GroupType.Any);
             });
             FeatTools.AddAsFeat(AnimalAllyFeatureSelection);
         }
