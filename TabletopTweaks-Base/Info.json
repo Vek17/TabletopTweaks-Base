@@ -3,12 +3,12 @@
   "Author": "Sean Petrie",
   "DisplayName": "Tabletop Tweaks Base",
   "EntryMethod": "TabletopTweaks.Base.Main.Load",
-  "GameVersion": "2.1.4",
+  "GameVersion": "2.1.5",
   "HomePage": "https://github.com/Vek17/TabletopTweaks-Base",
   "Id": "TabletopTweaks-Base",
   "ManagerVersion": "0.23.0",
   "Repository": "https://raw.githubusercontent.com/Vek17/TabletopTweaks-Base/master/Repository.json",
   "Requirements": [ "TabletopTweaks-Core-0.6.5" ],
   "LoadAfter": [ "TabletopTweaks-Core" ],
-  "Version": "2.5.13"
+  "Version": "2.5.14"
 }
