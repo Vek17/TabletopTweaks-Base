@@ -1484,11 +1484,6 @@
         "Homebrew": false,
         "Description": "Friendly Hug now correctly applies all immunities."
       },
-      "FrightfulAspect": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Frightful Aspect now correctly applies fear when hit in melee."
-      },
       "Geniekind": {
         "Enabled": true,
         "Homebrew": false,

@@ -1,3 +1,6 @@
+## Version 2.5.14
+* Fixed for v2.1.5m
+
 ## Version 2.5.13
 * Fix for Vivisectionist breaking rogue prerequisites.
 * Fix for broken settings when the Czech language pack is installed.

@@ -114,7 +114,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchFirebrand();
                 PatchFlamestrike();
                 PatchFreedomOfMovement();
-                PatchFrightfulAspect();
                 PatchGeniekind();
                 PatchHellfireRay();
                 PatchHurricaneBow();
@@ -1654,14 +1653,6 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     });
                     TTTContext.Logger.LogPatch(buff);
                 }
-            }
-            static void PatchFrightfulAspect() {
-                if (Main.TTTContext.Fixes.Spells.IsDisabled("FrightfulAspect")) { return; }
-
-                var FrightfulAspectArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("b69066531acd0b94184d03e010c92e94");
-                var FrightfulAspectShakenBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("522164167a56d804bb4fa5abf36b4fbc");
-                FrightfulAspectArea.GetComponent<AbilityAreaEffectBuff>().m_Buff = FrightfulAspectShakenBuff;
-                TTTContext.Logger.LogPatch(FrightfulAspectArea);
             }
             static void PatchGeniekind() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("Geniekind")) { return; }
