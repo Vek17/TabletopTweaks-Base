@@ -42,6 +42,9 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
 
             var WinterWitchWitchHex = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("b921af3627142bd4d9cf3aefb5e2610a");
             var WitchHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("9846043cf51251a4897728ed6e24e76f");
+            var SylvanTricksterHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("290bbcc3c3bb92144b853fd8fb8ff452");
+            var HexcrafterHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("a18b8c3d6251d8641a8094e5c2a7bc78");
+            var HexcrafterArcanaSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("ad6b9cecb5286d841a66e23cea3ef7bf");
 
             var Icon_Withering = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_Withering.png");
 
@@ -405,6 +408,9 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
             if (TTTContext.AddedContent.Hexes.IsDisabled("Withering")) { return; }
             WitchHexSelection.AddFeatures(WitchHexWitheringFeature);
             WinterWitchWitchHex.AddFeatures(WitchHexWitheringFeature);
+            SylvanTricksterHexSelection.AddFeatures(WitchHexWitheringFeature);
+            HexcrafterHexSelection.AddFeatures(WitchHexWitheringFeature);
+            HexcrafterArcanaSelection.AddFeatures(WitchHexWitheringFeature);
         }
     }
 }
