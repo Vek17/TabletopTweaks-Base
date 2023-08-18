@@ -184,11 +184,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                                     }
                                 },
                                 IfTrue = Helpers.CreateActionList(),
-                                IfFalse = Helpers.CreateActionList(
-                                    new ContextActionCleaveAttack() {
-                                        ExtraAttack = true,
-                                        m_MythicFeature = CleaveMythicFeature
-                                    },
+                                IfFalse = Helpers.CreateActionList( 
                                     new Conditional() {
                                         ConditionsChecker = new ConditionsChecker() {
                                             Conditions = new Condition[] {
@@ -209,6 +205,10 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                                                 ToCaster = true
                                             }
                                         )
+                                    },
+                                    new ContextActionCleaveAttack() {
+                                        ExtraAttack = true,
+                                        m_MythicFeature = CleaveMythicFeature
                                     }
                                 )
                             }
