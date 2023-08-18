@@ -1,3 +1,6 @@
+## Version 2.5.15
+* Cleaving finish will no longer trigger more than once without Improved Cleaving Finish.
+
 ## Version 2.5.14
 * Fixed for v2.1.5m
 
