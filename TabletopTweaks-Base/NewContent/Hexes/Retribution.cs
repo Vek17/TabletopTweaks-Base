@@ -28,13 +28,13 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
             var WitchHexCasterLevelProperty = BlueprintTools.GetBlueprintReference<BlueprintUnitPropertyReference>("2d2243f4f3654512bdda92e80ef65b6d");
             var WitchHexSpellLevelProperty = BlueprintTools.GetBlueprintReference<BlueprintUnitPropertyReference>("75efe8b64a3a4cd09dda28cef156cfb5");
             var WitchCastingStatProperty = BlueprintTools.GetBlueprintReference<BlueprintUnitPropertyReference>("f47851a7b8c3e6b46b57aa7e06052589");
-            var SylvanTricksterArchetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("490394869f666c141bf8647b1a365220");
-            var HexcrafterArchetype = BlueprintTools.GetBlueprintReference<BlueprintArchetypeReference>("79ccf7a306a5d5547bebd97299f6fc89");
             var Staggered = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("df3950af5a783bd4d91ab73eb8fa0fd3");
 
             var WinterWitchWitchHex = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("b921af3627142bd4d9cf3aefb5e2610a");
             var WitchHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("9846043cf51251a4897728ed6e24e76f");
-            var IcyPrison = BlueprintTools.GetBlueprint<BlueprintAbility>("65e8d23aef5e7784dbeb27b1fca40931");
+            var SylvanTricksterHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("290bbcc3c3bb92144b853fd8fb8ff452");
+            var HexcrafterHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("a18b8c3d6251d8641a8094e5c2a7bc78");
+            var HexcrafterArcanaSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("ad6b9cecb5286d841a66e23cea3ef7bf");
 
             var witch_commondebuff00 = new PrefabLink() {
                 AssetId = "c9f48b149f8dad342a7191ca616326b1"
@@ -135,6 +135,9 @@ namespace TabletopTweaks.Base.NewContent.Hexes {
             if (TTTContext.AddedContent.Hexes.IsDisabled("Retribution")) { return; }
             WitchHexSelection.AddFeatures(RetributionHexFeature);
             WinterWitchWitchHex.AddFeatures(RetributionHexFeature);
+            SylvanTricksterHexSelection.AddFeatures(RetributionHexFeature);
+            HexcrafterHexSelection.AddFeatures(RetributionHexFeature);
+            HexcrafterArcanaSelection.AddFeatures(RetributionHexFeature);
         }
     }
 }
