@@ -181,6 +181,8 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.SecondOrder.AddSecondOrder();
                 MythicAbilities.MythicBanner.AddMythicBanner();
                 MythicAbilities.MaximizedCritical.AddMaximizedCritical();
+                MythicAbilities.MythicBond.AddMythicBond();
+                MythicAbilities.EldritchBreach.AddEldritchBreach();
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();

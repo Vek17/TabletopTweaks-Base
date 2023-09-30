@@ -414,6 +414,7 @@
     <Compile Include="NewContent\MythicAbilities\AbundantSpellKenning.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
+    <Compile Include="NewContent\MythicAbilities\EldritchBreach.cs" />
     <Compile Include="NewContent\MythicAbilities\EnhancedBlessings.cs" />
     <Compile Include="NewContent\MythicAbilities\ExtraMythicFeat.cs" />
     <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicPersistent.cs" />
@@ -424,6 +425,7 @@
     <Compile Include="NewContent\MythicAbilities\MaximizedCritical.cs" />
     <Compile Include="NewContent\MythicAbilities\MountedManiac.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicBanner.cs" />
+    <Compile Include="NewContent\MythicAbilities\MythicBond.cs" />
     <Compile Include="NewContent\MythicAbilities\MythicSpellCombat.cs" />
     <Compile Include="NewContent\MythicAbilities\PrecisionCritical.cs" />
     <Compile Include="NewContent\MythicAbilities\SecondOrder.cs" />

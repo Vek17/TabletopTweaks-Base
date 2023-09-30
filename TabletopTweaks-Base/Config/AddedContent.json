@@ -770,6 +770,11 @@
         "Homebrew": true,
         "Description": "Alternate version of Armor Master. While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank."
       },
+      "EldritchBreach": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "When attempting a caster level check to dispel an effect or overcome spell resistance roll twice and take the higher result."
+      },
       "EnhancedBlessings": {
         "Enabled": true,
         "Homebrew": true,
@@ -814,6 +819,11 @@
         "Enabled": true,
         "Homebrew": true,
         "Description": "All allies within 60 feet gain a +2 morale bonus to AC. They gain an additional bonus to AC against attack rolls made to confirm a critical hit equal to half your mythic rank."
+      },
+      "MythicBond": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "If your ranger’s bond is with your companions, you can activate the bond as a swift action, granting your allies your full favored enemy bonus instead of just half."
       },
       "MythicSpellCombat": {
         "Enabled": true,

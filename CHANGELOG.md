@@ -1,3 +1,11 @@
+## Version 2.5.16
+* Added Content
+    * Mythic Abilities
+        * Eldritch Breach
+            * When attempting a caster level check to dispel an effect or overcome spell resistance roll twice and take the higher result.
+        * Mythic Bond
+            * If your ranger’s bond is with your companions, you can activate the bond as a swift action, granting your allies your full favored enemy bonus instead of just half.
+
 ## Version 2.5.15
 * Cleaving finish will no longer trigger more than once without Improved Cleaving Finish.
 
