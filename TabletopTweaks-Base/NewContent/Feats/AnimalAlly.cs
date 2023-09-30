@@ -7,7 +7,6 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using System.Collections.Generic;
 using System.Linq;
-using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 
@@ -35,7 +34,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.HideInUI = true;
                 bp.Ranks = 20;
                 bp.HideInCharacterSheetAndLevelUp = true;
-               
+
                 /*
                 bp.AddComponent<ConstrainTargetFeatureRank>(c => {
                     c.TargetFeature = AnimalCompanionRank.ToReference<BlueprintFeatureReference>();
@@ -125,7 +124,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (TTTContext.AddedContent.Feats.IsDisabled("NatureSoul")) { return; }
             if (TTTContext.AddedContent.Feats.IsDisabled("AnimalAlly")) { return; }
             var CompanionBoon = BlueprintTools.GetBlueprint<BlueprintFeature>("8fc01f06eab4dd946baa5bc658cac556");
-            CompanionBoon.TemporaryContext(bp => { 
+            CompanionBoon.TemporaryContext(bp => {
                 bp.AddComponent<CompanionBoon>(c => {
                     c.m_RankFeature = AnimalAllyRank.ToReference<BlueprintFeatureReference>();
                     c.Bonus = 4;

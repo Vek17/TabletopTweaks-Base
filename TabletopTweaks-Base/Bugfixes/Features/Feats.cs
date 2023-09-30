@@ -184,7 +184,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                                     }
                                 },
                                 IfTrue = Helpers.CreateActionList(),
-                                IfFalse = Helpers.CreateActionList( 
+                                IfFalse = Helpers.CreateActionList(
                                     new Conditional() {
                                         ConditionsChecker = new ConditionsChecker() {
                                             Conditions = new Condition[] {

@@ -1,24 +1,15 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Enums;
-using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
-using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Buffs.Components;
-using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.Utility;
 using System.Collections.Generic;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -69,14 +60,14 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     c.Actions = Helpers.CreateActionList(
                         new Conditional() {
                             ConditionsChecker = new ConditionsChecker() {
-                                Conditions = new Condition[] { 
+                                Conditions = new Condition[] {
                                     new ContextConditionCasterHasFact() {
                                         m_Fact = MythicBondFeature.ToReference<BlueprintUnitFactReference>()
                                     }
                                 }
                             },
                             IfTrue = Helpers.CreateActionList(
-                                new ContextActionApplyBuff() { 
+                                new ContextActionApplyBuff() {
                                     m_Buff = MythicBondBuff.ToReference<BlueprintBuffReference>(),
                                     DurationValue = new ContextDurationValue() {
                                         DiceCountValue = 0,
