@@ -183,6 +183,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.MaximizedCritical.AddMaximizedCritical();
                 MythicAbilities.MythicBond.AddMythicBond();
                 MythicAbilities.EldritchBreach.AddEldritchBreach();
+                MythicAbilities.ElementalBond.AddElementalBond();
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();

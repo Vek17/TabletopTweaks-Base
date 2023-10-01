@@ -779,6 +779,11 @@
         "Homebrew": false,
         "Description": "When attempting a caster level check to dispel an effect or overcome spell resistance roll twice and take the higher result."
       },
+      "ElementalBond": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Whenever you cast a spell with a descriptor matching that plane, add your mythic rank to your caster level for that spell."
+      },
       "EnhancedBlessings": {
         "Enabled": true,
         "Homebrew": true,

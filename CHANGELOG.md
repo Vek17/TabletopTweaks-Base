@@ -6,6 +6,8 @@
     * Mythic Abilities
         * Eldritch Breach
             * When attempting a caster level check to dispel an effect or overcome spell resistance roll twice and take the higher result.
+        * Elemental Bond
+            * Whenever you cast a spell with a descriptor matching that plane, add your mythic rank to your caster level for that spell.
         * Mythic Bond
             * If your ranger’s bond is with your companions, you can activate the bond as a swift action, granting your allies your full favored enemy bonus instead of just half.
 

@@ -203,7 +203,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var MagicTrickFireball = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "MagicTrickFireball", bp => {
                 bp.IsClassFeature = true;
                 bp.ReapplyOnLevelUp = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.MythicAbility };
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
                 bp.Ranks = 1;
                 //bp.m_Icon = DispelMagicGreater.Icon;
                 bp.SetName(TTTContext, "Magic Trick (Fireball)");
