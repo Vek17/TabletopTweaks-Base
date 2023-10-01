@@ -784,6 +784,11 @@
         "Homebrew": false,
         "Description": "Whenever you cast a spell with a descriptor matching that plane, add your mythic rank to your caster level for that spell."
       },
+      "EnergyConversion": {
+        "Enabled": true,
+        "Homebrew": true,
+        "Description": "Whenever you cast a spell with the acid, cold, electricity, or fire descriptor you can switch the energy type to a different one of those energy types."
+      },
       "EnhancedBlessings": {
         "Enabled": true,
         "Homebrew": true,

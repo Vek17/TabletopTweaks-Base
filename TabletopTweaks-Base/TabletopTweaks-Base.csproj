@@ -417,6 +417,7 @@
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
     <Compile Include="NewContent\MythicAbilities\EldritchBreach.cs" />
     <Compile Include="NewContent\MythicAbilities\ElementalBond.cs" />
+    <Compile Include="NewContent\MythicAbilities\EnergyConversion.cs" />
     <Compile Include="NewContent\MythicAbilities\EnhancedBlessings.cs" />
     <Compile Include="NewContent\MythicAbilities\ExtraMythicFeat.cs" />
     <Compile Include="NewContent\MythicAbilities\FavoriteMetamagicPersistent.cs" />
@@ -499,6 +500,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_DireProphecy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_EnergyConversion.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_EnergyConversionAcid.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_EnergyConversionCold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_EnergyConversionElectricity.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Abilities\Icon_EnergyConversionFire.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Abilities\Icon_FireballClusterBomb.png">
