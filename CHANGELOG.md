@@ -1,5 +1,8 @@
 ## Version 2.5.16
 * Added Content
+    * Feats
+        * Magic Trick Fireball
+            * Cluster Bomb: You are able to throw multiple small explosions with a single spell instead of the normal effect. For every 2 caster levels, you toss a miniature fireball with a 10-foot radius that deals 2d6 points of fire damage. A creature attempts a single Reflex save against the combined damage.
     * Mythic Abilities
         * Eldritch Breach
             * When attempting a caster level check to dispel an effect or overcome spell resistance roll twice and take the higher result.

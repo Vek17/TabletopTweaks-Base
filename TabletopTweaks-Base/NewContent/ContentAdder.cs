@@ -223,6 +223,7 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.SplitHex.AddSplitHex();
                 Feats.ImprovedNaturalArmor.AddImprovedNaturalArmor();
                 Feats.ImprovedNaturalAttack.AddImprovedNaturalAttack();
+                Feats.MagicTrick.AddMagicTrick();
 
                 Feats.ExtraReservoir.AddExtraReservoir();
                 Feats.ExtraHex.AddExtraHex();
