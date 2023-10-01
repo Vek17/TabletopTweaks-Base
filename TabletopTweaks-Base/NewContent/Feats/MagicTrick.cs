@@ -93,7 +93,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                                 DiceCountValue = 0,
                                 BonusValue = 0
                             },
-                            Value = new ContextDiceValue() { 
+                            Value = new ContextDiceValue() {
                                 DiceType = Kingmaker.RuleSystem.DiceType.D6,
                                 DiceCountValue = new ContextValue() {
                                     ValueType = ContextValueType.Shared,
@@ -164,7 +164,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 });
                 bp.AddComponent<AbilityTargetsAround>(c => {
                     c.m_TargetType = TargetType.Any;
-                    c.m_Condition = new ConditionsChecker() { 
+                    c.m_Condition = new ConditionsChecker() {
                         Conditions = new Condition[0]
                     };
                     c.m_Radius = 10.Feet();
@@ -184,7 +184,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 });
                 bp.AddComponent<ContextCalculateSharedValue>(c => {
                     c.ValueType = AbilitySharedValue.Damage;
-                    c.Value = new ContextDiceValue() { 
+                    c.Value = new ContextDiceValue() {
                         DiceCountValue = 0,
                         BonusValue = new ContextValue() {
                             ValueType = ContextValueType.Rank,

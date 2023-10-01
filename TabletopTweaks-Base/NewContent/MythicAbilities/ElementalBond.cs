@@ -3,7 +3,6 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
-using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -145,7 +144,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 bp.AddContextRankConfig(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
                     c.m_Progression = ContextRankProgression.Custom;
-                    c.m_CustomProgression = new ContextRankConfig.CustomProgressionItem[] { 
+                    c.m_CustomProgression = new ContextRankConfig.CustomProgressionItem[] {
                         new ContextRankConfig.CustomProgressionItem() {
                             BaseValue = 5,
                             ProgressionValue = 10
