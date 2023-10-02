@@ -185,6 +185,7 @@ namespace TabletopTweaks.Base.NewContent {
                 MythicAbilities.EldritchBreach.AddEldritchBreach();
                 MythicAbilities.ElementalBond.AddElementalBond();
                 MythicAbilities.EnergyConversion.AddEnergyConversion();
+                MythicAbilities.AdamantineMind.AddAdamantineMind();
 
                 MythicAbilities.FavoriteMetamagicPersistent.AddFavoriteMetamagicPersistent();
                 MythicAbilities.FavoriteMetamagicSelective.AddFavoriteMetamagicSelective();

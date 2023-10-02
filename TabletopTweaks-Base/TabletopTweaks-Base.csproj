@@ -413,6 +413,7 @@
     <Compile Include="NewContent\MythicAbilities\AbundantIncense.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantLayOnHands.cs" />
     <Compile Include="NewContent\MythicAbilities\AbundantSpellKenning.cs" />
+    <Compile Include="NewContent\MythicAbilities\AdamantineMind.cs" />
     <Compile Include="NewContent\MythicAbilities\ArmoredMight .cs" />
     <Compile Include="NewContent\MythicAbilities\ArmorMaster.cs" />
     <Compile Include="NewContent\MythicAbilities\EldritchBreach.cs" />
@@ -803,6 +804,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Equipment\Icon_ScrollOfWebBolt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Feats\Icon_AdamantineMind.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Feats\Icon_ArmoredMight.png">

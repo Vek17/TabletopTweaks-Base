@@ -320,6 +320,28 @@
       "esES": null
     },
     {
+      "Key": "5ac871dbcefd4397adbc4a3faa246ffe",
+      "SimpleName": "AdamantineMind.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your mind is as hard as any armor, and is dangerous to engage.\nYou gain a bonus equal to your tier on saving throws against mind-affecting effects. Whenever you succeed at a save against a mind-affecting effect, the creature attacking you with that effect must succeed at a Will save (at the same DC) or be stunned for 1 round.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5e4978a6c28840a79ac8c691ca27011d",
+      "SimpleName": "AdamantineMind.Name",
+      "ProcessTemplates": false,
+      "enGB": "Adamantine Mind",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "c9818fcbd694441c890bdddf4d1dd56f",
       "SimpleName": "AdvancedArmorTraining1.Description",
       "ProcessTemplates": true,
@@ -3906,17 +3928,6 @@
       "esES": null
     },
     {
-      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Incinerating",
-      "ruRU": "Испепеляющий",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "炽焰",
-      "esES": null
-    },
-    {
       "Key": "37df8bdd9bcf476e82186546ba976884",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3925,6 +3936,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "焚炎",
+      "esES": null
+    },
+    {
+      "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Incinerating",
+      "ruRU": "Испепеляющий",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "炽焰",
       "esES": null
     },
     {
@@ -5644,6 +5666,28 @@
       "esES": null
     },
     {
+      "Key": "3f6a49442ff540a08147642e0c398014",
+      "SimpleName": "EldritchBreach.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are adept at breaching magical defenses and overcoming resistance to your magic.\nWhen attempting a caster level check to dispel an effect or overcome spell resistance roll twice and take the higher result.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "18670c7faeb7421faa4528ee72a4e02c",
+      "SimpleName": "EldritchBreach.Name",
+      "ProcessTemplates": false,
+      "enGB": "Eldritch Breach",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "3e9f5fed32424255be751a7630ba02bb",
       "SimpleName": "EldritchScionBloodlineSelection.Name",
       "ProcessTemplates": false,
@@ -5666,17 +5710,6 @@
       "esES": null
     },
     {
-      "Key": "a494abde1748434384988c7956abbe2c",
-      "SimpleName": "Elemental — AcidSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}Elemental — Acid{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}元素 — 酸蚀{/g}",
-      "esES": null
-    },
-    {
       "Key": "676143e3221040e0b7b907b49671e3e5",
       "SimpleName": "Elemental — AcidSpellMetamagic",
       "ProcessTemplates": false,
@@ -5685,6 +5718,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素 — 酸蚀",
+      "esES": null
+    },
+    {
+      "Key": "a494abde1748434384988c7956abbe2c",
+      "SimpleName": "Elemental — AcidSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}Elemental — Acid{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Acid-TabletopTweaks-Base}元素 — 酸蚀{/g}",
       "esES": null
     },
     {
@@ -5710,17 +5754,6 @@
       "esES": null
     },
     {
-      "Key": "4b7abb50b76d42c99794074645b9d084",
-      "SimpleName": "Elemental — ElectricitySpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}Elemental — Electricity{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}元素 — 电击{/g}",
-      "esES": null
-    },
-    {
       "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
       "SimpleName": "Elemental — ElectricitySpellMetamagic",
       "ProcessTemplates": false,
@@ -5732,14 +5765,14 @@
       "esES": null
     },
     {
-      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
-      "SimpleName": "Elemental — FireSpellMetamagic",
+      "Key": "4b7abb50b76d42c99794074645b9d084",
+      "SimpleName": "Elemental — ElectricitySpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
+      "enGB": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}Elemental — Electricity{/g}",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
+      "zhCN": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}元素 — 电击{/g}",
       "esES": null
     },
     {
@@ -5747,6 +5780,17 @@
       "SimpleName": "Elemental — FireSpellMetamagic",
       "ProcessTemplates": false,
       "enGB": "Elemental — Fire",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}元素 — 火焰{/g}",
+      "esES": null
+    },
+    {
+      "Key": "9e4b32e4aeb84a21b43b008327849bf0",
+      "SimpleName": "Elemental — FireSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Elemental — Fire-TabletopTweaks-Base}Elemental — Fire{/g}",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -5762,6 +5806,116 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "元素血承 — 风",
+      "esES": null
+    },
+    {
+      "Key": "0e45ef71bb064404904a64d83c479eea",
+      "SimpleName": "ElementalBondAir.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are connected to the elemental plane of air. Whenever you cast a spell with the electricity descriptor, add your mythic rank to your caster level for that spell. You gain resistance 10 against electricity. At 6th tier, this resistance increases to 20. At 9th tier, this resistance increases to 30.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "61f60cbd3930428490da3bc91bb8e805",
+      "SimpleName": "ElementalBondAir.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental Bond (Air)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3899e1660bc04f9fb6e31c1a2359d3e3",
+      "SimpleName": "ElementalBondEarth.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are connected to the elemental plane of earth. Whenever you cast a spell with the acid descriptor, add your mythic rank to your caster level for that spell. You gain resistance 10 against acid. At 6th tier, this resistance increases to 20. At 9th tier, this resistance increases to 30.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c7902426502c4465aa0eb21c6c3d11a7",
+      "SimpleName": "ElementalBondEarth.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental Bond (Earth)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "92a339b994644ec9b1e0002d847d46fa",
+      "SimpleName": "ElementalBondFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are connected to the elemental plane of fire. Whenever you cast a spell with the fire descriptor, add your mythic rank to your caster level for that spell. You gain resistance 10 against fire. At 6th tier, this resistance increases to 20. At 9th tier, this resistance increases to 30.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "315e1e1e99934010a75a586edd29de6a",
+      "SimpleName": "ElementalBondFire.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental Bond (Fire)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d1b0d17e7acf4a469f1334a6feab8e9e",
+      "SimpleName": "ElementalBondSelection.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are connected to one of the elemental planes. Select one elemental plane: air, earth, fire, or water. Whenever you cast a spell with a descriptor matching that plane, add your mythic rank to your caster level for that spell. You gain resistance 10 against an energy type associated with your chosen plane—electricity for air, acid for earth, fire for fire, and cold for water. At 6th tier, this resistance increases to 20. At 9th tier, this resistance increases to 30.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "49822885599f4dfe8f9af7f7926f110f",
+      "SimpleName": "ElementalBondSelection.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental Bond",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a56334f3fc864b369f8c09f2fcb5b700",
+      "SimpleName": "ElementalBondWater.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are connected to the elemental plane of water. Whenever you cast a spell with the cold descriptor, add your mythic rank to your caster level for that spell. You gain resistance 10 against cold. At 6th tier, this resistance increases to 20. At 9th tier, this resistance increases to 30.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "692a8059dcdf45749a1890e3acf3c1d5",
+      "SimpleName": "ElementalBondWater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Elemental Bond (Water)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6158,6 +6312,171 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "艰苦的条件或长时间的努力不会轻易使你疲劳。\n效果：你对抗疲劳和力竭的强韧豁免获得+4加值，运动检定获得+2加值。如果你的运动技能至少有10级，该加值提高到+4。\n你可以穿着轻甲或中甲睡觉而不感到疲劳。",
+      "esES": null
+    },
+    {
+      "Key": "1a8918b0ac4f4da89d81eaf92d7b2c0c",
+      "SimpleName": "EnergyConversion.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, cold, electricity, or fire descriptor you can switch the energy type to a different one of those energy types. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "117612c56ce54115a1c39d8cbd3111e2",
+      "SimpleName": "EnergyConversionBuffAcid.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the cold, electricity, or fire descriptor you can switch the energy type to acid. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ea344d92e9474e529b73bf9056efa1e1",
+      "SimpleName": "EnergyConversionBuffAcid.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Conversion — Acid",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d2de75dda1ca405ebb9827063161079f",
+      "SimpleName": "EnergyConversionBuffCold.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, electricity, or fire descriptor you can switch the energy type to cold. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "998bb2a713f144b183ced48c45aa969b",
+      "SimpleName": "EnergyConversionBuffCold.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Conversion — Cold",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d34ca98d484242aba644bc72db70d5e1",
+      "SimpleName": "EnergyConversionBuffElectricity.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, cold, electricity, or fire descriptor you can switch the energy type to a different one of those energy types. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "df2666b79c9a4e979b54808af0717551",
+      "SimpleName": "EnergyConversionBuffElectricity.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Conversion — Electricity",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a7687a8c8a62421d81a2ebce2670a3cd",
+      "SimpleName": "EnergyConversionBuffFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, cold, or electricity descriptor you can switch the energy type to fire. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0c816517494f4f8da40817d723abd019",
+      "SimpleName": "EnergyConversionBuffFire.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Conversion — Fire",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "68925bf23402417889aaf1264115f082",
+      "SimpleName": "EnergyConversionToggleAcid.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the cold, electricity, or fire descriptor you can switch the energy type to acid. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "cf598b47d14a48878b6185f3e0419d4e",
+      "SimpleName": "EnergyConversionToggleCold.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, electricity, or fire descriptor you can switch the energy type to cold. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3d491a7219774d5aa9b3da6790f8020e",
+      "SimpleName": "EnergyConversionToggleElectricity.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, cold, or fire descriptor you can switch the energy type to electricity. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3742089ca9464222ac26321f61cbb0e3",
+      "SimpleName": "EnergyConversionToggleFire.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, cold, or electricity descriptor you can switch the energy type to fire. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "62069d28b8ca4e18b29db4859d50faa3",
+      "SimpleName": "EnergyConversionToggleVariants.Description",
+      "ProcessTemplates": true,
+      "enGB": "Whenever you cast a spell with the acid, cold, electricity, or fire descriptor you can switch the energy type to a different one of those energy types. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fa66d4d9b789455e93e1b59f16600d25",
+      "SimpleName": "EnergyConversionToggleVariants.Name",
+      "ProcessTemplates": false,
+      "enGB": "Energy Conversion",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -6741,6 +7060,39 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "战士训练等级",
+      "esES": null
+    },
+    {
+      "Key": "1800996183374ec5bf09ddf415071e65",
+      "SimpleName": "FireballClusterBomb.Description",
+      "ProcessTemplates": true,
+      "enGB": "You are able to throw multiple small explosions with a single spell instead of the normal effect. For every 2 caster levels, you toss a miniature fireball with a 10-foot radius that deals 2d6 points of fire damage. A creature attempts a single Reflex save against the combined damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4055029706294a3d93f36c778d70382e",
+      "SimpleName": "FireballClusterBomb.Name",
+      "ProcessTemplates": false,
+      "enGB": "Fireball — Cluster Bomb",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3aef0cd10c0c4b6e9964350ea57e485d",
+      "SimpleName": "FireballClusterBomb.SavingThrow",
+      "ProcessTemplates": false,
+      "enGB": "Reflex half",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -8658,6 +9010,28 @@
       "esES": null
     },
     {
+      "Key": "f047aa5f69e54eb29bdc575dc9c01f10",
+      "SimpleName": "MagicTrickFireball.Description",
+      "ProcessTemplates": true,
+      "enGB": "Cluster Bomb: You are able to throw multiple small explosions with a single spell instead of the normal effect. For every 2 caster levels, you toss a miniature fireball with a 10-foot radius that deals 2d6 points of fire damage. A creature attempts a single Reflex save against the combined damage.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "51b31e35798a4bb9bc7c64300b2ea679",
+      "SimpleName": "MagicTrickFireball.Name",
+      "ProcessTemplates": false,
+      "enGB": "Magic Trick (Fireball)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "924e4b28350c47c7bf9d2e83cc444324",
       "SimpleName": "MagicWeapon.Prefix",
       "ProcessTemplates": false,
@@ -10220,6 +10594,28 @@
       "esES": null
     },
     {
+      "Key": "c3d38a52898e4b0eb39696d3564ea444",
+      "SimpleName": "MythicBondFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your ranger’s bond ability is more powerful than most.\nIf your ranger’s bond is with your companions, you can activate the bond as a swift action, granting your allies your full favored enemy bonus instead of just half.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2bf01b3856374751bedc317833548852",
+      "SimpleName": "MythicBondFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Bond",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "f709c89e6be84375803daa94f2f8380f",
       "SimpleName": "MythicSpellCombat.Description",
       "ProcessTemplates": true,
@@ -10946,17 +11342,6 @@
       "esES": null
     },
     {
-      "Key": "c4211dd8fabd410ab02c99ff971911ed",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
-      "esES": null
-    },
-    {
       "Key": "f467d13c43764235a30cb4aca2e1edcf",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -10965,6 +11350,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "穿刺",
+      "esES": null
+    },
+    {
+      "Key": "c4211dd8fabd410ab02c99ff971911ed",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
       "esES": null
     },
     {
@@ -11441,17 +11837,6 @@
       "esES": null
     },
     {
-      "Key": "334dafcc1c3844e49640b81084309388",
-      "SimpleName": "RimeSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Rime",
-      "ruRU": "Обмораживающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "霜冻",
-      "esES": null
-    },
-    {
       "Key": "6c9ef00cd8c84b33a584227aaa2a46e6",
       "SimpleName": "RimeSpellMetamagic",
       "ProcessTemplates": false,
@@ -11460,6 +11845,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Rime-TabletopTweaks-Base}霜冻{/g}",
+      "esES": null
+    },
+    {
+      "Key": "334dafcc1c3844e49640b81084309388",
+      "SimpleName": "RimeSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Rime",
+      "ruRU": "Обмораживающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "霜冻",
       "esES": null
     },
     {
@@ -11892,22 +12288,22 @@
       "esES": null
     },
     {
-      "Key": "1b8450f20cc444c399117bd8890ed98e",
+      "Key": "30cff4322b404021b18335c720abbfda",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Solid Shadows{/g}",
-      "ruRU": null,
+      "enGB": "Solid Shadows",
+      "ruRU": "Осязаемое",
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
       "esES": null
     },
     {
-      "Key": "30cff4322b404021b18335c720abbfda",
+      "Key": "1b8450f20cc444c399117bd8890ed98e",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "Solid Shadows",
-      "ruRU": "Осязаемое",
+      "enGB": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Solid Shadows{/g}",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
@@ -12948,17 +13344,6 @@
       "esES": null
     },
     {
-      "Key": "9b3ade0576a54a5292186ebfbacb48bf",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "Greater Stunning Barrier",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "高等反震屏障",
-      "esES": null
-    },
-    {
       "Key": "bd0091dbc839447abb004474f38b7c75",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -12967,6 +13352,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "轮/级，或直到到效果消散",
+      "esES": null
+    },
+    {
+      "Key": "9b3ade0576a54a5292186ebfbacb48bf",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Stunning Barrier",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "高等反震屏障",
       "esES": null
     },
     {

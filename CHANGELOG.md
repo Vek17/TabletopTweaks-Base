@@ -4,6 +4,8 @@
         * Magic Trick Fireball
             * Cluster Bomb: You are able to throw multiple small explosions with a single spell instead of the normal effect. For every 2 caster levels, you toss a miniature fireball with a 10-foot radius that deals 2d6 points of fire damage. A creature attempts a single Reflex save against the combined damage.
     * Mythic Abilities
+        * Adamantine Mind
+            * You gain a bonus equal to your tier on saving throws against mind-affecting effects. Whenever you succeed at a save against a mind-affecting effect, the creature attacking you with that effect must succeed at a Will save (at the same DC) or be stunned for 1 round.
         * Eldritch Breach
             * When attempting a caster level check to dispel an effect or overcome spell resistance roll twice and take the higher result.
         * Elemental Bond

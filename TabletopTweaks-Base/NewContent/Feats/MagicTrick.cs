@@ -1,7 +1,9 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums.Damage;
@@ -201,15 +203,15 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 });
             });
             var MagicTrickFireball = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "MagicTrickFireball", bp => {
-                bp.IsClassFeature = true;
-                bp.ReapplyOnLevelUp = true;
-                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
-                bp.Ranks = 1;
-                //bp.m_Icon = DispelMagicGreater.Icon;
                 bp.SetName(TTTContext, "Magic Trick (Fireball)");
                 bp.SetDescription(TTTContext, "Cluster Bomb: You are able to throw multiple small explosions with a single spell instead of the normal effect. " +
                     "For every 2 caster levels, you toss a miniature fireball with a 10-foot radius that deals 2d6 points of fire damage. " +
                     "A creature attempts a single Reflex save against the combined damage.");
+                //bp.m_Icon = DispelMagicGreater.Icon;
+                bp.IsClassFeature = true;
+                bp.ReapplyOnLevelUp = true;
+                bp.Ranks = 1;
+                bp.Groups = new FeatureGroup[] { FeatureGroup.Feat };
                 bp.AddComponent<AddSpecificSpellConversion>(c => {
                     c.m_targetSpell = Fireball.ToReference<BlueprintAbilityReference>();
                     c.m_convertSpell = FireballClusterBomb.ToReference<BlueprintAbilityReference>();
@@ -217,14 +219,16 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.AddPrerequisite<PrerequisiteSpellKnown>(c => {
                     c.m_Spell = Fireball.ToReference<BlueprintAbilityReference>();
                 });
+                bp.AddComponent<FeatureTagsComponent>(c => {
+                    c.FeatureTags = FeatureTag.Magic;
+                });
                 bp.AddPrerequisite<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.SkillKnowledgeArcana;
                     c.Value = 6;
                 });
             });
 
-            if (TTTContext.AddedContent.MythicAbilities.IsDisabled("MagicTrickFireball")) { return; }
-
+            if (TTTContext.AddedContent.Feats.IsDisabled("MagicTrickFireball")) { return; }
             FeatTools.AddAsFeat(MagicTrickFireball);
         }
     }
