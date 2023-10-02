@@ -20,10 +20,12 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
             var MonkFlurryOfBlowstUnlock = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("fd99770e6bd240a4aab70f7af103e56a");
             var SoheiFlurryOfBlowsUnlock = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("cd4381b73b6709146bbcc0a528a6f471");
             var ZenArcherFlurryOfBlowsUnlock = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("3e470edc8a733b641bcbbbb5b9527ff6");
+            var QuarterstaffMasterFlurryUnlock = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("44b0f313ec56481eb447019fbe714330");
             var Longbow = BlueprintTools.GetBlueprintReference<BlueprintWeaponTypeReference>("7a1211c05ec2c46428f41e3c0db9423f");
             var CompositeLongbow = BlueprintTools.GetBlueprintReference<BlueprintWeaponTypeReference>("1ac79088a7e5dde46966636a3ac71c35");
             var Shortbow = BlueprintTools.GetBlueprintReference<BlueprintWeaponTypeReference>("99ce02fb54639b5439d07c99c55b8542");
             var CompositeShortbow = BlueprintTools.GetBlueprintReference<BlueprintWeaponTypeReference>("011f6f86a0b16df4bbf7f40878c3e80b");
+            var Quarterstaff = BlueprintTools.GetBlueprintReference<BlueprintWeaponTypeReference>("629736dabac7f9f4a819dc854eaed2d6");
 
             var OldMasterFeatureFlurryFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "OldMasterFeatureFlurryFeature", bp => {
                 bp.SetName(TTTContext, "Old Master");
@@ -87,6 +89,20 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                     c.IsSohei = true;
                 });
             });
+            var OldMasterUnlockQuarterstaffFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "OldMasterUnlockQuarterstaffFeature", bp => {
+                bp.SetName(TTTContext, "Old Master");
+                bp.SetDescription(TTTContext, "At 20th level, the monk has reached the highest levels of his martial arts school.\n" +
+                    "The monk gains one additional attack at his highest base attack bonus when using flurry of blows, and he gains a dodge bonus to AC of 2.");
+                bp.HideInUI = true;
+                bp.IsClassFeature = true;
+                bp.AddComponent<MonkNoArmorAndMonkWeaponFeatureUnlock>(c => {
+                    c.m_NewFact = OldMasterFeatureFlurryFeature.ToReference<BlueprintUnitFactReference>();
+                    c.m_BowWeaponTypes = new BlueprintWeaponTypeReference[] {
+                        Quarterstaff
+                    };
+                    c.IsZenArcher = true;
+                });
+            });
             var OldMasterUnlockBaseFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "OldMasterUnlockBaseFeature", bp => {
                 bp.SetName(TTTContext, "Old Master");
                 bp.SetDescription(TTTContext, "At 20th level, the monk has reached the highest levels of his martial arts school.\n" +
@@ -106,6 +122,10 @@ namespace TabletopTweaks.Base.NewContent.AlternateCapstones {
                 bp.AddComponent<AddFeatureIfHasFact>(c => {
                     c.m_CheckedFact = SoheiFlurryOfBlowsUnlock;
                     c.m_Feature = OldMasterUnlockSoheiFeature.ToReference<BlueprintUnitFactReference>();
+                });
+                bp.AddComponent<AddFeatureIfHasFact>(c => {
+                    c.m_CheckedFact = QuarterstaffMasterFlurryUnlock;
+                    c.m_Feature = OldMasterUnlockQuarterstaffFeature.ToReference<BlueprintUnitFactReference>();
                 });
             });
             MonkAlternateCapstone = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "MonkAlternateCapstone", bp => {

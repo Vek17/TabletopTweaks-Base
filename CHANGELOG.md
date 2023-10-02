@@ -1,3 +1,7 @@
+## Version 2.5.17
+* Fixes
+    * Fixed issue where Old Master did not work with Quarterstaff Master.
+
 ## Version 2.5.16
 * Added Content
     * Feats
