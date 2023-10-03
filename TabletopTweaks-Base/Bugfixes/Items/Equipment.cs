@@ -26,6 +26,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.Utility;
+using Owlcat.Runtime.Core.Utils;
 using System.Linq;
 using TabletopTweaks.Core.NewActions;
 using TabletopTweaks.Core.NewComponents;
@@ -58,6 +59,10 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchStormlordsResolve();
                 PatchFlawlessBeltOfPhysicalPerfection8CritIncrease();
                 PatchQuiverOfRosesThorns();
+                PatchRingOfPyromania();
+                PatchRingOfSacredTouch();
+                PatchMallandersInsultBelt();
+                PatchCallOfFieryThingsClothes();
 
                 void PatchAmuletOfQuickDraw() {
                     if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("AmuletOfQuickDraw")) { return; }
@@ -453,6 +458,174 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
 
                     TTTContext.Logger.LogPatch(WeakenArrowsQuiverEnchantment);
                 }
+                void PatchRingOfPyromania() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("RingOfPyromania")) { return; }
+                    var RingOfPyromaniaItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentRing>("e2f23f658afc6fe48a61f8aea173dc29");
+                    var RingOfPyromaniaFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("3789253d5e8af5c42a22cd97ef4d9e65");
+
+                    RingOfPyromaniaFeature.TemporaryContext(bp => {
+                        bp.m_DisplayName = RingOfPyromaniaItem.m_DisplayNameText;
+                        bp.RemoveComponents<AddOutgoingDamageTrigger>();
+                        bp.AddComponent<AddOutgoingDamageTriggerTTT>(c => {
+                            c.CheckAbilityType = true;
+                            c.m_AbilityType = AbilityType.Spell;
+                            c.NotZeroDamage = true;
+                            c.CheckEnergyDamageType = true;
+                            c.EnergyType = DamageEnergyType.Fire;
+                            c.ApplyToAreaEffectDamage = true;
+                            c.OncePerAttackRoll = true;
+                            c.Actions = Helpers.CreateActionList(
+                                Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                    a.DamageType = new DamageTypeDescription() {
+                                        Type = DamageType.Energy,
+                                        Energy = DamageEnergyType.Fire
+                                    };
+                                    a.Duration = new ContextDurationValue();
+                                    a.Value = new ContextDiceValue() {
+                                        DiceType = DiceType.D6,
+                                        DiceCountValue = 1,
+                                        BonusValue = 5
+                                    };
+                                    a.SetFactAsReason = true;
+                                    a.IgnoreWeapon = true;
+                                })
+                            );
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(RingOfPyromaniaFeature);
+
+                }
+                void PatchRingOfSacredTouch() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("RingOfSacredTouch")) { return; }
+                    var RingOfSacredTouchItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentRing>("e71794e3f78dea249951fe1fe01af589");
+                    var RingOfSacredTouchFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("0c219d12f87490749b7f39703cceba72");
+
+                    RingOfSacredTouchFeature.TemporaryContext(bp => {
+                        bp.m_DisplayName = RingOfSacredTouchItem.m_DisplayNameText;
+                        bp.GetComponents<AddInitiatorAttackRollTrigger>().ForEach(c => {
+                            ((Conditional)c.Action.Actions.First()).IfTrue = Helpers.CreateActionList(
+                                Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                    a.DamageType = new DamageTypeDescription() {
+                                        Type = DamageType.Energy,
+                                        Energy = DamageEnergyType.Holy
+                                    };
+                                    a.Duration = new ContextDurationValue();
+                                    a.Value = new ContextDiceValue() {
+                                        DiceType = DiceType.D6,
+                                        DiceCountValue = 1,
+                                        BonusValue = 0
+                                    };
+                                    a.SetFactAsReason = true;
+                                    a.IgnoreWeapon = true;
+                                })
+                            );
+                        });
+                        bp.GetComponents<AddInitiatorAttackWithWeaponTrigger>().ForEach(c => {
+                            ((Conditional)c.Action.Actions.First()).IfTrue = Helpers.CreateActionList(
+                                Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                    a.DamageType = new DamageTypeDescription() {
+                                        Type = DamageType.Energy,
+                                        Energy = DamageEnergyType.Holy
+                                    };
+                                    a.Duration = new ContextDurationValue();
+                                    a.Value = new ContextDiceValue() {
+                                        DiceType = DiceType.D6,
+                                        DiceCountValue = 1,
+                                        BonusValue = 0
+                                    };
+                                    a.SetFactAsReason = true;
+                                    a.IgnoreWeapon = true;
+                                })
+                            );
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(RingOfSacredTouchFeature);
+                }
+                void PatchMallandersInsultBelt() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("MallandersInsultBelt")) { return; }
+                    var MallandersInsultBeltItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentBelt>("f21d7afb2cd9c2a408677be2059eab19");
+                    var MallandersInsultBeltBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("55f44ad3de06b6b4083046a65469dde4");
+
+                    MallandersInsultBeltBuff.TemporaryContext(bp => {
+                        bp.m_DisplayName = MallandersInsultBeltItem.m_DisplayNameText;
+                        bp.RemoveComponents<AddOutgoingDamageTrigger>();
+                        bp.AddComponent<AddOutgoingDamageTriggerTTT>(c => {
+                            c.CheckAbilityType = true;
+                            c.m_AbilityType = AbilityType.Spell;
+                            c.CheckEnergyDamageType = true;
+                            c.EnergyType = DamageEnergyType.Fire;
+                            c.OncePerAttackRoll = true;
+                            c.Actions = Helpers.CreateActionList(
+                                Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                    a.DamageType = new DamageTypeDescription() {
+                                        Type = DamageType.Energy,
+                                        Energy = DamageEnergyType.Unholy
+                                    };
+                                    a.Duration = new ContextDurationValue();
+                                    a.Value = new ContextDiceValue() {
+                                        DiceType = DiceType.D6,
+                                        DiceCountValue = 2,
+                                        BonusValue = 0
+                                    };
+                                    a.SetFactAsReason = true;
+                                    a.IgnoreWeapon = true;
+                                })
+                            );
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(MallandersInsultBeltBuff);
+                }
+                void PatchCallOfFieryThingsClothes() {
+                    if (Main.TTTContext.Fixes.Items.Equipment.IsDisabled("CallOfFieryThingsClothes")) { return; }
+
+                    var CallOfFieryThingsClothesItem = BlueprintTools.GetBlueprint<BlueprintItemEquipmentShirt>("7453858a493f49239b7c99657c80df58");
+                    var CallOfFieryThingsClothesFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("7f45506d6cfe40178d010a1421873094");
+                    var CallOfFieryThingsClothesBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("7c209cd742f6478d9584fd8279b0af7f");
+
+                    CallOfFieryThingsClothesFeature.TemporaryContext(bp => {
+                        bp.m_DisplayName = CallOfFieryThingsClothesItem.m_DisplayNameText;
+                        bp.RemoveComponents<AddOutgoingDamageTrigger>();
+                        bp.AddComponent<AddOutgoingDamageTriggerTTT>(c => {
+                            c.IgnoreDamageFromThisFact = true;
+                            c.CheckAbilityType = true;
+                            c.m_AbilityType = AbilityType.Spell;
+                            c.NotZeroDamage = true;
+                            c.CheckEnergyDamageType = true;
+                            c.EnergyType = DamageEnergyType.Fire;
+                            c.OncePerAttackRoll = true;
+                            c.Actions = Helpers.CreateActionList(
+                                Helpers.Create<ContextActionDealDamageTTT>(a => {
+                                    a.DamageType = new DamageTypeDescription() {
+                                        Type = DamageType.Energy,
+                                        Energy = DamageEnergyType.Fire
+                                    };
+                                    a.Duration = new ContextDurationValue();
+                                    a.Value = new ContextDiceValue() {
+                                        DiceType = DiceType.D6,
+                                        DiceCountValue = 4,
+                                        BonusValue = 0
+                                    };
+                                    a.SetFactAsReason = true;
+                                    a.IgnoreWeapon = true;
+                                }),
+                                Helpers.Create<ContextActionApplyBuff>(a => {
+                                    a.m_Buff = CallOfFieryThingsClothesBuff;
+                                    a.Permanent = true;
+                                    a.DurationValue = new ContextDurationValue() {
+                                        DiceCountValue = new ContextValue(),
+                                        BonusValue = new ContextValue()
+                                    };
+                                })
+                            );
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(CallOfFieryThingsClothesFeature);
+                }
+
             }
         }
         [HarmonyPatch(typeof(ItemStatHelper), nameof(ItemStatHelper.GetUseMagicDeviceDC))]

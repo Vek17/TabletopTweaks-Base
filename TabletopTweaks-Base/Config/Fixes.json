@@ -2082,7 +2082,7 @@
         "AspectOfTheAsp": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Will now actually grant damage on ray spells."
+          "Description": "Will now actually grant damage on ray spells and extra damage no longer benefits from other bonuses."
         },
         "BaneOfSpirit": {
           "Enabled": true,
@@ -2098,6 +2098,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now actually grants the stated bonuses."
+        },
+        "CallOfFieryThingsClothes": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Extra damage no longer benefits from other bonuses."
         },
         "FixScrollUMDDCs": {
           "Enabled": true,
@@ -2124,6 +2129,11 @@
           "Homebrew": false,
           "Description": "Now grants +2 DC instead of +1 DC."
         },
+        "MallandersInsultBelt": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Extra damage no longer benefits from other bonuses."
+        },
         "ManglingFrenzy": {
           "Enabled": true,
           "Homebrew": false,
@@ -2148,6 +2158,16 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now grants speed matching the item description."
+        },
+        "RingOfPyromania": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Extra damage no longer benefits from other bonuses."
+        },
+        "RingOfSacredTouch": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Extra damage no longer benefits from other bonuses."
         }
       },
       "IsExpanded": true
