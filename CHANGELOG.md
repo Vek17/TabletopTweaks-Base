@@ -1,3 +1,7 @@
+## Version 2.5.19
+* Fixes
+    * Fixed issue where Fireball - Cluster Bombs did not scale correctly with spell specilization.
+
 ## Version 2.5.18
 *Added Content
     * Mythic Abilities

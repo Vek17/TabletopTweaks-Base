@@ -72,6 +72,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     | (Metamagic)CustomMetamagic.Flaring
                     | (Metamagic)CustomMetamagic.Intensified
                     | (Metamagic)CustomMetamagic.Piercing;
+                bp.m_Parent = Fireball.ToReference<BlueprintAbilityReference>();
                 bp.Range = AbilityRange.Medium;
                 bp.EffectOnAlly = AbilityEffectOnUnit.Harmful;
                 bp.EffectOnEnemy = AbilityEffectOnUnit.Harmful;
