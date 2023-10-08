@@ -29,13 +29,13 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     "the creature attacking you with that effect must succeed at a Will save (at the same DC) or be stunned for 1 round.");
                 bp.AddComponent<AdamantineMindTrigger>(c => {
                     c.Action = Helpers.CreateActionList(
-                        new ContextActionApplyBuff() { 
+                        new ContextActionApplyBuff() {
                             m_Buff = Stunned,
                             DurationValue = new ContextDurationValue() {
                                 DiceCountValue = 0,
                                 BonusValue = 1
                             }
-                        }    
+                        }
                     );
                 });
                 bp.AddComponent<SavingThrowBonusAgainstDescriptor>(c => {

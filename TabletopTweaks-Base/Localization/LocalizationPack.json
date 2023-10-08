@@ -727,6 +727,281 @@
       "esES": null
     },
     {
+      "Key": "4f0ee03293aa4a5aa1a7dae5debed2dd",
+      "SimpleName": "ArcaneMetamastery.Description",
+      "ProcessTemplates": true,
+      "enGB": "As a swift action, you can pick any one metamagic feat you know that increases the slot level of the spell by up to 2 levels. For the next 10 rounds, you can apply this metamagic feat to any arcane spell you cast without increasing the spell slot used or casting time. You can’t have more than one use of this ability active at a time. If you use this ability again, any previous use immediately ends.\nYou can use this ability a number of times per day equal to 1 plus your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b8693c39731f42d4b9bcfbbdc7cc712e",
+      "SimpleName": "ArcaneMetamasteryBaseAbility.Description",
+      "ProcessTemplates": true,
+      "enGB": "As a swift action, you can pick any one metamagic feat you know that increases the slot level of the spell by up to 2 levels. For the next 10 rounds, you can apply this metamagic feat to any arcane spell you cast without increasing the spell slot used or casting time. You can’t have more than one use of this ability active at a time. If you use this ability again, any previous use immediately ends.\nYou can use this ability a number of times per day equal to 1 plus your mythic rank.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e183103f042340f38fa6510d14efcf59",
+      "SimpleName": "ArcaneMetamasteryBaseAbility.Duration",
+      "ProcessTemplates": false,
+      "enGB": "10 rounds",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "f82ec110d6f546a5869069ee0c25c85d",
+      "SimpleName": "ArcaneMetamasteryBaseAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3063f3e358f9465c88fef84202acfe91",
+      "SimpleName": "ArcaneMetamasteryBolsteredAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Bolstered",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b1785d30e93546548217c314df0ac5ef",
+      "SimpleName": "ArcaneMetamasteryBurningAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Burning",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "026db25ff22141f183c2a6849866f3d1",
+      "SimpleName": "ArcaneMetamasteryElementalSpellAcidAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Elemental Spell (Acid)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a300a65cfcc5474da89b80403fe05f15",
+      "SimpleName": "ArcaneMetamasteryElementalSpellColdAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Elemental Spell (Cold)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6bd9f5dfc0fe448d860aec8c6675dbca",
+      "SimpleName": "ArcaneMetamasteryElementalSpellElectricityAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Elemental Spell (Electricity)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "be02fd57f0524e9c8ac8ae9ae45a78bd",
+      "SimpleName": "ArcaneMetamasteryElementalSpellFireAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Elemental Spell (Fire)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "89a501000e044cba997d9274a7928788",
+      "SimpleName": "ArcaneMetamasteryEmpowerAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Empower",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "6902c595e2d5448fa01b439eec892de1",
+      "SimpleName": "ArcaneMetamasteryEncouragingAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Encouraging",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a5cd08a6d40f4f61823d2e0042d779ce",
+      "SimpleName": "ArcaneMetamasteryExtendAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Extend",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c330eef177424e2fa650c07ad1bb72c3",
+      "SimpleName": "ArcaneMetamasteryFlaringAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Flaring",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1e786ff6b423466c97d8ac499cb15872",
+      "SimpleName": "ArcaneMetamasteryGreater.Description",
+      "ProcessTemplates": true,
+      "enGB": "You can apply a metamagic feat with Arcane Metamastery that increases the slot level of the spell by up to 4 levels instead of 2.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ff8d17dbc0bc44ff8ba4fc679207b644",
+      "SimpleName": "ArcaneMetamasteryGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "Greater Arcane Metamastery",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "285c27fdf77840c2b9214bc5260c4b33",
+      "SimpleName": "ArcaneMetamasteryIntensifiedAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Intensified",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "153b62420bcb46d99d72784ec89a08c0",
+      "SimpleName": "ArcaneMetamasteryMaximizeAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Maximize",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ff75ebd197d34c71a1b7bbc960b9843e",
+      "SimpleName": "ArcaneMetamasteryPersistentAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Persistent",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "78dadcf4f1cd4512bb3e7423762d5265",
+      "SimpleName": "ArcaneMetamasteryPiercingAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Piercing",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b867ebe9e1a348818155fa1250de07c2",
+      "SimpleName": "ArcaneMetamasteryQuickenAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Quicken",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4cd2d91e80674192920463c898c81106",
+      "SimpleName": "ArcaneMetamasteryReachAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Reach",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4ad387d123024573b889206ea7f3bc9c",
+      "SimpleName": "ArcaneMetamasteryRimeAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Rime",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "099d3623dbcb47478b848d6b868f46ea",
+      "SimpleName": "ArcaneMetamasterySelectiveAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Selective",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e9fa27f4f30f4a74820e66cb2807ce18",
+      "SimpleName": "ArcaneMetamasterySolidShadowsAbility.Name",
+      "ProcessTemplates": false,
+      "enGB": "Arcane Metamastery — Solid Shadows",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "a69aa7ef4a14421fafc038e50b3afb3a",
       "SimpleName": "ArcaneWeaponFlamingBurstBuff_TTT.Name",
       "ProcessTemplates": false,
@@ -958,17 +1233,6 @@
       "esES": null
     },
     {
-      "Key": "9fd71c48669a40c1a071aa9195fc988e",
-      "SimpleName": "ArmoredJuggernautFeature.Description",
-      "ProcessTemplates": true,
-      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
-      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Если воин достигает 19-го уровня и у него есть классовая черта Мастерство Ношения Брони, значения Снижения Урона дополнительно повышаеются на 5. Снижение Урона от этой способности суммируется со Снижением Урона, полученным от адамантиновой брони, но не с другими разновилностями Снижения Урона.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
-      "esES": null
-    },
-    {
       "Key": "30403b099bed4cf79d1619ad891aecd3",
       "SimpleName": "ArmoredJuggernautFeature.Description",
       "ProcessTemplates": true,
@@ -977,6 +1241,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "穿着重甲时，战士获得DR 1/—。7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值可以和战士19级获得的盔甲大师特性，以及精金盔甲提供的DR叠加，但不和任何其它形式的伤害减免叠加。",
+      "esES": null
+    },
+    {
+      "Key": "9fd71c48669a40c1a071aa9195fc988e",
+      "SimpleName": "ArmoredJuggernautFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "When wearing heavy armor, the fighter gains DR 1/—. At 7th level, the fighter gains DR 1/— when wearing medium armor, and DR 2/— when wearing heavy armor. At 11th level, the fighter gains DR 1/— when wearing light armor, DR 2/— when wearing medium armor, and DR 3/— when wearing heavy armor. If the fighter is 19th level and has the armor mastery class feature, these DR values increase by 5. The DR from this ability stacks with that provided by adamantine armor, but not with other forms of damage reduction.",
+      "ruRU": "Пока воин облачён в тяжёлую броню, он получает Снижение Урона 1/-. На 7-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в среднюю броню, и 2/-, если его броня тяжёлая. На 11-ом уровне значение Снижения Урона составляет 1/-, когда воин облачён в лёгкую броню, 2/- для средней брони и 3/- для тяжёлой. Если воин достигает 19-го уровня и у него есть классовая черта Мастерство Ношения Брони, значения Снижения Урона дополнительно повышаеются на 5. Снижение Урона от этой способности суммируется со Снижением Урона, полученным от адамантиновой брони, но не с другими разновилностями Снижения Урона.",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "当战士穿着重甲时，他获得DR1/—。在7级时，战士在穿着中甲时获得DR 1/—，在穿着重甲时获得DR 2/—。在11级时，战士在穿着轻甲时获得DR 1/—，在穿着中甲时获得DR 2/—，在穿着重甲时获得DR 3/—。这些加值和盔甲大师叠加，但不和其他任何Dr叠加，因为你开启了设置DrRework。",
       "esES": null
     },
     {
@@ -1640,10 +1915,10 @@
       "esES": null
     },
     {
-      "Key": "f9c0c5b3bb92421aae146892983d4588",
+      "Key": "0cf16908b3cd4a4dbcb7dfceb668e41d",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (World)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Persuasion <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1651,10 +1926,10 @@
       "esES": null
     },
     {
-      "Key": "0cf16908b3cd4a4dbcb7dfceb668e41d",
+      "Key": "f9c0c5b3bb92421aae146892983d4588",
       "SimpleName": "BackgroundScholarLecturer.Description",
       "ProcessTemplates": true,
-      "enGB": "Lecturer adds Knowledge (World) and Persuasion to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Persuasion checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Lecturer adds <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (World)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Persuasion\">Persuasion</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Persuasion <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1673,10 +1948,10 @@
       "esES": null
     },
     {
-      "Key": "854204882b884cbe996c29be0716c21b",
+      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1684,10 +1959,10 @@
       "esES": null
     },
     {
-      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
+      "Key": "854204882b884cbe996c29be0716c21b",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -3928,17 +4203,6 @@
       "esES": null
     },
     {
-      "Key": "37df8bdd9bcf476e82186546ba976884",
-      "SimpleName": "Brass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Flaming",
-      "ruRU": "Огненный",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "焚炎",
-      "esES": null
-    },
-    {
       "Key": "2f303fa3f6e044b0bfd8ca5ff9241465",
       "SimpleName": "Brass.Prefix",
       "ProcessTemplates": false,
@@ -3947,6 +4211,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "炽焰",
+      "esES": null
+    },
+    {
+      "Key": "37df8bdd9bcf476e82186546ba976884",
+      "SimpleName": "Brass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Flaming",
+      "ruRU": "Огненный",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "焚炎",
       "esES": null
     },
     {
@@ -4236,17 +4511,6 @@
       "esES": null
     },
     {
-      "Key": "f3459f2cd8a34e399c877b9c643ac371",
-      "SimpleName": "BurningSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Burning-TabletopTweaks-Base}Burning{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Burning-TabletopTweaks-Base}燃烧{/g}",
-      "esES": null
-    },
-    {
       "Key": "99c2b7b51820499ca8e940b97d5a07e3",
       "SimpleName": "BurningSpellMetamagic",
       "ProcessTemplates": false,
@@ -4255,6 +4519,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "燃烧",
+      "esES": null
+    },
+    {
+      "Key": "f3459f2cd8a34e399c877b9c643ac371",
+      "SimpleName": "BurningSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Burning-TabletopTweaks-Base}Burning{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Burning-TabletopTweaks-Base}燃烧{/g}",
       "esES": null
     },
     {
@@ -6282,17 +6557,6 @@
       "esES": null
     },
     {
-      "Key": "cf8107b3b65248e7859f9c167093aaee",
-      "SimpleName": "EncouragingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}Encouraging{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
-      "esES": null
-    },
-    {
       "Key": "f3392cd7203c43349f723fcda573497c",
       "SimpleName": "EncouragingSpellMetamagic",
       "ProcessTemplates": false,
@@ -6301,6 +6565,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "激励",
+      "esES": null
+    },
+    {
+      "Key": "cf8107b3b65248e7859f9c167093aaee",
+      "SimpleName": "EncouragingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}Encouraging{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
       "esES": null
     },
     {
@@ -11342,17 +11617,6 @@
       "esES": null
     },
     {
-      "Key": "f467d13c43764235a30cb4aca2e1edcf",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Piercing",
-      "ruRU": "Пробивающее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "穿刺",
-      "esES": null
-    },
-    {
       "Key": "c4211dd8fabd410ab02c99ff971911ed",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -11361,6 +11625,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f467d13c43764235a30cb4aca2e1edcf",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Piercing",
+      "ruRU": "Пробивающее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "穿刺",
       "esES": null
     },
     {

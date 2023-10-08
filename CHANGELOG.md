@@ -1,3 +1,9 @@
+## Version 2.5.18
+*Added Content
+    * Mythic Abilities
+        * Arcane Metamastery
+            * You can pick any one metamagic feat you know that increases the slot level of the spell by up to 2 levels. For the next 10 rounds, you can apply this metamagic feat to any arcane spell you cast without increasing the spell slot used or casting time.
+
 ## Version 2.5.17
 * Fixes
     * Fixed issue where Old Master did not work with Quarterstaff Master.
