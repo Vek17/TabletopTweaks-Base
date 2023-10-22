@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -10,6 +11,7 @@ using TabletopTweaks.Core;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
+using static TabletopTweaks.Core.Utilities.ClassTools;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     internal class WinterWitch {
@@ -24,6 +26,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 AddColdFlesh();
                 AddUnnaturalCold();
                 PatchUnearthlyCold();
+                PatchWitchFakeLevels();
             }
             static void AddColdFlesh() {
                 if (TTTContext.Fixes.WinterWitch.IsDisabled("ColdFlesh")) { return; }
@@ -80,6 +83,20 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     });
                 });
                 TTTContext.Logger.LogPatch(WinterWitchUnearthlyCold);
+            }
+            static void PatchWitchFakeLevels() {
+                if (TTTContext.Fixes.WinterWitch.IsDisabled("WitchProgression")) { return; }
+
+                var WinterWitchFrostPower = BlueprintTools.GetBlueprint<BlueprintFeature>("a593f3f1f8137c74da7569dbdac62949");
+                WinterWitchFrostPower.TemporaryContext(bp => {
+                    bp.AddComponent<ClassLevelsForPrerequisites>(c => {
+                        c.m_FakeClass = ClassReferences.WitchClass;
+                        c.m_ActualClass = ClassReferences.WinterWitchClass;
+                        c.Modifier = 1.0;
+                        c.Summand = 0;
+                    });
+                });
+                TTTContext.Logger.LogPatch(WinterWitchFrostPower);
             }
         }
     }

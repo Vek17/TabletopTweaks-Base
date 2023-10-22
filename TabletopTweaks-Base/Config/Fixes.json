@@ -1287,6 +1287,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Adds the Unnatural Cold feature to winter witch which ignore half of a target's cold resistance."
+      },
+      "WitchProgression": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Lets winter witch count as witch levels for feat prerequisites."
       }
     },
     "IsExpanded": true

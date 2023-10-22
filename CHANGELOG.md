@@ -1,9 +1,14 @@
+## Version 2.5.20
+* Fixes
+    * Winter Witch
+        * Now counts as witch levels for feat prerequisites.
+
 ## Version 2.5.19
 * Fixes
     * Fixed issue where Fireball - Cluster Bombs did not scale correctly with spell specilization.
 
 ## Version 2.5.18
-*Added Content
+* Added Content
     * Mythic Abilities
         * Arcane Metamastery
             * You can pick any one metamagic feat you know that increases the slot level of the spell by up to 2 levels. For the next 10 rounds, you can apply this metamagic feat to any arcane spell you cast without increasing the spell slot used or casting time.

@@ -125,7 +125,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                             .OfType<ContextActionSpawnAreaEffect>()
                             .Where(a => a.AreaEffect.FlattenAllActions()
                                 .OfType<ContextActionDealDamage>()
-                                .Any(a => a.Value.DiceCountValue.ValueType == ContextValueType.Rank))
+                                .Any(a => a.Value?.DiceCountValue?.ValueType == ContextValueType.Rank))
                             .Any());
                 if (isIntensifiedSpell) {
                     if (!spell.AvailableMetamagic.HasMetamagic((Metamagic)CustomMetamagic.Intensified)) {

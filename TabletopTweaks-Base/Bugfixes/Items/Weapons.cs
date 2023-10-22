@@ -143,6 +143,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     var JudgementOfRuleSecondItem = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("ca0e81e14d675c34b862aad509be573d");
                     var JudgementOfRuleEnchantment = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("74a8dc2f9ce6ced4fa211c20fa4def32");
                     JudgementOfRuleEnchantment.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    JudgementOfRuleEnchantment.RemoveComponents<AdditionalDiceOnAttack>();
                     JudgementOfRuleEnchantment.AddComponent<WeaponConditionalDamageDice>(c => {
                         c.Damage = new DamageDescription() {
                             Dice = new DiceFormula() {
