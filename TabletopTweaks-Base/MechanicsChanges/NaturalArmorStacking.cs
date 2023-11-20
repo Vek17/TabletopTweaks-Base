@@ -89,11 +89,13 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 void PatchAnimalCompanionFeatures() {
                     var AnimalCompanionSelectionBase = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
                     var AnimalCompanionFeatureHorse_PreorderBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("bfeb9be0a3c9420b8b2beecc8171029c");
+                    var GhostRiderSpiritedMountPetFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("362167dc391341ce80e402501ac893db");
                     var AnimalCompanionNaturalArmor = BlueprintTools.GetBlueprint<BlueprintFeature>("0d20d88abb7c33a47902bd99019f2ed1");
                     var AnimalCompanionStatFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
                     IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = AnimalCompanionSelectionBase.m_AllFeatures.Concat(AnimalCompanionSelectionBase.m_Features)
                         .Select(feature => feature.Get())
                         .AddItem(AnimalCompanionFeatureHorse_PreorderBonus)
+                        .AddItem(GhostRiderSpiritedMountPetFeature)
                         .Where(feature => feature.GetComponent<AddPet>())
                         .Select(feature => feature.GetComponent<AddPet>())
                         .Where(component => component.m_UpgradeFeature != null)
