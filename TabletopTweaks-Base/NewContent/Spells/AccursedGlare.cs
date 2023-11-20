@@ -4,6 +4,7 @@ using Kingmaker.Craft;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.ResourceLinks;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -34,7 +35,7 @@ namespace TabletopTweaks.Base.NewContent.Spells {
                 bp.m_Flags = BlueprintBuff.Flags.IsFromSpell;
                 bp.AddComponent<ModifyD20>(c => {
                     c.RollsAmount = 1;
-                    c.m_SavingThrowType = ModifyD20.InnerSavingThrowType.All;
+                    c.m_SavingThrowType = FlaggedSavingThrowType.All;
                     c.Rule = RuleType.AttackRoll | RuleType.SavingThrow;
                     c.RollResult = new ContextValue();
                     c.Bonus = new ContextValue();

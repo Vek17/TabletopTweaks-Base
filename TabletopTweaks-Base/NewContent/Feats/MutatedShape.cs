@@ -25,6 +25,9 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var ShifterWildShapeFeyFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("24a4fb8991344fd5beb2a1a1a517da87");
             var ShifterDragonFormFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d8e9d249a426400bb47fefa6d0158049");
             var ShifterWildShapeManticoreFeatureLevelUp = BlueprintTools.GetBlueprint<BlueprintFeature>("719be33c87f94ed58414ba3eb5a4b664");
+            var MajorFormWereratFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("be3175e2ce274bd5b272b9bf6e8a0742");
+            var MajorFormWeretigerFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("7326845196074e8d96214fd1e48eb080");
+            var MajorFormWerewolfFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("937e68e1f8d84e4ba45d3e7472abf6ee");
 
             var MutatedShapeFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "MutatedShapeFeature", bp => {
                 bp.SetName(TTTContext, "Mutated Shape");
@@ -52,7 +55,10 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     ShifterDragonFormFeature,
                     GriffonheartShifterGriffonShapeFakeFeature,
                     ShifterWildShapeFeyFeatureLevelUp,
-                    ShifterWildShapeManticoreFeatureLevelUp
+                    ShifterWildShapeManticoreFeatureLevelUp,
+                    MajorFormWereratFeature,
+                    MajorFormWeretigerFeature,
+                    MajorFormWerewolfFeature
                 );
                 bp.AddComponent<FeatureTagsComponent>(c => {
                     c.FeatureTags = FeatureTag.Attack | FeatureTag.ClassSpecific | FeatureTag.Melee;

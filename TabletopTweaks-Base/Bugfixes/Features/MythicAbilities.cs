@@ -48,23 +48,26 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 var BestJokes = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("ec739ff2292290f43b20689ff32de112");
                 var HideousLaughterBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("4b1f07a71a982824988d7f48cd49f3f8");
 
-                HideousLaughter.FlattenAllActions().OfType<Conditional>()
-                    .Where(conditional => conditional.ConditionsChecker.Conditions
-                        .OfType<ContextConditionCasterHasFact>()
-                        .Any(c => c.m_Fact.Guid == BestJokes.Guid))
-                    .ForEach(conditional => {
-                        conditional.IfTrue = Helpers.CreateActionList(
-                            new ContextDuplicateCastSpellOnNewTarget() {
-                                SameFaction = true,
-                                NumberOfTargets = 1,
-                                Radius = 30.Feet(),
-                                m_FilterNoFact = HideousLaughterBuff
-                            }
-                        );
-                    });
+                PatchHideouLaughter(HideousLaughter);
+                PatchHideouLaughter(HideousLaughterTiefling);
 
-                TTTContext.Logger.LogPatch(HideousLaughter);
-                TTTContext.Logger.LogPatch(HideousLaughterTiefling);
+                void PatchHideouLaughter(BlueprintAbility spell) {
+                    spell.FlattenAllActions().OfType<Conditional>()
+                        .Where(conditional => conditional.ConditionsChecker.Conditions
+                            .OfType<ContextConditionCasterHasFact>()
+                            .Any(c => c.m_Fact.Guid == BestJokes.Guid))
+                        .ForEach(conditional => {
+                            conditional.IfTrue = Helpers.CreateActionList(
+                                new ContextDuplicateCastSpellOnNewTarget() {
+                                    SameFaction = true,
+                                    NumberOfTargets = 1,
+                                    Radius = 30.Feet(),
+                                    m_FilterNoFact = HideousLaughterBuff
+                                }
+                            );
+                        });
+                    TTTContext.Logger.LogPatch(spell);
+                }
             }
             static void PatchCloseToTheAbyss() {
                 if (Main.TTTContext.Fixes.MythicAbilities.IsDisabled("CloseToTheAbyss")) { return; }

@@ -1,3 +1,9 @@
+## Version 2.6.1
+* Updated for DLC 5
+* Fixes
+    * Mythic Abilities
+        * Best Jokes no longer breaks for Tiefling racial Hideous Laughter.
+
 ## Version 2.5.20
 * Fixes
     * Winter Witch

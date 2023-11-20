@@ -207,7 +207,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 void PatchWildShape() {
                     WildShapeTools.WildShapeBuffs.AllBuffs.ForEach(buff => {
                         buff.GetComponents<AddStatBonus>()
-                            .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor)
+                            .Where(c => c.Descriptor == ModifierDescriptor.NaturalArmor || c.Descriptor == ModifierDescriptor.NaturalArmorForm)
                             .ForEach(c => c.Descriptor = (ModifierDescriptor)NaturalArmor.Racial);
                         TTTContext.Logger.LogPatch("Patched", buff);
                     });

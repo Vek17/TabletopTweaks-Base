@@ -14,6 +14,7 @@ using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -1224,7 +1225,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         c.Rule = RuleType.All;
                         c.RollsAmount = 1;
                         c.TakeBest = false;
-                        c.m_SavingThrowType = ModifyD20.InnerSavingThrowType.All;
+                        c.m_SavingThrowType = FlaggedSavingThrowType.All;
                         c.m_TandemTripFeature = new BlueprintFeatureReference();
                         c.RollResult = new ContextValue();
                         c.Bonus = new ContextValue();

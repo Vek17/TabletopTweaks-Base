@@ -13,7 +13,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
             private static readonly Func<ModifiableValue.Modifier, bool> FilterGrantsSkillpoints = delegate (ModifiableValue.Modifier m) {
                 ModifierDescriptor modDescriptor = m.ModDescriptor;
                 return
-                    ModifiableValue.FilterIsRacial(m)
+                    ModifiableValue.FilterIsRacialOrInherent(m)
                     || m.ModDescriptor == ModifierDescriptor.Inherent;
             };
 
