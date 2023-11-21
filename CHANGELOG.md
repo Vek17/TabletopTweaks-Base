@@ -1,5 +1,6 @@
 ## Version 2.6.1
-* Updated for DLC 5
+* Basic Updates for DLC 5
+* Integration for new shifter archetype
 * Fixes
     * Mythic Abilities
         * Best Jokes no longer breaks for Tiefling racial Hideous Laughter.

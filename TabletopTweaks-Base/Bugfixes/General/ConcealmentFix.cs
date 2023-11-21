@@ -83,7 +83,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 if (initiator.Descriptor.State.HasCondition(UnitCondition.Blindness)) {
                     concealment = Concealment.Total;
                 }
-                if (initiator.Descriptor.State.HasCondition(UnitCondition.PartialConcealmentOnAttacks)) {
+                if (concealment == Concealment.None && initiator.Descriptor.State.HasCondition(UnitCondition.PartialConcealmentOnAttacks)) {
                     concealment = Concealment.Partial;
                 }
                 if (concealment == Concealment.None && Game.Instance.Player.Weather.ActualWeather >= BlueprintRoot.Instance.WeatherSettings.ConcealmentBeginsOn) {
