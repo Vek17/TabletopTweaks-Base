@@ -1,3 +1,8 @@
+## Version 2.6.2
+* Fixes
+    * Mythic Armor Focus (Heavy Armor) — Endurance
+        * DR now correctly stacks with everything 
+
 ## Version 2.6.1
 * Basic Updates for DLC 5
 * Integration for new shifter archetype

@@ -458,6 +458,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 PatchArmorMastery();
                 PatchArmoredJuggernaut();
                 PatchThroneKeeper();
+                PatchMythicArmorFocus();
             }
 
             static void PatchArmorDR() {
@@ -611,17 +612,25 @@ namespace TabletopTweaks.Base.MechanicsChanges {
             }
 
             static void PatchLichIndestructibleBonesDR() {
-                var MythicPowersFromDLC1EffectBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("08eba577806847ac9a814694013f7783");
+                var lichIndestructibleBonesFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("42274a4428cb43b40acf771a7f5ddfac");
 
-                MythicPowersFromDLC1EffectBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
+                lichIndestructibleBonesFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
+                    newRes.AddToAllStacks = true;
+                });
+            }
+
+            static void PatchMythicArmorFocus() {
+                var ArmorFocusHeavyMythicFeatureVar1Buff = BlueprintTools.GetBlueprint<BlueprintBuff>("af7a83e16d1442cb87e84f879bf2141b");
+
+                ArmorFocusHeavyMythicFeatureVar1Buff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
                     newRes.AddToAllStacks = true;
                 });
             }
 
             static void PatchInevitableFateDR() {
-                BlueprintFeature lichIndestructibleBonesFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("42274a4428cb43b40acf771a7f5ddfac");
+                var MythicPowersFromDLC1EffectBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("08eba577806847ac9a814694013f7783");
 
-                lichIndestructibleBonesFeature.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
+                MythicPowersFromDLC1EffectBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
                     newRes.AddToAllStacks = true;
                 });
             }
