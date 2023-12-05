@@ -1,4 +1,9 @@
-## Version 2.6.2
+# Version 2.6.3
+* Fixes
+    * Weapon Training features should work correctly again.
+    * Hag of Gyronna now qualifies for second patron.
+
+# Version 2.6.2
 * Fixes
     * Mythic Armor Focus (Heavy Armor) — Endurance
         * DR now correctly stacks with everything 

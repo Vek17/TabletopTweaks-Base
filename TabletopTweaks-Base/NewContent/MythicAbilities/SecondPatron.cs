@@ -15,6 +15,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
             var ElementalWitchPatronSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("3172b6960c774e19ad029c5e4a96d3e4");
             var HagboundWitchPatronSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("0b9af221d99a91842b3a2afbc6a68a1e");
             var WitchPatronSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("381cf4c890815d049a4420c6f31d063f");
+            var WitchDarkPactPatronProgression = BlueprintTools.GetBlueprint<BlueprintFeature>("f4f3d8395db347938237c1bc77820781");
 
             var WitchHexAmelioratingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("3cdd3660fb69f3e4db0160fa97dfa85d");
 
@@ -43,6 +44,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 bp.AddPrerequisiteFeature(WitchPatronSelection, GroupType.Any);
                 bp.AddPrerequisiteFeature(ElementalWitchPatronSelection, GroupType.Any);
                 bp.AddPrerequisiteFeature(HagboundWitchPatronSelection, GroupType.Any);
+                bp.AddPrerequisiteFeature(WitchDarkPactPatronProgression, GroupType.Any);
                 bp.AddPrerequisiteFeature(SecondPatronRequisiteFeature, GroupType.Any);
             });
 
@@ -59,6 +61,9 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     });
                     TTTContext.Logger.LogPatch("Patched", patron);
                 });
+            SecondPatronRequisiteFeature.AddComponent<AddFacts>(c => {
+                c.m_Facts = new BlueprintUnitFactReference[] { SecondPatronRequisiteFeature.ToReference<BlueprintUnitFactReference>() };
+            });
         }
     }
 }

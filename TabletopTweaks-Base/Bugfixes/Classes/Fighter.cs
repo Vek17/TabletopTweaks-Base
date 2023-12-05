@@ -279,11 +279,11 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     return false;
                 }
                 int num = 0;
-                foreach (EntityFact entityFact in __instance.WeaponTrainings) {
+                foreach (EntityFact entityFact in __instance.m_weaponTrainings) {
                     foreach (EntityFactComponent entityFactComponent in entityFact.Components) {
                         WeaponGroupAttackBonus weaponGroupAttackBonus = entityFactComponent.SourceBlueprintComponent as WeaponGroupAttackBonus;
                         WeaponFighterGroup? weaponFighterGroup = (weaponGroupAttackBonus != null) ? new WeaponFighterGroup?(weaponGroupAttackBonus.WeaponGroup) : null;
-                        WeaponFighterGroupFlags fighterGroup = weapon.Blueprint.Type.FighterGroup;
+                        WeaponFighterGroupFlags fighterGroup = weapon.Blueprint.FighterGroup;
                         if (weaponFighterGroup == null) {
                             continue;
                         }
