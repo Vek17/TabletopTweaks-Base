@@ -757,7 +757,7 @@ All changes are configurable and can be disabled via the unity mod manager menu.
     * Armored Might
         * You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.
     * Armor Master
-        * While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank.
+        * While wearing armor, you reduce the armor check penalty by 1 per mythic rank and increase the maximum Dexterity bonus allowed by by 1 per mythic rank. Additionally, you reduce your arcane spell failure chance from armor and shields by 5% per mythic rank.
     * Enhanced Blessings
         * The effects from your blessings now last twice as long.
     * Favorite Metamagic Persistent
