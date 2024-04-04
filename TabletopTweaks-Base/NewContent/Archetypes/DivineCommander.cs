@@ -38,6 +38,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
         private static readonly BlueprintFeature CavalierTacticianSupportFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("37c496c0c2f04544b83a8d013409fd47");
         private static readonly BlueprintFeatureSelection CavalierTacticianFeatSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("7bc55b5e381358c45b42153b8b2603a6");
 
+        private static readonly BlueprintFeature AnimalCompanionEmptyCompanion = BlueprintTools.GetBlueprint<BlueprintFeature>("472091361cf118049a2b4339c4ea836a");
         private static readonly BlueprintFeature AnimalCompanionFeatureHorse = BlueprintTools.GetBlueprint<BlueprintFeature>("9dc58b5901677c942854019d1dd98374");
         private static readonly BlueprintFeature AnimalCompanionFeatureHorse_PreorderBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("bfeb9be0a3c9420b8b2beecc8171029c");
         private static readonly BlueprintFeature CavalierMountFeatureWolf = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "CavalierMountFeatureWolf");
@@ -127,6 +128,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.m_Icon = CavalierMountSelection.m_Icon;
                 bp.IsPrerequisiteFor = new List<BlueprintFeatureReference>();
                 bp.AddFeatures(
+                    AnimalCompanionEmptyCompanion,
                     AnimalCompanionFeatureHorse,
                     AnimalCompanionFeatureHorse_PreorderBonus,
                     CavalierMountFeatureWolf

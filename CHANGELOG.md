@@ -1,3 +1,7 @@
+# Version 2.6.4
+* Fixes
+    * Divine Commander can no progress existing animal companions.
+
 # Version 2.6.3
 * Fixes
     * Weapon Training features should work correctly again.
