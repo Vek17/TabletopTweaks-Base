@@ -199,7 +199,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 var magusPart = __instance?.Wielder?.Get<UnitPartMagus>();
                 if (magusPart == null) { return; }
                 if (magusPart.CanUseSpellCombatInThisRound) {
-                    if (__instance.Blueprint.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {
+                    if (__instance.CanTakeTwoHands() && !__instance.Blueprint.IsTwoHanded) {
                         __result = false;
                     }
                 }

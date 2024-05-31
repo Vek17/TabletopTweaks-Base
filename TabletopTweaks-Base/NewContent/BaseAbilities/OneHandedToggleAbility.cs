@@ -62,7 +62,7 @@ namespace TabletopTweaks.Base.NewContent.BaseAbilities {
             static void Postfix(ItemEntityWeapon __instance, ref bool __result) {
                 if (TTTContext.AddedContent.BaseAbilities.IsDisabled("OneHandedToggle")) { return; }
                 if (__instance.Wielder != null && __instance.Wielder.CustomMechanicsFeature(CustomMechanicsFeature.UseWeaponOneHanded)) {
-                    if (__instance.Blueprint.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {
+                    if (__instance.CanTakeTwoHands() && !__instance.Blueprint.IsTwoHanded) {
                         __result = false;
                     }
                 }

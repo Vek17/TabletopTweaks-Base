@@ -1,6 +1,6 @@
 # Version 2.6.4
 * Fixes
-    * Divine Commander can no progress existing animal companions.
+    * Divine Commander can now progress existing animal companions.
 
 # Version 2.6.3
 * Fixes
