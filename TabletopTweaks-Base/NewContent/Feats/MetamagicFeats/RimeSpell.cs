@@ -33,6 +33,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
             var EntangleBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("f7f6330726121cf4b90a6086b05d2e38");
             var IcyPrisonEntangledBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("c53b286bb06a0544c85ca0f8bcc86950");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
+
             var Icon_RimeSpellFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_RimeSpellFeat.png");
             var Icon_RimeSpellMetamagic = AssetLoader.LoadInternal(TTTContext, folder: "Metamagic", file: "Icon_RimeSpellMetamagic.png", size: 128);
             var Icon_MetamagicRodRimeLesser = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MetamagicRodRimeLesser.png", size: 64);
@@ -63,6 +66,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var FavoriteMetamagicRime = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicRime", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Rime");

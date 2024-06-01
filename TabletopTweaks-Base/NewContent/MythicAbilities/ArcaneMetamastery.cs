@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -25,6 +26,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
     internal class ArcaneMetamastery {
         public static void AddArcaneMetamastery() {
             var Icon_ArcaneMetamastery = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_ArcaneMetamastery.png");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
 
             var EmpowerSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("a1de1e4f92195b442adb946f0e2b9d4e");
             var MaximizeSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("7f2b282626862e345935bbea5e66424b");
@@ -34,6 +36,8 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
             var PersistentSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("cd26b9fa3f734461a0fcedc81cafaaac");
             var SelectiveSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
             var BolsteredSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
+            var PiercingSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("c101ad6879a94204a780506f7a554865");
+            var IntensifiedSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("8ad7fd39abea4722b39eb5a67d606a41");
 
             var IntensifiedSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "IntensifiedSpellFeat");
             var RimeSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "RimeSpellFeat");
@@ -149,6 +153,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     AddBuffRemoval(buff, allBuffs);
                 });
             });
+
             BlueprintBuff CreateArcaneMetamasteryBuff(string name, BlueprintFeature metamagicFeat, BlueprintAbility metamasteryAbility, Action<BlueprintBuff> init = null) {
                 var result = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, $"ArcaneMetamastery{name.Replace(" ", "").Replace("(", "").Replace(")", "")}Buff", bp => {
                     bp.SetName(metamasteryAbility.m_DisplayName);
@@ -233,8 +238,27 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     addFactContextActions.Activated.Actions = addFactContextActions.Activated.Actions.AppendToArray(conditional);
                 }
             }
+            void UpdateSelectionRecomendations(BlueprintFeature feat) {
+                feat.GetComponents<RecommendationNoFeatFromGroup>()
+                    .Where(c => c.m_Features.Any(f => f.deserializedGuid == MagicDeceiverWaySelection.deserializedGuid))
+                    .ForEach(c => {
+                        c.m_FeaturesExlude = c.m_FeaturesExlude.AppendToArray(ArcaneMetamastery.ToReference<BlueprintUnitFactReference>());
+                    });
+            }
 
             if (TTTContext.AddedContent.MythicAbilities.IsDisabled("ArcaneMetamastery")) { return; }
+
+            UpdateSelectionRecomendations(EmpowerSpellFeat);
+            UpdateSelectionRecomendations(MaximizeSpellFeat);
+            UpdateSelectionRecomendations(QuickenSpellFeat);
+            UpdateSelectionRecomendations(ExtendSpellFeat);
+            UpdateSelectionRecomendations(ReachSpellFeat);
+            UpdateSelectionRecomendations(PersistentSpellFeat);
+            UpdateSelectionRecomendations(SelectiveSpellFeat);
+            UpdateSelectionRecomendations(BolsteredSpellFeat);
+            UpdateSelectionRecomendations(PiercingSpell);
+            UpdateSelectionRecomendations(IntensifiedSpell);
+
             FeatTools.AddAsMythicAbility(ArcaneMetamastery);
             FeatTools.AddAsMythicAbility(ArcaneMetamasteryGreater);
 

@@ -25,6 +25,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class PiercingSpell {
         public static void AddPiercingSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
+
             var Icon_PiercingSpellFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_PiercingSpellFeat.png");
             var Icon_PiercingSpellMetamagic = AssetLoader.LoadInternal(TTTContext, folder: "Metamagic", file: "Icon_PiercingSpellMetamagic.png", size: 128);
             var Icon_MetamagicRodPiercingLesser = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MetamagicRodPiercingLesser.png", size: 64);
@@ -53,6 +56,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var FavoriteMetamagicPiercing = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicPiercing", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Piercing");

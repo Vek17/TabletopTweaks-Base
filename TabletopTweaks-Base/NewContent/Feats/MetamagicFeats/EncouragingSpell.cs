@@ -31,6 +31,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class EncouragingSpell {
         public static void AddEncouragingSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
+
             var Icon_EncouragingSpellFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_EncouragingSpellFeat.png");
             var Icon_EncouragingSpellMetamagic = AssetLoader.LoadInternal(TTTContext, folder: "Metamagic", file: "Icon_EncouragingSpellMetamagic.png", size: 128);
             var Icon_MetamagicRodEncouragingLesser = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MetamagicRodEncouragingLesser.png", size: 64);
@@ -62,6 +65,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 6;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var FavoriteMetamagicEncouraging = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicEncouraging", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Encouraging");

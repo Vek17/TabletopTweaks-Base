@@ -32,6 +32,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
         public static void AddFlaringSpell() {
             var DazzledBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("df6d1025da07524429afbae248845ecc");
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
+
             var Icon_FlaringSpellFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_FlaringSpellFeat.png");
             var Icon_FlaringSpellMetamagic = AssetLoader.LoadInternal(TTTContext, folder: "Metamagic", file: "Icon_FlaringSpellMetamagic.png", size: 128);
             var Icon_MetamagicRodFlaringLesser = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MetamagicRodFlaringLesser.png", size: 64);
@@ -63,6 +66,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var FavoriteMetamagicFlaring = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicFlaring", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Flaring");

@@ -31,6 +31,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class ElementalSpell {
         public static void AddElementalSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
 
             var Icon_ElementalSpellFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_ElementalSpellFeat.png");
             var Icon_ElementalSpellFeatAcid = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_ElementalSpellFeatAcid.png");
@@ -68,6 +70,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var ElementalSpellFeatCold = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ElementalSpellFeatCold", bp => {
                 bp.SetName(TTTContext, "Metamagic (Elemental Spell — Cold)");
@@ -90,6 +100,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var ElementalSpellFeatElectricity = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ElementalSpellFeatElectricity", bp => {
                 bp.SetName(TTTContext, "Metamagic (Elemental Spell — Electricity)");
@@ -112,6 +130,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var ElementalSpellFeatFire = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ElementalSpellFeatFire", bp => {
                 bp.SetName(TTTContext, "Metamagic (Elemental Spell — Fire)");
@@ -134,6 +160,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
 
             var ElementalSpellSplitBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ElementalSpellSplitBuff", bp => {
@@ -185,6 +219,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var FavoriteMetamagicElemental = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicElemental", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Elemental Spell");

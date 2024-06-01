@@ -28,6 +28,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class IntensifiedSpell {
         public static void AddIntensifiedSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
+
             var Icon_IntensifiedSpellFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_IntensifiedSpellFeat.png");
             var Icon_IntensifiedSpellMetamagic = AssetLoader.LoadInternal(TTTContext, folder: "Metamagic", file: "Icon_IntensifiedSpellMetamagic.png", size: 128);
             var Icon_MetamagicRodIntensifiedLesser = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MetamagicRodIntensifiedLesser.png", size: 64);
@@ -58,6 +61,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var FavoriteMetamagicIntensified = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicIntensified", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Intensified");

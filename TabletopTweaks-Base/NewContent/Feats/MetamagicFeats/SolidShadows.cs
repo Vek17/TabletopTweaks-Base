@@ -23,6 +23,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
         public static void AddSolidShadows() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
             var SpellFocus = BlueprintTools.GetBlueprintReference<BlueprintFeatureReference>("16fa59cc9a72a6043b566b49184f53fe");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
+
             var Icon_SolidShadowsFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_SolidShadowsFeat.png");
             var Icon_SolidShadowsMetamagic = AssetLoader.LoadInternal(TTTContext, folder: "Metamagic", file: "Icon_SolidShadowsMetamagic.png", size: 128);
 
@@ -52,6 +55,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.SpellSchool = SpellSchool.Illusion;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             if (TTTContext.AddedContent.Feats.IsEnabled("MetamagicSolidShadows")) {
                 MetamagicExtention.RegisterMetamagic(

@@ -36,6 +36,9 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             var FireStormBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("ef7d021abb6bbfd4cad4f2f2b70bcf28");
             var FirstStage_AcidBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6afe27c9a2d64eb890673ff3649dacb3");
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
+            var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
+
             var Icon_BurningSpellFeat = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_BurningSpellFeat.png");
             var Icon_BurningSpellMetamagic = AssetLoader.LoadInternal(TTTContext, folder: "Metamagic", file: "Icon_BurningSpellMetamagic.png", size: 128);
             var Icon_MetamagicRodBurningLesser = AssetLoader.LoadInternal(TTTContext, folder: "Equipment", file: "Icon_MetamagicRodBurningLesser.png", size: 64);
@@ -66,6 +69,14 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     c.Value = 3;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
+                bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
+                    c.m_Features = new BlueprintUnitFactReference[] {
+                        MagicDeceiverWaySelection
+                    };
+                    c.m_FeaturesExlude = new BlueprintUnitFactReference[] {
+                        ArcaneMetamastery
+                    };
+                });
             });
             var FavoriteMetamagicBurning = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicBurning", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Burning");
