@@ -128,12 +128,14 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                         CreateArcaneMetamasteryAbility("Persistent", PersistentSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Selective", SelectiveSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Bolstered", BolsteredSpellFeat).ToReference<BlueprintAbilityReference>(),
+                        CreateArcaneMetamasteryAbility("Piercing", PiercingSpell).ToReference<BlueprintAbilityReference>(),
+                        CreateArcaneMetamasteryAbility("Intensified", IntensifiedSpell).ToReference<BlueprintAbilityReference>(),
 
-                        CreateArcaneMetamasteryAbility("Intensified", IntensifiedSpellFeat).ToReference<BlueprintAbilityReference>(),
+                        CreateArcaneMetamasteryAbility("IntensifiedTTT", IntensifiedSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Rime", RimeSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Burning", BurningSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Flaring", FlaringSpellFeat).ToReference<BlueprintAbilityReference>(),
-                        CreateArcaneMetamasteryAbility("Piercing", PiercingSpellFeat).ToReference<BlueprintAbilityReference>(),
+                        CreateArcaneMetamasteryAbility("PiercingTTT", PiercingSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Solid Shadows", SolidShadowsSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Encouraging", EncouragingSpellFeat).ToReference<BlueprintAbilityReference>(),
                         CreateArcaneMetamasteryAbility("Elemental Spell (Acid)", ElementalSpellFeatAcid).ToReference<BlueprintAbilityReference>(),
@@ -171,8 +173,8 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 return result;
             }
             BlueprintAbility CreateArcaneMetamasteryAbility(string name, BlueprintFeature metamagicFeat, Action<BlueprintAbility> init = null) {
-                var result = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, $"ArcaneMetamastery{name.Replace(" ", "").Replace("(", "").Replace(")", "")}Ability", bp => {
-                    bp.SetName(TTTContext, $"Arcane Metamastery — {name}");
+                var result = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, $"ArcaneMetamastery{name.Replace(" ", "").Replace("(", "").Replace(")", "").Replace("(", "")}Ability", bp => {
+                    bp.SetName(TTTContext, $"Arcane Metamastery — {name.Replace("TTT", "")}");
                     bp.SetDescription(ArcaneMetamasteryBaseAbility.m_Description);
                     bp.SetLocalizedDuration(TTTContext, "10 rounds");
                     bp.m_Icon = metamagicFeat.Icon;

@@ -1171,7 +1171,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             var BlackBladeProgression = BlueprintTools.GetModBlueprint<BlueprintProgression>(TTTContext, "BlackBladeProgression");
 
             var BladeBoundArchetype = Helpers.CreateBlueprint<BlueprintArchetype>(TTTContext, "BladeBoundArchetype", bp => {
-                bp.SetName(TTTContext, "Bladebound");
+                bp.SetName(TTTContext, "Bladebound (TTT)");
                 bp.SetDescription(TTTContext, "A select group of magi are called to carry a black blade, a sentient " +
                     "weapon of often unknown and possibly unknowable purpose. These weapons become " +
                     "valuable tools and allies, as both the magus and weapon typically crave arcane power, " +
