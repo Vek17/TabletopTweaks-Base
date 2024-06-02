@@ -40,6 +40,20 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
         private static readonly BlueprintFeature SelectiveSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("85f3340093d144dd944fff9a9adfd2f2");
         private static readonly BlueprintFeature BolsteredSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("fbf5d9ce931f47f3a0c818b3f8ef8414");
         private static readonly BlueprintFeature CompletelyNormalSpellFeat = BlueprintTools.GetBlueprint<BlueprintFeature>("094b6278f7b570f42aeaa98379f07cf2");
+        private static readonly BlueprintFeature IntensifiedSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("8ad7fd39abea4722b39eb5a67d606a41");
+        private static readonly BlueprintFeature PiercingSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("c101ad6879a94204a780506f7a554865");
+
+        private static readonly BlueprintFeature IntensifiedSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "IntensifiedSpellFeat");
+        private static readonly BlueprintFeature RimeSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "RimeSpellFeat");
+        private static readonly BlueprintFeature BurningSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "BurningSpellFeat");
+        private static readonly BlueprintFeature FlaringSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "FlaringSpellFeat");
+        private static readonly BlueprintFeature PiercingSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "PiercingSpellFeat");
+        private static readonly BlueprintFeature SolidShadowsSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "SolidShadowsSpellFeat");
+        private static readonly BlueprintFeature EncouragingSpellFeat = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "EncouragingSpellFeat");
+        private static readonly BlueprintFeature ElementalSpellFeatAcid = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "ElementalSpellFeatAcid");
+        private static readonly BlueprintFeature ElementalSpellFeatCold = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "ElementalSpellFeatCold");
+        private static readonly BlueprintFeature ElementalSpellFeatElectricity = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "ElementalSpellFeatElectricity");
+        private static readonly BlueprintFeature ElementalSpellFeatFire = BlueprintTools.GetModBlueprint<BlueprintFeature>(TTTContext, "ElementalSpellFeatFire");
 
         public static void AddMetamagicRager() {
 
@@ -206,6 +220,85 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
                     "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Bolstered as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
             });
+            var MetaRageIntensifiedBuff = CreateMetamagicBuff($"MetaRageIntensifiedBuff{level}", IntensifiedSpell, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Intensified)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Intensified as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRagePiercingBuff = CreateMetamagicBuff($"MetaRagePiercingBuff{level}", PiercingSpell, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Piercing)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+
+            var MetaRageIntensifiedTTTBuff = CreateMetamagicBuff($"MetaRageIntensifiedTTTBuff{level}", IntensifiedSpellFeat, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Intensified)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Intensified as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageRimeTTTBuff = CreateMetamagicBuff($"MetaRageRimeTTTBuff{level}", RimeSpellFeat, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Rime)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Rime as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageBurningTTTBuff = CreateMetamagicBuff($"MetaRageBurningTTTBuff{level}", BurningSpellFeat, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Burning)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 4} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Burning as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageFlaringTTTBuff = CreateMetamagicBuff($"MetaRageFlaringTTTBuff{level}", FlaringSpellFeat, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Flaring)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Flaring as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRagePiercingTTTBuff = CreateMetamagicBuff($"MetaRagePiercingTTTBuff{level}", PiercingSpellFeat, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Piercing)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageSolidShadowsTTTBuff = CreateMetamagicBuff($"MetaRageSolidShadowsTTTBuff{level}", SolidShadowsSpellFeat, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Solid Shadows)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Solid Shadows as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageEncouragingTTTBuff = CreateMetamagicBuff($"MetaRageEncouragingTTTBuff{level}", EncouragingSpellFeat, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Encouraging)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Encouraging as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageElementalSpellFireTTTBuff = CreateMetamagicBuff($"MetaRageElementalSpellFireTTTBuff{level}", ElementalSpellFeatFire, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Fire)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Fire as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageElementalSpellColdTTTBuff = CreateMetamagicBuff($"MetaRageElementalSpellColdTTTBuff{level}", ElementalSpellFeatCold, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Cold)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Cold as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageElementalSpellElectricityTTTBuff = CreateMetamagicBuff($"MetaRageElementalSpellElectricityTTTBuff{level}", ElementalSpellFeatElectricity, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Electricity)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Electricity as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
+            var MetaRageElementalSpellAcidTTTBuff = CreateMetamagicBuff($"MetaRageElementalSpellAcidTTTBuff{level}", ElementalSpellFeatAcid, level, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Acid)");
+                bp.SetDescription(TTTContext, $"The metamagic rager can spend {level * 2 + 2} rounds of bloodrage as a " +
+                    "{g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} " + $"of level {level} or lower " +
+                    "he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Acid as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.");
+            });
 
             var MetaRageBuffs = new BlueprintUnitFactReference[] {
                 MetaRageEmpowerBuff.ToReference<BlueprintUnitFactReference>(),
@@ -215,7 +308,21 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 MetaRageQuickenBuff.ToReference<BlueprintUnitFactReference>(),
                 MetaRageReachBuff.ToReference<BlueprintUnitFactReference>(),
                 MetaRageSelectiveBuff.ToReference<BlueprintUnitFactReference>(),
-                MetaRageBolsteredBuff.ToReference<BlueprintUnitFactReference>()
+                MetaRageBolsteredBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageIntensifiedBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRagePiercingBuff.ToReference<BlueprintUnitFactReference>(),
+
+                MetaRageIntensifiedTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageRimeTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageBurningTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageFlaringTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRagePiercingTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageSolidShadowsTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageEncouragingTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageElementalSpellFireTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageElementalSpellColdTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageElementalSpellElectricityTTTBuff.ToReference<BlueprintUnitFactReference>(),
+                MetaRageElementalSpellAcidTTTBuff.ToReference<BlueprintUnitFactReference>()
             };
 
             var MetaRageEmpowerAbility = CreateMetamagicAbility($"MetaRageEmpowerAbility{level}", MetaRageEmpowerBuff, 4, EmpowerSpellFeat, MetaRageBuffs, bp => {
@@ -250,6 +357,59 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 bp.SetName(TTTContext, "Meta-Rage (Bolstered)");
                 bp.SetDescription(MetaRageBolsteredBuff.m_Description);
             });
+            var MetaRageIntensifiedAbility = CreateMetamagicAbility($"MetaRageIntensifiedAbility{level}", MetaRageIntensifiedBuff, 2, IntensifiedSpell, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Intensified)");
+                bp.SetDescription(MetaRageIntensifiedBuff.m_Description);
+            });
+            var MetaRagePiercingAbility = CreateMetamagicAbility($"MetaRageBolsteredAbility{level}", MetaRagePiercingBuff, 2, PiercingSpell, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Piercing)");
+                bp.SetDescription(MetaRagePiercingBuff.m_Description);
+            });
+
+            var MetaRageIntensifiedTTTAbility = CreateMetamagicAbility($"MetaRageIntensifiedTTTAbility{level}", MetaRageIntensifiedTTTBuff, 2, IntensifiedSpellFeat, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Intensified)");
+                bp.SetDescription(MetaRageIntensifiedTTTBuff.m_Description);
+            });
+            var MetaRageRimeTTTAbility = CreateMetamagicAbility($"MetaRageRimeTTTAbility{level}", MetaRageRimeTTTBuff, 2, RimeSpellFeat, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Rime)");
+                bp.SetDescription(MetaRageRimeTTTBuff.m_Description);
+            });
+            var MetaRageBurningTTTAbility = CreateMetamagicAbility($"MetaRageBurningTTTAbility{level}", MetaRageBurningTTTBuff, 4, BurningSpellFeat, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Burning)");
+                bp.SetDescription(MetaRageBurningTTTBuff.m_Description);
+            });
+            var MetaRageFlaringTTTAbility = CreateMetamagicAbility($"MetaRageFlaringTTTAbility{level}", MetaRageFlaringTTTBuff, 2, FlaringSpellFeat, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Flaring)");
+                bp.SetDescription(MetaRageFlaringTTTBuff.m_Description);
+            });
+            var MetaRagePiercingTTTAbility = CreateMetamagicAbility($"MetaRagePiercingTTTAbility{level}", MetaRagePiercingTTTBuff, 2, PiercingSpellFeat, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Piercing)");
+                bp.SetDescription(MetaRagePiercingTTTBuff.m_Description);
+            });
+            var MetaRageSolidShadowsTTTAbility = CreateMetamagicAbility($"MetaRageSolidShadowsTTTAbility{level}", MetaRageSolidShadowsTTTBuff, 2, SolidShadowsSpellFeat, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Solid Shadows)");
+                bp.SetDescription(MetaRageSolidShadowsTTTBuff.m_Description);
+            });
+            var MetaRageEncouragingTTTAbility = CreateMetamagicAbility($"MetaRageEncouragingTTTAbility{level}", MetaRageEncouragingTTTBuff, 2, EncouragingSpellFeat, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Encouraging)");
+                bp.SetDescription(MetaRageEncouragingTTTBuff.m_Description);
+            });
+            var MetaRageElementalSpellFireTTTAbility = CreateMetamagicAbility($"MetaRageElementalSpellFireTTTAbility{level}", MetaRageElementalSpellFireTTTBuff, 2, ElementalSpellFeatFire, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Fire)");
+                bp.SetDescription(MetaRageElementalSpellFireTTTBuff.m_Description);
+            });
+            var MetaRageElementalSpellColdTTTAbility = CreateMetamagicAbility($"MetaRageElementalSpellColdTTTAbility{level}", MetaRageElementalSpellColdTTTBuff, 2, ElementalSpellFeatCold, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Cold)");
+                bp.SetDescription(MetaRageElementalSpellColdTTTBuff.m_Description);
+            });
+            var MetaRageElementalSpellElectricityTTTAbility = CreateMetamagicAbility($"MetaRageElementalSpellElectricityTTTAbility{level}", MetaRageElementalSpellElectricityTTTBuff, 2, ElementalSpellFeatElectricity, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Electricity)");
+                bp.SetDescription(MetaRageElementalSpellElectricityTTTBuff.m_Description);
+            });
+            var MetaRageElementalSpellAcidTTT = CreateMetamagicAbility($"MetaRageElementalSpellAcidTTT{level}", MetaRageElementalSpellAcidTTTBuff, 2, ElementalSpellFeatAcid, MetaRageBuffs, bp => {
+                bp.SetName(TTTContext, "Meta-Rage (Elemental — Acid)");
+                bp.SetDescription(MetaRageElementalSpellAcidTTTBuff.m_Description);
+            });
 
             var MetaRageBaseAbility = Helpers.CreateBlueprint<BlueprintAbility>(TTTContext, $"MetaRageBaseAbility{level}", bp => {
                 bp.SetName(TTTContext, "Meta-Rage");
@@ -274,7 +434,21 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                         MetaRageQuickenAbility.ToReference<BlueprintAbilityReference>(),
                         MetaRageReachAbility.ToReference<BlueprintAbilityReference>(),
                         MetaRageSelectiveAbility.ToReference<BlueprintAbilityReference>(),
-                        MetaRageBolsteredAbility.ToReference<BlueprintAbilityReference>()
+                        MetaRageBolsteredAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageIntensifiedAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRagePiercingAbility.ToReference<BlueprintAbilityReference>(),
+
+                        MetaRageIntensifiedTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageRimeTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageBurningTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageFlaringTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRagePiercingTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageSolidShadowsTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageEncouragingTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageElementalSpellFireTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageElementalSpellColdTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageElementalSpellElectricityTTTAbility.ToReference<BlueprintAbilityReference>(),
+                        MetaRageElementalSpellAcidTTT.ToReference<BlueprintAbilityReference>()
                     };
                 });
                 bp.AddComponent<AbilityShowIfCasterCanCastSpells>(c => {

@@ -810,11 +810,6 @@
         "Homebrew": true,
         "Description": "You gain a bonus mythic feat. You can take this mythic ability once."
       },
-      "FavoriteMetamagicPersistent": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Reduce the cost of Selective Persistent by 1."
-      },
       "ImpossibleBlessing": {
         "Enabled": true,
         "Homebrew": true,

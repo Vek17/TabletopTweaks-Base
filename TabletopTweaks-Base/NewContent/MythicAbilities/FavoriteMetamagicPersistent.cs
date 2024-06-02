@@ -1,11 +1,8 @@
 ﻿using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.UnitLogic.Abilities;
-using TabletopTweaks.Core.MechanicsChanges;
-using TabletopTweaks.Core.NewComponents;
+using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
-using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
 
 namespace TabletopTweaks.Base.NewContent.MythicAbilities {
     static class FavoriteMetamagicPersistent {
@@ -21,13 +18,14 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 bp.ReapplyOnLevelUp = true;
                 bp.IsClassFeature = true;
                 bp.Groups = new FeatureGroup[] { };
-                bp.AddComponent<AddCustomMechanicsFeature>(c => {
-                    c.Feature = CustomMechanicsFeature.FavoriteMetamagicPersistent;
+                bp.AddComponent<AddMechanicsFeature>(c => {
+                    c.m_Feature = AddMechanicsFeature.MechanicsFeatureType.FavoriteMetamagicPersistent;
                 });
                 bp.AddPrerequisiteFeature(PersistentSpellFeat);
             });
 
-            if (TTTContext.AddedContent.MythicAbilities.IsDisabled("FavoriteMetamagicPersistent")) { return; }
+            //if (TTTContext.AddedContent.MythicAbilities.IsDisabled("FavoriteMetamagicPersistent")) { return; }
+            /*
             MetamagicExtention.RegisterMetamagic(
                 context: TTTContext,
                 metamagic: Metamagic.Persistent,
@@ -36,7 +34,8 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 defaultCost: 2,
                 CustomMechanicsFeature.FavoriteMetamagicPersistent
             );
-            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPersistent);
+            */
+            //FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPersistent);
         }
     }
 }
