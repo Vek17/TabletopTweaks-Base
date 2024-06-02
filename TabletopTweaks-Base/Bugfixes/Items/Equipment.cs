@@ -431,6 +431,12 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("c43746bc20a151b4eaf1836cc6eb9a92"), //AmberLoveRodToggleAbility - Passion's Sweet Poison
                         BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("afca601615e344446a24433202567c39"), //RodOfMysticismToggleAbility - Rod of Mysticism
                         BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("1c70e3d9e1f74c42904c044cf001fc0b"), //SithhudsRodToggleAbility - Rod of Mortiferous Blizzard
+                        BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("741e33a3e283482387974348c0d9a4a9"), //MetamagicRodLesserIntensifiedToggleAbility
+                        BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("e131ba0e736a484a94173587307b646e"), //MetamagicRodNormalIntensifiedToggleAbility
+                        BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("950d773f2bdc45f7b5572fd82456d5d1"), //MetamagicRodGreaterIntensifiedToggleAbility
+                        BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("fc7bd8b05d6147aab2d8b4378801db05"), //MetamagicRodLesserPiercingToggleAbility
+                        BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("8911333355f9425dbbb5119f79eb58d2"), //MetamagicRodNormalPiercingToggleAbility
+                        BlueprintTools.GetBlueprint<BlueprintActivatableAbility>("ae022fc0b1aa474093067dc7a0cc170b"), //MetamagicRodGreaterPiercingToggleAbility
                     };
                     MetamagicRodAbilities.ForEach(ability => {
                         ability.IsOnByDefault = false;
