@@ -11,10 +11,12 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.RuleSystem;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.Utility;
 using System;
 using System.Linq;
 using TabletopTweaks.Core.MechanicsChanges;
@@ -116,6 +118,18 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             );
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicIntensifiedSpell")) { return; }
+
+            var MetamagicRodLesserIntensifiedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("80c34f48eda547be99b673b15f4db398");
+            var MetamagicRodNormalIntensifiedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("3fec6f46d9434dd9ae5e56f5b24a0afa");
+            var MetamagicRodGreaterIntensifiedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("7cd32eed850e42bca900a5344be24aa1");
+            var MetamagicRodBuffs = new BlueprintBuff[] {
+                MetamagicRodLesserIntensifiedBuff,
+                MetamagicRodNormalIntensifiedBuff,
+                MetamagicRodGreaterIntensifiedBuff
+            };
+            MetamagicRodBuffs
+                .SelectMany(b => b.GetComponents<MetamagicRodMechanics>())
+                .ForEach(c => c.Metamagic = (Metamagic)CustomMetamagic.Intensified);
 
             AddRodsToVenders();
             FeatTools.AddAsFeat(IntensifiedSpellFeat);

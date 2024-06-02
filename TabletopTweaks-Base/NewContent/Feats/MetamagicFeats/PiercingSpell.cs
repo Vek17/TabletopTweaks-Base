@@ -11,7 +11,9 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.MechanicsChanges;
 using TabletopTweaks.Core.NewComponents;
@@ -111,6 +113,18 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             );
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
+
+            var MetamagicRodLesserPiercingBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("41a7f08a27e04909aea1c43cd1895260");
+            var MetamagicRodNormalPiercingBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("a644f678adbf4d25aae4f5b1b9d06e86");
+            var MetamagicRodGreaterPiercingBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("84b6421e9e1b4b3e8963ff12c35aab23");
+            var MetamagicRodBuffs = new BlueprintBuff[] {
+                MetamagicRodLesserPiercingBuff,
+                MetamagicRodNormalPiercingBuff,
+                MetamagicRodGreaterPiercingBuff
+            };
+            MetamagicRodBuffs
+                .SelectMany(b => b.GetComponents<MetamagicRodMechanics>())
+                .ForEach(c => c.Metamagic = (Metamagic)CustomMetamagic.Piercing);
 
             AddRodsToVenders();
             FeatTools.AddAsFeat(PiercingSpellFeat);
