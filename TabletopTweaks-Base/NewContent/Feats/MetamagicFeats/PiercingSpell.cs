@@ -25,6 +25,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class PiercingSpell {
         public static void AddPiercingSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var FavoriteMetamagicPiercing = BlueprintTools.GetBlueprint<BlueprintFeature>("bd38adc649b9431d89269f00b55014bc");
             var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
             var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
 
@@ -65,7 +66,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     };
                 });
             });
-            var FavoriteMetamagicPiercing = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicPiercing", bp => {
+            var FavoriteMetamagicPiercingTTT = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicPiercing", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Piercing");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
                 //bp.m_Icon = Icon_IntensifiedSpellFeat;
@@ -76,7 +77,13 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 bp.AddComponent<AddCustomMechanicsFeature>(c => {
                     c.Feature = CustomMechanicsFeature.FavoriteMetamagicPiercing;
                 });
+                bp.AddComponent<AddMechanicsFeature>(c => {
+                    c.m_Feature = AddMechanicsFeature.MechanicsFeatureType.FavoriteMetamagicPiercing;
+                });
                 bp.AddPrerequisiteFeature(PiercingSpellFeat);
+            });
+            FavoriteMetamagicPiercing.AddComponent<AddCustomMechanicsFeature>(c => {
+                c.Feature = CustomMechanicsFeature.FavoriteMetamagicPiercing;
             });
 
             if (TTTContext.AddedContent.Feats.IsEnabled("MetamagicPiercingSpell")) {
@@ -108,7 +115,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             AddRodsToVenders();
             FeatTools.AddAsFeat(PiercingSpellFeat);
             FeatTools.AddAsMetamagicFeat(PiercingSpellFeat);
-            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPiercing);
+            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPiercingTTT);
         }
         public static void UpdateSpells() {
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }

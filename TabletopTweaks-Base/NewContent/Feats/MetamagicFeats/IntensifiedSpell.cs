@@ -28,6 +28,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class IntensifiedSpell {
         public static void AddIntensifiedSpell() {
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
+            var FavoriteMetamagicIntensified = BlueprintTools.GetBlueprint<BlueprintFeature>("8713d3ce0275459b8ff67ef799d31d4b");
             var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
             var ArcaneMetamastery = BlueprintTools.GetModBlueprintReference<BlueprintUnitFactReference>(TTTContext, "ArcaneMetamastery");
 
@@ -70,7 +71,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     };
                 });
             });
-            var FavoriteMetamagicIntensified = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicIntensified", bp => {
+            var FavoriteMetamagicIntensifiedTTT = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "FavoriteMetamagicIntensified", bp => {
                 bp.SetName(TTTContext, "Favorite Metamagic — Intensified");
                 bp.m_Description = FavoriteMetamagicSelection.m_Description;
                 //bp.m_Icon = Icon_IntensifiedSpellFeat;
@@ -81,7 +82,13 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 bp.AddComponent<AddCustomMechanicsFeature>(c => {
                     c.Feature = CustomMechanicsFeature.FavoriteMetamagicIntensified;
                 });
+                bp.AddComponent<AddMechanicsFeature>(c => {
+                    c.m_Feature = AddMechanicsFeature.MechanicsFeatureType.FavoriteMetamagicIntensified;
+                });
                 bp.AddPrerequisiteFeature(IntensifiedSpellFeat);
+            });
+            FavoriteMetamagicIntensified.AddComponent<AddCustomMechanicsFeature>(c => {
+                c.Feature = CustomMechanicsFeature.FavoriteMetamagicIntensified;
             });
 
             if (TTTContext.AddedContent.Feats.IsEnabled("MetamagicIntensifiedSpell")) {
@@ -113,7 +120,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             AddRodsToVenders();
             FeatTools.AddAsFeat(IntensifiedSpellFeat);
             FeatTools.AddAsMetamagicFeat(IntensifiedSpellFeat);
-            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicIntensified);
+            FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicIntensifiedTTT);
         }
 
         public static void UpdateSpells() {
