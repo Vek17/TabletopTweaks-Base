@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
@@ -71,6 +72,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchShiftersEdge();
                 PatchShifterRush();
                 PatchSlashingGrace();
+                PatchSpellBane();
                 PatchSpellSpecialization();
                 PatchSpiritedCharge();
                 PatchWeaponFinesse();
@@ -393,6 +395,29 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 var SlashingGrace = BlueprintTools.GetBlueprint<BlueprintParametrizedFeature>("697d64669eb2c0543abb9c9b07998a38");
                 SlashingGrace.ReplaceComponents<DamageGrace>(Helpers.Create<DamageGraceTTT>());
                 TTTContext.Logger.LogPatch("Patched", SlashingGrace);
+            }
+            static void PatchSpellBane() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("SpellBane")) { return; }
+
+                var SpellBane = BlueprintTools.GetBlueprint<BlueprintFeature>("d2d1b1f27bdf4ddfa5bf8b7244786ff9");
+                var AeonBaneFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("0b25e8d8b0488c84c9b5714e9ca0a204");
+                var AeonBaneBuff = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("345160619fc2ddc44b8ad98c94dde448");
+
+                SpellBane.TemporaryContext(bp => {
+                    bp.GetComponent<OwnerAbilityTargetSavingThrowBonus>().TemporaryContext(c => {
+                        c.Conditions.TemporaryContext(checker => {
+                            checker.Operation = Operation.Or;
+                            checker.Conditions = checker.Conditions.AppendToArray(
+                                new ContextConditionCasterHasFact() {
+                                    m_Fact = AeonBaneBuff
+                                }
+                            );
+                        });
+                    });
+                    bp.AddPrerequisiteFeature(AeonBaneFeature, Prerequisite.GroupType.Any);
+                });
+
+                TTTContext.Logger.LogPatch("Patched", SpellBane);
             }
             static void PatchEndurance() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("Endurance")) { return; }

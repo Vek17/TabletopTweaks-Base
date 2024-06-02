@@ -14,6 +14,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var Icon_DispelFocus = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_DispelFocus.png");
             var Icon_GreaterDispelFocus = AssetLoader.LoadInternal(TTTContext, folder: "Feats", file: "Icon_GreaterDispelFocus.png");
             var DispelMagic = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("92681f181b507b34ea87018e8f7a528a");
+            var DispelFocus = BlueprintTools.GetBlueprint<BlueprintFeature>("c39576f8842e4505b14aa918b3a36a0a");
+            var GreaterDispelFocus = BlueprintTools.GetBlueprint<BlueprintFeature>("d0cf79c8e0a44325b00dc8fa6ad37d7c");
 
             var DispelFocusFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "DispelFocusFeature", bp => {
                 bp.SetName(TTTContext, "Dispel Focus");

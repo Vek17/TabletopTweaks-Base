@@ -1874,6 +1874,11 @@
         "Homebrew": false,
         "Description": "Now only works on one handed weapons always."
       },
+      "SpellBane": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Enable Spell Bane for Aeon Bane."
+      },
       "SpellSpecialization": {
         "Enabled": true,
         "Homebrew": false,
