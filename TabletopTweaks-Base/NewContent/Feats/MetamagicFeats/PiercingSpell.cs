@@ -116,6 +116,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 metamagicDescription: "Piercing Spell: When you cast a piercing spell against a target with spell resistance, it treats " +
                     "the spell resistance of the target as 5 lower than its actual SR."
             );
+            PiercingSpell.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                c.m_Feature = PiercingSpellFeat.ToReference<BlueprintFeatureReference>();
+                c.HideInUI = true;
+            });
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
 

@@ -121,6 +121,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     "You must actually have sufficient caster levels to surpass the maximum in order " +
                     "to benefit from this feat."
             );
+            IntensifiedSpell.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                c.m_Feature = IntensifiedSpellFeat.ToReference<BlueprintFeatureReference>();
+                c.HideInUI = true;
+            });
 
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicIntensifiedSpell")) { return; }
 
