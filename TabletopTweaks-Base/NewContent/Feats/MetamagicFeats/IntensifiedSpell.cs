@@ -3,12 +3,14 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.RuleSystem;
+using Kingmaker.UI.MVVM._VM.ServiceWindows.Spellbook.KnownSpells;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -22,6 +24,7 @@ using System.Linq;
 using TabletopTweaks.Core.MechanicsChanges;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.Utilities;
+using UnityEngine;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
@@ -219,8 +222,15 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 if (__instance.Value.DiceCountValue.ValueType == ContextValueType.Rank) {
                     var rankConfig = Sources.Where(crc => crc.m_Type == __instance.Value.DiceCountValue.ValueRank).FirstOrDefault();
                     if (rankConfig && rankConfig.m_BaseValueType == ContextRankBaseValueType.CasterLevel) {
+                        var max = rankConfig.m_Max;
+                        if (__instance?.AbilityContext?.Ability?.MagicHackData != null) {
+                            var abilityData = __instance?.AbilityContext?.Ability;
+                            var spellbook = abilityData.Spellbook;
+                            var magicHackSpellbookComponent = (spellbook != null) ? spellbook.Blueprint.GetComponent<MagicHackSpellbookComponent>() : null;
+                            max = magicHackSpellbookComponent.GetMaxDamageDicesForAction(abilityData.SpellLevel);
+                        }
                         var baseValue = rankConfig.ApplyProgression(rankConfig.GetBaseValue(__instance.Context));
-                        var FinalCount = Math.Min(baseValue, rankConfig.m_Max + GetMultiplierIncrease(rankConfig));
+                        var FinalCount = Math.Min(baseValue, max + GetMultiplierIncrease(rankConfig));
                         __result.Dices = new DiceFormula(FinalCount, __instance.Value.DiceType);
                     }
                 }
