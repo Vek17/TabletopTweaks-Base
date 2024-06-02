@@ -29,6 +29,7 @@ using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
 namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class IntensifiedSpell {
         public static void AddIntensifiedSpell() {
+            var IntensifiedSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("8ad7fd39abea4722b39eb5a67d606a41");
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
             var FavoriteMetamagicIntensified = BlueprintTools.GetBlueprint<BlueprintFeature>("8713d3ce0275459b8ff67ef799d31d4b");
             var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
@@ -62,6 +63,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 bp.AddPrerequisite<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.Intelligence;
                     c.Value = 3;
+                });
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = IntensifiedSpell.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
                 bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
@@ -134,7 +139,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             AddRodsToVenders();
             FeatTools.AddAsFeat(IntensifiedSpellFeat);
             FeatTools.AddAsMetamagicFeat(IntensifiedSpellFeat);
+            FeatTools.RemoveAsFeat(IntensifiedSpell);
+            FeatTools.RemoveAsMetamagicFeat(IntensifiedSpell);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicIntensifiedTTT);
+            FavoriteMetamagicSelection.RemoveFeatures(FavoriteMetamagicIntensified);
         }
 
         public static void UpdateSpells() {

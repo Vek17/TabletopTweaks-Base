@@ -26,6 +26,7 @@ using static TabletopTweaks.Core.NewUnitParts.UnitPartCustomMechanicsFeatures;
 namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
     static class PiercingSpell {
         public static void AddPiercingSpell() {
+            var PiercingSpell = BlueprintTools.GetBlueprint<BlueprintFeature>("c101ad6879a94204a780506f7a554865");
             var FavoriteMetamagicSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("503fb196aa222b24cb6cfdc9a284e838");
             var FavoriteMetamagicPiercing = BlueprintTools.GetBlueprint<BlueprintFeature>("bd38adc649b9431d89269f00b55014bc");
             var MagicDeceiverWaySelection = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("f0310af68c7142cda950d61244cb0cff");
@@ -57,6 +58,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                 bp.AddPrerequisite<PrerequisiteStatValue>(c => {
                     c.Stat = StatType.Intelligence;
                     c.Value = 3;
+                });
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = PiercingSpell.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
                 });
                 bp.AddComponent<RecommendationRequiresSpellbook>();
                 bp.AddComponent<RecommendationNoFeatFromGroup>(c => {
@@ -129,7 +134,10 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
             AddRodsToVenders();
             FeatTools.AddAsFeat(PiercingSpellFeat);
             FeatTools.AddAsMetamagicFeat(PiercingSpellFeat);
+            FeatTools.RemoveAsFeat(PiercingSpell);
+            FeatTools.RemoveAsMetamagicFeat(PiercingSpell);
             FavoriteMetamagicSelection.AddFeatures(FavoriteMetamagicPiercingTTT);
+            FavoriteMetamagicSelection.RemoveFeatures(FavoriteMetamagicPiercing);
         }
         public static void UpdateSpells() {
             if (TTTContext.AddedContent.Feats.IsDisabled("MetamagicPiercingSpell")) { return; }
@@ -176,7 +184,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
 
             public void OnAfterRulebookEventTrigger(RuleSpellResistanceCheck evt) {
                 var isPiercing = evt.Context?.HasMetamagic((Metamagic)CustomMetamagic.Piercing) ?? false;
-                if (!isPiercing) { return; }
+                var vanillaPiercing = evt.Context?.HasMetamagic(Metamagic.Piercing) ?? false;
+                if (!isPiercing || vanillaPiercing) { return; }
                 evt.SpellResistance -= 5;
             }
         }
