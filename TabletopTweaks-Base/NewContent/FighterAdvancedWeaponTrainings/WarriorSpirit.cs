@@ -199,23 +199,23 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedWeaponTrainings {
             CreateWarriorSpiritToggle("WarriorSpiritAxiomatic", Icon_WarriorSpirit_Axiomatic, WarriorSpiritToggleAbility, 2, Axiomatic);
             CreateWarriorSpiritToggle("WarriorSpiritHoly", Icon_WarriorSpirit_Holy, WarriorSpiritToggleAbility, 2, Holy);
             CreateWarriorSpiritToggle("WarriorSpiritUnholy", Icon_WarriorSpirit_Unholy, WarriorSpiritToggleAbility, 2, Unholy);
+            CreateWarriorSpiritToggle("WarriorSpiritBane", Icon_WarriorSpirit_Bane, WarriorSpiritToggleAbility, 2, BaneEverything);
 
             CreateWarriorSpiritToggle("WarriorSpiritCorrosive", Icon_WarriorSpirit_Corrosive, WarriorSpiritToggleAbility, 1, Corrosive);
-            CreateWarriorSpiritToggle("WarriorSpiritCorrosiveBurst", Icon_WarriorSpirit_CorrosiveBurst, WarriorSpiritToggleAbility, 2, CorrosiveBurst, Corrosive);
             CreateWarriorSpiritToggle("WarriorSpiritFlaming", Icon_WarriorSpirit_Flaming, WarriorSpiritToggleAbility, 1, Flaming);
-            CreateWarriorSpiritToggle("WarriorSpiritFlamingBurst", Icon_WarriorSpirit_FlamingBurst, WarriorSpiritToggleAbility, 2, FlamingBurst, Flaming);
             CreateWarriorSpiritToggle("WarriorSpiritFrost", Icon_WarriorSpirit_Frost, WarriorSpiritToggleAbility, 1, Frost);
-            CreateWarriorSpiritToggle("WarriorSpiritIcyBurst", Icon_WarriorSpirit_IcyBurst, WarriorSpiritToggleAbility, 2, IcyBurst, Frost);
             CreateWarriorSpiritToggle("WarriorSpiritShock", Icon_WarriorSpirit_Shock, WarriorSpiritToggleAbility, 1, Shock);
-            CreateWarriorSpiritToggle("WarriorSpiritShockingBurst", Icon_WarriorSpirit_ShockingBurst, WarriorSpiritToggleAbility, 2, ShockingBurst, Shock);
             CreateWarriorSpiritToggle("WarriorSpiritThundering", Icon_WarriorSpirit_Thundering, WarriorSpiritToggleAbility, 1, Thundering);
+            CreateWarriorSpiritToggle("WarriorSpiritCorrosiveBurst", Icon_WarriorSpirit_CorrosiveBurst, WarriorSpiritToggleAbility, 2, CorrosiveBurst, Corrosive);
+            CreateWarriorSpiritToggle("WarriorSpiritFlamingBurst", Icon_WarriorSpirit_FlamingBurst, WarriorSpiritToggleAbility, 2, FlamingBurst, Flaming);
+            CreateWarriorSpiritToggle("WarriorSpiritIcyBurst", Icon_WarriorSpirit_IcyBurst, WarriorSpiritToggleAbility, 2, IcyBurst, Frost);
+            CreateWarriorSpiritToggle("WarriorSpiritShockingBurst", Icon_WarriorSpirit_ShockingBurst, WarriorSpiritToggleAbility, 2, ShockingBurst, Shock);
             CreateWarriorSpiritToggle("WarriorSpiritThunderingBurst", Icon_WarriorSpirit_ThunderingBurst, WarriorSpiritToggleAbility, 2, ThunderingBurst, Thundering);
 
             CreateWarriorSpiritToggle("WarriorSpiritCruel", Icon_WarriorSpirit_Cruel, WarriorSpiritToggleAbility, 1, CruelEnchantment);
             CreateWarriorSpiritToggle("WarriorSpiritKeen", Icon_WarriorSpirit_Keen, WarriorSpiritToggleAbility, 1, Keen);
             CreateWarriorSpiritToggle("WarriorSpiritGhostTouch", Icon_WarriorSpirit_GhostTouch, WarriorSpiritToggleAbility, 1, GhostTouch);
 
-            CreateWarriorSpiritToggle("WarriorSpiritBane", Icon_WarriorSpirit_Bane, WarriorSpiritToggleAbility, 2, BaneEverything);
             CreateWarriorSpiritToggle("WarriorSpiritSpeed", Icon_WarriorSpirit_Speed, WarriorSpiritToggleAbility, 3, Speed);
             CreateWarriorSpiritToggle("WarriorSpiritBrilliantEnergy", Icon_WarriorSpirit_BrilliantEnergy, WarriorSpiritToggleAbility, 4, BrilliantEnergy);
 

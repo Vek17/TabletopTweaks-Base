@@ -1,8 +1,10 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Recommendations;
+using TabletopTweaks.Base.NewContent.RogueTalents;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
@@ -37,6 +39,10 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.AddPrerequisite<PrerequisiteSpellKnown>(c => {
                     c.m_Spell = DispelMagic;
                 });
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = DispelFocus.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                });
             });
 
             var DispelFocusGreaterFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "DispelFocusGreaterFeature", bp => {
@@ -63,8 +69,22 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.m_Spell = DispelMagic;
                 });
                 bp.AddPrerequisiteFeature(DispelFocusFeature);
+                bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                    c.m_Feature = GreaterDispelFocus.ToReference<BlueprintFeatureReference>();
+                    c.HideInUI = true;
+                });
             });
 
+            DispelFocus.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                c.m_Feature = DispelFocusFeature.ToReference<BlueprintFeatureReference>();
+                c.HideInUI = true;
+            });
+            GreaterDispelFocus.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                c.m_Feature = DispelFocusGreaterFeature.ToReference<BlueprintFeatureReference>();
+                c.HideInUI = true;
+            });
+
+            if (DLCTools.HasDLC(6)) { return; }
             if (TTTContext.AddedContent.Feats.IsDisabled("DispelFocus")) { return; }
             FeatTools.AddAsFeat(DispelFocusFeature);
             if (TTTContext.AddedContent.Feats.IsDisabled("DispelFocusGreater")) { return; }

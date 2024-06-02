@@ -97,8 +97,9 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                 c.HideInUI = true;
             });
 
-            //if (TTTContext.AddedContent.RogueTalents.IsDisabled("EmboldeningStrike")) { return; }
-            //FeatTools.AddAsRogueTalent(EmboldeningStrikeFeature);
+            if (DLCTools.HasDLC(6)) { return; }
+            if (TTTContext.AddedContent.RogueTalents.IsDisabled("EmboldeningStrike")) { return; }
+            FeatTools.AddAsRogueTalent(EmboldeningStrikeFeature);
         }
     }
 }
