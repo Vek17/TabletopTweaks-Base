@@ -539,11 +539,6 @@
   "RogueTalents": {
     "DisableAll": false,
     "Settings": {
-      "EmboldeningStrike": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "When a rogue with this talent hits a creature with a melee attack that deals sneak attack damage, she gains a +1 circumstance bonus on saving throws for every 2 sneak attack dice rolled (minimum +1) for 1 round."
-      },
       "BleedingAttack": {
         "Enabled": true,
         "Homebrew": false,

@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -13,6 +14,8 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.RogueTalents {
     internal static class EmboldeningStrike {
         public static void AddEmboldeningStrike() {
+
+            var EmboldeningStrike = BlueprintTools.GetBlueprint<BlueprintFeature>("ba6bea8c93c64764ab7e5bbdb88fb9a6");
 
             var EmboldeningStrikeBuff = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "EmboldeningStrikeBuff", bp => {
                 bp.SetName(TTTContext, "Emboldening Strike");
@@ -89,8 +92,13 @@ namespace TabletopTweaks.Base.NewContent.RogueTalents {
                 });
             });
 
-            if (TTTContext.AddedContent.RogueTalents.IsDisabled("EmboldeningStrike")) { return; }
-            FeatTools.AddAsRogueTalent(EmboldeningStrikeFeature);
+            EmboldeningStrike.AddPrerequisite<PrerequisiteNoFeature>(c => {
+                c.m_Feature = EmboldeningStrikeFeature.ToReference<BlueprintFeatureReference>();
+                c.HideInUI = true;
+            });
+
+            //if (TTTContext.AddedContent.RogueTalents.IsDisabled("EmboldeningStrike")) { return; }
+            //FeatTools.AddAsRogueTalent(EmboldeningStrikeFeature);
         }
     }
 }
