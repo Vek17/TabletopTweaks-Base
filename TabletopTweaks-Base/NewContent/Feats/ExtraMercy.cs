@@ -8,6 +8,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
     static class ExtraMercy {
         public static void AddExtraMercy() {
             var SelectionMercy = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("02b187038a8dce545bb34bbfb346428d");
+            var ExtraMercySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("8a49abed5be9473da1e1fd1e2457562e");
 
             var ExtraMercy = FeatTools.CreateExtraSelectionFeat(TTTContext, "ExtraMercy", SelectionMercy, bp => {
                 bp.SetName(TTTContext, "Extra Mercy");
@@ -19,6 +20,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             });
             if (TTTContext.AddedContent.Feats.IsDisabled("ExtraMercy")) { return; }
             FeatTools.AddAsFeat(ExtraMercy);
+            FeatTools.RemoveAsFeat(ExtraMercySelection);
         }
     }
 }

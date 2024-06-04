@@ -7,6 +7,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
         public static void AddExtraHex() {
             var ShamanHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("4223fe18c75d4d14787af196a04e14e7");
             var WitchHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("9846043cf51251a4897728ed6e24e76f");
+            var ExtraShamanHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("d0b4c8245d504b8c9c6d3fccc1f8c5b6");
+            var ExtraWitchHexSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("b6054088b4ab4be286724127cbf48b35");
 
             var ExtraHexWitch = FeatTools.CreateExtraSelectionFeat(TTTContext, "ExtraHexWitch", WitchHexSelection, bp => {
                 bp.SetName(TTTContext, "Extra Hex (Witch)");
@@ -22,6 +24,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (TTTContext.AddedContent.Feats.IsDisabled("ExtraHex")) { return; }
             FeatTools.AddAsFeat(ExtraHexWitch);
             FeatTools.AddAsFeat(ExtraHexShaman);
+            FeatTools.RemoveAsFeat(ExtraShamanHexSelection);
+            FeatTools.RemoveAsFeat(ExtraWitchHexSelection);
         }
     }
 }

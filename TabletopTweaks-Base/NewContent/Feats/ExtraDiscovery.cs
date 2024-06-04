@@ -7,6 +7,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
         public static void AddExtraDiscovery() {
             var DiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("cd86c437488386f438dcc9ae727ea2a6");
             var VivsectionistDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("67f499218a0e22944abab6fe1c9eaeee");
+            var ExtraDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("537965879fc24ad3948aaffa7a1a3a66");
+            var ExtraVivsectionistDiscoverySelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("10287e7b8cee479e82ea88bd6d2d4dae");
 
             var ExtraDiscovery = FeatTools.CreateExtraSelectionFeat(TTTContext, "ExtraDiscovery", DiscoverySelection, bp => {
                 bp.SetName(TTTContext, "Extra Discovery");
@@ -21,6 +23,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (TTTContext.AddedContent.Feats.IsDisabled("ExtraDiscovery")) { return; }
             FeatTools.AddAsFeat(ExtraDiscovery);
             FeatTools.AddAsFeat(ExtraDiscoveryVivsectionist);
+            FeatTools.RemoveAsFeat(ExtraDiscoverySelection);
+            FeatTools.RemoveAsFeat(ExtraVivsectionistDiscoverySelection);
         }
     }
 }

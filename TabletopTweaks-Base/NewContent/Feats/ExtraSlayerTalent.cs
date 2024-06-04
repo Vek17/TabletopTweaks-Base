@@ -10,6 +10,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var SlayerTalentSelection6 = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("43d1b15873e926848be2abf0ea3ad9a8");
             var SlayerTalentSelection10 = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("913b9cf25c9536949b43a2651b7ffb66");
             var RangerStyleSelection2 = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("c6d0da9124735a44f93ac31df803b9a9");
+            var ExtraSlayerTalentSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("53f7237f5b1447bb851ba68045a00e41");
 
             var ExtraSlayerTalent = FeatTools.CreateExtraSelectionFeat(TTTContext, "ExtraSlayerTalent", SlayerTalentSelection2, bp => {
                 bp.SetName(TTTContext, "Extra Slayer Talent");
@@ -25,6 +26,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             });
             if (TTTContext.AddedContent.Feats.IsDisabled("ExtraSlayerTalent")) { return; }
             FeatTools.AddAsFeat(ExtraSlayerTalent);
+            FeatTools.RemoveAsFeat(ExtraSlayerTalentSelection);
         }
     }
 }

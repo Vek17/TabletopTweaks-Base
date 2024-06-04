@@ -7,6 +7,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
         public static void AddExtraRogueTalent() {
             var RogueTalentSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("c074a5d615200494b8f2a9c845799d93");
             var SylvanTricksterTalentSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("290bbcc3c3bb92144b853fd8fb8ff452");
+            var ExtraRogueTalentSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("14d9089df87a43b696fa9451ca2f0a12");
 
             var ExtraRogueTalent = FeatTools.CreateExtraSelectionFeat(TTTContext, "ExtraRogueTalent", RogueTalentSelection, bp => {
                 bp.SetName(TTTContext, "Extra Rogue Talent");
@@ -21,6 +22,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (TTTContext.AddedContent.Feats.IsDisabled("ExtraRogueTalent")) { return; }
             FeatTools.AddAsFeat(ExtraRogueTalent);
             FeatTools.AddAsFeat(ExtraRogueTalentSylvan);
+            FeatTools.RemoveAsFeat(ExtraRogueTalentSelection);
         }
     }
 }

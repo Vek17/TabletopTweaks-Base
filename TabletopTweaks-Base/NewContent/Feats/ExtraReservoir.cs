@@ -10,6 +10,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var ArcanistArcaneReservoirResource = BlueprintTools.GetBlueprint<BlueprintAbilityResource>("cac948cbbe79b55459459dd6a8fe44ce");
             var ArcanistArcaneReservoirFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("55db1859bd72fd04f9bd3fe1f10e4cbb");
             var ArcaneEnforcerArcaneReservoirFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("9d1e2212594cf47438fff2fa3477b954");
+            var ExtraReservoirOwlcat = BlueprintTools.GetBlueprint<BlueprintFeature>("29afc53efa4d469b9476760fa09576de");
 
             var ExtraReservoir = FeatTools.CreateExtraResourceFeat(TTTContext, "ExtraReservoir", ArcanistArcaneReservoirResource, 3, bp => {
                 bp.SetName(TTTContext, "Extra Reservoir");
@@ -20,6 +21,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             });
             if (TTTContext.AddedContent.Feats.IsDisabled("ExtraReservoir")) { return; }
             FeatTools.AddAsFeat(ExtraReservoir);
+            FeatTools.RemoveAsFeat(ExtraReservoirOwlcat);
         }
     }
 }
