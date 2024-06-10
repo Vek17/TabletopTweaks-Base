@@ -264,7 +264,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
             FeatTools.AddAsMythicAbility(ArcaneMetamastery);
             FeatTools.AddAsMythicAbility(ArcaneMetamasteryGreater);
 
-            
+
         }
     }
 }
