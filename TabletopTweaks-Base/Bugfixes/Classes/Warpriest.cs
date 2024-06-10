@@ -3,7 +3,9 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -12,6 +14,7 @@ using System.Linq;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
+using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
@@ -69,6 +72,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
             static void PatchBase() {
                 PatchFighterTraining();
+                PatchWarBlessing();
 
                 void PatchFighterTraining() {
                     if (TTTContext.Fixes.Warpriest.Base.IsDisabled("FighterTraining")) { return; }
@@ -77,6 +81,18 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     QuickFixTools.ReplaceClassLevelsForPrerequisites(WarpriestClassAsBABFeature, TTTContext, FeatureGroup.Feat);
 
                     TTTContext.Logger.LogPatch(WarpriestClassAsBABFeature);
+                }
+                void PatchWarBlessing() {
+                    if (TTTContext.Fixes.Warpriest.Base.IsDisabled("WarBlessing")) { return; }
+
+                    var WarBlessingMajorAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("b25af29679004b2085277bb8979b2912");
+                    var WarBlessingMinorAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("77b232a88ab04671b44712232e63077d");
+
+                    WarBlessingMinorAbility.ActionType = CommandType.Standard;
+                    WarBlessingMajorAbility.ActionType = CommandType.Standard;
+
+                    TTTContext.Logger.LogPatch(WarBlessingMinorAbility);
+                    TTTContext.Logger.LogPatch(WarBlessingMajorAbility);
                 }
             }
 

@@ -17,6 +17,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
 
             var AirBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("e1ff99dc3aeaa064e8eecde51c1c4773");
             var AnimalBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("9d991f8374c3def4cb4a6287f370814d");
+            var ArtificeBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("04e5d412a7b94f809a28607618b71619");
             var ChaosBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("528e316f9f092954b9e38d3a82b1634a");
             var CharmBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("516bc13e0e76a834bb3a4c3e3d01c0cf");
             var CommunityBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("36fcd6ca7e279874d9197f38501f0e93");
@@ -26,17 +27,25 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var EarthBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("73c37a22bc9a523409a47218d507acf6");
             var EvilBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("f38f3abf6ca3a07499a61f96e342bb16");
             var FireBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("2368212fa3856d74589e924d3e2074d8");
+            var GloryBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("d082055b649b44c1880442a98f384556");
             var GoodBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("60a85144ed37e3a45b343d291dc48079");
             var HealingBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("f3881a1a7b44dc74c9d76907c94e49f2");
+            var KnowledgeBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1585a2eec1984d1496ce03021cfa9738");
             var LawBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("9c49504e2e4c66d4aa341348356b47a8");
+            var LiberationBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("61061faf477d67b43b6dedb3e8f205d7");
             var LuckBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("70654ee784fffa74489933a0d2047bbd");
+            var MadnessBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("a99916a8aad2414f970072db7b760c48");
             var MagicBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1754ff61a0805714fa2b89c8c1bb87ad");
             var NobilityBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("f52af97d05e5de34ea6e0d1b0af740ea");
+            var PlantBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("4cd28bbb761f490fa418d471383e38c7");
             var ProtectionBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c6a3fa9d8d7f942499e4909cd01ca22d");
             var ReposeBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("64a416082927673409deb330af04d6d2");
+            var RuneBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("f76713cc1768432cab0d6352f030519d");
+            var StrengthBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("44f9162736a5c2040ae8ede853bc6639");
             var SunBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("ba825e3c77acaec4386e00f691f8f3be");
             var TravelBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("87641a8efec53d64d853ecc436234dce");
             var TrickeryBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("a8e7abcad0cf8384b9f12c3b075b5cae");
+            var WarBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("2097edd687ff4cdeb33872c048599fc1");
             var WaterBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("0f457943bb99f9b48b709c90bfc0467e");
             var WeatherBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("4172d92c598de1d47aa2c0dd51c05e24");
 
@@ -44,6 +53,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var AirBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("364e1e0e4af5b004caabe5f005cee7ca");
             var AnimalBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("93f0098fe08b94f41a351a4fbb00518a");
             var AnimalBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("56a2584706b8faf4094acfa142747f70");
+            var ArtificeBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("82ffd4dbd9c142c8a9226881d150a0ee");
+            var ArtificeBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("110d95c358284f47b822efe8221e5090");
             var ChaosBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6fb60e6cb81138941a07e6861df839c6");
             var ChaosBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("39a1a4085aabd154e8aa565cb1579e5e");
             var CharmBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("d58214dd4e8bd7242b9129eed67d1b61");
@@ -62,17 +73,22 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var EvilBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("f5039f03c9a49aa4098248222d3ce451");
             var FireBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("3a8dd416ce28c414da0439e3bc20f445");
             var FireBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("e36a450cb94ecee4c99047fe598907a5");
+            var GloryBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6881315aa2f7443daae997403cd17961");
+            var GloryBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("70bfe988cf0548de9cff1abdc7b6d33b");
             var GoodBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("05fe64491e635f646b794d572111caa5");
             var HealingBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("012329d3dfb76ef428ccb299b80c7648");
+            var KnowledgeBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("1399823a6e734f02a52dcae79da7b853");
             var LawBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("10095e0eb96644a4eb5eebdcd21a9b5e");
             var LuckBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("49fa2b54589c34a42b8f06b8de1a6639");
             var LuckBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("22259412e17c7c74c8c2abb68b4ac827");
             var MagicBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("7e4f42cfb91d9ed409b866aeceae308d");
             var NobilityBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("e024bf90eedd8034e83886f6caba4136");
             var NobilityBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("862b46568f3c9864688afaba4e6e6ba4");
+            var PlantBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("b7178fd587564bfca082409122c20950");
             var ProtectionBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6b2626e14b75f4a4d815be141ce3c3b7");
             var ProtectionBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("9c23340b6eed989459a648874910230a");
             var ReposeBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("df99fdc53432031458deeaa21121a847");
+            var RuneBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("0da8c31187f34f28af5ef3023cd332a4");
             var SunBlessingMajorAbilityBoth = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("fb2ff8221d4c1834c893507d0d4e1fa1");
             var SunBlessingMajorAbilityFlaming = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6aa7160535c9dd74ca707b72c68dac89");
             var SunBlessingMajorAbilityUndeadBane = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6eb4da544d0e87346a4dc403f9382f89");
@@ -81,6 +97,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var TrickeryBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("c630aa6a5c6566d4995585b94a5d3749");
             var WaterBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("a65af29466c7be343bc831f76d1e7dd4");
             var WaterBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("e572966d72a7f7449aa9236ec7f357d8");
+            var WarBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("b25af29679004b2085277bb8979b2912");
+            var WarBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("77b232a88ab04671b44712232e63077d");
             var WeatherBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("f9e01aec7f35ec94ea7f2b3f73f1e98f");
             var WeatherBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("df8099d3937d52440a5bbec98751ecde");
 
@@ -105,26 +123,32 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             QuickenBlessing.AddFeatures(
                 CreateQuickenedBlessing("Air", AirBlessingFeature, AirBlessingMajorAbility, AirBlessingMajorAbility),
                 CreateQuickenedBlessing("Animal", AnimalBlessingFeature, AnimalBlessingMinorAbility, AnimalBlessingMajorAbility),
+                CreateQuickenedBlessing("Artifice", ArtificeBlessingFeature, ArtificeBlessingMinorAbility, ArtificeBlessingMajorAbility),
                 CreateQuickenedBlessing("Chaos", ChaosBlessingFeature, ChaosBlessingMinorAbility, ChaosBlessingMajorAbility),
-                //CreateQuickenedBlessing("Charm", CharmBlessingFeature, CharmBlessingMinorAbility, CharmBlessingMajorAbility),
-                //CreateQuickenedBlessing("Community", CommunityBlessingFeature, CommunityBlessingMinorAbility, CommunityBlessingMajorAbility),
+                CreateQuickenedBlessing("Charm", CharmBlessingFeature, CharmBlessingMinorAbility, CharmBlessingMajorAbility),
+                CreateQuickenedBlessing("Community", CommunityBlessingFeature, CommunityBlessingMinorAbility, CommunityBlessingMajorAbility),
                 CreateQuickenedBlessing("Darkness", DarknessBlessingFeature, DarknessBlessingMinorAbility, DarknessBlessingMajorAbility),
                 CreateQuickenedBlessing("Death", DeathBlessingFeature, DeathBlessingMinorAbility, DeathBlessingMajorAbility),
                 CreateQuickenedBlessing("Destruction", DestructionBlessingFeature, DestructionBlessingMinorAbility, DestructionBlessingMajorAbility),
                 CreateQuickenedBlessing("Earth", EarthBlessingFeature, EarthBlessingMinorAbility, EarthBlessingMajorAbility),
                 CreateQuickenedBlessing("Evil", EvilBlessingFeature, EvilBlessingMinorAbility, EvilBlessingMajorAbility),
                 CreateQuickenedBlessing("Fire", FireBlessingFeature, FireBlessingMinorAbility, FireBlessingMajorAbility),
+                CreateQuickenedBlessing("Glory", GloryBlessingFeature, GloryBlessingMinorAbility, GloryBlessingMajorAbility),
                 CreateQuickenedBlessing("Good", GoodBlessingFeature, GoodBlessingMinorAbility),
                 CreateQuickenedBlessing("Healing", HealingBlessingFeature, HealingBlessingMajorAbility),
+                CreateQuickenedBlessing("Knowledge", KnowledgeBlessingFeature, KnowledgeBlessingMinorAbility),
                 CreateQuickenedBlessing("Law", LawBlessingFeature, LawBlessingMinorAbility),
                 CreateQuickenedBlessing("Luck", LuckBlessingFeature, LuckBlessingMinorAbility, LuckBlessingMajorAbility),
                 CreateQuickenedBlessing("Magic", MagicBlessingFeature, MagicBlessingMinorAbility),
                 CreateQuickenedBlessing("Nobility", NobilityBlessingFeature, NobilityBlessingMinorAbility, NobilityBlessingMajorAbility),
+                CreateQuickenedBlessing("Plant", PlantBlessingFeature, PlantBlessingMajorAbility),
                 CreateQuickenedBlessing("Protection", ProtectionBlessingFeature, ProtectionBlessingMinorAbility, ProtectionBlessingMinorAbility),
                 CreateQuickenedBlessing("Repose", ReposeBlessingFeature, ReposeBlessingMinorAbility),
+                CreateQuickenedBlessing("Rune", RuneBlessingFeature, RuneBlessingMinorAbility),
                 CreateQuickenedBlessing("Sun", SunBlessingFeature, SunBlessingMinorAbility, SunBlessingMajorAbilityFlaming, SunBlessingMajorAbilityUndeadBane, SunBlessingMajorAbilityBoth),
                 CreateQuickenedBlessing("Travel", TravelBlessingFeature, TravelBlessingMajorAbility),
                 CreateQuickenedBlessing("Trickery", TrickeryBlessingFeature, TrickeryBlessingMinorAbility),
+                CreateQuickenedBlessing("War", WarBlessingFeature, WarBlessingMinorAbility, WarBlessingMajorAbility),
                 CreateQuickenedBlessing("Water", WaterBlessingFeature, WaterBlessingMinorAbility, WaterBlessingMajorAbility),
                 CreateQuickenedBlessing("Weather", WeatherBlessingFeature, WeatherBlessingMinorAbility, WeatherBlessingMajorAbility)
             );
@@ -148,6 +172,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.m_Abilities = powers;
                     c.ResourceMultiplier = 2;
                     c.ActionType = UnitCommand.CommandType.Swift;
+                    c.ApplyToVariants = true;
                 });
                 bp.AddPrerequisiteFeature(blessing);
             });

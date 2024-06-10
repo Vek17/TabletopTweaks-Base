@@ -1156,6 +1156,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Warpreist fighter training now correctly only applies to feats."
+        },
+        "WarBlessing": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixed War Blessing action speed."
         }
       },
       "IsExpanded": true
