@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TabletopTweaks.Base</RootNamespace>
     <AssemblyName>TabletopTweaks-Base</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>9</LangVersion>
     <Deterministic>true</Deterministic>
@@ -252,6 +252,7 @@
     <Compile Include="MechanicsChanges\NaturalArmorStacking.cs" />
     <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
+    <Compile Include="MechanicsChanges\TestLogs.cs" />
     <Compile Include="ModLogic\ModContextTTTBase.cs" />
     <Compile Include="NewContent\AlternateCapstones\Alchemist.cs" />
     <Compile Include="NewContent\AlternateCapstones\Arcanist.cs" />
