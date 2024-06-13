@@ -252,7 +252,6 @@
     <Compile Include="MechanicsChanges\NaturalArmorStacking.cs" />
     <Compile Include="MechanicsChanges\PolymorphStacking.cs" />
     <Compile Include="MechanicsChanges\SelectiveMetamagic.cs" />
-    <Compile Include="MechanicsChanges\TestLogs.cs" />
     <Compile Include="ModLogic\ModContextTTTBase.cs" />
     <Compile Include="NewContent\AlternateCapstones\Alchemist.cs" />
     <Compile Include="NewContent\AlternateCapstones\Arcanist.cs" />

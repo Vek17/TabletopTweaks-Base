@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -15,6 +16,7 @@ using System;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
+using TurnBased.Controllers;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.ActivatableAbilitySpendLogic;
 
@@ -198,11 +200,14 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 if (TTTContext.Fixes.Magus.Base.IsDisabled("SpellCombatDisableImmediatly")) { return; }
                 var magusPart = __instance?.Wielder?.Get<UnitPartMagus>();
                 if (magusPart == null) { return; }
-                if (magusPart.CanUseSpellCombatInThisRound) {
+                if (AvailableSpellStike(magusPart)) {
                     if (__instance.Blueprint.Type.IsOneHandedWhichCanBeUsedWithTwoHands && !__instance.Blueprint.IsTwoHanded) {
                         __result = false;
                     }
                 }
+            }
+            static bool AvailableSpellStike(UnitPartMagus magusPart) {
+                return Game.Instance.TimeController.GameTime - magusPart.LastSpellCombatOpportunityTime < 1.Rounds().Seconds;
             }
         }
 
