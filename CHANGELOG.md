@@ -1,4 +1,5 @@
 # Version 2.6.4
+* Support for 2.3.0
 * Fixes
     * Divine Commander can now progress existing animal companions.
     * Magic Deceiver recomendations adjusted for new metamagic feats.
