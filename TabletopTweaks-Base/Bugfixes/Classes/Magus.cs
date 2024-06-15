@@ -138,11 +138,18 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     if (TTTContext.Fixes.Magus.Archetypes["Hexcrafter"].IsDisabled("Spells")) { return; }
 
                     var HexcrafterSpells = BlueprintTools.GetBlueprint<BlueprintFeature>("8122e8b3ddb1e184ebf6decc8b1403b5");
+                    var IllOmen = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("ca577309cedc4f1daf6fe5795fb2619b");
                     var BestowCurseGreater = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6101d0f0720927e4ca413de7b3c4b7e5");
                     var AccursedGlareAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "AccursedGlareAbility");
                     var SpellCurseAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "SpellCurseAbility");
 
                     HexcrafterSpells.TemporaryContext(bp => {
+                        bp.AddComponent<AddKnownSpell>(c => {
+                            c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
+                            c.m_Archetype = new BlueprintArchetypeReference();
+                            c.m_Spell = IllOmen;
+                            c.SpellLevel = 1;
+                        });
                         bp.AddComponent<AddKnownSpell>(c => {
                             c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
                             c.m_Archetype = new BlueprintArchetypeReference();

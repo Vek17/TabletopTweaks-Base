@@ -119,8 +119,14 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     var AnimalCompanionSelectionBase = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("90406c575576aee40a34917a1b429254");
                     var AnimalCompanionStatFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("1e570d5407a942b478e79297e0885101");
                     var AnimalCompanionFeatureHorse_PreorderBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("bfeb9be0a3c9420b8b2beecc8171029c");
+                    var AnimalCompanionFeatureSmilodon_PreorderBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("44f4d77689434e07a5a44dcb65b25f71");
+                    var AnimalCompanionFeatureTriceratops_PreorderBonus = BlueprintTools.GetBlueprint<BlueprintFeature>("52c854f77105445a9457572ab5826c00");
+                    var GhostRiderAnimalCompanionFeatureHorse = BlueprintTools.GetBlueprint<BlueprintFeature>("f8895e843e3d456e9f76b595968072a4");
+                    var SableMarineHippogriffCompanionFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("50c5c91039a44793b5834319899dae70");
                     IEnumerable<BlueprintFeature> AnimalCompanionUpgrades = AnimalCompanionSelectionBase.m_AllFeatures.Concat(AnimalCompanionSelectionBase.m_Features)
                         .Select(feature => feature.Get())
+                        .AddItem(AnimalCompanionFeatureHorse_PreorderBonus)
+                        .AddItem(SableMarineHippogriffCompanionFeature)
                         .AddItem(AnimalCompanionFeatureHorse_PreorderBonus)
                         .Where(feature => feature.GetComponent<AddPet>())
                         .Select(feature => feature.GetComponent<AddPet>())

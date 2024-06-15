@@ -24,7 +24,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             CauldronWitchMixtureAbility.AbilityAndVariants().ForEach(ability => {
                 ability.GetComponents<ContextRankConfig>().ForEach(c => {
                     c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                    c.m_Class = new BlueprintCharacterClassReference[] { WitchClass };
+                    c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.WitchClass, ClassTools.ClassReferences.WinterWitchClass };
                 });
             });
             CauldronWitchMixtureAbility.AbilityAndVariants()
@@ -36,7 +36,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                 .ForEach(buff => {
                     buff.GetComponents<ContextRankConfig>().ForEach(c => {
                         c.m_BaseValueType = ContextRankBaseValueType.ClassLevel;
-                        c.m_Class = new BlueprintCharacterClassReference[] { WitchClass };
+                        c.m_Class = new BlueprintCharacterClassReference[] { ClassTools.ClassReferences.WitchClass, ClassTools.ClassReferences.WinterWitchClass };
                     });
                 });
             CauldronWitchArchetype.RemoveFeatures

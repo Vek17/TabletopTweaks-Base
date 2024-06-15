@@ -67,7 +67,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 bp.AddPrerequisite<PrerequisiteSpellKnown>(c => {
                     c.m_Spell = DispelMagic;
                 });
-                bp.AddPrerequisiteFeature(DispelFocusFeature);
+                bp.AddPrerequisiteFeaturesFromList(1, DispelFocusFeature, DispelFocus);
                 bp.AddPrerequisite<PrerequisiteNoFeature>(c => {
                     c.m_Feature = GreaterDispelFocus.ToReference<BlueprintFeatureReference>();
                     c.HideInUI = true;
@@ -86,8 +86,10 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             if (DLCTools.HasDLC(6)) { return; }
             if (TTTContext.AddedContent.Feats.IsDisabled("DispelFocus")) { return; }
             FeatTools.AddAsFeat(DispelFocusFeature);
+            FeatTools.RemoveAsFeat(DispelFocus);
             if (TTTContext.AddedContent.Feats.IsDisabled("DispelFocusGreater")) { return; }
             FeatTools.AddAsFeat(DispelFocusGreaterFeature);
+            FeatTools.RemoveAsFeat(GreaterDispelFocus);
         }
     }
 }

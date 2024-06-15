@@ -3,8 +3,7 @@
 * Fixes
     * Divine Commander can now progress existing animal companions.
     * Magic Deceiver recomendations adjusted for new metamagic feats.
-* Removed redundant additions:
-    * Favorite Metamagic Persistent
+* Removed redundant additions
 
 # Version 2.6.3
 * Fixes
