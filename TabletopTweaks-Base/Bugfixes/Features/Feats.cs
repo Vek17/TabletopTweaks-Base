@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -54,6 +55,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 TTTContext.Logger.LogHeader("Patching Feats");
                 PatchAlliedSpellcaster();
                 PatchArcaneStrike();
+                PatchArmorFocus();
+                PatchShieldFocus();
                 PatchBrewPotions();
                 PatchCleave();
                 PatchCraneWing();
@@ -143,6 +146,107 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         };
                     });
                 }
+            }
+            static void PatchArmorFocus() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ArmorFocus")) { return; }
+
+                var ArmorFocusBanded = BlueprintTools.GetBlueprint<BlueprintFeature>("57c6a8b9ca2f3b1489e9defe8b121055");
+                var ArmorFocusBreastplate = BlueprintTools.GetBlueprint<BlueprintFeature>("619f035282c82994895d67e337fe150a");
+                var ArmorFocusChainmail = BlueprintTools.GetBlueprint<BlueprintFeature>("adb1548368313094ba608788befff12c");
+                var ArmorFocusChainshirt = BlueprintTools.GetBlueprint<BlueprintFeature>("8fa6c8751d4548540809b045f9a65dc0");
+                var ArmorFocusFullplate = BlueprintTools.GetBlueprint<BlueprintFeature>("e1a220a4cf2111d4884ab2372946909b");
+                var ArmorFocusHalfplate = BlueprintTools.GetBlueprint<BlueprintFeature>("ade9beb95f41d9d4b94e1537dbaf44d6");
+                var ArmorFocusHeavy = BlueprintTools.GetBlueprint<BlueprintFeature>("c27e6d2b0d33d42439f512c6d9a6a601");
+                var ArmorFocusHide = BlueprintTools.GetBlueprint<BlueprintFeature>("e31e66c4670152945969e719112709d8");
+                var ArmorFocusLeather = BlueprintTools.GetBlueprint<BlueprintFeature>("8c5a2c385181eb64a8b86f0bf751d96f");
+                var ArmorFocusLight = BlueprintTools.GetBlueprint<BlueprintFeature>("3bc6e1d2b44b5bb4d92e6ba59577cf62");
+                var ArmorFocusMedium = BlueprintTools.GetBlueprint<BlueprintFeature>("7dc004879037638489b64d5016997d12");
+                var ArmorFocusPadded = BlueprintTools.GetBlueprint<BlueprintFeature>("82fbb68796a4e6d4a8b79cf3f14600b7");
+                var ArmorFocusScalemail = BlueprintTools.GetBlueprint<BlueprintFeature>("b1cccd1b5fec8a6438858cb39c08a7f6");
+                var ArmorFocusStudded = BlueprintTools.GetBlueprint<BlueprintFeature>("57770bba6c22f1e42b396f2bcb1c420a");
+
+                ArmorFocusLight.TemporaryContext(bp => {
+                    bp.RemoveComponents<ArmorFocus>();
+                    bp.AddComponent<AddArmorACModifier>(c => {
+                        c.Descriptor = ModifierDescriptor.ArmorFocus;
+                        c.Value = 1;
+                        c.CheckArmorType = true;
+                        c.ArmorTypes = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Light };
+                    });
+                });
+                ArmorFocusMedium.TemporaryContext(bp => {
+                    bp.RemoveComponents<ArmorFocus>();
+                    bp.AddComponent<AddArmorACModifier>(c => {
+                        c.Descriptor = ModifierDescriptor.ArmorFocus;
+                        c.Value = 1;
+                        c.CheckArmorType = true;
+                        c.ArmorTypes = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
+                    });
+                });
+                ArmorFocusHeavy.TemporaryContext(bp => {
+                    bp.RemoveComponents<ArmorFocus>();
+                    bp.AddComponent<AddArmorACModifier>(c => {
+                        c.Descriptor = ModifierDescriptor.ArmorFocus;
+                        c.Value = 1;
+                        c.CheckArmorType = true;
+                        c.ArmorTypes = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
+                    });
+                });
+            }
+            static void PatchShieldFocus() {
+                if (Main.TTTContext.Fixes.Feats.IsDisabled("ShieldFocus")) { return; }
+
+                var ShieldFocus = BlueprintTools.GetBlueprint<BlueprintFeature>("ac57069b6bf8c904086171683992a92a");
+                var ShieldFocusGreater = BlueprintTools.GetBlueprint<BlueprintFeature>("afd05ca5363036c44817c071189b67e1");
+                var DLC3_ShieldAAttackBlueprintFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("e30c63d0aef044c4b604b49fab0c3bdd");
+
+                ShieldFocus.TemporaryContext(bp => {
+                    bp.RemoveComponents<ArmorFocus>();
+                    bp.RemoveComponents<ShieldFocus>();
+                    bp.AddComponent<AddArmorACModifier>(c => {
+                        c.Descriptor = ModifierDescriptor.ShieldFocus;
+                        c.Value = 1;
+                        c.IsShield = true;
+                        c.CheckArmorType = true;
+                        c.ArmorTypes = new ArmorProficiencyGroup[] {
+                            ArmorProficiencyGroup.HeavyShield,
+                            ArmorProficiencyGroup.LightShield,
+                            ArmorProficiencyGroup.TowerShield,
+                            ArmorProficiencyGroup.Buckler,
+                        };
+                    });
+                });
+                ShieldFocusGreater.TemporaryContext(bp => {
+                    bp.RemoveComponents<ArmorFocus>();
+                    bp.RemoveComponents<ShieldFocus>();
+                    bp.AddComponent<AddArmorACModifier>(c => {
+                        c.Descriptor = ModifierDescriptor.ShieldFocus;
+                        c.Value = 1;
+                        c.IsShield = true;
+                        c.CheckArmorType = true;
+                        c.ArmorTypes = new ArmorProficiencyGroup[] {
+                            ArmorProficiencyGroup.HeavyShield,
+                            ArmorProficiencyGroup.LightShield,
+                            ArmorProficiencyGroup.TowerShield,
+                            ArmorProficiencyGroup.Buckler,
+                        };
+                    });
+                });
+                DLC3_ShieldAAttackBlueprintFeature.TemporaryContext(bp => {
+                    bp.RemoveComponents<ShieldFocus>();
+                    bp.AddComponent<AddArmorACModifier>(c => {
+                        c.Descriptor = ModifierDescriptor.ShieldFocus;
+                        c.Value = 1;
+                        c.IsShield = true;
+                        c.CheckArmorType = true;
+                        c.ArmorTypes = new ArmorProficiencyGroup[] {
+                            ArmorProficiencyGroup.HeavyShield,
+                            ArmorProficiencyGroup.LightShield,
+                            ArmorProficiencyGroup.TowerShield,
+                            ArmorProficiencyGroup.Buckler,
+                        };
+                    });
+                });
             }
             static void PatchBrewPotions() {
                 if (Main.TTTContext.Fixes.Feats.IsDisabled("BrewPotions")) { return; }

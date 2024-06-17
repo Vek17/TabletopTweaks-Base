@@ -2,6 +2,10 @@
 * Fixes
     * BladeBound (TTT)
         * Now supports Sawtooth Sabres
+    * Mythic Abilities
+        * Armored Might now consideres armor focus bonuses 
+    * Armor bonuses are now calculated more correctly (this cannot be disabled due to too many dependencies)
+        * Enchantments now correctly increase armor bonuses instead of applying an unrelated bonus
 
 # Version 2.6.5
 * Fixes

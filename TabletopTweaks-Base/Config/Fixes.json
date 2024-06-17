@@ -1734,6 +1734,11 @@
         "Homebrew": false,
         "Description": "Prevents draconic arcane strike from generating too many damage instances."
       },
+      "ArmorFocus": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Correctly wraps armor focus bonuses into armor bonuses."
+      },
       "BolsteredMetamagic": {
         "Enabled": true,
         "Homebrew": false,
@@ -1858,6 +1863,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Now requires you to hit a shaken target once before they become flat footed."
+      },
+      "ShieldFocus": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Correctly wraps shield focus bonuses into armor bonuses."
       },
       "ShiftersEdge": {
         "Enabled": true,

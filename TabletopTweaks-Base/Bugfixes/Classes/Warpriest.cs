@@ -81,7 +81,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var WarBlessingMajorAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("b25af29679004b2085277bb8979b2912");
                     var WarBlessingMinorAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("77b232a88ab04671b44712232e63077d");
 
-                    WarBlessingMinorAbility.ActionType = CommandType.Standard;
+                    WarBlessingMinorAbility.AbilityAndVariants().ForEach(ability => ability.ActionType = CommandType.Standard);
                     WarBlessingMajorAbility.ActionType = CommandType.Standard;
 
                     TTTContext.Logger.LogPatch(WarBlessingMinorAbility);

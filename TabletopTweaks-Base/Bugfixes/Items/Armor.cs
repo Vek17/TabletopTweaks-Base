@@ -1,7 +1,9 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
@@ -22,6 +24,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 TTTContext.Logger.LogHeader("Patching Armor");
                 PatchHaramaki();
                 PatchSingingSteel();
+                PatchTempEnchantments();
 
                 void PatchHaramaki() {
                     if (TTTContext.Fixes.Items.Armor.IsDisabled("Haramaki")) { return; }
@@ -29,6 +32,49 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     var HaramakiType = BlueprintTools.GetBlueprint<BlueprintArmorType>("9511d62bcfc57c245bf64350a5933470");
                     HaramakiType.m_ProficiencyGroup = ArmorProficiencyGroup.Light;
                     TTTContext.Logger.LogPatch("Patched", HaramakiType);
+                }
+                void PatchTempEnchantments() {
+                    var TemporaryArmorEnhancementBonus1 = BlueprintTools.GetBlueprint<BlueprintArmorEnchantment>("1d9b60d57afb45c4f9bb0a3c21bb3b98");
+                    var TemporaryArmorEnhancementBonus2 = BlueprintTools.GetBlueprint<BlueprintArmorEnchantment>("d45bfd838c541bb40bde7b0bf0e1b684");
+                    var TemporaryArmorEnhancementBonus3 = BlueprintTools.GetBlueprint<BlueprintArmorEnchantment>("51c51d841e9f16046a169729c13c4d4f");
+                    var TemporaryArmorEnhancementBonus4 = BlueprintTools.GetBlueprint<BlueprintArmorEnchantment>("a23bcee56c9fcf64d863dafedb369387");
+                    var TemporaryArmorEnhancementBonus5 = BlueprintTools.GetBlueprint<BlueprintArmorEnchantment>("15d7d6cbbf56bd744b37bbf9225ea83b");
+
+                    TemporaryArmorEnhancementBonus1.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddStatBonusEquipment>();
+                        bp.AddComponent<ArmorEnhancementBonus>(c => {
+                            c.EnhancementValue = 1;
+                        });
+                    });
+                    TemporaryArmorEnhancementBonus2.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddStatBonusEquipment>();
+                        bp.AddComponent<ArmorEnhancementBonus>(c => {
+                            c.EnhancementValue = 2;
+                        });
+                    });
+                    TemporaryArmorEnhancementBonus3.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddStatBonusEquipment>();
+                        bp.AddComponent<ArmorEnhancementBonus>(c => {
+                            c.EnhancementValue = 3;
+                        });
+                    });
+                    TemporaryArmorEnhancementBonus4.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddStatBonusEquipment>();
+                        bp.AddComponent<ArmorEnhancementBonus>(c => {
+                            c.EnhancementValue = 4;
+                        });
+                    });
+                    TemporaryArmorEnhancementBonus5.TemporaryContext(bp => {
+                        bp.RemoveComponents<AddStatBonusEquipment>();
+                        bp.AddComponent<ArmorEnhancementBonus>(c => {
+                            c.EnhancementValue = 5;
+                        });
+                    });
+                    TTTContext.Logger.LogPatch(TemporaryArmorEnhancementBonus1);
+                    TTTContext.Logger.LogPatch(TemporaryArmorEnhancementBonus2);
+                    TTTContext.Logger.LogPatch(TemporaryArmorEnhancementBonus3);
+                    TTTContext.Logger.LogPatch(TemporaryArmorEnhancementBonus4);
+                    TTTContext.Logger.LogPatch(TemporaryArmorEnhancementBonus5);
                 }
                 void PatchSingingSteel() {
                     if (TTTContext.Fixes.Items.Armor.IsDisabled("SingingSteel")) { return; }

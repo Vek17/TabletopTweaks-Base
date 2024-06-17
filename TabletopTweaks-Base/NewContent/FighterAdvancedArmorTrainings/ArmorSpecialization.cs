@@ -36,13 +36,14 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
-                bp.AddComponent<AddContextStatBonus>(c => {
+                bp.AddComponent<AddArmorACModifier>(c => {
                     c.Descriptor = ModifierDescriptor.ArmorFocus;
-                    c.Stat = StatType.AC;
                     c.Value = new ContextValue {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
+                    c.CheckArmorType = true;
+                    c.ArmorTypes = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Light };
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
@@ -51,7 +52,7 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 4;
-                    c.m_Max = 3;
+                    c.m_Max = 5;
                     c.m_Min = 1;
                     c.m_UseMin = true;
                     c.m_UseMax = true;
@@ -74,13 +75,14 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
-                bp.AddComponent<AddContextStatBonus>(c => {
+                bp.AddComponent<AddArmorACModifier>(c => {
                     c.Descriptor = ModifierDescriptor.ArmorFocus;
-                    c.Stat = StatType.AC;
                     c.Value = new ContextValue {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
+                    c.CheckArmorType = true;
+                    c.ArmorTypes = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
@@ -113,13 +115,14 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.HideInCharacterSheetAndLevelUp = true;
                 bp.Ranks = 1;
-                bp.AddComponent<AddContextStatBonus>(c => {
+                bp.AddComponent<AddArmorACModifier>(c => {
                     c.Descriptor = ModifierDescriptor.ArmorFocus;
-                    c.Stat = StatType.AC;
                     c.Value = new ContextValue {
                         ValueType = ContextValueType.Rank,
                         ValueRank = AbilityRankType.StatBonus
                     };
+                    c.CheckArmorType = true;
+                    c.ArmorTypes = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
                 });
                 bp.AddContextRankConfig(c => {
                     c.m_Type = AbilityRankType.StatBonus;
@@ -141,6 +144,7 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                     "granted by any heavy armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 5.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
+                
                 bp.AddComponent<ArmorFeatureUnlock>(c => {
                     c.NewFact = ArmorSpecializationHeavyEffect.ToReference<BlueprintUnitFactReference>();
                     c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };

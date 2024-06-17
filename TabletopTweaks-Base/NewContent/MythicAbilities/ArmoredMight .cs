@@ -19,7 +19,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 bp.m_Icon = icon;
                 bp.SetName(TTTContext, "Armored Might");
                 bp.SetDescription(TTTContext, "You treat the armor bonus from your armor as 50% higher than normal, to a maximum increase of half your mythic rank plus one.");
-                bp.AddComponent(Helpers.Create<ArmoredMightComponent>());
+                bp.AddComponent<ArmoredMightComponent>();
             });
 
             if (TTTContext.AddedContent.MythicAbilities.IsDisabled("ArmoredMight")) { return; }

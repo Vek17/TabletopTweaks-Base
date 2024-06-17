@@ -74,6 +74,12 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("e572966d72a7f7449aa9236ec7f357d8"),    // WaterBlessingMinorAbility,
                 BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("f9e01aec7f35ec94ea7f2b3f73f1e98f"),    // WeatherBlessingMajorAbility,
                 BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("df8099d3937d52440a5bbec98751ecde"),    // WeatherBlessingMinorAbility,
+                BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("b25af29679004b2085277bb8979b2912"),    // WarBlessingMajorAbility,
+                BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("77b232a88ab04671b44712232e63077d"),    // WarBlessingMinorAbility,
+                BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("13610da20c4840ed986568412207eba0"),    // WarBlessingMinorAbilityAC,
+                BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("d6ab932ea5304c14ab3155647435b76c"),    // WarBlessingMinorAbilityAttack,
+                BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("85d935854e574b31a32ea6b031ba8f84"),    // WarBlessingMinorAbilitySavingThrow,
+                BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("a15fa9c66b794f6986ee1d1d97db3419"),    // WarBlessingMinorAbilitySpeed,
             };
             var EnhancedBlessingsFeature = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "EnhancedBlessingsFeature", bp => {
                 bp.m_Icon = DomainMastery.m_Icon;
