@@ -139,12 +139,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     if (TTTContext.Fixes.Magus.Archetypes["Hexcrafter"].IsDisabled("Spells")) { return; }
 
                     var HexcrafterSpells = BlueprintTools.GetBlueprint<BlueprintFeature>("8122e8b3ddb1e184ebf6decc8b1403b5");
-                    var IllOmen = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("ca577309cedc4f1daf6fe5795fb2619b");
-                    var CurseOfMagicNegation = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("c0c2ef5955cb415ca482597f1bfc4eca");
-                    var BestowCurseGreater = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6101d0f0720927e4ca413de7b3c4b7e5");
-                    var AccursedGlareAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "AccursedGlareAbility");
-                    var SpellCurseAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "SpellCurseAbility");
-
                     var CurseSpells = SpellTools.Spellbook.AllSpellbooks
                         .Where(book => !book.IsMythic)
                         .Select(book => book.SpellList)
@@ -162,8 +156,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         .Where(spell => spell.SpellDescriptor.HasFlag(SpellDescriptor.Curse))
                         .ToList();
 
-                    CurseSpells.ForEach(spell => TTTContext.Logger.Log($"Found Curse Spell: {spell.Name}"));
-
                     HexcrafterSpells.TemporaryContext(bp => {
                         bp.SetComponents();
                         AddCurseSpells(bp, CurseSpells, 1);
@@ -174,7 +166,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         AddCurseSpells(bp, CurseSpells, 6);
                     });
 
-                    void AddCurseSpells(BlueprintFeature feature, List<BlueprintAbility> spells, int spellLevel) {
+                    void AddCurseSpells(BlueprintFeature feature, IEnumerable<BlueprintAbility> spells, int spellLevel) {
                         spells
                             .Where(spell => LowestSpellLevel(spell) == spellLevel)
                             .Where(spell => SpellTools.SpellList.MagusSpellList.GetLevel(spell) == -1)
