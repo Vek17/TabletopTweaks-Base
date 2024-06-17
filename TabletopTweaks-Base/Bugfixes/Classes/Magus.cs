@@ -8,15 +8,16 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
 using TabletopTweaks.Core.Utilities;
-using TurnBased.Controllers;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.ActivatableAbilitySpendLogic;
 
@@ -142,44 +143,64 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var CurseOfMagicNegation = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("c0c2ef5955cb415ca482597f1bfc4eca");
                     var BestowCurseGreater = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6101d0f0720927e4ca413de7b3c4b7e5");
                     var AccursedGlareAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "AccursedGlareAbility");
-                    var SpellCurseAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "SpellCurseAbility");         
+                    var SpellCurseAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "SpellCurseAbility");
+
+                    var CurseSpells = SpellTools.Spellbook.AllSpellbooks
+                        .Where(book => !book.IsMythic)
+                        .Select(book => book.SpellList)
+                        .SelectMany(list => {
+                            var AllSpells = new List<BlueprintAbility>();
+                            AllSpells.AddRange(GetUnfilteredSpells(list, 1));
+                            AllSpells.AddRange(GetUnfilteredSpells(list, 2));
+                            AllSpells.AddRange(GetUnfilteredSpells(list, 3));
+                            AllSpells.AddRange(GetUnfilteredSpells(list, 4));
+                            AllSpells.AddRange(GetUnfilteredSpells(list, 5));
+                            AllSpells.AddRange(GetUnfilteredSpells(list, 6));
+                            return AllSpells;
+                        })
+                        .Distinct()
+                        .Where(spell => spell.SpellDescriptor.HasFlag(SpellDescriptor.Curse))
+                        .ToList();
+
+                    CurseSpells.ForEach(spell => TTTContext.Logger.Log($"Found Curse Spell: {spell.Name}"));
 
                     HexcrafterSpells.TemporaryContext(bp => {
-                        bp.AddComponent<AddKnownSpell>(c => {
-                            c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
-                            c.m_Archetype = new BlueprintArchetypeReference();
-                            c.m_Spell = IllOmen;
-                            c.SpellLevel = 1;
-                        });
-                        bp.AddComponent<AddKnownSpell>(c => {
-                            c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
-                            c.m_Archetype = new BlueprintArchetypeReference();
-                            c.m_Spell = CurseOfMagicNegation;
-                            c.SpellLevel = 4;
-                        });
-                        bp.AddComponent<AddKnownSpell>(c => {
-                            c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
-                            c.m_Archetype = new BlueprintArchetypeReference();
-                            c.m_Spell = BestowCurseGreater;
-                            c.SpellLevel = 6;
-                        });
-                        if (TTTContext.AddedContent.Spells.IsEnabled("AccursedGlare")) {
-                            bp.AddComponent<AddKnownSpell>(c => {
-                                c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
-                                c.m_Archetype = new BlueprintArchetypeReference();
-                                c.m_Spell = AccursedGlareAbility;
-                                c.SpellLevel = 3;
-                            });
-                        }
-                        if (TTTContext.AddedContent.Spells.IsEnabled("SpellCurse")) {
-                            bp.AddComponent<AddKnownSpell>(c => {
-                                c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
-                                c.m_Archetype = new BlueprintArchetypeReference();
-                                c.m_Spell = SpellCurseAbility;
-                                c.SpellLevel = 3;
-                            });
-                        }
+                        bp.SetComponents();
+                        AddCurseSpells(bp, CurseSpells, 1);
+                        AddCurseSpells(bp, CurseSpells, 2);
+                        AddCurseSpells(bp, CurseSpells, 3);
+                        AddCurseSpells(bp, CurseSpells, 4);
+                        AddCurseSpells(bp, CurseSpells, 5);
+                        AddCurseSpells(bp, CurseSpells, 6);
                     });
+
+                    void AddCurseSpells(BlueprintFeature feature, List<BlueprintAbility> spells, int spellLevel) {
+                        spells
+                            .Where(spell => LowestSpellLevel(spell) == spellLevel)
+                            .Where(spell => SpellTools.SpellList.MagusSpellList.GetLevel(spell) == -1)
+                            .Select(spell => spell.ToReference<BlueprintAbilityReference>())
+                            .ForEach(spell => {
+                                feature.AddComponent<AddKnownSpell>(c => {
+                                    c.m_CharacterClass = ClassTools.ClassReferences.MagusClass;
+                                    c.m_Archetype = new BlueprintArchetypeReference();
+                                    c.m_Spell = spell;
+                                    c.SpellLevel = spellLevel;
+                                });
+                            });
+                    }
+
+                    int LowestSpellLevel(BlueprintAbility spell) {
+                        return spell.GetComponents<SpellListComponent>()
+                            .Select(c => c.SpellLevel)
+                            .Min();
+                    }
+
+                    List<BlueprintAbility> GetUnfilteredSpells(BlueprintSpellList list, int spellLevel) {
+                        if (spellLevel < 0 || spellLevel >= list.SpellsByLevel.Length) {
+                            return BlueprintSpellList.EmptyAbilitiesList;
+                        }
+                        return list.SpellsByLevel[spellLevel].Spells.ToList();
+                    }
                 }
             }
             static void PatchSwordSaint() {
