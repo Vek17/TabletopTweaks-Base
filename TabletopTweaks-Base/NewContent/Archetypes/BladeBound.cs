@@ -70,6 +70,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             var ScimitarPlus5 = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("af2a9b2b3a6905f49a44e4676a39cea8");
             var ShortSwordPlus5 = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("b5f6e218fb193a24cb00bdec435732ff");
             var SicklePlus5 = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("5733378292a9fd547aeb7eccb7e79c60");
+            var BlackSawtoothSabrePlus5 = BlueprintTools.GetBlueprint<BlueprintItemWeapon>("d2ee36d38ee9432bb96991b190e3047a");
 
             var Icon_BlackBlade = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_BlackBlade.png");
             var Icon_BlackBlade_BlackBladeStrike = AssetLoader.LoadInternal(TTTContext, folder: "Abilities", file: "Icon_BlackBlade_BlackBladeStrike.png");
@@ -109,6 +110,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
             var BlackBladeScimitar = CreateBlackBlade(ScimitarPlus5, BlackBladeEnchantment);
             var BlackBladeShortSword = CreateBlackBlade(ShortSwordPlus5, BlackBladeEnchantment);
             var BlackBladeSickle = CreateBlackBlade(SicklePlus5, BlackBladeEnchantment);
+            var BlackSawtoothSabre = CreateBlackBlade(BlackSawtoothSabrePlus5, BlackBladeEnchantment);
 
             var BlackBladeSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "BlackBladeSelection", bp => {
                 bp.SetName(TTTContext, "Black Blade Selection");
@@ -131,7 +133,8 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
                     BlackBladeRapier,
                     BlackBladeScimitar,
                     BlackBladeShortSword,
-                    BlackBladeSickle
+                    BlackBladeSickle,
+                    BlackSawtoothSabre
                 );
                 bp.AddComponent<NoSelectionIfAlreadyHasFeature>(c => {
                     c.m_Features = new BlueprintFeatureReference[0];

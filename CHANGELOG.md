@@ -1,3 +1,8 @@
+# Version 2.6.6
+* Fixes
+    * BladeBound (TTT)
+        * Now supports Sawtooth Sabres
+
 # Version 2.6.5
 * Fixes
     * Magus
