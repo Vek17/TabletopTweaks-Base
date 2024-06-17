@@ -1,3 +1,8 @@
+# Version 2.6.5
+* Fixes
+    * Magus
+        * Hexcrafter spells updated
+
 # Version 2.6.4
 * Support for 2.3.0
 * Fixes
