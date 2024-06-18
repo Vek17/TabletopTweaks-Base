@@ -52,7 +52,7 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StartLevel = 1;
                     c.m_StepLevel = 4;
-                    c.m_Max = 5;
+                    c.m_Max = 3;
                     c.m_Min = 1;
                     c.m_UseMin = true;
                     c.m_UseMax = true;
@@ -64,9 +64,8 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                 bp.SetDescription(TTTContext, "The AC bonus granted by any light armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 3.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent<ArmorFeatureUnlock>(c => {
-                    c.NewFact = ArmorSpecializationLightEffect.ToReference<BlueprintUnitFactReference>();
-                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Light };
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { ArmorSpecializationLightEffect.ToReference<BlueprintUnitFactReference>() };
                 });
             });
             var ArmorSpecializationMediumEffect = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ArmorSpecializationMediumEffect", bp => {
@@ -104,9 +103,8 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                     "you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 4.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                bp.AddComponent<ArmorFeatureUnlock>(c => {
-                    c.NewFact = ArmorSpecializationMediumEffect.ToReference<BlueprintUnitFactReference>();
-                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { ArmorSpecializationMediumEffect.ToReference<BlueprintUnitFactReference>() };
                 });
             });
             var ArmorSpecializationHeavyEffect = Helpers.CreateBlueprint<BlueprintFeature>(TTTContext, "ArmorSpecializationHeavyEffect", bp => {
@@ -145,9 +143,8 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 
-                bp.AddComponent<ArmorFeatureUnlock>(c => {
-                    c.NewFact = ArmorSpecializationHeavyEffect.ToReference<BlueprintUnitFactReference>();
-                    c.RequiredArmor = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Heavy };
+                bp.AddComponent<AddFacts>(c => {
+                    c.m_Facts = new BlueprintUnitFactReference[] { ArmorSpecializationHeavyEffect.ToReference<BlueprintUnitFactReference>() };
                 });
             });
 

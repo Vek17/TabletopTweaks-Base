@@ -745,7 +745,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
 
             static void PatchThroneKeeper() {
 
-                var ThroneKeeperFeature = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("8c7de3b7d51a4b49a46990d8dbc84853");  // ThroneKeeperFeature
+                var ThroneKeeperFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("8c7de3b7d51a4b49a46990d8dbc84853");  // ThroneKeeperFeature
 
                 BlueprintUnitFactReference[] adamantineArmorFeatures = new BlueprintUnitFactReference[] {
                     BlueprintTools.GetBlueprint<BlueprintFeature>("e93a376547629e2478d6f50e5f162efb").ToReference<BlueprintUnitFactReference>(), // AdamantineArmorLightFeature
@@ -758,8 +758,14 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 adamantineArmorFeatures.ForEach(feature => {
                     var component = feature.Get().GetComponent<TTAddDamageResistancePhysical>();
                     if (component) {
-                        component.IncreasedByFacts = component.IncreasedByFacts.AppendToArray(ThroneKeeperFeature);
+                        component.IncreasedByFacts = component.IncreasedByFacts.AppendToArray(ThroneKeeperFeature.ToReference<BlueprintUnitFactReference>());
                     }
+                });
+                ThroneKeeperFeature.TemporaryContext(bp => {
+                    bp.GetComponent<TTAddDamageResistancePhysical>().Value = 7;
+                    bp.AddComponent<AddFacts>(c => {
+                        c.m_Facts = new BlueprintUnitFactReference[] { BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("dbbf704bfcc78854ab149597ef9aae7c") };
+                    });
                 });
             }
         }

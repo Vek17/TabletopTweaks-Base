@@ -1980,6 +1980,11 @@
         "Enabled": true,
         "Homebrew": false,
         "Description": "Can no longer be picked more than once."
+      },
+      "MythicArmorFocus": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes issues with Mythic armor focus triggering on the wrong types of armor."
       }
     },
     "IsExpanded": true
