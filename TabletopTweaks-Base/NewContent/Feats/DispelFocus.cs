@@ -83,12 +83,14 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 c.HideInUI = true;
             });
 
-            if (DLCTools.HasDLC(6)) { return; }
+            //if (DLCTools.HasDLC(6)) { return; }
             if (TTTContext.AddedContent.Feats.IsDisabled("DispelFocus")) { return; }
             FeatTools.AddAsFeat(DispelFocusFeature);
+            DispelFocus.Groups = DispelFocusFeature.Groups;
             FeatTools.RemoveAsFeat(DispelFocus);
             if (TTTContext.AddedContent.Feats.IsDisabled("DispelFocusGreater")) { return; }
             FeatTools.AddAsFeat(DispelFocusGreaterFeature);
+            GreaterDispelFocus.Groups = DispelFocusGreaterFeature.Groups;
             FeatTools.RemoveAsFeat(GreaterDispelFocus);
         }
     }

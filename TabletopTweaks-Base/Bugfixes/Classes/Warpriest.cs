@@ -3,6 +3,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.NewComponents.Prerequisites;
@@ -62,6 +64,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Warpriest");
                 PatchBase();
+                PatchArchetypes();
             }
             static void PatchBase() {
                 PatchFighterTraining();
@@ -90,6 +93,41 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
 
             static void PatchArchetypes() {
+                PatchMantisZealot();
+
+                void PatchMantisZealot() {
+                    if (TTTContext.Fixes.Warpriest.Base.IsDisabled("FighterTraining")) { return; }
+
+                    var MantisZealotDeadlyFascinationFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("823221f892e24568b1e5b111222d5b45");
+                    var MantisZealotDeadlyFascinationAbility = BlueprintTools.GetBlueprint<BlueprintAbility>("c2cd38949dad4756900b378767ca90c9");
+                    var MantisZealotDeadlyFascinationBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("fabd37ce1b244503a4ad7235327950f9");
+                    var DazzledBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("df6d1025da07524429afbae248845ecc");
+
+                    MantisZealotDeadlyFascinationFeature.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Dazzling Bladework");
+                        bp.SetDescription(TTTContext, "At 3rd level, a mantis zealot's deadly motions become dazzling. " +
+                            "Whenever he kills an enemy with a sawtooth saber, " +
+                            "other enemies in a 30-foot radius are dazzled for 2 rounds unless they succeed at a Will save " +
+                            "(DC 10 + half the mantis zealot's class level + his Dexterity modifier; " +
+                            "if he is wielding two sawtooth sabers, the DC increases by 2; if the red shroud is activated, " +
+                            "the DC is increased by an additional 2).");
+                    });
+                    MantisZealotDeadlyFascinationAbility.TemporaryContext(bp => {
+                        bp.SetName(MantisZealotDeadlyFascinationFeature.m_DisplayName);
+                        bp.SetDescription(MantisZealotDeadlyFascinationFeature.m_Description);
+                        bp.FlattenAllActions().OfType<ContextActionApplyBuff>().ForEach(c => {
+                            c.m_Buff = DazzledBuff;
+                            c.Permanent = false;
+                            c.DurationValue = new ContextDurationValue() { 
+                                Rate = DurationRate.Rounds,
+                                DiceCountValue = 0,
+                                BonusValue = 2
+                            };
+                        });
+                    });
+
+                    TTTContext.Logger.LogPatch(MantisZealotDeadlyFascinationFeature);
+                }
             }
         }
     }

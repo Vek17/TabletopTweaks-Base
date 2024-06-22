@@ -9,6 +9,7 @@ using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
 using System;
+using System.Collections.Generic;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
@@ -82,10 +83,19 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     if (TTTContext.Fixes.Items.Armor.IsDisabled("SingingSteel")) { return; }
 
                     var SingingSteelFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("793af594fa45e6a47b89719dda7d5f7a");
-                    SingingSteelFeature.AddComponent<AddMechanicsFeature>(c => {
-                        c.m_Feature = AddMechanicsFeature.MechanicsFeatureType.SingingSteel;
+                    var BreastplateType = BlueprintTools.GetBlueprintReference<BlueprintArmorTypeReference>("d326c3c61a84c6f40977c84fab41503d");
+                    var SingingSteelBreastplatePlus5 = BlueprintTools.GetBlueprint<BlueprintItemArmor>("f8318f96333f4065baa2f04b1ba537eb");
+
+                    SingingSteelFeature.TemporaryContext(bp => {
+                        bp.AddComponent<AddMechanicsFeature>(c => {
+                            c.m_Feature = AddMechanicsFeature.MechanicsFeatureType.SingingSteel;
+                        });
                     });
-                    TTTContext.Logger.LogPatch("Patched", SingingSteelFeature);
+                    SingingSteelBreastplatePlus5.TemporaryContext(bp => {
+                        bp.m_Type = BreastplateType;
+                    });
+                    TTTContext.Logger.LogPatch(SingingSteelFeature);
+                    TTTContext.Logger.LogPatch(SingingSteelBreastplatePlus5);
                 }
             }
         }

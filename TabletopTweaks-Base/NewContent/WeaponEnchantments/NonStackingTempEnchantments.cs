@@ -42,7 +42,7 @@ namespace TabletopTweaks.Base.NewContent.WeaponEnchantments {
                 bp.SetName(TTTContext, $"Temporary Enhancement +{enhancmentBonus}");
                 bp.SetDescription(TTTContext, $"This armor provides a +{enhancmentBonus} " +
                     $"enhancement bonus to Armor Class. The armor check penalty of magic armor " +
-                    $"is lessened by {enhancmentBonus} compared to ordinary armor of its type..");
+                    $"is lessened by {enhancmentBonus} compared to ordinary armor of its type.");
                 bp.SetPrefix(TTTContext, "");
                 bp.SetSuffix(TTTContext, $"+{enhancmentBonus}");
                 bp.AddComponent<AdvanceArmorStats>(c => {

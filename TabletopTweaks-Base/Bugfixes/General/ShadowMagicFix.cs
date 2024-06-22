@@ -35,6 +35,8 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 var ParentAbility = evt.AbilityData?.ConvertedFrom;
                 if (ParentAbility?.Blueprint?.GetComponent<AbilityShadowSpell>() != null) {
                     component = ParentAbility.Blueprint.GetComponent<SpellDescriptorComponent>();
+                } else {
+                    return true;
                 }
                 if (component == null) {
                     return false;
@@ -52,15 +54,17 @@ namespace TabletopTweaks.Base.Bugfixes.General {
 
             static bool Prefix(IncreaseSpellSchoolDC __instance, RuleCalculateAbilityParams evt) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("FixShadowSpells")) { return true; }
-                var spell = evt.Spell;
+                var spell = evt.AbilityData;
                 var ParentAbility = evt.AbilityData?.ConvertedFrom;
                 if (ParentAbility?.Blueprint?.GetComponent<AbilityShadowSpell>() != null) {
-                    spell = ParentAbility.Blueprint;
+                    spell = ParentAbility;
+                } else {
+                    return true;
                 }
 
-                bool isSchool = __instance.School == SpellSchool.None;
+                bool isSchool = __instance.School == SpellSchool.None || __instance.School == spell.SpellSchool;
                 if (!isSchool) {
-                    foreach (SpellComponent spellComponent in spell.GetComponents<SpellComponent>()) {
+                    foreach (SpellComponent spellComponent in spell.Blueprint.GetComponents<SpellComponent>()) {
                         isSchool = (spellComponent.School == __instance.School);
                     }
                 }
@@ -79,6 +83,8 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 var ParentAbility = evt.AbilityData?.ConvertedFrom;
                 if (ParentAbility?.Blueprint?.GetComponent<AbilityShadowSpell>() != null) {
                     spell = ParentAbility.Blueprint;
+                } else {
+                    return true;
                 }
                 SpellSchool school = spell?.GetComponent<SpellComponent>()?.School ?? SpellSchool.None;
                 //SpellSchool ? nullable = spell != null ? spell.GetComponent<SpellComponent>()?.School : new SpellSchool?();

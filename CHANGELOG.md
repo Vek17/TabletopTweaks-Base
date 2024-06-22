@@ -1,3 +1,7 @@
+# Version 2.6.7
+* Fixes
+    * Fixed bug with shadow spell patch that was causing Fused Spells to incorrectly calculate DC.
+
 # Version 2.6.6
 * Fixes
     * BladeBound (TTT)

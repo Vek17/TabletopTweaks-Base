@@ -88,12 +88,13 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 var ArmorFocusLightMythicVar2SubBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("80bd5c6d5e0a483793a9ddff9ff42a95");
                 var ArmorFocusLightMythicVar2BuffExtra = BlueprintTools.GetBlueprint<BlueprintBuff>("f0079e9247e54be3a13d69f6e57cfc20");
 
-                PatchOffense();
-                PatchFeature1();
-                PatchFeature2();
+                PatchAssault();
+                PatchAvoidance();
+                PatchEndurance();
 
-                void PatchOffense() {
+                void PatchAssault() {
                     ArmorFocusLightMythicOffenceFeature.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Light Armor — Assault");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusLightMythicOffenceSubBuff.ToReference<BlueprintUnitFactReference>();
@@ -101,12 +102,16 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
                     });
                     ArmorFocusLightMythicOffenceBuff.SetComponents();
-                    ArmorFocusLightMythicOffenceSubBuff.AddComponent<RecalculateOnStatChange>(c => {
-                        c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                    ArmorFocusLightMythicOffenceSubBuff.TemporaryContext(bp => {
+                        bp.SetName(ArmorFocusLightMythicOffenceFeature.m_DisplayName);
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                        });
                     });
                 }
-                void PatchFeature1() {
+                void PatchAvoidance() {
                     ArmorFocusLightMythicFeature.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Light Armor — Avoidance");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusLightMythicSubBuff.ToReference<BlueprintUnitFactReference>();
@@ -114,12 +119,16 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
                     });
                     ArmorFocusLightMythicBuff.SetComponents();
-                    ArmorFocusLightMythicSubBuff.AddComponent<RecalculateOnStatChange>(c => {
-                        c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                    ArmorFocusLightMythicSubBuff.TemporaryContext(bp => {
+                        bp.SetName(ArmorFocusLightMythicFeature.m_DisplayName);
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                        });
                     });
                 }
-                void PatchFeature2() {
+                void PatchEndurance() {
                     ArmorFocusLightMythicFeatureVar2.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Light Armor — Endurance");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusLightMythicVar2SubBuff.ToReference<BlueprintUnitFactReference>();
@@ -128,8 +137,11 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     ArmorFocusLightMythicVar2Buff.SetComponents();
                     ArmorFocusLightMythicVar2BuffExtra.SetComponents();
-                    ArmorFocusLightMythicVar2SubBuff.AddComponent<RecalculateOnStatChange>(c => {
-                        c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                    ArmorFocusLightMythicVar2SubBuff.TemporaryContext(bp => {
+                        bp.SetName(ArmorFocusLightMythicFeatureVar2.m_DisplayName);
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                        });
                     });
                 }
 
@@ -149,12 +161,13 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 var ArmorFocusMediumMythicFeatureVar2Buff = BlueprintTools.GetBlueprint<BlueprintBuff>("93e80467a5fc4e68927b99732484fbd4");
                 var ArmorFocusMediumMythicFeatureVar2SubBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("457d5cde294c435ea7b4ee66f4949956");
 
-                PatchOffense();
-                PatchFeature1();
-                PatchFeature2();
+                PatchAssault();
+                PatchAvoidance();
+                PatchEndurance();
 
-                void PatchOffense() {
+                void PatchAssault() {
                     ArmorFocusMediumMythicFeatureOffence.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Medium Armor — Assault");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusMediumMythicFeatureOffenceSubBuff.ToReference<BlueprintUnitFactReference>();
@@ -162,12 +175,16 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
                     });
                     ArmorFocusMediumMythicFeatureOffenceBuff.SetComponents();
-                    ArmorFocusMediumMythicFeatureOffenceSubBuff.AddComponent<RecalculateOnStatChange>(c => {
-                        c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                    ArmorFocusMediumMythicFeatureOffenceSubBuff.TemporaryContext(bp => {
+                        bp.SetName(ArmorFocusMediumMythicFeatureOffence.m_DisplayName);
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                        });
                     });
                 }
-                void PatchFeature1() {
+                void PatchAvoidance() {
                     ArmorFocusMediumMythicFeatureVar1.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Medium Armor — Avoidance");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusMediumMythicFeatureVar1SubBuff.ToReference<BlueprintUnitFactReference>();
@@ -175,13 +192,17 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
                     });
                     ArmorFocusMediumMythicFeatureVar1Buff.SetComponents();
+                    ArmorFocusMediumMythicFeatureVar1SubBuff.TemporaryContext(bp => {
+                        bp.SetName(ArmorFocusMediumMythicFeatureVar1.m_DisplayName);
+                    });
                 }
-                void PatchFeature2() {
+                void PatchEndurance() {
                     ArmorFocusMediumMythicFeatureVar2.TemporaryContext(bp => {
-                        bp.SetDescription(TTTContext, "While wearing medium armor, you gain an equipped armor bonus to AC equal to half your armor's base AC and Enhancement bonus. " +
-                            "Medium armor also no longer reduces your speed");
+                        bp.SetName(TTTContext, "Mythic Medium Armor — Endurance");
+                        //bp.SetDescription(TTTContext, "While wearing medium armor, you gain an equipped armor bonus to AC equal to half your armor's base AC and Enhancement bonus. " +
+                        //    "Medium armor also no longer reduces your speed");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
-                        bp.AddComponent<MythicMediumArmorFocus>(c => {
+                        bp.AddComponent<MythicMediumArmorFocusEndurance>(c => {
                             c.Descriptor = ModifierDescriptor.ArmorFocus;
                             c.CheckArmorType = true;
                             c.ArmorTypes = new ArmorProficiencyGroup[] { ArmorProficiencyGroup.Medium };
@@ -193,6 +214,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     ArmorFocusMediumMythicFeatureVar2Buff.SetComponents();
                     ArmorFocusMediumMythicFeatureVar2SubBuff.TemporaryContext(bp => {
+                        bp.SetName(ArmorFocusMediumMythicFeatureVar2.m_DisplayName);
                         bp.SetComponents();
                         bp.AddComponent<ArmorSpeedPenaltyRemoval>();
                     });
@@ -213,12 +235,13 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 var ArmorFocusHeavyMythicFeatureVar2Buff = BlueprintTools.GetBlueprint<BlueprintBuff>("95a2856c0369449db24000d2fb4e9277");
                 var ArmorFocusHeavyMythicFeatureVar2SubBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("5d4e71c6f33b4f7fa41f7db0af3ac320");
 
-                PatchOffense();
-                PatchFeature1();
-                PatchFeature2();
+                PatchAssault();
+                PatchEndurance();
+                PatchAvoidance();
 
-                void PatchOffense() {
+                void PatchAssault() {
                     ArmorFocusHeavyMythicFeatureOffence.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Heavy Armor — Assault");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusHeavyMythicFeatureOffenceSubBuff.ToReference<BlueprintUnitFactReference>();
@@ -226,12 +249,16 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
                     });
                     ArmorFocusHeavyMythicFeatureOffenceBuff.SetComponents();
-                    ArmorFocusHeavyMythicFeatureOffenceSubBuff.AddComponent<RecalculateOnStatChange>(c => {
-                        c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                    ArmorFocusHeavyMythicFeatureOffenceSubBuff.TemporaryContext(bp => {
+                        bp.SetName(ArmorFocusHeavyMythicFeatureOffence.m_DisplayName);
+                        bp.AddComponent<RecalculateOnStatChange>(c => {
+                            c.Stat = Kingmaker.EntitySystem.Stats.StatType.AC;
+                        });
                     });
                 }
-                void PatchFeature1() {
+                void PatchEndurance() {
                     ArmorFocusHeavyMythicFeatureVar1.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Heavy Armor — Endurance");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusHeavyMythicFeatureVar1SubBuff.ToReference<BlueprintUnitFactReference>();
@@ -242,9 +269,13 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
                     });
                     ArmorFocusHeavyMythicFeatureVar1Buff.SetComponents();
+                    ArmorFocusHeavyMythicFeatureVar1SubBuff.TemporaryContext(bp => {
+                         bp.SetName(ArmorFocusHeavyMythicFeatureVar1.m_DisplayName);
+                     });
                 }
-                void PatchFeature2() {
+                void PatchAvoidance() {
                     ArmorFocusHeavyMythicFeatureVar2.TemporaryContext(bp => {
+                        bp.SetName(TTTContext, "Mythic Heavy Armor — Avoidance");
                         bp.RemoveComponents<HasArmorFeatureUnlock>();
                         bp.AddComponent<ArmorFeatureUnlock>(c => {
                             c.NewFact = ArmorFocusHeavyMythicFeatureVar2SubBuff.ToReference<BlueprintUnitFactReference>();
@@ -252,6 +283,9 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         });
                     });
                     ArmorFocusHeavyMythicFeatureVar2Buff.SetComponents();
+                    ArmorFocusHeavyMythicFeatureVar2SubBuff.TemporaryContext(bp => {
+                         bp.SetName(ArmorFocusHeavyMythicFeatureVar2.m_DisplayName);
+                     });
                 }
             }
         }
