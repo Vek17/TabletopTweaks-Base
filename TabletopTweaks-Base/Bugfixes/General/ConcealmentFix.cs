@@ -90,14 +90,14 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                         concealment = Concealment.Partial;
                     }
                 }
+                if (initiator.Descriptor.State.HasCondition(UnitCondition.Blindness)) {
+                    concealment = Concealment.Total;
+                }
                 if (initiatorConcealmentPart != null && initiatorConcealmentPart.IgnorePartial && concealment == Concealment.Partial) {
                     concealment = Concealment.None;
                 }
                 if (initiatorConcealmentPart != null && initiatorConcealmentPart.TreatTotalAsPartial && concealment == Concealment.Total) {
                     concealment = Concealment.Partial;
-                }
-                if (initiator.Descriptor.State.HasCondition(UnitCondition.Blindness)) {
-                    concealment = Concealment.Total;
                 }
                 __result = concealment;
 
