@@ -79,10 +79,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 }
                 if (targetConcealmentPart != null && targetConcealmentPart.Disable) {
                     concealment = Concealment.None;
-                }
-                if (initiator.Descriptor.State.HasCondition(UnitCondition.Blindness)) {
-                    concealment = Concealment.Total;
-                }
+                } 
                 if (concealment == Concealment.None && initiator.Descriptor.State.HasCondition(UnitCondition.PartialConcealmentOnAttacks)) {
                     concealment = Concealment.Partial;
                 }
@@ -98,6 +95,9 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 }
                 if (initiatorConcealmentPart != null && initiatorConcealmentPart.TreatTotalAsPartial && concealment == Concealment.Total) {
                     concealment = Concealment.Partial;
+                }
+                if (initiator.Descriptor.State.HasCondition(UnitCondition.Blindness)) {
+                    concealment = Concealment.Total;
                 }
                 __result = concealment;
 
