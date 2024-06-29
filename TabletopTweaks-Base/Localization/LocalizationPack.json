@@ -1299,6 +1299,105 @@
       "esES": null
     },
     {
+      "Key": "7e1d3fbe10e740068e2301cb4e267efb",
+      "SimpleName": "ArmorFocusHeavyMythicFeatureOffence.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Heavy Armor — Assault",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "07fdd4079cef4b08b31c9487dcdf786e",
+      "SimpleName": "ArmorFocusHeavyMythicFeatureVar1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Heavy Armor — Endurance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "32da6e28176743bdad259673633e8411",
+      "SimpleName": "ArmorFocusHeavyMythicFeatureVar2.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Heavy Armor — Avoidance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "91b26fa168b9484db46e87a821b7e43e",
+      "SimpleName": "ArmorFocusLightMythicFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Light Armor — Avoidance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e7b6ab66a49e44a894e5a5ccc8d9a4eb",
+      "SimpleName": "ArmorFocusLightMythicFeatureVar2.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Light Armor — Endurance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "52664c2c3fb0425db6ae61e26028b214",
+      "SimpleName": "ArmorFocusLightMythicOffenceFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Light Armor — Assault",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "2949a13aa6884a3a8952ed87a3f3485f",
+      "SimpleName": "ArmorFocusMediumMythicFeatureOffence.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Medium Armor — Assault",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "14857f240f3c4deab0dbaf4a4ee255e3",
+      "SimpleName": "ArmorFocusMediumMythicFeatureVar1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Medium Armor — Avoidance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1cdc0cf64f30418b951ff7a6c7245b16",
+      "SimpleName": "ArmorFocusMediumMythicFeatureVar2.Name",
+      "ProcessTemplates": false,
+      "enGB": "Mythic Medium Armor — Endurance",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "21c5ebce288f4742a09d64ccce2fed2f",
       "SimpleName": "ArmorMasterHeavyFeature.Description",
       "ProcessTemplates": true,
@@ -1673,6 +1772,17 @@
       "esES": null
     },
     {
+      "Key": "d45e11f4978742a597ec08acbd6919ae",
+      "SimpleName": "BackgroundFarmhand.Description",
+      "ProcessTemplates": true,
+      "enGB": "Farmhand adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scythes and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Fortitude saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "d7e83900f77841fc940179c1e18b8d4a",
       "SimpleName": "BackgroundGebianNecromancer.Description",
       "ProcessTemplates": true,
@@ -1750,6 +1860,17 @@
       "esES": null
     },
     {
+      "Key": "56b44f00a9034dd2801f77da4f1d9119",
+      "SimpleName": "BackgroundLumberjack.Description",
+      "ProcessTemplates": true,
+      "enGB": "Lumberjack adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Fortitude saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "03c796a3a3db493a8323159444959a91",
       "SimpleName": "BackgroundLumberjack.Description",
       "ProcessTemplates": true,
@@ -1791,6 +1912,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "雇佣兵将{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表他还会擅长轻甲、矛、长矛和标枪。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
+      "esES": null
+    },
+    {
+      "Key": "b027cc3c37b34454a5e7aa874cad9e9d",
+      "SimpleName": "BackgroundMiner.Description",
+      "ProcessTemplates": true,
+      "enGB": "Miner adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light and heavy picks and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Fortitude saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -1882,6 +2014,17 @@
       "esES": null
     },
     {
+      "Key": "86d57358fb8644f985ce68145b0dae6d",
+      "SimpleName": "BackgroundQadiranWanderer.Description",
+      "ProcessTemplates": true,
+      "enGB": "Qadiran Wanderer adds <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against <b><color=#703565><link=\"ConditionFatigued\">Fatigue</link></color></b> and <b><color=#703565><link=\"ConditionExhausted\">Exhaustion</link></color></b> effects.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "c0df5feb2fe44a5e833bdf0adfdbf983",
       "SimpleName": "BackgroundRiverKingdomsDaredevil.Description",
       "ProcessTemplates": true,
@@ -1948,10 +2091,10 @@
       "esES": null
     },
     {
-      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
+      "Key": "854204882b884cbe996c29be0716c21b",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
+      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -1959,10 +2102,10 @@
       "esES": null
     },
     {
-      "Key": "854204882b884cbe996c29be0716c21b",
+      "Key": "2d1b7d6dcf2f4ad5b4297974bcb223b5",
       "SimpleName": "BackgroundScholarResearcher.Description",
       "ProcessTemplates": true,
-      "enGB": "Researcher adds <b><color=#703565><link=\"Encyclopedia:Knowledge_Arcana\">Knowledge (Arcana)</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Use_Magic_Device\">Use Magic Device</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She can also use her <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> instead of <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> while attempting Use Magic Device <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">Armor Check Penalty</link></color></b> reduction in case of armor proficiency.",
+      "enGB": "Researcher adds Knowledge (Arcana) and Use Magic Device to the list of her class skills. She can also use her Intelligence instead of Charisma while attempting Use Magic Device checks.\nIf the character already has the class skill, weapon proficiency or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 competence bonus in case of skills, a +1 enhancement bonus in case of weapon proficiency and a -1 Armor Check Penalty reduction in case of armor proficiency.",
       "ruRU": null,
       "deDE": null,
       "frFR": null,
@@ -2014,6 +2157,17 @@
       "esES": null
     },
     {
+      "Key": "6f4ac9423fca44dc85d18ed88ab206bd",
+      "SimpleName": "BackgroundSmith.Description",
+      "ProcessTemplates": true,
+      "enGB": "Smith adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light hammers and warhammers, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Fortitude saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "8d448f6e8a8442919b81dc57ae967920",
       "SimpleName": "BackgroundUstalavPeasant.Description",
       "ProcessTemplates": true,
@@ -2036,6 +2190,17 @@
       "esES": null
     },
     {
+      "Key": "ca13b09d795f47a4bbf504415f4c83e0",
+      "SimpleName": "BackgroundVarisianExplorer.Description",
+      "ProcessTemplates": true,
+      "enGB": "Varisian Explorer adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Reflex saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "6ac200f461454aaa96cd25d3b8413441",
       "SimpleName": "BackgroundWarriorOfTheLinnormKings.Description",
       "ProcessTemplates": true,
@@ -2044,6 +2209,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "蛇龙王之地勇士将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长手斧、战斧和巨斧。此外，蛇龙王之地勇士获得5点寒冷抗性。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
+      "esES": null
+    },
+    {
+      "Key": "32c0b1a5307a4d16b9083832f8dfbf13",
+      "SimpleName": "BackgroundWarriorOfTheLinnormKings.Description",
+      "ProcessTemplates": true,
+      "enGB": "Warrior of the Linnorm Kings adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes. In addition Warrior of the Linnorm Kings gains 5 cold <b><color=#703565><link=\"Encyclopedia:Energy_Resistance\">resistance</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -2968,6 +3144,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "细剑",
+      "esES": null
+    },
+    {
+      "Key": "98aba44ca7564ed5a3f966907f107aa7",
+      "SimpleName": "BlackBladeSawtoothSabreFeature.Description",
+      "ProcessTemplates": true,
+      "enGB": "Your Black Blade takes the form of a Sawtooth Sabre.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "86d5bbb780c745b180d3ada0ddafa975",
+      "SimpleName": "BlackBladeSawtoothSabreFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Sawtooth Sabre",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -5853,17 +6051,6 @@
       "esES": null
     },
     {
-      "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
-      "SimpleName": "ElderBrass.Prefix",
-      "ProcessTemplates": false,
-      "enGB": "Elder Incinerating",
-      "ruRU": "Великий испепеляющий",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "古焚炎",
-      "esES": null
-    },
-    {
       "Key": "c2ec8024aee6474aafdb5b47544bb5d0",
       "SimpleName": "ElderBrass.Prefix",
       "ProcessTemplates": false,
@@ -5872,6 +6059,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "古炽焰",
+      "esES": null
+    },
+    {
+      "Key": "bf3bef6fd7b24306bd0fa05dd6db87e2",
+      "SimpleName": "ElderBrass.Prefix",
+      "ProcessTemplates": false,
+      "enGB": "Elder Incinerating",
+      "ruRU": "Великий испепеляющий",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "古焚炎",
       "esES": null
     },
     {
@@ -6557,17 +6755,6 @@
       "esES": null
     },
     {
-      "Key": "f3392cd7203c43349f723fcda573497c",
-      "SimpleName": "EncouragingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Encouraging",
-      "ruRU": "Ободряющее",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "激励",
-      "esES": null
-    },
-    {
       "Key": "cf8107b3b65248e7859f9c167093aaee",
       "SimpleName": "EncouragingSpellMetamagic",
       "ProcessTemplates": false,
@@ -6576,6 +6763,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Encouraging-TabletopTweaks-Base}激励{/g}",
+      "esES": null
+    },
+    {
+      "Key": "f3392cd7203c43349f723fcda573497c",
+      "SimpleName": "EncouragingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Encouraging",
+      "ruRU": "Ободряющее",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "激励",
       "esES": null
     },
     {
@@ -7404,17 +7602,6 @@
       "esES": null
     },
     {
-      "Key": "078e11e00ef54879ba90f07cccae313d",
-      "SimpleName": "FlaringSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}Flaring{/g}",
-      "ruRU": null,
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
-      "esES": null
-    },
-    {
       "Key": "b099256da46145e89582ec13b2962ec9",
       "SimpleName": "FlaringSpellMetamagic",
       "ProcessTemplates": false,
@@ -7423,6 +7610,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "闪耀",
+      "esES": null
+    },
+    {
+      "Key": "078e11e00ef54879ba90f07cccae313d",
+      "SimpleName": "FlaringSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}Flaring{/g}",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Flaring-TabletopTweaks-Base}闪耀{/g}",
       "esES": null
     },
     {
@@ -8394,17 +8592,6 @@
       "esES": null
     },
     {
-      "Key": "5effb1dfff10434d8af19691362dab9c",
-      "SimpleName": "IntensifiedSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Intensified",
-      "ruRU": "Насыщенное",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "强化",
-      "esES": null
-    },
-    {
       "Key": "42fddf6342a544bc85b6647c3db42f3b",
       "SimpleName": "IntensifiedSpellMetamagic",
       "ProcessTemplates": false,
@@ -8413,6 +8600,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Intensified-TabletopTweaks-Base}强化{/g}",
+      "esES": null
+    },
+    {
+      "Key": "5effb1dfff10434d8af19691362dab9c",
+      "SimpleName": "IntensifiedSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Intensified",
+      "ruRU": "Насыщенное",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "强化",
       "esES": null
     },
     {
@@ -10253,6 +10451,281 @@
       "esES": null
     },
     {
+      "Key": "8016d51885104515bc646dcb14c9510a",
+      "SimpleName": "MetaRageBurningTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Burning as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "db6ba8f07ffa49c48213f1e7382f7132",
+      "SimpleName": "MetaRageBurningTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Burning)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bf5e9fb0f7eb4a5bb221d84d53ce9996",
+      "SimpleName": "MetaRageBurningTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Burning as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3aae98b832b14f36b327f03bc79acd64",
+      "SimpleName": "MetaRageBurningTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Burning as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ca799124b31144638a9b5e379e0286ba",
+      "SimpleName": "MetaRageBurningTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 12 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Burning as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "28ecc54b021b49bab5eabfcbb5022fc0",
+      "SimpleName": "MetaRageElementalSpellAcidTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Acid as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0079c3bf1dab43be84b76667706a40d7",
+      "SimpleName": "MetaRageElementalSpellAcidTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Elemental — Acid)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "36fa4d15fc324971b84adb85e5090909",
+      "SimpleName": "MetaRageElementalSpellAcidTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Acid as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "82035cc63f594c6d90c3b5d1cba60b47",
+      "SimpleName": "MetaRageElementalSpellAcidTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Acid as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e4e102a2d78c455b87dc3c854f053b10",
+      "SimpleName": "MetaRageElementalSpellAcidTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Acid as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "ed7c490f17974fac9bfe991aa2fc185d",
+      "SimpleName": "MetaRageElementalSpellColdTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Cold as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3b3cfbd49b7943708c9fe417cfb110db",
+      "SimpleName": "MetaRageElementalSpellColdTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Elemental — Cold)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4de8258ce1e64e76945adf595a259631",
+      "SimpleName": "MetaRageElementalSpellColdTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Cold as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1883f487fbdd47a097c48304c0da87c7",
+      "SimpleName": "MetaRageElementalSpellColdTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Cold as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e4d7fc05b8bc4d8d9f11dc78754a86fa",
+      "SimpleName": "MetaRageElementalSpellColdTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Cold as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "109bbfee83844e259bed2d367ecbe5d0",
+      "SimpleName": "MetaRageElementalSpellElectricityTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Electricity as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "af93d1b96dc14399940adefba149b214",
+      "SimpleName": "MetaRageElementalSpellElectricityTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Elemental — Electricity)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4ea77763491c40f786bed6b1e9de160a",
+      "SimpleName": "MetaRageElementalSpellElectricityTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Electricity as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d8f486ba6dba4f40bff7ff86969db80f",
+      "SimpleName": "MetaRageElementalSpellElectricityTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Electricity as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "803aed5ff8c64a958852cf4d61dcf02d",
+      "SimpleName": "MetaRageElementalSpellElectricityTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Electricity as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "763f08d2cc19458a8a7000e6d1eed3b2",
+      "SimpleName": "MetaRageElementalSpellFireTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Fire as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "56119405347e418097948e0d92076a80",
+      "SimpleName": "MetaRageElementalSpellFireTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Elemental — Fire)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3246f988dcae4e629dd70d6fbfcf5672",
+      "SimpleName": "MetaRageElementalSpellFireTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Fire as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "43fd6771671c41e0a06c9b5c4ec388b8",
+      "SimpleName": "MetaRageElementalSpellFireTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Fire as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "660d6b9110f24adeba6413b0775a7a49",
+      "SimpleName": "MetaRageElementalSpellFireTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Elemental — Fire as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "f0878dafe41b4fb6b48a424fe054b5f7",
       "SimpleName": "MetaRageEmpowerBuff1.Description",
       "ProcessTemplates": true,
@@ -10305,6 +10778,61 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "以一个{g|Encyclopedia:Free_Action}自由动作{/g}，超魔狂怒者可以消耗12轮每日血承狂暴轮数，使2{g|Encyclopedia:Combat_Round}回合{/g}内的下一个不超过4环的血怒者{g|Encyclopedia:Spell}法术{/g}获得强效超魔。",
+      "esES": null
+    },
+    {
+      "Key": "7ed59436d52a47d39869f38fe29e1400",
+      "SimpleName": "MetaRageEncouragingTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Encouraging as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "4ac3abf4e9a548f890c9ea5d4bff894c",
+      "SimpleName": "MetaRageEncouragingTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Encouraging)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "0a8075ad75ad4f7db14227732558ffa3",
+      "SimpleName": "MetaRageEncouragingTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Encouraging as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1e92bd14dd184c8691226d1c557d4dc4",
+      "SimpleName": "MetaRageEncouragingTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Encouraging as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e41649446e5d4f4c86fe1856bb6f50af",
+      "SimpleName": "MetaRageEncouragingTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Encouraging as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10382,6 +10910,116 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "狂怒超魔",
+      "esES": null
+    },
+    {
+      "Key": "36582a10979240b0b646fce6267500d4",
+      "SimpleName": "MetaRageFlaringTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Flaring as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "795b8c80771a48f6b6fd6fbfc3233aeb",
+      "SimpleName": "MetaRageFlaringTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Flaring)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "783f18f5ed85452998d73a5cb21fe73f",
+      "SimpleName": "MetaRageFlaringTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Flaring as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "842f4e35586b47ce8fa9477aa53e1b8b",
+      "SimpleName": "MetaRageFlaringTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Flaring as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "610404087a5242b7bac46c949a38dd8e",
+      "SimpleName": "MetaRageFlaringTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Flaring as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "a7ae71e6ea8640baad67c4780f603f0b",
+      "SimpleName": "MetaRageIntensifiedBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Intensified as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "327ecf193c8b423ea33b7b79921ed556",
+      "SimpleName": "MetaRageIntensifiedBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Intensified)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "84a6aebd710f4f8185355e1b72d86186",
+      "SimpleName": "MetaRageIntensifiedBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Intensified as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b01ef335448e42308975ac9dce99f1c3",
+      "SimpleName": "MetaRageIntensifiedBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Intensified as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c2e935a15db54094929ced0409249f11",
+      "SimpleName": "MetaRageIntensifiedBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Intensified as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10495,6 +11133,105 @@
       "esES": null
     },
     {
+      "Key": "b694ecb335e0450b860f84e92e10a496",
+      "SimpleName": "MetaRagePiercingBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "46228a7cf861426ca3aeb3ee33d3dcd1",
+      "SimpleName": "MetaRagePiercingBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Piercing)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "122f254ec89c45a8accd50c08f07c176",
+      "SimpleName": "MetaRagePiercingBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "9180620648154e0299093dc67265c502",
+      "SimpleName": "MetaRagePiercingBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "b1ed24cd60bf48ae8243350a3140d2cb",
+      "SimpleName": "MetaRagePiercingBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "8992bbb68348403eb97091832b062219",
+      "SimpleName": "MetaRagePiercingTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "bf38da6de71a4738b3529fc21c1ac39b",
+      "SimpleName": "MetaRagePiercingTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "df6c4d5633034a7484b46ce9f355b662",
+      "SimpleName": "MetaRagePiercingTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "5be727a638f54d32ab2dd3a90859d4ea",
+      "SimpleName": "MetaRagePiercingTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "5f9522b54cfe4eb192c304dc169a259b",
       "SimpleName": "MetaRageQuickenBuff1.Description",
       "ProcessTemplates": true,
@@ -10605,6 +11342,61 @@
       "esES": null
     },
     {
+      "Key": "de275139aa5f40c2b5a1acab173ba362",
+      "SimpleName": "MetaRageRimeTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Rime as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "7ecaf40e6a4a49b0a4519bc8ce16778a",
+      "SimpleName": "MetaRageRimeTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Rime)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "c92270bc7dc347dd988dcaeb904c182c",
+      "SimpleName": "MetaRageRimeTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Rime as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "467d77b9b97d4e60ae38e871f38b258b",
+      "SimpleName": "MetaRageRimeTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Rime as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "e3e15f3fca22482e8f58492faff7f85f",
+      "SimpleName": "MetaRageRimeTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Rime as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "5b6853c1032a4645bfc8b5e0e1c22f82",
       "SimpleName": "MetaRageSelectiveBuff1.Description",
       "ProcessTemplates": true,
@@ -10657,6 +11449,61 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "以一个{g|Encyclopedia:Free_Action}自由动作{/g}，超魔狂怒者可以消耗10轮每日血承狂暴轮数，使2{g|Encyclopedia:Combat_Round}回合{/g}内的下一个不超过4环的血怒者{g|Encyclopedia:Spell}法术{/g}获得甄选超魔。",
+      "esES": null
+    },
+    {
+      "Key": "5a1b6faeaebd49c88c4638bf29c9f842",
+      "SimpleName": "MetaRageSolidShadowsTTTBuff1.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Solid Shadows as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "1d911b964c284e5b983bf090d908db9d",
+      "SimpleName": "MetaRageSolidShadowsTTTBuff1.Name",
+      "ProcessTemplates": false,
+      "enGB": "Meta-Rage (Solid Shadows)",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "3302d1aad7c346deb56d9843ebf8f23c",
+      "SimpleName": "MetaRageSolidShadowsTTTBuff2.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Solid Shadows as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "af440587f11b437a8f24127a9be6cfa1",
+      "SimpleName": "MetaRageSolidShadowsTTTBuff3.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Solid Shadows as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "fdc1454332ef427baa91c542f0080d8e",
+      "SimpleName": "MetaRageSolidShadowsTTTBuff4.Description",
+      "ProcessTemplates": true,
+      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Solid Shadows as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11804,6 +12651,17 @@
       "esES": null
     },
     {
+      "Key": "e252d9f045214d1f9027f8c18ec5257c",
+      "SimpleName": "QuickenBlessingArtificeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Artifice",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "935b7c4622314f06bc2aba874d888cf1",
       "SimpleName": "QuickenBlessingChaosFeature.Name",
       "ProcessTemplates": false,
@@ -11812,6 +12670,28 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "迅捷祝福 — 混乱",
+      "esES": null
+    },
+    {
+      "Key": "f14bb9212b294d62ac438d5569b137aa",
+      "SimpleName": "QuickenBlessingCharmFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Charm",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "35bbc6a08dc24822a98795bbee9dbba5",
+      "SimpleName": "QuickenBlessingCommunityFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Community",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11881,6 +12761,17 @@
       "esES": null
     },
     {
+      "Key": "49c078532f64445c9a47d25ebf22e2d5",
+      "SimpleName": "QuickenBlessingGloryFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Glory",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "01a5015d48db4c8189b39288816e501b",
       "SimpleName": "QuickenBlessingGoodFeature.Name",
       "ProcessTemplates": false,
@@ -11900,6 +12791,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "迅捷祝福 — 医疗",
+      "esES": null
+    },
+    {
+      "Key": "1c042b85019b49439853ba50b0b9e7f1",
+      "SimpleName": "QuickenBlessingKnowledgeFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Knowledge",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11947,6 +12849,17 @@
       "esES": null
     },
     {
+      "Key": "8d329d80e1a04e40ac9d311beb11ad5a",
+      "SimpleName": "QuickenBlessingPlantFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Plant",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "19e79361a71d4175a0fde6cf0edab8d3",
       "SimpleName": "QuickenBlessingProtectionFeature.Name",
       "ProcessTemplates": false,
@@ -11966,6 +12879,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "迅捷祝福 — 宁静",
+      "esES": null
+    },
+    {
+      "Key": "f1f9cb06c82440c187cb562cc58a7665",
+      "SimpleName": "QuickenBlessingRuneFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Rune",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -11999,6 +12923,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "迅捷祝福 — 诡计",
+      "esES": null
+    },
+    {
+      "Key": "e0f42168110b450c9e18d1899c015f90",
+      "SimpleName": "QuickenBlessingWarFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — War",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -12783,6 +13718,17 @@
       "esES": null
     },
     {
+      "Key": "e645c43df4da4a958eb4fccea2124807",
+      "SimpleName": "SorcererAberrantSpell11.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nFeeblemind: The target creature's <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> scores each drop to 1. The affected creature is unable to use Intelligence- or Charisma-based <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b> or cast <b><color=#703565><link=\"Encyclopedia:Spell\">spells</link></color></b>. Still, it knows who its friends are and can follow them and even protect them. The subject remains in this state until a <b><color=#703565><link=\"SpellsHeal\">heal</link></color></b> or <b><color=#703565><link=\"SpellsBreakEnchantment\">break enchantment</link></color></b> spell is used to cancel the effect of the feeblemind. A creature that can cast arcane spells, such as a sorcerer or a wizard, takes a –4 <b><color=#703565><link=\"Encyclopedia:Penalty\">penalty</link></color></b> on its <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throw</link></color></b>.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "ea76b68b2ac342649c42183425cc10b0",
       "SimpleName": "SorcererAberrantSpell13.Description",
       "ProcessTemplates": true,
@@ -12791,6 +13737,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n凶险注视: 每 {g|Encyclopedia:Combat_Round}轮{/g}你都能够以单个活物为目标，驱使力量的波动对其发动袭击。 目标必须通过一个成功的强韧豁免检定,否则就会受到法术的影响。 根据目标的HD，这种{g|Encyclopedia:Attack}攻击{/g}能够产生至多三种效果:\n如果目标的HD在10以上, 它会陷入恶心10分钟每CL。\n如果目标的HD在5-9, 它会陷入惊惧和恶心10分钟每CL。\n如果目标的HD在4以下, 它会陷入麻痹惊惧和恶心。\n这些影响并发且同时存在，持续10分钟每CL。\n在法术的第一轮之后，你必须每轮花费一个{g|Encyclopedia:Swift_Action}迅捷动作{/g}来瞄准目标。",
+      "esES": null
+    },
+    {
+      "Key": "bd126069b52c4b8e8ea824386e32c42e",
+      "SimpleName": "SorcererAberrantSpell13.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nEyebite: Each <b><color=#703565><link=\"Encyclopedia:Combat_Round\">round</link></color></b>, you can target a single living creature, striking it with waves of power. The target must make a successful <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Fortitude saving throw</link></color></b>, or suffer the <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b>'s harmful effects. Depending on the target's <b><color=#703565><link=\"Encyclopedia:Hit_Dice\">HD</link></color></b>, this <b><color=#703565><link=\"Encyclopedia:Attack\">attack</link></color></b> has as many as three effects:\nIf the target's HD is 10 or more, it is <b><color=#703565><link=\"ConditionSickened\">sickened</link></color></b> for 10 minutes per <b><color=#703565><link=\"Encyclopedia:Caster_Level\">caster level</link></color></b>.\nIf the target's HD is 5–9, it is <b><color=#703565><link=\"ConditionFrightened\">frightened</link></color></b> and sickened for 10 minutes per caster level.\nIf the target's HD is 4 or less, it is <b><color=#703565><link=\"ConditionParalyzed\">paralyzed</link></color></b>, frightened, and sickened\nThe effects are cumulative and concurrent for 10 minutes per caster level.\nYou must spend a <b><color=#703565><link=\"Encyclopedia:Swift_Action\">swift action</link></color></b> each round after the first to target a foe.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -12816,6 +13773,28 @@
       "esES": null
     },
     {
+      "Key": "902f678ab6694f3cb0604519cac884b3",
+      "SimpleName": "SorcererAberrantSpell17.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nMind Blank: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants a +8 resistance <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against all mind-affecting spells and effects. The subject is also protected from all items, spells, and other effects that gather information about the target through divination magic (such as <b><color=#703565><link=\"SpellsThoughtsense\">thoughtsense</link></color></b>, <b><color=#703565><link=\"SpellsTrueSeeing\">true seeing</link></color></b>, and <b><color=#703565><link=\"SpellsSeeInvisibility\">see invisibility</link></color></b>).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "52bf3bcfd8f948e7b1f20102aa37a87e",
+      "SimpleName": "SorcererAberrantSpell19.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nShapechange: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> allows you to take the form of a wide variety of creatures. This spell can function as <b><color=#703565><link=\"SpellsBeastShapeIV\">beast shape IV</link></color></b>, <b><color=#703565><link=\"SpellsElementalBodyIV\">elemental body IV</link></color></b> and <b><color=#703565><link=\"SpellsDragonkindIII\">dragonkind III</link></color></b> depending on what form you take. You can change form once each <b><color=#703565><link=\"Encyclopedia:Combat_Round\">round</link></color></b> as a <b><color=#703565><link=\"Encyclopedia:Free_Action\">free action</link></color></b>. The change takes place either immediately before your regular <b><color=#703565><link=\"Encyclopedia:CA_Types\">action</link></color></b> or immediately after it, but not during the action.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "5ac9fbe3a8af4d129a09004a5f2c9618",
       "SimpleName": "SorcererAberrantSpell19.Description",
       "ProcessTemplates": true,
@@ -12824,6 +13803,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n变化形体: 此{g|Encyclopedia:Spell}法术{/g}允许你变成多种生物。此法术可产生如同野兽之状IV、元素之躯IV、龙形III的效果，取决于你变成的形体。你能够以{g|Encyclopedia:Free_Action}自由动作{/g}每{g|Encyclopedia:Combat_Round}轮{/g}改变一次形体。变形会在你的常规{g|Encyclopedia:CA_Types}动作{/g}之前或之后立即发生，但不能在动作中途发生。",
+      "esES": null
+    },
+    {
+      "Key": "872d41d85cad4892adab1a3ef17c7fbb",
+      "SimpleName": "SorcererAberrantSpell3.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nEnlarge Person: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> causes instant growth of a humanoid creature, doubling its height and multiplying its weight by 8. This increase changes the creature's <b><color=#703565><link=\"Encyclopedia:Size\">size</link></color></b> category to the next larger one. The target gains a +2 size <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Strength\">Strength</link></color></b>, a –2 size <b><color=#703565><link=\"Encyclopedia:Penalty\">penalty</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Dexterity\">Dexterity</link></color></b> (to a minimum of 1), and a –1 penalty on <b><color=#703565><link=\"Encyclopedia:Attack\">attack rolls</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> due to its increased size. Melee and ranged weapons used by this creature deal more <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b>.\nA humanoid creature whose size increases to Large has a space of 10 feet and a natural <b><color=#703565><link=\"Encyclopedia:Reach\">reach</link></color></b> of 10 feet. This spell does not change the target's <b><color=#703565><link=\"Encyclopedia:Speed\">speed</link></color></b>.\nEnlarge person dispels <b><color=#703565><link=\"SpellsReducePerson\">reduce person</link></color></b>.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -12849,6 +13839,17 @@
       "esES": null
     },
     {
+      "Key": "90b9c7ab3213402e927b6f4ea1d1a184",
+      "SimpleName": "SorcererAberrantSpell7.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nBlink: Physical <b><color=#703565><link=\"Encyclopedia:Attack\">attacks</link></color></b> against you have a 50% miss chance and the Blind Fight <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b> doesn't help opponents, since you're ethereal and not merely invisible. If the attack is capable of striking ethereal creatures, the miss chance is only 20% (for <b><color=#703565><link=\"Encyclopedia:Concealment\">concealment</link></color></b>). Any individually targeted <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> has a 50% chance to fail against you while you're blinking unless your attacker can target invisible, ethereal creatures.\nIf the attacker can see invisible creatures, the miss chance is also only 20%. For an attacker who can both see and strike ethereal creatures, there is no miss chance.\nLikewise, your own attacks have a 20% miss chance. While blinking, you take only half <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> from area attacks (but full damage from those that extend onto the Ethereal Plane). Although you are only partially visible, you are not considered invisible and targets retain their <b><color=#703565><link=\"Encyclopedia:Dexterity\">Dexterity</link></color></b> <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> against your attacks. You do receive a +2 bonus on attack rolls made against enemies that cannot see invisible creatures.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "ad1145341244458d959dc3a8e793a70e",
       "SimpleName": "SorcererAberrantSpell7.Description",
       "ProcessTemplates": true,
@@ -12868,6 +13869,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n岩刺: 岩质地面、石地板与类似的表面形状改变，形成长而尖的石刺，与背景融为一体。\n岩刺使该区域难以通行，并造成{g|Encyclopedia:Damage}伤害{/g}。任何徒步进入或穿过法术影响区域的生物移动速度减半。此外，在区域内的生物每移动5英尺，便受到1d8点穿刺伤害。\n因岩刺受到伤害的生物还需要反射豁免成功才能避免腿脚受伤。若豁免失败，则生物的速度减半，持续1分钟。",
+      "esES": null
+    },
+    {
+      "Key": "90cc9ea4d0444511acd085b0619328a6",
+      "SimpleName": "SorcererAberrantSpell9.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nSpike Stones: Rocky ground, stone floors, and similar surfaces shape themselves into long, sharp points that blend into the background.\nSpike stones impede progress through an area and deal <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b>. Any creature moving on foot into or through the <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b>'s area moves at half <b><color=#703565><link=\"Encyclopedia:Speed\">speed</link></color></b>. In addition, each creature moving through the area takes <b><color=#703565><link=\"Encyclopedia:Dice\">1d8</link></color></b> points of <b><color=#703565><link=\"Encyclopedia:Damage_Type\">piercing damage</link></color></b> for each 5 feet of movement through the spiked area.\nAny creature that takes damage from this spell must also succeed at a <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Reflex save</link></color></b> to avoid injuries to its feet and legs. A failed save causes the creature's speed to be reduced to half normal for 1 minute.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -13091,6 +14103,17 @@
       "esES": null
     },
     {
+      "Key": "ff42c8a01b8241378fe3fc48d3dfb6b4",
+      "SimpleName": "SorcererDestinedSpell13.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nHeroism, Greater: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> functions like <b><color=#703565><link=\"SpellsHeroism\">heroism</link></color></b>, except the creature gains a +4 morale <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Attack\">attack rolls</link></color></b>, <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saves</link></color></b>, and <b><color=#703565><link=\"Encyclopedia:Skills\">skill</link></color></b> <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b>, immunity to fear effects, and temporary <b><color=#703565><link=\"Encyclopedia:HP\">hit points</link></color></b> equal to your <b><color=#703565><link=\"Encyclopedia:Caster_Level\">caster level</link></color></b> (maximum 20).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "3d4ee411b4eb40b282878902cf4a204c",
       "SimpleName": "SorcererDestinedSpell13.Description",
       "ProcessTemplates": true,
@@ -13099,6 +14122,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n高等英雄气概: 此{g|Encyclopedia:Spell}法术{/g}效果类似于英雄气概，区别在于生物在{g|Encyclopedia:Attack}攻击{/g}、{g|Encyclopedia:Saving_Throw}豁免{/g}和{g|Encyclopedia:Skills}技能检定{/g}上获得+4士气{g|Encyclopedia:Bonus}加值{/g}，免疫恐惧效应，并获得等于你的{g|Encyclopedia:Caster_Level}施法者等级{/g}的临时{g|Encyclopedia:HP}生命值{/g}（最高20）。",
+      "esES": null
+    },
+    {
+      "Key": "a5fa120753dc443a8f3aac853e6b904e",
+      "SimpleName": "SorcererDestinedSpell15.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nCircle of Clarity: You create a magical emanation that interferes with all illusions within it, giving creatures a +4 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> to recognize them as illusions. The emanation negates <b><color=#703565><link=\"Encyclopedia:Concealment\">concealment</link></color></b> less than total concealment within the area. <b><color=#703565><link=\"Encyclopedia:Perception\">Perception checks</link></color></b> to notice creatures or objects within the area gain a bonus equal to half your <b><color=#703565><link=\"Encyclopedia:Caster_Level\">caster level</link></color></b> (maximum +10). The <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> is stationary if cast on a point in space. It is mobile if centered on a creature or object, though creatures or attended objects can negate the spell with the proper saving throw or <b><color=#703565><link=\"Encyclopedia:Spell_Resistance\">spell resistance</link></color></b>.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
@@ -13135,6 +14169,28 @@
       "esES": null
     },
     {
+      "Key": "0811bf3a164447e48c4a7c9761f39dde",
+      "SimpleName": "SorcererDestinedSpell19.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nForesight: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants you a powerful sixth sense. Once foresight is cast, you receive instantaneous warnings of impending danger or harm to the subject of the spell. You are never <b><color=#703565><link=\"Encyclopedia:Flat_Footed\">flat-footed</link></color></b>. In addition, the spell gives you a general idea of what action you might take to best protect yourself and gives you a +2 insight <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> and on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Reflex saves</link></color></b>.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "401fc01139bc4da0abbd48fc13fa8fc9",
+      "SimpleName": "SorcererDestinedSpell3.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nShield: Shield creates an invisible shield of force that hovers in front of you. It negates <b><color=#703565><link=\"SpellsMagicMissile\">magic missile</link></color></b> <b><color=#703565><link=\"Encyclopedia:Attack\">attacks</link></color></b> directed at you. The disk also provides a +4 shield <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b>. This bonus applies against <b><color=#703565><link=\"Encyclopedia:Incorporeal_Touch_Attack\">incorporeal touch attacks</link></color></b>, since it is a force effect. The shield has no <b><color=#703565><link=\"Encyclopedia:Armor_Check_Penalty\">armor check penalty</link></color></b> or <b><color=#703565><link=\"Encyclopedia:Spell_Fail_Chance\">arcane spell failure chance</link></color></b>.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "a3fce1039ba84a0abeea95c70ceb3344",
       "SimpleName": "SorcererDestinedSpell3.Description",
       "ProcessTemplates": true,
@@ -13157,6 +14213,17 @@
       "esES": null
     },
     {
+      "Key": "7aae9169939e4cc49e5fdebc2ba48acf",
+      "SimpleName": "SorcererDestinedSpell5.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nBlur: The subject's outline appears blurred, shifting, and wavering. This distortion grants the subject <b><color=#703565><link=\"Encyclopedia:Concealment\">concealment</link></color></b> (20% miss chance).\nA <b><color=#703565><link=\"SpellsSeeInvisibility\">see invisibility</link></color></b> <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> does not counteract the blur effect, but a <b><color=#703565><link=\"SpellsTrueSeeing\">true seeing</link></color></b> spell does.\nOpponents that cannot see the subject ignore the spell's effect (though fighting an unseen opponent carries <b><color=#703565><link=\"Encyclopedia:Penalty\">penalties</link></color></b> of its own).",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
       "Key": "634b0e553abb4d2b872ce7d916dab7d5",
       "SimpleName": "SorcererDestinedSpell7.Description",
       "ProcessTemplates": true,
@@ -13165,6 +14232,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n防护能量: 防护能量使目标暂时对你施法时指定的能量类型免疫（酸蚀、寒冷、电击、火焰或音波）。{g|Encyclopedia:Spell}法术{/g}吸收每{g|Encyclopedia:Caster_Level}施法者等级{/g}12点{g|Encyclopedia:Energy_Damage}能量伤害{/g}后（10级时达到最大值120点）就会消散。",
+      "esES": null
+    },
+    {
+      "Key": "2106cfe56b994547bdf4408eccbed01f",
+      "SimpleName": "SorcererDestinedSpell9.Description",
+      "ProcessTemplates": true,
+      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nFreedom of Movement: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> enables you or a creature you touch to move and <b><color=#703565><link=\"Encyclopedia:Attack\">attack</link></color></b> normally for the duration of the spell, even under the influence of magic that usually impedes movement, such as <b><color=#703565><link=\"ConditionParalyzed\">paralysis</link></color></b>, solid fog, <b><color=#703565><link=\"SpellsSlow\">slow</link></color></b>, and <b><color=#703565><link=\"SpellsWeb\">web</link></color></b>. All <b><color=#703565><link=\"Encyclopedia:Combat_Maneuvers\">combat maneuver</link></color></b> <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b> made to grapple the target automatically fail.",
+      "ruRU": null,
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
       "esES": null
     },
     {
