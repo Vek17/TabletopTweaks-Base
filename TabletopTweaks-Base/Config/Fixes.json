@@ -3,6 +3,11 @@
   "BaseFixes": {
     "DisableAll": false,
     "Settings": {
+      "AbilityTargeting": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Fixes ability targeting restrictions being ignored."
+      },
       "AreaOfEffectDoubleTrigger": {
         "Enabled": true,
         "Homebrew": false,
