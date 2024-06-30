@@ -78,6 +78,11 @@
         "Homebrew": false,
         "Description": "Displays the names of temporary enchants as part of the equipment."
       },
+      "EnchantmentModifiersBreakdown": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Updates the tooltip UI to better display enchantment sources."
+      },
       "FeatSelections": {
         "Enabled": true,
         "Homebrew": false,
@@ -758,11 +763,6 @@
     "Base": {
       "DisableAll": false,
       "Settings": {
-        "AddMissingArcaneWeaponEffects": {
-          "Enabled": true,
-          "Homebrew": false,
-          "Description": "Adds: Flaming Burst, Icy Burst, Shocking Burst enchant options."
-        },
         "FighterTraining": {
           "Enabled": true,
           "Homebrew": false,
@@ -772,6 +772,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Lets spell combat work with spells that have variants like dimension door."
+        },
+        "FixBurstStacking": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Prevents applying the same burst and normal elemental enchantment."
         },
         "SpellCombatDisableImmediatly": {
           "Enabled": true,
@@ -2164,6 +2169,11 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Prevents from triggering multiple fake attacks and procing weapon effects more often than it should."
+        },
+        "ElementalBurst": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes visual effects of burst enchantments."
         },
         "EnergyBurst": {
           "Enabled": true,

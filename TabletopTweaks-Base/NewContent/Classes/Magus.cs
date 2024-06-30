@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
@@ -19,12 +20,15 @@ namespace TabletopTweaks.Base.NewContent.Classes {
 
             var FlamingBurst_ArcaneWeapon_TTT = FlamingBurst.CreateCopy(TTTContext, "FlamingBurst_ArcaneWeapon_TTT", bp => {
                 bp.m_EnchantmentCost = 1;
+                bp.RemoveComponents<WeaponEnergyDamageDice>();
             });
             var IcyBurst_ArcaneWeapon_TTT = IcyBurst.CreateCopy(TTTContext, "IcyBurst_ArcaneWeapon_TTT", bp => {
                 bp.m_EnchantmentCost = 1;
+                bp.RemoveComponents<WeaponEnergyDamageDice>();
             });
             var ShockingBurst_ArcaneWeapon_TTT = ShockingBurst.CreateCopy(TTTContext, "ShockingBurst_ArcaneWeapon_TTT", bp => {
                 bp.m_EnchantmentCost = 1;
+                bp.RemoveComponents<WeaponEnergyDamageDice>();
             });
 
             var ArcaneWeaponFlamingBurstBuff_TTT = Helpers.CreateBlueprint<BlueprintBuff>(TTTContext, "ArcaneWeaponFlamingBurstBuff_TTT", bp => {
@@ -63,7 +67,7 @@ namespace TabletopTweaks.Base.NewContent.Classes {
             });
             var ArcaneWeaponIcyBurstChoice_TTT = Helpers.CreateBlueprint<BlueprintActivatableAbility>(TTTContext, "ArcaneWeaponIcyBurstChoice_TTT", bp => {
                 bp.SetName(TTTContext, "Arcane Weapon — Icy Burst");
-                bp.SetDescription(TTTContext, "A icy burst weapon explodes with ice upon striking a successful critical hit. " +
+                bp.SetDescription(TTTContext, "An icy burst weapon explodes with ice upon striking a successful critical hit. " +
                     "The cold does not harm the wielder. An icy burst weapon deals an extra 1d10 points of cold damage" +
                     " on a successful critical hit. Add an extra 1d10 points of cold damage for every critical multiplier beyond 2.");
                 bp.m_Icon = Icon_WarriorSpirit_IcyBurst;

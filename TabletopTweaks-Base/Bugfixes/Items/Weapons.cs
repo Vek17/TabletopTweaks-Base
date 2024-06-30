@@ -52,6 +52,7 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                 PatchMusicOfDeath();
 
                 PatchThunderingBurst();
+                PatchElementalBurst();
                 PatchVorpal();
 
                 PatchNaturalWeapons();
@@ -280,6 +281,25 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     ThunderingBurst.GetComponent<WeaponEnergyBurst>().Dice = DiceType.D10;
 
                     TTTContext.Logger.LogPatch("Patched", ThunderingBurst);
+                }
+                void PatchElementalBurst() {
+                    if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("ElementalBurst")) { return; }
+
+                    var Shock = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("7bda5277d36ad114f9f9fd21d0dab658");
+                    var Flaming = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("30f90becaaac51f41bf56641966c4121");
+                    var Frost = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("421e54078b7719d40915ce0672511d0b");
+
+                    var ShockingBurst = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("914d7ee77fb09d846924ca08bccee0ff");
+                    var FlamingBurst = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("30f90becaaac51f41bf56641966c4121");
+                    var IcyBurst = BlueprintTools.GetBlueprint<BlueprintWeaponEnchantment>("564a6924b246d254c920a7c44bf2a58b");
+
+                    ShockingBurst.WeaponFxPrefab = Shock.WeaponFxPrefab;
+                    FlamingBurst.WeaponFxPrefab = Flaming.WeaponFxPrefab;
+                    IcyBurst.WeaponFxPrefab = Frost.WeaponFxPrefab;
+
+                    TTTContext.Logger.LogPatch(ShockingBurst);
+                    TTTContext.Logger.LogPatch(FlamingBurst);
+                    TTTContext.Logger.LogPatch(IcyBurst);
                 }
                 void PatchVorpal() {
                     if (Main.TTTContext.Fixes.Items.Weapons.IsDisabled("Vorpal")) { return; }

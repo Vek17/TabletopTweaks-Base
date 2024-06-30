@@ -10,7 +10,10 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
@@ -104,20 +107,62 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     TTTContext.Logger.LogPatch(FighterTraining);
                 }
                 void PatchArcaneWeaponProperties() {
-                    if (TTTContext.Fixes.Magus.Base.IsDisabled("AddMissingArcaneWeaponEffects")) { return; }
+                    if (TTTContext.Fixes.Magus.Base.IsDisabled("FixBurstStacking")) { return; }
 
                     var ArcaneWeaponFlamingBurstChoice_TTT = BlueprintTools.GetModBlueprint<BlueprintActivatableAbility>(TTTContext, "ArcaneWeaponFlamingBurstChoice_TTT");
                     var ArcaneWeaponIcyBurstChoice_TTT = BlueprintTools.GetModBlueprint<BlueprintActivatableAbility>(TTTContext, "ArcaneWeaponIcyBurstChoice_TTT");
                     var ArcaneWeaponShockingBurstChoice_TTT = BlueprintTools.GetModBlueprint<BlueprintActivatableAbility>(TTTContext, "ArcaneWeaponShockingBurstChoice_TTT");
-                    var ArcaneWeaponPlus3 = BlueprintTools.GetBlueprint<BlueprintFeature>("70be888059f99a245a79d6d61b90edc5");
+                    var ArcaneWeaponPlus2 = BlueprintTools.GetBlueprint<BlueprintFeature>("36b609a6946733c42930c55ac540416b");
 
-                    var AddFacts = ArcaneWeaponPlus3.GetComponent<AddFacts>();
+                    var ArcaneWeaponFlamingBurstChoice = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("fa45899aef2444bc8928bf658d59c016");
+                    var ArcaneWeaponIcyBurstChoice = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("7ec3a153b88249978995e1a599bb1bef");
+                    var ArcaneWeaponShockingBurstChoice = BlueprintTools.GetBlueprintReference<BlueprintUnitFactReference>("675450197b62498db71bcb677b2c1304");
+
+                    var ArcaneWeaponFlamingBurstBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("bca914e2b1814ff886c7a91de104fd46");
+                    var ArcaneWeaponIcyBurstBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("85d5bfd7c0f54adb82444877df1712b0");
+                    var ArcaneWeaponShockingBurstBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("0bacae88449140bdb5368354ffdd410a");
+
+                    var ArcaneWeaponFlamingBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("32e17840df49fbd48b835d080f5673a4");
+                    var ArcaneWeaponFrostBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("39f8c2ca61fa4bb419b13813001125ce");
+                    var ArcaneWeaponShockBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("5b76e44a1ed84704e858c38e7e97e7f2");
+                    /*
+                    var AddFacts = ArcaneWeaponPlus2.GetComponent<AddFacts>();
                     AddFacts.m_Facts = AddFacts.m_Facts.AppendToArray(
                         ArcaneWeaponFlamingBurstChoice_TTT.ToReference<BlueprintUnitFactReference>(),
                         ArcaneWeaponIcyBurstChoice_TTT.ToReference<BlueprintUnitFactReference>(),
                         ArcaneWeaponShockingBurstChoice_TTT.ToReference<BlueprintUnitFactReference>()
                     );
-                    TTTContext.Logger.LogPatch("Patched", ArcaneWeaponPlus3);
+                    TTTContext.Logger.LogPatch("Patched", ArcaneWeaponPlus2);
+                    */
+
+                    AddExclusions(ArcaneWeaponFlamingBuff, ArcaneWeaponFlamingBurstBuff);
+                    AddExclusions(ArcaneWeaponFrostBuff, ArcaneWeaponIcyBurstBuff);
+                    AddExclusions(ArcaneWeaponShockBuff, ArcaneWeaponShockingBurstBuff);
+
+                    void AddExclusions(BlueprintBuff normal, BlueprintBuff burst) {
+                        normal.AddComponent<AddFactContextActions>(c => {
+                            c.Activated = Helpers.CreateActionList(
+                                new ContextActionRemoveBuff() { 
+                                    m_Buff = burst.ToReference<BlueprintBuffReference>()
+                                }
+                            );
+                            c.Deactivated = Helpers.CreateActionList();
+                            c.NewRound = Helpers.CreateActionList();
+                            c.Dispose = Helpers.CreateActionList();
+                        });
+                        burst.AddComponent<AddFactContextActions>(c => {
+                            c.Activated = Helpers.CreateActionList(
+                                new ContextActionRemoveBuff() {
+                                    m_Buff = normal.ToReference<BlueprintBuffReference>()
+                                }
+                            );
+                            c.Deactivated = Helpers.CreateActionList();
+                            c.NewRound = Helpers.CreateActionList();
+                            c.Dispose = Helpers.CreateActionList();
+                        });
+                        TTTContext.Logger.LogPatch(normal);
+                        TTTContext.Logger.LogPatch(burst);
+                    }
                 }
             }
             static void PatchEldritchScion() {
