@@ -11709,7 +11709,7 @@
       "SimpleName": "MythicBannerFeature.Description",
       "ProcessTemplates": true,
       "enGB": "Your banner has been touched by mythic power and now protects those nearby.\nAll allies within 60 feet gain a +2 morale bonus to AC. They gain an additional bonus to AC against attack rolls made to confirm a critical hit equal to half your mythic rank.",
-      "ruRU": "Ваше знамя было затронуто мифическими силами и теперь защищает тех кто находится поблизости.\nВсе союзники в радиусе 60 футов получают бонус боевого духа к защите. Они получают дополнительный бонус к защите против атак на подтверждение критического удара равное половине вашего мифического уровня.",
+      "ruRU": "Ваше знамя было затронуто мифическими силами и теперь защищает тех кто находится поблизости.\nВсе союзники в радиусе 60 футов получают бонус боевого духа +2 к защите. Они получают дополнительный бонус к защите против атак на подтверждение критического удара равное половине вашего мифического уровня.",
       "deDE": null,
       "frFR": null,
       "zhCN": "你的战旗被神话力量接触强化，现在会保护附近的人。\n60尺范围内的所有盟友在防御等级上获得+2士气加值。在受到重击时，他们在对抗重击确认检定的防御等级上额外获得等同于你的神话阶层的一半加值。",
