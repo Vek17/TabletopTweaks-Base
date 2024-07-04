@@ -180,7 +180,18 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                     BlueprintTools.GetBlueprint<BlueprintBuff>("2778a8154f1e4e3a87b5bce12ec35ac8"), //GreaterWyrmshifterBreathWeaponCooldownBuff  
                     BlueprintTools.GetBlueprint<BlueprintBuff>("162b2dab8b3a40bfa178bd68791da4e7"), //GreaterWyrmshifterGoldBreathWeaponBuff  
                     BlueprintTools.GetBlueprint<BlueprintBuff>("92d49de79c724261b4ef264f60bd6d9c"), //GreaterWyrmshifterGreenBreathWeaponBuff 
-                    BlueprintTools.GetBlueprint<BlueprintBuff>("ff0a9ac2d6044a3895f38b632dc6453d")  //GreaterWyrmshifterSilverBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("ff0a9ac2d6044a3895f38b632dc6453d"), //GreaterWyrmshifterSilverBreathWeaponBuff  
+
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("c8c3843303d04ed79f29d3b612233663"), //FinalWyrmshifterWhiteBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("0a97e17017f048159bd7dee80b22af88"), //FinalWyrmshifterSilverBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("d4304691770f4046ae466052e7e76a1f"), //FinalWyrmshifterRedBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("70e99c84bae04cde9883e181bad0a125"), //FinalWyrmshifterGreenBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("c8379adb11f04beeb612ee11370df5f5"), //FinalWyrmshifterGoldBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("affe397f1c674600be05b9445336e514"), //FinalWyrmshifterCopperBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("571b1b4a41424f89a0c67175ac5e9596"), //FinalWyrmshifterBronzeBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("ceac742ad47d4869b59d76b5bdf5daf1"), //FinalWyrmshifterBrassBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("a22a4d5f50f940cea2013a5be888b185"), //FinalWyrmshifterBlueBreathWeaponBuff  
+                    BlueprintTools.GetBlueprint<BlueprintBuff>("e2c0a5205410477d9d5e031b5bcd37bf")  //FinalWyrmshifterBlackBreathWeaponBuff 
                 };
                 polymorphBuffs
                     .OrderBy(buff => buff.name)

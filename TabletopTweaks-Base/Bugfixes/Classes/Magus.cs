@@ -214,7 +214,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     void AddCurseSpells(BlueprintFeature feature, IEnumerable<BlueprintAbility> spells, int spellLevel) {
                         spells
                             .Where(spell => LowestSpellLevel(spell) == spellLevel)
-                            .Where(spell => SpellTools.SpellList.MagusSpellList.GetLevel(spell) == -1)
+                            .Where(spell => SpellTools.SpellList.MagusSpellList.GetLevel(spell) == -1) //This returns -1 if the spell is not found
                             .Select(spell => spell.ToReference<BlueprintAbilityReference>())
                             .ForEach(spell => {
                                 feature.AddComponent<AddKnownSpell>(c => {
