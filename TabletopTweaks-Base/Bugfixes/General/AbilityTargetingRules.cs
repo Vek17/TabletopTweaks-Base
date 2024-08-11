@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace TabletopTweaks.Base.Bugfixes.General {
     static class AbilityTargetingRules {
         [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.CanTarget))]
-        static class RuleSpellResistanceCheck_IgnoreSpellResistance_Patch {
+        static class AbilityData_CanTarget_Patch {
             static void Postfix(AbilityData __instance, TargetWrapper target, ref bool __result) {
                 if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("AbilityTargeting")) { return; }
 
@@ -24,7 +24,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                         return;
                     }
                 }
-                if (target.IsUnit && target.Unit == null) {
+                if (!target.IsUnit || target.Unit == null) {
                     return;
                 }
                 if (!__instance.CanTargetEnemies && target.Unit.IsEnemy(__instance.Caster.Unit)) {
