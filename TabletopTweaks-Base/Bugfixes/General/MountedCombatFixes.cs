@@ -14,6 +14,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             static void Postfix(UnitCombatState __instance, ref bool __result) {
                 if (TTTContext.Fixes.BaseFixes.IsDisabled("MountedActions")) { return; }
                 if (__instance.Unit.CustomMechanicsFeature(UnitPartCustomMechanicsFeatures.CustomMechanicsFeature.MountedSkirmisher)) { return; }
+                if (__instance.Unit?.Body?.PrimaryHand?.MaybeWeapon?.Blueprint?.IsRanged ?? false) { return; }
                 var riderPart = __instance.Unit.Get<UnitPartRider>();
                 if (riderPart?.SaddledUnit?.CombatState != null) {
                     __result |= riderPart.SaddledUnit.CombatState.IsFullAttackRestrictedBecauseOfMoveAction;

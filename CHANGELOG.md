@@ -1,7 +1,9 @@
 # Version 2.6.8
+* Fixes
+    * It is now possible to full attack with a ranged weapon after moving while mounted.
 * UI
     * Updated enchantment UI in tooltips to better display sources.   
-    * 
+    
 # Version 2.6.7
 * Fixes
     * Fixed bug with shadow spell patch that was causing Fused Spells to incorrectly calculate DC.
