@@ -1,6 +1,8 @@
 # Version 2.6.8
 * Fixes
     * It is now possible to full attack with a ranged weapon after moving while mounted.
+    * Fixed an issue with Fused Spells AoE targeting not working in all cases.
+    * Fixed issues where targeting restrictions of spells were sometimes ignored.
 * UI
     * Updated enchantment UI in tooltips to better display sources.   
     

@@ -1035,6 +1035,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 var SongsOfSteelBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6867deda1eda183499ae61813c2f5ebb");
                 SongsOfSteelBuff.TemporaryContext(bp => {
                     bp.RemoveComponents<AddInitiatorAttackWithWeaponTrigger>();
+                    bp.RemoveComponents<AdditionalDiceOnAttack>();
                     bp.AddComponent<AddAdditionalWeaponDamageOnHit>(c => {
                         c.OnlyOnFirstHit = true;
                         c.DamageType = new DamageTypeDescription() {
