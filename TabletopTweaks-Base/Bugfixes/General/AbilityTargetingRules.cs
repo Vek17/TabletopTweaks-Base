@@ -1,5 +1,4 @@
 ﻿using HarmonyLib;
-using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -33,8 +32,11 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             }
         }
         [HarmonyPatch(typeof(AbilityData), nameof(AbilityData.CanTargetAlly), MethodType.Getter)]
-        static void Postfix(AbilityData __instance, ref bool __result) {
-            __result |= __instance.AlchemistInfusion;
+        static class AbilityData_CanTargetAlly_Patch {
+            static void Postfix(AbilityData __instance, ref bool __result) {
+                __result |= __instance.AlchemistInfusion;
+                __result |= __instance.ArcanistShareTransmutation;
+            }
         }
     }
 }
