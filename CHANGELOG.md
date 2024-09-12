@@ -1,3 +1,8 @@
+# Version 2.6.9
+* Fixes
+    * Fixed issues with alchemist and brown fur spells sometimes breaking with targeting rules changes.
+    * Fixed an issue with Mythic Medium Armor Avoidence not always applying.
+
 # Version 2.6.8
 * Fixes
     * It is now possible to full attack with a ranged weapon after moving while mounted.

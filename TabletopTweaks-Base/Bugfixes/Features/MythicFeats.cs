@@ -194,6 +194,9 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     ArmorFocusMediumMythicFeatureVar1Buff.SetComponents();
                     ArmorFocusMediumMythicFeatureVar1SubBuff.TemporaryContext(bp => {
                         bp.SetName(ArmorFocusMediumMythicFeatureVar1.m_DisplayName);
+                        bp.GetComponent<MaxDexBonusIncrease>().TemporaryContext(c => {
+                            c.CheckCategory = false;
+                        });
                     });
                 }
                 void PatchEndurance() {
