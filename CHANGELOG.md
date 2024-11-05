@@ -1,3 +1,8 @@
+# Version 2.6.10
+* Fixes
+    * Fixed Lethal Stance bonuses sometimes applying twice.
+    * Fixed Crippling Strike prerequisites being broken.
+
 # Version 2.6.9
 * Fixes
     * Fixed issues with alchemist and brown fur spells sometimes breaking with targeting rules changes.

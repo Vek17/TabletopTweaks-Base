@@ -143,11 +143,13 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         Helpers.Create<WeaponGroupAttackBonus>(c => {
                             c.WeaponGroup = (WeaponFighterGroup)AdditionalWeaponFighterGroups.TwoHanded;
                             c.AttackBonus = 1;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.WeaponTraining;
                             c.contextMultiplier = new ContextValue();
                         }),
                         Helpers.Create<WeaponGroupDamageBonus>(c => {
                             c.WeaponGroup = (WeaponFighterGroup)AdditionalWeaponFighterGroups.TwoHanded;
                             c.DamageBonus = 1;
+                            c.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.WeaponTraining;
                             c.AdditionalValue = new ContextValue();
                         }),
                         Helpers.Create<WeaponTraining>()
@@ -158,15 +160,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         c.Level = 5;
                     });
                     TTTContext.Logger.LogPatch("Patched", TwoHandedFighterWeaponTraining);
-                    WeaponTrainingSelection.m_AllFeatures
-                        .Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature))
-                        .ForEach(feature => {
-                            var component = feature.Get().GetComponent<WeaponGroupDamageBonus>();
-                            if (component != null) {
-                                component.Descriptor = (ModifierDescriptor)AdditionalModifierDescriptors.Untyped.WeaponTraining;
-                                TTTContext.Logger.LogPatch("Patched", feature.Get());
-                            }
-                        });
                 }
                 void PatchWeaponTrainingStacking() {
                     if (Main.TTTContext.Fixes.Fighter.Base.IsDisabled("WeaponTrainingStacking")) { return; }
@@ -188,7 +181,6 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                                 TTTContext.Logger.LogPatch("Patched", feature.Get());
                             }
                         });
-
                 }
                 void PatchUnarmedWeaponTraining() {
                     if (Main.TTTContext.Fixes.Fighter.Base.IsDisabled("UnarmedWeaponTraining")) { return; }
@@ -300,7 +292,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
         }
 
-        [HarmonyPatch(typeof(WeaponGroupAttackBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAttackBonusWithoutTarget) })]
+        //[HarmonyPatch(typeof(WeaponGroupAttackBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAttackBonusWithoutTarget) })]
         static class WeaponGroupAttackBonus_OnEventAboutToTrigger_Patch {
             static bool Prefix(WeaponGroupAttackBonus __instance, RuleCalculateAttackBonusWithoutTarget evt) {
                 if (Main.TTTContext.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
@@ -329,7 +321,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
         }
 
-        [HarmonyPatch(typeof(WeaponGroupDamageBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
+        //[HarmonyPatch(typeof(WeaponGroupDamageBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
         static class WeaponGroupDamageBonus_OnEventAboutToTrigger_Patch {
             static bool Prefix(WeaponGroupDamageBonus __instance, RuleCalculateWeaponStats evt) {
                 if (Main.TTTContext.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }

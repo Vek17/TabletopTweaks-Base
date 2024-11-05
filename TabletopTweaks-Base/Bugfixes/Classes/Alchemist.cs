@@ -333,7 +333,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     RemoveVivisectionistGroup(DispellingAttack);
 
                     CripplingStrike.TemporaryContext(bp => {
-                        bp.GetComponents<PrerequisiteFeature>(c => c.Feature == AdvanceTalents).ForEach(c => {
+                        bp.GetComponents<PrerequisiteFeaturesFromList>(c => c.Features.Contains(AdvanceTalents)).ForEach(c => {
                             c.Group = Prerequisite.GroupType.Any;
                         });
                         bp.AddPrerequisite<PrerequisiteArchetypeLevel>(c => {
