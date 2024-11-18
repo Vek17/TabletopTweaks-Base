@@ -36,7 +36,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
             });
 
             if (TTTContext.AddedContent.MythicAbilities.IsDisabled("AbundantBlessing")) { return; }
-            FeatTools.AddAsMythicAbility(AbundantBlessingFeature);
+            //FeatTools.AddAsMythicAbility(AbundantBlessingFeature);
         }
     }
 }

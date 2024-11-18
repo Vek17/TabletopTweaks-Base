@@ -41,6 +41,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var ProtectionBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("c6a3fa9d8d7f942499e4909cd01ca22d");
             var ReposeBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("64a416082927673409deb330af04d6d2");
             var RuneBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("f76713cc1768432cab0d6352f030519d");
+            var ScalykindBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("606ca13281f4404a9c224aa7ce8a802e");
             var StrengthBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("44f9162736a5c2040ae8ede853bc6639");
             var SunBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("ba825e3c77acaec4386e00f691f8f3be");
             var TravelBlessingFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("87641a8efec53d64d853ecc436234dce");
@@ -89,6 +90,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var ProtectionBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("9c23340b6eed989459a648874910230a");
             var ReposeBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("df99fdc53432031458deeaa21121a847");
             var RuneBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("0da8c31187f34f28af5ef3023cd332a4");
+            var ScalykindBlessingMinorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("80cfe395128b4531a6b9ce339a75ca52");
+            var ScalykindBlessingMajorAbility = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("411fbbff50984848b1f75ba14a554b6f");
             var SunBlessingMajorAbilityBoth = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("fb2ff8221d4c1834c893507d0d4e1fa1");
             var SunBlessingMajorAbilityFlaming = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6aa7160535c9dd74ca707b72c68dac89");
             var SunBlessingMajorAbilityUndeadBane = BlueprintTools.GetBlueprintReference<BlueprintAbilityReference>("6eb4da544d0e87346a4dc403f9382f89");
@@ -145,6 +148,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                 CreateQuickenedBlessing("Protection", ProtectionBlessingFeature, ProtectionBlessingMinorAbility, ProtectionBlessingMinorAbility),
                 CreateQuickenedBlessing("Repose", ReposeBlessingFeature, ReposeBlessingMinorAbility),
                 CreateQuickenedBlessing("Rune", RuneBlessingFeature, RuneBlessingMinorAbility),
+                CreateQuickenedBlessing("Scalykind", ScalykindBlessingFeature, ScalykindBlessingMinorAbility, ScalykindBlessingMajorAbility),
                 CreateQuickenedBlessing("Sun", SunBlessingFeature, SunBlessingMinorAbility, SunBlessingMajorAbilityFlaming, SunBlessingMajorAbilityUndeadBane, SunBlessingMajorAbilityBoth),
                 CreateQuickenedBlessing("Travel", TravelBlessingFeature, TravelBlessingMajorAbility),
                 CreateQuickenedBlessing("Trickery", TrickeryBlessingFeature, TrickeryBlessingMinorAbility),

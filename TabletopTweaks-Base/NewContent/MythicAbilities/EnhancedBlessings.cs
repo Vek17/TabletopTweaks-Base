@@ -3,6 +3,9 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics;
 using System.Linq;
 using TabletopTweaks.Core.Utilities;
 using static Kingmaker.Designers.Mechanics.Facts.AutoMetamagic;
@@ -11,6 +14,7 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.NewContent.MythicAbilities {
     static class EnhancedBlessings {
         public static void AddEnhancedBlessings() {
+            var BlessingResource = BlueprintTools.GetBlueprintReference<BlueprintAbilityResourceReference>("d128a6332e4ea7c4a9862b9fdb358cca");
             var DomainMastery = BlueprintTools.GetBlueprint<BlueprintFeature>("2de64f6a1f2baee4f9b7e52e3f046ec5");
             var BlessingSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("6d9dcc2a59210a14891aeedb09d406aa");
             var blessingAbilities = new BlueprintAbilityReference[] {
@@ -85,7 +89,7 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                 bp.m_Icon = DomainMastery.m_Icon;
                 bp.SetName(TTTContext, "Enhanced Blessings");
                 bp.SetDescription(TTTContext, "You have moved closer to your deity and to the power it has over its blessings.\n" +
-                    "The effects from your blessings now last twice as long.");
+                    "The effects from your blessings now last twice as long and you can use Blessings a number of additional times per day equal to your mythic rank.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
                 bp.Groups = new FeatureGroup[] { FeatureGroup.MythicFeat };
@@ -94,6 +98,16 @@ namespace TabletopTweaks.Base.NewContent.MythicAbilities {
                     c.m_Spellbook = BlueprintReferenceBase.CreateTyped<BlueprintSpellbookReference>(null);
                     c.Metamagic = Metamagic.Extend;
                     c.Abilities = blessingAbilities.ToList();
+                });
+                bp.AddComponent<IncreaseResourceAmountBySharedValue>(c => {
+                    c.Value = new ContextValue() {
+                        ValueType = ContextValueType.Rank
+                    };
+                    c.m_Resource = BlessingResource;
+                });
+                bp.AddContextRankConfig(c => {
+                    c.m_BaseValueType = ContextRankBaseValueType.MythicLevel;
+                    c.m_Progression = ContextRankProgression.AsIs;
                 });
                 bp.AddPrerequisiteFeature(BlessingSelection);
             });

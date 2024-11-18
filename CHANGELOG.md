@@ -1,4 +1,7 @@
 # Version 2.6.10
+* Changes
+    * Abundant Blessing is no longer avaiable and has instead been combined with Enhanced Blessing. 
+    * Added support for Quicken Blessing to Scalykind.
 * Fixes
     * Fixed Lethal Stance bonuses sometimes applying twice.
     * Fixed Crippling Strike prerequisites being broken.

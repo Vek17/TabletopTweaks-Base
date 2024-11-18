@@ -628,17 +628,6 @@
       "esES": null
     },
     {
-      "Key": "c609e0ab75c147ca86f3eaa97061460c",
-      "SimpleName": "AnimalAllyRank.Name",
-      "ProcessTemplates": false,
-      "enGB": "Animal Ally Rank",
-      "ruRU": "Уровень верного зверя",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "动物盟友等级",
-      "esES": null
-    },
-    {
       "Key": "c0b2eb22c9724852be5a40f2d7c4d15b",
       "SimpleName": "AnimalCompanionUpgradeBear.Name",
       "ProcessTemplates": false,
@@ -724,17 +713,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "奥术发现",
-      "esES": null
-    },
-    {
-      "Key": "4f0ee03293aa4a5aa1a7dae5debed2dd",
-      "SimpleName": "ArcaneMetamastery.Description",
-      "ProcessTemplates": true,
-      "enGB": "As a swift action, you can pick any one metamagic feat you know that increases the slot level of the spell by up to 2 levels. For the next 10 rounds, you can apply this metamagic feat to any arcane spell you cast without increasing the spell slot used or casting time. You can’t have more than one use of this ability active at a time. If you use this ability again, any previous use immediately ends.\nYou can use this ability a number of times per day equal to 1 plus your mythic rank.",
-      "ruRU": "Совершив быстрое действие, вы можете выбрать одну из известных вам черт метамагии, которые увеличивают круг заклинания максимум на 2. В течение следующих 10 раундов, вы можете применять эту метамагию к любым мистическим заклинаниям без увеличения круга заклинания и времени его сотворения. Вы можете применить эту способность только к 1 метамагии за раз. Если вы применяете эту способность опять, это заменит предыдущую.\nВы можете применять эту способность 1 + ваш мифический уровень раз в день.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
       "esES": null
     },
     {
@@ -1761,17 +1739,6 @@
       "esES": null
     },
     {
-      "Key": "cd3c0ca71a784b4ba8c67281e8389d6d",
-      "SimpleName": "BackgroundFarmhand.Description",
-      "ProcessTemplates": true,
-      "enGB": "Farmhand adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with scythes and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
-      "ruRU": "Батрак добавляет к своему списку классовых <b><color=#703565><link=\"Encyclopedia:Skills\">навыков</link></color></b> <b><color=#703565><link=\"Encyclopedia:Athletics\">Атлетику</link></color></b> и <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Знание (природа)</link></color></b>. Он также учится обращаться с косами и <b><color=#703565><link=\"Encyclopedia:Bonus\">получает бонус</link></color></b> +1 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> стойкости.\nЕсли у персонажа уже есть классовых навык, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">умение обращаться с оружием</link></color></b> или умение использования брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие <b><color=#703565><link=\"Encyclopedia:Bonus\">бонусы</link></color></b> биографии меняются на бонус мастерства +1 в случае навыков, бонус усиления +1 в случае умения обращаться с оружием и снижением в виде <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за броню -1 в случае умения использования брони.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "农民将{g|Encyclopedia:Athletics}运动{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长巨镰，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
-      "esES": null
-    },
-    {
       "Key": "d45e11f4978742a597ec08acbd6919ae",
       "SimpleName": "BackgroundFarmhand.Description",
       "ProcessTemplates": true,
@@ -1871,17 +1838,6 @@
       "esES": null
     },
     {
-      "Key": "03c796a3a3db493a8323159444959a91",
-      "SimpleName": "BackgroundLumberjack.Description",
-      "ProcessTemplates": true,
-      "enGB": "Lumberjack adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
-      "ruRU": "Дровосек добавляет к своему списку классовых <b><color=#703565><link=\"Encyclopedia:Skills\">навыков</link></color></b> <b><color=#703565><link=\"Encyclopedia:Athletics\">Атлетику</link></color></b>. Он также учится обращаться с топориками, боевыми топорами и двуручными топорами и <b><color=#703565><link=\"Encyclopedia:Bonus\">получает бонус</link></color></b> +1 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> стойкости.\nЕсли у персонажа уже есть классовых навык, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">умение обращаться с оружием</link></color></b> или умение использования брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие <b><color=#703565><link=\"Encyclopedia:Bonus\">бонусы</link></color></b> биографии меняются на бонус мастерства +1 в случае навыков, бонус усиления +1 в случае умения обращаться с оружием и снижением в виде <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за броню -1 в случае умения использования брони.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "伐木工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长手斧、战斧和巨斧，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
-      "esES": null
-    },
-    {
       "Key": "5bbdfe68eabd4468beddb8fdec778268",
       "SimpleName": "BackgroundMartialDisciple.Description",
       "ProcessTemplates": true,
@@ -1923,17 +1879,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "c6e3fe7f404242e0b5bee10af695be49",
-      "SimpleName": "BackgroundMiner.Description",
-      "ProcessTemplates": true,
-      "enGB": "Miner adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light and heavy picks and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
-      "ruRU": "Шахтер добавляет к своему списку классовых <b><color=#703565><link=\"Encyclopedia:Skills\">навыков</link></color></b> <b><color=#703565><link=\"Encyclopedia:Athletics\">Атлетику</link></color></b>. Он такжу учится обращаться с легкими и тяжелыми кирками и <b><color=#703565><link=\"Encyclopedia:Bonus\">получает бонус</link></color></b> +1 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> стойкости.\nЕсли у персонажа уже есть классовых навык, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">умение обращаться с оружием</link></color></b> или умение использования брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие <b><color=#703565><link=\"Encyclopedia:Bonus\">бонусы</link></color></b> биографии меняются на бонус мастерства +1 в случае навыков, бонус усиления +1 в случае умения обращаться с оружием и снижением в виде <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за броню -1 в случае умения использования брони.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "矿工将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长轻十字镐、重十字镐并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -2000,17 +1945,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "扒手将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Stealth}隐匿{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在{g|Encyclopedia:Initiative}先攻{/g}{g|Encyclopedia:Dice}检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
-      "esES": null
-    },
-    {
-      "Key": "aef0e9b3fe9b48009e4e441dad2b68d5",
-      "SimpleName": "BackgroundQadiranWanderer.Description",
-      "ProcessTemplates": true,
-      "enGB": "Qadiran Wanderer adds <b><color=#703565><link=\"Encyclopedia:Perception\">Perception</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Lore (nature)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +2 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against Fatigue and Exhaustion effects.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
-      "ruRU": "Кадирский странник добавляет к своему списку классовых <b><color=#703565><link=\"Encyclopedia:Skills\">навыков</link></color></b> <b><color=#703565><link=\"Encyclopedia:Perception\">Внимание</link></color></b> и <b><color=#703565><link=\"Encyclopedia:Lore_Nature\">Знание (природа)</link></color></b>. Он также <b><color=#703565><link=\"Encyclopedia:Bonus\">получает бонус</link></color></b> +2 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> против эффектов утомления и бессилия.\nЕсли у персонажа уже есть классовых навык, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">умение обращаться с оружием</link></color></b> или умение использования брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие <b><color=#703565><link=\"Encyclopedia:Bonus\">бонусы</link></color></b> биографии меняются на бонус мастерства +1 в случае навыков, бонус усиления +1 в случае умения обращаться с оружием и снижением в виде <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за броню -1 в случае умения использования брони.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "卡蒂拉游民将{g|Encyclopedia:Perception}察觉{/g}和{g|Encyclopedia:Lore_Nature}学识（自然）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在对抗疲劳和力竭效应的{g|Encyclopedia:Saving_Throw}豁免检定{/g}上获得+2{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -2146,17 +2080,6 @@
       "esES": null
     },
     {
-      "Key": "2e8d07ce47964fe9913389626370bd9b",
-      "SimpleName": "BackgroundSmith.Description",
-      "ProcessTemplates": true,
-      "enGB": "Smith adds <b><color=#703565><link=\"Encyclopedia:Athletics\">Athletics</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with light hammers and warhammers, and gets a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Fortitude <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
-      "ruRU": "Кузнец добавляет к своему списку классовых <b><color=#703565><link=\"Encyclopedia:Skills\">навыков</link></color></b> <b><color=#703565><link=\"Encyclopedia:Athletics\">Атлетику</link></color></b>. Он также учится обращаться с легкими молотами и боевыми молотами, и <b><color=#703565><link=\"Encyclopedia:Bonus\">получает бонус</link></color></b> +1 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> стойкости.\nЕсли у персонажа уже есть классовых навык, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">умение обращаться с оружием</link></color></b> или умение использования брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие <b><color=#703565><link=\"Encyclopedia:Bonus\">бонусы</link></color></b> биографии меняются на бонус мастерства +1 в случае навыков, бонус усиления +1 в случае умения обращаться с оружием и снижением в виде <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за броню -1 в случае умения использования брони.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "铁匠将{g|Encyclopedia:Athletics}运动{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长轻锤、战锤，并且强韧{g|Encyclopedia:Saving_Throw}豁免检定{/g}获得+1{g|Encyclopedia:Bonus}加值{/g}。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
-      "esES": null
-    },
-    {
       "Key": "6f4ac9423fca44dc85d18ed88ab206bd",
       "SimpleName": "BackgroundSmith.Description",
       "ProcessTemplates": true,
@@ -2179,17 +2102,6 @@
       "esES": null
     },
     {
-      "Key": "1e60d458abe1441f91c8ed5c2564dcb2",
-      "SimpleName": "BackgroundVarisianExplorer.Description",
-      "ProcessTemplates": true,
-      "enGB": "Varisian Explorer adds <b><color=#703565><link=\"Encyclopedia:Trickery\">Trickery</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Knowledge (world)</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also gains a +1 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on Reflex <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b>.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding bonuses from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
-      "ruRU": "Варисианский исследователь добавляет к своему списку классовых <b><color=#703565><link=\"Encyclopedia:Skills\">навыков</link></color></b> <b><color=#703565><link=\"Encyclopedia:Trickery\">Плутовство</link></color></b> и <b><color=#703565><link=\"Encyclopedia:Knowledge_World\">Знание (мир)</link></color></b>. Он также <b><color=#703565><link=\"Encyclopedia:Bonus\">получает бонус</link></color></b> +1 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> реакции.\nЕсли у персонажа уже есть классовых навык, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">умение обращаться с оружием</link></color></b> или умение использования брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие <b><color=#703565><link=\"Encyclopedia:Bonus\">бонусы</link></color></b> биографии меняются на бонус мастерства +1 в случае навыков, бонус усиления +1 в случае умения обращаться с оружием и снижением в виде <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за броню -1 в случае умения использования брони.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "瓦里西亚探索者将{g|Encyclopedia:Trickery}巧手{/g}和{g|Encyclopedia:Knowledge_World}知识（世界）{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会在反射{g|Encyclopedia:Saving_Throw}豁免检定{/g}中获得+2{g|Encyclopedia:Bonus}加值。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
-      "esES": null
-    },
-    {
       "Key": "ca13b09d795f47a4bbf504415f4c83e0",
       "SimpleName": "BackgroundVarisianExplorer.Description",
       "ProcessTemplates": true,
@@ -2198,17 +2110,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "6ac200f461454aaa96cd25d3b8413441",
-      "SimpleName": "BackgroundWarriorOfTheLinnormKings.Description",
-      "ProcessTemplates": true,
-      "enGB": "Warrior of the Linnorm Kings adds <b><color=#703565><link=\"Encyclopedia:Mobility\">Mobility</link></color></b> to the list of her class <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b>. She also becomes proficient with handaxes, battleaxes and greataxes. In addition Warrior of the Linnorm Kings gains 5 cold resistance.\nIf the character already has the class skill, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">weapon proficiency</link></color></b> or armor proficiency granted by the selected background from her class during character creation, then the corresponding <b><color=#703565><link=\"Encyclopedia:Bonus\">bonuses</link></color></b> from background change to a +1 trait bonus in case of skills, a +1 trait bonus in case of weapon proficiency and a -1 Armor Check <b><color=#703565><link=\"Encyclopedia:Penalty\">Penalty</link></color></b> reduction in case of armor proficiency.",
-      "ruRU": "Воитель линнормских королей добавляет к своему списку классовых <b><color=#703565><link=\"Encyclopedia:Skills\">навыков</link></color></b> <b><color=#703565><link=\"Encyclopedia:Mobility\">Подвижность</link></color></b>. Он также учится обращаться с топориками, боевыми топорами и двуручными топорами. Кроме того, воитель линнормских королей получает устойчивость к холоду 5.\nЕсли у персонажа уже есть классовых навык, <b><color=#703565><link=\"Encyclopedia:Weapon_Proficiency\">умение обращаться с оружием</link></color></b> или умение использования брони, даваемое биографией в рамках класса, выбранного в ходе создания персонажа, соответствующие <b><color=#703565><link=\"Encyclopedia:Bonus\">бонусы</link></color></b> биографии меняются на бонус мастерства +1 в случае навыков, бонус усиления +1 в случае умения обращаться с оружием и снижением в виде <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за броню -1 в случае умения использования брони.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "蛇龙王之地勇士将{g|Encyclopedia:Mobility}灵巧{/g}加入本职{g|Encyclopedia:Skills}技能{/g}列表。他还会擅长手斧、战斧和巨斧。此外，蛇龙王之地勇士获得5点寒冷抗性。\n如果角色已在角色创建过程中，通过职业获取了上述{g|Encyclopedia:Weapon_Proficiency}武器擅长{/g}、防具擅长或本职技能，则背景提供的相应{g|Encyclopedia:Bonus}加值{/g}改为相关武器上的+1特性加值，相关技能上的+1特性加值，相关防具上的防具检定{g|Encyclopedia:Penalty}减值{/g}-1。",
       "esES": null
     },
     {
@@ -6205,17 +6106,6 @@
       "esES": null
     },
     {
-      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
-      "SimpleName": "Elemental — ColdSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "Elemental — Cold",
-      "ruRU": "Элементальное — Холод",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
-      "esES": null
-    },
-    {
       "Key": "a489d5d8088447d3baed4ad6d4c68111",
       "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
@@ -6227,14 +6117,14 @@
       "esES": null
     },
     {
-      "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
-      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "Key": "1b2bc93e4722446c84b691e63b8dc68c",
+      "SimpleName": "Elemental — ColdSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "Elemental — Electricity",
-      "ruRU": "Элементальное — Электричество",
+      "enGB": "Elemental — Cold",
+      "ruRU": "Элементальное — Холод",
       "deDE": null,
       "frFR": null,
-      "zhCN": "元素 — 电击",
+      "zhCN": "{g|Encyclopedia:Elemental — Cold-TabletopTweaks-Base}元素 — 寒冷{/g}",
       "esES": null
     },
     {
@@ -6246,6 +6136,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Elemental — Electricity-TabletopTweaks-Base}元素 — 电击{/g}",
+      "esES": null
+    },
+    {
+      "Key": "e2cf6f7e5d3e485a8b95f6a6214a0792",
+      "SimpleName": "Elemental — ElectricitySpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "Elemental — Electricity",
+      "ruRU": "Элементальное — Электричество",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "元素 — 电击",
       "esES": null
     },
     {
@@ -6788,44 +6689,11 @@
       "esES": null
     },
     {
-      "Key": "1a8918b0ac4f4da89d81eaf92d7b2c0c",
-      "SimpleName": "EnergyConversion.Description",
-      "ProcessTemplates": true,
-      "enGB": "Whenever you cast a spell with the acid, cold, electricity, or fire descriptor you can switch the energy type to a different one of those energy types. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
-      "ruRU": "Всякий  раз когда вы сотворяете заклинание с дескриптором кислоты, холода, электричества или огня вы можете поменять его на другой. Заклинание потеряет свой первоначальный дескриптор и получит новый. Все остальные эффекты остаются неизменными.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "117612c56ce54115a1c39d8cbd3111e2",
-      "SimpleName": "EnergyConversionBuffAcid.Description",
-      "ProcessTemplates": true,
-      "enGB": "Whenever you cast a spell with the cold, electricity, or fire descriptor you can switch the energy type to acid. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
-      "ruRU": "Всякий  раз когда вы сотворяете заклинание с дескриптором холода, электричества или огня вы можете поменять его на кислоту. Заклинание потеряет свой первоначальный дескриптор и получит новый. Все остальные эффекты остаются неизменными.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "ea344d92e9474e529b73bf9056efa1e1",
       "SimpleName": "EnergyConversionBuffAcid.Name",
       "ProcessTemplates": false,
       "enGB": "Energy Conversion — Acid",
       "ruRU": "Преобразование энергии — Кислота",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "d2de75dda1ca405ebb9827063161079f",
-      "SimpleName": "EnergyConversionBuffCold.Description",
-      "ProcessTemplates": true,
-      "enGB": "Whenever you cast a spell with the acid, electricity, or fire descriptor you can switch the energy type to cold. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
-      "ruRU": "Всякий  раз когда вы сотворяете заклинание с дескриптором кислоты, электричества или огня вы можете поменять его на холод. Заклинание потеряет свой первоначальный дескриптор и получит новый. В се остальные эффекты остаются неизменными.",
       "deDE": null,
       "frFR": null,
       "zhCN": null,
@@ -6843,33 +6711,11 @@
       "esES": null
     },
     {
-      "Key": "d34ca98d484242aba644bc72db70d5e1",
-      "SimpleName": "EnergyConversionBuffElectricity.Description",
-      "ProcessTemplates": true,
-      "enGB": "Whenever you cast a spell with the acid, cold, electricity, or fire descriptor you can switch the energy type to a different one of those energy types. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
-      "ruRU": "Всякий  раз когда вы сотворяете заклинание с дескриптором кислоты, холода или огня вы можете поменять его на электричество. Заклинание потеряет свой первоначальный дескриптор и получит новый. В се остальные эффекты остаются неизменными.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "df2666b79c9a4e979b54808af0717551",
       "SimpleName": "EnergyConversionBuffElectricity.Name",
       "ProcessTemplates": false,
       "enGB": "Energy Conversion — Electricity",
       "ruRU": "Преобразование энергии — Электричество",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a7687a8c8a62421d81a2ebce2670a3cd",
-      "SimpleName": "EnergyConversionBuffFire.Description",
-      "ProcessTemplates": true,
-      "enGB": "Whenever you cast a spell with the acid, cold, or electricity descriptor you can switch the energy type to fire. If the spell normally has its original energy type as a descriptor, it loses that descriptor and gains the new type as a descriptor. All other effects of the spell remain unchanged.",
-      "ruRU": "Всякий  раз когда вы сотворяете заклинание с дескриптором кислоты, холода или электричества вы можете поменять его на огонь. Заклинание потеряет свой первоначальный дескриптор и получит новый. В се остальные эффекты остаются неизменными.",
       "deDE": null,
       "frFR": null,
       "zhCN": null,
@@ -6964,14 +6810,14 @@
       "esES": null
     },
     {
-      "Key": "7a16a809c5fb4851958177a8eabe8132",
+      "Key": "aa7730beebb8496dba0160de93a5e65d",
       "SimpleName": "EnhancedBlessingsFeature.Description",
       "ProcessTemplates": true,
-      "enGB": "You have moved closer to your deity and to the power it has over its blessings.\nThe effects from your blessings now last twice as long.",
-      "ruRU": "Вы стали ближе к своему божеству и к силе, даруемой его благословениями.\nЭффект от ваших благословений теперь длиться в два раза дольше.",
+      "enGB": "You have moved closer to your deity and to the power it has over its blessings.\nThe effects from your blessings now last twice as long and you can use Blessings a number of additional times per day equal to your mythic rank.",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
-      "zhCN": "你凭借神话力量与你的信仰建立了更深层的联系，你的所有祝福的持续时间翻倍。",
+      "zhCN": null,
       "esES": null
     },
     {
@@ -10983,7 +10829,7 @@
       "SimpleName": "MetaRageIntensifiedBuff1.Name",
       "ProcessTemplates": false,
       "enGB": "Meta-Rage (Intensified)",
-      "ruRU":"Мета-ярость (Насыщенное)",
+      "ruRU": "Мета-ярость (Насыщенное)",
       "deDE": null,
       "frFR": null,
       "zhCN": null,
@@ -11133,55 +10979,11 @@
       "esES": null
     },
     {
-      "Key": "b694ecb335e0450b860f84e92e10a496",
-      "SimpleName": "MetaRagePiercingBuff1.Description",
-      "ProcessTemplates": true,
-      "enGB": "The metamagic rager can spend 4 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 1 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
-      "ruRU": "Метамагический наследний ярости может потратить 4 раундов ярости наследия {g|Encyclopedia:Free_Action}свободным действием{/g} чтобы сделать следующее {g|Encyclopedia:Spell}заклинание{/g} 1 круга или ниже, которое он сотворит в ближайшие 2 {g|Encyclopedia:Combat_Round}раунда{/g} пробивающим, как при использовании одноименной метамагической {g|Encyclopedia:Feat}черты{/g}.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
       "Key": "46228a7cf861426ca3aeb3ee33d3dcd1",
       "SimpleName": "MetaRagePiercingBuff1.Name",
       "ProcessTemplates": false,
       "enGB": "Meta-Rage (Piercing)",
       "ruRU": "Мета-ярость (Пробивающее)",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "122f254ec89c45a8accd50c08f07c176",
-      "SimpleName": "MetaRagePiercingBuff2.Description",
-      "ProcessTemplates": true,
-      "enGB": "The metamagic rager can spend 6 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 2 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
-      "ruRU": "Метамагический наследний ярости может потратить 6 раундов ярости наследия {g|Encyclopedia:Free_Action}свободным действием{/g} чтобы сделать следующее {g|Encyclopedia:Spell}заклинание{/g} 2 круга или ниже, которое он сотворит в ближайшие 2 {g|Encyclopedia:Combat_Round}раунда{/g} пробивающим, как при использовании одноименной метамагической {g|Encyclopedia:Feat}черты{/g}.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "9180620648154e0299093dc67265c502",
-      "SimpleName": "MetaRagePiercingBuff3.Description",
-      "ProcessTemplates": true,
-      "enGB": "The metamagic rager can spend 8 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 3 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
-      "ruRU": "Метамагический наследний ярости может потратить 8 раундов ярости наследия {g|Encyclopedia:Free_Action}свободным действием{/g} чтобы сделать следующее {g|Encyclopedia:Spell}заклинание{/g} 3 круга или ниже, которое он сотворит в ближайшие 2 {g|Encyclopedia:Combat_Round}раунда{/g} пробивающим, как при использовании одноименной метамагической {g|Encyclopedia:Feat}черты{/g}.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "b1ed24cd60bf48ae8243350a3140d2cb",
-      "SimpleName": "MetaRagePiercingBuff4.Description",
-      "ProcessTemplates": true,
-      "enGB": "The metamagic rager can spend 10 rounds of bloodrage as a {g|Encyclopedia:Free_Action}free action{/g} to make next bloodrager {g|Encyclopedia:Spell}spell{/g} of level 4 or lower he casts in 2 {g|Encyclopedia:Combat_Round}rounds{/g} Piercing as per using the corresponding metamagic {g|Encyclopedia:Feat}feat{/g}.",
-      "ruRU": "Метамагический наследний ярости может потратить 10 раундов ярости наследия {g|Encyclopedia:Free_Action}свободным действием{/g} чтобы сделать следующее {g|Encyclopedia:Spell}заклинание{/g} 4 круга или ниже, которое он сотворит в ближайшие 2 {g|Encyclopedia:Combat_Round}раунда{/g} пробивающим, как при использовании одноименной метамагической {g|Encyclopedia:Feat}черты{/g}.",
       "deDE": null,
       "frFR": null,
       "zhCN": null,
@@ -12464,17 +12266,6 @@
       "esES": null
     },
     {
-      "Key": "c4211dd8fabd410ab02c99ff971911ed",
-      "SimpleName": "PiercingSpellMetamagic",
-      "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
-      "ruRU": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Пробивающее{/g}",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
-      "esES": null
-    },
-    {
       "Key": "f467d13c43764235a30cb4aca2e1edcf",
       "SimpleName": "PiercingSpellMetamagic",
       "ProcessTemplates": false,
@@ -12483,6 +12274,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "穿刺",
+      "esES": null
+    },
+    {
+      "Key": "c4211dd8fabd410ab02c99ff971911ed",
+      "SimpleName": "PiercingSpellMetamagic",
+      "ProcessTemplates": false,
+      "enGB": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Piercing{/g}",
+      "ruRU": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}Пробивающее{/g}",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "{g|Encyclopedia:Piercing-TabletopTweaks-Base}穿刺{/g}",
       "esES": null
     },
     {
@@ -12887,6 +12689,17 @@
       "ProcessTemplates": false,
       "enGB": "Quicken Blessing — Rune",
       "ruRU": "Ускоренное благословение - Руны",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": null,
+      "esES": null
+    },
+    {
+      "Key": "d892cdfa62c748b9a5669c81309054ae",
+      "SimpleName": "QuickenBlessingScalykindFeature.Name",
+      "ProcessTemplates": false,
+      "enGB": "Quicken Blessing — Scalykind",
+      "ruRU": null,
       "deDE": null,
       "frFR": null,
       "zhCN": null,
@@ -13498,22 +13311,22 @@
       "esES": null
     },
     {
-      "Key": "30cff4322b404021b18335c720abbfda",
+      "Key": "1b8450f20cc444c399117bd8890ed98e",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "Solid Shadows",
-      "ruRU": "Осязаемое",
+      "enGB": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Solid Shadows{/g}",
+      "ruRU": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Осязаемое{/g}",
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
       "esES": null
     },
     {
-      "Key": "1b8450f20cc444c399117bd8890ed98e",
+      "Key": "30cff4322b404021b18335c720abbfda",
       "SimpleName": "Solid ShadowsSpellMetamagic",
       "ProcessTemplates": false,
-      "enGB": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Solid Shadows{/g}",
-      "ruRU": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}Осязаемое{/g}",
+      "enGB": "Solid Shadows",
+      "ruRU": "Осязаемое",
       "deDE": null,
       "frFR": null,
       "zhCN": "{g|Encyclopedia:Solid Shadows-TabletopTweaks-Base}实体幽影{/g}",
@@ -13707,17 +13520,6 @@
       "esES": null
     },
     {
-      "Key": "6fe1f1cbe4f74f1cba228bc7e7ce0181",
-      "SimpleName": "SorcererAberrantSpell11.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nFeeblemind: The target creature's <b><color=#703565><link=\"Encyclopedia:Intelligence\">Intelligence</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Charisma\">Charisma</link></color></b> scores each drop to 1. The affected creature is unable to use Intelligence- or Charisma-based <b><color=#703565><link=\"Encyclopedia:Skills\">skills</link></color></b> or cast <b><color=#703565><link=\"Encyclopedia:Spell\">spells</link></color></b>. Still, it knows who its friends are and can follow them and even protect them. The subject remains in this state until a <b><color=#703565><link=\"Encyclopedia:Healing\">heal</link></color></b> or break enchantment spell is used to cancel the effect of the feeblemind. A creature that can cast arcane spells, such as a sorcerer or a wizard, takes a –4 <b><color=#703565><link=\"Encyclopedia:Penalty\">penalty</link></color></b> on its <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throw</link></color></b>.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nСлабоумие: Значения <b><color=#703565><link=\"Encyclopedia:Intelligence\">Интеллекта</link></color></b> и <b><color=#703565><link=\"Encyclopedia:Charisma\">Харизмы</link></color></b> уменьшается до 1. Затронутое существо не может применять <b><color=#703565><link=\"Encyclopedia:Skills\">навыки</link></color></b> основанные на Интеллекте или Харизме, а также творить <b><color=#703565><link=\"Encyclopedia:Spell\">заклинания</link></color></b>. Оно все ещё узнает своих друзей, может следовать за ними и защищать их. Цель остается в этом состоянии пока, оно не будет снято заклинанием <b><color=#703565><link=\"Encyclopedia:Healing\">излечение</link></color></b> или разрушение чар. Существо, способное творить мистические заклинания такие как маг или колдун, <b><color=#703565><link=\"Encyclopedia:Penalty\">получает штраф</link></color></b> -4 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b>.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n弱智术: 目标的{g|Encyclopedia:Intelligence}智力{/g}和{g|Encyclopedia:Charisma}魅力{/g}都将降至1点。被影响的生物不能使用任何基于智力或魅力的 {g|Encyclopedia:Skills}技能{/g} 或释放 {g|Encyclopedia:Spell}法术{/g}。 但是他依然知道谁是他的朋友，也能跟随他们行动，甚至可以保护他们。受术者会始终保持这一状态，直到被{g|Encyclopedia:Healing}医疗术{/g}取消掉弱智术效果为止。 能施放奥术的生物，例如术士或法师，在{g|Encyclopedia:Saving_Throw}豁免检定{/g}中要受到-4{g|Encyclopedia:Penalty}减值{/g}。",
-      "esES": null
-    },
-    {
       "Key": "e645c43df4da4a958eb4fccea2124807",
       "SimpleName": "SorcererAberrantSpell11.Description",
       "ProcessTemplates": true,
@@ -13726,17 +13528,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "ea76b68b2ac342649c42183425cc10b0",
-      "SimpleName": "SorcererAberrantSpell13.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nEyebite: Each <b><color=#703565><link=\"Encyclopedia:Combat_Round\">round</link></color></b>, you can target a single living creature, striking it with waves of power. The target must make a successful Fortitude saving throw, or suffer the spell's harmful effects. Depending on the target's HD, this <b><color=#703565><link=\"Encyclopedia:Attack\">attack</link></color></b> has as many as three effects:\nIf the target's HD is 10 or more, it is sickened for 10 minutes per <b><color=#703565><link=\"Encyclopedia:Caster_Level\">caster level</link></color></b>.\nIf the target's HD is 5–9, it is frightened and sickened for 10 minutes per caster level.\nIf the target's HD is 4 or less, it is paralyzed, frightened, and sickened\nThe effects are cumulative and concurrent for 10 minutes per caster level.\nYou must spend a <b><color=#703565><link=\"Encyclopedia:Swift_Action\">swift action</link></color></b> each round after the first to target a foe.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nГрозные очи: Каждый <b><color=#703565><link=\"Encyclopedia:Combat_Round\">раунд</link></color></b>, вы грозно смотрите на одно существо, поражая его волнами энергии. Цель должна сделать успешный спасбросок стойкости, или оказаться под действием вредоносных эффектов заклинания. Эффекты зависят от количества костей здоровья:\nЕсли у цели 10 или больше костей здоровья, оно дезориентировано на 10 минут за <b><color=#703565><link=\"Encyclopedia:Caster_Level\">уровень заклинателя</link></color></b>.\nЕсли у цели от 5 до 9 костей здоровья, оно дезориентировано и в панике на 10 минут за уровень заклинателя.\nЕсли у цели менее 4 костей здоровья, оно дезориентировано, в панике и в коме.\nВсе эффекты складываются и вступают в силу одновременно на 10 минут за уровень заклинателя.\nКаждый раунд вы можете произвести <b><color=#703565><link=\"Encyclopedia:Swift_Action\">быстрое действие</link></color></b>, чтобы взглянуть на нового противника.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n凶险注视: 每 {g|Encyclopedia:Combat_Round}轮{/g}你都能够以单个活物为目标，驱使力量的波动对其发动袭击。 目标必须通过一个成功的强韧豁免检定,否则就会受到法术的影响。 根据目标的HD，这种{g|Encyclopedia:Attack}攻击{/g}能够产生至多三种效果:\n如果目标的HD在10以上, 它会陷入恶心10分钟每CL。\n如果目标的HD在5-9, 它会陷入惊惧和恶心10分钟每CL。\n如果目标的HD在4以下, 它会陷入麻痹惊惧和恶心。\n这些影响并发且同时存在，持续10分钟每CL。\n在法术的第一轮之后，你必须每轮花费一个{g|Encyclopedia:Swift_Action}迅捷动作{/g}来瞄准目标。",
       "esES": null
     },
     {
@@ -13762,17 +13553,6 @@
       "esES": null
     },
     {
-      "Key": "12a0c2a818e34cd199a9feb2f9f85eb7",
-      "SimpleName": "SorcererAberrantSpell17.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nMind Blank: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants a +8 resistance <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> against all mind-affecting spells and effects. The subject is also protected from all items, spells, and other effects that gather information about the target through divination magic (such as thoughtsense, true seeing, and see invisibility).",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nСокрытие разума: Это <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b> дает <b><color=#703565><link=\"Encyclopedia:Bonus\">бонус</link></color></b> устойчивости +8 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> против всех заклинаний и эффектов, воздействующих на разум. Цель также защищена от всех предметов, заклинаний и других эффектов, собирающих информацию при помощи магии прорицания (таких как мыслечувство, истинное зрение, и увидеть невидимое).",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n心灵屏障: 此{g|Encyclopedia:Spell}法术{/g}使生物在对抗所有影响心智的法术和效果的{g|Encyclopedia:Saving_Throw}豁免检定{/g}中获得+8抗力{g|Encyclopedia:Bonus}加值{/g}。此外，受术者不会被通过预言系魔法效果收集情报的物品和法术（比如思维感应、真知术和识破隐形）所影响。",
-      "esES": null
-    },
-    {
       "Key": "902f678ab6694f3cb0604519cac884b3",
       "SimpleName": "SorcererAberrantSpell17.Description",
       "ProcessTemplates": true,
@@ -13795,17 +13575,6 @@
       "esES": null
     },
     {
-      "Key": "5ac9fbe3a8af4d129a09004a5f2c9618",
-      "SimpleName": "SorcererAberrantSpell19.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nShapechange: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> allows you to take the form of a wide variety of creatures. This spell can function as beast shape IV, elemental body IV and dragonkind III depending on what form you take. You can change form once each <b><color=#703565><link=\"Encyclopedia:Combat_Round\">round</link></color></b> as a <b><color=#703565><link=\"Encyclopedia:Free_Action\">free action</link></color></b>. The change takes place either immediately before your regular <b><color=#703565><link=\"Encyclopedia:CA_Types\">action</link></color></b> or immediately after it, but not during the action.",
-	  "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nСмена облика: Это <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b> позволяет вам принимать формы различных существ. Оно может работать как драконий род III, облик зверя IV или стихийная форма IV, в зависимости от того, какую форму вы принимаете. Вы можете менять форму раз в <b><color=#703565><link=\"Encyclopedia:Combat_Round\">раунд</link></color></b> в качестве <b><color=#703565><link=\"Encyclopedia:Free_Action\">свободного действия</link></color></b>. Изменение происходит непосредственно до или после основного <b><color=#703565><link=\"Encyclopedia:CA_Types\">действия</link></color></b>, но не одновременно с ним.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n变化形体: 此{g|Encyclopedia:Spell}法术{/g}允许你变成多种生物。此法术可产生如同野兽之状IV、元素之躯IV、龙形III的效果，取决于你变成的形体。你能够以{g|Encyclopedia:Free_Action}自由动作{/g}每{g|Encyclopedia:Combat_Round}轮{/g}改变一次形体。变形会在你的常规{g|Encyclopedia:CA_Types}动作{/g}之前或之后立即发生，但不能在动作中途发生。",
-      "esES": null
-    },
-    {
       "Key": "872d41d85cad4892adab1a3ef17c7fbb",
       "SimpleName": "SorcererAberrantSpell3.Description",
       "ProcessTemplates": true,
@@ -13814,17 +13583,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "f65f9bd1ef2d4693bf2576d6cef98bdf",
-      "SimpleName": "SorcererAberrantSpell3.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nEnlarge Person: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> causes instant growth of a humanoid creature, doubling its height and multiplying its weight by 8. This increase changes the creature's <b><color=#703565><link=\"Encyclopedia:Size\">size</link></color></b> category to the next larger one. The target gains a +2 size <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Strength\">Strength</link></color></b>, a –2 size <b><color=#703565><link=\"Encyclopedia:Penalty\">penalty</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Dexterity\">Dexterity</link></color></b> (to a minimum of 1), and a –1 penalty on <b><color=#703565><link=\"Encyclopedia:Attack\">attack rolls</link></color></b> and <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> due to its increased size. Melee and ranged weapons used by this creature deal more <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b>.\nA humanoid creature whose size increases to Large has a space of 10 feet and a natural <b><color=#703565><link=\"Encyclopedia:Reach\">reach</link></color></b> of 10 feet. This spell does not change the target's <b><color=#703565><link=\"Encyclopedia:Speed\">speed</link></color></b>.\nEnlarge person dispels reduce person.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nвеличение гуманоида: Это <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b> мгновенно увеличивает гуманоида, удваивая его рост и умножает его вес на 8, что увеличивает <b><color=#703565><link=\"Encyclopedia:Size\">размер</link></color></b> на одну категорию. Из-за увеличенного размера цель получает <b><color=#703565><link=\"Encyclopedia:Bonus\">бонус</link></color></b> размера +2 к <b><color=#703565><link=\"Encyclopedia:Strength\">Силе</link></color></b>, <b><color=#703565><link=\"Encyclopedia:Penalty\">штраф</link></color></b> размера -2 к <b><color=#703565><link=\"Encyclopedia:Dexterity\">Ловкости</link></color></b> (до минимума 1), и штраф –1 к <b><color=#703565><link=\"Encyclopedia:Attack\">броскам на попадание</link></color></b> и к <b><color=#703565><link=\"Encyclopedia:Armor_Class\">защите</link></color></b>. Оружие (как ближнее, так и дистанционное), используемое этим существом <b><color=#703565><link=\"Encyclopedia:Damage\">наносит</link></color></b> больше урона.\nГуманоид, чей размер увеличивается до крупного, занимает пространство 10 футов, а его естественная зона <b><color=#703565><link=\"Encyclopedia:Reach\">досягаемости</link></color></b> достигает 10 футов. Это заклинание не меняет <b><color=#703565><link=\"Encyclopedia:Speed\">скорость</link></color></b> цели.\nУвеличение гуманоида рассеивает уменьшение гуманоида.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n变巨术: 此{g|Encyclopedia:Spell}法术{/g}会使一个类人生物立刻快速成长，身高变成原来的2倍，体重变为原来的8倍。这会让生物的{g|Encyclopedia:Size}体型{/g}上升一级。由于体型增大，目标的{g|Encyclopedia:Strength}力量{/g}属性获得+2体型{g|Encyclopedia:Bonus}加值{/g}，{g|Encyclopedia:Dexterity}敏捷{/g}承受-2体型{g|Encyclopedia:Penalty}减值{/g}（最低降为1点），{g|Encyclopedia:Attack}攻击{/g}检定和{g|Encyclopedia:Armor_Class}AC{/g}承受-1减值。该生物使用的近战或远程武器能造成更高{g|Encyclopedia:Damage}伤害{/g}。\n体型增加到大型的类人生物占据10英尺的空间，拥有10英尺的天生触及范围。此法术不改变目标的{g|Encyclopedia:Speed}速度{/g}。\n变巨术能够解除缩小术。",
       "esES": null
     },
     {
@@ -13847,28 +13605,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "ad1145341244458d959dc3a8e793a70e",
-      "SimpleName": "SorcererAberrantSpell7.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nBlink: Physical <b><color=#703565><link=\"Encyclopedia:Attack\">attacks</link></color></b> against you have a 50% miss chance and the Blind Fight <b><color=#703565><link=\"Encyclopedia:Feat\">feat</link></color></b> doesn't help opponents, since you're ethereal and not merely invisible. If the attack is capable of striking ethereal creatures, the miss chance is only 20% (for <b><color=#703565><link=\"Encyclopedia:Concealment\">concealment</link></color></b>). Any individually targeted <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> has a 50% chance to fail against you while you're blinking unless your attacker can target invisible, ethereal creatures.\nIf the attacker can see invisible creatures, the miss chance is also only 20%. For an attacker who can both see and strike ethereal creatures, there is no miss chance.\nLikewise, your own attacks have a 20% miss chance. While blinking, you take only half <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b> from area attacks (but full damage from those that extend onto the Ethereal Plane). Although you are only partially visible, you are not considered invisible and targets retain their <b><color=#703565><link=\"Encyclopedia:Dexterity\">Dexterity</link></color></b> <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> against your attacks. You do receive a +2 bonus on attack <b><color=#703565><link=\"Encyclopedia:Dice\">rolls</link></color></b> made against enemies that cannot see invisible creatures.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nМерцание: Наносимые по вам физические <b><color=#703565><link=\"Encyclopedia:Attack\">атаки</link></color></b> имеют 50% вероятность промаха. <b><color=#703565><link=\"Encyclopedia:Feat\">Черта</link></color></b> Бой в слепую не помогает вашим врагам преодолеть действие этого эффекта, поскольку вы становитесь не просто невидимы, а неосязаемы. Атака, способная попадать по неосязаемым существам, имеет только 20% вероятность промаха из-за <b><color=#703565><link=\"Encyclopedia:Concealment\">маскировки</link></color></b>. Любое <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b>, направляемое в цель, имеет 50% шанс провала, пока вы мерцаете, если только тот, кто атакует вас этим заклинанием, не может попадать по невидимым, неосязаемым существам.\nЕсли атакующий может видеть невидимых существ, вероятность промаха по вам равна 20%. Если атакующий может и видеть невидимое, и попадать по неосязаемым существам, вероятности промаха нет.\nВаши собственные атаки также получают 20% вероятность промаха. Мерцая, вы получаете только половину <b><color=#703565><link=\"Encyclopedia:Damage\">урона</link></color></b> от атак по местности (но полный урон от атак, воздействующих на эфирный план). Хотя вас трудно увидеть, вы все же не считаетесь невидимым, и цели ваших атак сохраняют бонус <b><color=#703565><link=\"Encyclopedia:Dexterity\">Ловкости</link></color></b> к <b><color=#703565><link=\"Encyclopedia:Armor_Class\">защите</link></color></b>. Вы получаете бонус к <b><color=#703565><link=\"Encyclopedia:Dice\">броскам</link></color></b> на попадание по существам, неспособным видеть невидимое.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n闪现术: 对你发动的物理攻击有50%几率失手，由于你处于灵化状态而非仅仅隐形，即便对手有“盲斗”{g|Encyclopedia:Feat}专长{/g}也无济于事。若该攻击能够击中灵体生物，那么失手率仅为20%（因隐蔽效果而失手）。任何对你施放的单体{g|Encyclopedia:Spell}法术{/g}有50%几率失败，除非施法者能够以隐形生物和灵体生物为目标。\n假如攻击者能够看见隐形生物，失手率同样仅有20%。对于同时能够看见和击中灵体生物的攻击者而言，不会有失手几率。\n同样，你自己发动的攻击也有20%失手率。 在闪现期间，范围攻击对你只会造成一半伤害（但能够延伸到灵界位面的范围攻击会造成全部伤害）。虽然只有部分可见，但你不被视为隐形状态，目标在对抗你的攻击时也能够保留防御等级（AC）的敏捷加值。你在对看不见隐形生物的敌人发动攻击时，攻击检定会获得+2加值。",
-      "esES": null
-    },
-    {
-      "Key": "429034e8c771485aa83bcef5671433ac",
-      "SimpleName": "SorcererAberrantSpell9.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nSpike Stones: Rocky ground, stone floors, and similar surfaces shape themselves into long, sharp points that blend into the background.\nSpike stones impede progress through an area and deal <b><color=#703565><link=\"Encyclopedia:Damage\">damage</link></color></b>. Any creature moving on foot into or through the <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b>'s area moves at half <b><color=#703565><link=\"Encyclopedia:Speed\">speed</link></color></b>. In addition, each creature moving through the area takes <b><color=#703565><link=\"Encyclopedia:Dice\">1d8</link></color></b> points of <b><color=#703565><link=\"Encyclopedia:Damage_Type\">piercing damage</link></color></b> for each 5 feet of movement through the spiked area.\nAny creature that takes damage from this spell must also succeed at a <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">Reflex save</link></color></b> to avoid <b><color=#703565><link=\"Encyclopedia:Injury_Death\">injuries</link></color></b> to its feet and legs. A failed save causes the creature's speed to be reduced to half normal for 1 minute.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nШипастые камни: Это заклинание создает на скалах, каменных полах и тому подобных поверхностях неприметные, но острые шипы, которые мешают ходить и наносят <b><color=#703565><link=\"Encyclopedia:Damage\">урон</link></color></b>.\nЛюбое существо, идущее пешком по области действия <b><color=#703565><link=\"Encyclopedia:Spell\">заклинания</link></color></b> области, <b><color=#703565><link=\"Encyclopedia:Speed\">движется</link></color></b> вдвое медленнее обычного. Также оно получает <b><color=#703565><link=\"Encyclopedia:Dice\">1d8</link></color></b> <b><color=#703565><link=\"Encyclopedia:Damage_Type\">колющего урона</link></color></b> за каждые 5 футов движения через шипы.\nЛюбое существо, получившее урон от этого заклинания, должно совершить успешный <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасбросок</link></color></b> Реакции, чтобы не <b><color=#703565><link=\"Encyclopedia:Injury_Death\">повредить</link></color></b> ноги. При провале его наземная скорость уменьшается вдвое на 1 минуту.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n岩刺: 岩质地面、石地板与类似的表面形状改变，形成长而尖的石刺，与背景融为一体。\n岩刺使该区域难以通行，并造成{g|Encyclopedia:Damage}伤害{/g}。任何徒步进入或穿过法术影响区域的生物移动速度减半。此外，在区域内的生物每移动5英尺，便受到1d8点穿刺伤害。\n因岩刺受到伤害的生物还需要反射豁免成功才能避免腿脚受伤。若豁免失败，则生物的速度减半，持续1分钟。",
       "esES": null
     },
     {
@@ -14114,17 +13850,6 @@
       "esES": null
     },
     {
-      "Key": "3d4ee411b4eb40b282878902cf4a204c",
-      "SimpleName": "SorcererDestinedSpell13.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nHeroism, Greater: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> functions like heroism, except the creature gains a +4 morale <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Attack\">attack rolls</link></color></b>, <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saves</link></color></b>, and <b><color=#703565><link=\"Encyclopedia:Skills\">skill checks</link></color></b>, immunity to fear effects, and temporary <b><color=#703565><link=\"Encyclopedia:HP\">hit points</link></color></b> equal to your <b><color=#703565><link=\"Encyclopedia:Caster_Level\">caster level</link></color></b> (maximum 20).",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nГероизм, высший: Это <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b>  действует так же, как героизм, но существо получает <b><color=#703565><link=\"Encyclopedia:Bonus\">бонус</link></color></b> боевого духа +4 к <b><color=#703565><link=\"Encyclopedia:Attack\">броскам на попадание</link></color></b>, <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> и <b><color=#703565><link=\"Encyclopedia:Skills\">проверкам навыков</link></color></b>, невосприимчивость к эффектам ужаса, а также временные <b><color=#703565><link=\"Encyclopedia:HP\">очки здоровья</link></color></b> в количестве, равном вашему <b><color=#703565><link=\"Encyclopedia:Caster_Level\">уровню заклинателя</link></color></b> (максимум 20).",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n高等英雄气概: 此{g|Encyclopedia:Spell}法术{/g}效果类似于英雄气概，区别在于生物在{g|Encyclopedia:Attack}攻击{/g}、{g|Encyclopedia:Saving_Throw}豁免{/g}和{g|Encyclopedia:Skills}技能检定{/g}上获得+4士气{g|Encyclopedia:Bonus}加值{/g}，免疫恐惧效应，并获得等于你的{g|Encyclopedia:Caster_Level}施法者等级{/g}的临时{g|Encyclopedia:HP}生命值{/g}（最高20）。",
-      "esES": null
-    },
-    {
       "Key": "a5fa120753dc443a8f3aac853e6b904e",
       "SimpleName": "SorcererDestinedSpell15.Description",
       "ProcessTemplates": true,
@@ -14136,17 +13861,6 @@
       "esES": null
     },
     {
-      "Key": "be82322741214705bc04d1a50c30ef44",
-      "SimpleName": "SorcererDestinedSpell15.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nCircle of Clarity: You create a magical emanation that interferes with all illusions within it, giving creatures a +4 <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> on <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saving throws</link></color></b> to recognize them as illusions. The emanation negates <b><color=#703565><link=\"Encyclopedia:Concealment\">concealment</link></color></b> less than total concealment within the area. <b><color=#703565><link=\"Encyclopedia:Perception\">Perception checks</link></color></b> to notice creatures or objects within the area gain a bonus equal to half your <b><color=#703565><link=\"Encyclopedia:Caster_Level\">caster level</link></color></b> (maximum +10). The <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> is stationary if cast on a point in space. It is <b><color=#703565><link=\"Encyclopedia:Mobility\">mobile</link></color></b> if centered on a creature or object, though creatures or attended objects can negate the spell with the proper saving throw or <b><color=#703565><link=\"Encyclopedia:Spell_Resistance\">spell resistance</link></color></b>.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nКруг ясности: Вы создаете магическую эманацию, которая воздействует на все иллюзии в области действия, давая существам <b><color=#703565><link=\"Encyclopedia:Bonus\">бонус</link></color></b> +4 к <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b>, совершаемым, чтобы распознать иллюзии. Эманация нейтрализует в области действия <b><color=#703565><link=\"Encyclopedia:Concealment\">маскировку</link></color></b>, если она менее, чем полная. Проверки <b><color=#703565><link=\"Encyclopedia:Perception\">Внимания</link></color></b>, совершаемые, чтобы заметить существ или объекты в области действия, получают бонус, равный половине вашего <b><color=#703565><link=\"Encyclopedia:Caster_Level\">уровня заклинателя</link></color></b> (максимум +10). Если <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b> сотворено на точку в пространстве, то оно неподвижно. Если оно сотворено на существо или объект, то <b><color=#703565><link=\"Encyclopedia:Mobility\">перемещается</link></color></b> вместе с ним, но цель может нейтрализовать эффект соответствующим спасброском или при помощи <b><color=#703565><link=\"Encyclopedia:Spell_Resistance\">устойчивости к магии</link></color></b>.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n明晰之环: 你创造出魔法能量场，干扰范围内的所有幻象，为辨别幻术的{g|Encyclopedia:Saving_Throw}豁免检定{/g}提供+4{g|Encyclopedia:Bonus}加值{/g}。能量场还会抵消范围内弱于完全{g|Encyclopedia:Concealment}隐蔽{/g}的隐蔽效果。在范围内用于发现生物或物品的{g|Encyclopedia:Perception}察觉检定{/g}获得等于{g|Encyclopedia:Caster_Level}施法者等级{/g}一半的加值（最高+10）。如果施放于空间中的一点，{g|Encyclopedia:Spell}法术{/g}位置将固定不变。如果施放在一个生物或物品上，法术就能够移动，不过生物或被持有的物品可以通过豁免检定或{g|Encyclopedia:Spell_Resistance}法术抗力{/g}来免除法术效果。",
-      "esES": null
-    },
-    {
       "Key": "637537cebac441cf87d34ae37427290d",
       "SimpleName": "SorcererDestinedSpell17.Description",
       "ProcessTemplates": true,
@@ -14155,17 +13869,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n防护魔法: 受术者对抗{g|Encyclopedia:Spell}法术{/g}和{g|Encyclopedia:Special_Abilities}类法术能力{/g}的{g|Encyclopedia:Saving_Throw}豁免检定{/g}具有+8抗力{g|Encyclopedia:Bonus}加值{/g}（对超自然能力和特异能力无效）。",
-      "esES": null
-    },
-    {
-      "Key": "4e165c3b3c344f45bb5ae0062c105e86",
-      "SimpleName": "SorcererDestinedSpell19.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nForesight: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> grants you a powerful sixth sense. Once foresight is cast, you receive instantaneous warnings of impending danger or harm to the subject of the spell. You are never <b><color=#703565><link=\"Encyclopedia:Flat_Footed\">flat-footed</link></color></b>. In addition, the spell gives you a general idea of what action you might take to best protect yourself and gives you a +2 insight <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b> and on Reflex <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">saves</link></color></b>.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nВидение будущего: Это <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b> наделяет вас мощным шестым чувством. Сотворив видение будущего, вы получаете мгновенные предостережения о грозящих вам опасностях. Вас невозможно <b><color=#703565><link=\"Encyclopedia:Flat_Footed\">застать врасплох</link></color></b>. Кроме того, заклинание наделяет вас общим представлением о том, как защитить себя, давая вам интуитивный <b><color=#703565><link=\"Encyclopedia:Bonus\">бонус</link></color></b> +2 к <b><color=#703565><link=\"Encyclopedia:Armor_Class\">защите</link></color></b> и <b><color=#703565><link=\"Encyclopedia:Saving_Throw\">спасброскам</link></color></b> Реакции.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n预警: {g|Encyclopedia:CA_Types}{/g}该{g|Encyclopedia:Spell}法术{/g}给予你强大的第六感。一旦施放预警术，只要施法对象面临危险或即将受到伤害，你就会立即得到警告。你永远不会陷入{g|Encyclopedia:Flat_Footed}措手不及{/g}状态。此外，该法术将指引你如何更好地保护自身，使你的{g|Encyclopedia:Armor_Class}防御等级{/g}和反射{g|Encyclopedia:Saving_Throw}豁免{/g}得到+2洞察{g|Encyclopedia:Bonus}加值{/g}。",
       "esES": null
     },
     {
@@ -14188,28 +13891,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "a3fce1039ba84a0abeea95c70ceb3344",
-      "SimpleName": "SorcererDestinedSpell3.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nShield: Shield creates an invisible shield of force that hovers in front of you. It negates magic missile <b><color=#703565><link=\"Encyclopedia:Attack\">attacks</link></color></b> directed at you. The disk also provides a +4 shield <b><color=#703565><link=\"Encyclopedia:Bonus\">bonus</link></color></b> to <b><color=#703565><link=\"Encyclopedia:Armor_Class\">AC</link></color></b>. This bonus applies against <b><color=#703565><link=\"Encyclopedia:Incorporeal_Touch_Attack\">incorporeal</link></color></b> <b><color=#703565><link=\"Encyclopedia:TouchAttack\">touch attacks</link></color></b>, since it is a force effect. The shield has no armor <b><color=#703565><link=\"Encyclopedia:Check\">check</link></color></b> <b><color=#703565><link=\"Encyclopedia:Penalty\">penalty</link></color></b> or <b><color=#703565><link=\"Encyclopedia:Spell_Fail_Chance\">arcane spell failure chance</link></color></b>.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня после, колдун узнает дополнительные заклинания, уникальные для его наследия.\nЩит: Это заклинание создает невидимый силовой щит, висящий в воздухе перед вами. Он нейтрализует направленные в вас <b><color=#703565><link=\"Encyclopedia:Attack\">атаки</link></color></b> заклинанием Волшебная стрела. Также он дает <b><color=#703565><link=\"Encyclopedia:Bonus\">бонус</link></color></b> щита +4 к <b><color=#703565><link=\"Encyclopedia:Armor_Class\">защите</link></color></b>. Этот бонус является силовым эффектом и действует против <b><color=#703565><link=\"Encyclopedia:Incorporeal_Touch_Attack\">бестелесных</link></color></b> <b><color=#703565><link=\"Encyclopedia:TouchAttack\">атак касанием</link></color></b>. Этот щит не создает <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафа</link></color></b> за ношение брони или <b><color=#703565><link=\"Encyclopedia:Spell_Fail_Chance\">риск провала мистического заклинания</link></color></b>.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n护盾术: {g|Encyclopedia:Attack}{/g}护盾术制造一个隐形的力场盾牌悬浮在你身前。它可以吸收射向你的魔法飞弹。该盾牌同时为{g|Encyclopedia:Armor_Class}防御等级{/g}提供+4盾牌{g|Encyclopedia:Bonus}加值{/g}。该加值属于力场效应，故对{g|Encyclopedia:Incorporeal_Touch_Attack}虚体{/g}{g|Encyclopedia:TouchAttack}接触攻击{/g}有效。该盾牌不会带来防具{g|Encyclopedia:Check}检定{/g}{g|Encyclopedia:Penalty}减值{/g}和{g|Encyclopedia:Spell_Fail_Chance}奥术失败率{/g}。",
-      "esES": null
-    },
-    {
-      "Key": "22c023e8ec934c8abcb58c0cccccbe8d",
-      "SimpleName": "SorcererDestinedSpell5.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nBlur: The subject's outline appears blurred, shifting, and wavering. This distortion grants the subject <b><color=#703565><link=\"Encyclopedia:Concealment\">concealment</link></color></b> (20% miss chance).\nA see invisibility <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> does not counteract the blur effect, but a true seeing spell does.\nOpponents that cannot see the subject ignore the spell's effect (though fighting an unseen opponent carries <b><color=#703565><link=\"Encyclopedia:Penalty\">penalties</link></color></b> of its own).",
-      "ruRU": "На 3 уровне, и каждые 2 уровня после, колдун узнает дополнительные заклинания, уникальные для его наследия.\nРасплывчатость: Очертания существа выглядят размыто и подвижно. Это искажение дает существу <b><color=#703565><link=\"Encyclopedia:Concealment\">маскировку</link></color></b> (вероятность промаха 20%).\nВ отличие от <b><color=#703565><link=\"Encyclopedia:Spell\">заклинания</link></color></b> истинное зрение, заклинание увидеть невидимое не рассеивает эффект расплывчатости.\nПротивники, которые не могут видеть существо, игнорируют эффект заклинания (хотя сражение с невидимым противником имеет собственные <b><color=#703565><link=\"Encyclopedia:Penalty\">штрафы</link></color></b>).",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n朦胧术: 目标的轮廓变得朦胧、歪曲、变化不定。该{g|Encyclopedia:Spell}法术{/g}使目标获得{g|Encyclopedia:Concealment}隐蔽{/g}状态（20%失手几率）。\n识破隐形法术不能抵消朦胧效果，但真知术可以。\n看不到目标的对手无视此法术的效果（不过与不可见的对手战斗本身就有不利影响）。",
       "esES": null
     },
     {
@@ -14243,17 +13924,6 @@
       "deDE": null,
       "frFR": null,
       "zhCN": null,
-      "esES": null
-    },
-    {
-      "Key": "6c40b8cb135543fdb42550624bcea3bc",
-      "SimpleName": "SorcererDestinedSpell9.Description",
-      "ProcessTemplates": true,
-      "enGB": "At 3rd level, and every two levels thereafter, a sorcerer learns an additional spell, derived from her bloodline.\nFreedom of Movement: This <b><color=#703565><link=\"Encyclopedia:Spell\">spell</link></color></b> enables you or a creature you <b><color=#703565><link=\"Encyclopedia:TouchAttack\">touch</link></color></b> to move and <b><color=#703565><link=\"Encyclopedia:Attack\">attack</link></color></b> normally for the duration of the spell, even under the influence of magic that usually impedes movement, such as paralysis, solid fog, slow, and web. All <b><color=#703565><link=\"Encyclopedia:Combat_Maneuvers\">combat maneuver</link></color></b> <b><color=#703565><link=\"Encyclopedia:Check\">checks</link></color></b> made to grapple the target automatically fail.",
-      "ruRU": "На 3 уровне, и каждые 2 уровня в дальнейшем, колдун узнает дополнительные заклинания, уникальные для его наследия.\nСвобода движений: Это <b><color=#703565><link=\"Encyclopedia:Spell\">заклинание</link></color></b> позволяет вам или существу, которого вы <b><color=#703565><link=\"Encyclopedia:TouchAttack\">коснулись</link></color></b>, свободно двигаться и <b><color=#703565><link=\"Encyclopedia:Attack\">атаковать</link></color></b> , пока длится заклинание, невзирая на воздействие любых ограничивающих движение эффектов — например, паралича, замедления, паутины или плотного тумана. Все <b><color=#703565><link=\"Encyclopedia:Check\">попытки</link></color></b> взять цель в <b><color=#703565><link=\"Encyclopedia:Combat_Maneuvers\">захват</link></color></b> проваливаются.",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "在3级以及之后每2级，术士都可以额外学习一个来自于血承的法术。\n行动自如: 该{g|Encyclopedia:Spell}法术{/g}使得你或你{g|Encyclopedia:TouchAttack}接触{/g}的一个生物在法术持续时间内，即使遭到限制行动的魔法影响时，也可以正常移动和{g|Encyclopedia:Attack}攻击{/g}，例如麻痹、重雾术、缓慢术与蛛网术。所有尝试擒抱目标的{g|Encyclopedia:Combat_Maneuvers}战技{/g}{g|Encyclopedia:Check}检定{/g}都会自动失败。",
       "esES": null
     },
     {
@@ -14697,17 +14367,6 @@
       "esES": null
     },
     {
-      "Key": "bd0091dbc839447abb004474f38b7c75",
-      "SimpleName": "StunningBarrierGreater.Name",
-      "ProcessTemplates": false,
-      "enGB": "1 round/level or until discharged",
-      "ruRU": "1 раунд/уровень или пока не разрядится",
-      "deDE": null,
-      "frFR": null,
-      "zhCN": "轮/级，或直到到效果消散",
-      "esES": null
-    },
-    {
       "Key": "9b3ade0576a54a5292186ebfbacb48bf",
       "SimpleName": "StunningBarrierGreater.Name",
       "ProcessTemplates": false,
@@ -14727,6 +14386,17 @@
       "deDE": null,
       "frFR": null,
       "zhCN": "意志，免除震慑",
+      "esES": null
+    },
+    {
+      "Key": "bd0091dbc839447abb004474f38b7c75",
+      "SimpleName": "StunningBarrierGreater.Name",
+      "ProcessTemplates": false,
+      "enGB": "1 round/level or until discharged",
+      "ruRU": "1 раунд/уровень или пока не разрядится",
+      "deDE": null,
+      "frFR": null,
+      "zhCN": "轮/级，或直到到效果消散",
       "esES": null
     },
     {
