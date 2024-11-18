@@ -337,7 +337,9 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                     Artifact_HolySymbolOfIomedaeArea
                         .GetComponent<AbilityAreaEffectRunAction>()
                         .UnitExit = Helpers.CreateActionList(
-                            Helpers.Create<ContextActionRemoveBuff>(a => a.m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>())
+                            new ContextActionRemoveBuff() {
+                                m_Buff = Artifact_HolySymbolOfIomedaeBuff.ToReference<BlueprintBuffReference>()
+                            }
                     );
                     Artifact_HolySymbolOfIomedaeBuff.AddComponent<AddOutgoingPhysicalDamageProperty>(c => {
                         c.m_WeaponType = new BlueprintWeaponTypeReference();

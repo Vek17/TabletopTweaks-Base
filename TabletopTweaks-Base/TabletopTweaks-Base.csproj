@@ -210,6 +210,7 @@
     <Compile Include="Bugfixes\General\AbilityTargetingRules.cs" />
     <Compile Include="Bugfixes\General\AreaOfEffectsTick.cs" />
     <Compile Include="Bugfixes\General\ArmorEnhancementBonuses.cs" />
+    <Compile Include="Bugfixes\General\BuffEnchantAnyWeaponFix.cs" />
     <Compile Include="Bugfixes\General\PrebuffCasterCLFix.cs" />
     <Compile Include="Bugfixes\General\BuffCasterLoadingFix.cs" />
     <Compile Include="Bugfixes\General\ConcealmentFix.cs" />

@@ -1,3 +1,7 @@
+# Version 2.6.11
+* Fixes
+    * Fix for infinite stacking of weapon enchantments though means such as the Holy Symbol Of Iomedae. 
+
 # Version 2.6.10
 * Changes
     * Abundant Blessing is no longer avaiable and has instead been combined with Enhanced Blessing. 
