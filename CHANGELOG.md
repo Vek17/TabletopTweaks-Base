@@ -1,3 +1,7 @@
+# Version 2.6.12
+* Fixes
+    * Experimental fix for selection sizes growing far too much as unit size increases. 
+
 # Version 2.6.11
 * Fixes
     * Fix for infinite stacking of weapon enchantments though means such as the Holy Symbol Of Iomedae. 

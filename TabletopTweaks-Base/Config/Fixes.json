@@ -193,6 +193,11 @@
         "Homebrew": false,
         "Description": "Fixes the combat log breakdowns of saving throws to include the bonus granted from base stats."
       },
+      "SelectionHitboxFix": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Changes how selection boxes scale with size modifiers to prevent them from being massive."
+      },
       "SelectiveMetamagicNonInstantaneous": {
         "Enabled": true,
         "Homebrew": false,

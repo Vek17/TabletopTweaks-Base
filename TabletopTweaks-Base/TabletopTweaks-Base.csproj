@@ -218,6 +218,7 @@
     <Compile Include="Bugfixes\General\DynamicItemNames.cs" />
     <Compile Include="Bugfixes\General\FeatSelections.cs" />
     <Compile Include="Bugfixes\General\MountedCombatFixes.cs" />
+    <Compile Include="Bugfixes\General\SelectionHitboxFix.cs" />
     <Compile Include="Bugfixes\General\ShadowMagicFix.cs" />
     <Compile Include="Bugfixes\General\SizeModifiers.cs" />
     <Compile Include="Bugfixes\General\SizeShiftLimits.cs" />
