@@ -3,7 +3,7 @@
   "Author": "Sean Petrie",
   "DisplayName": "Tabletop Tweaks Base",
   "EntryMethod": "TabletopTweaks.Base.Main.Load",
-  "GameVersion": "2.3.0",
+  "GameVersion": "2.5.0",
   "HomePage": "https://github.com/Vek17/TabletopTweaks-Base",
   "Id": "TabletopTweaks-Base",
   "ManagerVersion": "0.23.0",

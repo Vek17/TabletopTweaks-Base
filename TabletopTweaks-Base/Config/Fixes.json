@@ -163,11 +163,6 @@
         "Homebrew": false,
         "Description": "Weapon enhancement bonuses are logically split from non weapon enhancement bonuses."
       },
-      "InfiniteStackingWeaponEffects": {
-        "Enabled": true,
-        "Homebrew": false,
-        "Description": "Prevents effects like the holy symbol from applying unlimited stacks of weapon enchantments."
-      },
       "MetamagicStacking": {
         "Enabled": true,
         "Homebrew": false,

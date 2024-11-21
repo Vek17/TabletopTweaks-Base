@@ -15,7 +15,7 @@ using TabletopTweaks.Core.Utilities;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     class BuffEnchantAnyWeaponFix {
-        [HarmonyPatch(typeof(BlueprintFact), nameof(BlueprintFact.CollectComponents))]
+        //[HarmonyPatch(typeof(BlueprintFact), nameof(BlueprintFact.CollectComponents))]
         static class BlueprintFact_CollectComponents_Patch {
             static void Postfix(ref List<BlueprintComponent> __result) {
                 if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("InfiniteStackingWeaponEffects")) { return; }
