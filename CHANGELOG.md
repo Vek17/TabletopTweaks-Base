@@ -1,3 +1,7 @@
+# Version 2.6.13
+* Fixes
+    * InfiniteStackingWeaponEffects has been disabled as this has been patched by owlcat. 
+
 # Version 2.6.12
 * Fixes
     * Experimental fix for selection sizes growing far too much as unit size increases. 
