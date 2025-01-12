@@ -292,7 +292,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
         }
 
-        //[HarmonyPatch(typeof(WeaponGroupAttackBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAttackBonusWithoutTarget) })]
+        [HarmonyPatch(typeof(WeaponGroupAttackBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateAttackBonusWithoutTarget) })]
         static class WeaponGroupAttackBonus_OnEventAboutToTrigger_Patch {
             static bool Prefix(WeaponGroupAttackBonus __instance, RuleCalculateAttackBonusWithoutTarget evt) {
                 if (Main.TTTContext.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }
@@ -321,7 +321,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
             }
         }
 
-        //[HarmonyPatch(typeof(WeaponGroupDamageBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
+        [HarmonyPatch(typeof(WeaponGroupDamageBonus), "OnEventAboutToTrigger", new Type[] { typeof(RuleCalculateWeaponStats) })]
         static class WeaponGroupDamageBonus_OnEventAboutToTrigger_Patch {
             static bool Prefix(WeaponGroupDamageBonus __instance, RuleCalculateWeaponStats evt) {
                 if (Main.TTTContext.Fixes.Fighter.Base.IsDisabled("TwoHandedWeaponTraining")) { return true; }

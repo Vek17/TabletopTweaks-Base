@@ -1,3 +1,8 @@
+# Version 2.6.14
+* Fixes
+    * Fighter
+        * Fixed issue with Two Handed Weapon Training not working correctly. 
+
 # Version 2.6.13
 * Fixes
     * InfiniteStackingWeaponEffects has been disabled as this has been patched by owlcat. 
