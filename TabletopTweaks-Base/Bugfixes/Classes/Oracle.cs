@@ -121,6 +121,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     OracleRevelationNatureWhispers.TemporaryContext(bp => {
                         bp.RemoveComponents<ReplaceStatBaseAttribute>();
                         bp.RemoveComponents<ReplaceCMDDexterityStat>();
+                        bp.RemoveComponents<AddFactContextActions>();
                         bp.AddComponent<HasFactFeatureUnlock>(c => {
                             c.m_CheckedFact = ScaledFistACBonus.ToReference<BlueprintUnitFactReference>();
                             c.m_Feature = NaturesWhispersACConversion.ToReference<BlueprintUnitFactReference>();

@@ -1,3 +1,8 @@
+# Version 2.6.15
+* Fixes
+    * Oracle
+        * Fixed bug where natures whispers would sometimes apply incorrectly.   
+
 # Version 2.6.14
 * Fixes
     * Fighter
