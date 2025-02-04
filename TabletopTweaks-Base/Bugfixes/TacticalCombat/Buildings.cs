@@ -11,7 +11,7 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.TacticalCombat {
     class Buildings {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

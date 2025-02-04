@@ -16,7 +16,7 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Items {
     static class Armor {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

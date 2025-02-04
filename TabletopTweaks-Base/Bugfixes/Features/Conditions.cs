@@ -8,7 +8,7 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Features {
     class Conditions {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

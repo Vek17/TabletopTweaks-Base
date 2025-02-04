@@ -9,10 +9,10 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Shaman {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class Shaman_AlternateCapstone_Patch {
             static bool Initialized;
-            [HarmonyPriority(Priority.Last)]
+            [PatchBlueprintsCacheInitPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
@@ -31,7 +31,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 });
             }
         }
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

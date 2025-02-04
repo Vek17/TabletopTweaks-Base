@@ -10,7 +10,7 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Demon {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
