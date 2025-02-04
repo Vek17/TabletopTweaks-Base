@@ -480,6 +480,9 @@
     <Compile Include="NewContent\WizardArcaneDiscoveries\KnowledgeIsPower.cs" />
     <Compile Include="NewContent\WizardArcaneDiscoveries\OppositionResearch.cs" />
     <Compile Include="NewContent\WizardArcaneDiscoveries\YuelralsBlessing.cs" />
+    <Compile Include="Patches\PatchBlueprintsCacheInit.cs" />
+    <Compile Include="Patches\PatchBlueprintsCacheInitPostfix.cs" />
+    <Compile Include="Patches\PatchBlueprintsCacheInitPriority.cs" />
     <Compile Include="UMMSettingsUI.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -496,7 +499,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewContent\KiPowers\" />
-    <Folder Include="Patches\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Abilities\Icon_AberrantBloodline.png">
