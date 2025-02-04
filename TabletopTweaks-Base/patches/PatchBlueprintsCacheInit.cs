@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using TabletopTweaks.Base;
 
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
 public class PatchBlueprintsCacheInit : Attribute {
@@ -52,7 +51,6 @@ public class PatchBlueprintsCacheInit : Attribute {
     }
 
     public static void ExecutePostfixes() {
-        Main.TTTContext.Logger.Log($"{PostfixPriorityCounter}/{PostfixDelegatesOrdered.Count}/{PostfixDelegates.Count}");
         PostfixDelegatesOrdered[PostfixPriorityCounter]();
         PostfixPriorityCounter++;
     }
