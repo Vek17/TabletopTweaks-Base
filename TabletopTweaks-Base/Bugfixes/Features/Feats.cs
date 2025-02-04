@@ -47,7 +47,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
         [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
-            [HarmonyPostfix]
+            [PatchBlueprintsCacheInitPostfix]
             static void UpdateFeats() {
                 if (Initialized) return;
                 Initialized = true;
@@ -85,7 +85,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchSelectiveMetamagicPrerequisites();
             }
             [PatchBlueprintsCacheInitPriority(Priority.Last)]
-            [HarmonyPostfix]
+            [PatchBlueprintsCacheInitPostfix]
             static void UpdateMetamagic() {
                 PatchExtendMetamagic();
                 PatchPersistantMetamagic();
