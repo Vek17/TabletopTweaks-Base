@@ -27,8 +27,10 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 var MountedBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("b2d13e8f3bb0f1d4c891d71b4d983cf7");
                 var SpearChargeBuffTTT = BlueprintTools.GetModBlueprint<BlueprintBuff>(TTTContext, "SpearChargeBuffTTT");
                 var SpearChargeBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6d687ded12b548f09e104c04277e55ca");
+                var SpearChargeEffectBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("5b1d22211dad48a7887e50dee12ec3fb");
 
                 SpearChargeBuff.SetComponents();
+                SpearChargeEffectBuff.SetComponents();
 
                 MountedBuff.AddComponent<BuffExtraEffectsRequirements>(c => {
                     c.CheckedBuff = ChargeBuff.ToReference<BlueprintBuffReference>();

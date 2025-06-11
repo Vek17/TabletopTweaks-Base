@@ -215,3 +215,9 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+[*.cs]
+dotnet_diagnostic.IDE0055.severity = none
+dotnet_diagnostic.IDE0052.severity = none
+dotnet_diagnostic.IDE0051.severity = none
+dotnet_diagnostic.IDE0044.severity = none

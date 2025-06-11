@@ -265,7 +265,7 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
         private class BurningSpellMechanics : IAfterRulebookEventTriggerHandler<RuleDealDamage>, IGlobalSubscriber {
 
             private BurningSpellMechanics() { }
-            public static BurningSpellMechanics Instance = new();
+            public static readonly BurningSpellMechanics Instance = new();
 
             private static BlueprintBuffReference BurningSpellAcidBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "BurningSpellAcidBuff");
             private static BlueprintBuffReference BurningSpellFireBuff = BlueprintTools.GetModBlueprintReference<BlueprintBuffReference>(TTTContext, "BurningSpellFireBuff");

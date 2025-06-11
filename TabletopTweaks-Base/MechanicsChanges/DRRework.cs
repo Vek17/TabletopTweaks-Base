@@ -621,8 +621,12 @@ namespace TabletopTweaks.Base.MechanicsChanges {
 
             static void PatchMythicArmorFocus() {
                 var ArmorFocusHeavyMythicFeatureVar1Buff = BlueprintTools.GetBlueprint<BlueprintBuff>("af7a83e16d1442cb87e84f879bf2141b");
+                var ArmorFocusHeavyMythicFeatureVar1SubBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6610a6ded3fa4cc8bd7fc86ccbfa722f");
 
                 ArmorFocusHeavyMythicFeatureVar1Buff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
+                    newRes.AddToAllStacks = true;
+                });
+                ArmorFocusHeavyMythicFeatureVar1SubBuff.ConvertVanillaDamageResistanceToRework<AddDamageResistancePhysical, TTAddDamageResistancePhysical>(TTTContext, newRes => {
                     newRes.AddToAllStacks = true;
                 });
             }
