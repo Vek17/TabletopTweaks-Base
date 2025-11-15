@@ -4,6 +4,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
@@ -313,6 +314,9 @@ namespace TabletopTweaks.Base.Bugfixes.Items {
                         c.Fx = new PrefabLink();
                         c.OnlyNatural20 = true;
                         c.OnTarget = true;
+                    });
+                    VorpalBuff.Get().FlattenAllActions().OfType<Conditional>().First().ConditionsChecker.TemporaryContext(checker => {
+                        checker.Conditions = checker.Conditions.Where(c => c is not ContextConditionIsAlly).ToArray();
                     });
 
                     TTTContext.Logger.LogPatch("Patched", Vorpal);

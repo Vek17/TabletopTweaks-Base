@@ -860,13 +860,13 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                         .SelectMany(s => s.AbilityAndStickyTouch())
                         .Where(s => s != null)
                         .SelectMany(s => s.FlattenAllActions())
-                        .OfType<ContextActionApplyBuff>().Any(c => c.DurationValue.IsExtendable)
+                        .OfType<ContextActionApplyBuff>().Any(c => c?.DurationValue?.IsExtendable ?? false)
                             ||
                         spell.AbilityAndVariants()
                             .SelectMany(s => s.AbilityAndStickyTouch())
                             .Where(s => s != null)
                             .SelectMany(s => s.FlattenAllActions())
-                            .OfType<ContextActionApplyBuff>().Any(c => c.DurationValue.IsExtendable);
+                            .OfType<ContextActionApplyBuff>().Any(c => c?.DurationValue?.IsExtendable ?? false);
                     if (appliesBuff) {
                         if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Extend)) {
                             spell.AvailableMetamagic |= Metamagic.Extend;
