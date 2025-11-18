@@ -12,6 +12,7 @@ namespace TabletopTweaks.Base {
             TTTContext = new ModContextTTTBase(modEntry);
             TTTContext.ModEntry.OnSaveGUI = OnSaveGUI;
             TTTContext.ModEntry.OnGUI = UMMSettingsUI.OnGUI;
+            PatchBlueprintsCacheInit.CreateDynamicPatches(harmony);
             harmony.PatchAll();
             PostPatchInitializer.Initialize(TTTContext);
             return true;
