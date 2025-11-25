@@ -673,6 +673,17 @@
           }
         },
         "IsExpanded": true
+      },
+      "DiscipleOfThePike": {
+        "DisableAll": false,
+        "Settings": {
+          "WeaponTraining": {
+            "Enabled": true,
+            "Homebrew": false,
+            "Description": "Allows choosing Polearms weapon group for Weapon Training."
+          }
+        },
+        "IsExpanded": true
       }
     }
   },
