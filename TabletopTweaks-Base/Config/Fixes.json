@@ -222,7 +222,7 @@
       "AeonDemythication": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Aeon Demythication will now actually suppress mythic effects."
+        "Description": "Aeon De-mythication will now actually suppress mythic effects."
       },
       "AeonTenthLevelImmunities": {
         "Enabled": true,
@@ -243,7 +243,7 @@
       "SongOfCourageousDefender": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Song Of Courageous Defender has been fully reimplemented and now works."
+        "Description": "Song Of Courageous Defender has been fully re-implemented and now works."
       }
     },
     "IsExpanded": true
@@ -524,7 +524,7 @@
         "AnimalFury": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Allows Animal Fury to apply while polmorphed."
+          "Description": "Allows Animal Fury to apply while polymorphed."
         },
         "BeastTotem": {
           "Enabled": true,
@@ -1170,7 +1170,7 @@
         "FighterTraining": {
           "Enabled": true,
           "Homebrew": false,
-          "Description": "Warpreist fighter training now correctly only applies to feats."
+          "Description": "Warpriest fighter training now correctly only applies to feats."
         },
         "WarBlessing": {
           "Enabled": true,
@@ -1705,7 +1705,7 @@
       "AlignmentSubtypes": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Alignment subtypes now correctly apply thier outgoing damage alignments."
+        "Description": "Alignment subtypes now correctly apply their outgoing damage alignments."
       },
       "UndeadType": {
         "Enabled": true,
@@ -1887,7 +1887,7 @@
       "ShiftersEdge": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Shifter's Edge now works more consistantly and no longer has weird interactions with amulet of natural fist."
+        "Description": "Shifter's Edge now works more consistently and no longer has weird interactions with amulet of natural fist."
       },
       "ShifterRush": {
         "Enabled": true,
@@ -1943,7 +1943,7 @@
       "BestJokes": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Now correctly copies the spell DC, metamagic, and does not get zippy magiced an extra time."
+        "Description": "Now correctly copies the spell DC, metamagic, and does not get zippy magic'ed an extra time."
       },
       "BloodlineAscendance": {
         "Enabled": true,
