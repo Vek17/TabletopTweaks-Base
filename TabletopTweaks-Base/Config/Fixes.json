@@ -1647,7 +1647,7 @@
       "WintersGrasp": {
         "Enabled": true,
         "Homebrew": false,
-        "Description": "Winter's Grasp now works like tabletop and does not cause prone."
+        "Description": "Winter's Grasp now works like tabletop and does not cause prone. Also disallows it for use with Selective Metamagic"
       },
       "WrackingRay": {
         "Enabled": true,
