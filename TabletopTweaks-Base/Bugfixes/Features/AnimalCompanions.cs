@@ -3,9 +3,13 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Blueprints.Root;
+using Kingmaker.EntitySystem;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -58,8 +62,33 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     var rankFact = __instance.Owner.GetFact(__instance.LevelRank);
                     int currentRank = Mathf.Min(20, rankFact?.GetRank() ?? 0);
 
+                    // Try to upgrade the companion if the owner has reached the upgrade rank
+                    // WotR's code uses the Pet Level, which would be lagging behind for the Rank 7 upgrade (HD 6)
                     if (currentRank >= __instance.UpgradeLevel && __instance.UpgradeFeature != null) {
                         pet.Progression.Features.AddFeature(__instance.UpgradeFeature, null);
+                    }
+
+                    // Try to level up the pet if its level is behind the expected HD for the rank
+                    // WotR caps "pet level" to character level, instead of relying on rank
+                    int expectedPetLevel = AddPet.RankToLevelAnimalCompanion[currentRank];
+                    int actualPetLevel = pet.Descriptor.Progression.CharacterLevel;
+                    int difference = expectedPetLevel - actualPetLevel;
+                    if (difference > 0) {
+                        UnitPartCompanion unitPartCompanion = __instance.Owner.Get<UnitPartCompanion>();
+                        if (unitPartCompanion != null && unitPartCompanion.State != 0 && unitPartCompanion.State != CompanionState.ExCompanion && !__instance.Data.AutoLevelup && __instance.Type == PetType.AnimalCompanion) {
+                            int bonus = BlueprintRoot.Instance.Progression.XPTable.GetBonus(expectedPetLevel);
+                            pet.Progression.AdvanceExperienceTo(bonus, log: false, allowForPet: true);
+                        } else {
+                            AddClassLevels addClassLevels = pet.Master?.Blueprint?.GetComponent<AddClassLevelsToPets>()?.LevelsProgression;
+                            if (addClassLevels != null) {
+                                AddClassLevels.LevelUp(addClassLevels, pet.Descriptor, difference);
+                            } else {
+                                BlueprintComponentAndRuntime<AddClassLevels> blueprintComponentAndRuntime = pet.Facts.List.Select((EntityFact f) => f.GetComponentWithRuntime<AddClassLevels>()).FirstOrDefault((BlueprintComponentAndRuntime<AddClassLevels> c) => c.Component != null);
+                                if (blueprintComponentAndRuntime.Component != null) {
+                                    blueprintComponentAndRuntime.Component.LevelUp(blueprintComponentAndRuntime.Runtime, pet.Descriptor, difference);
+                                }
+                            }
+                        }
                     }
                 }
             }
