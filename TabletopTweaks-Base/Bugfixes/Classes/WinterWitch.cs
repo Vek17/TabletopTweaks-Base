@@ -15,7 +15,7 @@ using static TabletopTweaks.Core.Utilities.ClassTools;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     internal class WinterWitch {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

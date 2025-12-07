@@ -92,9 +92,9 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     }
                 }
             }
-            [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+            [PatchBlueprintsCacheInit]
             static class Patch_AnimalCompanion_Classes {
-                [HarmonyPriority(Priority.Last)]
+                [PatchBlueprintsCacheInitPriority(Priority.Last)]
                 static void Postfix() {
                     UpdateProgressions();
                     UpdateAnimalCompanionModifiers();

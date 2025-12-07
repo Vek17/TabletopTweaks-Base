@@ -44,10 +44,10 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Features {
     class Feats {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
-            [HarmonyPostfix]
+            [PatchBlueprintsCacheInitPostfix]
             static void UpdateFeats() {
                 if (Initialized) return;
                 Initialized = true;
@@ -84,8 +84,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                 PatchSiezeTheMoment();
                 PatchSelectiveMetamagicPrerequisites();
             }
-            [HarmonyPriority(Priority.Last)]
-            [HarmonyPostfix]
+            [PatchBlueprintsCacheInitPriority(Priority.Last)]
+            [PatchBlueprintsCacheInitPostfix]
             static void UpdateMetamagic() {
                 PatchExtendMetamagic();
                 PatchPersistantMetamagic();
