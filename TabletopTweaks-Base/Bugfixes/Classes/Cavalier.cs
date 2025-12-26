@@ -76,6 +76,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                 PatchBase();
                 PatchGendarme();
+                PatchDiscipleOfThePike();
             }
             static void PatchBase() {
                 PatchCavalierMobility();
@@ -231,6 +232,40 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
 
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingCharge);
                     TTTContext.Logger.LogPatch("Patched", GendarmeTransfixingChargeBuff);
+                }
+            }
+            static void PatchDiscipleOfThePike() {
+                PatchWeaponTraining();
+
+                void PatchWeaponTraining() {
+                    if (TTTContext.Fixes.Cavalier.Archetypes["DiscipleOfThePike"].IsDisabled("WeaponTraining")) { return; }
+
+                    var DiscipleOfThePikeWeaponTrainingSelection = Helpers.CreateBlueprint<BlueprintFeatureSelection>(TTTContext, "DiscipleOfThePikeWeaponTrainingSelection", bp => {
+                        bp.SetName(TTTContext, "Weapon Training");
+                        bp.SetDescription(TTTContext, "At 5th level, a disciple of the pike gains weapon training, just like a fighter. " +
+                            "He must select polearms or spears as his weapon group, and never gains another weapon group. " +
+                            "His bonuses with the selected group otherwise progress as though his fighter level were equal to his cavalier level. " +
+                            "This ability replaces banner and greater banner.");
+                        bp.IsClassFeature = true;
+
+                    });
+                    
+                    var WeaponTrainingSpears = BlueprintTools.GetBlueprint<BlueprintFeature>("d5c04077fc063e44784384a00377b7cf");
+                    var WeaponTrainingPolearms = BlueprintTools.GetBlueprint<BlueprintFeature>("c062c6d16aecddc4ab67d9c783b2ad46");
+                    DiscipleOfThePikeWeaponTrainingSelection.AddFeatures(new BlueprintFeature[] { WeaponTrainingSpears, WeaponTrainingPolearms });
+
+                    var WeaponTrainingRankUpSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("5f3cc7b9a46b880448275763fe70c0b0");
+
+                    var DiscipleOfThePikeArchetype = BlueprintTools.GetBlueprint<BlueprintArchetype>("4c4c3f9df00a5e04680d172a290111c4");
+                    DiscipleOfThePikeArchetype.AddFeatures = DiscipleOfThePikeArchetype.AddFeatures
+                        .Where(le => le.m_Features[0].Guid != WeaponTrainingSpears.AssetGuid)
+                        .AddItem(Helpers.CreateLevelEntry(5, DiscipleOfThePikeWeaponTrainingSelection))
+                        .AddItem(Helpers.CreateLevelEntry(9, WeaponTrainingRankUpSelection))
+                        .AddItem(Helpers.CreateLevelEntry(13, WeaponTrainingRankUpSelection))
+                        .AddItem(Helpers.CreateLevelEntry(17, WeaponTrainingRankUpSelection))
+                        .ToArray();
+
+                    TTTContext.Logger.LogPatch("Patched", DiscipleOfThePikeArchetype);
                 }
             }
 
