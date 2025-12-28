@@ -6,6 +6,7 @@ using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -103,7 +104,8 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                                     ValueShared = AbilitySharedValue.Damage
                                 },
                                 BonusValue = 0
-                            }
+                            },
+                            HalfIfSaved = true
                         }
                     );
                 });
@@ -163,7 +165,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     };
                     c.DelayBetweenProjectiles = 0.03f;
                     c.UseMaxProjectilesCount = true;
-                    c.MaxProjectilesCountRank = Kingmaker.Enums.AbilityRankType.ProjectilesCount;
+                    c.MaxProjectilesCountRank = AbilityRankType.ProjectilesCount;
                 });
                 bp.AddComponent<AbilityTargetsAround>(c => {
                     c.m_TargetType = TargetType.Any;
@@ -174,13 +176,13 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                     c.m_SpreadSpeed = 25.Feet();
                 });
                 bp.AddContextRankConfig(c => {
-                    c.m_Type = Kingmaker.Enums.AbilityRankType.ProjectilesCount;
+                    c.m_Type = AbilityRankType.ProjectilesCount;
                     c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StepLevel = 2;
                 });
                 bp.AddContextRankConfig(c => {
-                    c.m_Type = Kingmaker.Enums.AbilityRankType.DamageDice;
+                    c.m_Type = AbilityRankType.DamageDice;
                     c.m_BaseValueType = ContextRankBaseValueType.CasterLevel;
                     c.m_Progression = ContextRankProgression.DivStep;
                     c.m_StepLevel = 2;
@@ -191,7 +193,7 @@ namespace TabletopTweaks.Base.NewContent.Feats {
                         DiceCountValue = 0,
                         BonusValue = new ContextValue() {
                             ValueType = ContextValueType.Rank,
-                            ValueRank = Kingmaker.Enums.AbilityRankType.DamageDice
+                            ValueRank = AbilityRankType.DamageDice
                         }
                     };
                     c.Modifier = 2;
