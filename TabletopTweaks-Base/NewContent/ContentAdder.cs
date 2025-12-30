@@ -6,12 +6,12 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.NewContent {
     class ContentAdder {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
-            [HarmonyPriority(Priority.First)]
-            [HarmonyPostfix]
+            [PatchBlueprintsCacheInitPriority(Priority.First)]
+            [PatchBlueprintsCacheInitPostfix]
             static void CreateNewBlueprints() {
                 var test = BlueprintTools.GetBlueprint<BlueprintSharedVendorTable>("c773973cd73d4cd7aa4ccf3868dfeba9");
                 test.TemporaryContext(bp => {
@@ -281,8 +281,8 @@ namespace TabletopTweaks.Base.NewContent {
                 AlternateCapstones.Witch.AddAlternateCapstones();
                 AlternateCapstones.Wizard.AddAlternateCapstones();
             }
-            [HarmonyPriority(Priority.Last)]
-            [HarmonyPostfix]
+            [PatchBlueprintsCacheInitPriority(Priority.Last)]
+            [PatchBlueprintsCacheInitPostfix]
             static void ApplyNewMetamagics() {
                 Feats.MetamagicFeats.BurningSpell.UpdateSpells();
                 Feats.MetamagicFeats.EncouragingSpell.UpdateSpells();
@@ -293,8 +293,8 @@ namespace TabletopTweaks.Base.NewContent {
                 Feats.MetamagicFeats.SolidShadows.UpdateSpells();
                 Feats.MetamagicFeats.ElementalSpell.UpdateSpells();
             }
-            [HarmonyPriority(Priority.Last)]
-            [HarmonyPostfix]
+            [PatchBlueprintsCacheInitPriority(Priority.Last)]
+            [PatchBlueprintsCacheInitPostfix]
             static void ApplyLateSelections() {
                 AlternateCapstones.Inquisitor.UpdateTeamworkFeats();
             }
