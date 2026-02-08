@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.RuleSystem;
@@ -37,6 +38,7 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                 PatchAnomaly();
                 PatchBalors();
                 PatchCarnivorousCrystals();
+                PatchVescavors();
             }
         }
         static void PatchAnomaly() {
@@ -97,7 +99,7 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
             TTTContext.Logger.LogPatch(BalorVorpalStrikeBuff);
         }
         static void PatchCarnivorousCrystals() {
-            if (TTTContext.Fixes.Units.Enemies.IsDisabled("Balors")) { return; }
+            if (TTTContext.Fixes.Units.Enemies.IsDisabled("CarnivorousCrystals")) { return; }
 
             var CarnivorousCrystalAreaEffectSubsonicHum = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("a89a5b1edba9c614b92a7ba7ab3f5a1d");
             var CarnivorousCrystalBuffSubsonicHum = BlueprintTools.GetBlueprint<BlueprintBuff>("8b981244028551c4e8b35c9d50352527");
@@ -169,12 +171,304 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                     c.SpellLevel = 0;
                 });
             });
-            CarnivorousCrystalBuffSubsonicHumImmunity.TemporaryContext(bp => {
-                bp.SetName(TTTContext, "SUBSONIC IMMUNITY");
-            });
 
             TTTContext.Logger.LogPatch(CarnivorousCrystalAreaEffectSubsonicHum);
             TTTContext.Logger.LogPatch(CarnivorousCrystalBuffSubsonicHumImmunity);
+        }
+        static void PatchVescavors() {
+            if (TTTContext.Fixes.Units.Enemies.IsDisabled("Vescavors")) { return; }
+
+            var VescavorQueenGibberAreaEffect = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("acbb8f87c5d98164dbdc1aee0f9eda2b");
+            var VescavorSwarmGibberAreaEffect = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("a80c90f3223d8324ea0c1d75c45bd331");
+
+            var VescavorQueenGibberBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("6434f71780431f541bc104ea37a8570b");
+            var VescavorQueenGibberImmunityBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("15957616e7b46b34d9a4a92daf3c3ac8");
+            var VescavorSwarmGibberBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("2b3ade70324be58439c77235fd827d1b");
+            var VescavorSwarmGibberImmunityBuff = BlueprintTools.GetBlueprint<BlueprintBuff>("91d3d7a6a409c32418c98859bcd58844");
+
+            var VescavorSwarmApplyGibberImmunityAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "VescavorSwarmApplyGibberImmunityAbility");
+            var VescavorQueenApplyGibberImmunityAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "VescavorQueenApplyGibberImmunityAbility");
+
+            var Confusion = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("886c7407dc629dc499b9f1465ff382df");
+            var DifficultyPreset = VescavorSwarmGibberAreaEffect
+                .FlattenAllActions()
+                .OfType<Conditional>()
+                .First()
+                .ConditionsChecker
+                .Conditions
+                .OfType<ContextConditionDifficultyHigherThan>()
+                .First()
+                .m_Difficulty;
+            VescavorQueenGibberImmunityBuff.TemporaryContext(bp => {
+                bp.AddComponent<CombatStateTrigger>(c => {
+                    c.CombatStartActions = Helpers.CreateActionList();
+                    c.CombatEndActions = Helpers.CreateActionList(
+                        new ContextActionRemoveSelf()
+                    );
+                });
+            });
+            VescavorSwarmGibberImmunityBuff.TemporaryContext(bp => {
+                bp.AddComponent<CombatStateTrigger>(c => {
+                    c.CombatStartActions = Helpers.CreateActionList();
+                    c.CombatEndActions = Helpers.CreateActionList(
+                        new ContextActionRemoveSelf()
+                    );
+                });
+            });
+
+            VescavorQueenGibberAreaEffect.SetComponents();
+            VescavorQueenGibberAreaEffect.TemporaryContext(bp => {
+                bp.AddComponent<AbilityAreaEffectRunAction>(c => {
+                    c.UnitEnter = Helpers.CreateActionList(
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Operation = Operation.Or,
+                                Conditions = new Condition[] {
+                                    new ContextConditionHasBuffFromCaster(){
+                                        m_Buff = VescavorQueenGibberImmunityBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorSwarmGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorQueenGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionDifficultyHigherThan(){
+                                        m_Difficulty = DifficultyPreset,
+                                        CheckOnlyForMonster = true
+                                    },
+                                }
+                            },
+                            IfTrue = Helpers.CreateActionList(),
+                            IfFalse = Helpers.CreateActionList(
+                                new ContextActionSavingThrow() {
+                                    Type = SavingThrowType.Will,
+                                    CustomDC = new ContextValue(),
+                                    Actions = Helpers.CreateActionList(
+                                        new ContextActionConditionalSaved() {
+                                            Succeed = Helpers.CreateActionList(
+                                                new ContextActionCastSpell() {
+                                                    m_Spell = VescavorQueenApplyGibberImmunityAbility,
+                                                    DC = new ContextValue(),
+                                                    SpellLevel = new ContextValue(),
+                                                }
+                                            ),
+                                            Failed = Helpers.CreateActionList(
+                                                new ContextActionApplyBuff() {
+                                                    m_Buff = Confusion,
+                                                    DurationValue = new ContextDurationValue() {
+                                                        m_IsExtendable = true,
+                                                        Rate = DurationRate.Rounds,
+                                                        DiceType = DiceType.One,
+                                                        DiceCountValue = 0,
+                                                        BonusValue = 1
+                                                    },
+                                                    AsChild = true,
+                                                    NotLinkToAreaEffect = true
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    );
+                    c.UnitExit = Helpers.CreateActionList();
+                    c.UnitMove = Helpers.CreateActionList();
+                    c.Round = Helpers.CreateActionList(
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Operation = Operation.Or,
+                                Conditions = new Condition[] {
+                                    new ContextConditionHasBuffFromCaster(){
+                                        m_Buff = VescavorQueenGibberImmunityBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorSwarmGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorQueenGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionDifficultyHigherThan(){
+                                        m_Difficulty = DifficultyPreset,
+                                        CheckOnlyForMonster = true
+                                    },
+                                }
+                            },
+                            IfTrue = Helpers.CreateActionList(),
+                            IfFalse = Helpers.CreateActionList(
+                                new ContextActionSavingThrow() {
+                                    Type = SavingThrowType.Will,
+                                    CustomDC = new ContextValue(),
+                                    Actions = Helpers.CreateActionList(
+                                        new ContextActionConditionalSaved() {
+                                            Succeed = Helpers.CreateActionList(
+                                                new ContextActionCastSpell() {
+                                                    m_Spell = VescavorQueenApplyGibberImmunityAbility,
+                                                    DC = new ContextValue(),
+                                                    SpellLevel = new ContextValue(),
+                                                }
+                                            ),
+                                            Failed = Helpers.CreateActionList(
+                                                new ContextActionApplyBuff() {
+                                                    m_Buff = Confusion,
+                                                    DurationValue = new ContextDurationValue() {
+                                                        m_IsExtendable = true,
+                                                        Rate = DurationRate.Rounds,
+                                                        DiceType = DiceType.One,
+                                                        DiceCountValue = 0,
+                                                        BonusValue = 1
+                                                    },
+                                                    AsChild = true,
+                                                    NotLinkToAreaEffect = true
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    );
+                });
+                bp.AddComponent<SpellDescriptorComponent>(c => {
+                    c.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion | SpellDescriptor.Sonic;
+                });
+                bp.AddComponent<ContextCalculateAbilityParams>(c => {
+                    c.m_CustomProperty = new BlueprintUnitPropertyReference();
+                    c.StatType = StatType.Constitution;
+                    c.CasterLevel = 0;
+                    c.SpellLevel = 0;
+                });
+            });
+            VescavorSwarmGibberAreaEffect.SetComponents();
+            VescavorSwarmGibberAreaEffect.TemporaryContext(bp => {
+                bp.AddComponent<AbilityAreaEffectRunAction>(c => {
+                    c.UnitEnter = Helpers.CreateActionList(
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Operation = Operation.Or,
+                                Conditions = new Condition[] {
+                                    new ContextConditionHasBuffFromCaster(){
+                                        m_Buff = VescavorSwarmGibberImmunityBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorSwarmGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorQueenGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionDifficultyHigherThan(){
+                                        m_Difficulty = DifficultyPreset,
+                                        CheckOnlyForMonster = true
+                                    },
+                                }
+                            },
+                            IfTrue = Helpers.CreateActionList(),
+                            IfFalse = Helpers.CreateActionList(
+                                new ContextActionSavingThrow() {
+                                    Type = SavingThrowType.Will,
+                                    CustomDC = new ContextValue(),
+                                    Actions = Helpers.CreateActionList(
+                                        new ContextActionConditionalSaved() {
+                                            Succeed = Helpers.CreateActionList(
+                                                new ContextActionCastSpell() {
+                                                    m_Spell = VescavorSwarmApplyGibberImmunityAbility,
+                                                    DC = new ContextValue(),
+                                                    SpellLevel = new ContextValue(),
+                                                }
+                                            ),
+                                            Failed = Helpers.CreateActionList(
+                                                new ContextActionApplyBuff() {
+                                                    m_Buff = Confusion,
+                                                    DurationValue = new ContextDurationValue() {
+                                                        m_IsExtendable = true,
+                                                        Rate = DurationRate.Rounds,
+                                                        DiceType = DiceType.One,
+                                                        DiceCountValue = 0,
+                                                        BonusValue = 1
+                                                    },
+                                                    AsChild = true,
+                                                    NotLinkToAreaEffect = true
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    );
+                    c.UnitExit = Helpers.CreateActionList();
+                    c.UnitMove = Helpers.CreateActionList();
+                    c.Round = Helpers.CreateActionList(
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Operation = Operation.Or,
+                                Conditions = new Condition[] {
+                                    new ContextConditionHasBuffFromCaster(){
+                                        m_Buff = VescavorSwarmGibberImmunityBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorSwarmGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = VescavorQueenGibberBuff.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionDifficultyHigherThan(){
+                                        m_Difficulty = DifficultyPreset,
+                                        CheckOnlyForMonster = true
+                                    },
+                                }
+                            },
+                            IfTrue = Helpers.CreateActionList(),
+                            IfFalse = Helpers.CreateActionList(
+                                new ContextActionSavingThrow() {
+                                    Type = SavingThrowType.Will,
+                                    CustomDC = new ContextValue(),
+                                    Actions = Helpers.CreateActionList(
+                                        new ContextActionConditionalSaved() {
+                                            Succeed = Helpers.CreateActionList(
+                                                new ContextActionCastSpell() {
+                                                    m_Spell = VescavorSwarmApplyGibberImmunityAbility,
+                                                    DC = new ContextValue(),
+                                                    SpellLevel = new ContextValue(),
+                                                }
+                                            ),
+                                            Failed = Helpers.CreateActionList(
+                                                new ContextActionApplyBuff() {
+                                                    m_Buff = Confusion,
+                                                    DurationValue = new ContextDurationValue() {
+                                                        m_IsExtendable = true,
+                                                        Rate = DurationRate.Rounds,
+                                                        DiceType = DiceType.One,
+                                                        DiceCountValue = 0,
+                                                        BonusValue = 1
+                                                    },
+                                                    AsChild = true,
+                                                    NotLinkToAreaEffect = true
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    );
+                });
+                bp.AddComponent<SpellDescriptorComponent>(c => {
+                    c.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Compulsion | SpellDescriptor.Sonic;
+                });
+                bp.AddComponent<ContextCalculateAbilityParams>(c => {
+                    c.m_CustomProperty = new BlueprintUnitPropertyReference();
+                    c.StatType = StatType.Constitution;
+                    c.CasterLevel = 0;
+                    c.SpellLevel = 0;
+                });
+            });
+
+            TTTContext.Logger.LogPatch(VescavorSwarmGibberAreaEffect);
+            TTTContext.Logger.LogPatch(VescavorSwarmGibberImmunityBuff);
+            TTTContext.Logger.LogPatch(VescavorQueenGibberAreaEffect);
+            TTTContext.Logger.LogPatch(VescavorQueenGibberImmunityBuff);
         }
     }
 }

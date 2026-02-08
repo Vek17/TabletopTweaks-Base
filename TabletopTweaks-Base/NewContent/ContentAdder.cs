@@ -62,6 +62,7 @@ namespace TabletopTweaks.Base.NewContent {
                 WeaponEnchantments.TerrifyingTremble.AddTerrifyingTrembleEnchant();
 
                 Units.CarnivorousCrystal.AddCarnivorousCrystalApplyImmunity();
+                Units.Vescavors.AddVescavorApplyGibberImmunity();
 
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();

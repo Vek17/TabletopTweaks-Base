@@ -1,3 +1,11 @@
+# Version 2.6.16
+* Fixes
+    * Crusade Battles
+        * Potential fix for some units not properly attacking. 
+    * Carnivous Crystals
+        * After saving from subsonic hum you will now be immune to subsequent subnonic hums from the same crystal.
+    * Vescavor Swarms
+        * After saving from gibber you will now be immune to subsequent gibbers from the same Vescavor.
 # Version 2.6.15
 * Fixes
     * Oracle

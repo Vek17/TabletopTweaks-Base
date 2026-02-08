@@ -2039,6 +2039,16 @@
           "Enabled": true,
           "Homebrew": false,
           "Description": "Now Correctly have Vorpal weapons."
+        },
+        "CarnivorousCrystals": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now Correctly apply immunity after saving from subsonic hum."
+        },
+        "Vescavors": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Now Correctly apply immunity after saving from gibber."
         }
       },
       "IsExpanded": true
