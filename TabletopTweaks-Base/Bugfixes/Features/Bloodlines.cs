@@ -286,7 +286,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     archetype.AddComponents(noBloodline, requisiteFeature);
                     TTTContext.Logger.LogPatch("Patched", archetype);
-                };
+                }
+                ;
             }
             void FixDragonDisciple() {
                 var DragonDiscipleClass = BlueprintTools.GetBlueprint<BlueprintCharacterClass>("72051275b1dbb2d42ba9118237794f7c");

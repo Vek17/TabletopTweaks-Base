@@ -159,7 +159,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Piercing;
                         TTTContext.Logger.LogPatch("Enabled Piercing Metamagic", spell);
                     }
-                };
+                }
+                ;
             }
         }
         private static void AddRodsToVenders() {

@@ -79,7 +79,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
                 }
                 if (targetConcealmentPart != null && targetConcealmentPart.Disable) {
                     concealment = Concealment.None;
-                } 
+                }
                 if (concealment == Concealment.None && initiator.Descriptor.State.HasCondition(UnitCondition.PartialConcealmentOnAttacks)) {
                     concealment = Concealment.Partial;
                 }

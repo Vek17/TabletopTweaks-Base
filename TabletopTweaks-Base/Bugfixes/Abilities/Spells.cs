@@ -2044,9 +2044,10 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         "First, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves. " +
                         "Unlike protection from chaos, this benefit applies against all attacks, not just against attacks by chaotic creatures.\n" +
                         "Second, a warded creature gains spell resistance 25 against chaotic spells and spells cast by chaotic creatures.\n" +
-                        "Third, the abjuration protects from all mind-affecting spells and effects.\n" +
+                        "Third, the abjuration protects you from attempts to dominate or charm the subject.\n" +
                         "Finally, if a chaotic creature succeeds on a melee attack against a warded creature, " +
                         "the attacker is slowed (Will save negates, as the slow spell, but against shield of law's save DC)");
+                    ShieldOfLawBuff.SetDescription(bp.m_Description);
                 });
                 CloakOfChaos.TemporaryContext(bp => {
                     bp.SetDescription(TTTContext, "A random pattern of color surrounds the subjects, protecting them from attacks, " +
@@ -2055,10 +2056,11 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                         "First, each warded creature gains a +4 deflection bonus to AC and a +4 resistance bonus on saves. " +
                         "Unlike protection from law, the benefit of this spell applies against all attacks, not just against attacks by lawful creatures.\n" +
                         "Second, each warded creature gains spell resistance 25 against lawful spells and spells cast by lawful creatures.\n" +
-                        "Third, the abjuration protects from all mind-affecting spells and effects.\n" +
+                        "Third, the abjuration protects you from attempts to dominate or charm the subject.\n" +
                         "Finally, if a lawful creature succeeds on a melee attack against a warded creature, " +
                         "the offending attacker is confused for 1 round (Will save negates, as with the confusion spell, " +
                         "but against the save DC of cloak of chaos).");
+                    CloakOfChaosBuff.SetDescription(bp.m_Description);
                 });
 
                 TTTContext.Logger.LogPatch(HolyAuraBuff);

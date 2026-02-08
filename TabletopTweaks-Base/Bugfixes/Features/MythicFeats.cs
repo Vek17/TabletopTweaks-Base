@@ -9,10 +9,8 @@ using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.FactLogic;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
-using TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
@@ -273,8 +271,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     ArmorFocusHeavyMythicFeatureVar1Buff.SetComponents();
                     ArmorFocusHeavyMythicFeatureVar1SubBuff.TemporaryContext(bp => {
-                         bp.SetName(ArmorFocusHeavyMythicFeatureVar1.m_DisplayName);
-                     });
+                        bp.SetName(ArmorFocusHeavyMythicFeatureVar1.m_DisplayName);
+                    });
                 }
                 void PatchAvoidance() {
                     ArmorFocusHeavyMythicFeatureVar2.TemporaryContext(bp => {
@@ -287,8 +285,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     });
                     ArmorFocusHeavyMythicFeatureVar2Buff.SetComponents();
                     ArmorFocusHeavyMythicFeatureVar2SubBuff.TemporaryContext(bp => {
-                         bp.SetName(ArmorFocusHeavyMythicFeatureVar2.m_DisplayName);
-                     });
+                        bp.SetName(ArmorFocusHeavyMythicFeatureVar2.m_DisplayName);
+                    });
                 }
             }
         }

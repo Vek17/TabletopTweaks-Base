@@ -9,8 +9,6 @@ using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.FactLogic;
 using System;
-using System.Collections.Generic;
-using TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 

@@ -12,11 +12,11 @@ namespace TabletopTweaks.Base.NewContent.Feats {
             var RangerStyleSelection2 = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("c6d0da9124735a44f93ac31df803b9a9");
             var ExtraSlayerTalentSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("53f7237f5b1447bb851ba68045a00e41");
 
-            var ExtraSlayerTalent = FeatTools.CreateExtraSelectionFeat(TTTContext, "ExtraSlayerTalent", SlayerTalentSelection2, bp => {
+            var ExtraSlayerTalent = FeatTools.CreateExtraSelectionFeat(TTTContext, "ExtraSlayerTalent", SlayerTalentSelection10, bp => {
                 bp.SetName(TTTContext, "Extra Slayer Talent");
                 bp.SetDescription(TTTContext, "You gain one additional slayer talent. You must meet the prerequisites for this slayer talent." +
                     "\nYou can take this feat multiple times. Each time you do, you gain another slayer talent.");
-                bp.RemoveFeatures(RangerStyleSelection2);
+                //bp.RemoveFeatures(RangerStyleSelection2);
                 bp.RemoveComponents<PrerequisiteFeature>();
                 bp.AddPrerequisiteFeaturesFromList(1,
                     SlayerTalentSelection2,

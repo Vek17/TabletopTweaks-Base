@@ -471,6 +471,7 @@
     <Compile Include="NewContent\Spells\StunningBarrierGreater.cs" />
     <Compile Include="NewContent\Spells\WebBolt.cs" />
     <Compile Include="NewContent\Templates\AlignmentTemplates.cs" />
+    <Compile Include="NewContent\Units\CarnivorousCrystal.cs" />
     <Compile Include="NewContent\WeaponEnchantments\NonStackingTempEnchantments.cs" />
     <Compile Include="NewContent\WeaponEnchantments\TerrifyingTremble.cs" />
     <Compile Include="NewContent\WeaponEnchantments\TwoHandedDamageMultiplier.cs" />

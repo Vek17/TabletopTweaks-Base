@@ -231,7 +231,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Burning;
                         TTTContext.Logger.LogPatch("Enabled Burning Metamagic", spell);
                     }
-                };
+                }
+                ;
             }
         }
         private static void AddRodsToVenders() {

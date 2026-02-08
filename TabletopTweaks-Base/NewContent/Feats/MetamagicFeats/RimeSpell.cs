@@ -155,7 +155,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Rime;
                         TTTContext.Logger.LogPatch("Enabled Rime Metamagic", spell);
                     }
-                };
+                }
+                ;
             }
         }
         private static void AddRodsToVenders() {

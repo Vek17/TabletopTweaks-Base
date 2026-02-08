@@ -3,20 +3,14 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.EntitySystem;
 using Kingmaker.UI;
 using Kingmaker.UI.Common;
-using Kingmaker.UI.MVVM._VM.ServiceWindows.Spellbook.MemorizingPanel;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.UI {
     static class EnchantmentDamageToolTips {
-        [HarmonyPatch(typeof(StatModifiersBreakdown), nameof(StatModifiersBreakdown.GetBonusSourceText), new Type[] { 
+        [HarmonyPatch(typeof(StatModifiersBreakdown), nameof(StatModifiersBreakdown.GetBonusSourceText), new Type[] {
             typeof(IUIDataProvider),
             typeof(bool)
         })]
@@ -35,7 +29,7 @@ namespace TabletopTweaks.Base.Bugfixes.UI {
                     if (string.IsNullOrEmpty(text) && itemEnchantment.Owner != null) {
                         text = itemEnchantment.Owner.Name;
                     }
-                    if (string.IsNullOrEmpty(text)){
+                    if (string.IsNullOrEmpty(text)) {
                         text = source.Name;
                     }
                 } else {

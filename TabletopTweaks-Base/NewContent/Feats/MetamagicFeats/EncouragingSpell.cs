@@ -154,7 +154,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.Encouraging;
                         TTTContext.Logger.LogPatch("Enabled Encouraging Metamagic", spell);
                     }
-                };
+                }
+                ;
             }
         }
         private static void AddRodsToVenders() {

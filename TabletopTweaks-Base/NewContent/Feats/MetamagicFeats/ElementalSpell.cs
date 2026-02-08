@@ -357,7 +357,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         spell.AvailableMetamagic |= elementalMetamagicMask;
                         TTTContext.Logger.LogPatch("Enabled Elemental Spell Metamagic", spell);
                     }
-                };
+                }
+                ;
             }
         }
         private static void AddRodsToVenders() {
@@ -445,7 +446,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                     foreach (EnergyDamage addedDamage in toAdd) {
                         evt.Add(addedDamage);
                     }
-                };
+                }
+                ;
             }
             /*
             public void OnAfterRulebookEventTrigger(RuleDealDamage evt) {

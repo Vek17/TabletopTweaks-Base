@@ -33,7 +33,7 @@ namespace TabletopTweaks.Base.NewContent.Archetypes {
 
         private static readonly BlueprintFeature RangerStyle6 = BlueprintTools.GetBlueprint<BlueprintFeature>("61f82ba786fe05643beb3cd3910233a8");
         private static readonly BlueprintFeature RangerStyle10 = BlueprintTools.GetBlueprint<BlueprintFeature>("78177315fc63b474ea3cbb8df38fafcd");
-        
+
         private static readonly BlueprintFeature SlayerStudyTargetFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("09bdd9445ac38044389476689ae8d5a1");
         private static readonly BlueprintFeature SlayerSwiftStudyTargetFeature = BlueprintTools.GetBlueprint<BlueprintFeature>("40d4f55a5ac0e4f469d67d36c0dfc40b");
 

@@ -107,7 +107,8 @@ namespace TabletopTweaks.Base.NewContent.Feats.MetamagicFeats {
                         spell.AvailableMetamagic |= (Metamagic)CustomMetamagic.SolidShadows;
                         TTTContext.Logger.LogPatch("Enabled Solid Shadows Metamagic", spell);
                     }
-                };
+                }
+                ;
             }
         }
         private class SolidShadowsMechanics : IAfterRulebookEventTriggerHandler<RuleCastSpell>, IGlobalSubscriber {

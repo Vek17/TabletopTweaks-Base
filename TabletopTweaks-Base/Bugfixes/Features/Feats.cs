@@ -872,7 +872,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             spell.AvailableMetamagic |= Metamagic.Extend;
                             TTTContext.Logger.LogPatch("Enabled Extend Metamagic", spell);
                         }
-                    };
+                    }
+                    ;
                 }
             }
             static void PatchPersistantMetamagic() {
@@ -906,7 +907,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             spell.AvailableMetamagic |= Metamagic.Persistent;
                             TTTContext.Logger.LogPatch("Enabled Persistant Metamagic", spell);
                         }
-                    };
+                    }
+                    ;
                 }
             }
             static void PatchBolsteredMetamagic() {
@@ -931,7 +933,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             spell.AvailableMetamagic |= Metamagic.Bolstered;
                             TTTContext.Logger.LogPatch("Enabled Bolstered Metamagic", spell);
                         }
-                    };
+                    }
+                    ;
                 }
             }
             static void PatchEmpowerMetamagic() {
@@ -956,7 +959,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             spell.AvailableMetamagic |= Metamagic.Empower;
                             TTTContext.Logger.LogPatch("Enabled Empower Metamagic", spell);
                         }
-                    };
+                    }
+                    ;
                 }
             }
             static void PatchMaximizeMetamagic() {
@@ -981,7 +985,8 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                             spell.AvailableMetamagic |= Metamagic.Maximize;
                             TTTContext.Logger.LogPatch("Enabled Maximize Metamagic", spell);
                         }
-                    };
+                    }
+                    ;
                 }
             }
             static void PatchSelectiveMetamagic() {

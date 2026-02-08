@@ -142,7 +142,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     void AddExclusions(BlueprintBuff normal, BlueprintBuff burst) {
                         normal.AddComponent<AddFactContextActions>(c => {
                             c.Activated = Helpers.CreateActionList(
-                                new ContextActionRemoveBuff() { 
+                                new ContextActionRemoveBuff() {
                                     m_Buff = burst.ToReference<BlueprintBuffReference>()
                                 }
                             );

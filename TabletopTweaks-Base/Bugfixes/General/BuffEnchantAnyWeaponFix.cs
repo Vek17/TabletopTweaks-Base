@@ -1,17 +1,9 @@
-﻿using HarmonyLib;
-using Kingmaker.Blueprints.Facts;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using TabletopTweaks.Core.NewComponents.OwlcatReplacements.DamageResistance;
-using static TabletopTweaks.Base.Main;
 using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
+using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     class BuffEnchantAnyWeaponFix {

@@ -3,10 +3,18 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
+using Kingmaker.RuleSystem;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components.AreaEffects;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Conditions;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using System.Linq;
@@ -28,6 +36,7 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                 TTTContext.Logger.LogHeader("Patching Bosses");
                 PatchAnomaly();
                 PatchBalors();
+                PatchCarnivorousCrystals();
             }
         }
         static void PatchAnomaly() {
@@ -86,6 +95,86 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
 
             TTTContext.Logger.LogPatch(BalorVorpalStrikeFeature);
             TTTContext.Logger.LogPatch(BalorVorpalStrikeBuff);
+        }
+        static void PatchCarnivorousCrystals() {
+            if (TTTContext.Fixes.Units.Enemies.IsDisabled("Balors")) { return; }
+
+            var CarnivorousCrystalAreaEffectSubsonicHum = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("a89a5b1edba9c614b92a7ba7ab3f5a1d");
+            var CarnivorousCrystalBuffSubsonicHum = BlueprintTools.GetBlueprint<BlueprintBuff>("8b981244028551c4e8b35c9d50352527");
+            var CarnivorousCrystalBuffSubsonicHumImmunity = BlueprintTools.GetBlueprint<BlueprintBuff>("88e345f3233c8024e9d191a807c40223");
+            var CarnivorousCrystalApplyImmunityAbility = BlueprintTools.GetModBlueprintReference<BlueprintAbilityReference>(TTTContext, "CarnivorousCrystalApplyImmunityAbility");
+            var Stunned = BlueprintTools.GetBlueprint<BlueprintBuff>("09d39b38bb7c6014394b6daced9bacd3");
+
+            CarnivorousCrystalAreaEffectSubsonicHum.SetComponents();
+            CarnivorousCrystalAreaEffectSubsonicHum.TemporaryContext(bp => {
+                bp.AddComponent<AbilityAreaEffectRunAction>(c => {
+                    c.UnitEnter = Helpers.CreateActionList();
+                    c.UnitExit = Helpers.CreateActionList();
+                    c.UnitMove = Helpers.CreateActionList();
+                    c.Round = Helpers.CreateActionList(
+                        new Conditional() {
+                            ConditionsChecker = new ConditionsChecker() {
+                                Operation = Operation.Or,
+                                Conditions = new Condition[] {
+                                    new ContextConditionHasBuffFromCaster(){
+                                        m_Buff = CarnivorousCrystalBuffSubsonicHumImmunity.ToReference<BlueprintBuffReference>()
+                                    },
+                                    new ContextConditionHasBuff(){
+                                        m_Buff = CarnivorousCrystalBuffSubsonicHum.ToReference<BlueprintBuffReference>()
+                                    },
+                                }
+                            },
+                            IfTrue = Helpers.CreateActionList(),
+                            IfFalse = Helpers.CreateActionList(
+                                new ContextActionSavingThrow() {
+                                    Type = SavingThrowType.Fortitude,
+                                    CustomDC = new ContextValue(),
+                                    Actions = Helpers.CreateActionList(
+                                        new ContextActionConditionalSaved() {
+                                            Succeed = Helpers.CreateActionList(
+                                                new ContextActionCastSpell() {
+                                                    m_Spell = CarnivorousCrystalApplyImmunityAbility,
+                                                    DC = new ContextValue(),
+                                                    SpellLevel = new ContextValue(),
+                                                }
+                                            ),
+                                            Failed = Helpers.CreateActionList(
+                                                new ContextActionApplyBuff() {
+                                                    m_Buff = Stunned.ToReference<BlueprintBuffReference>(),
+                                                    DurationValue = new ContextDurationValue() {
+                                                        m_IsExtendable = true,
+                                                        Rate = DurationRate.Rounds,
+                                                        DiceType = DiceType.One,
+                                                        DiceCountValue = 0,
+                                                        BonusValue = 1
+                                                    },
+                                                    AsChild = true,
+                                                    NotLinkToAreaEffect = true
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        }
+                    );
+                });
+                bp.AddComponent<SpellDescriptorComponent>(c => {
+                    c.Descriptor = SpellDescriptor.MindAffecting | SpellDescriptor.Sonic;
+                });
+                bp.AddComponent<ContextCalculateAbilityParams>(c => {
+                    c.m_CustomProperty = new BlueprintUnitPropertyReference();
+                    c.StatType = StatType.Constitution;
+                    c.CasterLevel = 0;
+                    c.SpellLevel = 0;
+                });
+            });
+            CarnivorousCrystalBuffSubsonicHumImmunity.TemporaryContext(bp => {
+                bp.SetName(TTTContext, "SUBSONIC IMMUNITY");
+            });
+
+            TTTContext.Logger.LogPatch(CarnivorousCrystalAreaEffectSubsonicHum);
+            TTTContext.Logger.LogPatch(CarnivorousCrystalBuffSubsonicHumImmunity);
         }
     }
 }

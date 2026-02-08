@@ -1,10 +1,10 @@
 ﻿using HarmonyLib;
+using Kingmaker.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Reflection;
-using Kingmaker.View;
+using System.Reflection.Emit;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
@@ -24,7 +24,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             private static int FindInsertionTarget(List<CodeInstruction> codes) {
                 for (int i = 0; i < codes.Count; i++) {
                     if (codes[i].opcode == OpCodes.Call && codes[i].Calls(UnitEntityView_Corpulence)) {
-                        return i ;
+                        return i;
                     }
                 }
 

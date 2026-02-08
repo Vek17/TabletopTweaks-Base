@@ -61,6 +61,8 @@ namespace TabletopTweaks.Base.NewContent {
                 WeaponEnchantments.TwoHandedDamageMultiplier.AddTwoHandedDamageMultiplierEnchantment();
                 WeaponEnchantments.TerrifyingTremble.AddTerrifyingTrembleEnchant();
 
+                Units.CarnivorousCrystal.AddCarnivorousCrystalApplyImmunity();
+
                 Races.Dwarf.AddDwarfHeritage();
                 Races.Elf.AddElfHeritage();
                 Races.Gnome.AddGnomeHeritage();

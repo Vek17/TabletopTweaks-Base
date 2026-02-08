@@ -2,7 +2,6 @@
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Items.Armors;
-using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
@@ -142,7 +141,7 @@ namespace TabletopTweaks.Base.NewContent.FighterAdvancedArmorTrainings {
                     "granted by any heavy armor you equip increases by 1 for every 4 fighter levels you possess up to a maximum of 5.");
                 bp.IsClassFeature = true;
                 bp.Ranks = 1;
-                
+
                 bp.AddComponent<AddFacts>(c => {
                     c.m_Facts = new BlueprintUnitFactReference[] { ArmorSpecializationHeavyEffect.ToReference<BlueprintUnitFactReference>() };
                 });
