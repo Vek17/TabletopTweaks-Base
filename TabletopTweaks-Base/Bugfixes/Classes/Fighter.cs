@@ -94,6 +94,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                     var AdvancedWeapontrainingSelection = BlueprintTools.GetModBlueprint<BlueprintFeatureSelection>(TTTContext, "AdvancedWeaponTrainingSelection");
 
                     var SoheiWeaponRankUpTrainingSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("bcb63879905b4b00b44b6309d137935e");
+                    var PikeDiscipleWeaponRankUpTrainingSelection = BlueprintTools.GetBlueprint<BlueprintFeatureSelection>("bc050eac79b34d4abf63e2f1152badad");
 
                     WeaponTrainingSelection.TemporaryContext(bp => {
                         bp.m_AllFeatures = bp.m_AllFeatures.Where(feature => !AdvancedWeapontrainingSelection.m_AllFeatures.Contains(feature)).ToArray();
@@ -114,6 +115,10 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                         TTTContext.Logger.LogPatch("Patched", WeaponTrainingRankUpSelection);
                     });
                     SoheiWeaponRankUpTrainingSelection.TemporaryContext(bp => {
+                        bp.IgnorePrerequisites = true;
+                        bp.HideInCharacterSheetAndLevelUp = false;
+                    }); 
+                    PikeDiscipleWeaponRankUpTrainingSelection.TemporaryContext(bp => {
                         bp.IgnorePrerequisites = true;
                         bp.HideInCharacterSheetAndLevelUp = false;
                     });
