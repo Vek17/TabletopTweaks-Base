@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.Armies.TacticalCombat;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
@@ -12,6 +13,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             static void Postfix(AbilityData __instance, TargetWrapper target, ref bool __result) {
                 if (Main.TTTContext.Fixes.BaseFixes.IsDisabled("AbilityTargeting")) { return; }
                 if (TacticalCombatHelper.IsActive) { return; }
+                if (!__instance?.Caster?.Faction?.IsDirectlyControllable ?? true) { return; }
                 BlueprintAbility deliverBlueprint = __instance.GetDeliverBlueprint(false);
                 if (__instance.Caster.Unit.GetSaddledUnit() != null && __instance.ShouldDelegateToMount) {
                     AbilityData sameMountAbility = __instance.SameMountAbility;

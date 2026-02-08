@@ -1,5 +1,7 @@
 # Version 2.6.16
 * Fixes
+    * Conditions
+        * Stagger no longer reduces movement speed by half. Now correctly only allows one of either a move or standard action. 
     * Crusade Battles
         * Potential fix for some units not properly attacking. 
     * Carnivous Crystals
