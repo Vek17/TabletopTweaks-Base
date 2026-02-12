@@ -1599,6 +1599,11 @@
         "Homebrew": false,
         "Description": "Starlight no longer is affected by true sight."
       },
+      "StinkingCloud": {
+        "Enabled": true,
+        "Homebrew": false,
+        "Description": "Stinking Cloud shoul now work properly on entering the cloud."
+      },
       "SuddenSquall": {
         "Enabled": true,
         "Homebrew": false,

@@ -131,6 +131,7 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                 PatchRemoveSickness();
                 PatchShadowEvocation();
                 PatchShadowEvocationGreater();
+                PatchStinkingCloud();
                 PatchUnbreakableHeart();
                 PatchWintersGrasp();
                 PatchWrackingRay();
@@ -2116,6 +2117,26 @@ namespace TabletopTweaks.Base.Bugfixes.Abilities {
                     | Metamagic.Bolstered;
                 ShadowEvocationGreaterProperty.BaseValue = 60;
                 TTTContext.Logger.LogPatch("Patched", ShadowEvocationGreater);
+            }
+            static void PatchStinkingCloud() {
+                if (Main.TTTContext.Fixes.Spells.IsDisabled("StinkingCloud")) { return; }
+
+                var StinkingCloudArea = BlueprintTools.GetBlueprint<BlueprintAbilityAreaEffect>("aa2e0a0fe89693f4e9205fd52c5ba3e5");
+                var StinkingCloudUnstoppableBuff = BlueprintTools.GetBlueprintReference<BlueprintBuffReference>("6603b27034f694e44a407a9cdf77c67e");
+                StinkingCloudArea.TemporaryContext(bp => {
+                    bp.GetComponent<AbilityAreaEffectRunAction>()
+                        .UnitEnter
+                        .Actions
+                        .OfType<Conditional>()
+                        .ForEach(conditional => conditional.ConditionsChecker
+                            .Conditions
+                            .OfType<ContextConditionHasBuff>()
+                            .Where(c => c.m_Buff.Guid == StinkingCloudUnstoppableBuff.Guid)
+                            .ForEach(c => c.Not = true)
+                        );
+                });
+
+                TTTContext.Logger.LogPatch("Patched", StinkingCloudArea);
             }
             static void PatchUnbreakableHeart() {
                 if (Main.TTTContext.Fixes.Spells.IsDisabled("UnbreakableHeart")) { return; }
