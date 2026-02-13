@@ -43,7 +43,7 @@ using static TabletopTweaks.Core.MechanicsChanges.MetamagicExtention;
 
 namespace TabletopTweaks.Base.Bugfixes.Abilities {
     class Spells {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
