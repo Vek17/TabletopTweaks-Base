@@ -216,7 +216,8 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                 });
             });
 
-            VescavorQueenGibberAreaEffect.SetComponents();
+            //VescavorQueenGibberAreaEffect.SetComponents();
+            VescavorQueenGibberAreaEffect.Components.ForEach(c => c.Disabled = true);
             VescavorQueenGibberAreaEffect.TemporaryContext(bp => {
                 bp.AddComponent<AbilityAreaEffectRunAction>(c => {
                     c.UnitEnter = Helpers.CreateActionList(
@@ -340,7 +341,8 @@ namespace TabletopTweaks.Base.Bugfixes.Units {
                     c.SpellLevel = 0;
                 });
             });
-            VescavorSwarmGibberAreaEffect.SetComponents();
+            //VescavorSwarmGibberAreaEffect.SetComponents();
+            VescavorSwarmGibberAreaEffect.Components.ForEach(c => c.Disabled = true);
             VescavorSwarmGibberAreaEffect.TemporaryContext(bp => {
                 bp.AddComponent<AbilityAreaEffectRunAction>(c => {
                     c.UnitEnter = Helpers.CreateActionList(

@@ -8,7 +8,7 @@
   "Id": "TabletopTweaks-Base",
   "ManagerVersion": "0.23.0",
   "Repository": "https://raw.githubusercontent.com/Vek17/TabletopTweaks-Base/master/Repository.json",
-  "Requirements": [ "TabletopTweaks-Core-0.7.13" ],
+  "Requirements": [ "TabletopTweaks-Core-0.7.14" ],
   "LoadAfter": [ "TabletopTweaks-Core" ],
-  "Version": "2.6.16"
+  "Version": "2.6.17"
 }

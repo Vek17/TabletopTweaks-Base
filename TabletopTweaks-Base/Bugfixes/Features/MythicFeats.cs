@@ -8,15 +8,30 @@ using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums;
+using Kingmaker.RuleSystem.Rules.Abilities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using System.Linq;
 using TabletopTweaks.Core.NewComponents;
 using TabletopTweaks.Core.NewComponents.AbilitySpecific;
+using TabletopTweaks.Core.NewComponents.OwlcatReplacements;
 using TabletopTweaks.Core.Utilities;
 using static TabletopTweaks.Base.Main;
 using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Base.Bugfixes.Features {
     static class MythicFeats {
+        [HarmonyPatch(typeof(RuleCalculateAbilityParams), nameof(RuleCalculateAbilityParams.AddBonusDC))]
+        static class ModifierDescriptorHelper_IsStackable_Patch {
+
+            static void Postfix(RuleCalculateAbilityParams __instance) {
+                var bonuses =__instance.m_BonusDC;
+                TTTContext.Logger.Log($"{__instance?.AbilityData?.Blueprint?.name} - {__instance.m_BonusDC.TotalValue}");
+                bonuses.m_Modifiers.ForEach(m => {
+                    TTTContext.Logger.Log($"{m.Descriptor} - {m.Value}");
+                });
+                
+            }
+        }
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
@@ -35,6 +50,7 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
             static void PatchExpandedArsenal() {
                 if (TTTContext.Fixes.MythicFeats.IsDisabled("ExpandedArsenal")) { return; }
                 var ExpandedArsenalSchool = BlueprintTools.GetBlueprint<BlueprintParametrizedFeature>("f137089c48364014aa3ec3b92ccaf2e2");
+                var VarisianTattooFeature = BlueprintTools.GetModBlueprintReference<BlueprintParametrizedFeatureReference>(TTTContext, "VarisianTattooFeature");
                 var SpellFocus = BlueprintTools.GetBlueprint<BlueprintParametrizedFeature>("16fa59cc9a72a6043b566b49184f53fe");
                 var SpellFocusGreater = BlueprintTools.GetBlueprint<BlueprintParametrizedFeature>("5b04b45b228461c43bad768eb0f7c7bf");
                 var SchoolMasteryMythicFeat = BlueprintTools.GetBlueprint<BlueprintParametrizedFeature>("ac830015569352b458efcdfae00a948c");
@@ -46,6 +62,15 @@ namespace TabletopTweaks.Base.Bugfixes.Features {
                     bp.AddComponent<BonusCasterLevelParametrized>(c => {
                         c.Bonus = 1;
                         c.Descriptor = (ModifierDescriptor)Untyped.SchoolMastery;
+                    });
+                });
+                ExpandedArsenalSchool.TemporaryContext(bp => {
+                    var oldComponent = ExpandedArsenalSchool.GetComponent<ExpandedArsenalMagicSchools>();
+                    ExpandedArsenalSchool.RemoveComponents<ExpandedArsenalMagicSchools>();
+                    ExpandedArsenalSchool.AddComponent<ExpandedArsenalMagicSchoolsTTT>(c => {
+                        c.m_Focuses = oldComponent.m_Focuses;
+                        c.m_SchoolMastery = oldComponent.m_SchoolMastery;
+                        c.m_SchoolMastery.Add(VarisianTattooFeature);
                     });
                 });
 
