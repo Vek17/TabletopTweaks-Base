@@ -1,6 +1,7 @@
 # Version 2.6.17
 * Fixes
     * Stinking Cloud should now apply on cast correctly in all cases.
+    * Expanded Arsneal no longer has weirds stacking effects.
 
 # Version 2.6.16
 * Fixes
