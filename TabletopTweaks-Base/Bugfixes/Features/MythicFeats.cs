@@ -20,18 +20,6 @@ using static TabletopTweaks.Core.MechanicsChanges.AdditionalModifierDescriptors;
 
 namespace TabletopTweaks.Base.Bugfixes.Features {
     static class MythicFeats {
-        [HarmonyPatch(typeof(RuleCalculateAbilityParams), nameof(RuleCalculateAbilityParams.AddBonusDC))]
-        static class ModifierDescriptorHelper_IsStackable_Patch {
-
-            static void Postfix(RuleCalculateAbilityParams __instance) {
-                var bonuses =__instance.m_BonusDC;
-                TTTContext.Logger.Log($"{__instance?.AbilityData?.Blueprint?.name} - {__instance.m_BonusDC.TotalValue}");
-                bonuses.m_Modifiers.ForEach(m => {
-                    TTTContext.Logger.Log($"{m.Descriptor} - {m.Value}");
-                });
-                
-            }
-        }
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;

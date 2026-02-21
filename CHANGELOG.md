@@ -1,3 +1,6 @@
+# Version 2.6.17a
+* Removed some debug logging that was accidentally left enabled.
+
 # Version 2.6.17
 * Fixes
     * Stinking Cloud should now apply on cast correctly in all cases.
