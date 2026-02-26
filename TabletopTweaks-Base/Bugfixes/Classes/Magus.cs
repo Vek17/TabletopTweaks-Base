@@ -26,10 +26,10 @@ using static TabletopTweaks.Core.MechanicsChanges.ActivatableAbilitySpendLogic;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     static class Magus {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class Magus_AlternateCapstone_Patch {
             static bool Initialized;
-            [HarmonyPriority(Priority.Last)]
+            [PatchBlueprintsCacheInitPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
@@ -67,7 +67,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 });
             }
         }
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

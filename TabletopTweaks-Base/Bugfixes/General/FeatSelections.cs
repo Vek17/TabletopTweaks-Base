@@ -9,8 +9,7 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.General {
     static class FeatSelections {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
-        [HarmonyPriority(Priority.Last)]
+        [PatchBlueprintsCacheInit(Priority.Last)]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
