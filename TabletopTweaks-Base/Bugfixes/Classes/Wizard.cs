@@ -1,9 +1,10 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Utility;
 using System.Linq;
 using TabletopTweaks.Core.Utilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
@@ -39,6 +40,31 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 Initialized = true;
                 TTTContext.Logger.LogHeader("Patching Wizard");
 
+                PatchHandOfTheApprentice();
+            }
+
+            static void PatchHandOfTheApprentice() {
+                if (Main.TTTContext.Fixes.Wizard.Base.IsDisabled("HandOfTheApprentice")) { return; }
+
+                string[] handOfTheApprenticeGUIDs = new string[] {
+                    "864146bb3e41e3644b18e1ee4cc26acf", // Capacité à volonté
+                    "38aab7423d96de84d8e6ab2cdbccce63"  // Seconde capacité
+                };
+
+                foreach (var guid in handOfTheApprenticeGUIDs) {
+                    var Ability = BlueprintTools.GetBlueprint<BlueprintAbility>(guid);
+
+                    if (Ability != null) {
+                        Ability.TemporaryContext(bp => {
+                            bp.CanTargetFriends = false;
+                            bp.CanTargetEnemies = true;
+                            bp.CanTargetPoint = false;
+                            bp.CanTargetSelf = false;
+
+                            TTTContext.Logger.LogPatch("Patched HandOfTheApprentice (Wizard)", bp);
+                        });
+                    }
+                }
             }
         }
     }

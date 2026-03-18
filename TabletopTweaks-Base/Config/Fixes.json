@@ -1207,6 +1207,21 @@
     },
     "Archetypes": {}
   },
+  "Wizard": {
+    "DisableAll": false,
+    "Base": {
+      "DisableAll": false,
+      "Settings": {
+        "HandOfTheApprentice": {
+          "Enabled": true,
+          "Homebrew": false,
+          "Description": "Fixes Hand of the Apprentice to only target enemies."
+        }
+      },
+      "IsExpanded": true
+    },
+    "Archetypes": {}
+  },
   "EldritchKnight": {
     "DisableAll": false,
     "Settings": {

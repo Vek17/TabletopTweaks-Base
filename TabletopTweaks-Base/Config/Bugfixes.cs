@@ -1,4 +1,4 @@
-﻿using Kingmaker.Utility;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using TabletopTweaks.Core.Config;
@@ -36,6 +36,7 @@ namespace TabletopTweaks.Base.Config {
         public ClassGroup Sorcerer = new ClassGroup();
         public ClassGroup Warpriest = new ClassGroup();
         public ClassGroup Witch = new ClassGroup();
+        public ClassGroup Wizard = new ClassGroup();
         public SettingGroup EldritchKnight = new SettingGroup();
         public SettingGroup Hellknight = new SettingGroup();
         public SettingGroup Loremaster = new SettingGroup();
@@ -75,7 +76,7 @@ namespace TabletopTweaks.Base.Config {
             Sorcerer.SetParents();
             Warpriest.SetParents();
             Witch.SetParents();
-
+            Wizard.SetParents();
             Units.SetParents();
             Crusade.SetParents();
             Items.SetParents();
@@ -117,6 +118,7 @@ namespace TabletopTweaks.Base.Config {
             Sorcerer.LoadClassGroup(loadedSettings.Sorcerer, NewSettingsOffByDefault);
             Warpriest.LoadClassGroup(loadedSettings.Warpriest, NewSettingsOffByDefault);
             Witch.LoadClassGroup(loadedSettings.Witch, NewSettingsOffByDefault);
+            Wizard.LoadClassGroup(loadedSettings.Wizard, NewSettingsOffByDefault);
 
             EldritchKnight.LoadSettingGroup(loadedSettings.EldritchKnight, NewSettingsOffByDefault);
             Hellknight.LoadSettingGroup(loadedSettings.Hellknight, NewSettingsOffByDefault);

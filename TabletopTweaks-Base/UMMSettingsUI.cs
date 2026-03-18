@@ -1,4 +1,4 @@
-﻿using TabletopTweaks.Core.UMMTools;
+using TabletopTweaks.Core.UMMTools;
 using UnityModManagerNet;
 
 namespace TabletopTweaks.Base {
@@ -117,6 +117,10 @@ namespace TabletopTweaks.Base {
                 SetttingUI.NestedSettingGroup("Witch", TabLevel, Fixes.Witch,
                     ("Base", Fixes.Witch.Base),
                     Fixes.Witch.Archetypes
+                );
+                SetttingUI.NestedSettingGroup("Wizard", TabLevel, Fixes.Wizard,
+                    ("Base", Fixes.Wizard.Base),
+                    Fixes.Wizard.Archetypes
                 );
                 SetttingUI.SettingGroup("Eldritch Knight", TabLevel, Fixes.EldritchKnight);
                 SetttingUI.SettingGroup("Hellknight", TabLevel, Fixes.Hellknight);
