@@ -148,7 +148,7 @@ namespace TabletopTweaks.Base.Bugfixes.General {
             return 0;
         }
 
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

@@ -114,7 +114,7 @@ namespace TabletopTweaks.Base.MechanicsChanges {
                 }
             }
         }
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

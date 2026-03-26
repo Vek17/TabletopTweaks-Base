@@ -13,10 +13,10 @@ using static TabletopTweaks.Base.Main;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Slayer {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class Slayer_AlternateCapstone_Patch {
             static bool Initialized;
-            [HarmonyPriority(Priority.Last)]
+            [PatchBlueprintsCacheInitPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;
@@ -54,7 +54,7 @@ namespace TabletopTweaks.Base.Bugfixes.Classes {
                 });
             }
         }
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

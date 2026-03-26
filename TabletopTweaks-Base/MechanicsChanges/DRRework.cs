@@ -435,11 +435,11 @@ namespace TabletopTweaks.Base.MechanicsChanges {
             }
         }
 
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
-            [HarmonyPriority(Priority.Last)]
+            [PatchBlueprintsCacheInitPriority(Priority.Last)]
             static void Postfix() {
                 if (Initialized) return;
                 Initialized = true;

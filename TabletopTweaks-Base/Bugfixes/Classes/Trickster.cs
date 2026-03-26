@@ -6,7 +6,7 @@ using System;
 
 namespace TabletopTweaks.Base.Bugfixes.Classes {
     class Trickster {
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 

@@ -10,7 +10,7 @@ using static TabletopTweaks.Base.Main;
 namespace TabletopTweaks.Base.MechanicsChanges {
     internal class MountedCombatModifiers {
 
-        [HarmonyPatch(typeof(BlueprintsCache), "Init")]
+        [PatchBlueprintsCacheInit]
         static class BlueprintsCache_Init_Patch {
             static bool Initialized;
 
