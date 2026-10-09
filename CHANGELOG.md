@@ -1,3 +1,6 @@
+# Version 2.6.18
+* Fixed a rare crash when equiping a Tower shield with a specific combination of feats.
+
 # Version 2.6.17a
 * Removed some debug logging that was accidentally left enabled.
 
